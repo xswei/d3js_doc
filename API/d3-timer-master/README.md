@@ -72,8 +72,6 @@ var t = d3.timer(function(elapsed) {
 
 立即调用合法的定时器，延迟不会超过17ms。可以使用这个方法来立即执行定时器避免闪烁问题。
 
-Immediately invoke any eligible timer callbacks. Note that zero-delay timers are normally first executed after one frame (~17ms). This can cause a brief flicker because the browser renders the page twice: once at the end of the first event loop, then again immediately on the first timer callback. By flushing the timer queue at the end of the first event loop, you can run any zero-delay timers immediately and avoid the flicker.
-
 <a name="timeout" href="#timeout">#</a> d3.<b>timeout</b>(<i>callback</i>[, <i>delay</i>[, <i>time</i>]]) [<>](https://github.com/d3/d3-timer/blob/master/src/timeout.js "Source")
 
 与 [timer](#timer)类似，但是只调用一次回调, 之后自动[stops](#timer_stop). 
