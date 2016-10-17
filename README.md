@@ -19,6 +19,8 @@ D3 V4 API中文版
 
 * [Dragging](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-drag-master)
 
+* [Number Formats](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-format-master)
+
 * [Paths](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-path-master)
 
 * [Polygon](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-polygon-master)
