@@ -250,7 +250,7 @@ var div = selection.selectAll(d3.selectorAll("div"));
 
 ### Modifying Elements
 
-After selecting elements, use the selection’s transformation methods to affect document content. For example, to set the name attribute and color style of an anchor element:
+在选中元素之后，就可以通过一些方法对元素进行操作。比如设置a元素的name属性和颜色:
 
 ```js
 d3.select("a")
@@ -258,71 +258,67 @@ d3.select("a")
     .style("color", "red");
 ```
 
-To experiment with selections, visit [d3js.org](https://d3js.org) and open your browser’s developer console! (In Chrome, open the console with ⌥⌘J.) Select elements and then inspect the returned selection to see which elements are selected and how they are grouped. Call selection methods and see how the page content changes.
 
 <a name="selection_attr" href="#selection_attr">#</a> <i>selection</i>.<b>attr</b>(<i>name</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/attr.js "Source")
 
-If a *value* is specified, sets the attribute with the specified *name* to the specified value on the selected elements and returns this selection. If the *value* is a constant, all elements are given the same attribute value; otherwise, if the *value* is a function, the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to set each element’s attribute. A null value will remove the specified attribute.
+如果指定了*value*参数则这个方法就是设置，如果只有*name*参数则是获取，下同。
 
-If a *value* is not specified, returns the current value of the specified attribute for the first (non-null) element in the selection. This is generally useful only if you know that the selection contains exactly one element.
+设置或获取元素的*name*属性。
 
-The specified *name* may have a namespace prefix, such as `xlink:href` to specify the `href` attribute in the XLink namespace. See [namespaces](#namespaces) for the map of supported namespaces; additional namespaces can be registered by adding to the map.
+value可以是一个变量，也可以是一个方法，如果是方法，则会执行这个方法，并传递当前元素绑定的数据 (*d*), 索引(*i*), 以及当前分组(*nodes*), this指向的是当前的元素，将方法的返回值作为*name*对应的值。
+
+*name*可能是一个带前缀的属性，比如 `xlink:href`来指定`href`属性的明明空间. 参考[namespaces](#namespaces) 查询支持的明明空间.
 
 <a name="selection_classed" href="#selection_classed">#</a> <i>selection</i>.<b>classed</b>(<i>names</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/classed.js "Source")
 
-If a *value* is specified, assigns or unassigns the specified CSS class *names* on the selected elements by setting the `class` attribute or modifying the `classList` property and returns this selection. The specified *names* is a string of space-separated class names. For example, to assign the classes `foo` and `bar` to the selected elements:
+设置或获取指定的类名状态，如果指定了*value*则根据*value*值启用或关闭类。如果没有指定*value*则相当于查询指定类的状态。*name*可以同时指定多个，使用空格隔开。比如为选择集添加foo和bar两个类:
 
 ```js
 selection.classed("foo bar", true);
 ```
 
-If the *value* is truthy, then all elements are assigned the specified classes; otherwise, the classes are unassigned. If the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to assign or unassign classes on each element. For example, to randomly associate the class *foo* with on average half the selected elements:
+如果*value*是一个方法，则根据返回值决定是添加还是移除某个类。比如随机的设置或移除foo类:
 
 ```js
 selection.classed("foo", function() { return Math.random() > 0.5; });
 ```
-
-If a *value* is not specified, returns true if and only if the first (non-null) selected element has the specified *classes*. This is generally useful only if you know the selection contains exactly one element.
+如果没有指定*value*则当且仅当第一个非null元素使用了对应的类时返回true。
 
 <a name="selection_style" href="#selection_style">#</a> <i>selection</i>.<b>style</b>(<i>name</i>[, <i>value</i>[, <i>priority</i>]]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/style.js "Source")
 
-If a *value* is specified, sets the style property with the specified *name* to the specified value on the selected elements and returns this selection. If the *value* is a constant, then all elements are given the same style property value; otherwise, if the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to set each element’s style property. A null value will remove the style property. An optional *priority* may also be specified, either as null or the string `important` (without the exclamation point).
+如果指定了*value*，则设置对应的样式为*value*。*value*可以为变量，也可以为一个函数，函数会传递当前元素绑定的数据*d*,索引*i*以及当前的分组*groups*。在函数内部*this*指向当前的元素，函数的返回值作为样式的值。可选的*priority*可以设置为默认的null或字符串`important` (没有感叹号).
 
-If a *value* is not specified, returns the current computed value of the specified style property for the first (non-null) element in the selection. This is generally useful only if you know the selection contains exactly one element. The computed value **may be different than the previously-set value**, particularly if it was set using a shorthand property (such as the `font` style, which is shorthand for `font-size`, `font-face`, etc.).
+如果没有指定*value*则返回当前选择集第一个非null元素经过计算后的样式值，要注意计算后的值 **可能与设置值不同**,尤其是使用了速写方法(比如`font`样式代替标准的`font-size`,`font-face`样式,等等).
 
-Caution: unlike many SVG attributes, CSS styles typically have associated units. For example, `3px` is a valid stroke-width property value, while `3` is not. Some browsers implicitly assign the `px` (pixel) unit to numeric values, but not all browsers do: IE, for example, throws an “invalid arguments” error!
+注意:与SVG的属性不同，CSS的样式通常有单位，比如`3px`是一个笔画宽度单位，而`3`不是。一些浏览器会隐式为数值类型指定`px`单位，但是有些则不会，比如:IE不指定单位时会出现 “invalid arguments” 错误!
 
 <a name="selection_property" href="#selection_property">#</a> <i>selection</i>.<b>property</b>(<i>name</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/property.js "Source")
 
-Some HTML elements have special properties that are not addressable using attributes or styles, such as a form field’s text `value` and a checkbox’s `checked` boolean. Use this method to get or set these properties.
+一些HTML元素有些属性不能使用attribute或styles来查询或设置。比如form表单的text元素值以及checkbox的checked值。这时候就需要使用*selection*.property(name[,value])来设置或读取。
 
-If a *value* is specified, sets the property with the specified *name* to the specified value on selected elements. If the *value* is a constant, then all elements are given the same property value; otherwise, if the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to set each element’s property. A null value will delete the specified property.
-
-If a *value* is not specified, returns the value of the specified property for the first (non-null) element in the selection. This is generally useful only if you know the selection contains exactly one element.
+按照惯例，设置还是获取取决于有没有指定*value*. *value*可以是变量也可以是函数，函数传递*d*,*i*,*nodes*为参数,*this*指向当前的元素。
 
 <a name="selection_text" href="#selection_text">#</a> <i>selection</i>.<b>text</b>([<i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/text.js "Source")
 
-If a *value* is specified, sets the [text content](http://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent) to the specified value on all selected elements, replacing any existing child elements. If the *value* is a constant, then all elements are given the same text content; otherwise, if the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to set each element’s text content. A null value will clear the content.
-
-If a *value* is not specified, returns the text content for the first (non-null) element in the selection. This is generally useful only if you know the selection contains exactly one element.
+设置或获取[text content](http://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent)内容。可以使用这个方法清空元素内容。
 
 <a name="selection_html" href="#selection_html">#</a> <i>selection</i>.<b>html</b>([<i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/html.js "Source")
 
-If a *value* is specified, sets the [inner HTML](http://dev.w3.org/html5/spec-LC/apis-in-html-documents.html#innerhtml) to the specified value on all selected elements, replacing any existing child elements. If the *value* is a constant, then all elements are given the same inner HTML; otherwise, if the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function’s return value is then used to set each element’s inner HTML. A null value will clear the content.
+设置或获取[inner HTML](http://dev.w3.org/html5/spec-LC/apis-in-html-documents.html#innerhtml)内容。可以使用这个方法清空元素内容。
 
-If a *value* is not specified, returns the inner HTML for the first (non-null) element in the selection. This is generally useful only if you know the selection contains exactly one element.
-
-Use [*selection*.append](#selection_append) or [*selection*.insert](#selection_insert) instead to create data-driven content; this method is intended for when you want a little bit of HTML, say for rich formatting. Also, *selection*.html is only supported on HTML elements. SVG elements and other non-HTML elements do not support the innerHTML property, and thus are incompatible with *selection*.html. Consider using [XMLSerializer](https://developer.mozilla.org/en-US/docs/XMLSerializer) to convert a DOM subtree to text. See also the [innersvg polyfill](https://code.google.com/p/innersvg/), which provides a shim to support the innerHTML property on SVG elements.
+使用 [*selection*.append](#selection_append) 或 [*selection*.insert](#selection_insert) 来创建元素，*selection*.html 也支持手动插入HTML字符串来实现插入或添加元素，但是明显更复杂.
 
 <a name="selection_append" href="#selection_append">#</a> <i>selection</i>.<b>append</b>(<i>type</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/append.js "Source")
 
-If the specified *type* is a string, appends a new element of this type (tag name) as the last child of each selected element, or the next following sibling in the update selection if this is an [enter selection](#selection_enter). (The enter behavior allows you to insert elements into the DOM in an order consistent with bound data; however, the slower [*selection*.order](#selection_order) may still be required if updating elements change order.) Otherwise, the *type* may be a function which is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. This function should return an element to be appended. (The function typically creates a new element, but it may instead return an existing element.) For example, to append a DIV element to each paragraph:
+如果*type*是一个字符串，则在选择集中的每个元素的子元素末尾追加一个元素。如果selection是一个[enter selection](#selection_enter)，则将元素追加到元素末尾，作为选择集中元素的下一个兄弟节点。enter操作可以将数据与DOM元素的顺序对应，当然也可以使用效率更慢一点的[*selection*.order](#selection_order)操作进行手动排序。
+
+此外，*type*还可以是一个方法，则会传递*d*,*i*,*nodes*为参数，并在函数内部返回一个元素。这个元素类型可以根据实际需要选择。换句话说，就是如果*type*是一个方法的话，添加的元素就不一定是同一种类型。比如为每个p元素中添加一个div元素:
 
 ```js
 d3.selectAll("p").append("div");
 ```
 
-This is equivalent to:
+等价于:
 
 ```js
 d3.selectAll("p").append(function() {
@@ -330,7 +326,7 @@ d3.selectAll("p").append(function() {
 });
 ```
 
-Which is equivalent to:
+等价于:
 
 ```js
 d3.selectAll("p").select(function() {
@@ -338,19 +334,19 @@ d3.selectAll("p").select(function() {
 });
 ```
 
-In both cases, this method returns a new selection containing the appended elements. Each new element inherits the data of the current elements, if any, in the same manner as [*selection*.select](#selection_select).
+在上述例子中，都返回了一个包含添加元素的新的选择集。新的元素继承了当前元素的数据。
 
-The specified *name* may have a namespace prefix, such as `svg:text` to specify a `text` attribute in the SVG namespace. See [namespaces](#namespaces) for the map of supported namespaces; additional namespaces can be registered by adding to the map. If no namespace is specified, the namespace will be inherited from the parent element; or, if the name is one of the known prefixes, the corresponding namespace will be used (for example, `svg` implies `svg:svg`).
+有些元素需要命名空间前缀，比如`svg:text`表示SVG命名空间中的`text`。关于命名空间更多信息参考 [namespaces](#namespaces). 如果没有指定命名空间，那元素将会继承父元素的命名空间。
 
 <a name="selection_insert" href="#selection_insert">#</a> <i>selection</i>.<b>insert</b>(<i>type</i>, <i>before</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/insert.js "Source")
 
-If the specified *type* is a string, inserts a new element of this type (tag name) before the element matching the specified *before* selector for each selected element. For example, a *before* selector `:first-child` will prepend nodes before the first child. Both *type* and *before* may instead be specified as functions which are evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The *type* function should return an element to be inserted; the *before* function should return the child element before which the element should be inserted. For example, to insert a DIV element to each paragraph:
+如果*type*是一个字符串，则在指定的元素前插入一个新元素。如果*type*为一个函数，则会传递*d*,*i*,*nodes*为参数，并将返回的元素插入到选择集中。*type*和*before*都可以使用函数代替。比如在每个p元素中插入div元素:
 
 ```js
 d3.selectAll("p").insert("div");
 ```
 
-This is equivalent to:
+等价于:
 
 ```js
 d3.selectAll("p").insert(function() {
@@ -358,7 +354,7 @@ d3.selectAll("p").insert(function() {
 });
 ```
 
-Which is equivalent to:
+等价于:
 
 ```js
 d3.selectAll("p").select(function() {
@@ -366,29 +362,23 @@ d3.selectAll("p").select(function() {
 });
 ```
 
-In both cases, this method returns a new selection containing the appended elements. Each new element inherits the data of the current elements, if any, in the same manner as [*selection*.select](#selection_select).
-
-The specified *name* may have a namespace prefix, such as `svg:text` to specify a `text` attribute in the SVG namespace. See [namespaces](#namespaces) for the map of supported namespaces; additional namespaces can be registered by adding to the map. If no namespace is specified, the namespace will be inherited from the parent element; or, if the name is one of the known prefixes, the corresponding namespace will be used (for example, `svg` implies `svg:svg`).
-
 <a name="selection_remove" href="#selection_remove">#</a> <i>selection</i>.<b>remove</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/remove.js "Source")
 
-Removes the selected elements from the document. Returns this selection (the removed elements) which are now detached from the DOM. There is not currently a dedicated API to add removed elements back to the document; however, you can pass a function to [*selection*.append](#selection_append) or [*selection*.insert](#selection_insert) to re-add elements.
+从文档中将选择集移除，并返回移除的选择集。
 
 <a name="selection_sort" href="#selection_sort">#</a> <i>selection</i>.<b>sort</b>(<i>compare</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/sort.js "Source")
 
-Returns a new selection that contains a copy of each group in this selection sorted according to the *compare* function. After sorting, re-inserts elements to match the resulting order (per [*selection*.order](#selection_order)).
+返回一个新的经过排序的选择集。参数为一个比较方法。
 
-The compare function, which defaults to [ascending](https://github.com/d3/d3-array#ascending), is passed two elements’ data *a* and *b* to compare. It should return either a negative, positive, or zero value. If negative, then *a* should be before *b*; if positive, then *a* should be after *b*; otherwise, *a* and *b* are considered equal and the order is arbitrary.
-
-Note that sorting is not guaranteed to be stable; however, it is guaranteed to have the same behavior as your browser’s built-in [sort](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/sort) method on arrays.
+比较方法默认是[ascending](https://github.com/d3/d3-array#ascending)，传递两个元素的数据*a*和*b*.
 
 <a name="selection_order" href="#selection_order">#</a> <i>selection</i>.<b>order</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/order.js "Source")
 
-Re-inserts elements into the document such that the document order of each group matches the selection order. This is equivalent to calling [*selection*.sort](#selection_sort) if the data is already sorted, but much faster.
+重新插入元素到文档中，以使每个组的文档顺序与选择顺序匹配。如果数据顺序已经排好等价于调用[*selection*.sort](#selection_sort)但是更快.
 
 <a name="selection_raise" href="#selection_raise">#</a> <i>selection</i>.<b>raise</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/raise.js "Source")
 
-Re-inserts each selected element, in order, as the last child of its parent. Equivalent to:
+重新将元素插入到对应父元素,作为父元素的最后一个子元素。相等于:
 
 ```js
 selection.each(function() {
@@ -398,7 +388,7 @@ selection.each(function() {
 
 <a name="selection_lower" href="#selection_lower">#</a> <i>selection</i>.<b>lower</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/lower.js "Source")
 
-Re-inserts each selected element, in order, as the first child of its parent. Equivalent to:
+重新将元素插入到对应父元素,作为父元素的第一个子元素，相当于:
 
 ```js
 selection.each(function() {
@@ -408,19 +398,19 @@ selection.each(function() {
 
 <a name="creator" href="#creator">#</a> d3.<b>creator</b>(<i>name</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/creator.js "Source")
 
-Given the specified element *name*, returns a function which creates an element of the given name, assuming that `this` is the parent element. This method is used internally by [*selection*.append](#selection_append) and [*selection*.insert](#selection_insert) to create new elements. For example, this:
+根据指定的元素名，返回一个可以创建对应子元素的方法。比如:
 
 ```js
 selection.append("div");
 ```
 
-Is equivalent to:
+等价于:
 
 ```js
 selection.append(d3.creator("div"));
 ```
 
-See [namespace](#namespace) for details on supported namespace prefixes, such as for SVG elements.
+参考 [namespace](#namespace)获取更多关于命名空间的信息，比如SVG元素.
 
 ### Joining Data
 
