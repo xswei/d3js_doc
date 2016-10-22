@@ -414,13 +414,15 @@ selection.append(d3.creator("div"));
 
 ### Joining Data
 
-For an introduction to D3’s data joins, see [Thinking With Joins](http://bost.ocks.org/mike/join/). Also see the [General Update Pattern](http://bl.ocks.org/mbostock/3808218) examples.
+关于D3数据绑定的介绍，参考[Thinking With Joins](http://bost.ocks.org/mike/join/)以及 [General Update Pattern](http://bl.ocks.org/mbostock/3808218)上的实例.
 
 <a name="selection_data" href="#selection_data">#</a> <i>selection</i>.<b>data</b>([<i>data</i>[, <i>key</i>]]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/data.js "Source")
 
-Joins the specified array of *data* with the selected elements, returning a new selection that it represents the *update* selection: the elements successfully bound to data. Also defines the [enter](#selection_enter) and [exit](#selection_exit) selections on the returned selection, which can be used to add or remove elements to correspond to the new data. The specified *data* is an array of arbitrary values (*e.g.*, numbers or objects), or a function that returns an array of values for each group. When data is assigned to an element, it is stored in the property `__data__`, thus making the data “sticky” and available on re-selection.
+将数组类型的*data*与选择集中的元素绑定，返回一个update集:数据与元素绑定。因为数据个数未必与元素个数一致，所以又有[enter](#selection_enter) 和 [exit](#selection_exit)操作。*data*元素可以是任意类型，比如数值类型或对象类型。也可以是一个返回一个数组的函数. 元素会以`__data__`这个属性存储绑定的数据。这样就可以使数据作为元素的一个属性存在有利用根据数据反复对元素操作而不需要每次操作都绑定一次.
 
-The *data* is specified **for each group** in the selection. If the selection has multiple groups (such as [d3.selectAll](#selectAll) followed by [*selection*.selectAll](#selection_selectAll)), then *data* should typically be specified as a function. This function will be evaluated for each group in order, being passed the group’s parent datum (*d*, which may be undefined), the group index (*i*), and the selection’s parent nodes (*nodes*), with *this* as the group’s parent element. For example, to create an HTML table from a matrix of numbers:
+数据绑定过程中，有个重要的问题就是分组问题。比如一个选择集有多个分组，每个分组又包含多个元素，此时数据应该如何绑定到元素上？
+
+*data*是绑定到每个分组上的。如果选择集有多个分组(比如通过[*selection*.selectAll](#selection_selectAll)选择的就可能有多个分组)，则*data*应该使用函数来使得数据正确的与分组对应。比如使用矩阵创建一个HTML表格:
 
 ```js
 var matrix = [
@@ -433,20 +435,22 @@ var matrix = [
 var tr = d3.select("body")
   .append("table")
   .selectAll("tr")
-  .data(matrix)
+  .data(matrix)   //将矩阵中的每个元素(数组)绑定到tr元素
   .enter().append("tr");
 
 var td = tr.selectAll("td")
-  .data(function(d) { return d; })
+  .data(function(d) { return d; })  //将绑定到tr元素的数据(数组)拆开为单个的数值，绑定到td元素
   .enter().append("td")
     .text(function(d) { return d; });
 ```
 
-In this example the *data* function is the identity function: for each table row, it returns the corresponding row from the data matrix.
+如果没有指定*key*方法，则数据数组中的第一个元素与选择集中的第一个元素绑定，第二个与第二个，以此类推。
 
-If a *key* function is not specified, then the first datum in *data* is assigned to the first selected element, the second datum to the second selected element, and so on. A *key* function may be specified to control which datum is assigned to which element, replacing the default join-by-index. This key function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The key function is then also evaluated for each new datum in *data*, being passed the current datum (*d*), the current index (*i*), and the group’s new *data*, with *this* as the group’s parent DOM element. The datum for a given key is assigned to the element with the matching key. If multiple elements have the same key, the duplicate elements are put into the exit selection; if multiple data have the same key, the duplicate data are put into the enter selection.
+*key*方法可以控制哪个数据元素对应哪个DOM元素，打破依次对应的规律。
 
-For example, given this document:
+*key*方法首先对选择集中的每个元素进行评估，然后对每个数据元素进行评估。也就是说*key*方法会被调用两次，每次的参数也不一样。根据键值将数据与DOM元素对应。如果多个元素有同样的键值，则将重复的元素放到exit集中，如果多个数据有同样的键值，则将多余的数据放到enter集中以备添加元素。
+
+比如对于下面的DOM文档:
 
 ```html
 <div id="Ford"></div>
@@ -458,6 +462,7 @@ For example, given this document:
 ```
 
 You could join data by key as follows:
+使用如下方法绑定数据:
 
 
 ```js
@@ -475,11 +480,16 @@ d3.selectAll("div")
     .text(function(d) { return d.number; });
 ```
 
+这个*key*方法优先读取元素绑定的数据*d*，如果*d*不存在则读取元素的*id*.因为这些元素之前没有绑定数据，因此*d*为null，之后绑定新的数据时*d*就不是null了。
+
+
 This example key function uses the datum *d* if present, and otherwise falls back to the element’s id property. Since these elements were not previously bound to data, the datum *d* is null when the key function is evaluated on selected elements, and non-null when the key function is evaluated on the new data.
 
-The *update* and *enter* selections are returned in data order, while the *exit* selection preserves the selection order prior to the join. If a key function is specified, the order of elements in the selection may not match their order in the document; use [*selection*.order](#order) or [*selection*.sort](#sort) as needed. For more on how the key function affects the join, see [A Bar Chart, Part 2](http://bost.ocks.org/mike/bar/2/) and [Object Constancy](http://bost.ocks.org/mike/constancy/).
+*update*集和*enter*集根据数据的顺序被返回，*exit*集则保持了元素的顺序。如果使用了*key*方法，那么返回的选择集中元素的顺序可能与其在DOM文档中的顺序不一致。如果需要可以使用 [*selection*.order](#order) 或 [*selection*.sort](#sort) 来进行排序. 
 
-Although the data-join can be used simply to create (to *enter*) a set of elements corresponding to data, more generally the data-join is designed to let you create, destroy or update elements as needed so that the resulting DOM corresponds to the new data. The data-join lets you do this efficiently by executing only the minimum necessary operations on each state of element (entering, updating, or exiting), and allows you to declare concise animated transitions between states as well. Here is a simple example of the [General Update Pattern](http://bl.ocks.org/mbostock/3808218):
+想了解更多关于*key*方法的具体信息可以参考[A Bar Chart, Part 2](http://bost.ocks.org/mike/bar/2/) 和 [Object Constancy](http://bost.ocks.org/mike/constancy/).
+
+数据绑定操作可以方便的根据具体数据操作DOM元素。在数据绑定操作之后会产生三种选择集:update集,enter集以及exit集。之后可以对这三种集合进行相应的操作，一般数据绑定的模式[General Update Pattern](http://bl.ocks.org/mbostock/3808218)如下:
 
 ```js
 var circle = svg.selectAll("circle") // 1
@@ -494,28 +504,27 @@ circle.enter().append("circle") // 5
     .style("stroke", "black"); // 8
 ```
 
-Breaking this down into discrete steps:
+将这个过程分解成一下步骤:
 
-1. Any existing circles (that are descendants of the `svg` selection) are [selected](#selection_selectAll).
-2. These circles are [joined to new `data`](#selection_data), returning the matching circles: the *update* selection.
-3. These updating circles are given a blue fill.
-4. Any existing circles that do *not* match new data—the *exit* selection—are removed.
-5. New circles are [appended](#selection_append) for any new data that do *not* match any existing circle: the *enter* selection.
-6. These entering circles are given a green fill.
-7. A new selection representing the [union](#selection_merge) of entering and updating circles is created.
-8. These entering and updating circles are given a black stroke.
+1. 当前存在的circles被选中.
+2. 将新的[数据绑定](#selection_data)到这些圆上, 返回update集.
+3. 将update集中的圆颜色设置为blue.
+4. 没有数据对应的圆，也就是多余的圆被删除.
+5. 新的圆被 [appended](#selection_append)，也就是圆不够了，会添加新的圆进来.
+6. 新加入的圆颜色设置为green.
+7. 将新添加的圆和已存在的圆[union(合并)](#selection_merge)为一个新的选择集，包括了当前所有的存在的圆.
+8. 将当前所有的圆的边线设置为black.
 
-As described in the preceding paragraphs, the “matching” logic is determined by the key function passed to *selection*.data; since no key function is used in the above code sample, the elements and data are joined by index.
 
-If *data* is not specified, this method returns the array of data for the selected elements.
+如果没有指定*data*则返回当前选择集中的元素绑定的数据，以数组的形式返回。
 
-This method cannot be used to clear bound data; use [*selection*.datum](#selection_datum) instead.
+这个方法不能用来清除绑定的数据，要使用[*selection*.datum](#selection_datum) 来清除。
 
 <a name="selection_enter" href="#selection_enter">#</a> <i>selection</i>.<b>enter</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/enter.js "Source")
 
-Returns the enter selection: placeholder nodes for each datum that had no corresponding DOM element in the selection. The enter selection is determined by [*selection*.data](#selection_data), and is empty on a selection that is not joined to data.
+返回一个enter集，准确来说是一个DOM元素占位符，此时没有任何元素，需要使用*append*方法添加元素。
 
-The enter selection is typically used to create “missing” elements corresponding to new data. For example, to create DIV elements from an array of numbers:
+enter集通常用来创建缺失的元素，比如根据数组创建DIV元素:
 
 ```js
 var div = d3.select("body")
@@ -525,7 +534,7 @@ var div = d3.select("body")
     .text(function(d) { return d; });
 ```
 
-If the body is initially empty, the above code will create six new DIV elements, append them to the body in-order, and assign their text content as the associated (string-coerced) number:
+如果初始状态下body为空，则会创建6个DIV元素并将其添加到body中:
 
 ```html
 <div>4</div>
@@ -536,31 +545,29 @@ If the body is initially empty, the above code will create six new DIV elements,
 <div>42</div>
 ```
 
-Conceptually, the enter selection’s placeholders are pointers to the parent element (in this example, the document body). The enter selection is typically only used transiently to append elements, and is often [merged](#selection_merge) with the update selection after appending, such that modifications can be applied to both entering and updating elements.
-
 <a name="selection_exit" href="#selection_exit">#</a> <i>selection</i>.<b>exit</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/exit.js "Source")
 
-Returns the exit selection: existing DOM elements in the selection for which no new datum was found. The exit selection is determined by the previous [*selection*.data](#selection_data), and is thus empty until the selection is joined to data. If the exit selection is retrieved more than once after a data join, subsequent calls return the empty selection.
+返回exit集:现有的元素没有被数据绑定时将没有数据的这些元素返回。
 
-The exit selection is typically used to remove “superfluous” elements corresponding to old data. For example, to update the DIV elements created previously with a new array of numbers:
+比如对div重新绑定数据:
 
 ```js
 div = div.data([1, 2, 4, 8, 16, 32], function(d) { return d; });
 ```
 
-Since a key function was specified (as the identity function), and the new data contains the numbers [4, 8, 16] which match existing elements in the document, the update selection contains three DIV elements. Leaving those elements as-is, we can append new elements for [1, 2, 32] using the enter selection:
+使用看key方法，会将div中与新的数据中的交集留下，而没有对应到新数据的元素被放到exit集中. 交集为[4,8,16],这部分元素作为update集。而之前的元素中不存在[1,2,32]，则作为enter集。:
 
 ```js
 div.enter().append("div").text(function(d) { return d; });
 ```
 
-Likewise, to remove the exiting elements [15, 23, 42]:
+而之前的[15,23,42]没有在新的数据中出现，因此作为exit集:
 
 ```js
 div.exit().remove();
 ```
 
-Now the document body looks like this:
+此时的DOM如下:
 
 ```html
 <div>1</div>
@@ -571,17 +578,15 @@ Now the document body looks like this:
 <div>32</div>
 ```
 
-The order of the DOM elements matches the order of the data because the old data’s order and the new data’s order were consistent. If the new data’s order is different, use [*selection*.order](#selection_order) to reorder the elements in the DOM. See the [General Update Pattern](http://bl.ocks.org/mbostock/3808218) example thread for more on data joins.
+DOM元素的顺序与数据元素的顺序一致。
 
 <a name="selection_datum" href="#selection_datum">#</a> <i>selection</i>.<b>datum</b>([<i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/datum.js "Source")
 
-Gets or sets the bound data for each selected element. Unlike [*selection*.data](#selection_data), this method does not compute a join and does not affect indexes or the enter and exit selections.
+获取选中的元素的数据或者为选中的元素绑定数据。与[*selection*.data](#selection_data)不同, 这个方法不去计算数据元素和DOM元素的结合，也就是不影响索引或enter集和exit集。
 
-If a *value* is specified, sets the element’s bound data to the specified value on all selected elements. If the *value* is a constant, all elements are given the same datum; otherwise, if the *value* is a function, then the function is evaluated for each selected element, in order, being passed the current datum (*d*), the current index (*i*), and the current group (*nodes*), with *this* as the current DOM element. The function is then used to set each element’s new data. A null value will delete the bound data.
+如果指定了*value*,则设置选中的所有元素绑定的数据为*value*。如果*value*为变量，则将选中的元素绑定的数据统一设置为value。如果*value*是一个方法，则会对每个元素调用这个方法，并传递*d*,*i*,*nodes*,this指向当前的DOM元素。如果返回null则表示删除当前元素所绑定的数据。
 
-If a *value* is not specified, returns the bound datum for the first (non-null) element in the selection. This is generally useful only if you know the selection contains exactly one element.
-
-This method is useful for accessing HTML5 [custom data attributes](http://www.w3.org/TR/html5/dom.html#custom-data-attribute). For example, given the following elements:
+如果*value*没有指定，则返回当前选择集中第一个非null元素绑定的数据，这个方法在访问HTML5 的 [custom data attributes](http://www.w3.org/TR/html5/dom.html#custom-data-attribute)时是有用的. 比如有如下元素:
 
 ```html
 <ul id="list">
@@ -590,11 +595,12 @@ This method is useful for accessing HTML5 [custom data attributes](http://www.w3
 </ul>
 ```
 
-You can expose the custom data attributes by setting each element’s data as the built-in [dataset](http://www.w3.org/TR/html5/dom.html#dom-dataset) property:
+可以使用[dataset](http://www.w3.org/TR/html5/dom.html#dom-dataset)属性将这些数据属性导出:
 
 ```js
 selection.datum(function() { return this.dataset; })
 ```
+
 
 ### Handling Events
 
