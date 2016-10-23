@@ -29,7 +29,7 @@ D3 V4 API中文版
 
 * [Requests](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-request-master)
 
-* [Scales](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-scale-master)
+* [Scales(Continuous, Sequential, Quantize, Ordinal)](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-scale-master)
 
 * [Selections(Selecting, Modifying, Data, Events, Control, Local Variables, Namespaces)](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-selection-master)
 
