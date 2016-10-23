@@ -719,27 +719,27 @@ name(d3.selectAll("div"), "John", "Snow");
 
 ### Local Variables
 
-D3 locals allow you to define local state independent of data. For instance, when rendering [small multiples](http://bl.ocks.org/mbostock/e1192fe405703d8321a5187350910e08) of time-series data, you might want the same *x*-scale for all charts but distinct *y*-scales to compare the relative performance of each metric. D3 locals are scoped by DOM elements: on set, the value is stored on the given element; on get, the value is retrieved from given element or the nearest ancestor that defines it.
+D3本地化允许定义独立于数据的本地状态. 例如，当渲染[small multiples](http://bl.ocks.org/mbostock/e1192fe405703d8321a5187350910e08)的时间序列时，你可能要对所有的图表使用同样的x-scale而y-scales则独立。D3本地变量由DOM元素限定:设置时值被存储在给定的DOM元素中，获取时值从给定的元素或者最接近的祖先元素获取。
 
 <a name="local" href="#local">#</a> d3.<b>local</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/local.js "Source")
 
-Declares a new local variable. For example:
+声明一个本地变量：
 
 ```js
 var foo = d3.local();
 ```
 
-Like `var`, each local is a distinct symbolic reference; unlike `var`, the value of each local is also scoped by the DOM.
+与*var*类似，本地变量由一个变量引用。与*var*不同的是每个本地变量的值由DOM限定。
 
 <a name="local_set" href="#local_set">#</a> <i>local</i>.<b>set</b>(<i>node</i>, <i>value</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/local.js#L18 "Source")
 
-Sets the value of this local on the specified *node* to the *value*, and returns the specified *value*. This is often performed using [*selection*.each](#selection_each):
+设置本地变量的值，设置指定*node*的值为*value*，并返回*value*。通常使用[*selection*.each](#selection_each)来实现:
 
 ```js
 selection.each(function(d) { foo.set(this, d.value); });
 ```
 
-If you are just setting a single variable, consider using [*selection*.property](#selection_property):
+如果仅仅需要设置一个单一的值，考虑使用[*selection*.property](#selection_property):
 
 ```js
 selection.property(foo, function(d) { return d.value; });
@@ -747,15 +747,15 @@ selection.property(foo, function(d) { return d.value; });
 
 <a name="local_get" href="#local_get">#</a> <i>local</i>.<b>get</b>(<i>node</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/local.js#L13 "Source")
 
-Returns the value of this local on the specified *node*. If the *node* does not define this local, returns the value from the nearest ancestor that defines it. Returns undefined if no ancestor defines this local.
+返回指定*node*的本地变量值。如果*node*没有定义在local中则返回定义的最接近的祖先元素的值。否则返回undefined。
 
 <a name="local_remove" href="#local_remove">#</a> <i>local</i>.<b>remove</b>(<i>node</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/local.js#L21 "Source")
 
-Deletes this local’s value from the specified *node* and returns its previous value. Returns true if the *node* defined this local prior to removal, and false otherwise. If ancestors also define this local, those definitions are unaffected, and thus [*local*.get](#local_get) will still return the inherited value.
+移除*node*中定义的本地变量并返回其值。
 
 <a name="local_toString" href="#local_toString">#</a> <i>local</i>.<b>toString</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/local.js#L24 "Source")
 
-Returns the automatically-generated identifier for this local. This is the name of the property that is used to store the local’s value on elements, and thus you can also set or get the local’s value using *element*[*local*] or by using [*selection*.property](#selection_property).
+返回自动生成的本地变量标示符。这个标示符以属性的形式存储在DOM元素中，可以使用*element*[*local*] 或[*selection*.property](#selection_property)来进行设置或读取.
 
 ### Namespaces
 
