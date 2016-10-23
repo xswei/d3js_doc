@@ -25,6 +25,8 @@ D3 V4 API中文版
 
 * [Polygon](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-polygon-master)
 
+* [Queues](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-queue-master)
+
 * [Random Numbers](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-random-master)
 
 * [Requests](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-request-master)
