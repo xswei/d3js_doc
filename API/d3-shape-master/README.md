@@ -1,8 +1,8 @@
 # d3-shape
 
-Visualizations typically consist of discrete graphical marks, such as [symbols](#symbols), [arcs](#arcs), [lines](#lines) and [areas](#areas). While the rectangles of a bar chart may be easy enough to generate directly using [SVG](http://www.w3.org/TR/SVG/paths.html#PathData) or [Canvas](http://www.w3.org/TR/2dcontext/#canvaspathmethods), other shapes are complex, such as rounded annular sectors and centripetal Catmull–Rom splines. This module provides a variety of shape generators for your convenience.
+在可视化中经常会使用到一些图形元素，比如[symbols](#symbols), [arcs](#arcs), [lines](#lines) 和 [areas](#areas). 矩形元素可以很容易的使用SVG或Canvas绘制，而其他就比较复杂了，比如扇形和样条曲线等。这个模块提供了许多形状生成器以便直接使用。 
 
-As with other aspects of D3, these shapes are driven by data: each shape generator exposes accessors that control how the input data are mapped to a visual representation. For example, you might define a line generator for a time series by [scaling](https://github.com/d3/d3-scale) fields of your data to fit the chart:
+这些形状可以由数据驱动:每个生成器都提供了将输入数据映射到可视化元素的接口。比如你可以为一个时间序列定义一个线条生成器:
 
 ```js
 var line = d3.line()
@@ -10,23 +10,23 @@ var line = d3.line()
     .y(function(d) { return y(d.value); });
 ```
 
-This line generator can then be used to compute the `d` attribute of an SVG path element:
+这个线条生成器可以计算出path元素的`d`属性:
 
 ```js
 path.datum(data).attr("d", line);
 ```
 
-Or you can use it to render to a Canvas 2D context:
+或者也可以将其渲染到Canvas 2D上下文中:
 
 ```js
 line.context(context)(data);
 ```
 
-For more, read [Introducing d3-shape](https://medium.com/@mbostock/introducing-d3-shape-73f8367e6d12).
+参考[Introducing d3-shape](https://medium.com/@mbostock/introducing-d3-shape-73f8367e6d12)获取更多信息.
 
 ## Installing
 
-If you use NPM, `npm install d3-shape`. Otherwise, download the [latest release](https://github.com/d3/d3-shape/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-shape.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装方法略
 
 ```html
 <script src="https://d3js.org/d3-path.v1.min.js"></script>
@@ -42,15 +42,15 @@ var line = d3.line();
 
 ## API Reference
 
-* [Arcs](#arcs)
-* [Pies](#pies)
-* [Lines](#lines)
-* [Areas](#areas)
-* [Curves](#curves)
-* [Custom Curves](#custom-curves)
-* [Symbols](#symbols)
-* [Custom Symbol Types](#custom-symbol-types)
-* [Stacks](#stacks)
+* [Arcs(弧)](#arcs)
+* [Pies(饼)](#pies)
+* [Lines(线)](#lines)
+* [Areas(区域面积)](#areas)
+* [Curves(曲线)](#curves)
+* [Custom Curves(定制曲线)](#custom-curves)
+* [Symbols(符号)](#symbols)
+* [Custom Symbol Types(定制符号)](#custom-symbol-types)
+* [Stacks(堆叠/栈)](#stacks)
 
 ### Arcs
 
