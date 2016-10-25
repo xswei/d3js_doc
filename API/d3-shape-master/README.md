@@ -56,17 +56,18 @@ var line = d3.line();
 
 [<img alt="Pie Chart" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/pie.png" width="295" height="295">](http://bl.ocks.org/mbostock/8878e7fd82034f1d63cf)[<img alt="Donut Chart" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/donut.png" width="295" height="295">](http://bl.ocks.org/mbostock/2394b23da1994fc202e1)
 
-The arc generator produces a [circular](https://en.wikipedia.org/wiki/Circular_sector) or [annular](https://en.wikipedia.org/wiki/Annulus_\(mathematics\)) sector, as in a pie or donut chart. If the difference between the [start](#arc_startAngle) and [end](#arc_endAngle) angles (the *angular span*) is greater than [τ](https://en.wikipedia.org/wiki/Turn_\(geometry\)#Tau_proposal), the arc generator will produce a complete circle or annulus. If it is less than τ, arcs may have [rounded corners](#arc_cornerRadius) and [angular padding](#arc_padAngle). Arcs are always centered at ⟨0,0⟩; use a transform (see: [SVG](http://www.w3.org/TR/SVG/coords.html#TransformAttribute), [Canvas](http://www.w3.org/TR/2dcontext/#transformations)) to move the arc to a different position.
+arc生成器可以生成圆形的或者环形的扇形，可以被用在pie或环形图中。如果[start](#arc_startAngle) 和 [end](#arc_endAngle)之间的插值大于[τ](https://en.wikipedia.org/wiki/Turn_\(geometry\)#Tau_proposal)，则arc生成器会产生一个完整的圆或环。如果小于[τ](https://en.wikipedia.org/wiki/Turn_\(geometry\)#Tau_proposal)则arc生成器可以设置[rounded corners(圆角)](#arc_cornerRadius) 和 [angular padding(间隙)](#arc_padAngle)。Arcs总是以<0,0>位中心，需要使用transform(参考: [SVG](http://www.w3.org/TR/SVG/coords.html#TransformAttribute), [Canvas](http://www.w3.org/TR/2dcontext/#transformations))来对其进行平移。
 
-See also the [pie generator](#pies), which computes the necessary angles to represent an array of data as a pie or donut chart; these angles can then be passed to an arc generator.
+
+参考[pie generator](#pies), pie生成器可以根据一组数据计算出每个元素的起止角度，然后使用arc生成器根据计算后的数据绘制扇形或圆环。
 
 <a name="arc" href="#arc">#</a> d3.<b>arc</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js "Source")
 
-Constructs a new arc generator with the default settings.
+构建一个新的默认的arc生成器
 
 <a name="_arc" href="#_arc">#</a> <i>arc</i>(<i>arguments…</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L89 "Source")
 
-Generates an arc for the given *arguments*. The *arguments* are arbitrary; they are simply propagated to the arc generator’s accessor functions along with the `this` object. For example, with the default settings, an object with radii and angles is expected:
+根据指定的*arguments*生成一个arc。*arguments*可以是任意的形式的，但是要包含必要的信息，比如使用一个包含半径信息(内外半径)和角度信息(起止角度)的对象绘制arc:
 
 ```js
 var arc = d3.arc();
@@ -79,7 +80,7 @@ arc({
 }); // "M0,-100A100,100,0,0,1,100,0L0,0Z"
 ```
 
-If the radii and angles are instead defined as constants, you can generate an arc without any arguments:
+如果已经定义了半径信息和角度信息，则就不需要再次指定了，比如:
 
 ```js
 var arc = d3.arc()
@@ -91,19 +92,20 @@ var arc = d3.arc()
 arc(); // "M0,-100A100,100,0,0,1,100,0L0,0Z"
 ```
 
-If the arc generator has a [context](#arc_context), then the arc is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
+如果arc生成器包含了[context](#arc_context)上下文，则会调用一系列[path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods)将arc渲染到上下文中。否则返回一个[path data](http://www.w3.org/TR/SVG/paths.html#PathData)字符串。
+
 
 <a name="arc_centroid" href="#arc_centroid">#</a> <i>arc</i>.<b>centroid</b>(<i>arguments…</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L224 "Source")
 
-Computes the midpoint [*x*, *y*] of the center line of the arc that would be [generated](#_arc) by the given *arguments*. The *arguments* are arbitrary; they are simply propagated to the arc generator’s accessor functions along with the `this` object. To be consistent with the generated arc, the accessors must be deterministic, *i.e.*, return the same value given the same arguments. The midpoint is defined as ([startAngle](#arc_startAngle) + [endAngle](#arc_endAngle)) / 2 and ([innerRadius](#arc_innerRadius) + [outerRadius](#arc_outerRadius)) / 2. For example:
+计算参数所表示的弧的中间点[*x*,*y*]. 计算方法为([startAngle](#arc_startAngle) + [endAngle](#arc_endAngle)) / 2 and ([innerRadius](#arc_innerRadius) + [outerRadius](#arc_outerRadius)) / 2. 例如:
 
 [<img alt="Circular Sector Centroids" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/centroid-circular-sector.png" width="250" height="250">](http://bl.ocks.org/mbostock/9b5a2fd1ce1a146f27e4)[<img alt="Annular Sector Centroids" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/centroid-annular-sector.png" width="250" height="250">](http://bl.ocks.org/mbostock/c274877f647361f3df7d)
 
-Note that this is **not the geometric center** of the arc, which may be outside the arc; this method is merely a convenience for positioning labels.
+要注意这个不是几何中心，因为几何中心可能位于圆弧外侧。
 
 <a name="arc_innerRadius" href="#arc_innerRadius">#</a> <i>arc</i>.<b>innerRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L230 "Source")
 
-If *radius* is specified, sets the inner radius to the specified function or number and returns this arc generator. If *radius* is not specified, returns the current inner radius accessor, which defaults to:
+设置或获取内半径。如果没有指定*radius*则返回当前的内半径，默认为:
 
 ```js
 function innerRadius(d) {
@@ -111,11 +113,11 @@ function innerRadius(d) {
 }
 ```
 
-Specifying the inner radius as a function is useful for constructing a stacked polar bar chart, often in conjunction with a [sqrt scale](https://github.com/d3/d3-scale#sqrt). More commonly, a constant inner radius is used for a donut or pie chart. If the outer radius is smaller than the inner radius, the inner and outer radii are swapped. A negative value is treated as zero.
+如果*radius*为函数，则可以方便的构造出一个基于极坐标系统的堆叠图。经常结合 [sqrt scale](https://github.com/d3/d3-scale#sqrt) 一起使用. 如果内半径比外半径大，则内半径和外半径会被交换。负值视为0. 
 
 <a name="arc_outerRadius" href="#arc_outerRadius">#</a> <i>arc</i>.<b>outerRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L234 "Source")
 
-If *radius* is specified, sets the outer radius to the specified function or number and returns this arc generator. If *radius* is not specified, returns the current outer radius accessor, which defaults to:
+设置或获取外半径。如果没有指定*radius*则返回当前的外半径，默认为:
 
 ```js
 function outerRadius(d) {
@@ -123,11 +125,11 @@ function outerRadius(d) {
 }
 ```
 
-Specifying the outer radius as a function is useful for constructing a coxcomb or polar bar chart, often in conjunction with a [sqrt scale](https://github.com/d3/d3-scale#sqrt). More commonly, a constant outer radius is used for a pie or donut chart. If the outer radius is smaller than the inner radius, the inner and outer radii are swapped. A negative value is treated as zero.
+如果*radius*为函数，则可以方便的构造出一个基于极坐标系统的堆叠图。经常结合 [sqrt scale](https://github.com/d3/d3-scale#sqrt) 一起使用. 如果内半径比外半径大，则内半径和外半径会被交换。负值视为0. 
 
 <a name="arc_cornerRadius" href="#arc_cornerRadius">#</a> <i>arc</i>.<b>cornerRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L238 "Source")
 
-If *radius* is specified, sets the corner radius to the specified function or number and returns this arc generator. If *radius* is not specified, returns the current corner radius accessor, which defaults to:
+设置或获取拐角半径，默认为:
 
 ```js
 function cornerRadius() {
@@ -135,9 +137,11 @@ function cornerRadius() {
 }
 ```
 
-If the corner radius is greater than zero, the corners of the arc are rounded using circles of the given radius. For a circular sector, the two outer corners are rounded; for an annular sector, all four corners are rounded. The corner circles are shown in this diagram:
+如果拐角半径比0大，则根据其值设置拐角大小。拐角的作用如下图:
 
 [<img alt="Rounded Circular Sectors" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/rounded-circular-sector.png" width="250" height="250">](http://bl.ocks.org/mbostock/e5e3680f3079cf5c3437)[<img alt="Rounded Annular Sectors" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/rounded-annular-sector.png" width="250" height="250">](http://bl.ocks.org/mbostock/f41f50e06a6c04828b6e)
+
+如果拐角
 
 The corner radius may not be larger than ([outerRadius](#arc_outerRadius) - [innerRadius](#arc_innerRadius)) / 2. In addition, for arcs whose angular span is less than π, the corner radius may be reduced as two adjacent rounded corners intersect. This is occurs more often with the inner corners. See the [arc corners animation](http://bl.ocks.org/mbostock/b7671cb38efdfa5da3af) for illustration.
 
@@ -192,7 +196,6 @@ If *radius* is specified, sets the pad radius to the specified function or numbe
 <a name="arc_context" href="#arc_context">#</a> <i>arc</i>.<b>context</b>([<i>context</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L258 "Source")
 
 If *context* is specified, sets the context and returns this arc generator. If *context* is not specified, returns the current context, which defaults to null. If the context is not null, then the [generated arc](#_arc) is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string representing the generated arc is returned.
-
 ### Pies
 
 The pie generator does not produce a shape directly, but instead computes the necessary angles to represent a tabular dataset as a pie or donut chart; these angles can then be passed to an [arc generator](#arcs).
