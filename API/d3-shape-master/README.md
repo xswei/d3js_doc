@@ -147,6 +147,8 @@ The corner radius may not be larger than ([outerRadius](#arc_outerRadius) - [inn
 
 <a name="arc_startAngle" href="#arc_startAngle">#</a> <i>arc</i>.<b>startAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/arc.js#L246 "Source")
 
+设置或获取arc的起始角度
+
 If *angle* is specified, sets the start angle to the specified function or number and returns this arc generator. If *angle* is not specified, returns the current start angle accessor, which defaults to:
 
 ```js
