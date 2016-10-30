@@ -338,11 +338,11 @@ function padAngle() {
 
 [<img width="295" height="154" alt="Line Chart" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/line.png">](http://bl.ocks.org/mbostock/1550e57e12e73b86ad9e)
 
-The line generator produces a [spline](https://en.wikipedia.org/wiki/Spline_\(mathematics\)) or [polyline](https://en.wikipedia.org/wiki/Polygonal_chain), as in a line chart. Lines also appear in many other visualization types, such as the links in [hierarchical edge bundling](http://bl.ocks.org/mbostock/7607999).
+线条生成器可以生成一个 [spline](https://en.wikipedia.org/wiki/Spline_\(mathematics\)) 或 [polyline](https://en.wikipedia.org/wiki/Polygonal_chain). 线条元素是一种常用的可视化元素，比如[hierarchical edge bundling](http://bl.ocks.org/mbostock/7607999).
 
 <a name="line" href="#line">#</a> d3.<b>line</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/line.js "Source")
 
-Constructs a new line generator with the default settings.
+构造一个默认的线条生成器.
 
 <a name="_line" href="#_line">#</a> <i>line</i>(<i>data</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L14 "Source")
 
