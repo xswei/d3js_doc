@@ -1,7 +1,7 @@
 # D3-V4-API-CN
 D3 V4 API中文版
 
-* [D3-v4做了哪些变化](https://github.com/xswei/D3-V4-API-CN/tree/master/ReleaseNotes)
+* [d3 4.X与3.X的不同](https://github.com/xswei/D3-V4-API-CN/tree/master/ReleaseNotes)
 
 * [Arrays(Statistics, Search, Transformations, Histograms)](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-array-master)
 
