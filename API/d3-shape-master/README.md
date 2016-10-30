@@ -194,33 +194,31 @@ padAngle和padRadius是结合使用的，理解为在半径为padRadius处，相
 
 ### Pies
 
-The pie generator does not produce a shape directly, but instead computes the necessary angles to represent a tabular dataset as a pie or donut chart; these angles can then be passed to an [arc generator](#arcs).
+pie生成器不直接生成图形，而是计算出一组用于生成pie或圆环的数据集。然后根据计算结果使用[arc generator](#arcs)进行绘制.
 
 <a name="pie" href="#pie">#</a> d3.<b>pie</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js "Source")
 
-Constructs a new pie generator with the default settings.
+构造一个默认的pie生成器。
 
 <a name="_pie" href="#_pie">#</a> <i>pie</i>(<i>data</i>[, <i>arguments…</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L14 "Source")
 
-Generates a pie for the given array of *data*, returning an array of objects representing each datum’s arc angles. Any additional *arguments* are arbitrary; they are simply propagated to the pie generator’s accessor functions along with the `this` object. The length of the returned array is the same as *data*, and each element *i* in the returned array corresponds to the element *i* in the input data. Each object in the returned array has the following properties:
+根据指定的数组*data*返回一个对象数组，每个对象都包含一些用于绘制的属性。返回的对象个数和原有的数组个数一致，每个对象包含以下属性:
 
-* `data` - the input datum; the corresponding element in the input data array.
-* `value` - the numeric [value](#pie_value) of the arc.
-* `index` - the zero-based [sorted index](#pie_sort) of the arc.
-* `startAngle` - the [start angle](#pie_startAngle) of the arc.
-* `endAngle` - the [end angle](#pie_endAngle) of the arc.
-* `padAngle` - the [pad angle](#pie_padAngle) of the arc.
+* `data` - 输入的原始数据元素.
+* `value` - 当前pie的值.
+* `index` - 基于0的索引.
+* `startAngle` - 当前pie 的起始角度.
+* `endAngle` - 当前pie的终止角度.
+* `padAngle` - 相邻pie之间的间隙.
 
-This representation is designed to work with the arc generator’s default [startAngle](#arc_startAngle), [endAngle](#arc_endAngle) and [padAngle](#arc_padAngle) accessors. The angular units are arbitrary, but if you plan to use the pie generator in conjunction with an [arc generator](#arcs), you should specify angles in radians, with 0 at -*y* (12 o’clock) and positive angles proceeding clockwise.
 
-Given a small dataset of numbers, here is how to compute the arc angles to render this data as a pie chart:
+比如使用一个数组生成一组pie:
 
 ```js
 var data = [1, 1, 2, 3, 5, 8, 13, 21];
 var arcs = d3.pie()(data);
 ```
-
-The first pair of parens, `pie()`, [constructs](#pie) a default pie generator. The second, `pie()(data)`, [invokes](#_pie) this generator on the dataset, returning an array of objects:
+生成的数据如下:
 
 ```json
 [
@@ -235,11 +233,12 @@ The first pair of parens, `pie()`, [constructs](#pie) a default pie generator. T
 ]
 ```
 
-Note that the returned array is in the same order as the data, even though this pie chart is [sorted](#pie_sortValues) by descending value, starting with the arc for the last datum (value 21) at 12 o’clock.
+生成的数据顺序与输入数据顺序一致
 
 <a name="pie_value" href="#pie_value">#</a> <i>pie</i>.<b>value</b>([<i>value</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L54 "Source")
 
-If *value* is specified, sets the value accessor to the specified function or number and returns this pie generator. If *value* is not specified, returns the current value accessor, which defaults to:
+
+设置或获取数据的值访问器，在实际应用中值可能是任意属性值，因此需要根据实际情况设置访问器，默认为:
 
 ```js
 function value(d) {
@@ -247,7 +246,7 @@ function value(d) {
 }
 ```
 
-When a pie is [generated](#_pie), the value accessor will be invoked for each element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. The default value accessor assumes that the input data are numbers, or that they are coercible to numbers using [valueOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf). If your data are not simply numbers, then you should specify an accessor that returns the corresponding numeric value for a given datum. For example:
+在内部，值访问器会被调用在所有的数据元素上。并传递`d`,`i`以及数据集`data`作为参数。比如使用数据元素中的number属性作为值时:
 
 ```js
 var data = [
@@ -264,29 +263,27 @@ var arcs = d3.pie()
     (data);
 ```
 
-This is similar to [mapping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) your data to values before invoking the pie generator:
+这个与 [mapping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 操作有些类似，如果使用map操作代替值访问器时。可以如下:
 
 ```js
 var arcs = d3.pie()(data.map(function(d) { return d.number; }));
 ```
 
-The benefit of an accessor is that the input data remains associated with the returned objects, thereby making it easier to access other fields of the data, for example to set the color or to add text labels.
+但是使用值访问器的好处在于它最后返回了对象类型，可以很方便的访问对象的其他属性.
 
 <a name="pie_sort" href="#pie_sort">#</a> <i>pie</i>.<b>sort</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L62 "Source")
 
-If *compare* is specified, sets the data comparator to the specified function and returns this pie generator. If *compare* is not specified, returns the current data comparator, which defaults to null. If both the data comparator and the value comparator are null, then arcs are positioned in the original input order. Otherwise, the data is sorted according to the data comparator, and the resulting order is used. Setting the data comparator implicitly sets the [value comparator](#pie_sortValues) to null.
-
-The *compare* function takes two arguments *a* and *b*, each elements from the input data array. If the arc for *a* should be before the arc for *b*, then the comparator must return a number less than zero; if the arc for *a* should be after the arc for *b*, then the comparator must return a number greater than zero; returning zero means that the relative order of *a* and *b* is unspecified. For example, to sort arcs by their associated name:
+如果指定了*compare*,在数据元素进行排序，这个排序方法可以根据数据元素的任何一个属性进行排序。比如根据上述例子中的name属性进行排序，则可以:
 
 ```js
 pie.sort(function(a, b) { return a.name.localeCompare(b.name); });
 ```
 
-Sorting does not affect the order of the [generated arc array](#_pie) which is always in the same order as the input data array; it merely affects the computed angles of each arc. The first arc starts at the [start angle](#pie_startAngle) and the last arc ends at the [end angle](#pie_endAngle).
+排序操作不影响生成的元素的顺序，影响的是每个pie的[start angle](#pie_startAngle) 和 [end angle](#pie_endAngle).
 
 <a name="pie_sortValues" href="#pie_sortValues">#</a> <i>pie</i>.<b>sortValues</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L58 "Source")
 
-If *compare* is specified, sets the value comparator to the specified function and returns this pie generator. If *compare* is not specified, returns the current value comparator, which defaults to descending value. The default value comparator is implemented as:
+与上述排序相比，这个排序针对性更强，它依据值进行排序，而不考虑其他属性的影响:
 
 ```js
 function compare(a, b) {
@@ -294,19 +291,16 @@ function compare(a, b) {
 }
 ```
 
-If both the data comparator and the value comparator are null, then arcs are positioned in the original input order. Otherwise, the data is sorted according to the data comparator, and the resulting order is used. Setting the value comparator implicitly sets the [data comparator](#pie_sort) to null.
-
-The value comparator is similar to the [data comparator](#pie_sort), except the two arguments *a* and *b* are values derived from the input data array using the [value accessor](#pie_value), not the data elements. If the arc for *a* should be before the arc for *b*, then the comparator must return a number less than zero; if the arc for *a* should be after the arc for *b*, then the comparator must return a number greater than zero; returning zero means that the relative order of *a* and *b* is unspecified. For example, to sort arcs by ascending value:
 
 ```js
 pie.sortValues(function(a, b) { return a - b; });
 ```
 
-Sorting does not affect the order of the [generated arc array](#_pie) which is always in the same order as the input data array; it merely affects the computed angles of each arc. The first arc starts at the [start angle](#pie_startAngle) and the last arc ends at the [end angle](#pie_endAngle).
+排序操作不影响生成的元素的顺序，影响的是每个pie的[start angle](#pie_startAngle) 和 [end angle](#pie_endAngle).
 
 <a name="pie_startAngle" href="#pie_startAngle">#</a> <i>pie</i>.<b>startAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L66 "Source")
 
-If *angle* is specified, sets the overall start angle of the pie to the specified function or number and returns this pie generator. If *angle* is not specified, returns the current start angle accessor, which defaults to:
+设置或获取所有pie的起始角度。如果没有指定*angle*则将所有arc的起始角度设置为*angle*。默认情况下是以0度(12点钟方向)开始计算。默认为:
 
 ```js
 function startAngle() {
@@ -314,11 +308,10 @@ function startAngle() {
 }
 ```
 
-The start angle here means the *overall* start angle of the pie, *i.e.*, the start angle of the first arc. The start angle accessor is invoked once, being passed the same arguments and `this` context as the [pie generator](#_pie). The units of *angle* are arbitrary, but if you plan to use the pie generator in conjunction with an [arc generator](#arcs), you should specify an angle in radians, with 0 at -*y* (12 o’clock) and positive angles proceeding clockwise.
 
 <a name="pie_endAngle" href="#pie_endAngle">#</a> <i>pie</i>.<b>endAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L70 "Source")
 
-If *angle* is specified, sets the overall end angle of the pie to the specified function or number and returns this pie generator. If *angle* is not specified, returns the current end angle accessor, which defaults to:
+设置或获取所有pie的终止角度。默认为:
 
 ```js
 function endAngle() {
@@ -326,13 +319,12 @@ function endAngle() {
 }
 ```
 
-The end angle here means the *overall* end angle of the pie, *i.e.*, the end angle of the last arc. The end angle accessor is invoked once, being passed the same arguments and `this` context as the [pie generator](#_pie). The units of *angle* are arbitrary, but if you plan to use the pie generator in conjunction with an [arc generator](#arcs), you should specify an angle in radians, with 0 at -*y* (12 o’clock) and positive angles proceeding clockwise.
+设置起始角度和终止角度可以将所有的pie限制在某一个角度范围，而不是形成一个完整的圆形结构。
 
-The value of the end angle is constrained to [startAngle](#pie_startAngle) ± τ, such that |endAngle - startAngle| ≤ τ.
 
 <a name="pie_padAngle" href="#pie_padAngle">#</a> <i>pie</i>.<b>padAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/pie.js#L74 "Source")
 
-If *angle* is specified, sets the pad angle to the specified function or number and returns this pie generator. If *angle* is not specified, returns the current pad angle accessor, which defaults to:
+设置或获取相邻pie之间的间隙角度。默认为:
 
 ```js
 function padAngle() {
@@ -340,7 +332,7 @@ function padAngle() {
 }
 ```
 
-The pad angle here means the angular separation between each adjacent arc. The total amount of padding reserved is the specified *angle* times the number of elements in the input data array, and at most |endAngle - startAngle|; the remaining space is then divided proportionally by [value](#pie_value) such that the relative area of each arc is preserved. See the [pie padding animation](http://bl.ocks.org/mbostock/3e961b4c97a1b543fff2) for illustration. The pad angle accessor is invoked once, being passed the same arguments and `this` context as the [pie generator](#_pie). The units of *angle* are arbitrary, but if you plan to use the pie generator in conjunction with an [arc generator](#arcs), you should specify an angle in radians.
+关于间隙角度可以参考这个例子:[pie padding animation](http://bl.ocks.org/mbostock/3e961b4c97a1b543fff2)
 
 ### Lines
 
