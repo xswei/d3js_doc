@@ -534,7 +534,7 @@ var div = d3.select("body")
     .text(function(d) { return d; });
 ```
 
-如果初始状态下body为空，则会创建6个DIV元素并将其添加到body中:
+如果初始状态下body为空则会创建6个DIV元素并将其添加到body中:
 
 ```html
 <div>4</div>
