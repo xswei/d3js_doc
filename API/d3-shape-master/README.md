@@ -457,25 +457,27 @@ var line = d3.line()
 
 ### Areas
 
+
 [<img alt="Area Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area.png">](http://bl.ocks.org/mbostock/3883195)[<img alt="Stacked Area Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-stacked.png">](http://bl.ocks.org/mbostock/3885211)[<img alt="Difference Chart" width="295" height="154" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-difference.png">](http://bl.ocks.org/mbostock/3894205)
 
-The area generator produces an area, as in an area chart. An area is defined by two bounding [lines](#lines), either splines or polylines. Typically, the two lines share the same [*x*-values](#area_x) ([x0](#area_x0) = [x1](#area_x1)), differing only in *y*-value ([y0](#area_y0) and [y1](#area_y1)); most commonly, y0 is defined as a constant representing [zero](http://www.vox.com/2015/11/19/9758062/y-axis-zero-chart). The first line (the <i>topline</i>) is defined by x1 and y1 and is rendered first; the second line (the <i>baseline</i>) is defined by x0 and y0 and is rendered second, with the points in reverse order. With a [curveLinear](#curveLinear) [curve](#area_curve), this produces a clockwise polygon.
+area生成器可以生成一个区域，来绘制面积图。面积图由两个边界线组成，边界线可以是曲线也可以是折线。通常情况下两条边界线共享同一个[*x*-values](#area_x) ([x0](#area_x0) = [x1](#area_x1))，不同的是*y*-value ([y0](#area_y0) and [y1](#area_y1)); 大多数情况下y0是一个常量，用以表示[zero](http://www.vox.com/2015/11/19/9758062/y-axis-zero-chart)。面积图顶部曲线使用*x1*和*y1*定义，底部使用*x0*和*y0*表示。面积图区域是顺时针的多边形。
 
 <a name="area" href="#area">#</a> d3.<b>area</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js "Source")
 
-Constructs a new area generator with the default settings.
+使用默认的设置构建一个面积图生成器。
 
 <a name="_area" href="#_area">#</a> <i>area</i>(<i>data</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L17 "Source")
 
-Generates an area for the given array of *data*. Depending on this area generator’s associated [curve](#area_curve), the given input *data* may need to be sorted by *x*-value before being passed to the area generator. If the area generator has a [context](#line_context), then the area is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
+根据指定的数据返回一个使用路径字符串表示的面积。输入数据需要根据*x*值排好序。如果生成器包含上下文 [context](#line_context)，则区域会被渲染到上下文中。否则会调用一系列[path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods)方法返回一个[path data](http://www.w3.org/TR/SVG/paths.html#PathData)字符串。
+
 
 <a name="area_x" href="#area_x">#</a> <i>area</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L59 "Source")
 
-If *x* is specified, sets [x0](#area_x0) to *x* and [x1](#area_x1) to null and returns this area generator. If *x* is not specified, returns the current x0 accessor.
+如果指定了*x*则将[x0](#area_x0)设置为*x*并将[x1](#area_x1)设置为null。如果没有指定则返回当前的x0访问器。
 
 <a name="area_x0" href="#area_x0">#</a> <i>area</i>.<b>x0</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L63 "Source")
 
-If *x* is specified, sets the x0 accessor to the specified function or number and returns this area generator. If *x* is not specified, returns the current x0 accessor, which defaults to:
+设置或获取x0访问器。默认为:
 
 ```js
 function x(d) {
@@ -483,7 +485,8 @@ function x(d) {
 }
 ```
 
-When an area is [generated](#_area), the x0 accessor will be invoked for each [defined](#area_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. The default x0 accessor assumes that the input data are two-element arrays of numbers. If your data are in a different format, or if you wish to transform the data before rendering, then you should specify a custom accessor. For example, if `x` is a [time scale](https://github.com/d3/d3-scale#time-scales) and `y` is a [linear scale](https://github.com/d3/d3-scale#linear-scales):
+比如使用date属性作为x方向的值，则可以:
+
 
 ```js
 var data = [
@@ -504,17 +507,15 @@ var area = d3.area()
 
 <a name="area_x1" href="#area_x1">#</a> <i>area</i>.<b>x1</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L67 "Source")
 
-If *x* is specified, sets the x1 accessor to the specified function or number and returns this area generator. If *x* is not specified, returns the current x1 accessor, which defaults to null, indicating that the previously-computed [x0](#area_x0) value should be reused for the x1 value.
-
-When an area is [generated](#_area), the x1 accessor will be invoked for each [defined](#area_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. See [*area*.x0](#area_x0) for more information.
+设置或获取x1访问器。默认为null。
 
 <a name="area_y" href="#area_y">#</a> <i>area</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L71 "Source")
 
-If *y* is specified, sets [y0](#area_y0) to *y* and [y1](#area_y1) to null and returns this area generator. If *y* is not specified, returns the current y0 accessor.
+如果指定了*y*则将 [y0](#area_y0) 设置为 *y* 并将 [y1](#area_y1) 设置为null。
 
 <a name="area_y0" href="#area_y0">#</a> <i>area</i>.<b>y0</b>([<i>y</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L75 "Source")
 
-If *y* is specified, sets the y0 accessor to the specified function or number and returns this area generator. If *y* is not specified, returns the current y0 accessor, which defaults to:
+设置或获取y0访问器。默认为:
 
 ```js
 function y() {
@@ -522,11 +523,9 @@ function y() {
 }
 ```
 
-When an area is [generated](#_area), the y0 accessor will be invoked for each [defined](#area_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. See [*area*.x0](#area_x0) for more information.
-
 <a name="area_y1" href="#area_y1">#</a> <i>area</i>.<b>y1</b>([<i>y</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L79 "Source")
 
-If *y* is specified, sets the y1 accessor to the specified function or number and returns this area generator. If *y* is not specified, returns the current y1 accessor, which defaults to:
+设置或获取y1访问器。默认为:
 
 ```js
 function y(d) {
@@ -534,11 +533,9 @@ function y(d) {
 }
 ```
 
-A null accessor is also allowed, indicating that the previously-computed [y0](#area_y0) value should be reused for the y1 value. When an area is [generated](#_area), the y1 accessor will be invoked for each [defined](#area_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. See [*area*.x0](#area_x0) for more information.
-
 <a name="area_defined" href="#area_defined">#</a> <i>area</i>.<b>defined</b>([<i>defined</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L96 "Source")
 
-If *defined* is specified, sets the defined accessor to the specified function or boolean and returns this area generator. If *defined* is not specified, returns the current defined accessor, which defaults to:
+当数据中存在非法元素时，也就是出现断点时如何操作. 默认为:
 
 ```js
 function defined() {
@@ -546,91 +543,99 @@ function defined() {
 }
 ```
 
-The default accessor thus assumes that the input data is always defined. When an area is [generated](#_area), the defined accessor will be invoked for each element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. If the given element is defined (*i.e.*, if the defined accessor returns a truthy value for this element), the [x0](#area_x0), [x1](#area_x1), [y0](#area_y0) and [y1](#area_y1) accessors will subsequently be evaluated and the point will be added to the current area segment. Otherwise, the element will be skipped, the current area segment will be ended, and a new area segment will be generated for the next defined point. As a result, the generated area may have several discrete segments. For example:
+可以通过这个方法使得面积图跳过非法的元素。比如:
+
+```js
+
+var area = d3.area()
+  .defined(function(d){return d;})
+  ...
+
+```
 
 [<img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-defined.png" width="480" height="250" alt="Area with Missing Data">](http://bl.ocks.org/mbostock/3035090)
 
-Note that if an area segment consists of only a single point, it may appear invisible unless rendered with rounded or square [line caps](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap). In addition, some curves such as [curveCardinalOpen](#curveCardinalOpen) only render a visible segment if it contains multiple points.
-
 <a name="area_curve" href="#area_curve">#</a> <i>area</i>.<b>curve</b>([<i>curve</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L100 "Source")
 
-If *curve* is specified, sets the [curve factory](#curves) and returns this area generator. If *curve* is not specified, returns the current curve factory, which defaults to [curveLinear](#curveLinear).
+设置插值方式[curve factory](#curves) ，默认为[curveLinear](#curveLinear).
 
 <a name="area_context" href="#area_context">#</a> <i>area</i>.<b>context</b>([<i>context</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L104 "Source")
 
-If *context* is specified, sets the context and returns this area generator. If *context* is not specified, returns the current context, which defaults to null. If the context is not null, then the [generated area](#_area) is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string representing the generated area is returned.
+如果指定了*context*则将路径信息渲染到context上下文中。如果使用canvas画布则需要使用这个方法。
 
 <a name="area_lineX0" href="#area_lineX0">#</a> <i>area</i>.<b>lineX0</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L83 "Source")
 <br><a name="area_lineY0" href="#area_lineY0">#</a> <i>area</i>.<b>lineY0</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L84 "Source")
 
-Returns a new [line generator](#lines) that has this area generator’s current [defined accessor](#area_defined), [curve](#area_curve) and [context](#area_context). The line’s [*x*-accessor](#line_x) is this area’s [*x0*-accessor](#area_x0), and the line’s [*y*-accessor](#line_y) is this area’s [*y0*-accessor](#area_y0).
+返回一个线条生成器，线条生成器的x访问器是面积生成器的 [*x0*-accessor](#area_x0)，线条生成器的y访问器是面积生成器的[*y0*-accessor](#area_y0)
 
 <a name="area_lineX1" href="#area_lineX1">#</a> <i>area</i>.<b>lineX1</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L92 "Source")
 
-Returns a new [line generator](#lines) that has this area generator’s current [defined accessor](#area_defined), [curve](#area_curve) and [context](#area_context). The line’s [*x*-accessor](#line_x) is this area’s [*x1*-accessor](#area_x1), and the line’s [*y*-accessor](#line_y) is this area’s [*y0*-accessor](#area_y0).
+返回一个线条生成器，线条生成器的x访问器是面积生成器的 [*x1*-accessor](#area_x1)，线条生成器的y访问器是面积生成器的[*y0*-accessor](#area_y0)
 
 <a name="area_lineY1" href="#area_lineY1">#</a> <i>area</i>.<b>lineY1</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/area.js#L88 "Source")
 
-Returns a new [line generator](#lines) that has this area generator’s current [defined accessor](#area_defined), [curve](#area_curve) and [context](#area_context). The line’s [*x*-accessor](#line_x) is this area’s [*x0*-accessor](#area_x0), and the line’s [*y*-accessor](#line_y) is this area’s [*y1*-accessor](#area_y1).
+返回一个线条生成器，线条生成器的x访问器是面积生成器的 [*x1*-accessor](#area_x1)，线条生成器的y访问器是面积生成器的[*y1*-accessor](#area_y1)
 
 <a name="radialArea" href="#radialArea">#</a> d3.<b>radialArea</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js "Source")
 
 <img alt="Radial Area" width="250" height="250" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/area-radial.png">
 
-Constructs a new radial area generator with the default settings. A radial area generator is equivalent to the standard Cartesian [area generator](#area), except the [x](#area_x) and [y](#area_y) accessors are replaced with [angle](#radialArea_angle) and [radius](#radialArea_radius) accessors. Radial areas are always positioned relative to ⟨0,0⟩; use a transform (see: [SVG](http://www.w3.org/TR/SVG/coords.html#TransformAttribute), [Canvas](http://www.w3.org/TR/2dcontext/#transformations)) to change the origin.
+径向面积图，与标准面积图不同的是，径向面积图处于极坐标中，对应的访问器为[angle](#radialArea_angle)和[radius](#radialArea_radius)，并且相对`<0,0>`点，需要使用transform变换将其移动到指定的位置。
 
 <a name="_radialArea" href="#_radialArea">#</a> <i>radialArea</i>(<i>data</i>)
 
-Equivalent to [*area*](#_area).
+相当于 [*area*](#_area).
 
 <a name="radialArea_angle" href="#radialArea_angle">#</a> <i>radialArea</i>.<b>angle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L13 "Source")
 
-Equivalent to [*area*.x](#area_x), except the accessor returns the angle in radians, with 0 at -*y* (12 o’clock).
+相当于 [*area*.x](#area_x), 返回弧度值，0度为12点钟方向。
 
 <a name="radialArea_startAngle" href="#radialArea_startAngle">#</a> <i>radialArea</i>.<b>startAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L14 "Source")
 
-Equivalent to [*area*.x0](#area_x0), except the accessor returns the angle in radians, with 0 at -*y* (12 o’clock). Note: typically [angle](#radialArea_angle) is used instead of setting separate start and end angles.
+相当于 [*area*.x0](#area_x0), 返回弧度值，0度为12点钟方向。
 
 <a name="radialArea_endAngle" href="#radialArea_endAngle">#</a> <i>radialArea</i>.<b>endAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L15 "Source")
 
-Equivalent to [*area*.x1](#area_x1), except the accessor returns the angle in radians, with 0 at -*y* (12 o’clock). Note: typically [angle](#radialArea_angle) is used instead of setting separate start and end angles.
+相当于 [*area*.x1](#area_x1), 返回弧度值，0度为12点钟方向。
 
 <a name="radialArea_radius" href="#radialArea_radius">#</a> <i>radialArea</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L16 "Source")
 
-Equivalent to [*area*.y](#area_y), except the accessor returns the radius: the distance from the origin ⟨0,0⟩.
+相当于 [*area*.y](#area_y), 返回半径值，相对与`<0,0>`.
 
 <a name="radialArea_innerRadius" href="#radialArea_innerRadius">#</a> <i>radialArea</i>.<b>innerRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L17 "Source")
 
-Equivalent to [*area*.y0](#area_y0), except the accessor returns the radius: the distance from the origin ⟨0,0⟩.
+相当于 [*area*.y0](#area_y0), 返回半径值，相对与`<0,0>`.
 
 <a name="radialArea_outerRadius" href="#radialArea_outerRadius">#</a> <i>radialArea</i>.<b>outerRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L18 "Source")
 
-Equivalent to [*area*.y1](#area_y1), except the accessor returns the radius: the distance from the origin ⟨0,0⟩.
+相当于 [*area*.y1](#area_y1), 返回半径值，相对与`<0,0>`.
 
 <a name="radialArea_defined" href="#radialArea_defined">#</a> <i>radialArea</i>.<b>defined</b>([<i>defined</i>])
 
-Equivalent to [*area*.defined](#area_defined).
+相当于 [*area*.defined](#area_defined).
 
 <a name="radialArea_curve" href="#radialArea_curve">#</a> <i>radialArea</i>.<b>curve</b>([<i>curve</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L24 "Source")
 
-Equivalent to [*area*.curve](#area_curve). Note that [curveMonotoneX](#curveMonotoneX) or [curveMonotoneY](#curveMonotoneY) are not recommended for radial areas because they assume that the data is monotonic in *x* or *y*, which is typically untrue of radial areas.
+相当于 [*area*.curve](#area_curve).不推荐使用 [curveMonotoneX](#curveMonotoneX) 或 [curveMonotoneY](#curveMonotoneY)
 
 <a name="radialArea_context" href="#radialArea_context">#</a> <i>radialArea</i>.<b>context</b>([<i>context</i>])
 
-Equivalent to [*line*.context](#line_context).
+相当于 [*line*.context](#line_context).
 
 <a name="radialArea_lineStartAngle" href="#radialArea_lineStartAngle">#</a> <i>radialArea</i>.<b>lineStartAngle</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L19 "Source")
 <br><a name="radialArea_lineInnerRadius" href="#radialArea_lineInnerRadius">#</a> <i>radialArea</i>.<b>lineInnerRadius</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L21 "Source")
 
-Returns a new [radial line generator](#radialLine) that has this radial area generator’s current [defined accessor](#radialArea_defined), [curve](#radialArea_curve) and [context](#radialArea_context). The line’s [angle accessor](#radialLine_angle) is this area’s [start angle accessor](#radialArea_startAngle), and the line’s [radius accessor](#radialLine_radius) is this area’s [inner radius accessor](#radialArea_innerRadius).
+返回一个 [radial line generator](#radialLine)。返回的radial线条生成器的[angle accessor](#radialLine_angle)为径向面积图的[start angle accessor](#radialArea_startAngle), radial线条的 [radius accessor](#radialLine_radius) 为径向面积图的 [inner radius accessor](#radialArea_innerRadius).
 
 <a name="radialArea_lineEndAngle" href="#radialArea_lineEndAngle">#</a> <i>radialArea</i>.<b>lineEndAngle</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L20 "Source")
+
+返回一个 [radial line generator](#radialLine)。返回的radial线条生成器的[angle accessor](#radialLine_angle)为径向面积图的[end angle accessor](#radialArea_endAngle), radial线条的 [radius accessor](#radialLine_radius) 为径向面积图的 [inner radius accessor](#radialArea_innerRadius).
 
 Returns a new [radial line generator](#radialLine) that has this radial area generator’s current [defined accessor](#radialArea_defined), [curve](#radialArea_curve) and [context](#radialArea_context). The line’s [angle accessor](#radialLine_angle) is this area’s [end angle accessor](#radialArea_endAngle), and the line’s [radius accessor](#radialLine_radius) is this area’s [inner radius accessor](#radialArea_innerRadius).
 
 <a name="radialArea_lineOuterRadius" href="#radialArea_lineOuterRadius">#</a> <i>radialArea</i>.<b>lineOuterRadius</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L22 "Source")
 
-Returns a new [radial line generator](#radialLine) that has this radial area generator’s current [defined accessor](#radialArea_defined), [curve](#radialArea_curve) and [context](#radialArea_context). The line’s [angle accessor](#radialLine_angle) is this area’s [start angle accessor](#radialArea_startAngle), and the line’s [radius accessor](#radialLine_radius) is this area’s [outer radius accessor](#radialArea_outerRadius).
+返回一个 [radial line generator](#radialLine)。返回的radial线条生成器的[angle accessor](#radialLine_angle)为径向面积图的[start angle accessor](#radialArea_startAngle), radial线条的 [radius accessor](#radialLine_radius) 为径向面积图的[outer radius accessor](#radialArea_outerRadius).
 
 ### Curves
 
