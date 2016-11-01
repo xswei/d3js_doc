@@ -338,19 +338,19 @@ function padAngle() {
 
 [<img width="295" height="154" alt="Line Chart" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/line.png">](http://bl.ocks.org/mbostock/1550e57e12e73b86ad9e)
 
-线条生成器可以生成一个 [spline](https://en.wikipedia.org/wiki/Spline_\(mathematics\)) 或 [polyline](https://en.wikipedia.org/wiki/Polygonal_chain). 线条元素是一种常用的可视化元素，比如[hierarchical edge bundling](http://bl.ocks.org/mbostock/7607999).
+line生成器可以生成一个[spline](https://en.wikipedia.org/wiki/Spline_\(mathematics\)) 或 [polyline](https://en.wikipedia.org/wiki/Polygonal_chain). 除线条类型的图表外，线条还被应用在其他的可视化布局中，比如 [hierarchical edge bundling](http://bl.ocks.org/mbostock/7607999).
 
 <a name="line" href="#line">#</a> d3.<b>line</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/line.js "Source")
 
-构造一个默认的线条生成器.
+使用默认的设置构建一个line生成器
 
 <a name="_line" href="#_line">#</a> <i>line</i>(<i>data</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L14 "Source")
 
-Generates a line for the given array of *data*. Depending on this line generator’s associated [curve](#line_curve), the given input *data* may need to be sorted by *x*-value before being passed to the line generator. If the line generator has a [context](#line_context), then the line is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
+使用指定的数据生成一条线，给定的数据顺序应该按照*x*值排好序。如果为生成器指定了[context](#line_context)，则会使用一系列[path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods)将线条渲染到context中。如果没有指定context则返回一系列SVG路径字符串。
 
 <a name="line_x" href="#line_x">#</a> <i>line</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L34 "Source")
 
-If *x* is specified, sets the x accessor to the specified function or number and returns this line generator. If *x* is not specified, returns the current x accessor, which defaults to:
+设置或获取*x*值访问器。默认为:
 
 ```js
 function x(d) {
@@ -358,7 +358,7 @@ function x(d) {
 }
 ```
 
-When a line is [generated](#_line), the x accessor will be invoked for each [defined](#line_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. The default x accessor assumes that the input data are two-element arrays of numbers. If your data are in a different format, or if you wish to transform the data before rendering, then you should specify a custom accessor. For example, if `x` is a [time scale](https://github.com/d3/d3-scale#time-scales) and `y` is a [linear scale](https://github.com/d3/d3-scale#linear-scales):
+在生成线条时，*x*访问器会对输入的数据依次调用以获取准确的*x*值。*x*访问器可以传递当前的数据元素*d*,索引*i*以及整个数据集*data*。默认情况下数据集为二维数组，*x*访问器如上所示。如果数据集为对象数组，且*x*值使用特定属性代替时可以如下:
 
 ```js
 var data = [
@@ -378,7 +378,7 @@ var line = d3.line()
 
 <a name="line_y" href="#line_y">#</a> <i>line</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L38 "Source")
 
-If *y* is specified, sets the y accessor to the specified function or number and returns this line generator. If *y* is not specified, returns the current y accessor, which defaults to:
+设置或获取*y*访问器。默认为:
 
 ```js
 function y(d) {
@@ -386,11 +386,12 @@ function y(d) {
 }
 ```
 
-When a line is [generated](#_line), the y accessor will be invoked for each [defined](#line_defined) element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. The default y accessor assumes that the input data are two-element arrays of numbers. See [*line*.x](#line_x) for more information.
+*y*访问器的调用方式与*x*访问器类似。
 
 <a name="line_defined" href="#line_defined">#</a> <i>line</i>.<b>defined</b>([<i>defined</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L42 "Source")
 
-If *defined* is specified, sets the defined accessor to the specified function or boolean and returns this line generator. If *defined* is not specified, returns the current defined accessor, which defaults to:
+
+设置或获取*defined*访问器，这个访问器指定在数据出现缺失时如何操作。默认情况下为:
 
 ```js
 function defined() {
@@ -398,49 +399,61 @@ function defined() {
 }
 ```
 
-The default accessor thus assumes that the input data is always defined. When a line is [generated](#_line), the defined accessor will be invoked for each element in the input data array, being passed the element `d`, the index `i`, and the array `data` as three arguments. If the given element is defined (*i.e.*, if the defined accessor returns a truthy value for this element), the [x](#line_x) and [y](#line_y) accessors will subsequently be evaluated and the point will be added to the current line segment. Otherwise, the element will be skipped, the current line segment will be ended, and a new line segment will be generated for the next defined point. As a result, the generated line may have several discrete segments. For example:
+默认的访问器都假设所有的输入数据都是正确定义的，如果输入的数据没被定义，则会出现断点，*defined*就是定义此时该如何操作。
+
+如果想跳过没定义的值，则设置：
+
+```js
+
+var line = d3.line()
+  .defined(function(d){return d;})
+  ...
+
+```
+
+
+在生成线条时，值访问器会对输入的元素依次调用，如果能正确读取到*x*和*y*属性，则正常，如果不能则将跳过。例如:
 
 [<img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/line-defined.png" width="480" height="250" alt="Line with Missing Data">](http://bl.ocks.org/mbostock/0533f44f2cfabecc5e3a)
 
-Note that if a line segment consists of only a single point, it may appear invisible unless rendered with rounded or square [line caps](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap). In addition, some curves such as [curveCardinalOpen](#curveCardinalOpen) only render a visible segment if it contains multiple points.
 
 <a name="line_curve" href="#line_curve">#</a> <i>line</i>.<b>curve</b>([<i>curve</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L46 "Source")
 
-If *curve* is specified, sets the [curve factory](#curves) and returns this line generator. If *curve* is not specified, returns the current curve factory, which defaults to [curveLinear](#curveLinear).
+设置或获取[curve factory(曲线)](#curves)，这个方法类似于v3中的插值方式，因为在实际应用中，可能想让线条更圆滑，而不是菱角分明的折现。默认情况下为[curveLinear](#curveLinear).
 
 <a name="line_context" href="#line_context">#</a> <i>line</i>.<b>context</b>([<i>context</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/line.js#L50 "Source")
 
-If *context* is specified, sets the context and returns this line generator. If *context* is not specified, returns the current context, which defaults to null. If the context is not null, then the [generated line](#_line) is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string representing the generated line is returned.
+如果指定了*context*，则设置上下文并返回线条生成器。如果没有指定则返回当前的上下文，默认为null。如果非null则线条生成器会调用一些列[path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods)将路径信息添加到上下文中。
 
 <a name="radialLine" href="#radialLine">#</a> d3.<b>radialLine</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialLine.js "Source")
 
 <img alt="Radial Line" width="250" height="250" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/line-radial.png">
 
-Constructs a new radial line generator with the default settings. A radial line generator is equivalent to the standard Cartesian [line generator](#line), except the [x](#line_x) and [y](#line_y) accessors are replaced with [angle](#radialLine_angle) and [radius](#radialLine_radius) accessors. Radial lines are always positioned relative to ⟨0,0⟩; use a transform (see: [SVG](http://www.w3.org/TR/SVG/coords.html#TransformAttribute), [Canvas](http://www.w3.org/TR/2dcontext/#transformations)) to change the origin.
+使用默认的设置构建一个radial线条生成器。radial线条与标准笛卡尔坐标系中的线条类似，只不过radial线条位于极坐标系中，标准线条中的*x*和*y*对应radial线条中的[angle](#radialLine_angle) 和 [radius](#radialLine_radius)。radial总是相对于`<0,0>`点的，所以要使用transform变换将其移动到指定的位置。
 
 <a name="_radialLine" href="#_radialLine">#</a> <i>radialLine</i>(<i>data</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/radialLine.js#L4 "Source")
 
-Equivalent to [*line*](#_line).
+等价于 [*line*](#_line).
 
 <a name="radialLine_angle" href="#radialLine_angle">#</a> <i>radialLine</i>.<b>angle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialLine.js#L7 "Source")
 
-Equivalent to [*line*.x](#line_x), except the accessor returns the angle in radians, with 0 at -*y* (12 o’clock).
+等价于 [*line*.x](#line_x), 只不过返回的是角度值，0度位于12点钟方向
 
 <a name="radialLine_radius" href="#radialLine_radius">#</a> <i>radialLine</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialLine.js#L8 "Source")
 
-Equivalent to [*line*.y](#line_y), except the accessor returns the radius: the distance from the origin ⟨0,0⟩.
+等价于 [*line*.y](#line_y), 访问器返回的是半径
 
 <a name="radialLine_defined" href="#radialLine_defined">#</a> <i>radialLine</i>.<b>defined</b>([<i>defined</i>])
 
-Equivalent to [*line*.defined](#line_defined).
+等价于 [*line*.defined](#line_defined).
 
 <a name="radialLine_curve" href="#radialLine_curve">#</a> <i>radialLine</i>.<b>curve</b>([<i>curve</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/radialLine.js#L10 "Source")
 
-Equivalent to [*line*.curve](#line_curve). Note that [curveMonotoneX](#curveMonotoneX) or [curveMonotoneY](#curveMonotoneY) are not recommended for radial lines because they assume that the data is monotonic in *x* or *y*, which is typically untrue of radial lines.
+等价于 [*line*.curve](#line_curve). 但是不推荐使用 [curveMonotoneX](#curveMonotoneX) 或 [curveMonotoneY](#curveMonotoneY)
 
 <a name="radialLine_context" href="#radialLine_context">#</a> <i>radialLine</i>.<b>context</b>([<i>context</i>])
 
-Equivalent to [*line*.context](#line_context).
+等价于 [*line*.context](#line_context).
 
 ### Areas
 
