@@ -631,8 +631,6 @@ var area = d3.area()
 
 返回一个 [radial line generator](#radialLine)。返回的radial线条生成器的[angle accessor](#radialLine_angle)为径向面积图的[end angle accessor](#radialArea_endAngle), radial线条的 [radius accessor](#radialLine_radius) 为径向面积图的 [inner radius accessor](#radialArea_innerRadius).
 
-Returns a new [radial line generator](#radialLine) that has this radial area generator’s current [defined accessor](#radialArea_defined), [curve](#radialArea_curve) and [context](#radialArea_context). The line’s [angle accessor](#radialLine_angle) is this area’s [end angle accessor](#radialArea_endAngle), and the line’s [radius accessor](#radialLine_radius) is this area’s [inner radius accessor](#radialArea_innerRadius).
-
 <a name="radialArea_lineOuterRadius" href="#radialArea_lineOuterRadius">#</a> <i>radialArea</i>.<b>lineOuterRadius</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/radialArea.js#L22 "Source")
 
 返回一个 [radial line generator](#radialLine)。返回的radial线条生成器的[angle accessor](#radialLine_angle)为径向面积图的[start angle accessor](#radialArea_startAngle), radial线条的 [radius accessor](#radialLine_radius) 为径向面积图的[outer radius accessor](#radialArea_outerRadius).
