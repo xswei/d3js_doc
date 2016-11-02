@@ -1017,44 +1017,46 @@ function offsetNone(series, order) {
 
 ### Stack Orders
 
-Stack orders are typically not used directly, but are instead passed to [*stack*.order](#stack_order).
+stack排序方法一般不直接使用，而是传递给 [*stack*.order](#stack_order).
 
 <a name="stackOrderAscending" href="#stackOrderAscending">#</a> d3.<b>stackOrderAscending</b>(<i>series</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/order/ascending.js "Source")
 
-Returns a series order such that the smallest series (according to the sum of values) is at the bottom.
+最小的值(values之和)位于底部
 
 <a name="stackOrderDescending" href="#stackOrderDescending">#</a> d3.<b>stackOrderDescending</b>(<i>series</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/order/descending.js "Source")
 
-Returns a series order such that the largest series (according to the sum of values) is at the bottom.
+最大的值(values之和)位于底部
 
 <a name="stackOrderInsideOut" href="#stackOrderInsideOut">#</a> d3.<b>stackOrderInsideOut</b>(<i>series</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/order/insideOut.js "Source")
 
-Returns a series order such that the larger series (according to the sum of values) are on the inside and the smaller series are on the outside. This order is recommended for streamgraphs in conjunction with the [wiggle offset](#stackOffsetWiggle). See [Stacked Graphs—Geometry & Aesthetics](http://leebyron.com/streamgraph/) by Bryon & Wattenberg for more information.
+最大的值在内侧，最小的值在外侧，这个是针对河流图的，也就是是朝两边同时堆叠的。参考[wiggle offset](#stackOffsetWiggle)。
 
 <a name="stackOrderNone" href="#stackOrderNone">#</a> d3.<b>stackOrderNone</b>(<i>series</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/order/none.js "Source")
 
-Returns the given series order [0, 1, … *n* - 1] where *n* is the number of elements in *series*. Thus, the stack order is given by the [key accessor](#stack_keys).
+次序是根据*keys*得到的，相当于没有排序。
 
 <a name="stackOrderReverse" href="#stackOrderReverse">#</a> d3.<b>stackOrderReverse</b>(<i>series</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/order/reverse.js "Source")
 
-Returns the reverse of the given series order [*n* - 1, *n* - 2, … 0] where *n* is the number of elements in *series*. Thus, the stack order is given by the reverse of the [key accessor](#stack_keys).
+将原有的*key*序列翻转
 
 ### Stack Offsets
 
-Stack offsets are typically not used directly, but are instead passed to [*stack*.offset](#stack_offset).
+stack offset一般不直接使用，而是传递给[*stack*.offset](#stack_offset)。
+
 
 <a name="stackOffsetExpand" href="#stackOffsetExpand">#</a> d3.<b>stackOffsetExpand</b>(<i>series</i>, <i>order</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/offset/expand.js "Source")
 
-Applies a zero baseline and normalizes the values for each point such that the topline is always one.
+将整个堆叠图放在0-1之间，也就是上边界和下边界都是常量，
 
 <a name="stackOffsetNone" href="#stackOffsetNone">#</a> d3.<b>stackOffsetNone</b>(<i>series</i>, <i>order</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/offset/none.js "Source")
 
-Applies a zero baseline.
+
+以0为基线
 
 <a name="stackOffsetSilhouette" href="#stackOffsetSilhouette">#</a> d3.<b>stackOffsetSilhouette</b>(<i>series</i>, <i>order</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/offset/silhouette.js "Source")
 
-Shifts the baseline down such that the center of the streamgraph is always at zero.
+上下移动基线，使得整个堆叠图的中心位于基线
 
 <a name="stackOffsetWiggle" href="#stackOffsetWiggle">#</a> d3.<b>stackOffsetWiggle</b>(<i>series</i>, <i>order</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/offset/wiggle.js "Source")
 
-Shifts the baseline so as to minimize the weighted wiggle of layers. This offset is recommended for streamgraphs in conjunction with the [inside-out order](#stackOrderInsideOut). See [Stacked Graphs—Geometry & Aesthetics](http://leebyron.com/streamgraph/) by Bryon & Wattenberg for more information.
+做河流图用的，参考 [Stacked Graphs—Geometry & Aesthetics](http://leebyron.com/streamgraph/)
