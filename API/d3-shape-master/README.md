@@ -810,19 +810,19 @@ var line = d3.line().curve(d3.curveCatmullRom.alpha(0.5));
 
 <a href="#symbolCircle"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/circle.png" width="100" height="100"></a><a href="#symbolCross"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/cross.png" width="100" height="100"></a><a href="#symbolDiamond"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/diamond.png" width="100" height="100"></a><a href="#symbolSquare"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/square.png" width="100" height="100"></a><a href="#symbolStar"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/star.png" width="100" height="100"></a><a href="#symbolTriangle"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/triangle.png" width="100" height="100"><a href="#symbolWye"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/wye.png" width="100" height="100"></a>
 
-Symbols provide a categorical shape encoding as is commonly used in scatterplots. Symbols are always centered at ⟨0,0⟩; use a transform (see: [SVG](http://www.w3.org/TR/SVG/coords.html#TransformAttribute), [Canvas](http://www.w3.org/TR/2dcontext/#transformations)) to move the arc to a different position.
+Symbols提供了一些已定义的图形编码(符号)，通常被用在散点图中。符号总是被放在`<0,0>`点，需要使用transform变换将其移动到指定的位置
 
 <a name="symbol" href="#symbol">#</a> d3.<b>symbol</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/symbol.js "Source")
 
-Constructs a new symbol generator with the default settings.
+使用默认的设置创建一个符号生成器。
 
 <a name="_symbol" href="#_symbol">#</a> <i>symbol</i>(<i>arguments</i>…) [<>](https://github.com/d3/d3-shape/blob/master/src/symbol.js#L11 "Source")
 
-Generates a symbol for the given *arguments*. The *arguments* are arbitrary; they are simply propagated to the symbol generator’s accessor functions along with the `this` object. For example, with the default settings, no arguments are needed to produce a circle with area 64 square pixels. If the symbol generator has a [context](#symbol_context), then the symbol is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls and this function returns void. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string is returned.
+使用指定的参数创建一个符号。*arguments*是任意的，这些参数会被传递给符号生成器的访问器。如果没有参数时会返回一个面积为64像素的圆的路径字符串。如果符号生成器包含了[context](#symbol_context)，则路径信息会被附加到context上下文中，如果没有则会调用一些列[path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods)返回一个[path data](http://www.w3.org/TR/SVG/paths.html#PathData)字符串。
 
 <a name="symbol_type" href="#symbol_type">#</a> <i>symbol</i>.<b>type</b>([<i>type</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/symbol.js#L33 "Source")
 
-If *type* is specified, sets the symbol type to the specified function or symbol type and returns this line generator. If *type* is not specified, returns the current symbol type accessor, which defaults to:
+如果指定了*type*则根据指定的*type*返回一个对应的符号字符串。如果没有指定*type*则返回默认的符号类型访问器，默认为:
 
 ```js
 function type() {
@@ -830,11 +830,11 @@ function type() {
 }
 ```
 
-See [symbols](#symbols) for the set of built-in symbol types. To implement a custom symbol type, pass an object that implements [*symbolType*.draw](#symbolType_draw).
+参考 [symbols](#symbols) 获取更多的内置的符号类型. 如果要自定义符号，则使用 [*symbolType*.draw](#symbolType_draw).
 
 <a name="symbol_size" href="#symbol_size">#</a> <i>symbol</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/symbol.js#L37 "Source")
 
-If *size* is specified, sets the size to the specified function or number and returns this symbol generator. If *size* is not specified, returns the current size accessor, which defaults to:
+设置或获取符号的大小，默认为64平方像素:
 
 ```js
 function size() {
@@ -842,43 +842,52 @@ function size() {
 }
 ```
 
-Specifying the size as a function is useful for constructing a scatterplot with a size encoding. If you wish to scale the symbol to fit a given bounding box, rather than by area, try [SVG’s getBBox](http://bl.ocks.org/mbostock/3dd515e692504c92ab65).
+符号的大小可以作为一个视觉编码被使用，如果不想使用面积来表示大小的话，那也可以使用[SVG’s getBBox](http://bl.ocks.org/mbostock/3dd515e692504c92ab65)来设置符号的尺寸。
 
 <a name="symbol_context" href="#symbol_context">#</a> <i>symbol</i>.<b>context</b>([<i>context</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/symbol.js#L41 "Source")
 
-If *context* is specified, sets the context and returns this symbol generator. If *context* is not specified, returns the current context, which defaults to null. If the context is not null, then the [generated symbol](#_symbol) is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string representing the generated symbol is returned.
+将符号路径信息附加到*context*上下文。在Canvas中绘制时使用。
 
 <a name="symbols" href="#symbols">#</a> d3.<b>symbols</b>
 
-An array containing the set of all built-in symbol types: [circle](#symbolCircle), [cross](#symbolCross), [diamond](#symbolDiamond), [square](#symbolSquare), [star](#symbolStar), [triangle](#symbolTriangle), and [wye](#symbolWye). Useful for constructing the range of an [ordinal scale](https://github.com/d3/d3-scale#ordinal-scales) should you wish to use a shape encoding for categorical data.
+包含[circle](#symbolCircle), [cross](#symbolCross), [diamond](#symbolDiamond), [square](#symbolSquare), [star](#symbolStar), [triangle](#symbolTriangle), and [wye](#symbolWye)的数组，每个数组元素都是一个对象，这个对象包含了*draw*方法，draw方法接受两个参数:context,size. 可以如下使用:
+
+```js
+var context = document.getElementById("canvas").getContext("2d");
+      context.translate(100,100)
+      d3.symbols[0].draw(context,100);
+      context.stroke();
+```
+
 
 <a name="symbolCircle" href="#symbolCircle">#</a> d3.<b>symbolCircle</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/circle.js "Source")
 
-The circle symbol type.
+圆
 
 <a name="symbolCross" href="#symbolCross">#</a> d3.<b>symbolCross</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/cross.js "Source")
 
-The Greek cross symbol type, with arms of equal length.
+十字
 
 <a name="symbolDiamond" href="#symbolDiamond">#</a> d3.<b>symbolDiamond</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/diamond.js "Source")
 
-The rhombus symbol type.
+菱形
 
 <a name="symbolSquare" href="#symbolSquare">#</a> d3.<b>symbolSquare</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/square.js "Source")
 
-The square symbol type.
+正方形
 
 <a name="symbolStar" href="#symbolStar">#</a> d3.<b>symbolStar</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/star.js "Source")
 
-The pentagonal star (pentagram) symbol type.
+五角星
 
 <a name="symbolTriangle" href="#symbolTriangle">#</a> d3.<b>symbolTriangle</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/triangle.js "Source")
 
-The up-pointing triangle symbol type.
+尖朝上的等边三角形
+
 
 <a name="symbolWye" href="#symbolWye">#</a> d3.<b>symbolWye</b> [<>](https://github.com/d3/d3-shape/blob/master/src/symbol/wye.js "Source")
 
-The Y-shape symbol type.
+"Y"形
 
 ### Custom Symbol Types
 
