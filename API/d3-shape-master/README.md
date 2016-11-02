@@ -903,23 +903,23 @@ Symbol types are typically not used directly, instead being passed to [*symbol*.
 
 [<img alt="Stacked Bar Chart" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/stacked-bar.png" width="295" height="154">](http://bl.ocks.org/mbostock/3886208)[<img alt="Streamgraph" src="https://raw.githubusercontent.com/d3/d3-shape/master/img/stacked-stream.png" width="295" height="154">](http://bl.ocks.org/mbostock/4060954)
 
-Some shape types can be stacked, placing one shape adjacent to another. For example, a bar chart of monthly sales might be broken down into a multi-series bar chart by product category, stacking bars vertically. This is equivalent to subdividing a bar chart by an ordinal dimension (such as product category) and applying a color encoding.
+有一些形状可以堆叠放置。比如使用条形图表示某个月的销售额，月销售额可以由多种商品的销售额组成，相当于是将一个条形图细分为多个堆叠放置的小条形图。
 
-Stacked charts can show overall value and per-category value simultaneously; however, it is typically harder to compare across categories, as only the bottom layer of the stack is aligned. So, chose the [stack order](#stack_order) carefully, and consider a [streamgraph](#stackOffsetWiggle). (See also [grouped charts](http://bl.ocks.org/mbostock/3887051).)
+堆叠图可以同时展示总量和构成总量的分量组成。但是在不同的分量之间是难以比较的。因为只有堆叠图的底部才是对齐的。因此要谨慎的选择[stack order](#stack_order)，并考虑 [streamgraph](#stackOffsetWiggle)。
 
-Like the [pie generator](#pies), the stack generator does not produce a shape directly. Instead it computes positions which you can then pass to an [area generator](#areas) or use directly, say to position bars.
+与 [pie generator](#pies)类似，stack生成器不直接生成图形，而是根据输入的数据计算出属性值吗，然后借助[area generator](#areas)绘制面积图形或条形图。
 
 <a name="stack" href="#stack">#</a> d3.<b>stack</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js "Source")
 
-Constructs a new stack generator with the default settings.
+使用默认的设置构建一个stack生成器。
+
 
 <a name="_stack" href="#_stack">#</a> <i>stack</i>(<i>data</i>[, <i>arguments…</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js#L16 "Source")
 
-Generates a stack for the given array of *data*, returning an array representing each series. Any additional *arguments* are arbitrary; they are simply propagated to accessors along with the `this` object.
+根据指定的*data*数组计算一个stack布局，返回一个数组，每个元素都代表一个key值对应的数据序列。
 
-The series are determined by the [keys accessor](#stack_keys); each series *i* in the returned array corresponds to the *i*th key. Each series is an array of points, where each point *j* corresponds to the *j*th element in the input *data*. Lastly, each point is represented as an array [*y0*, *y1*] where *y0* is the lower value (baseline) and *y1* is the upper value (topline); the difference between *y0* and *y1* corresponds to the computed [value](#stack_value) for this point. The key for each series is available as *series*.key, and the [index](#stack_order) as *series*.index. The input data element for each point is available as *point*.data.
+数值的读取是通过[keys accessor](#stack_keys)定义的。比如对于如下数据:
 
-For example, consider the following table representing monthly sales of fruits:
 
 Month   | Apples | Bananas | Cherries | Dates
 --------|--------|---------|----------|-------
@@ -928,7 +928,7 @@ Month   | Apples | Bananas | Cherries | Dates
  3/2015 |    640 |     960 |      640 |   400
  4/2015 |    320 |     480 |      640 |   400
 
-This might be represented in JavaScript as an array of objects:
+数据表示如下:
 
 ```js
 var data = [
@@ -939,7 +939,7 @@ var data = [
 ];
 ```
 
-To produce a stack for this data:
+使用这些数据生成stack数据:
 
 ```js
 var stack = d3.stack()
@@ -950,7 +950,8 @@ var stack = d3.stack()
 var series = stack(data);
 ```
 
-The resulting array has one element per *series*. Each series has one point per month, and each point has a lower and upper value defining the baseline and topline:
+结果为一个三维数组，最外围表示的是不同的品种，第二层则是不同日期此品种的数量，最内层是[y0,y1],用以表示堆叠时的偏移量
+
 
 ```js
 [
@@ -961,15 +962,16 @@ The resulting array has one element per *series*. Each series has one point per 
 ]
 ```
 
-Each series in then typically passed to an [area generator](#areas) to render an area chart, or used to construct rectangles for a bar chart.
+每一个品种都可以被传递给[area generator](#areas)来生成一个面积区域，也可以被用来绘制条形图.
 
 <a name="stack_keys" href="#stack_keys">#</a> <i>stack</i>.<b>keys</b>([<i>keys</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js#L40 "Source")
 
-If *keys* is specified, sets the keys accessor to the specified function or array and returns this stack generator. If *keys* is not specified, returns the current keys accessor, which defaults to the empty array. A series (layer) is [generated](#_stack) for each key. Keys are typically strings, but they may be arbitrary values. The series’ key is passed to the [value accessor](#stack_value), along with each data point, to compute the point’s value.
+设置或获取*keys*访问器，由于可能存在多个属性，因此keys是以数组的形式指定。
 
 <a name="stack_value" href="#stack_value">#</a> <i>stack</i>.<b>value</b>([<i>value</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js#L44 "Source")
 
-If *value* is specified, sets the value accessor to the specified function or number and returns this stack generator. If *value* is not specified, returns the current value accessor, which defaults to:
+设置或获取*value*访问器，stack生成器会根据指定的*key*依次读取对应的*value*，默认情况下认为*value*是*key*属性对应的值，也就是以对象属性读取的方式读取*value*值，如果有其他方式，比如数组索引或者value为非数值类型那就需要设置这个访问器，默认为:
+
 
 ```js
 function value(d, key) {
@@ -977,13 +979,14 @@ function value(d, key) {
 }
 ```
 
-Thus, by default the stack generator assumes that the input data is an array of objects, with each object exposing named properties with numeric values; see [*stack*](#_stack) for an example.
+默认情况下，stack生成器认为输入的数据是对象数组，每个对象中包含的key对应的值都为数值类型。
+
 
 <a name="stack_order" href="#stack_order">#</a> <i>stack</i>.<b>order</b>([<i>order</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js#L48 "Source")
 
-If *order* is specified, sets the order accessor to the specified function or array and returns this stack generator. If *order* is not specified, returns the current order acccesor, which defaults to [stackOrderNone](#stackOrderNone); this uses the order given by the [key accessor](#stack_key). See [stack orders](#stack-orders) for the built-in orders.
+设置或获取堆叠次序。默认使用[stackOrderNone](#stackOrderNone)，也就是安装*keys*的次序设置的。参考[stack orders](#stack-orders)
 
-If *order* is a function, it is passed the generated series array and must return an array of numeric indexes representing the stack order. For example, the default order is defined as:
+如果*order*为函数，则函数必须返回一个索引数组表示排序后的顺序，默认的排序定义如下：
 
 ```js
 function orderNone(series) {
@@ -993,13 +996,12 @@ function orderNone(series) {
 }
 ```
 
-The stack order is computed prior to the [offset](#stack_offset); thus, the lower value for all points is zero at the time the order is computed. The index attribute for each series is also not set until after the order is computed.
 
 <a name="stack_offset" href="#stack_offset">#</a> <i>stack</i>.<b>offset</b>([<i>offset</i>]) [<>](https://github.com/d3/d3-shape/blob/master/src/stack.js#L52 "Source")
 
-If *offset* is specified, sets the offset accessor to the specified function or array and returns this stack generator. If *offset* is not specified, returns the current offset acccesor, which defaults to [stackOffsetNone](#stackOffsetNone); this uses a zero baseline. See [stack offsets](#stack-offsets) for the built-in offsets.
+设置或获取*offset*. offset表示堆叠类型参考[stack offsets](#stack-offsets).
 
-If *offset* is a function, it is passed the generated series array and the order index array. The offset function is then responsible for updating the lower and upper values in the series array to layout the stack. For example, the default offset is defined as:
+默认的offset定义如下:
 
 ```js
 function offsetNone(series, order) {
