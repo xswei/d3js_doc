@@ -891,11 +891,13 @@ var context = document.getElementById("canvas").getContext("2d");
 
 ### Custom Symbol Types
 
+符号类型通常不直接使用，而是传递给[*symbol*.type](#symbol_type)。你也可以使用如下接口自定义符号类型。
+
 Symbol types are typically not used directly, instead being passed to [*symbol*.type](#symbol_type). However, you can define your own sumbol type implementation should none of the built-in types satisfy your needs using the following interface. You can also use this low-level interface with a built-in symbol type as an alternative to the symbol generator.
 
 <a name="symbolType_draw" href="#symbolType_draw">#</a> <i>symbolType</i>.<b>draw</b>(<i>context</i>, <i>size</i>)
 
-Renders this symbol type to the specified *context* with the specified *size* in square pixels. The *context* implements the [CanvasPathMethods](http://www.w3.org/TR/2dcontext/#canvaspathmethods) interface. (Note that this is a subset of the CanvasRenderingContext2D interface!)
+将符号类型渲染到指定的*context*中，大小为*size*。*context*充当[CanvasPathMethods](http://www.w3.org/TR/2dcontext/#canvaspathmethods)的角色，但是*context*只是CanvasPathMethods的一个子集。
 
 ### Stacks
 
