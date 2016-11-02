@@ -784,27 +784,27 @@ var line = d3.line().curve(d3.curveCatmullRom.alpha(0.5));
 
 ### Custom Curves
 
-Curves are typically not used directly, instead being passed to [*line*.curve](#line_curve) and [*area*.curve](#area_curve). However, you can define your own curve implementation should none of the built-in curves satisfy your needs using the following interface. You can also use this low-level interface with a built-in curve type as an alternative to the line and area generators.
+曲线样式通常被传递给[*line*.curve](#line_curve) 和 [*area*.curve](#area_curve)来使用。你也可以通过使用这些接口自定义曲线样式。
 
 <a name="curve_areaStart" href="#curve_areaStart">#</a> <i>curve</i>.<b>areaStart</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/curve/step.js#L7 "Source")
 
-Indicates the start of a new area segment. Each area segment consists of exactly two [line segments](#curve_lineStart): the topline, followed by the baseline, with the baseline points in reverse order.
+表示新的区域段的起点。每个区域都要考虑两个线条:顶部线条和底部线条。
 
 <a name="curve_areaEnd" href="#curve_areaEnd">#</a> <i>curve</i>.<b>areaEnd</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/curve/step.js#L10 "Source")
 
-Indicates the end of the current area segment.
+表示当前区域段的结束
 
 <a name="curve_lineStart" href="#curve_lineStart">#</a> <i>curve</i>.<b>lineStart</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/curve/step.js#L13 "Source")
 
-Indicates the start of a new line segment. Zero or more [points](#curve_point) will follow.
+新线段的开始点，后面跟着0个或多个[points](#curve_point)
 
 <a name="curve_lineEnd" href="#curve_lineEnd">#</a> <i>curve</i>.<b>lineEnd</b>() [<>](https://github.com/d3/d3-shape/blob/master/src/curve/step.js#L17 "Source")
 
-Indicates the end of the current line segment.
+当前线段的结束点
 
 <a name="curve_point" href="#curve_point">#</a> <i>curve</i>.<b>point</b>(<i>x</i>, <i>y</i>) [<>](https://github.com/d3/d3-shape/blob/master/src/curve/step.js#L22 "Source")
 
-Indicates a new point in the current line segment with the given *x*- and *y*-values.
+当前线段的一个使用*x*和*y*表示的新的点
 
 ### Symbols
 
