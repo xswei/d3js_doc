@@ -1,28 +1,26 @@
 # d3-zoom
 
-Panning and zooming are popular interaction techniques which let the user focus on a region of interest by restricting the view. It is easy to learn due to direct manipulation: click-and-drag to pan (translate), spin the wheel to zoom (scale), or use touch. Panning and zooming are widely used in web-based mapping, but can also be used with visualizations such as time-series and scatterplots.
-
-The zoom behavior implemented by d3-zoom is a convenient but flexible abstraction for enabling pan-and-zoom on [selections](https://github.com/d3/d3-selection). It handles a surprising variety of [input events](#api-reference ) and browser quirks. The zoom behavior is agnostic about the DOM, so you can use it with SVG, HTML or Canvas.
+平移和缩放是可视化中很重要的交互。在D3中缩放是通过d3-zoom实现的，既方便又灵活。它封装了输入事件并对浏览器兼容性做了处理。缩放操作与DOM无关，因此可以应用在SVG, HTML 或者 Canvas 中.
 
 [<img alt="Canvas Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/d1f7b58631e71fbf9c568345ee04a60e)[<img alt="SVG Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45)
 
-The zoom behavior is also designed to work with [d3-scale](https://github.com/d3/d3-scale) and [d3-axis](https://github.com/d3/d3-axis); see [*transform*.rescaleX](#transform_rescaleX) and [*transform*.rescaleY](#transform_rescaleY). You can also restrict zooming using [*zoom*.scaleExtent](#zoom_scaleExtent) and panning using [*zoom*.translateExtent](#zoom_translateExtent).
+缩放操作也可以应用在[d3-scale](https://github.com/d3/d3-scale) 和 [d3-axis](https://github.com/d3/d3-axis)，参考[*transform*.rescaleX](#transform_rescaleX) 和 [*transform*.rescaleY](#transform_rescaleY)，也可以使用[*zoom*.scaleExtent](#zoom_scaleExtent)和[*zoom*.translateExtent](#zoom_translateExtent)来限制缩放大小和平移区间.
 
 [<img alt="Axis Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/axis.png" width="420" height="219">](http://bl.ocks.org/mbostock/db6b4335bf1662b413e7968910104f0f)
 
-The zoom behavior can be combined with other behaviors, such as [d3-drag](https://github.com/d3/d3-drag) for dragging.
+zoom操作可以和其他的操作结合起来，比如[d3-drag](https://github.com/d3/d3-drag).
 
 [<img alt="Drag & Zoom II" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084)
 
-The zoom behavior can be controlled programmatically using [*zoom*.transform](#zoom_transform), allowing you to implement user interface controls which drive the display or to stage animated tours through your data. Smooth zoom transitions are based on [“Smooth and efficient zooming and panning”](http://www.win.tue.nl/~vanwijk/zoompan.pdf) by Jarke J. van Wijk and Wim A.A. Nuij.
+zoom可以使用[*zoom*.transform](#zoom_transform)通过编程操作。平滑变换的实现基于[“Smooth and efficient zooming and panning”](http://www.win.tue.nl/~vanwijk/zoompan.pdf).
 
 [<img alt="Zoom Transitions" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/transition.png" width="420" height="219">](http://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee)
 
-See also [d3-tile](https://github.com/d3/d3-tile) for examples panning and zooming maps.
+参考[d3-tile](https://github.com/d3/d3-tile)获取更多关于平移缩放的例子
 
 ## Installing
 
-If you use NPM, `npm install d3-zoom`. Otherwise, download the [latest release](https://github.com/d3/d3-zoom/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-zoom.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装方法略
 
 ```html
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
@@ -45,7 +43,7 @@ var zoom = d3.zoom();
 
 ## API Reference
 
-This table describes how the zoom behavior interprets native events:
+下面这个表是zoom时间和原生事件之间的对应关系:
 
 | Event        | Listening Element | Zoom Event  | Default Prevented? |
 | ------------ | ----------------- | ----------- | ------------------ |
@@ -62,9 +60,9 @@ This table describes how the zoom behavior interprets native events:
 | touchend     | selection         | end         | no⁴                |
 | touchcancel  | selection         | end         | no⁴                |
 
-The propagation of all consumed events is [immediately stopped](https://dom.spec.whatwg.org/#dom-event-stopimmediatepropagation).
+所有的时间传播都是被[immediately stopped(立即停止)](https://dom.spec.whatwg.org/#dom-event-stopimmediatepropagation).
 
-¹ Necessary to capture events outside an iframe; see [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
+¹ 有必要捕获iframe之外的事件; 参考 [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
 <br>² Only applies during an active, mouse-based gesture; see [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
 <br>³ Only applies immediately after a non-empty, mouse-based gesture.
 <br>⁴ Necessary to allow [click emulation](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW7) on touch input; see [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
@@ -75,57 +73,82 @@ The propagation of all consumed events is [immediately stopped](https://dom.spec
 
 <a href="#zoom" name="zoom">#</a> d3.<b>zoom</b>() [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js "Source")
 
-Creates a new zoom behavior. The returned behavior, [*zoom*](#_drag), is both an object and a function, and is typically applied to selected elements via [*selection*.call](https://github.com/d3/d3-selection#selection_call).
+创建一个zoom操作。返回一个[*zoom*](#_drag)对象方法，通常被传递给[*selection*.call](https://github.com/d3/d3-selection#selection_call)来调用。
 
 <a href="#_zoom" name="_zoom">#</a> <i>zoom</i>(<i>selection</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L51 "Source")
 
-Applies this zoom behavior to the specified [*selection*](https://github.com/d3/d3-selection), binding the necessary event listeners to allow panning and zooming, and initializing the [zoom transform](#zoom-transforms) on each selected element to the identity transform if not already defined. This function is typically not invoked directly, and is instead invoked via [*selection*.call](https://github.com/d3/d3-selection#selection_call). For example, to instantiate a zoom behavior and apply it to a selection:
+将zoom操作应用到指定的[*selection*](https://github.com/d3/d3-selection)，并绑定需要的事件监听器，为选择集中的每个元素初始化[zoom transform](#zoom-transforms)(如果没有定义的话)，通常不会直接这样使用，而是将其传递给[*selection*.call](https://github.com/d3/d3-selection#selection_call)，例如:
+
 
 ```js
 selection.call(d3.zoom().on("zoom", zoomed));
 ```
 
-Internally, the zoom behavior uses [*selection*.on](https://github.com/d3/d3-selection#selection_on) to bind the necessary event listeners for zooming. The listeners use the name `.zoom`, so you can subsequently unbind the zoom behavior as follows:
+在内部，zoom操作使用[*selection*.on](https://github.com/d3/d3-selection#selection_on)将事件绑定到指定的元素上。事件名使用`.zoom`，那么可以根据事件名取消zoom操作:
+
 
 ```js
 selection.on(".zoom", null);
 ```
 
-Applying the zoom behavior also sets the [-webkit-tap-highlight-color](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5) style to transparent, disabling the tap highlight on iOS. If you want a different tap highlight color, remove or re-apply this style after applying the drag behavior.
 
 <a href="#zoom_transform" name="zoom_transform">#</a> <i>zoom</i>.<b>transform</b>(<i>selection</i>, <i>transform</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L63 "Source")
 
-If *selection* is a selection, sets the [current zoom transform](#zoomTransform) of the selected elements to the specified *transform*, instantaneously emitting start, zoom and end [events](#zoom-events). If *selection* is a transition, defines a “zoom” tween to the specified *transform* using [d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom), emitting a start event when the transition starts, zoom events for each tick of the transition, and then an end event when the transition ends (or is interrupted). The *transform* may be specified either as a [zoom transform](#zoom-transforms) or as a function that returns a zoom transform. If a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+如果*selection*是一个选择集，则将选择集中所有的元素变换设置为[current zoom transform](#zoomTransform)并立即触发start, zoom 和 end [events](#zoom-events)。
 
-This function is typically not invoked directly, and is instead invoked via [*selection*.call](https://github.com/d3/d3-selection#selection_call) or [*transition*.call](https://github.com/d3/d3-transition#transition_call). For example, to reset the zoom transform to the [identity transform](#zoomIdentity) instantaneously:
+如果*selection*是一个过渡，则使用[d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom)过渡到指定的变换并触发start, 过渡中的每一次tick都触发zoom，在过渡完成或中断后触发end[events](#zoom-events)。
+
+*transform*要定义为[zoom transform](#zoom-transforms)或一个返回zoom transform的方法，如果是一个方法，则会为选择集中每个元素调用，并传递 `d` 和索引 `i`,  `this`指向当前的DOM元素。
+
+这个方法通常不直接使用，而是传递给[*selection*.call](https://github.com/d3/d3-selection#selection_call) 或[*transition*.call](https://github.com/d3/d3-transition#transition_call)，例如，立即将当前选择集中的元素归位:
+
 
 ```js
 selection.call(zoom.transform, d3.zoomIdentity);
 ```
 
-To smoothly reset the zoom transform to the identity transform over 750 milliseconds:
+d3.zoomIdentity是一个固定的transform对象:
+
+```js
+d3.zoomIdentity = {
+	k:1,
+	x:0,
+	y:0
+}
+
+```
+
+或者将当前的过渡平滑过渡到初始位置:
 
 ```js
 selection.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
 ```
 
-This method requires that you specify the new zoom transform completely, and does not enforce the defined [scale extent](#zoom_scaleExtent) and [translate extent](#zoom_translateExtent), if any. To derive a new transform from the existing transform, and to enforce the scale and translate extents, see the convenience methods [*zoom*.translateBy](#zoom_translateBy), [*zoom*.scaleBy](#zoom_scaleBy) and [*zoom*.scaleTo](#zoom_scaleTo).
+这个方法需要完整的指定新的变换，目标状态一定要是transform对象。并且没有定义[scale extent](#zoom_scaleExtent) 和[translate extent](#zoom_translateExtent)。
+
+这个方法也提供了简单的接口，比如[*zoom*.translateBy](#zoom_translateBy), [*zoom*.scaleBy](#zoom_scaleBy) 和 [*zoom*.scaleTo](#zoom_scaleTo).
 
 <a href="#zoom_translateBy" name="zoom_translateBy">#</a> <i>zoom</i>.<b>translateBy</b>(<i>selection</i>, <i>x</i>, <i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L97 "Source")
 
-If *selection* is a selection, [translates](#transform_translate) the [current zoom transform](#zoomTransform) of the selected elements by *x* and *y*, such that the new *t<sub>x1</sub>* = *t<sub>x0</sub>* + *k* × *x* and *t<sub>y1</sub>* = *t<sub>y0</sub>* + *k* × *y*. If *selection* is a transition, defines a “zoom” tween translating the current transform. This method is a convenience method for [*zoom*.transform](#zoom_transform). The *x* and *y* translation amounts may be specified either as numbers or as functions that returns numbers. If a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+如果*selection*是一个选择集，则将当前选择集中的每个元素的[current zoom transform(当前变换状态)](#zoomTransform)中的 [translates](#transform_translate)设置为*+x* 和 *+y*，注意是在当前的基础上再次进行平移的。并触发start,zoom和end事件。
+
+如果*selection*是一个过渡，则在当前状态和目标状态之间进行过渡。并触发start,zoom(每一次tick都触发)以及end事件。
+
+这个方法是个[*zoom*.transform](#zoom_transform)的简单形式，当然只是针对平移，不能进行缩放。*x*和*y*必须为数值类型或返回数值类型的函数，在调用时会传递当前元素绑定的数据*d*,索引*i*。*this*指向当前元素。
+
 
 <a href="#zoom_scaleBy" name="zoom_scaleBy">#</a> <i>zoom</i>.<b>scaleBy</b>(<i>selection</i>, <i>k</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L78 "Source")
 
-If *selection* is a selection, [scales](#transform_scale) the [current zoom transform](#zoomTransform) of the selected elements by *k*, such that the new *k₁* = *k₀* × *k*. If *selection* is a transition, defines a “zoom” tween translating the current transform. This method is a convenience method for [*zoom*.transform](#zoom_transform). The *k* scale factor may be specified either as numbers or as functions that returns numbers. If a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+*zoom.scaleBy*操作类似*zoom.translateBy*. 但是要注意也是在当前基础上进行的，会累积。
 
 <a href="#zoom_scaleTo" name="zoom_scaleTo">#</a> <i>zoom</i>.<b>scaleTo</b>(<i>selection</i>, <i>k</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L86 "Source")
 
-If *selection* is a selection, [scales](#transform_scale) the [current zoom transform](#zoomTransform) of the selected elements to *k*, such that the new *k₁* = *k*. If *selection* is a transition, defines a “zoom” tween translating the current transform. This method is a convenience method for [*zoom*.transform](#zoom_transform). The *k* scale factor may be specified either as numbers or as functions that returns numbers. If a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+与*zoom.scaleBy*不同的是这个方法不会考虑当前的状态，指定的值直接就是最终的缩放大小。
 
 <a href="#zoom_filter" name="zoom_filter">#</a> <i>zoom</i>.<b>filter</b>([<i>filter</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L350 "Source")
 
-If *filter* is specified, sets the filter to the specified function and returns the zoom behavior. If *filter* is not specified, returns the current filter, which defaults to:
+如果指定了*filter*, 则设置过滤器。如果没有指定*filter*则返回当前的过滤器，默认为:
+
 
 ```js
 function filter() {
@@ -133,21 +156,24 @@ function filter() {
 }
 ```
 
-If the filter returns falsey, the initiating event is ignored and no zoom gestures are started. Thus, the filter determines which input events are ignored. The default filter ignores mousedown events on secondary buttons, since those buttons are typically intended for other purposes, such as the context menu.
+如果过滤器返回假，则会忽略当前事件，也不会触发zoom操作，过滤器定义了哪些事件被忽略。
 
 <a href="#zoom_extent" name="zoom_extent">#</a> <i>zoom</i>.<b>extent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L354 "Source")
 
-If *extent* is specified, sets the viewport extent to the specified array of points [[*x0*, *y0*], [*x1*, *y1*]], where [*x0*, *y0*] is the top-left corner of the viewport and [*x1*, *y1*] is the bottom-right corner of the viewport, and returns this zoom behavior. The *extent* may also be specified as a function which returns such an array; if a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+*extent*设置视口的范围。*extent*以 [[*x0*, *y0*], [*x1*, *y1*]]的形式定义。[*x0*, *y0*]表示视口左上角的坐标，[*x1*, *y1*]表示视口右下角的坐标。
 
-If *extent* is not specified, returns the current extent accessor, which defaults to [[0, 0], [*width*, *height*]] where *width* is the [client width](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) of the element and *height* is its [client height](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight); for SVG elements, the nearest ancestor SVG element’s [width](https://www.w3.org/TR/SVG/struct.html#SVGElementWidthAttribute) and [height](https://www.w3.org/TR/SVG/struct.html#SVGElementHeightAttribute) is used. In this case, the owner SVG element must have defined [width](https://www.w3.org/TR/SVG/struct.html#SVGElementWidthAttribute) and [height](https://www.w3.org/TR/SVG/struct.html#SVGElementHeightAttribute) attributes rather than (for example) relying on CSS properties or the viewBox attribute; SVG provides no programmatic method for retrieving the [initial viewport size](https://www.w3.org/TR/SVG/coords.html#ViewportSpace). Alternatively, consider using [*element*.getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect). (In Firefox, [*element*.clientWidth](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth) and [*element*.clientHeight](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight) is zero for SVG elements!)
+*extent*也可以定义为返回 [[*x0*, *y0*], [*x1*, *y1*]]的函数。如果是一个函数，则会为每个被选中的元素调用，并传递 `d` 和索引 `i`。
 
-The viewport extent affects several functions: the center of the viewport remains fixed during changes by [*zoom*.scaleBy](#zoom_scaleBy) and [*zoom*.scaleTo](#zoom_scaleTo); the viewport center and dimensions affect the path chosen by [d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom); and the viewport extent is needed to enforce the optional [translate extent](#zoom_translateExtent.)
+如果没有指定，则返回当前的*extent*，默认为[[0, 0], [*width*, *height*]]。*width* 表示 元素的[client width](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientWidth)，*height* 表示 [client height](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientHeight)。
+
+对于SVG中的元素来说，使用的是元素最接近的SVG元素的 [width](https://www.w3.org/TR/SVG/struct.html#SVGElementWidthAttribute)和 [height](https://www.w3.org/TR/SVG/struct.html#SVGElementHeightAttribute)，在这种情况下SVG元素要定义好[width](https://www.w3.org/TR/SVG/struct.html#SVGElementWidthAttribute) 和[height](https://www.w3.org/TR/SVG/struct.html#SVGElementHeightAttribute)属性。
+
 
 <a href="#zoom_scaleExtent" name="zoom_scaleExtent">#</a> <i>zoom</i>.<b>scaleExtent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L358 "Source")
 
-If *extent* is specified, sets the scale extent to the specified array of numbers [*k0*, *k1*] where *k0* is the minimum allowed scale factor and *k1* is the maximum allowed scale factor, and returns this zoom behavior. If *extent* is not specified, returns the current scale extent, which defaults to [0, ∞]. The scale extent restricts zooming in and out. It is enforced on interaction and when using [*zoom*.scaleBy](#zoom_scaleBy), [*zoom*.scaleTo](#zoom_scaleTo) and [*zoom*.translateBy](#zoom_translateBy); however, it is not enforced when using [*zoom*.transform](#zoom_transform) to set the transform explicitly.
+设置或获取缩放范围。默认为[0, ∞]
 
-If the user tries to zoom by wheeling when already at the corresponding limit of the scale extent, the wheel events will be ignored and not initiate a zoom gesture. This allows the user to scroll down past a zoomable area after zooming in, or to scroll up after zooming out. If you would prefer to always prevent scrolling on wheel input regardless of the scale extent, register a wheel event listener to prevent the browser default behavior:
+阻止浏览器默认的滚轮事件:
 
 ```js
 selection
@@ -157,13 +183,14 @@ selection
 
 <a href="#zoom_translateExtent" name="zoom_translateExtent">#</a> <i>zoom</i>.<b>translateExtent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L362 "Source")
 
-If *extent* is specified, sets the translate extent to the specified array of points [[*x0*, *y0*], [*x1*, *y1*]], where [*x0*, *y0*] is the top-left corner of the world and [*x1*, *y1*] is the bottom-right corner of the world, and returns this zoom behavior. If *extent* is not specified, returns the current translate extent, which defaults to [[-∞, -∞], [+∞, +∞]]. The translate extent restricts panning, and may cause translation on zoom out. It is enforced on interaction and when using [*zoom*.scaleBy](#zoom_scaleBy), [*zoom*.scaleTo](#zoom_scaleTo) and [*zoom*.translateBy](#zoom_translateBy); however, it is not enforced when using [*zoom*.transform](#zoom_transform) to set the transform explicitly.
+
+设置或获取平移区间，以[[*x0*, *y0*], [*x1*, *y1*]]表示。默认为[[-∞, -∞], [+∞, +∞]]
 
 <a href="#zoom_duration" name="zoom_duration">#</a> <i>zoom</i>.<b>duration</b>([<i>duration</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L366 "Source")
 
-If *duration* is specified, sets the duration for zoom transitions on double-click and double-tap to the specified number of milliseconds and returns the zoom behavior. If *duration* is not specified, returns the current duration, which defaults to 250 milliseconds. If the duration is not greater than zero, double-click and -tap trigger instantaneous changes to the zoom transform rather than initiating smooth transitions.
+设置或获取双击放大时的时间间隔。默认为250ms。
 
-To disable double-click and double-tap transitions, you can remove the zoom behavior’s dblclick event listener after applying the zoom behavior to the selection:
+如果想禁用双击放大，则使用:
 
 ```js
 selection
@@ -173,19 +200,26 @@ selection
 
 <a href="#zoom_interpolate" name="zoom_interpolate">#</a> <i>zoom</i>.<b>interpolate</b>([<i>interpolate</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L370 "Source")
 
-If *interpolate* is specified, sets the interpolation factory for zoom transitions to the specified function. If *interpolate* is not specified, returns the current interpolation factory, which defaults to [d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom) to implement smooth zooming. To apply direct interpolation between two views, try [d3.interpolate](https://github.com/d3/d3-interpolate#interpolate) instead.
+设置或获取过缩放过渡插值方式。默认为:[d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom), 如果在两个视图之间应用插值过渡，则考虑使用[d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom). 
 
 <a href="#zoom_on" name="zoom_on">#</a> <i>zoom</i>.<b>on</b>(<i>typenames</i>[, <i>listener</i>]) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L374 "Source")
 
-If *listener* is specified, sets the event *listener* for the specified *typenames* and returns the zoom behavior. If an event listener was already registered for the same type and name, the existing listener is removed before the new listener is added. If *listener* is null, removes the current event listeners for the specified *typenames*, if any. If *listener* is not specified, returns the first currently-assigned listener matching the specified *typenames*, if any. When a specified event is dispatched, each *listener* will be invoked with the same context and arguments as [*selection*.on](https://github.com/d3/d3-selection#selection_on) listeners: the current datum `d` and index `i`, with the `this` context as the current DOM element.
+三种情况：设置，取消，获取事件监听器。
 
-The *typenames* is a string containing one or more *typename* separated by whitespace. Each *typename* is a *type*, optionally followed by a period (`.`) and a *name*, such as `zoom.foo` and `zoom.bar`; the name allows multiple listeners to be registered for the same *type*. The *type* must be one of the following:
+如果指定了*listener*则为对应的 *typenames* 设置事件监听器。
 
-* `start` - after zooming begins (such as on mousedown).
-* `zoom` - after a change to the zoom transform (such as on mousemove).
-* `end` - after zooming ends (such as on mouseup ).
+如果*listenter*为null则取消对应的 *typenames* 监听器。
 
-See [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on) for more.
+如果没有指定*listenter*则返回对应的*typenames*监听器。
+
+
+*typenames* 是一个字符串，由type和name组成。也就是可以为同一种事件类型添加多个监听器。比如`zoom.foo` 和 `zoom.bar`; type必须为如下几种:
+
+* `start` - 开始缩放 (比如鼠标按下).
+* `zoom` - 开始缩放变换(比如拖拽).
+* `end` - 缩放结束(比如鼠标抬起 ).
+
+参考[*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on)
 
 ### Zoom Events
 
