@@ -232,104 +232,110 @@ selection
 
 ### Zoom Transforms
 
-The zoom behavior stores the zoom state on the element to which the zoom behavior was [applied](#_zoom), not on the zoom behavior itself. This is because the zoom behavior can be applied to many elements simultaneously, and each element can be zoomed independently. The zoom state can change either on user interaction or programmatically via [*zoom*.transform](#zoom_transform).
+zoom操作将zoom状态存储在应用了缩放操作的元素上，而不是zoom操作本身。这是因为zoom操作可能会同时被应用在很多元素上。这样的话每个元素就可以独立的缩放。元素的缩放可以通过交互也可以通过[*zoom*.transform](#zoom_transform)进行设置。
 
-To retrieve the zoom state, use *event*.transform on the current [zoom event](#zoom-events) within a zoom event listener (see [*zoom*.on](#zoom_on)), or use [d3.zoomTransform](#zoomTransform) for a given node. The latter is particularly useful for modifying the zoom state programmatically, say to implement buttons for zooming in and out.
+
+使用[zoom event](#zoom-events)的*event*.transform来获取当前的缩放状态。或者使用为指定的节点使用[d3.zoomTransform](#zoomTransform)。后者可以方便的使用编程的方式进行操作。
+
 
 <a href="#zoomTransform" name="zoomTransform">#</a> d3.<b>zoomTransform</b>(<i>node</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js "Source")
 
-Returns the current transform for the specified *node*. Note that *node* should typically be a DOM element, not a *selection*. (A selection may consist of multiple nodes, in different states, and this function only returns a single transform.) If you have a selection, call [*selection*.node](https://github.com/d3/d3-selection#selection_node) first:
+返回指定节点当前的变换。*node* 必须为单个DOM节点而不是一个选择集。因为选择集中可能包含多个元素，每个元素都可能有不同的变换状态。如果是一个选择集，则必须先调用[*selection*.node](https://github.com/d3/d3-selection#selection_node):
+
 
 ```js
 var transform = d3.zoomTransform(selection.node());
 ```
 
-In the context of an [event listener](https://github.com/d3/d3-selection#selection_on), the *node* is typically the element that received the input event (which should be equal to [*event*.transform](#zoom-events)), *this*:
+在 [event listener](https://github.com/d3/d3-selection#selection_on)上下文中，this指向的就是当前的DOM节点，则此时就可以直接使用this:
 
 ```js
 var transform = d3.zoomTransform(this);
 ```
 
-Internally, an element’s transform is stored as *element*.\_\_zoom; however, you should use this method rather than accessing it directly. If the given *node* has no defined transform, returns the [identity transformation](#zoomIdentity). The returned transform represents a two-dimensional [transformation matrix](https://en.wikipedia.org/wiki/Transformation_matrix#Affine_transformations) of the form:
+在内部，元素的变换状态以*element*.\_\_zoom的形式存储。但是最好使用提供的方法来进行操作，而不要直接去操作这个属性。如果给定的*node*没有定义变换属性(也就是没有应用zoom操作)，则返回[identity transformation](#zoomIdentity)。二维空间中的变换矩阵形式如下:
+
 
 *k* 0 *t<sub>x</sub>*
 <br>0 *k* *t<sub>y</sub>*
 <br>0 0 1
 
-(This matrix is capable of representing only scale and translation; a future release may also allow rotation, though this would probably not be a backwards-compatible change.) The position ⟨*x*,*y*⟩ is transformed to ⟨*x* × *k* + *t<sub>x</sub>*,*y* × *k* + *t<sub>y</sub>*⟩. The transform object exposes the following properties:
+点 ⟨*x*,*y*⟩ 变换后的坐标为 ⟨*x* × *k* + *t<sub>x</sub>*,*y* × *k* + *t<sub>y</sub>*⟩. 但是d3对此进行了封装，提供了以下三个参数:
 
-* `x` - the translation amount *t<sub>x</sub>* along the *x*-axis.
-* `y` - the translation amount *t<sub>y</sub>* along the *y*-axis.
-* `k` - the scale factor *k*.
+* `x` - x方向的平移量
+* `y` - y方向的平移量
+* `k` - 缩放因子
 
-These properties should be considered read-only; instead of mutating a transform, use [*transform*.scale](#transform_scale) and [*transform*.translate](#transform_translate) to derive a new transform. Also see [*zoom*.scaleBy](#zoom_scaleBy), [*zoom*.scaleTo](#zoom_scaleTo) and [*zoom*.translateBy](#zoom_translateBy) for convenience methods on the zoom behavior. To create a transform with a given *k*, *t<sub>x</sub>*, and *t<sub>y</sub>*:
+这些属性应该设置为只读，不要直接进行操作，如果要改变这些，使用[*transform*.scale](#transform_scale) and [*transform*.translate](#transform_translate) 或者 [*zoom*.scaleBy](#zoom_scaleBy), [*zoom*.scaleTo](#zoom_scaleTo) 和 [*zoom*.translateBy](#zoom_translateBy)。 如果要创建一个缩放变换则使用如下方法:
 
 ```js
 var t = d3.zoomIdentity.translate(x, y).scale(k);
 ```
 
-To apply the transformation to a [Canvas 2D context](https://www.w3.org/TR/2dcontext/), use [*context*.translate](https://www.w3.org/TR/2dcontext/#dom-context-2d-translate) followed by [*context*.scale](https://www.w3.org/TR/2dcontext/#dom-context-2d-scale):
+将缩放变换应用到[Canvas 2D context](https://www.w3.org/TR/2dcontext/)中，则需要使用[*context*.translate](https://www.w3.org/TR/2dcontext/#dom-context-2d-translate) 和 [*context*.scale](https://www.w3.org/TR/2dcontext/#dom-context-2d-scale),注意缩放和平移的顺序:
 
 ```js
 context.translate(transform.x, transform.y);
 context.scale(transform.k, transform.k);
 ```
 
-Similarly, to apply the transformation to HTML elements via [CSS](https://www.w3.org/TR/css-transforms-1/):
+类似的，也可以将其应用到HTML元素的[CSS](https://www.w3.org/TR/css-transforms-1/)变换中:
 
 ```js
 div.style("transform", "translate(" + transform.x + "px," + transform.y + "px) scale(" + transform.k + ")");
 ```
 
-To apply the transformation to [SVG](https://www.w3.org/TR/SVG/coords.html#TransformAttribute):
+应用到SVG中:
+
 
 ```js
 g.attr("transform", "translate(" + transform.x + "," + transform.y + ") scale(" + transform.k + ")");
 ```
 
-Or more simply, taking advantage of [*transform*.toString](#transform_toString):
+更一般的，可以使用 [*transform*.toString](#transform_toString):
 
 ```js
 g.attr("transform", transform);
 ```
 
-Note that the order of transformations matters! The translate must be applied before the scale.
+
+注意变换顺序！！！
 
 <a href="#transform_scale" name="transform_scale">#</a> <i>transform</i>.<b>scale</b>(<i>k</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L9 "Source")
 
-Returns a transform whose scale *k₁* is equal to *k₀* × *k*, where *k₀* is this transform’s scale.
+返回一个缩放因子为*k₁*的变换， *k₁*等于*k₀* × *k*，*k₀*为当前的scale值。不改变当前的变换状态，只返回新的状态。
 
 <a href="#transform_translate" name="transform_translate">#</a> <i>transform</i>.<b>translate</b>(<i>x</i>, <i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L12 "Source")
 
-Returns a transform whose translation *t<sub>x1</sub>* and *t<sub>y1</sub>* is equal to *t<sub>x0</sub>* + *x* and *t<sub>y0</sub>* + *y*, where *t<sub>x0</sub>* and *t<sub>y0</sub>* is this transform’s translation.
+类似*transform.scale(k)*,返回新的平移后的新状态，不改变当前状态。
 
 <a href="#transform_apply" name="transform_apply">#</a> <i>transform</i>.<b>apply</b>(<i>point</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L15 "Source")
 
-Returns the transformation of the specified *point* which is a two-element array of numbers [*x*, *y*]. The returned point is equal to [*x* × *k* + *t<sub>x</sub>*, *y* × *k* + *t<sub>y</sub>*].
+将变换应用到指定的点，返回对指定的点应用变换后的新坐标。
 
 <a href="#transform_applyX" name="transform_applyX">#</a> <i>transform</i>.<b>applyX</b>(<i>x</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L18 "Source")
 
-Returns the transformation of the specified *x*-coordinate, *x* × *k* + *t<sub>x</sub>*.
+将变换应用到某个值，对这个值进行x方向的变换，然后返回新值。
 
 <a href="#transform_applyY" name="transform_applyY">#</a> <i>transform</i>.<b>applyY</b>(<i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L21 "Source")
 
-Returns the transformation of the specified *y*-coordinate, *y* × *k* + *t<sub>y</sub>*.
+将变换应用到某个值，对这个值进行x方向的变换，然后返回新值。
 
 <a href="#transform_invert" name="transform_invert">#</a> <i>transform</i>.<b>invert</b>(<i>point</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L24 "Source")
 
-Returns the inverse transformation of the specified *point* which is a two-element array of numbers [*x*, *y*]. The returned point is equal to [(*x* - *t<sub>x</sub>*) / *k*, (*y* - *t<sub>y</sub>*) / *k*].
+对点进行逆变换
 
 <a href="#transform_invertX" name="transform_invertX">#</a> <i>transform</i>.<b>invertX</b>(<i>x</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L27 "Source")
 
-Returns the inverse transformation of the specified *x*-coordinate, (*x* - *t<sub>x</sub>*) / *k*.
+对值进行x方向逆变换
 
 <a href="#transform_invertY" name="transform_invertY">#</a> <i>transform</i>.<b>invertY</b>(<i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L30 "Source")
 
-Returns the inverse transformation of the specified *y*-coordinate, (*y* - *t<sub>y</sub>*) / *k*.
+对值进行y方向逆变换
 
 <a href="#transform_rescaleX" name="transform_rescaleX">#</a> <i>transform</i>.<b>rescaleX</b>(<i>x</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L33 "Source")
 
-Returns a [copy](https://github.com/d3/d3-scale#continuous_copy) of the [continuous scale](https://github.com/d3/d3-scale#continuous-scales) *x* whose [domain](https://github.com/d3/d3-scale#continuous_domain) is transformed. This is implemented by first applying the [inverse *x*-transform](#transform_invertX) on the scale’s [range](https://github.com/d3/d3-scale#continuous_range), and then applying the [inverse scale](https://github.com/d3/d3-scale#continuous_invert) to compute the corresponding domain:
+返回一个x方向的[continuous scale](https://github.com/d3/d3-scale#continuous-scales)的副本，副本与原来的比例尺之间做了变换映射，也就是在变换前后比例尺的输入输出都能正确对应。内部实现方式如下:
 
 ```js
 function rescaleX(x) {
@@ -339,11 +345,13 @@ function rescaleX(x) {
 }
 ```
 
+要注意scale *x*必须为 [d3.interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber)，不能是[*continuous*.rangeRound](https://github.com/d3/d3-scale#continuous_rangeRound)，要不然不能进行[*continuous*.invert](https://github.com/d3/d3-scale#continuous_invert)计算。也就不能正常缩放。
+
 The scale *x* must use [d3.interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber); do not use [*continuous*.rangeRound](https://github.com/d3/d3-scale#continuous_rangeRound) as this reduces the accuracy of [*continuous*.invert](https://github.com/d3/d3-scale#continuous_invert) and can lead to an inaccurate rescaled domain. This method does not modify the input scale *x*; *x* thus represents the untransformed scale, while the returned scale represents its transformed view.
 
 <a href="#transform_rescaleY" name="transform_rescaleY">#</a> <i>transform</i>.<b>rescaleY</b>(<i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L36 "Source")
 
-Returns a [copy](https://github.com/d3/d3-scale#continuous_copy) of the [continuous scale](https://github.com/d3/d3-scale#continuous-scales) *y* whose [domain](https://github.com/d3/d3-scale#continuous_domain) is transformed. This is implemented by first applying the [inverse *y*-transform](#transform_invertY) on the scale’s [range](https://github.com/d3/d3-scale#continuous_range), and then applying the [inverse scale](https://github.com/d3/d3-scale#continuous_invert) to compute the corresponding domain:
+返回一个y方向的[continuous scale](https://github.com/d3/d3-scale#continuous-scales)的副本，副本与原来的比例尺之间做了变换映射，也就是在变换前后比例尺的输入输出都能正确对应。内部实现方式如下:
 
 ```js
 function rescaleY(y) {
@@ -353,11 +361,12 @@ function rescaleY(y) {
 }
 ```
 
-The scale *y* must use [d3.interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber); do not use [*continuous*.rangeRound](https://github.com/d3/d3-scale#continuous_rangeRound) as this reduces the accuracy of [*continuous*.invert](https://github.com/d3/d3-scale#continuous_invert) and can lead to an inaccurate rescaled domain. This method does not modify the input scale *y*; *y* thus represents the untransformed scale, while the returned scale represents its transformed view.
+要注意scale *y*必须为 [d3.interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber)，不能是[*continuous*.rangeRound](https://github.com/d3/d3-scale#continuous_rangeRound)，要不然不能进行[*continuous*.invert](https://github.com/d3/d3-scale#continuous_invert)计算。也就不能正常缩放。
 
 <a href="#transform_toString" name="transform_toString">#</a> <i>transform</i>.<b>toString</b>() [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L39 "Source")
 
-Returns a string representing the [SVG transform](https://www.w3.org/TR/SVG/coords.html#TransformAttribute) corresponding to this transform. Implemented as:
+返回一个SVG可用的变换的字符串表示。在内部定义如下:
+
 
 ```js
 function toString() {
@@ -367,4 +376,4 @@ function toString() {
 
 <a href="#zoomIdentity" name="zoomIdentity">#</a> d3.<b>zoomIdentity</b> [<>](https://github.com/d3/d3-zoom/blob/master/src/transform.js#L44 "Source")
 
-The identity transform, where *k* = 1, *t<sub>x</sub>* = *t<sub>y</sub>* = 0.
+变换的初始值 *k* = 1, *t<sub>x</sub>* = *t<sub>y</sub>* = 0.
