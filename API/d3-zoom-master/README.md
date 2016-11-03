@@ -223,12 +223,12 @@ selection
 
 ### Zoom Events
 
-When a [zoom event listener](#zoom_on) is invoked, [d3.event](https://github.com/d3/d3-selection#event) is set to the current zoom event. The *event* object exposes several fields:
+当 [zoom event listener](#zoom_on) 被调用时, [d3.event](https://github.com/d3/d3-selection#event) 会被设置为当前的zoom事件. zoom *event* 对象由以下几部分组成:
 
-* `target` - the associated [zoom behavior](#zoom).
-* `type` - the string “start”, “zoom” or “end”; see [*zoom*.on](#zoom_on).
-* `transform` - the current [zoom transform](#zoom-transforms).
-* `sourceEvent` - the underlying input event, such as mousemove or touchmove.
+* `target` - 当前的缩放[zoom behavior](#zoom).
+* `type` - 事件类型:“start”, “zoom” 或者 “end”; 参考 [*zoom*.on](#zoom_on).
+* `transform` - 当前的[zoom transform(缩放变换)](#zoom-transforms).
+* `sourceEvent` - 原始事件, 比如 mousemove 或 touchmove.
 
 ### Zoom Transforms
 
