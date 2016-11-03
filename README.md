@@ -38,3 +38,5 @@ D3 V4 API中文版
 * [Shapes(Arcs, Pies, Lines, Areas, Curves, Symbols, Stacks)](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-shape-master)
 
 * [Timers](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-timer-master)
+
+* [Zooming](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-zoom-master)
