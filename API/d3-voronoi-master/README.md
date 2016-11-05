@@ -109,53 +109,50 @@ voronoi(data).links();
 
 <a name="diagram" href="#diagram">#</a> <i>diagram</i> [<>](https://github.com/d3/d3-voronoi/blob/master/src/Diagram.js "Source")
 
-The computed Voronoi diagram returned by [*voronoi*](#_voronoi) has the following properties:
+经过[*voronoi*](#_voronoi)计算后的 Voronoi图有以下两个属性:
 
-* `edges` - an array of [edges](#diagram_edge).
-* `cells` - an array of [cells](#diagram_cell), one per input point; a cell may be null for a coincident point.
+* `edges` - [edges](#diagram_edge)数组.
+* `cells` - [cells](#diagram_cell)数组, 一个输入点对应一个，如果有重复的点则可能为null
 
 <a name="diagram_polygons" href="#diagram_polygons">#</a> <i>diagram</i>.<b>polygons</b>() [<>](https://github.com/d3/d3-voronoi/blob/master/src/Diagram.js#L72 "Source")
 
-Returns an array of polygons clipped to the [*extent*](#voronoi_extent), one for each cell in the diagram. Each polygon is represented as an array of points \[*x*, *y*\] where *x* and *y* are the point coordinates, and a `data` field that refers to the corresponding element in *data*. Polygons are open: they do not contain a closing point that duplicates the first point; a triangle, for example, is an array of three points. Polygons are also counterclockwise, assuming the origin ⟨0,0⟩ is in the top-left corner.
-
-If the cell’s site is coincident with an earlier site, the associated polygon is null.
+返回一个多边形数组，每个多边形都包含了一个输入点。多边形由\[*x*, *y*\]组成的数组表示。并且包含了一个*data*属性，表示其包裹的输入点。
 
 <a name="diagram_triangles" href="#diagram_triangles">#</a> <i>diagram</i>.<b>triangles</b>() [<>](https://github.com/d3/d3-voronoi/blob/master/src/Diagram.js#L82 "Source")
 
-Returns the Delaunay triangulation of the specified *data* array as an array of triangles. Each triangle is a three-element array of elements from *data*. Since the triangulation is computed as the dual of the Voronoi diagram, and the Voronoi diagram is clipped by the [extent](#voronoi_extent), a subset of the Delaunay triangulation is returned.
+返回Delaunay三角剖分后的三角形数组，三角形的三个顶点来自输入数据。
 
 <a name="diagram_links" href="#diagram_links">#</a> <i>diagram</i>.<b>links</b>() [<>](https://github.com/d3/d3-voronoi/blob/master/src/Diagram.js#L108 "Source")
 
-Returns the Delaunay triangulation of the specified *data* array as an array of links, one for each edge in the mesh. Each link has the following attributes:
+返回Delaunay三角剖分后的点与点之间的连接，每个连接都包含以下两个属性:
 
-* `source` - the source node, an element in *data*.
-* `target` - the target node, an element in *data*.
-
-Since the triangulation is computed as the dual of the Voronoi diagram, and the Voronoi diagram is clipped by the [extent](#voronoi_extent), a subset of the Delaunay links is returned.
+* `source` - 源节点，输入数据中的一个点
+* `target` - 目标节点，输入数据中 的一个点
 
 <a name="diagram_find" href="#diagram_find">#</a> <i>diagram</i>.<b>find</b>(<i>x</i>, <i>y</i>[, <i>radius</i>]) [<>](https://github.com/d3/d3-voronoi/blob/master/src/Diagram.js#L119 "Source")
 
-Returns the nearest site to point \[*x*, *y*\]. If *radius* is specified, only sites within *radius* distance are considered.
+返回距离点\[*x*, *y*\]最近的点. 可以指定一个半径,在指定的半径内搜索。
 
-See Philippe Rivière’s [bl.ocks.org/1b7ddbcd71454d685d1259781968aefc](http://bl.ocks.org/Fil/1b7ddbcd71454d685d1259781968aefc) for an example.
+参考[bl.ocks.org/1b7ddbcd71454d685d1259781968aefc](http://bl.ocks.org/Fil/1b7ddbcd71454d685d1259781968aefc)
 
 <a name="cell" href="#cell">#</a> <i>cell</i>
 
-Each cell in the diagram is an object with the following properties:
+每个cell都包含以下属性:
 
-* `site` - the [site](#site) of the cell’s associated input point.
-* `halfedges` - an array of indexes into [*diagram*.edges](#diagram) representing the cell’s polygon.
+* `site` - [site](#site)表示对应输入数据的一些信息。
+* `halfedges` - 包围对应的点的多边形的边的索引，索引指向[*diagram*.edges](#diagram)
 
 <a name="site" href="#site">#</a> <i>site</i>
 
-Each site in the diagram is an array \[*x*, *y*\] with two additional properties:
+每个site 都是一个由\[*x*, *y*\]组成的二维数组，并且包含以下两个属性:
 
-* `index` - the site’s index, corresponding to the associated input point.
-* `data` - the input data corresponding to this site.
+* `index` - site的索引，对应输入数据中的索引。
+* `data` - 原始输入数据
 
 <a name="edge" href="#edge">#</a> <i>edge</i>
 
-Each edge in the diagram is an array \[\[*x0*, *y0*\], \[*x1*, *y1*\]\] with two additional properties:
+边数组，每个边都被定义为\[\[*x0*, *y0*\], \[*x1*, *y1*\]\]形式。并且包含以下属性:
 
-* `left` - the [site](#site) on the left side of the edge.
-* `right` - the [site](#site) on the right side of the edge; null for a clipped border edge.
+
+* `left` - 边左边的[site](#site)
+* `right` - 边右边的[site](#site)
