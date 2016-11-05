@@ -1,8 +1,9 @@
 # d3-voronoi
 
-This module implements [Steven J. Fortune’s algorithm](https://en.wikipedia.org/wiki/Fortune's_algorithm) for computing the [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) or [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) of a set of two-dimensional points. This implementation is largely based on [work by Raymond Hill](http://www.raymondhill.net/voronoi/rhill-voronoi.html).
+这个模块根据[Steven J. Fortune’s algorithm](https://en.wikipedia.org/wiki/Fortune's_algorithm) 实现了根据二维空间的一组点计算 [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) 或[Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation)。
 
-Voronoi diagrams are not only [visually](http://bl.ocks.org/mbostock/4360892) [attractive](http://bl.ocks.org/mbostock/4636377) but practical tools for interaction, such as to increase the target area of points in a scatterplot. See [“Strikeouts on the Rise”](http://www.nytimes.com/interactive/2013/03/29/sports/baseball/Strikeouts-Are-Still-Soaring.html) in *The New York Times* and this [multi-line chart](http://bl.ocks.org/mbostock/8033015) for examples; also see Tovi Grossman’s paper on [bubble cursors](http://www.tovigrossman.com/BubbleCursor) for a related technique. Voronoi diagrams can also be used to [automate label positioning](http://bl.ocks.org/mbostock/6909318), and Delaunay meshes are useful in computing adjacency or grouping of visual elements.
+Voronoi图不仅在视觉上有吸引力，而且是一个交互的是实用工具。比如去增加散点图中的点的目标区域面积。参考[“Strikeouts on the Rise”](http://www.nytimes.com/interactive/2013/03/29/sports/baseball/Strikeouts-Are-Still-Soaring.html)。也可以参考Tovi Grossman在[bubble cursors](http://www.tovigrossman.com/BubbleCursor)中的论文来获取相关技术。Voronoi图也可以用来对标签进行自动定位， Delaunay在计算视觉元素相邻或分组元素时是有用的。
+
 
 <a href="http://bl.ocks.org/mbostock/6675193"><img src="http://bl.ocks.org/mbostock/raw/6675193/thumbnail.png" width="202"></a>
 <a href="http://bl.ocks.org/mbostock/4060366"><img src="http://bl.ocks.org/mbostock/raw/4060366/thumbnail.png" width="202"></a>
@@ -17,7 +18,8 @@ Voronoi diagrams are not only [visually](http://bl.ocks.org/mbostock/4360892) [a
 
 ## Installing
 
-If you use NPM, `npm install d3-voronoi`. Otherwise, download the [latest release](https://github.com/d3/d3-voronoi/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-voronoi.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装方法略。
+
 
 ```html
 <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
@@ -28,21 +30,21 @@ var voronoi = d3.voronoi();
 </script>
 ```
 
-[Try d3-voronoi in your browser.](https://tonicdev.com/npm/d3-voronoi)
+[在浏览器中测试d3-voronoi](https://tonicdev.com/npm/d3-voronoi)
 
 ## API Reference
 
 <a name="voronoi" href="#voronoi">#</a> d3.<b>voronoi</b>() [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js "Source")
 
-Creates a new Voronoi layout with default [*x*-](#voronoi_x) and [*y*-](#voronoi_y) accessors and a null [extent](#voronoi_extent).
+使用默认的设置创建一个 Voronoi 布局。默认的[*x*-](#voronoi_x) 和 [*y*-](#voronoi_y)访问器以及[extent](#voronoi_extent)为null。
 
 <a name="_voronoi" href="#_voronoi">#</a> <i>voronoi</i>(<i>data</i>) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L10 "Source")
 
-Computes the [Voronoi diagram](#voronoi-diagrams) for the specified *data* points.
+根据制定的一组点计算[Voronoi diagram](#voronoi-diagrams)
 
 <a name="voronoi_x" href="#voronoi_x">#</a> <i>voronoi</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L31 "Source")
 
-If *x* is specified, sets the *x*-coordinate accessor. If *x* is not specified, returns the current *x*-coordinate accessor, which defaults to:
+设置或获取*x*访问器，默认为:
 
 ```js
 function x(d) {
@@ -52,7 +54,7 @@ function x(d) {
 
 <a name="voronoi_y" href="#voronoi_y">#</a> <i>voronoi</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L35 "Source")
 
-If *y* is specified, sets the *y*-coordinate accessor. If *y* is not specified, returns the current *y*-coordinate accessor, which defaults to:
+设置或获取*y*访问器，默认为:
 
 ```js
 function y(d) {
@@ -62,11 +64,11 @@ function y(d) {
 
 <a name="voronoi_extent" href="#voronoi_extent">#</a> <i>voronoi</i>.<b>extent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L39 "Source")
 
-If *extent* is specified, sets the clip extent of the Voronoi layout to the specified bounds and returns the layout. The *extent* bounds are specified as an array \[\[<i>x0</i>, <i>y0</i>\], \[<i>x1</i>, <i>y1</i>\]\], where <i>x0</i> is the left side of the extent, <i>y0</i> is the top, <i>x1</i> is the right and <i>y1</i> is the bottom. If *extent* is not specified, returns the current clip extent which defaults to null. A clip extent is required when using [*voronoi*.polygons](#voronoi_polygons).
+设置或获取Voronoi图的剪切范围。以\[\[<i>x0</i>, <i>y0</i>\], \[<i>x1</i>, <i>y1</i>\]\]的形式制定,\[<i>x0</i>, <i>y0</i>\]表示左上角坐标，\[<i>x1</i>, <i>y1</i>\]表示右下角坐标。当使用[*voronoi*.polygons](#voronoi_polygons)时，需要设置剪切范围。
 
 <a name="voronoi_size" href="#voronoi_size">#</a> <i>voronoi</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L43 "Source")
 
-An alias for [*voronoi*.extent](#voronoi_extent) where the minimum *x* and *y* of the extent are ⟨0,0⟩. Equivalent to:
+[*voronoi*.extent](#voronoi_extent)的另一种别名，等价于:
 
 ```js
 voronoi.extent([[0, 0], size]);
@@ -74,33 +76,34 @@ voronoi.extent([[0, 0], size]);
 
 <a name="voronoi_polygons" href="#voronoi_polygons">#</a> <i>voronoi</i>.<b>polygons</b>(<i>data</i>) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L19 "Source")
 
-Returns an array of polygons, one for each input point in the specified *data* points, corresponding to the cells in the computed Voronoi diagram. Equivalent to:
+返回一组多边形，每个多边形都代表一个输入的数据点。等价于:
 
 ```js
 voronoi(data).polygons();
 ```
 
-See [*diagram*.polygons](#diagram_polygons) for more detail. Note: an [extent](#voronoi_extent) is required.
+参考[*diagram*.polygons](#diagram_polygons). Note: an [extent](#voronoi_extent) is required.
 
 <a name="voronoi_triangles" href="#voronoi_triangles">#</a> <i>voronoi</i>.<b>triangles</b>(<i>data</i>) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L27 "Source")
 
-Returns the Delaunay triangulation of the specified *data* array as an array of triangles. Each triangle is a three-element array of elements from *data*. Equivalent to:
+返回对数据进行Delaunay三角剖分后的结果,返回的每个三角形都由三个点定义等价于:
 
 ```js
 voronoi(data).triangles();
 ```
 
-See [*diagram*.triangles](#diagram_triangles) for more detail.
+参考[*diagram*.triangles](#diagram_triangles)
 
 <a name="voronoi_links" href="#voronoi_links">#</a> <i>voronoi</i>.<b>links</b>(<i>data</i>) [<>](https://github.com/d3/d3-voronoi/blob/master/src/voronoi.js#L23 "Source")
 
-Returns the Delaunay triangulation of the specified *data* array as an array of links. Each link has `source` and `target` attributes referring to elements in *data*. Equivalent to:
+
+返回 Delaunay 三角剖分后的点与点之间的连接，每个连线都有srouce和target两个属性，等价于：
 
 ```js
 voronoi(data).links();
 ```
 
-See [*diagram*.links](#diagram_links) for more detail.
+参考[*diagram*.links](#diagram_links)
 
 ### Voronoi Diagrams
 
