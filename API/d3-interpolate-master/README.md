@@ -136,9 +136,7 @@ i(0.5);	//"scale(0.5,0.5)", 返回标准形式
 
 <a name="quantize" href="#quantize">#</a> d3.<b>quantize</b>(<i>interpolator</i>, <i>n</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/quantize.js "Source")
 
-Returns *n* uniformly-spaced samples from the specified *interpolator*, where *n* is an integer greater than one. The first sample is always at *t* = 0, and the last sample is always at *t* = 1. This can be useful in generating a fixed number of samples from a given interpolator, such as to derive the range of a [quantize scale](https://github.com/d3/d3-scale#quantize-scales) from a [continuous interpolator](https://github.com/d3/d3-scale#interpolateWarm).
-
-Caution: this method will not work with interpolators that do not return defensive copies of their output, such as [d3.interpolateArray](#interpolateArray), [d3.interpolateDate](#interpolateDate) and [d3.interpolateObject](#interpolateObject). For those interpolators, you must wrap the interpolator and create a copy for each returned value.
+从指定的*interpolator*中返回*n*个间隔均匀的采样点。*n*是一个比1大的整数。第一个采样点取*t*=0，最后一个采样点取*t*=1. 这个方法可以用来从指定的插值器中生成固定数量的样本，比如从[continuous interpolator](https://github.com/d3/d3-scale#interpolateWarm)中生成一些刻度表示[quantize scale](https://github.com/d3/d3-scale#quantize-scales).
 
 ### Color Spaces
 
@@ -150,84 +148,84 @@ Or, with a corrected [gamma](#interpolate_gamma) of 2.2:
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/rgbGamma.png" width="100%" height="40" alt="rgbGamma">
 
-Returns an RGB color space interpolator between the two colors *a* and *b* with a configurable [gamma](#interpolate_gamma). If the gamma is not specified, it defaults to 1.0. The colors *a* and *b* need not be in RGB; they will be converted to RGB using [d3.rgb](https://github.com/d3/d3-color#rgb). The return value of the interpolator is an RGB string.
+返回一个RGB颜色空间的，起止值为a和b的插值器。并且可以配置[gamma](#interpolate_gamma)参数，如果没有指定[gamma](#interpolate_gamma)则默认为1.0。*a*和*b*不一定为RGB表示，但是一定要可以使用[d3.rgb](https://github.com/d3/d3-color#rgb)被转化为RGB，插值器的返回值为RGB字符串。
 
 <a href="#interpolateRgbBasis" name="interpolateRgbBasis">#</a> d3.<b>interpolateRgbBasis</b>(<i>colors</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/rgb.js#L54 "Source")
 
-Returns a uniform nonrational B-spline interpolator through the specified array of *colors*, which are converted to [RGB color space](https://github.com/d3/d3-color#rgb). Implicit control points are generated such that the interpolator returns *colors*[0] at *t* = 0 and *colors*[*colors*.length - 1] at *t* = 1. Opacity interpolation is not currently supported. See also [d3.interpolateBasis](#interpolateBasis), and see [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) for examples.
+在指定的一组颜色之间进行B-spline插值，颜色都会被转化为[RGB color space](https://github.com/d3/d3-color#rgb)表示。*t*=0时返回*colors*[0]，*t*=1时返回*colors*[*colors*.length - 1]，不支持透明度的插值。参考[d3.interpolateBasis](#interpolateBasis), 和 [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) 获取更多例子.
 
 <a href="#interpolateRgbBasisClosed" name="interpolateRgbBasisClosed">#</a> d3.<b>interpolateRgbBasisClosed</b>(<i>colors</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/rgb.js#L55 "Source")
 
-Returns a uniform nonrational B-spline interpolator through the specified array of *colors*, which are converted to [RGB color space](https://github.com/d3/d3-color#rgb). The control points are implicitly repeated such that the resulting spline has cyclical C² continuity when repeated around *t* in [0,1]; this is useful, for example, to create cyclical color scales. Opacity interpolation is not currently supported. See also [d3.interpolateBasisClosed](#interpolateBasisClosed), and see [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) for examples.
+在指定的一组颜色之间进行B-spline插值，颜色都会被转化为[RGB color space](https://github.com/d3/d3-color#rgb)表示。控制点首位相连呈周期状，在创建周期颜色比例尺时是有用的，参考[d3.interpolateBasisClosed](#interpolateBasisClosed)和 [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic).
 
 <a name="interpolateHsl" href="#interpolateHsl">#</a> d3.<b>interpolateHsl</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/hsl.js "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/hsl.png" width="100%" height="40" alt="hsl">
 
-Returns an HSL color space interpolator between the two colors *a* and *b*. The colors *a* and *b* need not be in HSL; they will be converted to HSL using [d3.hsl](https://github.com/d3/d3-color#hsl). If either color’s hue or saturation is NaN, the opposing color’s channel value is used. The shortest path between hues is used. The return value of the interpolator is an RGB string.
+返回一个HSL颜色空间的，起止值为a和b的插值器。*a*和*b*不一定适用HSL表示，但是一定要能通过[d3.hsl](https://github.com/d3/d3-color#hsl)被转为HSL颜色表示。返回值使用RGB表示。这个插值器的hues值使用的是*a*和*b*之间短的那一截，因为hues值是一个圆环形。
 
 <a name="interpolateHslLong" href="#interpolateHslLong">#</a> d3.<b>interpolateHslLong</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/hsl.js#L21 "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/hslLong.png" width="100%" height="40" alt="hslLong">
 
-Like [interpolateHsl](#interpolateHsl), but does not use the shortest path between hues.
+与[interpolateHsl](#interpolateHsl)类似, 但是hues的插值使用的是长的那一节。
 
 <a name="interpolateLab" href="#interpolateLab">#</a> d3.<b>interpolateLab</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/lab.js "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/lab.png" width="100%" height="40" alt="lab">
 
-Returns a Lab color space interpolator between the two colors *a* and *b*. The colors *a* and *b* need not be in Lab; they will be converted to Lab using [d3.lab](https://github.com/d3/d3-color#lab). The return value of the interpolator is an RGB string.
+返回一个Lab颜色空间的，起止值为a和b的插值器。*a*和*b*不一定适用Lab表示，但是一定要能通过[d3.lab](https://github.com/d3/d3-color#lab)转化为Lab表示. 返回值是一个RGB字符串。
 
 <a name="interpolateHcl" href="#interpolateHcl">#</a> d3.<b>interpolateHcl</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/hcl.js "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/hcl.png" width="100%" height="40" alt="hcl">
 
-Returns an HCL color space interpolator between the two colors *a* and *b*. The colors *a* and *b* need not be in HCL; they will be converted to HCL using [d3.hcl](https://github.com/d3/d3-color#hcl). If either color’s hue or chroma is NaN, the opposing color’s channel value is used. The shortest path between hues is used. The return value of the interpolator is an RGB string.
+返回一个HCL颜色空间的，起止值为a和b的插值器。*a*和*b*不一定适用Lab表示，但是一定要能通过[d3.hcl](https://github.com/d3/d3-color#hcl)转为HCL值. 如果有一个颜色的 hue 或 chroma值为NaN, 则使用另一个对应的值。hues之间比较短的那一段被使用。返回的值使用RGB字符串表示。
 
 <a name="interpolateHclLong" href="#interpolateHclLong">#</a> d3.<b>interpolateHclLong</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/hcl.js#L21 "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/hclLong.png" width="100%" height="40" alt="hclLong">
 
-Like [interpolateHcl](#interpolateHcl), but does not use the shortest path between hues.
+同[interpolateHcl](#interpolateHcl), 但是hues之间比较长的那一段被使用
 
 <a name="interpolateCubehelix" href="#interpolateCubehelix">#</a> d3.<b>interpolateCubehelix</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/cubehelix.js "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/cubehelix.png" width="100%" height="40" alt="cubehelix">
 
-Or, with a [gamma](#interpolate_gamma) of 3.0 to emphasize high-intensity values:
+[gamma](#interpolate_gamma)为3.0时候:
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/cubehelixGamma.png" width="100%" height="40" alt="cubehelixGamma">
 
-Returns a Cubehelix color space interpolator between the two colors *a* and *b* using a configurable [gamma](#interpolate_gamma). If the gamma is not specified, it defaults to 1.0. The colors *a* and *b* need not be in Cubehelix; they will be converted to Cubehelix using [d3.cubehelix](https://github.com/d3/d3-color#cubehelix). If either color’s hue or saturation is NaN, the opposing color’s channel value is used. The shortest path between hues is used. The return value of the interpolator is an RGB string.
+返回一个Cubehelix颜色空间的，介于*a*和*b*之间的插值器。也可以配置[gamma](#interpolate_gamma)，如果不配置则默认为1.0。*a* 和 *b*不一定要使用Cubehelix表示，但是一定要刻意通过[d3.cubehelix](https://github.com/d3/d3-color#cubehelix)转化为Cubehelix。如果有一个颜色的 hue 或 saturation值为NaN, 则使用另一个对应的值。hues之间比较短的那一段被使用。返回的值使用RGB字符串表示。
 
 <a name="interpolateCubehelixLong" href="#interpolateCubehelixLong">#</a> d3.<b>interpolateCubehelixLong</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/cubehelix.js#L29 "Source")
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/cubehelixLong.png" width="100%" height="40" alt="cubehelixLong">
 
-Or, with a [gamma](#interpolate_gamma) of 3.0 to emphasize high-intensity values:
+[gamma](#interpolate_gamma) 为 3.0时:
 
 <img src="https://raw.githubusercontent.com/d3/d3-interpolate/master/img/cubehelixGammaLong.png" width="100%" height="40" alt="cubehelixGammaLong">
 
-Like [interpolateCubehelix](#interpolateCubehelix), but does not use the shortest path between hues.
+与[interpolateCubehelix](#interpolateCubehelix), 但是使用hues之间比较长的那一段
 
 <a name="interpolate_gamma" href="#interpolate_gamma">#</a> <i>interpolate</i>.<b>gamma</b>(<i>gamma</i>)
 
-Given that *interpolate* is one of [interpolateRgb](#interpolateRgb), [interpolateCubehelix](#interpolateCubehelix) or [interpolateCubehelixLong](#interpolateCubehelixLong), returns a new interpolator factory of the same type using the specified *gamma*. For example, to interpolate from purple to orange with a gamma of 2.2 in RGB space:
+为[interpolateRgb](#interpolateRgb), [interpolateCubehelix](#interpolateCubehelix) 或者 [interpolateCubehelixLong](#interpolateCubehelixLong)设置*gamma*参数. 比如为RGB插值器设置*gamma*为2.2:
 
 ```js
 var interpolator = d3.interpolateRgb.gamma(2.2)("purple", "orange");
 ```
 
-See Eric Brasseur’s article, [Gamma error in picture scaling](https://web.archive.org/web/20160112115812/http://www.4p8.com/eric.brasseur/gamma.html), for more on gamma correction.
+参考Eric Brasseur的文章[Gamma error in picture scaling](https://web.archive.org/web/20160112115812/http://www.4p8.com/eric.brasseur/gamma.html), 获取更多关于gamma的介绍.
 
 ### Splines
 
-Whereas standard interpolators blend from a starting value *a* at *t* = 0 to an ending value *b* at *t* = 1, spline interpolators smoothly blend multiple input values for *t* in [0,1] using piecewise polynomial functions. Only cubic uniform nonrational [B-splines](https://en.wikipedia.org/wiki/B-spline) are currently supported, also known as basis splines.
+标准的插值器在*t* = 0和*t* = 1之间进行线性过渡，而样条插值器则对*t*在[0,1]之间使用分段多项式函数平滑过渡，现在只支持基本[B-splines](https://en.wikipedia.org/wiki/B-spline)插值。
 
 <a href="#interpolateBasis" name="interpolateBasis">#</a> d3.<b>interpolateBasis</b>(<i>values</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/basis.js "Source")
 
-Returns a uniform nonrational B-spline interpolator through the specified array of *values*, which must be numbers. Implicit control points are generated such that the interpolator returns *values*[0] at *t* = 0 and *values*[*values*.length - 1] at *t* = 1. See also [d3.curveBasis](https://github.com/d3/d3-shape#curveBasis).
+通过指定的值数组返回一个基本的B样条插值，必须是数字。当*t*=0时取*values*[0]，*t*=1时取[*values*.length - 1]。参考[d3.curveBasis](https://github.com/d3/d3-shape#curveBasis).
 
 <a href="#interpolateBasisClosed" name="interpolateBasisClosed">#</a> d3.<b>interpolateBasisClosed</b>(<i>values</i>) [<>](https://github.com/d3/d3-interpolate/blob/master/src/basisClosed.js "Source")
 
-Returns a uniform nonrational B-spline interpolator through the specified array of *values*, which must be numbers. The control points are implicitly repeated such that the resulting one-dimensional spline has cyclical C² continuity when repeated around *t* in [0,1]. See also [d3.curveBasisClosed](https://github.com/d3/d3-shape#curveBasisClosed).
+通过指定的值数组返回一个基本的B样条插值，必须是数字。这种插值方式是连续的有周期的，参考[d3.curveBasisClosed](https://github.com/d3/d3-shape#curveBasisClosed).
