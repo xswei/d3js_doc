@@ -1,8 +1,8 @@
 # d3-transition
 
-A transition is a [selection](https://github.com/d3/d3-selection)-like interface for animating changes to the DOM. Instead of applying changes instantaneously, transitions smoothly interpolate the DOM from its current state to the desired target state over a given duration.
+transition是一个类[selection](https://github.com/d3/d3-selection)为DOM元素进行过渡的接口。*transitions*可以使DOM从当前状态平滑的过渡到目标状态。
 
-To apply a transition, select elements, call [*selection*.transition](#selection_transition), and then make the desired changes. For example:
+应用过渡，首先选中一个元素，然后使用 [*selection*.transition](#selection_transition), 然后指定目标状态,比如:
 
 ```js
 d3.select("body")
@@ -10,13 +10,13 @@ d3.select("body")
     .style("background-color", "red");
 ```
 
-Transitions support most selection methods (such as [*transition*.attr](#transition_attr) and [*transition*.style](#transition_style) in place of [*selection*.attr](https://github.com/d3/d3-selection#selection_attr) and [*selection*.style](https://github.com/d3/d3-selection#selection_style)), but not all methods are supported; for example, you must [append](https://github.com/d3/d3-selection#selection_append) elements or [bind data](https://github.com/d3/d3-selection#joining-data) before a transition starts. A [*transition*.remove](#transition_remove) operator is provided for convenient removal of elements when the transition ends.
+过渡支持大多数选择集的方法(比如 [*transition*.attr](#transition_attr) 和 [*transition*.style](#transition_style) 对应[*selection*.attr](https://github.com/d3/d3-selection#selection_attr) 和 [*selection*.style](https://github.com/d3/d3-selection#selection_style)), 但是并不是所有的方法都支持，比如在过渡前可以对选择集使用 [append](https://github.com/d3/d3-selection#selection_append) 或者[bind data](https://github.com/d3/d3-selection#joining-data)，[*transition*.remove](#transition_remove)操作则可以在过渡结束后移除元素。
 
-To compute intermediate state, transitions leverage a variety of [built-in interpolators](https://github.com/d3/d3-interpolate). [Colors](https://github.com/d3/d3-interpolate#interpolateRgb), [numbers](https://github.com/d3/d3-interpolate#interpolateNumber), and [transforms](https://github.com/d3/d3-interpolate#interpolateTransform) are automatically detected. [Strings](https://github.com/d3/d3-interpolate#interpolateString) with embedded numbers are also detected, as is common with many styles (such as padding or font sizes) and paths. To specify a custom interpolator, use [*transition*.attrTween](#transition_attrTween), [*transition*.styleTween](#transition_styleTween) or [*transition*.tween](#transition_tween).
+为了计算过渡的中间状态，过渡提供了许多[built-in interpolators(内建的插值方法)](https://github.com/d3/d3-interpolate). [Colors](https://github.com/d3/d3-interpolate#interpolateRgb), [numbers](https://github.com/d3/d3-interpolate#interpolateNumber), 和 [transforms](https://github.com/d3/d3-interpolate#interpolateTransform). 嵌入数字的[Strings](https://github.com/d3/d3-interpolate#interpolateString)也支持。 如果要自定义插值器，则使用 [*transition*.attrTween](#transition_attrTween), [*transition*.styleTween](#transition_styleTween) 或者 [*transition*.tween](#transition_tween).
 
 ## Installing
 
-If you use NPM, `npm install d3-transition`. Otherwise, download the [latest release](https://github.com/d3/d3-transition/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-transition.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装方法略
 
 ```html
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
@@ -33,7 +33,7 @@ var transition = d3.transition();
 </script>
 ```
 
-[Try d3-transition in your browser.](https://tonicdev.com/npm/d3-transition)
+[在浏览器中测试d3-transition.](https://tonicdev.com/npm/d3-transition)
 
 ## API Reference
 
