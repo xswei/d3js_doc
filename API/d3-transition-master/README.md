@@ -270,63 +270,50 @@ selection.tween("attr.fill", function() {
 
 ### Timing
 
-The [easing](#transition_ease), [delay](#transition_delay) and [duration](#transition_duration) of a transition is configurable. For example, a per-element delay can be used to [stagger the reordering](http://bl.ocks.org/mbostock/3885705) of elements, improving perception. See [Animated Transitions in Statistical Data Graphics](http://vis.berkeley.edu/papers/animated_transitions/) for recommendations.
+过渡中的[easing](#transition_ease), [delay](#transition_delay) 和 [duration](#transition_duration)是可配置的. 参考[Animated Transitions in Statistical Data Graphics](http://vis.berkeley.edu/papers/animated_transitions/).
 
 <a name="transition_delay" href="#transition_delay">#</a> <i>transition</i>.<b>delay</b>([<i>value</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/delay.js "Source")
 
-For each selected element, sets the transition delay to the specified *value* in milliseconds. The *value* may be specified either as a constant or a function. If a function, it is immediately evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The function’s return value is then used to set each element’s transition delay. If a delay is not specified, it defaults to zero.
+设置或获取延迟时间，*value*可以为常量也可以为函数，如果是函数则可以为过渡集中的每个元素设置不同的延迟时间。默认延迟时间为0.
 
-If a *value* is not specified, returns the current value of the delay for the first (non-null) element in the transition. This is generally useful only if you know that the transition contains exactly one element.
-
-Setting the delay to a multiple of the index `i` is a convenient way to stagger transitions across a set of elements. For example:
+为不同的元素设置不同的延迟时间:
 
 ```js
 transition.delay(function(d, i) { return i * 10; });
 ```
 
-Of course, you can also compute the delay as a function of the data, or [sort the selection](https://github.com/d3/d3-selection#selection_sort) before computed an index-based delay.
-
 <a name="transition_duration" href="#transition_duration">#</a> <i>transition</i>.<b>duration</b>([<i>value</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/duration.js "Source")
 
-For each selected element, sets the transition duration to the specified *value* in milliseconds. The *value* may be specified either as a constant or a function. If a function, it is immediately evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The function’s return value is then used to set each element’s transition duration. If a duration is not specified, it defaults to 250ms.
-
-If a *value* is not specified, returns the current value of the duration for the first (non-null) element in the transition. This is generally useful only if you know that the transition contains exactly one element.
+设置或获取过渡时间，*value*可以为函数。
 
 <a name="transition_ease" href="#transition_ease">#</a> <i>transition</i>.<b>ease</b>([<i>value</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/ease.js "Source")
 
-Specifies the transition [easing function](https://github.com/d3/d3-ease) for all selected elements. The *value* must be specified as a function. The easing function is invoked for each frame of the animation, being passed the normalized time *t* in the range [0, 1]; it must then return the eased time *tʹ* which is typically also in the range [0, 1]. A good easing function should return 0 if *t* = 0 and 1 if *t* = 1. If an easing function is not specified, it defaults to [d3.easeCubic](https://github.com/d3/d3-ease#easeCubic).
+设置或获取[easing function(过渡方式)](https://github.com/d3/d3-ease)，默认为[d3.easeCubic](https://github.com/d3/d3-ease#easeCubic).
 
-If a *value* is not specified, returns the current easing function for the first (non-null) element in the transition. This is generally useful only if you know that the transition contains exactly one element.
 
 ### Control Flow
 
-For advanced usage, transitions provide methods for custom control flow.
+一些对过渡的控制方法。
 
 <a name="transition_on" href="#transition_on">#</a> <i>transition</i>.<b>on</b>(<i>typenames</i>[, <i>listener</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/on.js "Source")
 
-Adds or removes a *listener* to each selected element for the specified event *typenames*. The *typenames* is one of the following string event types:
+为过渡添加时间监听器，事件类型如下:
 
-* `start` - when the transition starts.
-* `end` - when the transition ends.
-* `interrupt` - when the transition is interrupted.
+* `start` - 过渡开始时.
+* `end` - 过渡结束后.
+* `interrupt` - 过渡被中断.
 
-See [The Life of a Transition](#the-life-of-a-transition) for more. Note that these are *not* native DOM events as implemented by [*selection*.on](https://github.com/d3/d3-selection#selection_on) and [*selection*.dispatch](https://github.com/d3/d3-selection#selection_dispatch), but transition events!
+参考[The Life of a Transition](#the-life-of-a-transition). 这些事件不是DOM的本地事件，而是过渡的事件。
 
-The type may be optionally followed by a period (`.`) and a name; the optional name allows multiple callbacks to be registered to receive events of the same type, such as `start.foo` and `start.bar`. To specify multiple typenames, separate typenames with spaces, such as `interrupt end` or `start.foo start.bar`.
-
-When a specified transition event is dispatched on a selected node, the specified *listener* will be invoked for the transitioning element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. Listeners always see the latest datum for their element, but the index is a property of the selection and is fixed when the listener is assigned; to update the index, re-assign the listener.
-
-If an event listener was previously registered for the same *typename* on a selected element, the old listener is removed before the new listener is added. To remove a listener, pass null as the *listener*. To remove all listeners for a given name, pass null as the *listener* and `.foo` as the *typename*, where `foo` is the name; to remove all listeners with no name, specify `.` as the *typename*.
-
-If a *listener* is not specified, returns the currently-assigned listener for the specified event *typename* on the first (non-null) selected element, if any. If multiple typenames are specified, the first matching listener is returned.
+事件类型可以通过(`.`) 指定name，也就是同一种事件类型可以指定多个事件监听器。比如`start.foo` 和 `start.bar`. 也可以同时指定多个时间监听器，通过空格隔开，比如:`start.foo start.bar`.
 
 <a name="transition_each" href="#transition_each">#</a> <i>transition</i>.<b>each</b>(<i>function</i>) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/each.js "Source")
 
-Invokes the specified *function* for each selected element, passing in the current datum `d` and index `i`, with the `this` context of the current DOM element. This method can be used to invoke arbitrary code for each selected element, and is useful for creating a context to access parent and child data simultaneously. Equivalent to [*selection*.each](https://github.com/d3/d3-selection#selection_each).
+为过渡集中的每个元素调用指定的函数。等价于[*selection*.each](https://github.com/d3/d3-selection#selection_each).
 
 <a name="transition_call" href="#transition_call">#</a> <i>transition</i>.<b>call</b>(<i>function</i>[, <i>arguments…</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/call.js "Source")
 
-Invokes the specified *function* exactly once, passing in this transition along with any optional *arguments*. Returns this transition. This is equivalent to invoking the function by hand but facilitates method chaining. For example, to set several attributes in a reusable function:
+调用一次指定的函数，比如:
 
 ```js
 function color(transition, fill, stroke) {
@@ -336,35 +323,35 @@ function color(transition, fill, stroke) {
 }
 ```
 
-Now say:
+可以如下使用:
 
 ```js
 d3.selectAll("div").transition().call(color, "red", "blue");
 ```
 
-This is equivalent to:
+等价于:
 
 ```js
 color(d3.selectAll("div").transition(), "red", "blue");
 ```
 
-Equivalent to [*selection*.call](https://github.com/d3/d3-selection#selection_call).
+等价于 [*selection*.call](https://github.com/d3/d3-selection#selection_call).
 
 <a name="transition_empty" href="#transition_empty">#</a> <i>transition</i>.<b>empty</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/empty.js "Source")
 
-Returns true if this transition contains no (non-null) elements. Equivalent to [*selection*.empty](https://github.com/d3/d3-selection#selection_empty).
+等价于 [*selection*.empty](https://github.com/d3/d3-selection#selection_empty).
 
 <a name="transition_nodes" href="#transition_nodes">#</a> <i>transition</i>.<b>nodes</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/nodes.js "Source")
 
-Returns an array of all (non-null) elements in this transition. Equivalent to [*selection*.nodes](https://github.com/d3/d3-selection#selection_nodes).
+等价于 [*selection*.nodes](https://github.com/d3/d3-selection#selection_nodes).
 
 <a name="transition_node" href="#transition_node">#</a> <i>transition</i>.<b>node</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/node.js "Source")
 
-Returns the first (non-null) element in this transition. If the transition is empty, returns null. Equivalent to [*selection*.node](https://github.com/d3/d3-selection#selection_node).
+等价于 [*selection*.node](https://github.com/d3/d3-selection#selection_node).
 
 <a name="transition_size" href="#transition_size">#</a> <i>transition</i>.<b>size</b>() [<>](https://github.com/d3/d3-selection/blob/master/src/selection/size.js "Source")
 
-Returns the total number of elements in this transition. Equivalent to [*selection*.size](https://github.com/d3/d3-selection#selection_size).
+ 等价于 [*selection*.size](https://github.com/d3/d3-selection#selection_size).
 
 ### The Life of a Transition
 
