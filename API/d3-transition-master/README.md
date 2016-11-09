@@ -355,7 +355,10 @@ color(d3.selectAll("div").transition(), "red", "blue");
 
 ### The Life of a Transition
 
-Immediately after creating a transition, such as by [*selection*.transition](#selection_transition) or [*transition*.transition](#transition_transition), you may configure the transition using methods such as [*transition*.delay](#transition_delay), [*transition*.duration](#transition_duration), [*transition*.attr](#transition_attr) and [*transition*.style](#transition_style). Methods that specify target values (such as *transition*.attr) are evaluated synchronously; however, methods that require the starting value for interpolation, such as [*transition*.attrTween](#transition_attrTween) and [*transition*.styleTween](#transition_styleTween), must be deferred until the transition starts.
+在使用[*selection*.transition](#selection_transition) 或者 [*transition*.transition](#transition_transition)创建一个过渡集之后，可以使用 [*transition*.delay](#transition_delay), [*transition*.duration](#transition_duration), [*transition*.attr](#transition_attr) 和 [*transition*.style](#transition_style)等方法对过渡进行配置。但是有些属性需要通过[*transition*.attrTween](#transition_attrTween) 和 [*transition*.styleTween](#transition_styleTween)来进行配置。
+
+....不想写了...
+
 
 Shortly after creation, either at the end of the current frame or during the next frame, the transition is scheduled. At this point, the delay and `start` event listeners may no longer be changed.
 
