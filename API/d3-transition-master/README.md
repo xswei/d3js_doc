@@ -190,27 +190,25 @@ d3.selectAll("circle").transition()
 
 ### Modifying Elements
 
-After selecting elements and creating a transition with [*selection*.transition](#selection_transition), use the transition’s transformation methods to affect document content.
+当选中元素并使用 [*selection*.transition](#selection_transition)创建一个过渡之后，就可以对元素的内容属性进行过渡了。
 
 <a name="transition_attr" href="#transition_attr">#</a> <i>transition</i>.<b>attr</b>(<i>name</i>, <i>value</i>) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/attr.js "Source")
 
-For each selected element, assigns the [attribute tween](#transition_attrTween) for the attribute with the specified *name* to the specified target *value*. The starting value of the tween is the attribute’s value when the transition starts. The target *value* may be specified either as a constant or a function. If a function, it is immediately evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
+将选中的元素的名为name的属性从当前值过渡到目标值。*value*可以是一个值也可以是一个方法也可以是null，如果是一个方法则会被立即调用，并传递当前元素绑定的数据*d*,*i*,*this*指向当前的元素。如果*target*为null则变换开始时将这个属性移除。否则使用如下的算法对其进行插值:
 
-If the target value is null, the attribute is removed when the transition starts. Otherwise, an interpolator is chosen based on the type of the target value, using the following algorithm:
+1. 如果 *value* 是数值, 则使用[interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber).
+2. 如果 *value* 是[color](https://github.com/d3/d3-color#color)或者是一个表示颜色的字符串则使用[interpolateRgb](https://github.com/d3/d3-interpolate#interpolateRgb).
+3. 其他情况使用[interpolateString](https://github.com/d3/d3-interpolate#interpolateString).
 
-1. If *value* is a number, use [interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber).
-2. If *value* is a [color](https://github.com/d3/d3-color#color) or a string coercible to a color, use [interpolateRgb](https://github.com/d3/d3-interpolate#interpolateRgb).
-3. Use [interpolateString](https://github.com/d3/d3-interpolate#interpolateString).
-
-To apply a different interpolator, use [*transition*.attrTween](#transition_attrTween).
+如果要使用其他的插值方式，则使用 [*transition*.attrTween](#transition_attrTween)方法.
 
 <a name="transition_attrTween" href="#transition_attrTween">#</a> <i>transition</i>.<b>attrTween</b>(<i>name</i>[, <i>factory</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/attrTween.js "Source")
 
-If *factory* is specified and not null, assigns the attribute [tween](#transition_tween) for the attribute with the specified *name* to the specified interpolator *factory*. An interpolator factory is a function that returns an [interpolator](https://github.com/d3/d3-interpolate); when the transition starts, the *factory* is evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The returned interpolator will then be invoked for each frame of the transition, in order, being passed the [eased](#transition_ease) time *t*, typically in the range [0, 1]. Lastly, the return value of the interpolator will be used to set the attribute value. The interpolator must return a string. (To remove an attribute at the start of a transition, use [*transition*.attr](#transition_attr); to remove an attribute at the end of a transition, use [*transition*.on](#transition_on) to listen for the *end* event.)
+如果*factory*非null，则根据插值*factory*从对name进行过渡。插值*factory*是一个返回[interpolator](https://github.com/d3/d3-interpolate)的方法。在过渡开始时，对每个元素调用*factory*，并传递当前的元素绑定的数据*d*,*i*，*this*指向当前的DOM元素。返回的插值器会在过渡中的每一帧进行调用并传递当前的参数*t*. *t*的范围为[0,1],然后返回插值器计算后的值给name使用，插值器必须返回字符串类型。
 
-If the specified *factory* is null, removes the previously-assigned attribute tween of the specified *name*, if any. If *factory* is not specified, returns the current interpolator factory for attribute with the specified *name*, or undefined if no such tween exists.
+如果*factory*为null，则移除name属性。如果没有指定*factory*则返回当前的插值器。
 
-For example, to interpolate the fill attribute from red to blue:
+比如，对fill属性进行插值:
 
 ```js
 selection.attrTween("fill", function() {
@@ -218,7 +216,7 @@ selection.attrTween("fill", function() {
 });
 ```
 
-Or to interpolate from the current fill to blue, like [*transition*.attr](#transition_attr):
+或者从当前的fill值插值到blue：
 
 ```js
 selection.attrTween("fill", function() {
@@ -226,7 +224,7 @@ selection.attrTween("fill", function() {
 });
 ```
 
-Or to apply a custom rainbow interpolator:
+或者使用自定义的方法代替自带的插值器:
 
 ```js
 selection.attrTween("fill", function() {
@@ -236,69 +234,29 @@ selection.attrTween("fill", function() {
 });
 ```
 
-This method is useful to specify a custom interpolator, such as one that understands [SVG paths](http://bl.ocks.org/mbostock/3916621). A useful technique is *data interpolation*, where [d3.interpolateObject](https://github.com/d3/d3-interpolate#interpolateObject) is used to interpolate two data values, and the resulting value is then used (say, with a [shape](https://github.com/d3/d3-shape)) to compute the new attribute value.
+这个方法在指定自定义的插值器时是有用的，比如对[SVG paths](http://bl.ocks.org/mbostock/3916621)进行插值。
 
 <a name="transition_style" href="#transition_style">#</a> <i>transition</i>.<b>style</b>(<i>name</i>, <i>value</i>[, <i>priority</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/style.js "Source")
 
-For each selected element, assigns the [style tween](#transition_styleTween) for the style with the specified *name* to the specified target *value* with the specified *priority*. The starting value of the tween is the style’s computed value when the transition starts. The target *value* may be specified either as a constant or a function. If a function, it is immediately evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element.
-
-If the target value is null, the style is removed when the transition starts. Otherwise, an interpolator is chosen based on the type of the target value, using the following algorithm:
-
-1. If *value* is a number, use [interpolateNumber](https://github.com/d3/d3-interpolate#interpolateNumber).
-2. If *value* is a [color](https://github.com/d3/d3-color#color) or a string coercible to a color, use [interpolateRgb](https://github.com/d3/d3-interpolate#interpolateRgb).
-3. Use [interpolateString](https://github.com/d3/d3-interpolate#interpolateString).
-
-To apply a different interpolator, use [*transition*.styleTween](#transition_styleTween).
+同*transition.attr(name, value)*用法。
 
 <a name="transition_styleTween" href="#transition_styleTween">#</a> <i>transition</i>.<b>styleTween</b>(<i>name</i>[, <i>factory</i>[, <i>priority</i>]])) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/styleTween.js "Source")
 
-If *factory* is specified and not null, assigns the style [tween](#transition_tween) for the style with the specified *name* to the specified interpolator *factory*. An interpolator factory is a function that returns an [interpolator](https://github.com/d3/d3-interpolate); when the transition starts, the *factory* is evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The returned interpolator will then be invoked for each frame of the transition, in order, being passed the [eased](#transition_ease) time *t*, typically in the range [0, 1]. Lastly, the return value of the interpolator will be used to set the style value with the specified *priority*. The interpolator must return a string. (To remove an style at the start of a transition, use [*transition*.style](#transition_style); to remove an style at the end of a transition, use [*transition*.on](#transition_on) to listen for the *end* event.)
-
-If the specified *factory* is null, removes the previously-assigned style tween of the specified *name*, if any. If *factory* is not specified, returns the current interpolator factory for style with the specified *name*, or undefined if no such tween exists.
-
-For example, to interpolate the fill style from red to blue:
-
-```js
-selection.styleTween("fill", function() {
-  return d3.interpolateRgb("red", "blue");
-});
-```
-
-Or to interpolate from the current fill to blue, like [*transition*.style](#transition_style):
-
-```js
-selection.styleTween("fill", function() {
-  return d3.interpolateRgb(getComputedStyle(this).getPropertyValue("fill"), "blue");
-});
-```
-
-Or to apply a custom rainbow interpolator:
-
-```js
-selection.styleTween("fill", function() {
-  return function(t) {
-    return "hsl(" + t * 360 + ",100%,50%)";
-  };
-});
-```
-
-This method is useful to specify a custom interpolator, such as with *data interpolation*, where [d3.interpolateObject](https://github.com/d3/d3-interpolate#interpolateObject) is used to interpolate two data values, and the resulting value is then used to compute the new style value.
+同*transition.attrTween(name[, factory])*用法。
 
 <a name="transition_text" href="#transition_text">#</a> <i>transition</i>.<b>text</b>(<i>value</i>) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/text.js "Source")
 
-For each selected element, sets the [text content](http://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent) to the specified target *value* when the transition starts. The *value* may be specified either as a constant or a function. If a function, it is immediately evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The function’s return value is then used to set each element’s text content. A null value will clear the content.
+过渡开始时将指定的元素的[text content](http://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent)设置为目标值。*value*可以是一个常量也可以是一个方法，如果是方法则在过渡开始时进行调用。
 
-To interpolate text rather than to set it on start, use [*transition*.tween](#transition_tween) ([for example](http://bl.ocks.org/mbostock/7004f92cac972edef365)) or append a replacement element and cross-fade opacity ([for example](http://bl.ocks.org/mbostock/f7dcecb19c4af317e464)). Text is not interpolated by default because it is usually undesirable.
+使用插值的方式比直接设置要更好些，比如使用 [*transition*.tween](#transition_tween) ([for example](http://bl.ocks.org/mbostock/7004f92cac972edef365)) 或者使用透明度渐变的替代元素([for example](http://bl.ocks.org/mbostock/f7dcecb19c4af317e464)). 文本内容不能直接使用默认的插值器进行过渡。
 
 <a name="transition_remove" href="#transition_remove">#</a> <i>transition</i>.<b>remove</b>() [<>](https://github.com/d3/d3-transition/blob/master/src/transition/remove.js "Source")
 
-For each selected element, [removes](https://github.com/d3/d3-selection#selection_remove) the element when the transition ends, as long as the element has no other active or pending transitions. If the element has other active or pending transitions, does nothing.
+在过渡结束时如果元素上没有其他活动的过渡或待进行的过渡则[removes](https://github.com/d3/d3-selection#selection_remove)元素。否则什么都不做。
 
 <a name="transition_tween" href="#transition_tween">#</a> <i>transition</i>.<b>tween</b>(<i>name</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-transition/blob/master/src/transition/tween.js "Source")
 
-For each selected element, assigns the tween with the specified *name* with the specified *value* function. The *value* must be specified as a function that returns a function. When the transition starts, the *value* function is evaluated for each selected element, in order, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The returned function is then invoked for each frame of the transition, in order, being passed the [eased](#transition_ease) time *t*, typically in the range [0, 1]. If the specified *value* is null, removes the previously-assigned tween of the specified *name*, if any.
-
-For example, to interpolate the fill attribute to blue, like [*transition*.attr](#transition_attr):
+为每个元素的name属性创建补间过渡。*value*必须为一个返回方法的方法形式。过渡开始时，*value*方法会对每个选中的元素进行调用，并传递当前的元素绑定的数据*d*,*i*,*this*指向当前的DOM元素。返回的方法会接受参数*t*计算出当前的值赋给name。比如对fill属性使用tween进行过渡:
 
 ```js
 selection.tween("attr.fill", function() {
@@ -309,7 +267,6 @@ selection.tween("attr.fill", function() {
 });
 ```
 
-This method is useful to specify a custom interpolator, or to perform side-effects, say to animate the [scroll offset](http://bl.ocks.org/mbostock/1649463).
 
 ### Timing
 
