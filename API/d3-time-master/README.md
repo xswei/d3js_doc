@@ -33,7 +33,7 @@ d3-time模块的实现基于ECMAScript [Date](https://developer.mozilla.org/en-U
 
 ## Installing
 
-If you use NPM, `npm install d3-time`. Otherwise, download the [latest release](https://github.com/d3/d3-time/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-time.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装的方法略
 
 ```html
 <script src="https://d3js.org/d3-time.v1.min.js"></script>
@@ -44,21 +44,38 @@ var day = d3.timeDay(new Date);
 </script>
 ```
 
-[Try d3-time in your browser.](https://tonicdev.com/npm/d3-time)
+[在浏览器中测试d3-time.](https://tonicdev.com/npm/d3-time)
 
 ## API Reference
 
+
 <a name="_interval" href="#_interval">#</a> <i>interval</i>(<i>date</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L6 "Source")
 
-Alias for [*interval*.floor](#interval_floor). For example, [timeYear](#timeYear)(*date*) and timeYear.floor(*date*) are equivalent.
+[*interval*.floor](#interval_floor)的别称. 例如, [timeYear](#timeYear)(*date*) 和 timeYear.floor(*date*) 是等价的.
 
 <a name="interval_floor" href="#interval_floor">#</a> <i>interval</i>.<b>floor</b>(<i>date</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L10 "Source")
 
-Returns a new date representing the latest interval boundary date before or equal to *date*. For example, [timeDay](#timeDay).floor(*date*) typically returns 12:00 AM local time on the given *date*.
+对时间进行向下取整，返回一个新的Date表示。取整的精度取决于*interval*，例如:
 
-This method is idempotent: if the specified *date* is already floored to the current interval, a new date with an identical time is returned. Furthermore, the returned date is the minimum expressible value of the associated interval, such that *interval*.floor(*interval*.floor(*date*) - 1) returns the preceeding interval boundary date.
+```js
+var date = new Date("2016-11-10 12:25:30");	//date:Thu Nov 10 2016 12:25:30 GMT+0800 (中国标准时间)
 
-Note that the `==` and `===` operators do not compare by value with [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) objects, and thus you cannot use them to tell whether the specified *date* has already been floored. Instead, coerce to a number and then compare:
+d3.timeMinute.floor(date);	//Thu Nov 10 2016 12:25:00 GMT+0800 (中国标准时间)
+
+d3.timeDay.floor(date);	//Thu Nov 10 2016 00:00:00 GMT+0800 (中国标准时间)
+
+```
+
+这个方法是幂等的:如果*date*已经为整了，则返回一个相等的新的date表示。另外这个方法可以进行运算，比如*interval*.floor(*interval*.floor(*date*) - 1) 会返回计算后的date表示:
+
+```js
+d3.timeDay.floor(date);	//Thu Nov 10 2016 00:00:00 GMT+0800 (中国标准时间)
+
+d3.timeDay(d3.timeDay.floor(date)-1);	//Wed Nov 09 2016 00:00:00 GMT+0800 (中国标准时间)
+
+``` 
+
+要注意的是Date对象不能通过 `==` and `===`来进行比较，也就是说你不能使用 `==` and `===`来判断一个date已经为整，但是你可以将其转化为数值类型来判断:
 
 ```js
 // Returns true if the specified date is a day boundary.
@@ -67,29 +84,56 @@ function isDay(date) {
 }
 ```
 
-This is more reliable than testing whether the time is 12:00 AM, as in some time zones midnight may not exist due to daylight saving.
+这个方法比测试是否是12:00 AM来判断是否为天数整数更可靠
 
 <a name="interval_round" href="#interval_round">#</a> <i>interval</i>.<b>round</b>(<i>date</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L16 "Source")
 
-Returns a new date representing the closest interval boundary date to *date*. For example, [timeDay](#timeDay).round(*date*) typically returns 12:00 AM local time on the given *date* if it is on or before noon, and 12:00 AM of the following day if it is after noon.
-
-This method is idempotent: if the specified *date* is already rounded to the current interval, a new date with an identical time is returned.
+同为取整，只不过不是向下取整，而是取最接近的，如果为[timeDay](#timeDay)的话，要看传入的具体时间返回当前或者下一天的date表示。
 
 <a name="interval_ceil" href="#interval_ceil">#</a> <i>interval</i>.<b>ceil</b>(<i>date</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L12 "Source")
 
-Returns a new date representing the earliest interval boundary date after or equal to *date*. For example, [timeDay](#timeDay).ceil(*date*) typically returns 12:00 AM local time on the date following the given *date*.
-
-This method is idempotent: if the specified *date* is already ceilinged to the current interval, a new date with an identical time is returned. Furthermore, the returned date is the maximum expressible value of the associated interval, such that *interval*.ceil(*interval*.ceil(*date*) + 1) returns the following interval boundary date.
+向上取整。返回下个整数日期
 
 <a name="interval_offset" href="#interval_offset">#</a> <i>interval</i>.<b>offset</b>(<i>date</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L22 "Source")
 
-Returns a new date equal to *date* plus *step* intervals. If *step* is not specified it defaults to 1. If *step* is negative, then the returned date will be before the specified *date*; if *step* is zero, then a copy of the specified *date* is returned; if *step* is not an integer, it is [floored](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). This method does not round the specified *date* to the interval. For example, if *date* is today at 5:34 PM, then [timeDay](#timeDay).offset(*date*, 1) returns 5:34 PM tomorrow (even if daylight saving changes!).
+返回相对date，距离为step的date表示。*step*默认为1。*step*为负数时则表示已经过去的date。
+
+比如:
+
+```js
+
+var date = new Date("2016-11-10 12:25:30");	//date:Thu Nov 10 2016 12:25:30 GMT+0800 (中国标准时间)
+
+d3.timeDay.offset(date,1);	//Fri Nov 11 2016 12:25:30 GMT+0800 (中国标准时间)
+
+d3.timeDay.offset(date,10);	//Sun Nov 20 2016 12:25:30 GMT+0800 (中国标准时间)
+
+d3.timeDay.offset(date,-10);	//Mon Oct 31 2016 12:25:30 GMT+0800 (中国标准时间)
+
+```
 
 <a name="interval_range" href="#interval_range">#</a> <i>interval</i>.<b>range</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L26 "Source")
 
-Returns every an array of dates representing every interval boundary after or equal to *start* (inclusive) and before *stop* (exclusive). If *step* is specified, then every *step*th boundary will be returned; for example, for the [timeDay](#timeDay) interval a *step* of 2 will return every other day. If *step* is not an integer, it is [floored](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor).
+在start和stop之间返回步长为step的一组date表示。
 
-The first date in the returned array is the earliest boundary after or equal to *start*; subsequent dates are [offset](#interval_offset) by *step* intervals and [floored](#interval_floor). Thus, two overlapping ranges may be consistent. For example, this range contains odd days:
+```js
+
+var start = new Date("2016-11-1 12:25:30");
+var stop = new Date("2016-11-10 12:25:30");
+
+d3.timeDay.range(start,stop,2);
+//
+[Wed Nov 02 2016 00:00:00 GMT+0800 (中国标准时间),
+Fri Nov 04 2016 00:00:00 GMT+0800 (中国标准时间),
+Sun Nov 06 2016 00:00:00 GMT+0800 (中国标准时间),
+Tue Nov 08 2016 00:00:00 GMT+0800 (中国标准时间),
+Thu Nov 10 2016 00:00:00 GMT+0800 (中国标准时间)]
+
+//以天为单位，每隔2天取一个值，也可以不用d3.timeDay改用其他的时间单位
+
+```
+
+奇数天:
 
 ```js
 d3.timeDay.range(new Date(2015, 0, 1), new Date(2015, 0, 7), 2);
@@ -98,7 +142,7 @@ d3.timeDay.range(new Date(2015, 0, 1), new Date(2015, 0, 7), 2);
 //  Mon Jan 05 2015 00:00:00 GMT-0800 (PST)]
 ```
 
-While this contains even days:
+偶数天:
 
 ```js
 d3.timeDay.range(new Date(2015, 0, 2), new Date(2015, 0, 8), 2);
@@ -107,23 +151,19 @@ d3.timeDay.range(new Date(2015, 0, 2), new Date(2015, 0, 8), 2);
 //  Tue Jan 06 2015 00:00:00 GMT-0800 (PST)]
 ```
 
-To make ranges consistent when a *step* is specified, use [*interval*.every](#interval_every) instead.
+这个方法也可以使用[*interval*.every](#interval_every)代替.
 
 <a name="interval_filter" href="#interval_filter">#</a> <i>interval</i>.<b>filter</b>(<i>test</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L35 "Source")
 
-Returns a new interval that is a filtered subset of this interval using the specified *test* function. The *test* function is passed a date and should return true if and only if the specified date should be considered part of the interval. For example, to create an interval that returns the 1st, 11th, 21th and 31th (if it exists) of each month:
+手动过滤某些时间，比如返回某个月的1号，11号，21号，31号:
 
 ```js
 var i = d3.timeDay.filter(function(d) { return (d.getDate() - 1) % 10 === 0; });
 ```
 
-The returned filtered interval does not support [count](#interval_count). See also [*interval*.every](#interval_every).
-
 <a name="interval_every" href="#interval_every">#</a> <i>interval</i>.<b>every</b>(<i>step</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L50 "Source")
 
-Returns a [filtered](#interval_filter) view of this interval representing every *step*th date. The meaning of *step* is dependent on this interval’s parent interval as defined by the field function. For example, [timeMinute](#timeMinute).every(15) returns an interval representing every fifteen minutes, starting on the hour: :00, :15, :30, :45, <i>etc.</i> Note that for some intervals, the resulting dates may not be uniformly-spaced; [timeDay](#timeDay)’s parent interval is [timeMonth](#timeMonth), and thus the interval number resets at the start of each month. If *step* is not valid, returns null. If *step* is one, returns this interval.
-
-This method can be used in conjunction with [*interval*.range](#interval_range) to ensure that two overlapping ranges are consistent. For example, this range contains odd days:
+返回过滤后的时间间隔，步长为*step*。比如[timeMinute](#timeMinute).every(15) 返回一组间隔为15分钟的时间序列: :00, :15, :30, :45, <i>etc.</i> 这个方法与[*interval*.range](#interval_range)结合使用: 
 
 ```js
 d3.timeDay.every(2).range(new Date(2015, 0, 1), new Date(2015, 0, 7));
@@ -132,7 +172,7 @@ d3.timeDay.every(2).range(new Date(2015, 0, 1), new Date(2015, 0, 7));
 //  Mon Jan 05 2015 00:00:00 GMT-0800 (PST)]
 ```
 
-As does this one:
+or:
 
 ```js
 d3.timeDay.every(2).range(new Date(2015, 0, 2), new Date(2015, 0, 8));
@@ -141,18 +181,18 @@ d3.timeDay.every(2).range(new Date(2015, 0, 2), new Date(2015, 0, 8));
 //  Wed Jan 07 2015 00:00:00 GMT-0800 (PST)]
 ```
 
-See also [*interval*.filter](#interval_filter).
+参考[*interval*.filter](#interval_filter).
 
 <a name="interval_count" href="#interval_count">#</a> <i>interval</i>.<b>count</b>(<i>start</i>, <i>end</i>) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L44 "Source")
 
-Returns the number of interval boundaries after *start* (exclusive) and before or equal to *end* (inclusive). Note that this behavior is slightly different than [*interval*.range](#interval_range) because its purpose is to return the zero-based number of the specified *end* date relative to the specified *start* date. For example, to compute the current zero-based day-of-year number:
+记数，在start和stop之间统计个数，单位由*interval*表示，比如统计从今年开始，到现在过了多少天:
 
 ```js
 var now = new Date;
 d3.timeDay.count(d3.timeYear(now), now); // 177
 ```
 
-Likewise, to compute the current zero-based week-of-year number for weeks that start on Sunday:
+除了时分秒年月日之外还可以统计其他单位的，比如有多少个周日:
 
 ```js
 d3.timeSunday.count(d3.timeYear(now), now); // 25
@@ -160,170 +200,170 @@ d3.timeSunday.count(d3.timeYear(now), now); // 25
 
 <a name="timeInterval" href="#timeInterval">#</a> d3.<b>timeInterval</b>(<i>floor</i>, <i>offset</i>[, <i>count</i>[, <i>field</i>]]) [<>](https://github.com/d3/d3-time/blob/master/src/interval.js#L4 "Source")
 
-Constructs a new custom interval given the specified *floor* and *offset* functions and an optional *count* function.
+根据指定的*floor* 和 *offset*方法以及可选的 *count*函数构造一个*interval*。
 
-The *floor* function takes a single date as an argument and rounds it down to the nearest interval boundary.
+*floor*接受date参数，并将其向下取整
 
-The *offset* function takes a date and an integer step as arguments and advances the specified date by the specified number of boundaries; the step may be positive, negative or zero.
+*offset*函数接受date和整数步长为参数，计算出距离date步长为step的时间点
 
-The optional *count* function takes a start date and an end date, already floored to the current interval, and returns the number of boundaries between the start (exclusive) and end (inclusive). If a *count* function is not specified, the returned interval does not expose [count](#interval_count) or [every](#interval_every) methods. Note: due to an internal optimization, the specified *count* function must not invoke *interval*.count on other time intervals.
+可选的*count*函数接受start和stop时间。并返回两者之间以某个时间为单位的统计个数，具体的实现要自定义。
 
-The optional *field* function takes a date, already floored to the current interval, and returns the field value of the specified date, corresponding to the number of boundaries between this date (exclusive) and the latest previous parent boundary. For example, for the [timeDay](#timeDay) interval, this returns the number of days since the start of the month. If a *field* function is not specified, it defaults to counting the number of interval boundaries since the UNIX epoch of January 1, 1970 UTC. The *field* function defines the behavior of [*interval*.every](#interval_every).
+可选的*field*函数的行为用来定义实现[*interval*.every](#interval_every)的功能
 
 ### Intervals
 
-The following intervals are provided:
+d3-time模块提供了如下*interval*
 
 <a name="timeMillisecond" href="#timeMillisecond">#</a> d3.<b>timeMillisecond</b> [<>](https://github.com/d3/d3-time/blob/master/src/millisecond.js "Source")
 <br><a href="#timeMillisecond">#</a> d3.<b>utcMillisecond</b>
 
-Milliseconds; the shortest available time unit.
+毫秒，最小的可用的时间单位
 
 <a name="timeSecond" href="#timeSecond">#</a> d3.<b>timeSecond</b> [<>](https://github.com/d3/d3-time/blob/master/src/second.js "Source")
 <br><a href="#timeSecond">#</a> d3.<b>utcSecond</b>
 
-Seconds (e.g., 01:23:45.0000 AM); 1,000 milliseconds.
+秒
 
 <a name="timeMinute" href="#timeMinute">#</a> d3.<b>timeMinute</b> [<>](https://github.com/d3/d3-time/blob/master/src/minute.js "Source")
 <br><a href="#timeMinute">#</a> d3.<b>utcMinute</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcMinute.js "Source")
 
-Minutes (e.g., 01:02:00 AM); 60 seconds. Note that ECMAScript [ignores leap seconds](http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.1).
+分钟
 
 <a name="timeHour" href="#timeHour">#</a> d3.<b>timeHour</b> [<>](https://github.com/d3/d3-time/blob/master/src/hour.js "Source")
 <br><a href="#timeHour">#</a> d3.<b>utcHour</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcHour.js "Source")
 
-Hours (e.g., 01:00 AM); 60 minutes. Note that advancing time by one hour in local time can return the same hour or skip an hour due to daylight saving.
+小时
 
 <a name="timeDay" href="#timeDay">#</a> d3.<b>timeDay</b> [<>](https://github.com/d3/d3-time/blob/master/src/day.js "Source")
 <br><a href="#timeDay">#</a> d3.<b>utcDay</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcDay.js "Source")
 
-Days (e.g., February 7, 2012 at 12:00 AM); typically 24 hours. Days in local time may range from 23 to 25 hours due to daylight saving.
+天
 
 <a name="timeWeek" href="#timeWeek">#</a> d3.<b>timeWeek</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js "Source")
 <br><a href="#timeWeek">#</a> d3.<b>utcWeek</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js "Source")
 
-Alias for [sunday](#sunday); 7 days and typically 168 hours. Weeks in local time may range from 167 to 169 hours due on daylight saving.
+等价于[sunday](#sunday)
 
 <a name="timeSunday" href="#timeSunday">#</a> d3.<b>timeSunday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L15 "Source")
 <br><a href="#timeSunday">#</a> d3.<b>utcSunday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L15 "Source")
 
-Sunday-based weeks (e.g., February 5, 2012 at 12:00 AM).
+周日
 
 <a name="timeMonday" href="#timeMonday">#</a> d3.<b>timeMonday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L16 "Source")
 <br><a href="#timeMonday">#</a> d3.<b>utcMonday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L16 "Source")
 
-Monday-based weeks (e.g., February 6, 2012 at 12:00 AM).
+周一
 
 <a name="timeTuesday" href="#timeTuesday">#</a> d3.<b>timeTuesday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L17 "Source")
 <br><a href="#timeTuesday">#</a> d3.<b>utcTuesday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L17 "Source")
 
-Tuesday-based weeks (e.g., February 7, 2012 at 12:00 AM).
+周二
 
 <a name="timeWednesday" href="#timeWednesday">#</a> d3.<b>timeWednesday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L18 "Source")
 <br><a href="#timeWednesday">#</a> d3.<b>utcWednesday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L18 "Source")
 
-Wednesday-based weeks (e.g., February 8, 2012 at 12:00 AM).
+周三
 
 <a name="timeThursday" href="#timeThursday">#</a> d3.<b>timeThursday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L19 "Source")
 <br><a href="#timeThursday">#</a> d3.<b>utcThursday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L19 "Source")
 
-Thursday-based weeks (e.g., February 9, 2012 at 12:00 AM).
+周四
 
 <a name="timeFriday" href="#timeFriday">#</a> d3.<b>timeFriday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L20 "Source")
 <br><a href="#timeFriday">#</a> d3.<b>utcFriday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L20 "Source")
 
-Friday-based weeks (e.g., February 10, 2012 at 12:00 AM).
+周五
 
 <a name="timeSaturday" href="#timeSaturday">#</a> d3.<b>timeSaturday</b> [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L21 "Source")
 <br><a href="#timeSaturday">#</a> d3.<b>utcSaturday</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L21 "Source")
 
-Saturday-based weeks (e.g., February 11, 2012 at 12:00 AM).
+周六
 
 <a name="timeMonth" href="#timeMonth">#</a> d3.<b>timeMonth</b> [<>](https://github.com/d3/d3-time/blob/master/src/month.js "Source")
 <br><a href="#timeMonth">#</a> d3.<b>utcMonth</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcMonth.js "Source")
 
-Months (e.g., February 1, 2012 at 12:00 AM); ranges from 28 to 31 days.
+月
 
 <a name="timeYear" href="#timeYear">#</a> d3.<b>timeYear</b> [<>](https://github.com/d3/d3-time/blob/master/src/year.js "Source")
 <br><a href="#timeYear">#</a> d3.<b>utcYear</b> [<>](https://github.com/d3/d3-time/blob/master/src/utcYear.js "Source")
 
-Years (e.g., January 1, 2012 at 12:00 AM); ranges from 365 to 366 days.
+年
 
 ### Ranges
 
-For convenience, aliases for [*interval*.range](#interval_range) are also provided as plural forms of the corresponding interval.
+为方便起见，也提供了[*interval*.range](#interval_range)的简写的方式
 
 <a name="timeMilliseconds" href="#timeMilliseconds">#</a> d3.<b>timeMilliseconds</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/millisecond.js#L26 "Source")
 <br><a href="#timeMilliseconds">#</a> d3.<b>utcMilliseconds</b>(<i>start</i>, <i>stop</i>[, <i>step</i>])
 
-Aliases for [timeMillisecond](#timeMillisecond).[range](#interval_range) and [utcMillisecond](#timeMillisecond).[range](#interval_range).
+等价于 [timeMillisecond](#timeMillisecond).[range](#interval_range) 和 [utcMillisecond](#timeMillisecond).[range](#interval_range).
 
 <a name="timeSeconds" href="#timeSeconds">#</a> d3.<b>timeSeconds</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/second.js#L15 "Source")
 <br><a href="#timeSeconds">#</a> d3.<b>utcSeconds</b>(<i>start</i>, <i>stop</i>[, <i>step</i>])
 
-Aliases for [timeSecond](#timeSecond).[range](#interval_range) and [utcSecond](#timeSecond).[range](#interval_range).
+等价于 [timeSecond](#timeSecond).[range](#interval_range) 和 [utcSecond](#timeSecond).[range](#interval_range).
 
 <a name="timeMinutes" href="#timeMinutes">#</a> d3.<b>timeMinutes</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/minute.js#L15 "Source")
 <br><a href="#timeMinutes">#</a> d3.<b>utcMinutes</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcMinute.js#L15 "Source")
 
-Aliases for [timeMinute](#timeMinute).[range](#interval_range) and [utcMinute](#timeMinute).[range](#interval_range).
+等价于 [timeMinute](#timeMinute).[range](#interval_range) 和 [utcMinute](#timeMinute).[range](#interval_range).
 
 <a name="timeHours" href="#timeHours">#</a> d3.<b>timeHours</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/hour.js#L17 "Source")
 <br><a href="#timeHours">#</a> d3.<b>utcHours</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcHour.js#L15 "Source")
 
-Aliases for [timeHour](#timeHour).[range](#interval_range) and [utcHour](#timeHour).[range](#interval_range).
+等价于 [timeHour](#timeHour).[range](#interval_range) 和 [utcHour](#timeHour).[range](#interval_range).
 
 <a name="timeDays" href="#timeDays">#</a> d3.<b>timeDays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/day.js#L15 "Source")
 <br><a href="#timeDays">#</a> d3.<b>utcDays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcDay.js#L15 "Source")
 
-Aliases for [timeDay](#timeDay).[range](#interval_range) and [utcDay](#timeDay).[range](#interval_range).
+等价于 [timeDay](#timeDay).[range](#interval_range) 和 [utcDay](#timeDay).[range](#interval_range).
 
 <a name="timeWeeks" href="#timeWeeks">#</a> d3.<b>timeWeeks</b>(<i>start</i>, <i>stop</i>[, <i>step</i>])
 <br><a href="#timeWeeks">#</a> d3.<b>utcWeeks</b>(<i>start</i>, <i>stop</i>[, <i>step</i>])
 
-Aliases for [timeWeek](#timeWeek).[range](#interval_range) and [utcWeek](#timeWeek).[range](#interval_range).
+等价于 [timeWeek](#timeWeek).[range](#interval_range) 和 [utcWeek](#timeWeek).[range](#interval_range).
 
 <a name="timeSundays" href="#timeSundays">#</a> d3.<b>timeSundays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L23 "Source")
 <br><a href="#timeSundays">#</a> d3.<b>utcSundays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L23 "Source")
 
-Aliases for [timeSunday](#timeSunday).[range](#interval_range) and [utcSunday](#timeSunday).[range](#interval_range).
+等价于 [timeSunday](#timeSunday).[range](#interval_range) 和 [utcSunday](#timeSunday).[range](#interval_range).
 
 <a name="timeMondays" href="#timeMondays">#</a> d3.<b>timeMondays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L24 "Source")
 <br><a href="#timeMondays">#</a> d3.<b>utcMondays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L24 "Source")
 
-Aliases for [timeMonday](#timeMonday).[range](#interval_range) and [utcMonday](#timeMonday).[range](#interval_range).
+等价于 [timeMonday](#timeMonday).[range](#interval_range) 和 [utcMonday](#timeMonday).[range](#interval_range).
 
 <a name="timeTuesdays" href="#timeTuesdays">#</a> d3.<b>timeTuesdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L25 "Source")
 <br><a href="#timeTuesdays">#</a> d3.<b>utcTuesdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L25 "Source")
 
-Aliases for [timeTuesday](#timeTuesday).[range](#interval_range) and [utcTuesday](#timeTuesday).[range](#interval_range).
+等价于 [timeTuesday](#timeTuesday).[range](#interval_range) 和 [utcTuesday](#timeTuesday).[range](#interval_range).
 
 <a name="timeWednesdays" href="#timeWednesdays">#</a> d3.<b>timeWednesdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L26 "Source")
 <br><a href="#timeWednesdays">#</a> d3.<b>utcWednesdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L26 "Source")
 
-Aliases for [timeWednesday](#timeWednesday).[range](#interval_range) and [utcWednesday](#timeWednesday).[range](#interval_range).
+等价于 [timeWednesday](#timeWednesday).[range](#interval_range) 和 [utcWednesday](#timeWednesday).[range](#interval_range).
 
 <a name="timeThursdays" href="#timeThursdays">#</a> d3.<b>timeThursdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L27 "Source")
 <br><a href="#timeThursdays">#</a> d3.<b>utcThursdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L27 "Source")
 
-Aliases for [timeThursday](#timeThursday).[range](#interval_range) and [utcThursday](#timeThursday).[range](#interval_range).
+等价于 [timeThursday](#timeThursday).[range](#interval_range) 和 [utcThursday](#timeThursday).[range](#interval_range).
 
 <a name="timeFridays" href="#timeFridays">#</a> d3.<b>timeFridays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L28 "Source")
 <br><a href="#timeFridays">#</a> d3.<b>utcFridays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L28 "Source")
 
-Aliases for [timeFriday](#timeFriday).[range](#interval_range) and [utcFriday](#timeFriday).[range](#interval_range).
+等价于 [timeFriday](#timeFriday).[range](#interval_range) 和 [utcFriday](#timeFriday).[range](#interval_range).
 
 <a name="timeSaturdays" href="#timeSaturdays">#</a> d3.<b>timeSaturdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/week.js#L29 "Source")
 <br><a href="#timeSaturdays">#</a> d3.<b>utcSaturdays</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcWeek.js#L29 "Source")
 
-Aliases for [timeSaturday](#timeSaturday).[range](#interval_range) and [utcSaturday](#timeSaturday).[range](#interval_range).
+等价于 [timeSaturday](#timeSaturday).[range](#interval_range) 和 [utcSaturday](#timeSaturday).[range](#interval_range).
 
 <a name="timeMonths" href="#timeMonths">#</a> d3.<b>timeMonths</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/month.js#L15 "Source")
 <br><a href="#timeMonths">#</a> d3.<b>utcMonths</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcMonth.js#L15 "Source")
 
-Aliases for [timeMonth](#timeMonth).[range](#interval_range) and [utcMonth](#timeMonth).[range](#interval_range).
+等价于 [timeMonth](#timeMonth).[range](#interval_range) 和 [utcMonth](#timeMonth).[range](#interval_range).
 
 <a name="timeYears" href="#timeYears">#</a> d3.<b>timeYears</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/year.js#L26 "Source")
 <br><a href="#timeYears">#</a> d3.<b>utcYears</b>(<i>start</i>, <i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-time/blob/master/src/utcYear.js#L26 "Source")
 
-Aliases for [timeYear](#timeYear).[range](#interval_range) and [utcYear](#timeYear).[range](#interval_range).
+等价于 [timeYear](#timeYear).[range](#interval_range) 和 [utcYear](#timeYear).[range](#interval_range).
