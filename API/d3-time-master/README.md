@@ -1,8 +1,8 @@
 # d3-time
 
-When visualizing time series data, analyzing temporal patterns, or working with time in general, the irregularities of conventional time units quickly become apparent. In the [Gregorian calendar](https://en.wikipedia.org/wiki/Gregorian_calendar), for example, most months have 31 days but some have 28, 29 or 30; most years have 365 days but [leap years](https://en.wikipedia.org/wiki/Leap_year) have 366; and with [daylight saving](https://en.wikipedia.org/wiki/Daylight_saving_time), most days have 24 hours but some have 23 or 25. Adding to complexity, daylight saving conventions vary around the world.
+可视化过程中经常遇到不规则的时间，比如在[Gregorian calendar](https://en.wikipedia.org/wiki/Gregorian_calendar)中，月份有28,29,30和31天。年份也有365和366天。在夏令时，有23,24,25个小时之分。
 
-As a result of these temporal peculiarities, it can be difficult to perform seemingly-trivial tasks. For example, if you want to compute the number of days that have passed between two dates, you can’t simply subtract and divide by 24 hours (86,400,000 ms):
+因为这些时间特性，在生成时间刻度时候是困难的。比如你想计算两个时间之间的天数的时候，你不能简单的使用毫秒数差除以24小时:
 
 ```js
 var start = new Date(2015, 02, 01), // Sun Mar 01 2015 00:00:00 GMT-0800 (PST)
@@ -10,13 +10,13 @@ var start = new Date(2015, 02, 01), // Sun Mar 01 2015 00:00:00 GMT-0800 (PST)
 (end - start) / 864e5; // 30.958333333333332, oops!
 ```
 
-You can, however, use [timeDay](#timeDay).[count](#interval_count):
+相反，可以使用[timeDay](#timeDay).[count](#interval_count)方法来正确计算:
 
 ```js
 d3.timeDay.count(start, end); // 31
 ```
 
-The [day](#day) [interval](#api-reference) is one of several provided by d3-time. Each interval represents a conventional unit of time—[hours](#timeHour), [weeks](#timeWeek), [months](#timeMonth), *etc.*—and has methods to calculate boundary dates. For example, [timeDay](#timeDay) computes midnight (typically 12:00 AM local time) of the corresponding day. In addition to [rounding](#interval_round) and [counting](#interval_count), intervals can also be used to generate arrays of boundary dates. For example, to compute each Sunday in the current month:
+[day](#day) [interval](#api-reference)是d3-time模块中的一个方法。也支持其他的时间间隔，比如[hours](#timeHour), [weeks](#timeWeek), [months](#timeMonth), *等等.*  为了计算[rounding](#interval_round) 和 [counting](#interval_count), intervals也可以用来生成一组边界日历，比如生成当前月份的所有周日: 
 
 ```js
 var now = new Date;
@@ -27,9 +27,9 @@ d3.timeWeek.range(d3.timeMonth.floor(now), d3.timeMonth.ceil(now));
 //  Sun Jun 28 2015 00:00:00 GMT-0700 (PDT)]
 ```
 
-The d3-time module does not implement its own calendaring system; it merely implements a convenient API for calendar math on top of ECMAScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). Thus, it ignores leap seconds and can only work with the local time zone and [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (UTC).
+d3-time模块的实现基于ECMAScript [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). 
 
-This module is used by D3’s time scales to generate sensible ticks, by D3’s time format, and can also be used directly to do things like [calendar layouts](http://bl.ocks.org/mbostock/4063318).
+这个模块常常被D3的time比例尺使用来生成刻度. 也可以直接用来生成[calendar layouts](http://bl.ocks.org/mbostock/4063318)一样的东西.
 
 ## Installing
 
