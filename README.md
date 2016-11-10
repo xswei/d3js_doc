@@ -41,6 +41,8 @@ D3 V4 API中文版
 
 * [Time Formats](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-time-format-master)
 
+* [Time Intervals](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-time-master)
+
 * [Timers](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-timer-master)
 
 * [Transitions](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-transition-master)
