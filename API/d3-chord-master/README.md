@@ -19,17 +19,17 @@ var chord = d3.chord();
 </script>
 ```
 
-[Try d3-chord in your browser.](https://tonicdev.com/npm/d3-chord)
+[在浏览器中测试d3-chord](https://tonicdev.com/npm/d3-chord)
 
 ## API Reference
 
 <a href="#chord" name="chord">#</a> d3.<b>chord</b>() [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js "Source")
 
-Constructs a new chord layout with the default settings.
+使用默认的设置创建一个弦图生成器
 
 <a href="#_chord" name="_chord">#</a> <i>chord</i>(<i>matrix</i>) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L19 "Source")
 
-Computes the chord layout for the specified square *matrix* of size *n*×*n*, where the *matrix* represents the directed flow amongst a network (a complete digraph) of *n* nodes. The given *matrix* must be an array of length *n*, where each element *matrix*[*i*] is an array of *n* numbers, where each *matrix*[*i*][*j*] represents the flow from the *i*th node in the network to the *j*th node. Each number *matrix*[*i*][*j*] must be nonnegative, though it can be zero if there is no flow from node *i* to node *j*. From the [Circos tableviewer example](http://mkweb.bcgsc.ca/circos/guide/tables/):
+对*matrix*进行计算，计算出矩阵数据对应的弦图布局数据以备画图。*matrix*必须为方阵。*matrix*[*i*][*j*] 表示第*i*个节点到第*j*个节点的流量。*matrix*[*i*][*j*]不能为负数。比如[Circos tableviewer example](http://mkweb.bcgsc.ca/circos/guide/tables/)中的matrix数据:
 
 ```js
 var matrix = [
@@ -40,53 +40,53 @@ var matrix = [
 ];
 ```
 
-The return value of *chord*(*matrix*) is an array of *chords*, where each chord represents the combined bidirectional flow between two nodes *i* and *j* (where *i* may be equal to *j*) and is an object with the following properties:
+返回值是一组表示弦的对象数组，每个对象都有以下属性:
 
-* `source` - the source subgroup
-* `target` - the target subgroup
+* `source` - 该弦的源子分组对象
+* `target` - 该弦的目标子分组对象
 
-Each source and target subgroup is also an object with the following properties:
+每一个子分组都有以下数属性:
 
-* `startAngle` - the start angle in radians
-* `endAngle` - the end angle in radians
-* `value` - the flow value *matrix*[*i*][*j*]
-* `index` - the node index *i*
-* `subindex` - the node index *j*
+* `startAngle` - 起始角度
+* `endAngle` - 终止角度
+* `value` -  *matrix*[*i*][*j*]的值
+* `index` - 索引 *i*
+* `subindex` - 索引 *j*
 
-The chords are typically passed to [d3.ribbon](#ribbon) to display the network relationships. The returned array includes only chord objects for which the value *matrix*[*i*][*j*] or *matrix*[*j*][*i*] is non-zero. Furthermore, the returned array only contains unique chords: a given chord *ij* represents the bidirectional flow from *i* to *j* *and* from *j* to *i*, and does not contain a duplicate chord *ji*; *i* and *j* are chosen such that the chord’s source always represents the larger of *matrix*[*i*][*j*] and *matrix*[*j*][*i*]. In other words, *chord*.source.index equals *chord*.target.subindex, *chord*.source.subindex equals *chord*.target.index, *chord*.source.value is greater than or equal to *chord*.target.value, and *chord*.source.value is always greater than zero.
+弦数据通常传递给[d3.ribbon](#ribbon)来生成图
 
-The *chords* array also defines a secondary array of length *n*, *chords*.groups, where each group represents the combined outflow for node *i*, corresponding to the elements *matrix*[*i*][0 … *n* - 1], and is an object with the following properties:
+弦图数组也包含了另一个表示分组的属性 *chords*.groups,*chords*.groups表示计算后的分组数组，每个分组包含以下属性:
 
-* `startAngle` - the start angle in radians
-* `endAngle` - the end angle in radians
-* `value` - the total outgoing flow value for node *i*
-* `index` - the node index *i*
+* `startAngle` - 起始角度
+* `endAngle` - 终止角度
+* `value` - 从节点*i*出去的总量
+* `index` - 节点索引*i*
 
-The groups are typically passed to [d3.arc](https://github.com/d3/d3-shape#arc) to produce a donut chart around the circumference of the chord layout.
+分组数据传递给[d3.arc](https://github.com/d3/d3-shape#arc)来绘制
 
 <a href="#chord_padAngle" name="#chord_padAngle">#</a> <i>chord</i>.<b>padAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L104 "Source")
 
-If *angle* is specified, sets the pad angle between adjacent groups to the specified number in radians and returns this chord layout. If *angle* is not specified, returns the current pad angle, which defaults to zero.
+设置或获取相邻分组时间的间隔，默认为0
 
 <a href="#chord_sortGroups" name="#chord_sortGroups">#</a> <i>chord</i>.<b>sortGroups</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L108 "Source")
 
-If *compare* is specified, sets the group comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current group comparator, which defaults to null. If the group comparator is non-null, it is used to sort the groups by their total outflow. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
+设置或获取分组的排序规则。
 
 <a href="#chord_sortSubgroups" name="#chord_sortSubgroups">#</a> <i>chord</i>.<b>sortSubgroups</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L112 "Source")
 
-If *compare* is specified, sets the subgroup comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current subgroup comparator, which defaults to null. If the subgroup comparator is non-null, it is used to sort the subgroups corresponding to *matrix*[*i*][0 … *n* - 1] for a given group *i* by their total outflow. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
+设置或获取子分组的排序规则
 
 <a href="#chord_sortChords" name="#chord_sortChords">#</a> <i>chord</i>.<b>sortChords</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L116 "Source")
 
-If *compare* is specified, sets the chord comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current chord comparator, which defaults to null. If the chord comparator is non-null, it is used to sort the [chords](#_chord) by their combined flow; this only affects the *z*-order of the chords. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
+设置或获取弦的排序规则
 
 <a href="#ribbon" name="ribbon">#</a> d3.<b>ribbon</b>() [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js "Source")
 
-Creates a new ribbon generator with the default settings.
+使用默认的设置创建一个新的ribbon生成器
 
 <a href="#_ribbon" name="_ribbon">#</a> <i>ribbon</i>(<i>arguments…</i>) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L34 "Source")
 
-Generates a ribbon for the given *arguments*. The *arguments* are arbitrary; they are simply propagated to the ribbon generator’s accessor functions along with the `this` object. For example, with the default settings, a [chord object](#_chord) expected:
+根据制定的数据生成一个ribbon路径，比如
 
 ```js
 var ribbon = d3.ribbon();
@@ -97,7 +97,7 @@ ribbon({
 }); // "M164.0162810494058,-175.21032946354026A240,240,0,0,1,216.1595644740915,-104.28347273835429Q0,0,229.9158815306728,68.8381247563705A240,240,0,0,1,219.77316791012538,96.43523560788266Q0,0,164.0162810494058,-175.21032946354026Z"
 ```
 
-Or equivalently if the radius is instead defined as a constant:
+默认情况下radius为240，等价于：
 
 ```js
 var ribbon = d3.ribbon()
@@ -109,11 +109,11 @@ ribbon({
 }); // "M164.0162810494058,-175.21032946354026A240,240,0,0,1,216.1595644740915,-104.28347273835429Q0,0,229.9158815306728,68.8381247563705A240,240,0,0,1,219.77316791012538,96.43523560788266Q0,0,164.0162810494058,-175.21032946354026Z"
 ```
 
-If the ribbon generator has a context, then the ribbon is rendered to this context as a sequence of path method calls and this function returns void. Otherwise, a path data string is returned.
+如果指定了cavnas的上下文则将路径信息保存的上下文中。
 
 <a href="#ribbon_source" name="ribbon_source">#</a> <i>ribbon</i>.<b>source</b>([<i>source</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L74 "Source")
 
-If *source* is specified, sets the source accessor to the specified function and returns this ribbon generator. If *source* is not specified, returns the current source accessor, which defaults to:
+设置或获取source访问器，默认为:
 
 ```js
 function source(d) {
@@ -123,7 +123,7 @@ function source(d) {
 
 <a href="#ribbon_target" name="ribbon_target">#</a> <i>ribbon</i>.<b>target</b>([<i>target</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L78 "Source")
 
-If *target* is specified, sets the target accessor to the specified function and returns this ribbon generator. If *target* is not specified, returns the current target accessor, which defaults to:
+设置或获取targete访问器，默认为:
 
 ```js
 function target(d) {
@@ -133,7 +133,7 @@ function target(d) {
 
 <a href="#ribbon_radius" name="ribbon_radius">#</a> <i>ribbon</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L62 "Source")
 
-If *radius* is specified, sets the radius accessor to the specified function and returns this ribbon generator. If *radius* is not specified, returns the current radius accessor, which defaults to:
+设置活获取半径
 
 ```js
 function radius(d) {
@@ -143,7 +143,7 @@ function radius(d) {
 
 <a href="#ribbon_startAngle" name="ribbon_startAngle">#</a> <i>ribbon</i>.<b>startAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L66 "Source")
 
-If *angle* is specified, sets the start angle accessor to the specified function and returns this ribbon generator. If *angle* is not specified, returns the current start angle accessor, which defaults to:
+设置或获取起始角度访问器
 
 ```js
 function startAngle(d) {
@@ -151,11 +151,11 @@ function startAngle(d) {
 }
 ```
 
-The *angle* is specified in radians, with 0 at -*y* (12 o’clock) and positive angles proceeding clockwise.
+12点钟方向为0度，以弧度为单位
 
 <a href="#ribbon_endAngle" name="ribbon_endAngle">#</a> <i>ribbon</i>.<b>endAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L70 "Source")
 
-If *angle* is specified, sets the end angle accessor to the specified function and returns this ribbon generator. If *angle* is not specified, returns the current end angle accessor, which defaults to:
+设置或获取终止角度访问器
 
 ```js
 function endAngle(d) {
@@ -163,8 +163,7 @@ function endAngle(d) {
 }
 ```
 
-The *angle* is specified in radians, with 0 at -*y* (12 o’clock) and positive angles proceeding clockwise.
 
 <a href="#ribbon_context" name="ribbon_context">#</a> <i>ribbon</i>.<b>context</b>([<i>context</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L82 "Source")
 
-If *context* is specified, sets the context and returns this ribbon generator. If *context* is not specified, returns the current context, which defaults to null. If the context is not null, then the [generated ribbon](#_ribbon) is rendered to this context as a sequence of [path method](http://www.w3.org/TR/2dcontext/#canvaspathmethods) calls. Otherwise, a [path data](http://www.w3.org/TR/SVG/paths.html#PathData) string representing the generated ribbon is returned. See also [d3-path](https://github.com/d3/d3-path).
+如果指定了context则将绘制路径信息保存到canvas的context上下文中。如果使用canvas绘制则要调用这个方法。
