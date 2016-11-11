@@ -9,6 +9,8 @@ D3 V4 API中文版
 
 * [Brushes](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-brush-master)
 
+* [Chords](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-chord-master)
+
 * [Collections(Object,Maps,Sets,Nests)](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-collection-master)
 
 * [Colors](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-color-master)
