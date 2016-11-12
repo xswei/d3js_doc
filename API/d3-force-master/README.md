@@ -41,98 +41,100 @@ var simulation = d3.forceSimulation(nodes);
 
 <a name="forceSimulation" href="#forceSimulation">#</a> d3.<b>forceSimulation</b>([<i>nodes</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js "Source")
 
-Creates a new simulation with the specified array of [*nodes*](#simulation_nodes) and no [forces](#simulation_force). If *nodes* is not specified, it defaults to the empty array. The simulator [starts](#simulation_restart) automatically; use [*simulation*.on](#simulation_on) to listen for tick events as the simulation runs. If you wish to run the simulation manually instead, call [*simulation*.stop](#simulation_stop), and then call [*simulation*.tick](#simulation_tick) as desired.
+根据指定的节点数组创建一个没有作用力的仿真。如果没有指定*nodes*则默认为空数组。仿真会自动开始，可以通过[*simulation*.on](#simulation_on)来为仿真的每一次tick添加事件监听器。也可以使用[*simulation*.stop](#simulation_stop)来停止仿真，[*simulation*.tick](#simulation_tick)来再次启用仿真。
 
 <a name="simulation_restart" href="#simulation_restart">#</a> <i>simulation</i>.<b>restart</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L80 "Source")
 
-Restarts the simulation’s internal timer and returns the simulation. In conjunction with [*simulation*.alphaTarget](#simulation_alphaTarget) or [*simulation*.alpha](#simulation_alpha), this method can be used to “reheat” the simulation during interaction, such as when dragging a node, or to resume the simulation after temporarily pausing it with [*simulation*.stop](#simulation_stop).
+重启仿真内部的计时器，与[*simulation*.alphaTarget](#simulation_alphaTarget) 或 [*simulation*.alpha](#simulation_alpha)协同作用, 这个方法可以用在在交互时重新启动仿真，比如拖拽了某个节点或使用[*simulation*.stop](#simulation_stop)暂停仿真之后。
 
 <a name="simulation_stop" href="#simulation_stop">#</a> <i>simulation</i>.<b>stop</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L84 "Source")
 
-Stops the simulation’s internal timer, if it is running, and returns the simulation. If the timer is already stopped, this method does nothing. This method is useful for running the simulation manually; see [*simulation*.tick](#simulation_tick).
+停止仿真内部的计时器。如果仿真已经停止，则什么都不做。这个方法在手动调整仿真时候是很有用的。参考[*simulation*.tick](#simulation_tick).
 
 <a name="simulation_tick" href="#simulation_tick">#</a> <i>simulation</i>.<b>tick</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L38 "Source")
 
-Increments the current [*alpha*](#simulation_alpha) by ([*alphaTarget*](#simulation_alphaTarget) - *alpha*) × [*alphaDecay*](#simulation_alphaDecay); then invokes each registered [force](#simulation_force), passing the new *alpha*; then decrements each [node](#simulation_nodes)’s velocity by *velocity* × [*velocityDecay*](#simulation_velocityDecay); lastly increments each node’s position by *velocity*.
-
-This method does not dispatch [events](#simulation_on); events are only dispatched by the internal timer when the simulation is started automatically upon [creation](#forceSimulation) or by calling [*simulation*.restart](#simulation_restart). The natural number of ticks when the simulation is started is ⌈*log*([*alphaMin*](#simulation_alphaMin)) / *log*(1 - [*alphaDecay*](#simulation_alphaDecay))⌉; by default, this is 300.
+通过乘以alphaDecay增加当前的alpha值。然后为当前的仿真传入新的alpha值。然后通过乘以velocityDecay衰减每个节点的速度。最后计算节点的位置。这个方法不调用事件，事件仅仅在仿真自动开始或调用simulation.restart时由内部计时器调度。打点次数等于log(alpha)/log(1-alphaDecay)。默认为300次。
 
 <a name="simulation_nodes" href="#simulation_nodes">#</a> <i>simulation</i>.<b>nodes</b>([<i>nodes</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L88 "Source")
 
-If *nodes* is specified, sets the simulation’s nodes to the specified array of objects, initializing their positions and velocities if necessary, and then [re-initializes](#force_initialize) any bound [forces](#simulation_force); returns the simulation. If *nodes* is not specified, returns the simulation’s array of nodes as specified to the [constructor](#forceSimulation).
+如果指定了nodes，则根据当前的nodes对象数组初始化仿真的节点初始位置和速度。如果没有指定nodes则根据指定的构造器返回节点对象数组。
 
-Each *node* must be an object. The following properties are assigned by the simulation:
+每个节点为一个对象类型，以下几个属性是通过仿真模拟器添加的：
 
-* `index` - the node’s zero-based index into *nodes*
-* `x` - the node’s current *x*-position
-* `y` - the node’s current *y*-position
-* `vx` - the node’s current *x*-velocity
-* `vy` - the node’s current *y*-velocity
+* `index` - 节点的索引
+* `x` - 节点当前的 *x*-位置
+* `y` - 节点当前的 *y*-位置
+* `vx` - 节点当前的 *x*-速度
+* `vy` - 节点当前的 *y*-速度
 
-The position ⟨*x*,*y*⟩ and velocity ⟨*vx*,*vy*⟩ may be subsequently modified by [forces](#forces) and by the simulation. If either *vx* or *vy* is NaN, the velocity is initialized to ⟨0,0⟩. If either *x* or *y* is NaN, the position is initialized in a [phyllotaxis arrangement](http://bl.ocks.org/mbostock/11478058), so chosen to ensure a deterministic, uniform distribution around the origin.
+位置 ⟨*x*,*y*⟩ 和速度 ⟨*vx*,*vy*⟩ 可能被随时修改. 如果 *vx* or *vy* 中的其中一个为NaN, 则速度回被初始化为 ⟨0,0⟩. 如果 *x* 或 *y* 为 NaN, 则位置会根据[phyllotaxis arrangement](http://bl.ocks.org/mbostock/11478058)进行初始化，不再是随机的。
 
-To fix a node in a given position, you may specify two additional properties:
+由于节点都有默认的位置，如果想在一开始的时候手动指定节点的位置，则需要为节点设置如下两个属性:
 
-* `fx` - the node’s fixed *x*-position
-* `fy` - the node’s fixed *y*-position
+* `fx` - *x*-位置
+* `fy` - *y*-位置
 
-At the end of each [tick](#simulation_tick), after the application of any forces, a node with a defined *node*.fx has *node*.x reset to this value and *node*.vx set to zero; likewise, a node with a defined *node*.fy has *node*.y reset to this value and *node*.vy set to zero. To unfix a node that was previously fixed, set *node*.fx and *node*.fy to null, or delete these properties.
+在每次[tick](#simulation_tick)完成后，定义了*node*.fx的节点的*node*.x将被重置为*node*.fx，*node*.vx被设置为0. 同理*node*.y将被重置为*node*.fy，*node*.vy被设置为0. 在设置完时候*node*.fx 和 *node*.fy就被定义为null或移除这两个属性。
 
-If the specified array of *nodes* is modified, such as when nodes are added to or removed from the simulation, this method must be called again with the new (or changed) array to notify the simulation and bound forces of the change; the simulation does not make a defensive copy of the specified array.
+如果节点数组中的元素发生改变，比如移除或添加一个节点。则需要重新调用这个方法。
 
 <a name="simulation_alpha" href="#simulation_alpha">#</a> <i>simulation</i>.<b>alpha</b>([<i>alpha</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L92 "Source")
 
-If *alpha* is specified, sets the current alpha to the specified number in the range [0,1] and returns this simulation. If *alpha* is not specified, returns the current alpha value, which defaults to 1.
+设置或获取*alpha*值，区间为[0,1]. 默认为1。
 
 <a name="simulation_alphaMin" href="#simulation_alphaMin">#</a> <i>simulation</i>.<b>alphaMin</b>([<i>min</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L96 "Source")
 
-If *min* is specified, sets the minimum *alpha* to the specified number in the range [0,1] and returns this simulation. If *min* is not specified, returns the current minimum *alpha* value, which defaults to 0.001. The simulation’s internal timer stops when the current [*alpha*](#simulation_alpha) is less than the minimum *alpha*. The default [alpha decay rate](#simulation_alphaDecay) of ~0.0228 corresponds to 300 iterations.
+设置或获取最小的 *alpha*值，区间为[0,1], 默认为0.001. 在仿真过程中，*alpha*值会不断减小，当*alpha*小于最小*alpha*值时，仿真会停止。
+
+*alpha*减小的方式是通过在每次tick的时候结合一个衰减系数来计算，这个系数通过[alpha decay rate](#simulation_alphaDecay)来定义，默认为0.0028。
+
+子啊默认情况下，*alpha*值从1减小到0.001，计算公式为0.0228… = 1 - *pow*(0.001, 1 / 300)。也就是从1到0.001要计算300次小于0.001. 所以默认情况下tick次数为300次。
 
 <a name="simulation_alphaDecay" href="#simulation_alphaDecay">#</a> <i>simulation</i>.<b>alphaDecay</b>([<i>decay</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L100 "Source")
 
-If *decay* is specified, sets the [*alpha*](#simulation_alpha) decay rate to the specified number in the range [0,1] and returns this simulation. If *decay* is not specified, returns the current *alpha* decay rate, which defaults to 0.0228… = 1 - *pow*(0.001, 1 / 300) where 0.001 is the default [minimum *alpha*](#simulation_alphaMin).
+设置或获取衰减系数，用来设置[*alpha*](#simulation_alpha)的衰减率。默认为0.0228… = 1 - *pow*(0.001, 1 / 300)， 0.001 是默认的[minimum *alpha*](#simulation_alphaMin)值.
 
-The alpha decay rate determines how quickly the current alpha interpolates towards the desired [target *alpha*](#simulation_alphaTarget); since the default target *alpha* is zero, by default this controls how quickly the simulation cools. Higher decay rates cause the simulation to stabilize more quickly, but risk getting stuck in a local minimum; lower values cause the simulation to take longer to run, but typically converge on a better layout. To have the simulation run forever at the current *alpha*, set the *decay* rate to zero; alternatively, set a [target *alpha*](#simulation_alphaTarget) greater than the [minimum *alpha*](#simulation_alphaMin).
+衰减系数用来决定从当前alpha值到目标alpha值的过渡快慢。衰减系数越大，仿真的过程越短，当然效果会越差。 衰减系数越小，则仿真过程越长，最终的效果也就越好
 
 <a name="simulation_alphaTarget" href="#simulation_alphaTarget">#</a> <i>simulation</i>.<b>alphaTarget</b>([<i>target</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L104 "Source")
 
-If *target* is specified, sets the current target [*alpha*](#simulation_alpha) to the specified number in the range [0,1] and returns this simulation. If *target* is not specified, returns the current target alpha value, which defaults to 0.
+alpha的目标值，区间为[0,1]. 默认为0
 
 <a name="simulation_velocityDecay" href="#simulation_velocityDecay">#</a> <i>simulation</i>.<b>velocityDecay</b>([<i>decay</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L108 "Source")
 
-If *decay* is specified, sets the velocity decay factor to the specified number in the range [0,1] and returns this simulation. If *decay* is not specified, returns the current velocity decay factor, which defaults to 0.4. The decay factor is akin to atmospheric friction; after the application of any forces during a [tick](#simulation_tick), each node’s velocity is multiplied by 1 - *decay*. As with lowering the [alpha decay rate](#simulation_alphaDecay), less velocity decay may converge on a better solution, but risks numerical instabilities and oscillation.
+速度衰减系数。相当于摩擦力。区间为[0,1], 默认为0.4
 
 <a name="simulation_force" href="#simulation_force">#</a> <i>simulation</i>.<b>force</b>(<i>name</i>[, <i>force</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L112 "Source")
 
-If *force* is specified, assigns the [force](#forces) for the specified *name* and returns this simulation. If *force* is not specified, returns the force with the specified name, or undefined if there is no such force. (By default, new simulations have no forces.) For example, to create a new simulation to layout a graph, you might say:
+默认情况下，仿真是中的节点是没有力的作用的，需要通过这个方法为仿真系统设置力的作用，力有很多种，需要根据实际情况指定，比如在对图布局进行仿真时，可以如下:
 
 ```js
 var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody())
-    .force("link", d3.forceLink(links))
-    .force("center", d3.forceCenter());
+    .force("charge", d3.forceManyBody())	
+    .force("link", d3.forceLink(links))	
+    .force("center", d3.forceCenter());	
 ```
 
 <a name="simulation_find" href="#simulation_find">#</a> <i>simulation</i>.<b>find</b>(<i>x</i>, <i>y</i>[, <i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L116 "Source")
 
-Returns the node closest to the position ⟨*x*,*y*⟩ with the given search *radius*. If *radius* is not specified, it defaults to infinity. If there is no node within the search area, returns undefined.
+返回离⟨*x*,*y*⟩ 点最接近的节点，可以指定一个搜索半径。如果在指定的半径区域内木有找到节点，则返回undefined.
 
 <a name="simulation_on" href="#simulation_on">#</a> <i>simulation</i>.<b>on</b>(<i>typenames</i>, [<i>listener</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L139 "Source")
 
-If *listener* is specified, sets the event *listener* for the specified *typenames* and returns this simulation. If an event listener was already registered for the same type and name, the existing listener is removed before the new listener is added. If *listener* is null, removes the current event listeners for the specified *typenames*, if any. If *listener* is not specified, returns the first currently-assigned listener matching the specified *typenames*, if any. When a specified event is dispatched, each *listener* will be invoked with the `this` context as the simulation.
+设置或获取事件监听器。
 
-The *typenames* is a string containing one or more *typename* separated by whitespace. Each *typename* is a *type*, optionally followed by a period (`.`) and a *name*, such as `tick.foo` and `tick.bar`; the name allows multiple listeners to be registered for the same *type*. The *type* must be one of the following:
+事件监听器通过type.names的形式指定，也就是同一种type可以根据name指定多个事件监听器。type有如下两种:
 
-* `tick` - after each tick of the simulation’s internal timer.
-* `end` - after the simulation’s timer stops when *alpha* < [*alphaMin*](#simulation_alphaMin).
+* `tick` - 每次tick时调用.
+* `end` - 仿真结束时调用，也就是 *alpha* < [*alphaMin*](#simulation_alphaMin).
 
-Note that *tick* events are not dispatched when [*simulation*.tick](#simulation_tick) is called manually; events are only dispatched by the internal timer and are intended for interactive rendering of the simulation. To affect the simulation, register [forces](#simulation_force) instead of modifying nodes’ positions or velocities inside a tick event listener.
+*tick*事件不会分发，仅仅在仿真内部使用
 
-See [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on) for details.
+参考 [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on) 获取关于事件分发的详细介绍.
 
 ### Forces
 
-A *force* is simply a function that modifies nodes’ positions or velocities; in this context, a *force* can apply a classical physical force such as electrical charge or gravity, or it can resolve a geometric constraint, such as keeping nodes within a bounding box or keeping linked nodes a fixed distance apart. For example, a simple positioning force that moves nodes towards the origin ⟨0,0⟩ might be implemented as:
+*force*是一个简单的函数，用来修改节点的位置或速度。在这个部分，力可以被定义为模拟电荷作用也可以被定义为模拟重力或其他的几何约束，比如讲节点限制在一个区域内等。比如如果想要所有的节点都朝向⟨0,0⟩运动，则可以定义如下:
 
 ```js
 function force(alpha) {
@@ -143,6 +145,7 @@ function force(alpha) {
   }
 }
 ```
+Forces通常读取节点的当前位置 ⟨*x*,*y*⟩ 然后
 
 Forces typically read the node’s current position ⟨*x*,*y*⟩ and then add to (or subtract from) the node’s velocity ⟨*vx*,*vy*⟩. However, forces may also “peek ahead” to the anticipated next position of the node, ⟨*x* + *vx*,*y* + *vy*⟩; this is necessary for resolving geometric constraints through [iterative relaxation](https://en.wikipedia.org/wiki/Relaxation_\(iterative_method\)). Forces may also modify the position directly, which is sometimes useful to avoid adding energy to the simulation, such as when recentering the simulation in the viewport.
 
