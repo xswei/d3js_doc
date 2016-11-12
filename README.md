@@ -23,6 +23,8 @@ D3 V4 API中文版
 
 * [Eases](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-ease-master)
 
+* [Force](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-force-master)
+
 * [Number Formats](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-format-master)
 
 * [Interpolators](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-interpolate-master)
