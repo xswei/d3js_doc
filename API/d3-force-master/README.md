@@ -145,11 +145,9 @@ function force(alpha) {
   }
 }
 ```
-Forces通常读取节点的当前位置 ⟨*x*,*y*⟩ 然后
+Forces通常读取节点的当前位置 ⟨*x*,*y*⟩ 然后计算出节点的速度⟨*vx*,*vy*⟩并将其作为属性添加到节点上。
 
-Forces typically read the node’s current position ⟨*x*,*y*⟩ and then add to (or subtract from) the node’s velocity ⟨*vx*,*vy*⟩. However, forces may also “peek ahead” to the anticipated next position of the node, ⟨*x* + *vx*,*y* + *vy*⟩; this is necessary for resolving geometric constraints through [iterative relaxation](https://en.wikipedia.org/wiki/Relaxation_\(iterative_method\)). Forces may also modify the position directly, which is sometimes useful to avoid adding energy to the simulation, such as when recentering the simulation in the viewport.
-
-Simulations typically compose multiple forces as desired. This module provides several for your enjoyment:
+在这个模块中提供了以下几种力:
 
 * [Centering](#centering)
 * [Collision](#collision)
@@ -161,39 +159,40 @@ Forces may optionally implement [*force*.initialize](#force_initialize) to recei
 
 <a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
 
-Applies this force, optionally observing the specified *alpha*. Typically, the force is applied to the array of nodes previously passed to [*force*.initialize](#force_initialize), however, some forces may apply to a subset of nodes, or behave differently. For example, [d3.forceLink](#links) applies to the source and target of each link.
+使用指定的*alpha*来应用作用力。作用力将被应用到通过[*force*.initialize](#force_initialize)指定的节点上。也有些力可以应用在节点的子集上，或者为不同的节点之间指定不同的作用力，比如[d3.forceLink](#links)可以为每个连接单独指定作用力.
 
 <a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
-Assigns the array of *nodes* to this force. This method is called when a force is bound to a simulation via [*simulation*.force](#simulation_force) and when the simulation’s nodes change via [*simulation*.nodes](#simulation_nodes). A force may perform necessary work during initialization, such as evaluating per-node parameters, to avoid repeatedly performing work during each application of the force.
+为作用力指定节点。这个方法会在一个作用力通过[*simulation*.force](#simulation_force)被绑定到仿真中并通过[*simulation*.nodes](#simulation_nodes)指定了节点时时调用。
 
 #### Centering
 
-The centering force translates nodes uniformly so that the mean position of all nodes (the center of mass if all nodes have equal weight) is at the given position ⟨[*x*](#center_x),[*y*](#center_y)⟩. This force modifies the positions of nodes on each application; it does not modify velocities, as doing so would typically cause the nodes to overshoot and oscillate around the desired center. This force helps keeps nodes in the center of the viewport, and unlike the [positioning force](#positioning), it does not distort their relative positions.
+centering作用力可以使得节点布局开之后围绕某个中心。相当于某个中心点对所有的节点都有一个制约，不会让布局的中心偏离。
 
 <a name="forceCenter" href="#forceCenter">#</a> d3.<b>forceCenter</b>([<i>x</i>, <i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L1 "Source")
 
-Creates a new centering force with the specified [*x*-](#center_x) and [*y*-](#center_y) coordinates. If *x* and *y* are not specified, they default to ⟨0,0⟩.
+根据指定的[*x*-](#center_x) 和 [*y*-](#center_y)坐标创建一个centering作用力。默认为⟨0,0⟩.
 
 <a name="center_x" href="#center_x">#</a> <i>center</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L27 "Source")
 
-If *x* is specified, sets the *x*-coordinate of the centering position to the specified number and returns this force. If *x* is not specified, returns the current *x*-coordinate, which defaults to zero.
+设置或获取center的x坐标，默认为0
+
 
 <a name="center_y" href="#center_y">#</a> <i>center</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L31 "Source")
 
-If *y* is specified, sets the *y*-coordinate of the centering position to the specified number and returns this force. If *y* is not specified, returns the current *y*-coordinate, which defaults to zero.
+设置或获取center的x坐标，默认为0
 
 #### Collision
 
-The collision force treats nodes as circles with a given [radius](#collide_radius), rather than points, and prevents nodes from overlapping. More formally, two nodes *a* and *b* are separated so that the distance between *a* and *b* is at least *radius*(*a*) + *radius*(*b*). To reduce jitter, this is by default a “soft” constraint with a configurable [strength](#collide_strength) and [iteration count](#collide_iterations).
+碰撞作用力。 可以为节点指定一个半径，而不是一个单一的点。这样可以避免节点之间的相互覆盖。
 
 <a name="forceCollide" href="#forceCollide">#</a> d3.<b>forceCollide</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js "Source")
 
-Creates a new circle collision force with the specified [*radius*](#collide_radius). If *radius* is not specified, it defaults to the constant one for all nodes.
+使用指定的半径创建一个碰撞作用力。radius默认所有的节点都为1
 
 <a name="collide_radius" href="#collide_radius">#</a> <i>collide</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L86 "Source")
 
-If *radius* is specified, sets the radius accessor to the specified number or function, re-evaluates the radius accessor for each node, and returns this force. If *radius* is not specified, returns the current radius accessor, which defaults to:
+设置或获取节点的碰撞半径，可以为不同的节点单独设置，默认为:
 
 ```js
 function radius() {
@@ -201,43 +200,44 @@ function radius() {
 }
 ```
 
-The radius accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the radius of each node is only recomputed when the force is initialized or when this method is called with a new *radius*, and not on every application of the force.
+radius访问器会为仿真中的每个节点调用一次，以单独设置节点的碰撞半径，访问器函数会传递节点*node*以及索引*index*.
+
 
 <a name="collide_strength" href="#collide_strength">#</a> <i>collide</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L82 "Source")
 
-If *strength* is specified, sets the force strength to the specified number in the range [0,1] and returns this force. If *strength* is not specified, returns the current strength which defaults to 0.7.
+设置碰撞力的强度，范围[0,1], 默认为0.7
 
-Overlapping nodes are resolved through iterative relaxation. For each node, the other nodes that are anticipated to overlap at the next tick (using the anticipated positions ⟨*x* + *vx*,*y* + *vy*⟩) are determined; the node’s velocity is then modified to push the node out of each overlapping node. The change in velocity is dampened by the force’s strength such that the resolution of simultaneous overlaps can be blended together to find a stable solution.
+重叠的节点将会通过迭代的方式进行位置调整
 
 <a name="collide_iterations" href="#collide_iterations">#</a> <i>collide</i>.<b>iterations</b>([<i>iterations</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L78 "Source")
 
-If *iterations* is specified, sets the number of iterations per application to the specified number and returns this force. If *iterations* is not specified, returns the current iteration count which defaults to 1. Increasing the number of iterations greatly increases the rigidity of the constraint and avoids partial overlap of nodes, but also increases the runtime cost to evaluate the force.
+设置或获取迭代次数，默认为1，迭代次数越多最终的布局效果越好，但是计算复杂度更高，迭代次数越低，则计算复杂度越小，最终的效果也就越差。默认为1
 
 #### Links
 
-The link force pushes linked nodes together or apart according to the desired [link distance](#link_distance). The strength of the force is proportional to the difference between the linked nodes’ distance and the target distance, similar to a spring force.
+link作用力可以根据期望的[link distance](#link_distance)将节点连接在一起。作用力的强度与节点之间的距离成正比，类似于弹簧作用力。
 
 <a name="forceLink" href="#forceLink">#</a> d3.<b>forceLink</b>([<i>links</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js "Source")
 
-Creates a new link force with the specified *links* and default parameters. If *links* is not specified, it defaults to the empty array.
+为指定的link数组创建一个link作用力。如果没有指定连接关系数组则默认为空。
 
 <a name="link_links" href="#link_links">#</a> <i>link</i>.<b>links</b>([<i>links</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L92 "Source")
 
-If *links* is specified, sets the array of links associated with this force, recomputes the [distance](#link_distance) and [strength](#link_strength) parameters for each link, and returns this force. If *links* is not specified, returns the current array of links, which defaults to the empty array.
+设置或获取link作用力的连接数组并重新计算[distance](#link_distance) 和 [strength](#link_strength). 如果没有指定*links*则返回当前的links数组，默认为空.
 
-Each link is an object with the following properties:
+每个link都是包含以下两个属性的对象:
 
-* `source` - the link’s source node; see [*simulation*.nodes](#simulation_nodes)
-* `target` - the link’s target node; see [*simulation*.nodes](#simulation_nodes)
-* `index` - the zero-based index into *links*, assigned by this method
+* `source` - 源数节点，参考 [*simulation*.nodes](#simulation_nodes)
+* `target` - 目标节点，参考 [*simulation*.nodes](#simulation_nodes)
+* `index` - 在*links*数组中的索引
 
-For convenience, a link’s source and target properties may be initialized using numeric or string identifiers rather than object references; see [*link*.id](#link_id).
+为方便起见，每个连接的源和目的都是以表示索引的数值表示，而不是使用直接的对象引用，参考[*link*.id](#link_id).
 
-If the specified array of *links* is modified, such as when links are added to or removed from the simulation, this method must be called again with the new (or changed) array to notify the force of the change; the force does not make a defensive copy of the specified array.
+如果links数组发生了改变，比如添加或删除一个link时则必须重新调用这个方法
 
 <a name="link_id" href="#link_id">#</a> <i>link</i>.<b>id</b>([<i>id</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L96 "Source")
 
-If *id* is specified, sets the node id accessor to the specified function and returns this force. If *id* is not specified, returns the current node id accessor, which defaults to the numeric *node*.index:
+设置或获取link中节点的查找方式，默认使用*node*.index:
 
 ```js
 function id(d) {
@@ -245,7 +245,7 @@ function id(d) {
 }
 ```
 
-The default id accessor allows each link’s source and target to be specified as a zero-based index into the [nodes](#simulation_nodes) array. For example:
+默认的id访问器允许将source和target设置为基于[nodes](#simulation_nodes)数组的索引形式，比如:
 
 ```js
 var nodes = [
@@ -260,7 +260,7 @@ var links = [
 ];
 ```
 
-Now consider a different id accessor that returns a string:
+也可以使用唯一的字符串来表示，比如:
 
 ```js
 function id(d) {
@@ -268,7 +268,7 @@ function id(d) {
 }
 ```
 
-With this accessor, you can use named sources and targets:
+然后可以使用每个节点的id属性的值设置为source和target值:
 
 ```js
 var nodes = [
@@ -283,13 +283,12 @@ var links = [
 ];
 ```
 
-This is particularly useful when representing graphs in JSON, as JSON does not allow references. See [this example](http://bl.ocks.org/mbostock/f584aa36df54c451c94a9d0798caed35).
+这个方法当图使用JSON格式表示的时候是很有用的。参考 [this example](http://bl.ocks.org/mbostock/f584aa36df54c451c94a9d0798caed35).
 
-The id accessor is invoked for each node whenever the force is initialized, as when the [nodes](#simulation_nodes) or [links](#link_links) change, being passed the node and its zero-based index.
 
 <a name="link_distance" href="#link_distance">#</a> <i>link</i>.<b>distance</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L108 "Source")
 
-If *distance* is specified, sets the distance accessor to the specified number or function, re-evaluates the distance accessor for each link, and returns this force. If *distance* is not specified, returns the current distance accessor, which defaults to:
+设置或获取两个节点之间的距离，默认为:
 
 ```js
 function distance() {
@@ -297,11 +296,11 @@ function distance() {
 }
 ```
 
-The distance accessor is invoked for each [link](#link_links), being passed the *link* and its zero-based *index*. The resulting number is then stored internally, such that the distance of each link is only recomputed when the force is initialized or when this method is called with a new *distance*, and not on every application of the force.
+可以单独使用访问器设置，访问器函数会传递当前的*link*以及索引。返回值被单独设置。
 
 <a name="link_strength" href="#link_strength">#</a> <i>link</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L104 "Source")
 
-If *strength* is specified, sets the strength accessor to the specified number or function, re-evaluates the strength accessor for each link, and returns this force. If *strength* is not specified, returns the current strength accessor, which defaults to:
+设置或获取link的强度，默认：
 
 ```js
 function strength(link) {
@@ -309,27 +308,26 @@ function strength(link) {
 }
 ```
 
-Where *count*(*node*) is a function that returns the number of links with the given node as a source or target. This default was chosen because it automatically reduces the strength of links connected to heavily-connected nodes, improving stability.
+*count*(*node*)是一个返回与节点链接的其他节点的数量(节点的度)。这样的默认设置是为了当一个节点度很大时减小强度，提高稳定性。
 
-The strength accessor is invoked for each [link](#link_links), being passed the *link* and its zero-based *index*. The resulting number is then stored internally, such that the strength of each link is only recomputed when the force is initialized or when this method is called with a new *strength*, and not on every application of the force.
+强度也可以单独设置。
 
 <a name="link_iterations" href="#link_iterations">#</a> <i>link</i>.<b>iterations</b>([<i>iterations</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L100 "Source")
 
-If *iterations* is specified, sets the number of iterations per application to the specified number and returns this force. If *iterations* is not specified, returns the current iteration count which defaults to 1. Increasing the number of iterations greatly increases the rigidity of the constraint and is useful for [complex structures such as lattices](http://bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611), but also increases the runtime cost to evaluate the force.
-
+设置或获取迭代次数，默认为1. 迭代次数越多，最终的仿真效果越好，计算复杂度也越高。
 #### Many-Body
 
-The many-body (or *n*-body) force applies mutually amongst all [nodes](#simulation_nodes). It can be used to simulate gravity (attraction) if the [strength](#manyBody_strength) is positive, or electrostatic charge (repulsion) if the strength is negative. This implementation uses quadtrees and the [Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation) to greatly improve performance; the accuracy can be customized using the [theta](#manyBody_theta) parameter.
+many-body(多体)作用力应用在所用的节点之间，当[strength](#manyBody_strength)为正的时候可以模拟重力，当为负的时候可以模拟电荷力。这个实现使用四叉树和[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation)的方法提高了性能。精确度可以通过[theta](#manyBody_theta)来控制.
 
-Unlike links, which only affect two linked nodes, the charge force is global: every node affects every other node, even if they are on disconnected subgraphs.
+与link不同，link作用力仅仅会影响有连接关系的两个节点，而电荷力是全局的，任何两个节点之间都有力的影响。
 
 <a name="forceManyBody" href="#forceManyBody">#</a> d3.<b>forceManyBody</b>() [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js "Source")
 
-Creates a new many-body force with the default parameters.
+使用默认的设置构建一个多体作用力。
 
 <a name="manyBody_strength" href="#manyBody_strength">#</a> <i>manyBody</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L97 "Source")
 
-If *strength* is specified, sets the strength accessor to the specified number or function, re-evaluates the strength accessor for each node, and returns this force. A positive value causes nodes to attract each other, similar to gravity, while a negative value causes nodes to repel each other, similar to electrostatic charge. If *strength* is not specified, returns the current strength accessor, which defaults to:
+设置或获取强度参数，可以为负值也可以为正值，分别表示不同的力学类型，默认为:
 
 ```js
 function strength() {
@@ -337,17 +335,20 @@ function strength() {
 }
 ```
 
-The strength accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the strength of each node is only recomputed when the force is initialized or when this method is called with a new *strength*, and not on every application of the force.
+这个参数可以单独设置，也就是等于可以为不同的节点设置不同的电荷值
 
 <a name="manyBody_theta" href="#manyBody_theta">#</a> <i>manyBody</i>.<b>theta</b>([<i>theta</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L109 "Source")
 
+设置或获取*theta*参数。*theta*参数用来设置Barnes–Hut 的近似标准。默认为0.9
+
 If *theta* is specified, sets the Barnes–Hut approximation criterion to the specified number and returns this force. If *theta* is not specified, returns the current value, which defaults to 0.9.
 
-To accelerate computation, this force implements the [Barnes–Hut approximation](http://en.wikipedia.org/wiki/Barnes–Hut_simulation) which takes O(*n* log *n*) per application where *n* is the number of [nodes](#simulation_nodes). For each application, a [quadtree](https://github.com/d3/d3-quadtree) stores the current node positions; then for each node, the combined force of all other nodes on the given node is computed. For a cluster of nodes that is far away, the charge force can be approximated by treating the cluster as a single, larger node. The *theta* parameter determines the accuracy of the approximation: if the ratio *w* / *l* of the width *w* of the quadtree cell to the distance *l* from the node to the cell’s center of mass is less than *theta*, all nodes in the given cell are treated as a single node rather than individually.
+*theta*是在实现[Barnes–Hut approximation](http://en.wikipedia.org/wiki/Barnes–Hut_simulation)时的一个参数，为了加速计算的。
+
 
 <a name="manyBody_distanceMin" href="#manyBody_distanceMin">#</a> <i>manyBody</i>.<b>distanceMin</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L101 "Source")
 
-If *distance* is specified, sets the minimum distance between nodes over which this force is considered. If *distance* is not specified, returns the current minimum distance, which defaults to 1. A minimum distance establishes an upper bound on the strength of the force between two nearby nodes, avoiding instability. In particular, it avoids an infinitely-strong force if two nodes are exactly coincident; in this case, the direction of the force is random.
+设置或获取最大连接距离
 
 <a name="manyBody_distanceMax" href="#manyBody_distanceMax">#</a> <i>manyBody</i>.<b>distanceMax</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L105 "Source")
 
