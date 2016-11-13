@@ -27,6 +27,8 @@ D3 V4 API中文版
 
 * [Number Formats](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-format-master)
 
+* [Geographies](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-geo-master)
+
 * [Hierarchies](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master)
 
 * [Interpolators](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-interpolate-master)
