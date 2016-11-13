@@ -341,32 +341,29 @@ function strength() {
 
 设置或获取*theta*参数。*theta*参数用来设置Barnes–Hut 的近似标准。默认为0.9
 
-If *theta* is specified, sets the Barnes–Hut approximation criterion to the specified number and returns this force. If *theta* is not specified, returns the current value, which defaults to 0.9.
 
 *theta*是在实现[Barnes–Hut approximation](http://en.wikipedia.org/wiki/Barnes–Hut_simulation)时的一个参数，为了加速计算的。
 
 
 <a name="manyBody_distanceMin" href="#manyBody_distanceMin">#</a> <i>manyBody</i>.<b>distanceMin</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L101 "Source")
 
-设置或获取最大连接距离
+设置或获取最小连接距离
 
 <a name="manyBody_distanceMax" href="#manyBody_distanceMax">#</a> <i>manyBody</i>.<b>distanceMax</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/manyBody.js#L105 "Source")
 
-If *distance* is specified, sets the maximum distance between nodes over which this force is considered. If *distance* is not specified, returns the current maximum distance, which defaults to infinity. Specifying a finite maximum distance improves performance and produces a more localized layout.
+设置或获取最大连接距离
 
 #### Positioning
 
-The [*x*](#forceX)- and [*y*](#forceY)-positioning forces push nodes towards a desired position along the given dimension with a configurable strength. The strength of the force is proportional to the one-dimensional distance between the node’s position and the target position. While these forces can be used to position individual nodes, they are intended primarily for global forces that apply to all (or most) nodes.
+[*x*](#forceX) 和 [*y*](#forceY) position作用力可以将作用力限制在一个维度，方向或y方向。
 
 <a name="forceX" href="#forceX">#</a> d3.<b>forceX</b>([<i>x</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/x.js "Source")
 
-Creates a new positioning force along the *x*-axis towards the given position [*x*](#x_x). If *x* is not specified, it defaults to 0.
+根据给定的x位置创建一个x方向的作用力。如果没有指定x则默认为0
 
 <a name="x_strength" href="#x_strength">#</a> <i>x</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/x.js#L32 "Source")
 
-If *strength* is specified, sets the strength accessor to the specified number or function, re-evaluates the strength accessor for each node, and returns this force. The *strength* determines how much to increment the node’s *x*-velocity: ([*x*](#x_x) - *node*.x) × *strength*. For example, a value of 0.1 indicates that the node should move a tenth of the way from its current *x*-position to the target *x*-position with each application. Higher values moves nodes more quickly to the target position, often at the expense of other forces or constraints. A value outside the range [0,1] is not recommended.
-
-If *strength* is not specified, returns the current strength accessor, which defaults to:
+设置或获取力的强度访问器，*strength*决定了节点x方向的速度增量:([*x*](#x_x) - *node*.x) × *strength*, 这个值越大则节点的位置会越快的朝向目标位置过渡，默认为:
 
 ```js
 function strength() {
@@ -374,11 +371,12 @@ function strength() {
 }
 ```
 
-The strength accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the strength of each node is only recomputed when the force is initialized or when this method is called with a new *strength*, and not on every application of the force.
+这个强度可以单独设置。
+
 
 <a name="x_x" href="#x_x">#</a> <i>x</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/x.js#L36 "Source")
 
-If *x* is specified, sets the *x*-coordinate accessor to the specified number or function, re-evaluates the *x*-accessor for each node, and returns this force. If *x* is not specified, returns the current *x*-accessor, which defaults to:
+设置或获取x坐标访问器。默认为:
 
 ```js
 function x() {
@@ -386,17 +384,15 @@ function x() {
 }
 ```
 
-The *x*-accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the target *x*-coordinate of each node is only recomputed when the force is initialized or when this method is called with a new *x*, and not on every application of the force.
+可以单独设置。
 
 <a name="forceY" href="#forceY">#</a> d3.<b>forceY</b>([<i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/y.js "Source")
 
-Creates a new positioning force along the *y*-axis towards the given position [*y*](#y_y). If *y* is not specified, it defaults to 0.
+根据给定的y位置创建一个y方向的作用力。如果没有指定y则默认为0
 
 <a name="y_strength" href="#y_strength">#</a> <i>y</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/y.js#L32 "Source")
 
-If *strength* is specified, sets the strength accessor to the specified number or function, re-evaluates the strength accessor for each node, and returns this force. The *strength* determines how much to increment the node’s *y*-velocity: ([*y*](#y_y) - *node*.y) × *strength*. For example, a value of 0.1 indicates that the node should move a tenth of the way from its current *y*-position to the target *y*-position with each application. Higher values moves nodes more quickly to the target position, often at the expense of other forces or constraints. A value outside the range [0,1] is not recommended.
-
-If *strength* is not specified, returns the current strength accessor, which defaults to:
+设置或获取力的强度访问器，*strength*决定了节点x方向的速度增量:([*y*](#y_y) - *node*.y) × *strength*, 这个值越大则节点的位置会越快的朝向目标位置过渡，默认为:
 
 ```js
 function strength() {
@@ -404,11 +400,11 @@ function strength() {
 }
 ```
 
-The strength accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the strength of each node is only recomputed when the force is initialized or when this method is called with a new *strength*, and not on every application of the force.
+这个强度可以单独设置。
 
 <a name="y_y" href="#y_y">#</a> <i>y</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/y.js#L36 "Source")
 
-If *y* is specified, sets the *y*-coordinate accessor to the specified number or function, re-evaluates the *y*-accessor for each node, and returns this force. If *y* is not specified, returns the current *y*-accessor, which defaults to:
+设置或获取y坐标访问器。默认为:
 
 ```js
 function y() {
@@ -416,4 +412,5 @@ function y() {
 }
 ```
 
-The *y*-accessor is invoked for each [node](#simulation_nodes) in the simulation, being passed the *node* and its zero-based *index*. The resulting number is then stored internally, such that the target *y*-coordinate of each node is only recomputed when the force is initialized or when this method is called with a new *y*, and not on every application of the force.
+可以单独设置。
+
