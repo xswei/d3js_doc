@@ -197,7 +197,7 @@ root
 
 #### Stratify
 
-Consider the following table of relationships:
+考虑如下表示层级结构的数据结构:
 
 Name  | Parent
 ------|--------
@@ -211,7 +211,8 @@ Awan  | Eve
 Enoch | Awan
 Azura | Eve
 
-These names are conveniently unique, so we can unambiguously represent the hierarchy as a CSV file:
+
+上述数据格式可以方便的存储在CSV文件中:
 
 ```
 name,parent
@@ -226,13 +227,13 @@ Enoch,Awan
 Azura,Eve
 ```
 
-To parse the CSV using [d3.csvParse](https://github.com/d3/d3-dsv#csvParse):
+然后使用[d3.csvParse](https://github.com/d3/d3-dsv#csvParse)转成json格式的csv数据:
 
 ```js
 var table = d3.csvParse(text);
 ```
 
-This returns:
+返回:
 
 ```json
 [
@@ -248,7 +249,7 @@ This returns:
 ]
 ```
 
-To convert to a hierarchy:
+然后转为一个hierarchy数据:
 
 ```js
 var root = d3.stratify()
@@ -257,23 +258,23 @@ var root = d3.stratify()
     (table);
 ```
 
-This returns:
+返回数据结构如下:
 
 [<img alt="Stratify" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/stratify.png">](https://tonicdev.com/mbostock/56fed33d8630b01300f72daa)
 
-This hierarchy can now be passed to a hierarchical layout, such as [d3.tree](#_tree), for visualization.
+然后这个hierarchy格式的数据就可以传给布局使用，比如[d3.tree](#_tree)。
 
 <a name="stratify" href="#stratify">#</a> d3.<b>stratify</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/stratify.js "Source")
 
-Constructs a new stratify operator with the default settings.
+使用默认的设置构建一个stratify(分层)操作。
 
 <a name="_stratify" href="#_stratify">#</a> <i>stratify</i>(<i>data</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/stratify.js#L20 "Source")
 
-Generates a new hierarchy from the specified tabular *data*. Each node in the returned object has a shallow copy of the properties from the corresponding data object, excluding the following reserved properties: id, parentId, children.
+根据指定的列表类型的数据生成对应的hierarchy(层次结构数据)。返回对象中的每个节点都对应原来列表类型数据中的一个对象的浅复制。
 
 <a name="stratify_id" href="#stratify_id">#</a> <i>stratify</i>.<b>id</b>([<i>id</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/stratify.js#L64 "Source")
 
-If *id* is specified, sets the id accessor to the given function and returns this stratify operator. Otherwise, returns the current id accessor, which defaults to:
+设置或获取*id*访问器。这个属性作为构建层级结构节点的唯一标示。默认为:
 
 ```js
 function id(d) {
@@ -281,11 +282,13 @@ function id(d) {
 }
 ```
 
-The id accessor is invoked for each element in the input data passed to the [stratify operator](#_stratify), being passed the current datum (*d*) and the current index (*i*). The returned string is then used to identify the node’s relationships in conjunction with the [parent id](#stratify_parentId). For leaf nodes, the id may be undefined; otherwise, the id must be unique. (Null and the empty string are equivalent to undefined.)
+上述实例中，每个节点的标示使用name属性表示，因此要设置id为name
+
+列表内的数据通过这个属性和parentId来"认亲".
 
 <a name="stratify_parentId" href="#stratify_parentId">#</a> <i>stratify</i>.<b>parentId</b>([<i>parentId</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/stratify.js#L68 "Source")
 
-If *parentId* is specified, sets the parent id accessor to the given function and returns this stratify operator. Otherwise, returns the current parent id accessor, which defaults to:
+设置或获取父节id访问器。默认为:
 
 ```js
 function parentId(d) {
@@ -293,7 +296,7 @@ function parentId(d) {
 }
 ```
 
-The parent id accessor is invoked for each element in the input data passed to the [stratify operator](#_stratify), being passed the current datum (*d*) and the current index (*i*). The returned string is then used to identify the node’s relationships in conjunction with the [id](#stratify_id). For the root node, the parent id should be undefined. (Null and the empty string are equivalent to undefined.) There must be exactly one root node in the input data, and no circular relationships.
+在上述例子中使用parent属性表示当前节点的父节点，因此要设置父节点标志为parent属性。
 
 ### Cluster
 
