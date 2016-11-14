@@ -86,7 +86,7 @@ var treemap = d3.treemap();
 }
 ```
 
-*children*可以指定子代访问器，如果在数据中子节点是通过children属性引用的，则使用默认设置就好，如果是其他的属性吗，则需要将子代访问器设置为相应的属性，默认为:
+*children*可以指定子代访问器，如果在数据中子节点是通过children属性引用的一个数组，则使用默认设置就好，如果是其他的属性，则需要将子代访问器设置为相应的属性，默认为:
 
 ```js
 function children(d) {
@@ -94,46 +94,47 @@ function children(d) {
 }
 ```
 
-The returned node and each descendant has the following properties:
+d3.hierarchy返回的数据包含以下属性:
 
-* *node*.data - the associated data, as specified to the [constructor](#hierarchy)
-* *node*.depth - zero for the root node, and increasing by one for each descendant generation
-* *node*.height - zero for leaf nodes, and the greatest distance from any descendant leaf for internal nodes
-* *node*.parent - the parent node, or null for the root node
-* *node*.children - an array of child nodes, if any; undefined for leaf nodes.
-* *node*.value - the summed value of the node and its [descendants](#node_descendants); optional, set by [*node*.sum](#node_sum).
 
-This method can also be used to test if a node is an `instanceof d3.hierarchy` and to extend the node prototype.
+* *node*.data - 原来传给[constructor](#hierarchy)的数据
+* *node*.depth - 节点的深度，根节点为0
+* *node*.height - 节点的高度，叶节点为0
+* *node*.parent - 节点的父节点，根节点为null
+* *node*.children - 子节点数组，叶节点没有定义这个属性
+* *node*.value - 当前节点以及后代节点的总值，通过[*node*.sum](#node_sum)设置.
+
+这个方法也可以通过`instanceof d3.hierarchy`用来测试一个对象是否是d3.hierarchy的实例。或者可以在原型链上扩展d3.hierarchy方法。
 
 <a name="node_ancestors" href="#node_ancestors">#</a> <i>node</i>.<b>ancestors</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/ancestors.js "Source")
 
-Returns the array of ancestors nodes, starting with this node, then followed by each parent up to the root.
+以数组的形式放返回当前节点的所有祖先元素。
 
 <a name="node_descendants" href="#node_descendants">#</a> <i>node</i>.<b>descendants</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/descendants.js "Source")
 
-Returns the array of descendant nodes, starting with this node, then followed by each child in topological order.
+返回当前节点所有的后代节点
 
 <a name="node_leaves" href="#node_leaves">#</a> <i>node</i>.<b>leaves</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/leaves.js "Source")
 
-Returns the array of leaf nodes in traversal order; leaves are nodes with no children.
+返回以当前节点为根节点的子树的所有叶节点
 
 <a name="node_path" href="#node_path">#</a> <i>node</i>.<b>path</b>(<i>target</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/path.js "Source")
 
-Returns the shortest path through the hierarchy from this *node* to the specified *target* node. The path starts at this *node*, ascends to the least common ancestor of this *node* and the *target* node, and then descends to the *target* node. This is particularly useful for [hierarchical edge bundling](https://bl.ocks.org/mbostock/7607999).
+返回当前节点离目标节点最短路径。返回形式为包含路径所经过节点组成的数组。这个方法对于[hierarchical edge bundling(层级结构变捆绑)](https://bl.ocks.org/mbostock/7607999)中很有用.
 
 <a name="node_links" href="#node_links">#</a> <i>node</i>.<b>links</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/links.js "Source")
 
-Returns an array of links for this *node*, where each *link* is an object that defines source and target properties. The source of each link is the parent node, and the target is a child node.
+返回以当前节点为根节点的子树中所有的连接(边)，每个连接都有source和target属性组成，source表示连接的父节点，target表示连接的子节点。
 
 <a name="node_sum" href="#node_sum">#</a> <i>node</i>.<b>sum</b>(<i>value</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/sum.js "Source")
 
-Evaluates the specified *value* function for this *node* and each descendant in [post-order traversal](#node_eachAfter), and returns this *node*. The *node*.value property of each node is set to the numeric value returned by the specified function plus the combined value of all descendants. The function is passed the node’s data, and must return a non-negative number. The *value* accessor is evaluated for *node* and every descendant, including internal nodes; if you only want leaf nodes to have internal value, then return zero for any node with children. [For example](http://bl.ocks.org/mbostock/b4c0f143db88a9eb01a315a1063c1d77):
+计算以当前节点为父节点的子树中某个值的总和。比如，假如每个节点都有一个value属性表示当前节点的值(或权重)，则可以通过如下设置统计某个子树的值的总和:
 
 ```js
 root.sum(function(d) { return d.value ? 1 : 0; });
 ```
 
-You must call *node*.sum before invoking a hierarchical layout that requires *node*.value, such as [d3.treemap](#treemap). Since the API supports [method chaining](https://en.wikipedia.org/wiki/Method_chaining), you can invoke *node*.sum and [*node*.sort](#node_sort) before computing the layout, and then subsequently generate an array of all [descendant nodes](#node_descendants) like so:
+如果布局的时候需要计算节点的值，则必须要先调用*node*.sum方法，比如[d3.treemap](#treemap)，这个方法支持链式语法，所以你可以在计算布局之前调用*node*.sum and [*node*.sort](#node_sort),然后通过*node.descendants()*生成 所有的节点:
 
 ```js
 var treemap = d3.treemap()
@@ -146,13 +147,13 @@ var nodes = treemap(root
   .descendants();
 ```
 
-This example assumes that the node data has a value field.
+上述例子假设几点包含了value属性.
 
 <a name="node_sort" href="#node_sort">#</a> <i>node</i>.<b>sort</b>(<i>compare</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/sort.js "Source")
 
-Sorts the children of this *node*, if any, and each of this *node*’s descendants’ children, in [pre-order traversal](#node_eachBefore) using the specified *compare* function, and returns this *node*. The specified function is passed two nodes *a* and *b* to compare. If *a* should be before *b*, the function must return a value less than zero; if *b* should be before *a*, the function must return a value greater than zero; otherwise, the relative order of *a* and *b* are not specified. See [*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) for more.
+以前序遍历的方式对当前节点的子节点进行排序。比较函数两个参数*a*和*b*分别表示两个节点的引用。更多排序参考 [*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 
 
-Unlike [*node*.sum](#node_sum), the *compare* function is passed two [nodes](#hierarchy) rather than two nodes’ data. For example, if the data has a value property, this sorts nodes by the descending aggregate value of the node and all its descendants, as is recommended for [circle-packing](#pack):
+与[*node*.sum](#node_sum)不同, *compare* 函数接受两个节点为参数，而不是两个节点的某个表示数据的属性。如果如果数据有一个value属性，则需要使用如下方法进行排序(对比sum和sort),推荐在[circle-packing](#pack)中使用这种排序:
 
 ```js
 root
@@ -160,7 +161,7 @@ root
     .sort(function(a, b) { return b.value - a.value; });
 ``````
 
-Similarly, to sort nodes by descending height (greatest distance from any descendant leaf) and then descending value, as is recommended for [treemaps](#treemap) and [icicles](#partition):
+类似的，也可以通过节点的高度和值来进行排序，这种排序推荐在 [treemaps](#treemap) and [icicles](#partition)中使用:
 
 ```js
 root
@@ -168,7 +169,7 @@ root
     .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 ```
 
-To sort nodes by descending height and then ascending id, as is recommended for [trees](#tree) and [dendrograms](#cluster):
+通过节点的高度和递增的id排序，在 [trees](#tree) and [dendrograms](#cluster)中推荐使用:
 
 ```js
 root
@@ -176,23 +177,23 @@ root
     .sort(function(a, b) { return b.height - a.height || a.id.localeCompare(b.id); });
 ```
 
-You must call *node*.sort before invoking a hierarchical layout if you want the new sort order to affect the layout; see [*node*.sum](#node_sum) for an example.
 
 <a name="node_each" href="#node_each">#</a> <i>node</i>.<b>each</b>(<i>function</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/each.js "Source")
 
-Invokes the specified *function* for *node* and each descendant in [breadth-first order](https://en.wikipedia.org/wiki/Breadth-first_search), such that a given *node* is only visited if all nodes of lesser depth have already been visited, as well as all preceeding nodes of the same depth. The specified function is passed the current *node*.
+以[breadth-first order(广度优先)](https://en.wikipedia.org/wiki/Breadth-first_search)的次序为每个节点调用指定的的方法。传递当前的节点*node*。
 
 <a name="node_eachAfter" href="#node_eachAfter">#</a> <i>node</i>.<b>eachAfter</b>(<i>function</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/eachAfter.js "Source")
 
-Invokes the specified *function* for *node* and each descendant in [post-order traversal](https://en.wikipedia.org/wiki/Tree_traversal#Post-order), such that a given *node* is only visited after all of its descendants have already been visited. The specified function is passed the current *node*.
+以[post-order traversal(后续)](https://en.wikipedia.org/wiki/Tree_traversal#Post-order)遍历的次序每个节点调用指定的的方法。传递当前的节点*node*。
+
 
 <a name="node_eachBefore" href="#node_eachBefore">#</a> <i>node</i>.<b>eachBefore</b>(<i>function</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/eachBefore.js "Source")
 
-Invokes the specified *function* for *node* and each descendant in [pre-order traversal](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order), such that a given *node* is only visited after all of its ancestors have already been visited. The specified function is passed the current *node*.
+以[pre-order traversal(前序)](https://en.wikipedia.org/wiki/Tree_traversal#Pre-order)遍历的次序每个节点调用指定的的方法。传递当前的节点*node*。
 
 <a name="node_copy" href="#node_copy">#</a> <i>node</i>.<b>copy</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/index.js#L39 "Source")
 
-Return a deep copy of the subtree starting at this *node*. (The returned deep copy shares the same data, however.) The returned node is the root of a new tree; the returned node’s parent is always null and its depth is always zero.
+返回一个以当前节点为根节点的子树的深拷贝
 
 #### Stratify
 
