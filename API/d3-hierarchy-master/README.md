@@ -302,32 +302,34 @@ function parentId(d) {
 
 [<img alt="Dendrogram" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/cluster.png">](http://bl.ocks.org/mbostock/ff91c1558bc570b08539547ccc90050b)
 
-The **cluster layout** produces [dendrograms](http://en.wikipedia.org/wiki/Dendrogram): node-link diagrams that place leaf nodes of the tree at the same depth. Dendograms are typically less compact than [tidy trees](#tree), but are useful when all the leaves should be at the same level, such as for hierarchical clustering or [phylogenetic tree diagrams](http://bl.ocks.org/mbostock/c034d66572fd6bd6815a).
+**cluster layout**用来产生树状的节点链接图:所有的叶节点的都有相同的深度。注意与[tidy trees(树状图)](#tree)区分。
+
+树状图与集群图不同，集群图所有的叶节点都有相同的深度，也就是可以不管叶节点到根节点有多少层，最终布局的叶节点都可以对其，树状图则不是。
 
 <a name="cluster" href="#cluster">#</a> d3.<b>cluster</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/cluster.js "Source")
 
-Creates a new cluster layout with default settings.
+构建一个默认的群集布局。
 
 <a name="_cluster" href="#_cluster">#</a> <i>cluster</i>(<i>root</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/cluster.js#L39 "Source")
 
-Lays out the specified *root* [hierarchy](#hierarchy), assigning the following properties on *root* and its descendants:
+将指定的根节点代表的[hierarchy](#hierarchy)数据布局为群集结构，每个节点都包含以下属性:
 
-* *node*.x - the *x*-coordinate of the node
-* *node*.y - the *y*-coordinate of the node
+* *node*.x - 节点的*x*-坐标
+* *node*.y - 节点的*y*-坐标
 
-The coordinates *x* and *y* represent an arbitrary coordinate system; for example, you can treat *x* as an angle and *y* as a radius to produce a [radial layout](http://bl.ocks.org/mbostock/4739610f6d96aaad2fb1e78a72b385ab). You may want to call [*root*.sort](#node_sort) before passing the hierarchy to the cluster layout.
+*x*和*y*坐标表示位于任意坐标系统中，也就是说这里的x和y并不一定是传统意义上的直角坐标，换做极坐标也使用这两个属性表示角度和半径。参考[radial layout](http://bl.ocks.org/mbostock/4739610f6d96aaad2fb1e78a72b385ab). 如果要排序则需要先调用 [*root*.sort](#node_sort).
 
 <a name="cluster_size" href="#cluster_size">#</a> <i>cluster</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/cluster.js#L75 "Source")
 
-If *size* is specified, sets this cluster layout’s size to the specified two-element array of numbers [*width*, *height*] and returns this cluster layout. If *size* is not specified, returns the current layout size, which defaults to [1, 1]. A layout size of null indicates that a [node size](#node_size) will be used instead. The coordinates *x* and *y* represent an arbitrary coordinate system; for example, to produce a [radial layout](http://bl.ocks.org/mbostock/4739610f6d96aaad2fb1e78a72b385ab), a size of [360, *radius*] corresponds to a breadth of 360° and a depth of *radius*.
+设置或获取布局的尺寸，默认[1,1], 注意这个size不特指直角坐标系，也可以是极坐标系统，比如使用[360,radius]可以生成一个径向布局的半径为radius的群集布局。此时节点的x属性表示的是弧度，y表示的是半径。
 
 <a name="cluster_nodeSize" href="#cluster_nodeSize">#</a> <i>cluster</i>.<b>nodeSize</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/cluster.js#L79 "Source")
 
-If *size* is specified, sets this cluster layout’s node size to the specified two-element array of numbers [*width*, *height*] and returns this cluster layout. If *size* is not specified, returns the current node size, which defaults to null. A node size of null indicates that a [layout size](#cluster_size) will be used instead. When a node size is specified, the root node is always positioned at ⟨0, 0⟩.
+设置或获取节点的尺寸。默认为null，如果指定了节点尺寸则根节点会被置于⟨0, 0⟩.
 
 <a name="cluster_separation" href="#cluster_separation">#</a> <i>cluster</i>.<b>separation</b>([<i>separation</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/cluster.js#L71 "Source")
 
-If *separation* is specified, sets the separation accessor to the specified function and returns this cluster layout. If *separation* is not specified, returns the current separation accessor, which defaults to:
+设置或获取间隔访问器。默认为:
 
 ```js
 function separation(a, b) {
@@ -335,38 +337,38 @@ function separation(a, b) {
 }
 ```
 
-The separation accessor is used to separate neighboring leaves. The separation function is passed two leaves *a* and *b*, and must return the desired separation. The nodes are typically siblings, though the nodes may be more distantly related if the layout decides to place such nodes adjacent.
+间隔用来设置相邻的兄弟节点之间的距离。间隔访问器传递两个节点*a*和*b*，然后根据a和b返回间隔，比如a和b共有一个父节点时间隔小一些，否则女间隔大一些。
 
 ### Tree
 
 [<img alt="Tidy Tree" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/tree.png">](http://bl.ocks.org/mbostock/9d0899acb5d3b8d839d9d613a9e1fe04)
 
-The **tree** layout produces tidy node-link diagrams of trees using the [Reingold–Tilford “tidy” algorithm](http://emr.cs.iit.edu/~reingold/tidier-drawings.pdf), improved to run in linear time by [Buchheim *et al.*](http://dirk.jivas.de/papers/buchheim02improving.pdf) Tidy trees are typically more compact than [dendograms](#cluster).
+**tree**布局基于[Reingold–Tilford “tidy” algorithm](http://emr.cs.iit.edu/~reingold/tidier-drawings.pdf)生成一个整洁的树状布局。要注意和[dendograms](#cluster)的区别
 
 <a name="tree" href="#tree">#</a> d3.<b>tree</b>() [<>](https://github.com/d3/d3-hierarchy/blob/master/src/tree.js "Source")
 
-Creates a new tree layout with default settings.
+使用默认的设置构建一个树图布局生成器.
 
 <a name="_tree" href="#_tree">#</a> <i>tree</i>(<i>root</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/tree.js#L106 "Source")
 
-Lays out the specified *root* [hierarchy](#hierarchy), assigning the following properties on *root* and its descendants:
+根据指定的根节点代表的[hierarchy](#hierarchy)数据生成一个树状布局数据，每个节点包含以下属性:\
 
-* *node*.x - the *x*-coordinate of the node
-* *node*.y - the *y*-coordinate of the node
+* *node*.x - 节点的 *x*-坐标
+* *node*.y - 节点的 *y*-坐标
 
-The coordinates *x* and *y* represent an arbitrary coordinate system; for example, you can treat *x* as an angle and *y* as a radius to produce a [radial layout](http://bl.ocks.org/mbostock/2e12b0bd732e7fe4000e2d11ecab0268). You may want to call [*root*.sort](#node_sort) before passing the hierarchy to the tree layout.
+*x*和*y*坐标表示位于任意坐标系统中，也就是说这里的x和y并不一定是传统意义上的直角坐标，换做极坐标也使用这两个属性表示角度和半径。
 
 <a name="tree_size" href="#tree_size">#</a> <i>tree</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/tree.js#L228 "Source")
 
-If *size* is specified, sets this tree layout’s size to the specified two-element array of numbers [*width*, *height*] and returns this tree layout. If *size* is not specified, returns the current layout size, which defaults to [1, 1]. A layout size of null indicates that a [node size](#node_size) will be used instead. The coordinates *x* and *y* represent an arbitrary coordinate system; for example, to produce a [radial layout](http://bl.ocks.org/mbostock/2e12b0bd732e7fe4000e2d11ecab0268), a size of [360, *radius*] corresponds to a breadth of 360° and a depth of *radius*.
+设置或获取布局尺寸，参考cluster的设置方法。
 
 <a name="tree_nodeSize" href="#tree_nodeSize">#</a> <i>tree</i>.<b>nodeSize</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/tree.js#L232 "Source")
 
-If *size* is specified, sets this tree layout’s node size to the specified two-element array of numbers [*width*, *height*] and returns this tree layout. If *size* is not specified, returns the current node size, which defaults to null. A node size of null indicates that a [layout size](#tree_size) will be used instead. When a node size is specified, the root node is always positioned at ⟨0, 0⟩.
+设置或获取节点的尺寸，参考cluster的设置方法
 
 <a name="tree_separation" href="#tree_separation">#</a> <i>tree</i>.<b>separation</b>([<i>separation</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/tree.js#L224 "Source")
 
-If *separation* is specified, sets the separation accessor to the specified function and returns this tree layout. If *separation* is not specified, returns the current separation accessor, which defaults to:
+设置或获取叶节点之间的间隔访问器，参考cluster的设置方法, 默认为:
 
 ```js
 function separation(a, b) {
@@ -374,7 +376,7 @@ function separation(a, b) {
 }
 ```
 
-A variation that is more appropriate for radial layouts reduces the separation gap proportionally to the radius:
+如果是径向布局的树图，则使用如下方法设置间隔更合适:
 
 ```js
 function separation(a, b) {
@@ -382,7 +384,6 @@ function separation(a, b) {
 }
 ```
 
-The separation accessor is used to separate neighboring nodes. The separation function is passed two nodes *a* and *b*, and must return the desired separation. The nodes are typically siblings, though the nodes may be more distantly related if the layout decides to place such nodes adjacent.
 
 ### Treemap
 
