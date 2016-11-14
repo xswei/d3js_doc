@@ -1,20 +1,24 @@
 # d3-hierarchy
 
-Many datasets are intrinsically hierarchical. Consider [geographic entities](https://www.census.gov/geo/reference/hierarchy.html), such as census blocks, census tracts, counties and states; the command structure of businesses and governments; file systems and software packages. And even non-hierarchical data may be arranged empirically into a hierarchy, as with [*k*-means clustering](https://en.wikipedia.org/wiki/K-means_clustering) or [phylogenetic trees](https://en.wikipedia.org/wiki/Phylogenetic_tree).
+许多数据集都是分层结构的，比如按照州进行的人口普查，文件系统结构，公司内部等级等。
 
-This module implements several popular techniques for visualizing hierarchical data:
 
-**Node-link diagrams** show topology using discrete marks for nodes and links, such as a circle for each node and a line connecting each parent and child. The [“tidy” tree](#tree) is delightfully compact, while the [dendrogram](#cluster) places leaves at the same level. (These have both polar and Cartesian forms.) [Indented trees](https://bl.ocks.org/mbostock/1093025) are useful for interactive browsing.
+这个模块实现了几种常用的层级数据结构可视化技术:
 
-**Adjacency diagrams** show topology through the relative placement of nodes. They may also encode a quantitative dimension in the area of each node, for example to show revenue or file size. The [“icicle” diagram](#partition) uses rectangles, while the “sunburst” uses annular segments.
 
-**Enclosure diagrams** also use an area encoding, but show topology through containment. A [treemap](#treemap) recursively subdivides area into rectangles. [Circle-packing](#pack) tightly nests circles; this is not as space-efficient as a treemap, but perhaps more readily shows topology.
+**Node-link diagrams(节点链接图)**使用独立的节点和连接表示拓扑结构。比如使用圆表示节点并使用连线表示节点之间的关系。比如[“tidy” tree](#tree)可以将所有的叶节点都对其而显得整洁。而[Indented trees(缩进树)](https://bl.ocks.org/mbostock/1093025)则很方便交互。
 
-A good hierarchical visualization facilitates rapid multiscale inference: micro-observations of individual elements and macro-observations of large groups.
+
+**Adjacency diagrams(邻接图)**通过相对位移表示节点的拓扑结构。可以将每个节点编码为一个定量的面积区域，使用面积表示收益或文件大小等。参考[“icicle” diagram](#partition)例子
+
+
+**Enclosure diagrams(打包图)**也使用面积编码，但是通过包围的方式表示节点之间的关系。[treemap](#treemap)将区域递归的分割成小的矩形，而[Circle-packing](#pack)使用嵌套的圆。
+
+一个好的层级数据可视化应该既可以从个体元素上微观个体元素，又能从整体上进行宏观观察。
 
 ## Installing
 
-If you use NPM, `npm install d3-hierarchy`. Otherwise, download the [latest release](https://github.com/d3/d3-hierarchy/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-hierarchy.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+NPM等安装方法略
 
 ```html
 <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
@@ -25,24 +29,26 @@ var treemap = d3.treemap();
 </script>
 ```
 
-[Try d3-hierarchy in your browser.](https://tonicdev.com/npm/d3-hierarchy)
+[在浏览器中测试d3-hierarchy](https://tonicdev.com/npm/d3-hierarchy)
 
 ## API Reference
 
 * [Hierarchy](#hierarchy) ([Stratify](#stratify))
-* [Cluster](#cluster)
-* [Tree](#tree)
-* [Treemap](#treemap) ([Treemap Tiling](#treemap-tiling))
-* [Partition](#partition)
-* [Pack](#pack)
+* [Cluster(群集)](#cluster)
+* [Tree(树图)](#tree)
+* [Treemap(矩阵树图)](#treemap) ([Treemap Tiling](#treemap-tiling))
+* [Partition(分区图)](#partition)
+* [Pack(打包图)](#pack)
 
 ### Hierarchy
 
-Before you can compute a hierarchical layout, you need a root node. If your data is already in a hierarchical format, such as JSON, you can pass it directly to [d3.hierarchy](#hierarchy); otherwise, you can rearrange tabular data, such as comma-separated values (CSV), into a hierarchy using [d3.stratify](#stratify).
+在计算层级结构布局之前，首先需要一个根节点。如果你的数据已经格式化为层级结构，，比如JSON格式则可以直接传递给[d3.hierarchy](#hierarchy)；否则你可以重新组织列表类型的数据，比如CSV格式，然后使用[d3.stratify](#stratify)转为层级结构格式。
+
 
 <a name="hierarchy" href="#hierarchy">#</a> d3.<b>hierarchy</b>(<i>data</i>[, <i>children</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/hierarchy/index.js#L12 "Source")
 
-Constructs a root node from the specified hierarchical *data*. The specified *data* must be an object representing the root node. For example:
+以给定的具有层次结构的数据*data*为基础，构建一个具有根节点的新的层级结构数据。*data*必须为表示根节点的对象类型，比如:
+
 
 ```json
 {
@@ -80,7 +86,7 @@ Constructs a root node from the specified hierarchical *data*. The specified *da
 }
 ```
 
-The specified *children* accessor function is invoked for each datum, starting with the root *data*, and must return an array of data representing the children, or null if the current datum has no children. If *children* is not specified, it defaults to:
+*children*可以指定子代访问器，如果在数据中子节点是通过children属性引用的，则使用默认设置就好，如果是其他的属性吗，则需要将子代访问器设置为相应的属性，默认为:
 
 ```js
 function children(d) {
