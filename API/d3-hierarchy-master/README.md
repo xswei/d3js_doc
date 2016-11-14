@@ -384,7 +384,6 @@ function separation(a, b) {
 }
 ```
 
-
 ### Treemap
 
 [<img alt="Treemap" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/treemap.png">](http://bl.ocks.org/mbostock/6bbb0a7ff7686b124d80)
@@ -490,76 +489,78 @@ function separation(a, b) {
 
 [<img alt="Partition" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/partition.png">](http://bl.ocks.org/mbostock/2e73ec84221cb9773f4c)
 
-The **partition layout** produces adjacency diagrams: a space-filling variant of a node-link tree diagram. Rather than drawing a link between parent and child in the hierarchy, nodes are drawn as solid areas (either arcs or rectangles), and their placement relative to other nodes reveals their position in the hierarchy. The size of the nodes encodes a quantitative dimension that would be difficult to show in a node-link diagram.
+**paratition**布局是一种邻接图:可以看成是节点链接树图的空白填充。
 
 <a name="partition" href="#partition">#</a> d3.<b>partition</b>()
 
-Creates a new partition layout with the default settings.
+使用默认的设置构建一个分区图布局。
 
 <a name="_partition" href="#_partition">#</a> <i>partition</i>(<i>root</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/partition.js#L10 "Source")
 
-Lays out the specified *root* [hierarchy](#hierarchy), assigning the following properties on *root* and its descendants:
+将root表示的[hierarchy](#hierarchy)布局为分区结构布局。每个节点包含一下属性:
 
-* *node*.x0 - the left edge of the rectangle
-* *node*.y0 - the top edge of the rectangle
-* *node*.x1 - the right edge of the rectangle
-* *node*.y1 - the bottom edge of the rectangle
+* *node*.x0 - 矩形的左边界坐标
+* *node*.y0 - 矩形的上边界坐标
+* *node*.x1 - 矩形的右边界坐标
+* *node*.y1 - 矩形的下边界坐标
 
-You must call [*root*.sum](#node_sum) before passing the hierarchy to the partition layout. You probably also want to call [*root*.sort](#node_sort) to order the hierarchy before computing the layout.
+在布局之前首先要调用[*root*.sum](#node_sum)统计每一个节点的值。也可以通过[*root*.sort](#node_sort)进行排序。
 
 <a name="partition_size" href="#partition_size">#</a> <i>partition</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/partition.js#L43 "Source")
 
-If *size* is specified, sets this partition layout’s size to the specified two-element array of numbers [*width*, *height*] and returns this partition layout. If *size* is not specified, returns the current size, which defaults to [1, 1].
+设置或获取布局的尺寸，默认为[1,1] 可以使用极坐标布局看来画旭日图。
 
 <a name="partition_round" href="#partition_round">#</a> <i>partition</i>.<b>round</b>([<i>round</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/partition.js#L39 "Source")
 
-If *round* is specified, enables or disables rounding according to the given boolean and returns this partition layout. If *round* is not specified, returns the current rounding state, which defaults to false.
+是否进行取整计算，默认为false
 
 <a name="partition_padding" href="#partition_padding">#</a> <i>partition</i>.<b>padding</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/partition.js#L47 "Source")
 
-If *padding* is specified, sets the padding to the specified number and returns this partition layout. If *padding* is not specified, returns the current padding, which defaults to zero. The padding is used to separate a node’s adjacent children.
+设置或获取相邻分区之间的间隔。默认为0
 
 ### Pack
 
 [<img alt="Circle-Packing" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/pack.png">](http://bl.ocks.org/mbostock/ca5b03a33affa4160321)
 
-Enclosure diagrams use containment (nesting) to represent a hierarchy. The size of the leaf circles encodes a quantitative dimension of the data. The enclosing circles show the approximate cumulative size of each subtree, but due to wasted space there is some distortion; only the leaf nodes can be compared accurately. Although [circle packing](http://en.wikipedia.org/wiki/Circle_packing) does not use space as efficiently as a [treemap](#treemap), the “wasted” space more prominently reveals the hierarchical structure.
+将节点布局为相互包含的打包图。打包不如[treemap](#treemap)空间利用率高，会造成空间的浪费。
 
 <a name="pack" href="#pack">#</a> d3.<b>pack</b>()
 
-Creates a new pack layout with the default settings.
+使用默认的设置构建一个打包图布局。
 
 <a name="_pack" href="#_pack">#</a> <i>pack</i>(<i>root</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/index.js#L15 "Source")
 
-Lays out the specified *root* [hierarchy](#hierarchy), assigning the following properties on *root* and its descendants:
+将root表示的[hierarchy](#hierarchy)数据布局为打包图。每个节点包含以下属性:
 
-* *node*.x - the *x*-coordinate of the circle’s center
-* *node*.y - the *y*-coordinate of the circle’s center
-* *node*.r - the radius of the circle
+* *node*.x - 节点中心的*x*-坐标
+* *node*.y - 节点中心的*y*-坐标
+* *node*.r - 表示节点的圆的半径
 
-You must call [*root*.sum](#node_sum) before passing the hierarchy to the pack layout. You probably also want to call [*root*.sort](#node_sort) to order the hierarchy before computing the layout.
+在布局之前首先要调用[*root*.sum](#node_sum)统计每一个节点的值。也可以通过[*root*.sort](#node_sort)进行排序。
 
 <a name="pack_radius" href="#pack_radius">#</a> <i>pack</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/index.js#L30 "Source")
 
-If *radius* is specified, sets the pack layout’s radius accessor to the specified function and returns this pack layout. If *radius* is not specified, returns the current radius accessor, which defaults to null. If the radius accessor is null, the radius of each leaf circle is derived from the leaf *node*.value (computed by [*node*.sum](#node_sum)); the radii are then scaled proportionally to fit the [layout size](#pack_size). If the radius accessor is not null, the radius of each leaf circle is specified exactly by the function.
+设置或获取布局的半径范围。默认为null，如果为null则会根据叶节点的值等比例的调整以适应[layout size](#pack_size).
 
 <a name="pack_size" href="#pack_size">#</a> <i>pack</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/index.js#L34 "Source")
 
-If *size* is specified, sets this pack layout’s size to the specified two-element array of numbers [*width*, *height*] and returns this pack layout. If *size* is not specified, returns the current size, which defaults to [1, 1].
+布局的尺寸，默认为[1,1]
 
 <a name="pack_padding" href="#pack_padding">#</a> <i>pack</i>.<b>padding</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/index.js#L38 "Source")
 
-If *padding* is specified, sets this pack layout’s padding accessor to the specified number or function or returns this pack layout. If *padding* is not specified, returns the current padding accessor, which defaults to the constant zero. When siblings are packed, tangent siblings will be separated by approximately the specified padding; the enclosing parent circle will also be separated from its children by approximately the specified padding. If an [explicit radius](#pack_radius) is not specified, the padding is approximate because a two-pass algorithm is needed to fit within the [layout size](#pack_size): the circles are first packed without padding; a scaling factor is computed and applied to the specified padding; and lastly the circles are re-packed with padding.
+设置或获取表示节点圆的之间的间隔参数。
 
 <a name="packSiblings" href="#packSiblings">#</a> d3.<b>packSiblings</b>(<i>circles</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/siblings.js "Source")
 
-Packs the specified array of *circles*, each of which must have a *circle*.r property specifying the circle’s radius. Assigns the following properties to each circle:
+将一组*circles*打包. 每个circle都包含以下属性:
 
-* *circle*.x - the *x*-coordinate of the circle’s center
-* *circle*.y - the *y*-coordinate of the circle’s center
+* *circle*.x - 圆的*x*-坐标
+* *circle*.y - 圆的*y*-坐标
 
-The circles are positioned according to the front-chain packing algorithm by [Wang *et al.*](https://dl.acm.org/citation.cfm?id=1124851)
+这个算法基于[Wang *et al.*](https://dl.acm.org/citation.cfm?id=1124851)
+
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.packSiblings.png)
 
 <a name="packEnclose" href="#packEnclose">#</a> d3.<b>packEnclose</b>(<i>circles</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/enclose.js "Source")
 
-Computes the [smallest circle](https://en.wikipedia.org/wiki/Smallest-circle_problem) that encloses the specified array of *circles*, each of which must have a *circle*.r property specifying the circle’s radius, and *circle*.x and *circle*.y properties specifying the circle’s center. The enclosing circle is computed using [Welzl’s algorithm](http://link.springer.com/chapter/10.1007/BFb0038202) adapted to enclose circles rather than points. (See also [Apollonius’ Problem](https://bl.ocks.org/mbostock/751fdd637f4bc2e3f08b).)
+计算能包围所有圆最小圆。
