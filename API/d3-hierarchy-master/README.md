@@ -389,62 +389,64 @@ function separation(a, b) {
 
 [<img alt="Treemap" src="https://raw.githubusercontent.com/d3/d3-hierarchy/master/img/treemap.png">](http://bl.ocks.org/mbostock/6bbb0a7ff7686b124d80)
 
-Introduced by [Ben Shneiderman](http://www.cs.umd.edu/hcil/treemap-history/) in 1991, a **treemap** recursively subdivides area into rectangles according to each node’s associated value. D3’s treemap implementation supports an extensible [tiling method](#treemap_tile): the default [squarified](#treemapSquarified) method seeks to generate rectangles with a [golden](https://en.wikipedia.org/wiki/Golden_ratio) aspect ratio; this offers better readability and size estimation than [slice-and-dice](#treemapSliceDice), which simply alternates between horizontal and vertical subdivision by depth.
+*Treemap*在1991年由[Ben Shneiderman](http://www.cs.umd.edu/hcil/treemap-history/)提出, **treemap**根据节点的值将一个矩形递归的分割成小的矩形，每个矩形表示一个节点。 
 
 <a name="treemap" href="#treemap">#</a> d3.<b>treemap</b>()
 
-Creates a new treemap layout with default settings.
+使用默认的设置构建一个treemap生成器
 
 <a name="_treemap" href="#_treemap">#</a> <i>treemap</i>(<i>root</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L18 "Source")
 
-Lays out the specified *root* [hierarchy](#hierarchy), assigning the following properties on *root* and its descendants:
+根据root表示的 [hierarchy](#hierarchy)布局为treemap结构。每个节点都包含以下属性:
 
-* *node*.x0 - the left edge of the rectangle
-* *node*.y0 - the top edge of the rectangle
-* *node*.x1 - the right edge of the rectangle
-* *node*.y1 - the bottom edge of the rectangle
+* *node*.x0 - 矩形的左边界坐标
+* *node*.y0 - 矩形的上边界坐标
+* *node*.x1 - 矩形的右边界坐标
+* *node*.y1 - 矩形的下边界坐标
 
-You must call [*root*.sum](#node_sum) before passing the hierarchy to the treemap layout. You probably also want to call [*root*.sort](#node_sort) to order the hierarchy before computing the layout.
+矩形的大小根据节点的值设置，节点的值可以在布局之前使用[*root*.sum](#node_sum)进行设置计算，也可以在布局之前使用[*root*.sort](#node_sort)进行排序
 
 <a name="treemap_tile" href="#treemap_tile">#</a> <i>treemap</i>.<b>tile</b>([<i>tile</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L61 "Source")
 
-If *tile* is specified, sets the [tiling method](#treemap-tiling) to the specified function and returns this treemap layout. If *tile* is not specified, returns the current tiling method, which defaults to [d3.treemapSquarify](#treemapSquarify) with the golden ratio.
+设置或获取[tiling method](#treemap-tiling),默认为[d3.treemapSquarify](#treemapSquarify)。
+
+这个方法的作用具体参考[tiling method](#treemap-tiling)
 
 <a name="treemap_size" href="#treemap_size">#</a> <i>treemap</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L57 "Source")
 
-If *size* is specified, sets this treemap layout’s size to the specified two-element array of numbers [*width*, *height*] and returns this treemap layout. If *size* is not specified, returns the current size, which defaults to [1, 1].
+设置或获取布局尺寸，默认为[1,1]
 
 <a name="treemap_round" href="#treemap_round">#</a> <i>treemap</i>.<b>round</b>([<i>round</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L53 "Source")
 
-If *round* is specified, enables or disables rounding according to the given boolean and returns this treemap layout. If *round* is not specified, returns the current rounding state, which defaults to false.
+是否启用取整，默认为false
 
 <a name="treemap_padding" href="#treemap_padding">#</a> <i>treemap</i>.<b>padding</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L65 "Source")
 
-If *padding* is specified, sets the [inner](#treemap_paddingInner) and [outer](#treemap_paddingOuter) padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current inner padding function.
+设置或获取间隔参数，等于同时设置[inner](#treemap_paddingInner) 和 [outer](#treemap_paddingOuter)
 
 <a name="treemap_paddingInner" href="#treemap_paddingInner">#</a> <i>treemap</i>.<b>paddingInner</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L69 "Source")
 
-If *padding* is specified, sets the inner padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current inner padding function, which defaults to the constant zero. If *padding* is a function, it is invoked for each node with children, being passed the current node. The inner padding is used to separate a node’s adjacent children.
+设置或获取内部间隔，默认为0，(相当于盒模型中的padding)
 
 <a name="treemap_paddingOuter" href="#treemap_paddingOuter">#</a> <i>treemap</i>.<b>paddingOuter</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L73 "Source")
 
-If *padding* is specified, sets the [top](#treemap_paddingTop), [right](#treemap_paddingRight), [bottom](#treemap_paddingBottom) and [left](#treemap_paddingLeft) padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current top padding function.
+同时设置外部间隔，默认为0，相当于盒模型中的margin
 
 <a name="treemap_paddingTop" href="#treemap_paddingTop">#</a> <i>treemap</i>.<b>paddingTop</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L77 "Source")
 
-If *padding* is specified, sets the top padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current top padding function, which defaults to the constant zero. If *padding* is a function, it is invoked for each node with children, being passed the current node. The top padding is used to separate the top edge of a node from its children.
+设置或获取顶部间隔, 默认为0，(margin-top)
 
 <a name="treemap_paddingRight" href="#treemap_paddingRight">#</a> <i>treemap</i>.<b>paddingRight</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L81 "Source")
 
-If *padding* is specified, sets the right padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current right padding function, which defaults to the constant zero. If *padding* is a function, it is invoked for each node with children, being passed the current node. The right padding is used to separate the right edge of a node from its children.
+设置或获取右部间隔, 默认为0，(margin-right)
 
 <a name="treemap_paddingBottom" href="#treemap_paddingBottom">#</a> <i>treemap</i>.<b>paddingBottom</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L85 "Source")
 
-If *padding* is specified, sets the bottom padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current bottom padding function, which defaults to the constant zero. If *padding* is a function, it is invoked for each node with children, being passed the current node. The bottom padding is used to separate the bottom edge of a node from its children.
+设置或获取底部间隔, 默认为0，(margin-bottom)
 
 <a name="treemap_paddingLeft" href="#treemap_paddingLeft">#</a> <i>treemap</i>.<b>paddingLeft</b>([<i>padding</i>]) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/index.js#L89 "Source")
 
-If *padding* is specified, sets the left padding to the specified number or function and returns this treemap layout. If *padding* is not specified, returns the current left padding function, which defaults to the constant zero. If *padding* is a function, it is invoked for each node with children, being passed the current node. The left padding is used to separate the left edge of a node from its children.
+设置或获取左部间隔, 默认为0，(margin-left)
 
 #### Treemap Tiling
 
