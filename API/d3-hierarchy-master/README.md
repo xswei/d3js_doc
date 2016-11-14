@@ -454,38 +454,37 @@ function separation(a, b) {
 
 <a name="treemapBinary" href="#treemapBinary">#</a> d3.<b>treemapBinary</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/binary.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapBinary.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapBinary.png)
 
 <a name="treemapDice" href="#treemapDice">#</a> d3.<b>treemapDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/dice.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapDice.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapDice.png)
 
 <a name="treemapSlice" href="#treemapSlice">#</a> d3.<b>treemapSlice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/slice.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSlice.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSlice.png)
 
 <a name="treemapSliceDice" href="#treemapSliceDice">#</a> d3.<b>treemapSliceDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/sliceDice.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSliceDice.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSliceDice.png)
 
 <a name="treemapSquarify" href="#treemapSquarify">#</a> d3.<b>treemapSquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSquarify.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSquarify.png)
 
 <a name="treemapResquarify" href="#treemapResquarify">#</a> d3.<b>treemapResquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/resquarify.js "Source")
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify.png)
 
 <a name="squarify_ratio" href="#squarify_ratio">#</a> <i>squarify</i>.<b>ratio</b>(<i>ratio</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js#L58 "Source")
 
 *d3.treemapResquarify*的一个参数，设置为1时:
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify1.png">]()
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify1.png)
 
 设置为10时:
 
-[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify10.png">]()
-
+![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify10.png)
 
 ### Partition
 
