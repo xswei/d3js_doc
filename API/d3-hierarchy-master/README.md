@@ -450,35 +450,42 @@ function separation(a, b) {
 
 #### Treemap Tiling
 
-Several built-in tiling methods are provided for use with [*treemap*.tile](#treemap_tile).
+一些供[*treemap*.tile](#treemap_tile)使用的内置方法。看图吧...不解释
 
 <a name="treemapBinary" href="#treemapBinary">#</a> d3.<b>treemapBinary</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/binary.js "Source")
 
-Recursively partitions the specified *nodes* into an approximately-balanced binary tree, choosing horizontal partitioning for wide rectangles and vertical partitioning for tall rectangles.
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapBinary.png">]
 
 <a name="treemapDice" href="#treemapDice">#</a> d3.<b>treemapDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/dice.js "Source")
 
-Divides the rectangular area specified by *x0*, *y0*, *x1*, *y1* horizontally according the value of each of the specified *node*’s children. The children are positioned in order, starting with the left edge (*x0*) of the given rectangle. If the sum of the children’s values is less than the specified *node*’s value (*i.e.*, if the specified *node* has a non-zero internal value), the remaining empty space will be positioned on the right edge (*x1*) of the given rectangle.
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapDice.png">]
 
 <a name="treemapSlice" href="#treemapSlice">#</a> d3.<b>treemapSlice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/slice.js "Source")
 
-Divides the rectangular area specified by *x0*, *y0*, *x1*, *y1* vertically according the value of each of the specified *node*’s children. The children are positioned in order, starting with the top edge (*y0*) of the given rectangle. If the sum of the children’s values is less than the specified *node*’s value (*i.e.*, if the specified *node* has a non-zero internal value), the remaining empty space will be positioned on the bottom edge (*y1*) of the given rectangle.
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSlice.png">]
 
 <a name="treemapSliceDice" href="#treemapSliceDice">#</a> d3.<b>treemapSliceDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/sliceDice.js "Source")
 
-If the specified *node* has odd depth, delegates to [treemapSlice](#treemapSlice); otherwise delegates to [treemapDice](#treemapDice).
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSliceDice.png">]
 
 <a name="treemapSquarify" href="#treemapSquarify">#</a> d3.<b>treemapSquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js "Source")
 
-Implements the [squarified treemap](https://www.win.tue.nl/~vanwijk/stm.pdf) algorithm by Bruls *et al.*, which seeks to produce rectangles of a given [aspect ratio](#squarify_ratio).
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSquarify.png">]
 
 <a name="treemapResquarify" href="#treemapResquarify">#</a> d3.<b>treemapResquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/resquarify.js "Source")
 
-Like [d3.treemapSquarify](#treemapSquarify), except preserves the topology (node adjacencies) of the previous layout computed by d3.treemapResquarify, if there is one and it used the same [target aspect ratio](#resquarify_ratio). This tiling method is good for animating changes to treemaps because it only changes node sizes and not their relative positions, thus avoiding distracting shuffling and occlusion. The downside of a stable update, however, is a suboptimal layout for subsequent updates: only the first layout uses the Bruls *et al.* squarified algorithm.
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify.png">]
 
 <a name="squarify_ratio" href="#squarify_ratio">#</a> <i>squarify</i>.<b>ratio</b>(<i>ratio</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js#L58 "Source")
 
-Specifies the desired aspect ratio of the generated rectangles. The *ratio* must be specified as a number greater than or equal to one. Note that the orientation of the generated rectangles (tall or wide) is not implied by the ratio; for example, a ratio of two will attempt to produce a mixture of rectangles whose *width*:*height* ratio is either 2:1 or 1:2. (However, you can approximately achieve this result by generating a square treemap at different dimensions, and then [stretching the treemap](http://bl.ocks.org/mbostock/5c50a377e76a1974248bd628befdec95) to the desired aspect ratio.) Furthermore, the specified *ratio* is merely a hint to the tiling algorithm; the rectangles are not guaranteed to have the specified aspect ratio. If not specified, the aspect ratio defaults to the golden ratio, φ = (1 + sqrt(5)) / 2, per [Kong *et al.*](http://vis.stanford.edu/papers/perception-treemaps)
+*d3.treemapResquarify*的一个参数，设置为1时:
+
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify1.png">]
+
+设置为10时:
+
+[<img alt="Treemap" src="https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify10.png">]
+
 
 ### Partition
 
