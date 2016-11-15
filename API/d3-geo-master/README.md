@@ -1,6 +1,6 @@
 # d3-geo
 
-Map projections are sometimes implemented as point transformations. For instance, spherical Mercator:
+地图投影实现了从经纬度到屏幕坐标点的转化，比如墨卡投影:
 
 ```js
 function mercator(x, y) {
@@ -8,15 +8,15 @@ function mercator(x, y) {
 }
 ```
 
-This is a reasonable *mathematical* approach if your geometry consists of continuous, infinite point sets. Yet computers do not have infinite memory, so we must instead work with discrete geometry such as polygons and polylines!
+如果你的几何图形包含了一组点集则这个方法一种合理的数学方法。计算机的内存不是无限的，所以你必须使用一组离散的点表示多边形或折线。
 
-Discrete geometry makes the challenge of projecting from the sphere to the plane much harder. The edges of a spherical polygon are [geodesics](https://en.wikipedia.org/wiki/Geodesic) (segments of great circles), not straight lines. Projected to the plane, geodesics are curves in all map projections except [gnomonic](#geoGnomonic), and thus accurate projection requires interpolation along each arc. D3 uses [adaptive sampling](https://bl.ocks.org/mbostock/3795544) inspired by a popular [line simplification method](https://bost.ocks.org/mike/simplify/) to balance accuracy and performance.
+在几何上，将一个曲面(地球球面)投影到平面上是很困难的，曲面的边界不是直线，而是[geodesics(测地线)](https://en.wikipedia.org/wiki/Geodesic)。要将其投影到平面上，除了[gnomonic(日晷投影)](#geoGnomonic)之外所有的投影的测地线都是曲线，因此准确的投影需要顺着弧度进行插值。D3使用基于[line simplification method](https://bost.ocks.org/mike/simplify/)的[adaptive sampling(自适应采样)](https://bl.ocks.org/mbostock/3795544)来对精度和性能进行平衡。
 
-The projection of polygons and polylines must also deal with the topological differences between the sphere and the plane. Some projections require cutting geometry that [crosses the antimeridian](https://bl.ocks.org/mbostock/3788999), while others require [clipping geometry to a great circle](http://bl.ocks.org/mbostock/3021474). Furthermore, spherical polygons require a winding order convention to determine which side of the polygon is the inside: D3 and [TopoJSON](https://github.com/mbostock/topojson) use clockwise winding. (Spherical polygons can be [larger than a hemisphere](https://bl.ocks.org/mbostock/6713736)! See also [ST_ForceRHR](http://www.postgis.org/docs/ST_ForceRHR.html) in PostGIS.)
+无论是多边形投影还是折线投影都必须处理曲面和平面之间的不同。有一些投影需要[crosses the antimeridian(穿过反面子午线)](https://bl.ocks.org/mbostock/3788999)裁剪几何，而有些需要[clipping geometry to a great circle(裁剪几何大圆)](http://bl.ocks.org/mbostock/3021474)。此外球面多边形还需要一个约定来确定多边形的哪一边属于内侧:D3和[TopoJSON](https://github.com/mbostock/topojson)中顺时针围绕的区域表示内侧。
 
-D3’s approach affords great expressiveness: you can choose the right projection, and the right aspect, for your data. D3 supports a wide variety of common and [unusual map projections](https://github.com/d3/d3-geo-projection). For more, see Part 2 of [The Toolmaker’s Guide](https://vimeo.com/106198518#t=20m0s).
+D3的方法提供了丰富的表现力:你可以根据你的数据选择正确的投影，D3支持各种常见的和[unusual map projections(不常见的地图投影)](https://github.com/d3/d3-geo-projection)。更多参考[The Toolmaker’s Guide](https://vimeo.com/106198518#t=20m0s).
 
-D3 uses [GeoJSON](http://geojson.org/geojson-spec.html) to represent geographic features in JavaScript. (See also [TopoJSON](https://github.com/mbostock/topojson), an extension of GeoJSON that is significantly more compact and encodes topology.) To convert shapefiles to GeoJSON, use ogr2ogr, part of the [GDAL package](http://www.gdal.org/). In addition to [map projections](#projections), D3 includes useful [spherical shape generators](#spherical-shapes) and [spherical math utilities](#spherical-math).
+D3使用[GeoJSON](http://geojson.org/geojson-spec.html)来表示地理几何特性([TopoJSON(拓扑JSON)](https://github.com/mbostock/topojson)是GeoJSON的扩展版本，简化了JSON文件,可以使用ogr2ogr转为GeoJSON)。除此之外，[map projections](#projections)还包含了有用的[spherical shape generators(球面几何生成器)](#spherical-shapes)和[spherical math utilities(球面数学工具)](#spherical-math).
 
 ## Installing
 
