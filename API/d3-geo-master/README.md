@@ -126,62 +126,64 @@ svg.selectAll("path")
 设置或获取点以及多个点特征的半径大小，默认为4.5. 当半径可以为常量也可以为计算每个特征的函数。这个函数会被传递给[path generator](#_path)调用。比如如果你的GeoJSON有其他的额外的属性，则可以通过这个属性来设置点的大小。也可以使用[d3.symbol](https://github.com/d3/d3-shape#symbols) 和 [projection](#geoProjection)来生成更多的形状。
 ### Projections
 
-Projections transform spherical polygonal geometry to planar polygonal geometry. D3 provides implementations of several classes of standard projections:
+投影的作用在于将球面多边形转为平面多边形，D3提供了几种标准的投影:
 
-* [Azimuthal](#azimuthal-projections)
-* [Composite](#composite-projections)
-* [Conic](#conic-projections)
-* [Cylindrical](#cylindrical-projections)
+* [Azimuthal(方位角投影)](#azimuthal-projections)
+* [Composite(复合投影)](#composite-projections)
+* [Conic(圆锥投影)](#conic-projections)
+* [Cylindrical(圆柱投影)](#cylindrical-projections)
 
-For many more projections, see [d3-geo-projection](https://github.com/d3/d3-geo-projection). You can implement [custom projections](#raw-projections) using [d3.geoProjection](#geoProjection) or [d3.geoProjectionMutator](#geoProjectionMutator).
+大多数投影可以参考[d3-geo-projection](https://github.com/d3/d3-geo-projection). 你也可以通过[d3.geoProjection](#geoProjection) 或 [d3.geoProjectionMutator](#geoProjectionMutator)来实现[custom projections(自定义投影)](#raw-projections)
 
 <a href="#_projection" name="_projection">#</a> <i>projection</i>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L34 "Source")
 
-Returns a new array \[*x*, *y*\] (typically in pixels) representing the projected point of the given *point*. The point must be specified as a two-element array \[*longitude*, *latitude*\] in degrees. May return null if the specified *point* has no defined projected position, such as when the point is outside the clipping bounds of the projection.
+根据指定的表示经纬度的\[*longitude*, *latitude*\]返回一个投影后对应的点\[*x*, *y*\], 也可能返回null,比如给定的坐标点位于投影裁剪之外。
 
 <a href="#projection_invert" name="projection_invert">#</a> <i>projection</i>.<b>invert</b>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L39 "Source")
 
-Returns a new array \[*longitude*, *latitude*\] in degrees representing the unprojected point of the given projected *point*. The point must be specified as a two-element array \[*x*, *y*\] (typically in pixels). May return null if the specified *point* has no defined projected position, such as when the point is outside the clipping bounds of the projection.
+逆投影，根据坐标点返回经纬度。如果给定的点在投影裁剪区域之外则返回null。
 
-This method is only defined on invertible projections.
+这个方法只在可逆投影中定义。
+
 
 <a href="#projection_stream" name="projection_stream">#</a> <i>projection</i>.<b>stream</b>(<i>stream</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L48 "Source")
 
-Returns a [projection stream](#streams) for the specified output *stream*. Any input geometry is projected before being streamed to the output stream. A typical projection involves several geometry transformations: the input geometry is first converted to radians, rotated on three axes, clipped to the small circle or cut along the antimeridian, and lastly projected to the plane with adaptive resampling, scale and translation.
+为指定的输出流返回一个[projection stream](#streams)。在输出之前会对输入做投影转换。一个典型的转换过程:输入的几何首先被转换为弧度,然后围绕三个轴旋转,在反面子午线裁剪或泼削减成小圆,最后通过缩放平移等变换自适应采样投影到平面。
+
 
 <a href="#projection_clipAngle" name="projection_clipAngle">#</a> <i>projection</i>.<b>clipAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L52 "Source")
 
-If *angle* is specified, sets the projection’s clipping circle radius to the specified angle in degrees and returns the projection. If *angle* is null, switches to [antimeridian cutting](http://bl.ocks.org/mbostock/3788999) rather than small-circle clipping. If *angle* is not specified, returns the current clip angle which defaults to null. Small-circle clipping is independent of viewport clipping via [*projection*.clipExtent](#projection_clipExtent).
+设置或获取投影的裁剪圆半径。如果*angle*为null则切换为[antimeridian cutting](http://bl.ocks.org/mbostock/3788999)。与[*projection*.clipExtent](#projection_clipExtent)相互独立。
 
 <a href="#projection_clipExtent" name="projection_clipExtent">#</a> <i>projection</i>.<b>clipExtent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L56 "Source")
 
-If *extent* is specified, sets the projection’s viewport clip extent to the specified bounds in pixels and returns the projection. The *extent* bounds are specified as an array \[\[<i>x₀</i>, <i>y₀</i>\], \[<i>x₁</i>, <i>y₁</i>\]\], where <i>x₀</i> is the left-side of the viewport, <i>y₀</i> is the top, <i>x₁</i> is the right and <i>y₁</i> is the bottom. If *extent* is null, no viewport clipping is performed. If *extent* is not specified, returns the current viewport clip extent which defaults to null. Viewport clipping is independent of small-circle clipping via [*projection*.clipAngle](#projection_clipAngle).
+设置或获取投影的视口裁剪范围。以\[\[<i>x₀</i>, <i>y₀</i>\], \[<i>x₁</i>, <i>y₁</i>\]\]的形式指定, <i>x₀</i>表示视口的左边界, <i>y₀</i>表示上边界, <i>x₁</i> 表示右边界<i>y₁</i> 表示下边界. 如果 *extent*为null,则表示不使用视口裁剪。视口裁剪与[*projection*.clipAngle](#projection_clipAngle)相互独立.
 
 <a href="#projection_scale" name="projection_scale">#</a> <i>projection</i>.<b>scale</b>([<i>scale</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L60 "Source")
 
-If *scale* is specified, sets the projection’s scale factor to the specified value and returns the projection. If *scale* is not specified, returns the current scale factor; the default scale is projection-specific. The scale factor corresponds linearly to the distance between projected points; however, absolute scale factors are not equivalent across projections.
+设置或获取投影的缩放因子。不同的投影有不同的默认值
 
 <a href="#projection_translate" name="projection_translate">#</a> <i>projection</i>.<b>translate</b>([<i>translate</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L64v "Source")
 
-If *translate* is specified, sets the projection’s translation offset to the specified two-element array [<i>t<sub>x</sub></i>, <i>t<sub>y</sub></i>] and returns the projection. If *translate* is not specified, returns the current translation offset which defaults to [480, 250]. The translation offset determines the pixel coordinates of the projection’s [center](#projection_center). The default translation offset places ⟨0°,0°⟩ at the center of a 960×500 area.
+设置或获取投影的平移偏移量。默认为[480, 250]。确定了投影[center](#projection_center)
 
 <a href="#projection_center" name="projection_center">#</a> <i>projection</i>.<b>center</b>([<i>center</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L68 "Source")
 
-If *center* is specified, sets the projection’s center to the specified *center*, a two-element array of longitude and latitude in degrees and returns the projection. If *center* is not specified, returns the current center, which defaults to ⟨0°,0°⟩.
+设置或获取投影的中心，参数以经纬度的形式指定。默认为 ⟨0°,0°⟩.
 
 <a href="#projection_rotate" name="projection_rotate">#</a> <i>projection</i>.<b>rotate</b>([<i>angles</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L72 "Source")
 
-If *rotation* is specified, sets the projection’s [three-axis rotation](http://bl.ocks.org/mbostock/4282586) to the specified *angles*, which must be a two- or three-element array of numbers [*lambda*, *phi*, *gamma*] specifying the rotation angles in degrees about [each spherical axis](http://bl.ocks.org/mbostock/4282586). (These correspond to [yaw, pitch and roll](http://en.wikipedia.org/wiki/Aircraft_principal_axes).) If the rotation angle *gamma* is omitted, it defaults to 0. See also [d3.geoRotation](#geoRotation). If *rotation* is not specified, returns the current rotation which defaults [0, 0, 0].
+设置或获取投影的[three-axis rotation(三轴旋转)](http://bl.ocks.org/mbostock/4282586)。必须通过二元或三元数组指定，分别表示[*lambda*, *phi*, *gamma*], 这三个值表示[each spherical axis](http://bl.ocks.org/mbostock/4282586). 默认为[0,0,0], *gamma*默认为0，参考[d3.geoRotation](#geoRotation)
 
 <a href="#projection_precision" name="projection_precision">#</a> <i>projection</i>.<b>precision</b>([<i>precision</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L76 "Source")
 
-If *precision* is specified, sets the threshold for the projection’s [adaptive resampling](http://bl.ocks.org/mbostock/3795544) to the specified value in pixels and returns the projection. This value corresponds to the [Douglas–Peucker](http://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm) distance. If *precision* is not specified, returns the projection’s current resampling precision which defaults to √0.5 ≅ 0.70710…
+设置或获取投影采样精度，这个参数会传递给[Douglas–Peucker](http://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm)使用，默认为√0.5 ≅ 0.70710…
 
 <a href="#projection_fitExtent" name="projection_fitExtent">#</a> <i>projection</i>.<b>fitExtent</b>(<i>extent</i>, <i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L80 "Source")
 
-Sets the projection’s [scale](#projection_scale) and [translate](#projection_translate) to fit the specified GeoJSON *object* in the center of the given *extent*. The extent is specified as an array \[\[x₀, y₀\], \[x₁, y₁\]\], where x₀ is the left side of the bounding box, y₀ is the top, x₁ is the right and y₁ is the bottom. Returns the projection.
+设置投影的[scale](#projection_scale) 和 [translate](#projection_translate)来使得GeoJSON对象适应指定的*extent*. *extent*通过\[\[x₀, y₀\], \[x₁, y₁\]\]的形式指定。
 
-For example, to scale and translate the [New Jersey State Plane projection](http://bl.ocks.org/mbostock/5126418) to fit a GeoJSON object *nj* in the center of a 960×500 bounding box with 20 pixels of padding on each side:
+参考[New Jersey State Plane projection](http://bl.ocks.org/mbostock/5126418)，在这个例子中nj表示GeoJSON对象，将其自适应调整在960×500,并且边界为20:
 
 ```js
 var projection = d3.geoTransverseMercator()
@@ -189,11 +191,11 @@ var projection = d3.geoTransverseMercator()
     .fitExtent([[20, 20], [940, 480]], nj);
 ```
 
-Any [clip extent](#projection_clipExtent) is ignored when determining the new scale and translate. The [precision](#projection_precision) used to compute the bounding box of the given *object* is computed at an effective scale of 150.
+如果也设置了[clip extent](#projection_clipExtent),则[clip extent](#projection_clipExtent)会被忽略。
 
 <a href="#projection_fitSize" name="projection_fitSize">#</a> <i>projection</i>.<b>fitSize</b>(<i>size</i>, <i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L82 "Source")
 
-A convenience method for [*projection*.fitExtent](#projection_fitExtent) where the top-left corner of the extent is [0, 0]. The following two statements are equivalent:
+[*projection*.fitExtent](#projection_fitExtent)的一个简便方法(左上角坐标为[0,0]时)，如下两个是等价的：
 
 ```js
 projection.fitExtent([[0, 0], [width, height]], object);
