@@ -1,5 +1,6 @@
 # D3-V4-API-CN
-D3 V4 API中文版
+
+#### D3 V4 API中文版，因水平有限，在翻译过程中难免有各种各样的错误，仅供参考，以[原英文版](https://github.com/d3/d3/blob/master/API.md)为准
 
 * [d3 4.X与3.X的不同](https://github.com/xswei/D3-V4-API-CN/tree/master/ReleaseNotes)
 
