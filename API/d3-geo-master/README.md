@@ -375,41 +375,44 @@ function conicCustom() {
 
 ### Spherical Math
 
+球面数学
+
 <a name="geoArea" href="#geoArea">#</a> d3.<b>geoArea</b>(<i>feature</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/area.js "Source")
 
-Returns the spherical area of the specified GeoJSON *feature* in [steradians](http://mathworld.wolfram.com/Steradian.html). See also [*path*.area](#path_area), which computes the projected planar area.
+返回指定的GeoJSON特征代表的球面的面积，使用[steradians](http://mathworld.wolfram.com/Steradian.html)表示
+
 
 <a name="geoBounds" href="#geoBounds">#</a> d3.<b>geoBounds</b>(<i>feature</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/bounds.js "Source")
 
-Returns the [spherical bounding box](https://www.jasondavies.com/maps/bounds/) for the specified GeoJSON *feature*. The bounding box is represented by a two-dimensional array: \[\[*left*, *bottom*], \[*right*, *top*\]\], where *left* is the minimum longitude, *bottom* is the minimum latitude, *right* is maximum longitude, and *top* is the maximum latitude. All coordinates are given in degrees. (Note that in projected planar coordinates, the minimum latitude is typically the maximum *y*-value, and the maximum latitude is typically the minimum *y*-value.)
+返回指定GeoJSON特征的包围框。返回值为二维数组\[\[*left*, *bottom*], \[*right*, *top*\]\], *left*表示最小经度，*bottom* 表示latitude, *right* 表示最大经度, *top*表示最大维度
 
 <a name="geoCentroid" href="#geoCentroid">#</a> d3.<b>geoCentroid</b>(<i>feature</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/centroid.js "Source")
 
-Returns the spherical centroid of the specified GeoJSON *feature*. See also [*path*.centroid](#path_centroid), which computes the projected planar centroid.
+返回指定GeoJSON特征几何中心
 
 <a name="geoDistance" href="#geoDistance">#</a> d3.<b>geoDistance</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/distance.js "Source")
 
-Returns the great-arc distance in [radians](http://mathworld.wolfram.com/Radian.html) between the two points *a* and *b*. Each point must be specified as a two-element array \[*longitude*, *latitude*\] in degrees.
+返回a到b之间的弧度距离(球心到a-球心到b之间的弧度差)
 
 <a name="geoLength" href="#geoLength">#</a> d3.<b>geoLength</b>(<i>feature</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/length.js "Source")
 
-Returns the great-arc length of the specified GeoJSON *feature* in [radians](http://mathworld.wolfram.com/Radian.html). For polygons, returns the perimeter of the exterior ring plus that of any interior rings.
+返回指定GeoJSON的弧长(对于多边形则返回周长)
 
 <a name="geoInterpolate" href="#geoInterpolate">#</a> d3.<b>geoInterpolate</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/interpolate.js "Source")
 
-Returns an interpolator function given two points *a* and *b*. Each point must be specified as a two-element array \[*longitude*, *latitude*\] in degrees. The returned interpolator function takes a single argument *t*, where *t* is a number ranging from 0 to 1; a value of 0 returns the point *a*, while a value of 1 returns the point *b*. Intermediate values interpolate from *a* to *b* along the great arc that passes through both *a* and *b*. If *a* and *b* are antipodes, an arbitrary great arc is chosen.
+返回一个介于a和b之间的插值器。插值方式为以a为起点b为终点，参数[0,1]，沿着a和b之间的大弧
 
 <a name="geoRotation" href="#geoRotation">#</a> d3.<b>geoRotation</b>(<i>angles</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/rotation.js "Source")
 
-Returns a [rotation function](#_rotation) for the given *angles*, which must be a two- or three-element array of numbers [*lambda*, *phi*, *gamma*] specifying the rotation angles in degrees about [each spherical axis](http://bl.ocks.org/mbostock/4282586). (These correspond to [yaw, pitch and roll](http://en.wikipedia.org/wiki/Aircraft_principal_axes).) If the rotation angle *gamma* is omitted, it defaults to 0. See also [*projection*.rotate](#projection_rotate).
+根据指定的角度返回一个[rotation function(旋转函数)](#_rotation)。角度是一个二维或三维数组表示[*lambda*, *phi*, *gamma*]，围绕三个轴的旋转量。*gamma*默认为0。
 
 <a name="_rotation" href="#_rotation">#</a> <i>rotation</i>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/rotation.js#L35 "Source")
 
-Returns a new array \[*longitude*, *latitude*\] in degrees representing the rotated point of the given *point*. The point must be specified as a two-element array \[*longitude*, *latitude*\] in degrees.
+返回指定的\[*longitude*, *latitude*\]经过旋转后的坐标点
 
 <a name="rotation_invert" href="#rotation_invert">#</a> <i>rotation</i>.<b>invert</b>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/rotation.js#L47 "Source")
 
-Returns a new array \[*longitude*, *latitude*\] in degrees representing the point of the given rotated *point*; the inverse of [*rotation*](#_rotation). The point must be specified as a two-element array \[*longitude*, *latitude*\] in degrees.
+逆旋转，根据指定的点计算出该点是经过哪个点旋转后得到的
 
 ### Spherical Shapes
 
