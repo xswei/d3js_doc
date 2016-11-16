@@ -320,21 +320,22 @@ projection.fitSize([width, height], object);
 
 ### Raw Projections
 
-Raw projections are point transformation functions that are used to implement custom projections; they typically passed to [d3.geoProjection](#geoProjection) or [d3.geoProjectionMutator](#geoProjectionMutator). They are exposed here to facilitate the derivation of related projections. Raw projections take spherical coordinates \[*lambda*, *phi*\] in radians (not degrees!) and return a point \[*x*, *y*\], typically in the unit square centered around the origin.
+Raw projections(原始投影)是一个点与点之间相互转化的函数。通常被传递给[d3.geoProjection](#geoProjection) 或 [d3.geoProjectionMutator](#geoProjectionMutator)使用。原始投影接受球面经坐标\[*lambda*, *phi*\](弧度制)然后返回点\[*x*, *y*\]
+
 
 <a href="#_project" name="_project">#</a> <i>project</i>(<i>lambda</i>, <i>phi</i>)
 
-Projects the specified point [<i>lambda</i>, <i>phi</i>] in radians, returning a new point \[*x*, *y*\] in unitless coordinates.
+将点[<i>lambda</i>, <i>phi</i>]转化为新的坐标\[*x*, *y*\].
 
 <a href="#project_invert" name="project_invert">#</a> <i>project</i>.<b>invert</b>(<i>x</i>, <i>y</i>)
 
-The inverse of [*project*](#_project).
+[*project*](#_project)的逆转换 
 
 <a href="#geoProjection" name="geoProjection">#</a> d3.<b>geoProjection</b>(<i>project</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L18 "Source")
 
-Constructs a new projection from the specified [raw projection](#_project), *project*. The *project* function takes the *longitude* and *latitude* of a given point in [radians](http://mathworld.wolfram.com/Radian.html), often referred to as *lambda* (λ) and *phi* (φ), and returns a two-element array \[*x*, *y*\] representing its unit projection. The *project* function does not need to scale or translate the point, as these are applied automatically by [*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), and [*projection*.center](#projection_center). Likewise, the *project* function does not need to perform any spherical rotation, as [*projection*.rotate](#projection_rotate) is applied prior to projection.
+根据指定的[raw projection](#_project)构建一个新的自定义的投影*project*。*project*接受*longitude* 和 *latitude*的弧度表示为参数，返回\[*x*, *y*\]。自定义的投影不需要对点进行缩放平移，会自动调用[*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), 和 [*projection*.center](#projection_center). 
 
-For example, a spherical Mercator projection can be implemented as:
+别如墨卡托投影的实现如下:
 
 ```js
 var mercator = d3.geoProjection(function(x, y) {
@@ -342,11 +343,9 @@ var mercator = d3.geoProjection(function(x, y) {
 });
 ```
 
-If the *project* function exposes an *invert* method, the returned projection will also expose [*projection*.invert](#projection_invert).
-
 <a href="#geoProjectionMutator" name="geoProjectionMutator">#</a> d3.<b>geoProjectionMutator</b>(<i>factory</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L22 "Source")
 
-Constructs a new projection from the specified [raw projection](#_project) *factory* and returns a *mutate* function to call whenever the raw projection changes. The *factory* must return a raw projection. The returned *mutate* function returns the wrapped projection. For example, a conic projection typically has two configurable parallels. A suitable *factory* function, such as [d3.geoConicEqualAreaRaw](#geoConicEqualAreaRaw), would have the form:
+根据指定的[raw projection](#_project)构建一个新的投影并返回一个*mutate*函数来检测[raw projection](#_project)的变化。比如[d3.geoConicEqualAreaRaw](#geoConicEqualAreaRaw), 的形式如下:
 
 ```js
 // y0 and y1 represent two parallels
@@ -357,7 +356,7 @@ function conicFactory(phi0, phi1) {
 }
 ```
 
-Using d3.geoProjectionMutator, you can implement a standard projection that allows the parallels to be changed, reassigning the raw projection used internally by [d3.geoProjection](#geoProjection):
+使用d3.geoProjectionMutator可以实现一个标准的纬线可以改变的投影:
 
 ```js
 function conicCustom() {
@@ -373,8 +372,6 @@ function conicCustom() {
   return projection;
 }
 ```
-
-When creating a mutable projection, the *mutate* function is typically not exposed.
 
 ### Spherical Math
 
