@@ -514,23 +514,23 @@ function geoGraticule10() {
 
 ### Streams
 
-D3 transforms geometry using a sequence of function calls, rather than materializing intermediate representations, to minimize overhead. Streams must implement several methods to receive input geometry. Streams are inherently stateful; the meaning of a [point](#point) depends on whether the point is inside of a [line](#lineStart), and likewise a line is distinguished from a ring by a [polygon](#polygonStart). Despite the name “stream”, these method calls are currently synchronous.
+D3的几何变换通过一系列函数调用。Streams(流)必须实现几个接受几何输入的方法。
 
 <a href="#geoStream" name="geoStream">#</a> d3.<b>geoStream</b>(<i>object</i>, <i>stream</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/stream.js "Source")
 
-Streams the specified [GeoJSON](http://geojson.org) *object* to the specified [projection *stream*](#projection-streams). While both features and geometry objects are supported as input, the stream interface only describes the geometry, and thus additional feature properties are not visible to streams.
+将指定的GeoJSON对象转为[projection *stream*](#projection-streams)
 
 <a name="stream_point" href="#stream_point">#</a> <i>stream</i>.<b>point</b>(<i>x</i>, <i>y</i>[, <i>z</i>])
 
-Indicates a point with the specified coordinates *x* and *y* (and optionally *z*). The coordinate system is unspecified and implementation-dependent; for example, [projection streams](https://github.com/d3/d3-geo-projection) require spherical coordinates in degrees as input. Outside the context of a polygon or line, a point indicates a point geometry object ([Point](http://www.geojson.org/geojson-spec.html#point) or [MultiPoint](http://www.geojson.org/geojson-spec.html#multipoint)). Within a line or polygon ring, the point indicates a control point.
+将指定的坐标x,y和可选的z转为，坐标系统是相互依赖的。比如[projection streams](https://github.com/d3/d3-geo-projection)接受球面坐标为输入。
 
 <a name="stream_lineStart" href="#stream_lineStart">#</a> <i>stream</i>.<b>lineStart</b>()
 
-Indicates the start of a line or ring. Within a polygon, indicates the start of a ring. The first ring of a polygon is the exterior ring, and is typically clockwise. Any subsequent rings indicate holes in the polygon, and are typically counterclockwise.
+开始一个线条流
 
 <a name="stream_lineEnd" href="#stream_lineEnd">#</a> <i>stream</i>.<b>lineEnd</b>()
 
-Indicates the end of a line or ring. Within a polygon, indicates the end of a ring. Unlike GeoJSON, the redundant closing coordinate of a ring is *not* indicated via [point](#point), and instead is implied via lineEnd within a polygon. Thus, the given polygon input:
+结束一个线条流，比如有如下输入:
 
 ```json
 {
@@ -541,7 +541,7 @@ Indicates the end of a line or ring. Within a polygon, indicates the end of a ri
 }
 ```
 
-Will produce the following series of method calls on the stream:
+使用流的方法创建折线:
 
 ```js
 stream.polygonStart();
@@ -556,15 +556,15 @@ stream.polygonEnd();
 
 <a name="stream_polygonStart" href="#stream_polygonStart">#</a> <i>stream</i>.<b>polygonStart</b>()
 
-Indicates the start of a polygon. The first line of a polygon indicates the exterior ring, and any subsequent lines indicate interior holes.
+开始一个多边形流
 
 <a name="stream_polygonEnd" href="#stream_polygonEnd">#</a> <i>stream</i>.<b>polygonEnd</b>()
 
-Indicates the end of a polygon.
+结束一个多边形流
 
 <a name="stream_sphere" href="#stream_sphere">#</a> <i>stream</i>.<b>sphere</b>()
 
-Indicates the sphere (the globe; the unit sphere centered at ⟨0,0,0⟩).
+表示一个球心位于⟨0,0,0⟩的球
 
 ### Transforms
 
