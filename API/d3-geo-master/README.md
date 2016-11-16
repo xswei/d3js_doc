@@ -568,11 +568,11 @@ stream.polygonEnd();
 
 ### Transforms
 
-Transforms are a generalization of projections. Transform implement [*projection*.stream](#projection_stream) and can be passed to [*path*.projection](#path_projection). However, they only implement a subset of the other projection methods, and represent arbitrary geometric transformations rather than projections from spherical to planar coordinates.
+变换是一种投影，一个状态对另一个状态。变换实现了 [*projection*.stream](#projection_stream)到[*path*.projection](#path_projection)的转换. 但是这仅仅是投影方法的一个子集，表示几何转换而不是球面到平面的转换。
 
 <a href="#geoTransform" name="geoTransform">#</a> d3.<b>geoTransform</b>(<i>methods</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/transform.js#L7 "Source")
 
-Defines an arbitrary transform using the methods defined on the specified *methods* object. Any undefined methods will use pass-through methods that propagate inputs to the output stream. For example, to invert the *y*-coordinates:
+使用指定的方法定义一个转换。比如对y坐标进行逆转换:
 
 ```js
 var flipY = d3.geoTransform({
@@ -582,7 +582,7 @@ var flipY = d3.geoTransform({
 });
 ```
 
-Or to define an affine matrix transformation:
+或者使用矩阵定义一个更高效的转换:
 
 ```js
 function matrix(a, b, c, d, tx, ty) {
@@ -596,4 +596,4 @@ function matrix(a, b, c, d, tx, ty) {
 
 <a href="#geoIdentity" name="geoIdentity">#</a> d3.<b>geoIdentity</b>() [<>](https://github.com/d3/d3-geo/blob/master/src/projection/identity.js "Source")
 
-The identity transform can be used to scale, translate and clip planar geometry. It implements [*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), [*projection*.fitExtent](#projection_fitExtent), [*projection*.fitSize](#projection_fitSize) and [*projection*.clipExtent](#projection_clipExtent).
+恒等转化可以被来缩放，平移和平面的裁剪。它实现了[*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), [*projection*.fitExtent](#projection_fitExtent), [*projection*.fitSize](#projection_fitSize) 和 [*projection*.clipExtent](#projection_clipExtent).
