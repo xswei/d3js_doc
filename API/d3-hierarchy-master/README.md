@@ -453,37 +453,32 @@ function separation(a, b) {
 
 <a name="treemapBinary" href="#treemapBinary">#</a> d3.<b>treemapBinary</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/binary.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapBinary.png)
+将指定的节点以递归的方式划分为一个大致平衡的二叉树，如果宽度大于高度则水平划分，如果高度大于宽度则垂直划分。
 
 <a name="treemapDice" href="#treemapDice">#</a> d3.<b>treemapDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/dice.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapDice.png)
+根据每个子节点水平划分矩形，并且顺序是有序的。
 
 <a name="treemapSlice" href="#treemapSlice">#</a> d3.<b>treemapSlice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/slice.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSlice.png)
+根据每个子节点垂直划分矩形，并且顺序是有序的。
 
 <a name="treemapSliceDice" href="#treemapSliceDice">#</a> d3.<b>treemapSliceDice</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/sliceDice.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSliceDice.png)
+如果指定的节点深度为奇数则使用treemapSlice，否则使用treemapDice
 
 <a name="treemapSquarify" href="#treemapSquarify">#</a> d3.<b>treemapSquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapSquarify.png)
+这种方法可以用以产生宽高比相等的矩形分区。
 
 <a name="treemapResquarify" href="#treemapResquarify">#</a> d3.<b>treemapResquarify</b>(<i>node</i>, <i>x0</i>, <i>y0</i>, <i>x1</i>, <i>y1</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/resquarify.js "Source")
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify.png)
+与"treemapSquarify"类似，但是不同的是不会改变矩形的位置，只调整大小。
+
 
 <a name="squarify_ratio" href="#squarify_ratio">#</a> <i>squarify</i>.<b>ratio</b>(<i>ratio</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/treemap/squarify.js#L58 "Source")
 
-*d3.treemapResquarify*的一个参数，设置为1时:
-
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify1.png)
-
-设置为10时:
-
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.treemapResquarify10.png)
+产生等比例矩形时的比例大小，这个值必须大于等于1
 
 ### Partition
 
@@ -559,7 +554,6 @@ function separation(a, b) {
 
 这个算法基于[Wang *et al.*](https://dl.acm.org/citation.cfm?id=1124851)
 
-![image](https://github.com/xswei/D3-V4-API-CN/tree/master/API/d3-hierarchy-master/img/d3.packSiblings.png)
 
 <a name="packEnclose" href="#packEnclose">#</a> d3.<b>packEnclose</b>(<i>circles</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/enclose.js "Source")
 
