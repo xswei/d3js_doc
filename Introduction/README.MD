@@ -86,3 +86,78 @@ d3.selectAll("p")
 ```
 
 一旦为元素绑定数据之后，后续如果需要操作就不需要重新绑定,D3会搜索已经绑定的数据。也就是可以一次绑定，多次使用。
+
+### enter和exit操作
+
+数据绑定的时候可能出现DOM元素与数据元素个数不匹配的问题，那么enter和exit就是用来处理这个问题的。enter操作用来添加新的DOM元素，exit操作用来移除多余的DOM元素。
+
+如果数据元素多于DOM个数时用enter，如果数据元素少于DOM元素，则用exit。
+
+
+在数据绑定时候存在三种情形：
+
+- 数据元素个数多于DOM元素个数
+- 数据元素与DOM元素个数一样
+- 数据元素个数少于DOM元素个数
+
+情形1：数据元素个数多于DOM元素个数
+
+如以下例子，如果文档中`p`标签的个数少于数组个数(6个),则使用enter和append操作来补齐DOM元素:
+
+```js
+d3.select("body")
+	.selectAll("p")
+	.data([4, 8, 15, 16, 23, 42])
+	.enter().append("p")
+	.text(function(d) { return "I’m number " + d + "!"; });
+
+```
+
+情形2：数据元素与DOM元素个数一样
+
+如果这种情况再使用data来绑定数据，相当于是更新了每个DOM元素所对应的数据，此时不需要加入新节点也不需要删除多余的节点:
+
+```js
+//update
+var p = d3.select("body")
+	.selectAll("p")
+	.data([4, 8, 15, 16, 23, 42])
+	.text(function(d) { return d; });
+
+```
+
+情形3：数据元素个数少于DOM元素个数
+
+假设`p`元素的个数岛屿6个，数据元素个数为6，则：
+
+```js
+var p = d3.select("body")
+	.selectAll("p")
+	.data([4, 8, 15, 16, 23, 42])
+	.text(function(d) { return d; });
+
+p.exit().remove()  //移除多余的元素
+```
+
+但是在实际应用中，不可能先去统计一下元素个数，因此这三种情形可以一起使用:
+
+```js
+
+// Update 情形2
+var p = d3.select("body")
+	.selectAll("p")
+	.data([4, 8, 15, 16, 23, 42])
+	.text(function(d) { return d; });      
+
+// Enter 情形1
+p.enter().append("p")
+    .text(function(d) { return d; });
+
+// Exit 情形3
+	p.exit().remove();
+
+```
+
+
+
+
