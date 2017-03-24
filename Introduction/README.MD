@@ -158,6 +158,38 @@ p.enter().append("p")
 
 ```
 
+有了这三种操作，就可以自由的根据数据元素动态的修改DOM元素了。
+
+
+### D3不是一种新的表示
+
+D3不引入新的视觉表示方法，而是借助于现有的Web元素:HTML,CSS,SVG等。例如，可以使用D3创建SVG元素，并使用外部样式表进行样式化。也可以使用复合过滤器效果，虚线和裁剪。这样在调试的时候可以方便的使用浏览器内置的调试工具来进行调试。
+
+### 过渡
+
+D3支持动画效果，这种动画效果可以通过对样式属性的过渡实现。其补间插值支持多种方式，比如线性、弹性等。此外D3内置了多种插值方式，比如对数值类型、字符类型路径数据以及颜色等。
+
+比如对元素的背景颜色进行过渡:
+
+```js
+
+d3.select("body").transition()
+    .style("background-color", "black");
+
+```
+
+此外还可以为一组元素设置不同的延迟:
+
+```js
+d3.selectAll("circle").transition()
+    .duration(750)
+    .delay(function(d, i) { return i * 10; })
+    .attr("r", function(d) { return Math.sqrt(d * scale); });
+
+```
+
+除了D3提供的过渡之外，你也可以通过CSS动画来实现对元素的过渡效果。
 
 
 
+[更多教程](https://github.com/d3/d3/wiki/Tutorials)
