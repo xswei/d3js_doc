@@ -27,7 +27,7 @@ var timer = d3.timer(callback);
 
 执行频率与[requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)相当。
 
-定义一个新的*timer*定时器，一直调用*callback*直到定时器被[stopped](#timer_stop). 可选的 *delay* 以好眠为单定义了延时执行*callback*，如果没有定义延时，则表示立即执行; *delay* 的相对时间为第三个参数*time*，完整的参数结构为:从*time*开始计时，*delay*之后开始执行*callback*。*time*默认为[now](#now).
+定义一个新的*timer*定时器，一直调用*callback*直到定时器被[stopped](#timer_stop). 可选的 *delay* 以毫秒为单位定义了延时执行*callback*，如果没有定义延时，则表示立即执行; *delay* 的相对时间为第三个参数*time*，完整的参数结构为:从*time*开始计时，*delay*之后开始执行*callback*。*time*默认为[now](#now).
 
 *callback* 的参数为已行时间，比如如果定时器执行超过200ms之后停止:
 
