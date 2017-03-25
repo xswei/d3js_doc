@@ -558,3 +558,4 @@ function separation(a, b) {
 <a name="packEnclose" href="#packEnclose">#</a> d3.<b>packEnclose</b>(<i>circles</i>) [<>](https://github.com/d3/d3-hierarchy/blob/master/src/pack/enclose.js "Source")
 
 计算能包围所有圆最小圆。
+
