@@ -359,10 +359,9 @@ color(d3.selectAll("div").transition(), "red", "blue");
 
 ....不想写了...
 
+在创建好过渡集之后，延迟和过渡集的事件监听都不能被重新定义。也就是一旦创建好了一个过渡效果，就不能再改变了。
 
-Shortly after creation, either at the end of the current frame or during the next frame, the transition is scheduled. At this point, the delay and `start` event listeners may no longer be changed.
-
-When the transition subsequently starts, it interrupts the active transition of the same name on the same element, if any, dispatching an `interrupt` event to registered listeners. (Note that interrupts happen on start, not creation, and thus even a zero-delay transition will not immediately interrupt the active transition: the old transition is given a final frame. Use [*selection*.interrupt](#selection_interrupt) to interrupt immediately.) The starting transition also cancels any pending transitions of the same name on the same element that were created before the starting transition. The transition then dispatches a `start` event to registered listeners. This is the last moment at which the transition may be modified: after starting, the transition’s timing, tweens, and listeners may no longer be changed. The transition initializes its tweens immediately after starting.
+当过渡开始时，会中断同一个元素上的同一个属性的其他过渡(如果有的话)，并且触发其事件监听器，换句话说就是如果一个元素的一个属性正在进行过渡，此时又开始了这个属性的另一个过渡，则之前的过渡会被终止，并且触发定义在之前过渡上的事件监听器。要注意这种中断发生在过渡启动时，而不是定义时。也就是后来的过渡启动的时候才会终止已经存在的过渡。也可以使用[*selection*.interrupt](#selection_interrupt)来手动终止。The starting transition also cancels any pending transitions of the same name on the same element that were created before the starting transition. The transition then dispatches a `start` event to registered listeners. This is the last moment at which the transition may be modified: after starting, the transition’s timing, tweens, and listeners may no longer be changed. The transition initializes its tweens immediately after starting.
 
 During the frame the transition starts, but *after* all transitions starting this frame have been started, the transition invokes its tweens for the first time. Batching tween initialization, which typically involves reading from the DOM, improves performance by avoiding interleaved DOM reads and writes.
 
