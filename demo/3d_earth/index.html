@@ -69,6 +69,7 @@
 
 			var grat = d3.geoGraticule();
 
+			inter = d3.geoInterpolate([150,49],[0,-30]);
 
 			d3.json("../dataset/world-50m.json",(err,topo)=>{
 				if(err) throw err;
