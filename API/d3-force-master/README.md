@@ -2,7 +2,7 @@
 
 ### 小结
 
-* 手动tick来进行[静态布局](https://bl.ocks.org/mbostock/1667139)
+* [手动tick](#simulation_tick)来进行静态布局,参考这个[例子](https://bl.ocks.org/mbostock/1667139)
 * 节点连接可以不止是索引，也可以是字符串标识，参考[这个](#links)
 * 要为仿真指定力，否则只会tick，不会更新位置，可以同时指定多个力学模型
 
