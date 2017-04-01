@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Force</title>
+	<script src="../libs/d3.v4.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		#main,#map,svg{
+			height:100%;
+			width:100%;
+		}
+		#main{
+			overflow:hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="map">
+			<svg id="svg"></svg>
+		</div>
+	</div>
+	<script>
+		window.onload = ()=>{
+			var svg = d3.select("svg"),
+				w = parseInt(svg.style("width")),
+				h = parseInt(svg.style("height"));
+			console.log(w+":"+h);
+			var n = 100,
+   				nodes = d3.range(n).map(function(i) { return {index: i}; }),
+    			links = d3.range(n).map(function(i) { return {source: i, target: (i + 3) % n}; });
+    		console.log(nodes);
+    		console.log(links);
+    		var simulation = d3.forceSimulation(nodes)
+    			.on("tick",()=>{
+    				draw(nodes)
+    			});
+
+    		function draw(n){
+    			var update = svg.selectAll("circle")
+    				.data(n)
+    			update.exit().remove();
+    			update.enter().append("circle")
+    				.merge(update)
+    				.attr("x",(d)=>{return d.x;})
+    				.attr("y",(d)=>{return d.y;})
+    				.attr("r",3)
+    		}
+		}
+	</script>
+</body>
+</html>

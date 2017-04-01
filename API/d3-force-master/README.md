@@ -1,6 +1,12 @@
 # d3-force
 
-这个模块基于[velocity Verlet](https://en.wikipedia.org/wiki/Verlet_integration)实现了物理粒子之间的作用力的仿真. 这个仿真做了简化处理:假设单位时间步长Δ*t* = 1, suoyou8粒子的质量常量*m* = 1。 这样的话每个粒子在Δ*t*时间内的加速度*a*就等于所受的合力*F*。可以不断修改粒子的运动速度然后调整粒子的位置。
+### 小结
+
+* 手动tick来进行[静态布局](https://bl.ocks.org/mbostock/1667139)
+
+
+
+这个模块基于[velocity Verlet](https://en.wikipedia.org/wiki/Verlet_integration)实现了物理粒子之间的作用力的仿真. 这个仿真做了简化处理:假设单位时间步长Δ*t* = 1, 所有粒子的质量常量*m* = 1。 这样的话每个粒子在Δ*t*时间内的加速度*a*就等于所受的合力*F*。可以不断修改粒子的运动速度然后调整粒子的位置。
 
 在可视化领域中，仿真经常被用来实现[networks](http://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048) 和 [hierarchies](http://bl.ocks.org/mbostock/95aa92e2f4e8345aaa55a4a94d41ce37)!
 
@@ -10,11 +16,11 @@
 
 [<img alt="Collision Detection" src="https://raw.githubusercontent.com/d3/d3-force/master/img/collide.png" width="420" height="219">](http://bl.ocks.org/mbostock/31ce330646fa8bcb7289ff3b97aab3f5)[<img alt="Beeswarm" src="https://raw.githubusercontent.com/d3/d3-force/master/img/beeswarm.png" width="420" height="219">](http://bl.ocks.org/mbostock/6526445e2b44303eebf21da3b6627320)
 
-设置可以用来做一个简单的物理引擎，比如模拟一块布:
+甚至可以用来做一个简单的物理引擎，比如模拟一块布:
 
 [<img alt="Force-Directed Lattice" src="https://raw.githubusercontent.com/d3/d3-force/master/img/lattice.png" width="480" height="250">](http://bl.ocks.org/mbostock/1b64ec067fcfc51e7471d944f51f1611)
 
-在使用这个模块时，首先维持指定的一组节点创建一个[simulation](#simulation)，然后粒子之间产生力的相互作用并在每次tick的时候出发监听器事件，在监听器事件回调用更新粒子的位置。
+在使用这个模块时，首先为指定的一组节点创建一个仿真[simulation](#simulation)并且指定[力学模型类型](#simulation_force)，然后粒子之间产生力的相互作用并在每次tick的时候触发[监听器事件](#simulation_on)，在监听器事件回调用更新粒子的位置。
 
 ## Installing
 
@@ -41,11 +47,11 @@ var simulation = d3.forceSimulation(nodes);
 
 <a name="forceSimulation" href="#forceSimulation">#</a> d3.<b>forceSimulation</b>([<i>nodes</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js "Source")
 
-根据指定的节点数组创建一个没有作用力的仿真。如果没有指定*nodes*则默认为空数组。仿真会自动开始，可以通过[*simulation*.on](#simulation_on)来为仿真的每一次tick添加事件监听器。也可以使用[*simulation*.stop](#simulation_stop)来停止仿真，[*simulation*.tick](#simulation_tick)来再次启用仿真。
+根据指定的节点数组创建一个没有[作用力](#simulation_force)的仿真。如果没有指定*nodes*则默认为空数组。仿真会自动开始，可以通过[*simulation*.on](#simulation_on)来为仿真的每一次tick添加事件监听器。也可以使用[*simulation*.stop](#simulation_stop)来停止仿真，[*simulation*.tick](#simulation_tick)来再次启用仿真。
 
 <a name="simulation_restart" href="#simulation_restart">#</a> <i>simulation</i>.<b>restart</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L80 "Source")
 
-重启仿真内部的计时器，与[*simulation*.alphaTarget](#simulation_alphaTarget) 或 [*simulation*.alpha](#simulation_alpha)协同作用, 这个方法可以用在在交互时重新启动仿真，比如拖拽了某个节点或使用[*simulation*.stop](#simulation_stop)暂停仿真之后。
+重启仿真内部的计时器，与[*simulation*.alphaTarget](#simulation_alphaTarget) 或 [*simulation*.alpha](#simulation_alpha)协同作用, 这个方法可以用在在交互时重新启动仿真，比如拖拽了某个节点或使用[*simulation*.stop](#simulation_stop)暂停仿真之后进行重新调整布局。
 
 <a name="simulation_stop" href="#simulation_stop">#</a> <i>simulation</i>.<b>stop</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L84 "Source")
 
@@ -53,7 +59,13 @@ var simulation = d3.forceSimulation(nodes);
 
 <a name="simulation_tick" href="#simulation_tick">#</a> <i>simulation</i>.<b>tick</b>() [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L38 "Source")
 
-通过乘以alphaDecay增加当前的alpha值。然后为当前的仿真传入新的alpha值。然后通过乘以velocityDecay衰减每个节点的速度。最后计算节点的位置。这个方法不调用事件，事件仅仅在仿真自动开始或调用simulation.restart时由内部计时器调度。打点次数等于log(alpha)/log(1-alphaDecay)。默认为300次。
+通过([*alphaTarget(alpha目标值)*](#simulation_alphaTarget) - *alpha*) × [*alphaDecay(alpha衰减系数)*](#simulation_alphaDecay)来调整仿真当前的[*alpha值*](#simulation_alpha)值。然后将这个新*alpha*值传给当前的[force(力)](#simulation_force)来调整布局。每个节点的速度是通过当前*velocity(速度)* × [*velocityDecay(速度衰减)*](#simulation_velocityDecay)来计算的，速度衰减可以理解为加速度。最后通过节点当前位置和速度计算出节点的下一个位置。
+
+这个方法不会触发[events(事件)](#simulation_on)。事件只能通过仿真[creation(创建并自启动)](#forceSimulation) 或者调用 [*simulation*.restart](#simulation_restart)时由内部的计时器触发。事件的触发次数由⌈*log*([*alphaMin*](#simulation_alphaMin)) / *log*(1 - [*alphaDecay*](#simulation_alphaDecay))⌉计算的出; 默认参数情况下为300次.
+
+这个方法可以与[*simulation*.stop](#simulation_stop)结合使用来计算[static force layout(静态布局)](https://bl.ocks.org/mbostock/1667139). 对于大规模图来说，静态布局应该通过 [in a web worker](https://bl.ocks.org/mbostock/01ab2e85e8727d6529d20391c0fd9a16) 来计算，这样可以避免冻结用户界面.
+
+
 
 <a name="simulation_nodes" href="#simulation_nodes">#</a> <i>simulation</i>.<b>nodes</b>([<i>nodes</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L88 "Source")
 
@@ -67,9 +79,9 @@ var simulation = d3.forceSimulation(nodes);
 * `vx` - 节点当前的 *x*-速度
 * `vy` - 节点当前的 *y*-速度
 
-位置 ⟨*x*,*y*⟩ 和速度 ⟨*vx*,*vy*⟩ 可能被随时修改. 如果 *vx* or *vy* 中的其中一个为NaN, 则速度回被初始化为 ⟨0,0⟩. 如果 *x* 或 *y* 为 NaN, 则位置会根据[phyllotaxis arrangement](http://bl.ocks.org/mbostock/11478058)进行初始化，不再是随机的。
+位置 ⟨*x*,*y*⟩ 和速度 ⟨*vx*,*vy*⟩ 可能被随时修改. 如果 *vx* or *vy* 中的其中一个为NaN, 则速度会被初始化为 ⟨0,0⟩. 如果 *x* 或 *y* 为 NaN, 则位置会根据[phyllotaxis arrangement](http://bl.ocks.org/mbostock/11478058)进行初始化，不再是随机的。
 
-由于节点都有默认的位置，如果想在一开始的时候手动指定节点的位置，则需要为节点设置如下两个属性:
+如果要为某个节点设置默认的位置，则需要为该节点设置如下两个属性:
 
 * `fx` - *x*-位置
 * `fy` - *y*-位置
@@ -80,7 +92,7 @@ var simulation = d3.forceSimulation(nodes);
 
 <a name="simulation_alpha" href="#simulation_alpha">#</a> <i>simulation</i>.<b>alpha</b>([<i>alpha</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L92 "Source")
 
-设置或获取*alpha*值，区间为[0,1]. 默认为1。
+设置或获取仿真当前的*alpha*值，区间为[0,1]. 默认为1。
 
 <a name="simulation_alphaMin" href="#simulation_alphaMin">#</a> <i>simulation</i>.<b>alphaMin</b>([<i>min</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L96 "Source")
 
@@ -88,13 +100,15 @@ var simulation = d3.forceSimulation(nodes);
 
 *alpha*减小的方式是通过在每次tick的时候结合一个衰减系数来计算，这个系数通过[alpha decay rate](#simulation_alphaDecay)来定义，默认为0.0028。
 
-子啊默认情况下，*alpha*值从1减小到0.001，计算公式为0.0228… = 1 - *pow*(0.001, 1 / 300)。也就是从1到0.001要计算300次小于0.001. 所以默认情况下tick次数为300次。
+在默认情况下，*alpha*值从1减小到0.001，计算公式为0.0228… = 1 - *pow*(0.001, 1 / 300)。也就是从1到0.001要计算300次小于0.001. 所以默认情况下tick次数为300次。
 
 <a name="simulation_alphaDecay" href="#simulation_alphaDecay">#</a> <i>simulation</i>.<b>alphaDecay</b>([<i>decay</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L100 "Source")
 
 设置或获取衰减系数，用来设置[*alpha*](#simulation_alpha)的衰减率。默认为0.0228… = 1 - *pow*(0.001, 1 / 300)， 0.001 是默认的[minimum *alpha*](#simulation_alphaMin)值.
 
-衰减系数用来决定从当前alpha值到目标alpha值的过渡快慢。衰减系数越大，仿真的过程越短，当然效果会越差。 衰减系数越小，则仿真过程越长，最终的效果也就越好
+衰减系数用来决定从当前alpha值到*alphaTarget*值的过渡快慢。衰减系数越大，仿真的过程越短，当然效果会越差。 衰减系数越小，则仿真过程越长，最终的效果也就越好。
+
+如果想要仿真永远运行，则设置*decay*为0，此时仿真的*alpha*保持不变。
 
 <a name="simulation_alphaTarget" href="#simulation_alphaTarget">#</a> <i>simulation</i>.<b>alphaTarget</b>([<i>target</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L104 "Source")
 
@@ -102,22 +116,22 @@ alpha的目标值，区间为[0,1]. 默认为0
 
 <a name="simulation_velocityDecay" href="#simulation_velocityDecay">#</a> <i>simulation</i>.<b>velocityDecay</b>([<i>decay</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L108 "Source")
 
-速度衰减系数。相当于摩擦力。区间为[0,1], 默认为0.4
+速度衰减系数，相当于摩擦力。区间为[0,1], 默认为0.4。在每次*tick*之后，节点的速度都会等于当前速度乘以1-*velocityDecay*,和*alpha衰减*类似，速度衰减越慢最终的效果越好，但是如果速度衰减过慢，可能会导致震荡。
 
 <a name="simulation_force" href="#simulation_force">#</a> <i>simulation</i>.<b>force</b>(<i>name</i>[, <i>force</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L112 "Source")
 
-默认情况下，仿真是中的节点是没有力的作用的，需要通过这个方法为仿真系统设置力的作用，力有很多种，需要根据实际情况指定，比如在对图布局进行仿真时，可以如下:
+默认情况下，仿真是中的节点是没有力的作用的，需要通过这个方法为仿真系统设置力的作用，力有很多种，需要根据实际情况指定，比如在对图布局进行仿真时，可以设置如下几种力:
 
 ```js
 var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody())	
-    .force("link", d3.forceLink(links))	
-    .force("center", d3.forceCenter());	
+    .force("charge", d3.forceManyBody())	 //节点间的作用力
+    .force("link", d3.forceLink(links))	  //连线作用力
+    .force("center", d3.forceCenter());	  //重力，布局有一个参考位置，不会跑偏
 ```
 
 <a name="simulation_find" href="#simulation_find">#</a> <i>simulation</i>.<b>find</b>(<i>x</i>, <i>y</i>[, <i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L116 "Source")
 
-返回离⟨*x*,*y*⟩ 点最接近的节点，可以指定一个搜索半径。如果在指定的半径区域内木有找到节点，则返回undefined.
+返回离⟨*x*,*y*⟩ 点最接近的节点，可以指定一个搜索半径*radius*,*radius*默认无穷大。如果在指定的半径区域内木有找到节点，则返回undefined.
 
 <a name="simulation_on" href="#simulation_on">#</a> <i>simulation</i>.<b>on</b>(<i>typenames</i>, [<i>listener</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L139 "Source")
 
@@ -128,9 +142,11 @@ var simulation = d3.forceSimulation(nodes)
 * `tick` - 每次tick时调用.
 * `end` - 仿真结束时调用，也就是 *alpha* < [*alphaMin*](#simulation_alphaMin).
 
-*tick*事件不会分发，仅仅在仿真内部使用
+*tick*事件不会由[*simulation*.tick](#simulation_tick)触发，仅仅可以通过内部计时器触发。
 
 参考 [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on) 获取关于事件分发的详细介绍.
+
+
 
 ### Forces
 
