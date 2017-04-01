@@ -48,10 +48,12 @@
 
     		var simulation = d3.forceSimulation(nodes)
     			.force("center",d3.forceCenter(w/2,h/2))
+    			.force("collision",d3.forceCollide().radius((d)=>{
+    				return d.r;
+    			}))
     			.on("tick",()=>{
     				tick(nodes)
     			})
-    				
     		function tick(n){
     			var update = svg.selectAll("circle")
     				.data(n)
@@ -60,7 +62,7 @@
     				.merge(update)
     				.attr("cx",(d)=>{return d.x;})
     				.attr("cy",(d)=>{return d.y;})
-    				.attr("r",3)
+    				.attr("r",(d)=>{return d.r})
     		}
 
     		d3.select("#controls").selectAll("input")

@@ -37,14 +37,12 @@
 			var svg = d3.select("svg"),
 				w = parseInt(svg.style("width")),
 				h = parseInt(svg.style("height"));
-			n = 500,
+			n = 1000,
    				nodes = d3.range(n).map(function(i) { return {index: i}; }),
     			links = d3.range(n).map(function(i) { return {source: i, target: (i + 3) % n}; });
     		nodes.forEach((d,i)=>{
     			d.r = Math.random()*20;
     		})
-
-
 
     		var simulation = d3.forceSimulation(nodes)
     			.force("center",d3.forceCenter(w/2,h/2))
@@ -60,13 +58,8 @@
     				.merge(update)
     				.attr("cx",(d)=>{return d.x;})
     				.attr("cy",(d)=>{return d.y;})
-    				.attr("r",3)
+    				.attr("r",5)
     		}
-
-    		d3.select("#controls").selectAll("input")
-    			.on("change",()=>{
-    				changeType(d3.select(d3.event.target).attr("id"))
-    			})
 		}
 	</script>
 </body>

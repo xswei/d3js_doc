@@ -3,6 +3,7 @@
 ### 小结
 
 * 手动tick来进行[静态布局](https://bl.ocks.org/mbostock/1667139)
+* 节点连接可以不止是索引，也可以是字符串标识，参考[这个](#links)
 
 
 
@@ -161,7 +162,10 @@ function force(alpha) {
   }
 }
 ```
-Forces通常读取节点的当前位置 ⟨*x*,*y*⟩ 然后计算出节点的速度⟨*vx*,*vy*⟩并将其作为属性添加到节点上。
+
+
+Forces可以读取节点当前位置 ⟨*x*,*y*⟩ 然后增大或减小节点当前的速度 ⟨*vx*,*vy*⟩. 然而，Force也可以"窥探"到节点的下一个位置 ⟨*x* + *vx*,*y* + *vy*⟩; 这是[iterative relaxation(迭代松弛)](https://en.wikipedia.org/wiki/Relaxation_\(iterative_method\))解决几何约束必须的。Force也可以用来直接修改节点的位置以避免为仿真中添加能量，比如重新启动仿真时。
+
 
 在这个模块中提供了以下几种力:
 
@@ -171,11 +175,11 @@ Forces通常读取节点的当前位置 ⟨*x*,*y*⟩ 然后计算出节点的�
 * [Many-Body](#many-body)
 * [Positioning](#positioning)
 
-Forces may optionally implement [*force*.initialize](#force_initialize) to receive the simulation’s array of nodes.
+Forces可以通过[*force*.initialize](#force_initialize)来选择性的接受仿真的节点数组。
 
 <a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
 
-使用指定的*alpha*来应用作用力。作用力将被应用到通过[*force*.initialize](#force_initialize)指定的节点上。也有些力可以应用在节点的子集上，或者为不同的节点之间指定不同的作用力，比如[d3.forceLink](#links)可以为每个连接单独指定作用力.
+为力指定一个可选的的*alpha*，作用力可以被用到通过[*force*.initialize](#force_initialize)指定的节点上。也有些力可以应用在节点的子集上，或者为不同的节点之间指定不同的作用力，比如[d3.forceLink](#links)可以为每个连接单独指定作用力.
 
 <a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
@@ -185,7 +189,7 @@ Forces may optionally implement [*force*.initialize](#force_initialize) to recei
 
 centering作用力可以使得节点布局开之后围绕某个中心。相当于某个中心点对所有的节点都有一个制约，不会让布局的中心偏离。
 
-<a name="forceCenter" href="#forceCenter">#</a> d3.<b>forceCenter</b>([<i>x</i>, <i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L1 "Source")
+<a name="forceCenter" href="#forceCenter">#</a> d3.<b>forceCenter</b>(<i>x</i>, <i>y</i>) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L1 "Source")
 
 根据指定的[*x*-](#center_x) 和 [*y*-](#center_y)坐标创建一个centering作用力。默认为⟨0,0⟩.
 
@@ -196,19 +200,20 @@ centering作用力可以使得节点布局开之后围绕某个中心。相当�
 
 <a name="center_y" href="#center_y">#</a> <i>center</i>.<b>y</b>([<i>y</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/center.js#L31 "Source")
 
-设置或获取center的x坐标，默认为0
+设置或获取center力的y坐标，默认为0
 
 #### Collision
 
-碰撞作用力。 可以为节点指定一个半径，而不是一个单一的点。这样可以避免节点之间的相互覆盖。
+碰撞作用力可以为节点指定一个[radius](#collide_radius)区域来防止节点重叠, 而不是一个位置坐标。也就是节点*a* and *b*之间的距离至少为*radius*(*a*) + *radius*(*b*). 为了减少抖动，可以设置[strength(碰撞强度)](#collide_strength) 和 [iteration count(迭代次数)](#collide_iterations)两个参数.
+
 
 <a name="forceCollide" href="#forceCollide">#</a> d3.<b>forceCollide</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js "Source")
 
-使用指定的半径创建一个碰撞作用力。radius默认所有的节点都为1
+使用默认的半径创建一个碰撞作用力。radius默认所有的节点都为1
 
 <a name="collide_radius" href="#collide_radius">#</a> <i>collide</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L86 "Source")
 
-设置或获取节点的碰撞半径，可以为不同的节点单独设置，默认为:
+为指定节点设置一个碰撞半径，这个方法可以为节点分别设置不同的半径。默认情况下为:
 
 ```js
 function radius() {
@@ -221,17 +226,16 @@ radius访问器会为仿真中的每个节点调用一次，以单独设置节�
 
 <a name="collide_strength" href="#collide_strength">#</a> <i>collide</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L82 "Source")
 
-设置碰撞力的强度，范围[0,1], 默认为0.7
-
-重叠的节点将会通过迭代的方式进行位置调整
+设置碰撞力的强度，范围[0,1], 默认为0.7。 节点的重叠通过迭代松弛来解决。
 
 <a name="collide_iterations" href="#collide_iterations">#</a> <i>collide</i>.<b>iterations</b>([<i>iterations</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/collide.js#L78 "Source")
 
 设置或获取迭代次数，默认为1，迭代次数越多最终的布局效果越好，但是计算复杂度更高，迭代次数越低，则计算复杂度越小，最终的效果也就越差。默认为1
 
+
 #### Links
 
-link作用力可以根据期望的[link distance](#link_distance)将节点连接在一起。作用力的强度与节点之间的距离成正比，类似于弹簧作用力。
+link作用力可以根据期望的[link distance(连接距离)](#link_distance)将节点连接在一起。作用力的强度与节点之间的距离成正比，类似于弹簧作用力。
 
 <a name="forceLink" href="#forceLink">#</a> d3.<b>forceLink</b>([<i>links</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js "Source")
 
@@ -247,7 +251,9 @@ link作用力可以根据期望的[link distance](#link_distance)将节点连接
 * `target` - 目标节点，参考 [*simulation*.nodes](#simulation_nodes)
 * `index` - 在*links*数组中的索引
 
-为方便起见，每个连接的源和目的都是以表示索引的数值表示，而不是使用直接的对象引用，参考[*link*.id](#link_id).
+
+
+为方便起见，每个连接的源和目的可以是数字索引或者字符串标示符。参考[*link*.id](#link_id).
 
 如果links数组发生了改变，比如添加或删除一个link时则必须重新调用这个方法
 
@@ -301,6 +307,7 @@ var links = [
 
 这个方法当图使用JSON格式表示的时候是很有用的。参考 [this example](http://bl.ocks.org/mbostock/f584aa36df54c451c94a9d0798caed35).
 
+当link作用力初始化的时候id访问器都会在每个节点上调用
 
 <a name="link_distance" href="#link_distance">#</a> <i>link</i>.<b>distance</b>([<i>distance</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L108 "Source")
 
@@ -312,7 +319,8 @@ function distance() {
 }
 ```
 
-可以单独使用访问器设置，访问器函数会传递当前的*link*以及索引。返回值被单独设置。
+distance访问器会在每个link上调用，也就是可以为每个link设置不同的distance。
+
 
 <a name="link_strength" href="#link_strength">#</a> <i>link</i>.<b>strength</b>([<i>strength</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L104 "Source")
 
@@ -331,6 +339,7 @@ function strength(link) {
 <a name="link_iterations" href="#link_iterations">#</a> <i>link</i>.<b>iterations</b>([<i>iterations</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/link.js#L100 "Source")
 
 设置或获取迭代次数，默认为1. 迭代次数越多，最终的仿真效果越好，计算复杂度也越高。
+
 #### Many-Body
 
 many-body(多体)作用力应用在所用的节点之间，当[strength](#manyBody_strength)为正的时候可以模拟重力，当为负的时候可以模拟电荷力。这个实现使用四叉树和[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation)的方法提高了性能。精确度可以通过[theta](#manyBody_theta)来控制.
