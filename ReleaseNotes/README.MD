@@ -1,36 +1,51 @@
-# D3 4.0 做了哪些改进   
+### D3 4.0 做了哪些改进   
         
 
 
-D3 4.0是由各个模块协同工作的，而不是一个单独的库。你可以选择使用合适的模块，每个模块都有它自己的独立的库，默认的库包含了大概30个字库。
+D3 4.0是由各个模块协同工作的，而不是一个单独的库。你可以按需加载独立的模块，默认的大库包含了大概30个子库。
 
-```
+例如：
+
+```js
 <script src="https://d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
 ```
+
 你可以使用可选的插件，比如使用颜色生成器：
 
-```
+```js
+
 <script src="https://d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
-```
-如果你不需要使用默认的库，而是仅仅使用D3的选择器功能，则可以将D3的选择器模块单独引入：
 
 ```
+
+如果你不需要使用默认的库，而是仅仅使用D3的选择器功能，则可以将D3的选择器模块单独引入：
+
+```js
 <script src="https://d3js.org/d3-selection.v0.9.min.js"></script>
+
 ```
+
 你也可以使用Webpack或Rollup来管理所需要的模块，来生成更轻量化的包。模块化更容易让人理解、开发和测试，有利于扩展更丰富的功能。
 
 如果你觉得模块化不重要，可以继续使用默认的包。但是使用ES6的模块有一个不可避免的后果：D3 4.0中每一个功能都有一个独立的命名空间，而D3 3.x则是相互叠加的。比如d3.scale.linear成了现在的d3.scaleLinear,d3.layout.treemap成了d3.treemap。而使用ES6的模块化意味着D3 4.0是在严格模式下编写的，具有更好的可读性，在3.x的基础上几乎进行了重写，其他功能也得到了改善。
 
 ## 其他改变
-默认的通用模块定义捆绑是匿名的。D3子模块共享d3全局变量，甚至你单独的引入它们。这样无论你是否使用了默认包能保证代码的一致性。
+
+默认的通用模块定义是匿名的。D3子模块共享d3全局变量，甚至你单独的引入它们。这样无论你是否使用了默认包能保证代码的一致性。
 
 使用D3 3.x时有时候会因编码问题发生SyntaxError错误，因为3.x中使用了λ，φ，τ和π等unicode字符作为数学简明变量名。这样在你使用ISO-8859-1来代替UTF-8编码时出错，在4.0中仅仅使用ascii来编码变量和字符串，避免出现编码问题。
+
+
 # 目录
+
+
 ## Arrays(d3-array)
+
+
 > 新的d3.scan方法对数组进行线性扫描，并根据指定的比较函数返回至少一个元素的索引。这个方法有点类似于d3.min和d3.max。而d3.scan可以得到极值的索引而不仅仅是计算极值。如
 
-```
+```js
 var data = [
   {name: "Alice", value: 2},
   {name: "Bob", value: 3},
@@ -42,6 +57,7 @@ var i = d3.scan(data, function(a, b) { return a.value - b.value; }); // 2
 //d3对data中的元素两两比较，返回较小的，funtion运行了3+2+1=6次
 data[i]; // {name: "Carol", value: 1}
 ```
+
 > d3.ticks和d3.tickStep方法在生成刻度时是非常有用的。可以代替生成d3-scale的continuous.ticks。新的方法更精确，比如返回由相对误差测量的最佳刻度数量。
 
 ```
@@ -49,7 +65,8 @@ var ticks = d3.ticks(0, 10, 5); // [0, 2, 4, 6, 8, 10]
 //0到10之间取5个刻度
 ```
 > d3.range方法，当step非整数时候不再对浮点进行校正，而是严格返回start+i*step，其中i为整数。当范围为无限大时返回空数组而不是报错。如下
-```
+
+```js
     3.x中
         d3.range(0,1,0.3)   //[0, 0.3, 0.6, 0.9]
         d3.range(Infinity)  //出错
@@ -57,15 +74,17 @@ var ticks = d3.ticks(0, 10, 5); // [0, 2, 4, 6, 8, 10]
         d3.range(0,1,0.3)   //[0, 0.3, 0.6, 0.8999999999999999]
         d3.range(Infinity)  //[]
 ```
+
 > 一些数组访问方式被改为更方便的数组方法，比如array.forEach:访问器 被传入的参数有当前的元素d、索引i以及数组自身array。这影响了d3.min,d3.max,d3,extent,d3.sum,d3.mean,d3.median,d3,quantile,d3.variance和d3.deviation。d3.quantile方法之前不接受访问器。一些方法在没有参数传入时候被当做确实而不是直接检查arguments.length。
 
 > 新的d3.histogram API代替原有的d3.layout.histogram。返回的每个bin的bin.x和bin.dx被替换为bin.x0和bin.x1。bin.x0正好等于前一个bin的bin.x1。每一个bin只是简单的根据输入的数据产生。
 > histogram.range方法被重命名为histogram.domain。histogram.bins方法被重命名为histogram.thresholds并不再接受上限值参数。d3.histogram现在使用d3.ticks计算好的阈值。
 
 ## Axes(d3-axis)
+
 > 在3.x中你必须设置如下样式
 
-```
+```html
 <style>
 
 .axis path,
@@ -95,7 +114,7 @@ d3.select(".axis")
 
 > 4.0提供了默认的样式和更精简的语法。3.x中使用d3.svg.axis和axis.orient来定义坐标轴，而4.0你可以直接使用d3.axisTop, d3.axisRight, d3.axisBottom, d3.axisLeft四种方法来生成轴。
 
-```
+```js
 <script>
 
 d3.select(".axis")
@@ -110,6 +129,7 @@ d3.select(".axis")
 > 还可以使用axis.tickArguments、axis.ticks、axis.tickSize、axis.tickSizeInner或axis.tickSizeOuter方法来设置要显示刻度规律和刻度线大小等。
 
 ## Brushes(d3-brush)
+
 > 代替d3.svg.brush方法，4.0提供了d3.brushX,d3.brushY和d3.brush来表示沿着x方向,y方向和两个方向的3个子类。brushes不再依赖于比例尺而是定义了一个基于屏幕坐标的选择集。但是可以根据坐标和比例尺反转来查询对应的域中包含的数据。不必依靠比例尺的范围来确定可选取的区域。可以通过*brush.extent*方法来设置。如果不设置extent，则默认可选取的范围为当前元素所属的整个SVG元素。brush.clamp方法也被移除。刷子的范围只在所定义的extent内有效。
 
 > 刷子不再在内部存储被选中的元素，刷子的位置被保存在被应用了刷子功能的元素上。可以在被选中元素事件上使用刷子的位置信息。如果以编程的方式移动刷子则使用brush.move方法
@@ -130,6 +150,7 @@ d3.select(".axis")
 [刷子例子](http://bl.ocks.org/mbostock/6232537)
 
 ## Chords(d3-chord)
+
 > 扁平化命名空间
 
 d3.layout.chord -> [d3.chord](https://github.com/d3/d3-chord#chord)
@@ -138,6 +159,7 @@ d3.svg.chord -> [d3.ribbon](https://github.com/d3/d3-chord#ribbon)
 > 为了保持与arc.padAngle的一致性，chord.padding被重命名为ribbon.padAngle。新的ribbon.context方法支持使用canvas画布。见[d3-path](https://github.com/d3/d3/blob/master/CHANGES.md#paths-d3-path)
 
 ## Colletions(d3-collection)
+
 > [d3.set](https://github.com/d3/d3-collection#set)构造器可以接受已存在的集作为副本。当传入一个数组时候的同时，你也可以传入一个值访问器。访问器函数可以使用标准参数：当前元素d,索引i以及整个数组data。如下：
 
 ```
