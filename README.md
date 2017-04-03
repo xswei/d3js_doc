@@ -19,8 +19,8 @@
 
 #### 文档参考
 
-* [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)(数组、
-静态方法、查找类方法、变换类方法、直方图-)
+* [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)(**数组、
+静态方法、查找类方法、变换类方法、直方图**)
 
 * [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(坐标轴)
 
@@ -40,7 +40,7 @@
 
 * [Easings](https://github.com/xswei/d3js_doc/tree/master/API/d3-ease-master)(过渡类型)
 
-* [Forces](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master)(力学仿真模拟-)
+* [Forces](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master)(**力学仿真模拟**)
 
 * [Number Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-format-master)(数值格式化)
 
@@ -50,11 +50,11 @@
 
 * [Interpolators](https://github.com/xswei/d3js_doc/tree/master/API/d3-interpolate-master)(插值器)
 
-* [Paths](https://github.com/xswei/d3js_doc/tree/master/API/d3-path-master)(Canvas和SVG之间互转-)
+* [Paths](https://github.com/xswei/d3js_doc/tree/master/API/d3-path-master)(**Canvas和SVG之间互转**)
 
-* [Polygons](https://github.com/xswei/d3js_doc/tree/master/API/d3-polygon-master)(二维多边形-)
+* [Polygons](https://github.com/xswei/d3js_doc/tree/master/API/d3-polygon-master)(**二维多边形**)
 
-* [Quadtrees](https://github.com/xswei/d3js_doc/tree/master/API/d3-quadtree-master)(四叉树-)
+* [Quadtrees](https://github.com/xswei/d3js_doc/tree/master/API/d3-quadtree-master)(**四叉树**)
 
 * [Queues](https://github.com/xswei/d3js_doc/tree/master/API/d3-queue-master)(队列)
 
