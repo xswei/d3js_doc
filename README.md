@@ -19,7 +19,8 @@
 
 #### 文档参考
 
-* [Arrays(Statistics, Search, Transformations, Histograms)](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)(数组，静态方法、查找类、变化类、直方图)
+* [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)(数组、
+静态方法、查找类方法、变换类方法、直方图-)
 
 * [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(坐标轴)
 

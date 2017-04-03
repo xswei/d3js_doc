@@ -62,7 +62,6 @@ Methods for computing basic summary statistics.
 
 与内置方法[Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min)不同,d3.min忽略undefined, null and NaN 等值，在忽略缺失数据时有用. 此外，元素使用自然排序而不是数值排序，比如["20","3"]会返回"20"，而[20,3]则返回3.
 
-See also [scan](#scan) and [extent](#extent).
 
 <a name="max" href="#max">#</a> d3.<b>max</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/max.js "Source")
 
@@ -70,11 +69,10 @@ See also [scan](#scan) and [extent](#extent).
 
 与内置方法[Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min)不同,d3.min忽略undefined, null and NaN 等值，在忽略缺失数据时有用. 此外，元素使用自然排序而不是数值排序，比如["20","3"]会返回"3"，而[20,3]则返回20.
 
-See also [scan](#scan) and [extent](#extent).
 
 <a name="extent" href="#extent">#</a> d3.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/extent.js "Source")
 
-根据指定的数组返回[最小值](#min) and [最大值](#max).如果数组为空则返回[undefined, undefined]. 如果指定了*accessor*，则相当于在计算极值之前调用了*array.map(accessor)*.
+根据指定的数组返回[最小值](#min) 和 [最大值](#max).如果数组为空则返回[undefined, undefined]. 如果指定了*accessor*，则相当于在计算极值之前调用了*array.map(accessor)*.
 
 <a name="sum" href="#sum">#</a> d3.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/sum.js "Source")
 
@@ -142,7 +140,7 @@ d3.scan(array, function(a, b) { return b.foo - a.foo; }); // 1
 <a name="bisector" href="#bisector">#</a> d3.<b>bisector</b>(<i>accessor</i>) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js "Source")
 <br><a name="bisector" href="#bisector">#</a> d3.<b>bisector</b>(<i>comparator</i>) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js "Source")
 
-使用指定的访问器或比较操作返回一个而等分线对象。例如有如下对象数组：
+使用指定的访问器或比较操作返回一个二等分对象。例如有如下对象数组：
 
 
 ```js
@@ -166,17 +164,18 @@ var bisectDate = d3.bisector(function(d) { return d.date; }).right;
 ```js
 var bisectDate = d3.bisector(function(d, x) { return d.date - x; }).right;
 ```
-要注意的是，使用比较操作时，要将第二个参数设置为*x*. 
 
-然后使用类似于`bisectDate(data, new Date(2011, 1, 2))`的方法返回索引。
+要注意的是，使用比较操作时，要将第二个参数设置为*x*.   这里的*x*相当于要插入的值。
+
+然后使用类似于`bisectDate(data, new Date(2011, 1, 2))`的方法返回*new Date(2011, 1, 2)*在*data*中插入的索引，以保证插入之后依然有序。
 
 <a name="bisector_left" href="#bisector_left">#</a> <i>bisector</i>.<b>left</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L6 "Source")
 
-等价于[bisectLeft](#bisectLeft)，但是使用的是二等分线定义时的访问操作.
+等价于[bisectLeft](#bisectLeft)，但是使用的是二等分法.
 
 <a name="bisector_right" href="#bisector_right">#</a> <i>bisector</i>.<b>right</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L16 "Source")
 
-等价于[bisectRight](#bisectRight), 但是使用的是二等分线定义时的访问操作.
+等价于[bisectRight](#bisectRight), 但是使用的是二等分法.
 
 <a name="ascending" href="#ascending">#</a> d3.<b>ascending</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ascending.js "Source")
 
@@ -205,12 +204,29 @@ function descending(a, b) {
 
 数组变换方法，返回新数组.
 
+<a name="cross" href="#cross">#</a> d3.<b>cross</b>(<i>a</i>, <i>b</i>[, <i>reducer</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/cross.js "Source")
+
+返回a和b两个数组的[Cartesian product(笛卡尔乘积)](https://en.wikipedia.org/wiki/Cartesian_product)。对于数组*a*中的每个元素*i*和数组*b*中的每个元素*j*，分别有序的调用传入的*reducer*方法。*reducer*方法的参数分别为*i*和*j*，如果没有指定*reducer*则默认为*i*和*j*创建一个二维数组:
+
+
+```js
+function pair(a, b) {
+  return [a, b];
+}
+```
+
+例如:
+
+```js
+d3.cross([1, 2], ["x", "y"]); // 返回 [[1, "x"], [1, "y"], [2, "x"], [2, "y"]]
+d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // 返回 ["1x", "1y", "2x", "2y"]
+
 <a name="merge" href="#merge">#</a> d3.<b>merge</b>(<i>arrays</i>) [<>](https://github.com/d3/d3-array/blob/master/src/merge.js "Source")
 
 将指定的数组们合并为一个数组。这个方法与内置的concat方法有些像，但是当数组中嵌套另一个数组时会更方便：
 
 ```js
-d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
+d3.merge([[1], [2, 3]]); // 返回 [1, 2, 3]
 [].concat([[1],[2,3]]);	// [1,[2,3]]
 ```
 
@@ -282,11 +298,12 @@ d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
 
 [<img src="https://raw.githubusercontent.com/d3/d3-array/master/img/histogram.png" width="480" height="250" alt="Histogram">](http://bl.ocks.org/mbostock/3048450)
 
-Histograms bin many discrete samples into a smaller number of consecutive, non-overlapping intervals. They are often used to visualize the distribution of numerical data.
+直方图可以将一些离散的样本统计映射到连续的空间，并且这种映射是非重叠的。直方图经常用来对一系列数值分布空间进行可视化。
+
 
 <a name="histogram" href="#histogram">#</a> d3.<b>histogram</b>() [<>](https://github.com/d3/d3-array/blob/master/src/histogram.js "Source")
 
-使用默认的设置构建一个直方图生成器.
+使用默认的设置创建一个直方图生成器.
 
 <a name="_histogram" href="#_histogram">#</a> <i>histogram</i>(<i>data</i>) [<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L14 "Source")
 
