@@ -1,6 +1,6 @@
 # d3-quadtree
 
-[quadtree](https://en.wikipedia.org/wiki/Quadtree)可以递归的二维空间分割为若干个正方形。每个不同的点都独立存在一个叶[node](#nodes)上。同一类点由链表表示。四叉树可以加速各种空间操作，比如基于[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation)来计算多个个体之间的力,碰撞检测或者寻找相邻点。
+[quadtree](https://en.wikipedia.org/wiki/Quadtree)可以递归的将二维空间分割为若干个正方形。每个不同的点都独立存在一个叶[node(节点)](#nodes)上。同一类点由链表表示。四叉树可以加速各种空间操作，比如基于[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation)来计算多个个体之间的力,碰撞检测或者寻找相邻点。
 
 
 <a href="http://bl.ocks.org/mbostock/9078690"><img src="http://bl.ocks.org/mbostock/raw/9078690/thumbnail.png" width="202"></a>
@@ -44,13 +44,15 @@ var tree = d3.quadtree()
 
 <a name="quadtree_x" href="#quadtree_x">#</a> <i>quadtree</i>.<b>x</b>([<i>x</i>]) [<>](https://github.com/d3/d3-quadtree/blob/master/src/x.js "Source")
 
-设置或获取x访问器，默认为:
+设置或获取x-访问器，默认为:
 
 ```js
 function x(d) {
   return d[0];
 }
 ```
+
+x-访问器用来设置当向四叉树中添加或移除节点时如何访问节点的x坐标。
 
 <a name="quadtree_y" href="#quadtree_y">#</a> <i>quadtree</i>.<b>y</b>([<i>y</i>])
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/y.js "Source")
@@ -89,6 +91,8 @@ for (var i = 0, n = data.length; i < n; ++i) {
 }
 ```
 
+循环添加节点的方法比循环使用*add*生成的四叉树更紧凑，因为数据的范围再添加之前已经被计算。
+
 <a name="quadtree_remove" href="#quadtree_remove">#</a> <i>quadtree</i>.<b>remove</b>(<i>datum</i>)
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/remove.js "Source")
 
@@ -106,12 +110,12 @@ for (var i = 0, n = data.length; i < n; ++i) {
 <a name="quadtree_root" href="#quadtree_root">#</a> <i>quadtree</i>.<b>root</b>()
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/root.js "Source")
 
-返回四叉树的根[node](#nodes).
+返回四叉树的根[node(节点)](#nodes).
 
 <a name="quadtree_data" href="#quadtree_data">#</a> <i>quadtree</i>.<b>data</b>()
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/data.js "Source")
 
-返回四叉树中所包含的data.
+返回四叉树中所包含的data数组.
 
 <a name="quadtree_size" href="#quadtree_size">#</a> <i>quadtree</i>.<b>size</b>()
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/size.js "Source")
@@ -126,7 +130,7 @@ for (var i = 0, n = data.length; i < n; ++i) {
 <a name="quadtree_visit" href="#quadtree_visit">#</a> <i>quadtree</i>.<b>visit</b>(<i>callback</i>)
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/visit.js "Source")
 
-以前序遍历的方式访问每一个[node](#nodes)，并调用指定的函数，函数参数为*node*, *x0*, *y0*, *x1*, *y1*表示每个正方形节点的范围。如果指定的回调函数返回true则其子节点将不会被访问到。这个方法可以用来快速的访问四叉树中的某一部分。比如[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation). 
+以前序遍历的方式访问每一个[node(节点)](#nodes)，并调用指定的函数，函数参数为*node*, *x0*, *y0*, *x1*, *y1*表示每个正方形节点的范围。如果指定的回调函数返回true则其子节点将不会被访问到。这个方法可以用来快速的访问四叉树中的某一部分。比如[Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation). 
 
 <a name="quadtree_visitAfter" href="#quadtree_visitAfter">#</a> <i>quadtree</i>.<b>visitAfter</b>(<i>callback</i>)
  [<>](https://github.com/d3/d3-quadtree/blob/master/src/visitAfter.js "Source")
@@ -154,4 +158,4 @@ for (var i = 0, n = data.length; i < n; ++i) {
 if (!node.length) do console.log(node.data); while (node = node.next);
 ```
 
-四叉树中点的*x*和*y*一定不能直接修改，药通过[remove](#quadtree_remove) 移除然后再通过[add](#quadtree_add)重新添加。
+四叉树中点的*x*和*y*一定不能直接修改，要通过[remove](#quadtree_remove) 移除后再通过[add](#quadtree_add)重新添加。

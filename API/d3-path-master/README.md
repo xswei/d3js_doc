@@ -9,7 +9,7 @@ function drawCircle(context, radius) {
 }
 ```
 
-d3-path模块可以允许将上述代码获取到并渲染到[SVG](http://www.w3.org/TR/SVG/paths.html)上. 这个模块通过 [序列化](#path_toString) [CanvasPathMethods](http://www.w3.org/TR/2dcontext/#canvaspathmethods) 然后调用[SVG path data](http://www.w3.org/TR/SVG/paths.html#PathData)来实现(构造一个path对象，记录canvas路径，并提供方法将路径在canvas绘图命令和SVG路径之间转换). 例如:
+d3-path模块可以获取Canvas2dContext状态并转为[SVG](http://www.w3.org/TR/SVG/paths.html)路径字符串. 这个模块通过 [序列化](#path_toString) [CanvasPathMethods](http://www.w3.org/TR/2dcontext/#canvaspathmethods) 然后调用[SVG path data](http://www.w3.org/TR/SVG/paths.html#PathData)来实现(构造一个path对象，记录canvas路径，并提供方法将路径在canvas绘图命令和SVG路径之间转换). 例如:
 
 ```js
 var context = d3.path();	

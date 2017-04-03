@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quadtree</title>
+	<script src="../libs/d3.v4.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		#main,#container,svg{
+			height:100%;
+			width:100%;
+		}
+		#main{
+			overflow:hidden;
+			position: relative;
+		}
+		.points{
+			r:3;
+			fill:steelblue;
+		}
+		#c{
+			position: absolute;
+			top:10px;
+			left:10px;
+			padding: 0px;
+		}
+		.border{
+			fill:none;
+			stroke:#ccc;
+		}
+		.bound{
+			stroke:red;
+			fill:none;
+			stroke-width:1;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="container">
+			<svg id="svg"></svg>
+		</div>
+		<div id="c">
+			<button id="visit">前序遍历</button>
+			<br>
+			<br>
+			<button id="visitAfter">后续遍历</button>
+		</div>
+	</div>
+	<script>
+		window.onload = ()=>{
+			var svg = d3.select("#svg"),
+				w = parseInt(svg.style("width")),
+				h = parseInt(svg.style("height"));
+			var data = d3.range(0,1000).map(()=>{
+				return {
+					x:Math.random()*w,
+					y:Math.random()*h
+				}
+			})
+
+			var quadtree = d3.quadtree(data,(d)=>{
+					return d.x;
+				},(d)=>{
+					return d.y;
+				})
+				.extent([[0,0],[w,h]]);
+
+			/*svg.selectAll("rect.border")
+				.data(visit(quadtree)).enter()
+				.append("rect")
+				.attr("class","border")
+				.attr("x",(d)=>{return d.x0;})
+				.attr("y",(d)=>{return d.y0;})
+				.attr("width",(d)=>{return d.x1-d.x0;})
+				.attr("height",(d)=>{return d.y1-d.y0;})*/
+
+			svg.selectAll("circle.points")
+				.data(data).enter()
+				.append("circle")
+				.attr("class","points")
+				.attr("cx",(d)=>{return d.x;})
+				.attr("cy",(d)=>{return d.y;})
+
+			svg.append("rect")
+				.attr("id","bound")
+
+			d3.select("#visit")
+				.on("click",()=>{
+					bound(visit(quadtree))
+				})
+			d3.select("#visitAfter")
+				.on("click",()=>{
+					bound(visitAfter(quadtree))
+				})
+			window.t = null;
+			function bound(b){
+				d3.selectAll(".bound").remove();
+				var i=0;
+				if(t){
+					t.stop();
+				}
+				window.t = d3.interval(function(){
+					svg.append("rect")
+						.attr("class","bound")
+						.attr("x",b[i].x0)
+						.attr("y",b[i].y0)
+						.attr("width",b[i].x1-b[i].x0)
+						.attr("height",b[i].y1-b[i].y0)
+					i+=1;
+					if(i>=b.length){
+						t.stop();
+					}
+				},10)
+			}
+
+			function visit(q){
+				var t = [];
+				q.visit((n,x0,y0,x1,y1)=>{
+					t.push({
+						n:n,
+						x0:x0,
+						y0:y0,
+						x1:x1,
+						y1:y1
+					})
+				})
+				return t;
+			}
+			function visitAfter(q){
+				var t = [];
+				q.visitAfter((n,x0,y0,x1,y1)=>{
+					t.push({
+						n:n,
+						x0:x0,
+						y0:y0,
+						x1:x1,
+						y1:y1
+					})
+				})
+				return t;
+			}
+		}
+	</script>
+</body>
+</html>

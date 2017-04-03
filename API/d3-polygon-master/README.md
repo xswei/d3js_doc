@@ -21,7 +21,7 @@ var hull = d3.polygonHull(points);
 
 <a href="#polygonArea" name="polygonArea">#</a> d3.<b>polygonArea</b>(<i>polygon</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/area.js#L1 "Source Code")
 
-返回指定多边形的面积，多边形如果为顺时针则返回负值。如果为逆时针则返回正值，默认以左上角为<0,0>点。
+返回指定多边形的面积，多边形如果为顺时针则返回负值。如果为逆时针则返回正值，默认以左上角<0,0>点为原点。
 
 <a href="#polygonCentroid" name="polygonCentroid">#</a> d3.<b>polygonCentroid</b>(<i>polygon</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/centroid.js#L1 "Source Code")
 
@@ -31,7 +31,7 @@ var hull = d3.polygonHull(points);
 
 <a href="http://bl.ocks.org/mbostock/6f14f7b7f267a85f7cdc"><img src="https://raw.githubusercontent.com/d3/d3-polygon/master/img/hull.png" width="250" height="250"></a>
 
-返回一个刚搞包裹指定点的[凸多边形](https://en.wikipedia.org/wiki/Convex_hull)，使用的是 [Andrew’s monotone chain 算法](http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain). 返回的值是一系列点，这些点连接起来刚好可以将输入的点全部包裹，如果输入的点少于3个，则返回null
+返回一个刚好包裹指定点的[凸多边形](https://en.wikipedia.org/wiki/Convex_hull)，使用的是 [Andrew’s monotone chain 算法](http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain). 返回的值是一系列点，这些点连接起来刚好可以将输入的点全部包裹，如果输入的点少于3个，则返回null
 
 <a href="#polygonContains" name="polygonContains">#</a> d3.<b>polygonContains</b>(<i>polygon</i>, <i>point</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/contains.js#L1 "Source Code")
 
