@@ -15,7 +15,11 @@
 
 * [英文教程](https://github.com/d3/d3/wiki/Tutorials)
 
-* [案例](https://github.com/xswei/d3js_doc/tree/master/demo)
+* [DEMO](https://github.com/xswei/d3js_doc/tree/master/demo)
+
+* [Mike Bostock的案例](https://bl.ocks.org/mbostock)
+
+* [官方画廊](https://github.com/d3/d3/wiki/Gallery)
 
 #### 文档参考
 
