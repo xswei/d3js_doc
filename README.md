@@ -19,7 +19,7 @@
 
 #### 文档参考
 
-* [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)(**数组、
+* [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)Statistics, Search, Transformations, Histograms(**数组、
 静态方法、查找类方法、变换类方法、直方图**)
 
 * [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(坐标轴)
@@ -28,7 +28,7 @@
 
 * [Chords](https://github.com/xswei/d3js_doc/tree/master/API/d3-chord-master)(弦图)
 
-* [Collections(Object,Maps,Sets,Nests)](https://github.com/xswei/d3js_doc/tree/master/API/d3-collection-master)(集合、对象、map、嵌套)
+* [Collections](https://github.com/xswei/d3js_doc/tree/master/API/d3-collection-master)Object,Maps,Sets,Nests(集合、对象、map、嵌套)
 
 * [Colors](https://github.com/xswei/d3js_doc/tree/master/API/d3-color-master)(颜色)
 
@@ -62,11 +62,11 @@
 
 * [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(数据请求)
 
-* [Scales(Continuous, Sequential, Quantize, Ordinal)](https://github.com/xswei/d3js_doc/tree/master/API/d3-scale-master)(比例尺)
+* [Scales](https://github.com/xswei/d3js_doc/tree/master/API/d3-scale-master)Continuous, Sequential, Quantize, Ordinal(比例尺)
 
-* [Selections(Selecting, Modifying, Data, Events, Control, Local Variables, Namespaces)](https://github.com/xswei/d3js_doc/tree/master/API/d3-selection-master)(选择集)
+* [Selections](https://github.com/xswei/d3js_doc/tree/master/API/d3-selection-master)(Selecting, Modifying, Data, Events, Control, Local Variables, Namespaces)(选择集)
 
-* [Shapes(Arcs, Pies, Lines, Areas, Curves, Symbols, Stacks)](https://github.com/xswei/d3js_doc/tree/master/API/d3-shape-master)(形状)
+* [Shapes](https://github.com/xswei/d3js_doc/tree/master/API/d3-shape-master)Arcs, Pies, Lines, Areas, Curves, Symbols, Stacks(形状)
 
 * [Time Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-time-format-master)(日期时间)
 
