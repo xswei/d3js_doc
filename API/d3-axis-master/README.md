@@ -4,7 +4,7 @@ axis组件可以将[比例尺](https://github.com/d3/d3-scale)以可读的方式
 
 ## 安装
 
-如果你使用NPM, `npm install d3-axis`. 否则下载[最新版](https://github.com/d3/d3-axis/releases/latest). 你也可以直接从, 以[独立库](https://d3js.org/d3-axis.v1.min.js) 或[D3 4.0](https://github.com/d3/d3)的一部分的形式从[d3js.org](https://d3js.org)获取. (你可能还需要 [d3-scale](https://github.com/d3/d3-scale)和 [d3-selection](https://github.com/d3/d3-selection),但是这些不是硬性要求). 也支持AMD, CommonJS,和vanilla环境. 在vanilla中, `d3`以如下方式被引入:
+如果你使用NPM, `npm install d3-axis`. 也下载[最新版](https://github.com/d3/d3-axis/releases/latest). 或者以[独立库](https://d3js.org/d3-axis.v1.min.js) 或[D3 4.0](https://github.com/d3/d3)的一部分的形式从[d3js.org](https://d3js.org)获取. (你可能还需要 [d3-scale](https://github.com/d3/d3-scale)和 [d3-selection](https://github.com/d3/d3-selection),但是这些不是硬性要求). 也支持AMD, CommonJS,和vanilla环境. 在vanilla中, `d3`以如下方式被引入:
 
 ```html
 <script src="https://d3js.org/d3-axis.v1.min.js"></script>
@@ -84,7 +84,7 @@ d3.select("body").append("svg")
 
 ### # axis(context)
 
-将轴渲染到指定的 *context*, 可能为一个SVG容器的 [选择集](https://github.com/d3/d3-selection) (SVG or G 元素) 或者是 一个[过渡](https://github.com/d3/d3-transition).
+将轴渲染到指定的 *context(容器)*, 可以为一个SVG容器的 [选择集](https://github.com/d3/d3-selection) (SVG or G 元素) 或者是 一个[过渡](https://github.com/d3/d3-transition).
 
 ### # axis.scale([scale])
 如果指定了 *scale* 则设置[比例尺](https://github.com/d3/d3-scale)并返回axis. 如果没有指定 *scale* 则返回当前使用的比例尺.
