@@ -1,6 +1,12 @@
 # d3-axis
 
-axis组件可以将[比例尺](https://github.com/d3/d3-scale)以可读的方式显示. 
+axis组件可以将[比例尺](https://github.com/d3/d3-scale)以可读的方式显示.
+
+
+#### 注
+ 
+axis.tickArguments([a,b])相当于 axis.ticks(a) + axis.tickFormat(b)
+
 
 ## 安装
 
@@ -106,13 +112,15 @@ axis.ticks(20, "s");
 ```js
 axis.ticks(d3.timeMinute.every(15));
 ```
-这种方法是通过[*axis*.tickValues](#axis_tickValues)明确设置刻度数, 并且使用[*axis*.tickFormat](#axis_tickFormat)设置刻度格式的替代品. 也是 [*axis*.tickArguments](#axis_tickArguments)的一个简易方式. 比如:
+
+这种方法也是一个[*axis*.tickArguments](#axis_tickArguments)的一个简易方式. 比如:
+
 
 ```js
 axis.ticks(10);
 ```
 
-相等于:
+相当于:
 
 ```js
 axis.tickArguments([10]);
@@ -138,7 +146,7 @@ axis.tickArguments([d3.timeMinute.every(15)]);
 
 ### # axis.tickValues([*values*])
 
-如果指定了 *values* 数组, 则使用指定的数组设置刻度. 如果 *values* 为 null, 则清除当前的tick values参数. 如果没有指定 *values* 则返回当前的tick values参数默认为null. 例如, 使用指定的值设置刻度:
+如果指定了 *values* 数组, 则使用指定的数组设置刻度，而不是自动生成刻度. 如果 *values* 为 null, 则清除当前的tick values参数. 如果没有指定 *values* 则返回当前的tick values参数默认为null. 例如, 使用指定的值设置刻度:
 
 ```js
 var xAxis = d3.axisBottom(x)
@@ -167,7 +175,7 @@ axis.ticks(10, ",f");
 
 ### # axis.tickSize([*size*])
 
-如果指定了 *size* 则设置 [内部](#axis_tickSizeInner) and [外侧](#axis_tickSizeOuter) 刻度大小并返回axis. 如果 *size* 没有指定则返回当前的刻度尺寸,默认为6.
+如果指定了 *size* 则设置 [内侧](#axis_tickSizeInner) 和 [外侧](#axis_tickSizeOuter) 刻度大小并返回axis. 如果 *size* 没有指定则返回当前的刻度尺寸,默认为6.
 
 ### # axis.tickSizeInner([*size*])
 
@@ -183,3 +191,5 @@ axis.ticks(10, ",f");
 padding为刻度和刻度值之间的间距
 
 如果 *padding* 被指定, 则根据指定的值以像素为单位设置padding. 如果没有指定 *padding* 则返回当前的padding值,默认为3.
+
+
