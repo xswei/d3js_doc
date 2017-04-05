@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Force</title>
+	<script src="../libs/d3.v4.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		#main,#map,svg{
+			height:100%;
+			width:100%;
+		}
+		#main{
+			overflow:hidden;
+			position: relative;
+		}
+		#controls{
+			position: absolute;
+			top:10px;
+			right:10px;
+		}
+		.nodes circle{
+			fill:steelblue;
+			stroke-width:1;
+			stroke:white;
+			r:10;
+		}
+		.links{
+			stroke:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="map">
+			<svg id="svg"></svg>
+		</div>
+	</div>
+	<script>
+		window.onload = ()=>{
+			Array.prototype.delete = function(arr){
+				var t = [];
+				for(let j=0;j<this.length;++j){
+					let f = false;
+					for(let i=0;i<arr.length;++i){
+						if(j == arr[i]){
+							f = true
+						}
+					}
+					if(!f){
+						t.push(this[j])
+					}
+				}
+				return t;
+			}
+
+
+
+			var svg = d3.select("svg"),
+				w = parseInt(svg.style("width")),
+				h = parseInt(svg.style("height"));
+			n = 50,
+   				nodesArray = d3.range(n).map(function(i) { return {index: i}; }),
+    			linksArray = d3.range(n).map(function(i){
+    				return {
+    					source: i,
+    					target: Math.floor(Math.random()*n)
+    				}
+    			})
+
+    		var simulation = d3.forceSimulation(nodesArray)
+    			.force("charge",d3.forceManyBody().strength(-100))
+    			.force("link",d3.forceLink(linksArray).distance(20).strength(1))
+    			//.force("center", d3.forceCenter(w/2, h/2))
+    			.force("x", d3.forceX(w/2))
+    			.force("y", d3.forceY(h/2))
+    			.on("tick",ticked);
+
+    		var rect = svg.append("rect")
+    			.attr("x",0)
+    			.attr("y",0)
+    			.attr("width",w)
+    			.attr("height",h)
+
+    		var g_links = svg.append("g")
+    			.attr("class","links");
+    		var g_nodes = svg.append("g")
+    			.attr("class","nodes");
+
+
+			
+
+    		var links = g_links.selectAll("line")
+    			.data(linksArray)
+    			.enter().append("line")
+    			.attr("x2",(d)=>{return d.source.x;})
+    			.attr("y2",(d)=>{return d.source.y;})
+    			.attr("x1",(d)=>{return d.target.x;})
+    			.attr("x1",(d)=>{return d.target.y;})
+
+    		var nodes = g_nodes.selectAll("circle")
+    			.data(nodesArray)
+    			.enter().append("circle")
+    			.attr("cx",(d)=>{return d.x;})
+    			.attr("cy",(d)=>{return d.y;})
+    			.on("click",remove)
+
+    		rect.on("click",add,true)
+
+
+    		function reDraw(){
+    			var update_nodes = g_nodes.selectAll("circle")
+    				.data(nodesArray);
+    			update_nodes.exit().remove();
+    			nodes = update_nodes.enter()
+    				.append("circle")
+    				.merge(update_nodes);
+
+    			var update_links = g_links.selectAll("line")
+    				.data(linksArray);
+    			update_links.exit().remove()
+    			links = update_links.enter()
+    				.append("line")
+    				.merge(update_links)
+    		}
+
+    		function ticked(){
+    			nodes.attr("cx",(d)=>{return d.x;})
+    				.attr("cy",(d)=>{return d.y;})
+    			links = g_links.selectAll("line")
+	    			.attr("x2",(d)=>{return d.source.x;})
+	    			.attr("y2",(d)=>{return d.source.y;})
+	    			.attr("x1",(d)=>{return d.target.x;})
+	    			.attr("y1",(d)=>{return d.target.y;})
+    		}
+    		function remove(n,i){
+    			d3.event.bubbles = false;
+    			if(d3.event.target.tagName =="circle"){
+    				d3.event.stopPropagation();
+    			}
+    			var linkIndex = linksArray.filter((d)=>{
+    				return (d.target.index == i || d.source.index == i);
+    			})
+    			
+    			linksArray = linksArray.delete(linkIndex.map((d)=>{
+    				return d.index;
+    			}))
+
+    			nodesArray = nodesArray.delete([i]);
+
+    			simulation.force("link",d3.forceLink(linksArray).distance(20).strength(1))
+    			simulation.nodes(nodesArray);
+    			simulation.alpha(1);
+    			simulation.restart();
+    			reDraw();
+    		}
+    		function add(){
+    			var n = {
+    				index:nodesArray.length,
+    				x:d3.event.x,
+    				y:d3.event.y
+    			}
+    			var l = {
+    				index:linksArray.length,
+    				source:n,
+    				target:nodesArray[Math.floor(nodesArray.length*Math.random())]
+    			}
+    			linksArray.push(l);
+    			nodesArray.push(n);
+
+    			simulation.force("link",d3.forceLink(linksArray).distance(20).strength(1))
+    			simulation.nodes(nodesArray);
+    			simulation.alpha(1);
+    			simulation.restart();
+    			reDraw();
+    		}
+		}
+	</script>
+</body>
+</html>
