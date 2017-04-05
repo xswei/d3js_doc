@@ -11,7 +11,7 @@ Brush也可以通过编程方式控制. 比如添加[*end* 事件](#brush-events
 
 ## 安装引用
 
-如果你使用NPM, `npm install d3-brush`. 否则, 下载 [最新版](https://github.com/d3/d3-brush/releases/latest). 也可以从 [d3js.org](https://d3js.org)直接下载, 可作为 [单独的库](https://d3js.org/d3-brush.v1.min.js) 或 [D3 4.0](https://github.com/d3/d3)一部分使用. 也支持AMD, CommonJS, 和 vanilla环境. In vanilla, 导入`d3`全局变量 :
+如果你使用NPM, `npm install d3-brush`. 也可以从 [d3js.org](https://d3js.org)直接下载 [最新版](https://github.com/d3/d3-brush/releases/latest).  可以作为[单独的模块](https://d3js.org/d3-brush.v1.min.js) 或 [D3 4.0](https://github.com/d3/d3)一部分使用. 也支持AMD, CommonJS, 和 vanilla环境. 在使用时，会创建`d3`全局变量:
 
 ```html
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
@@ -48,7 +48,7 @@ var brush = d3.brush();
 
 <a href="#_brush" name="_brush">#</a> <i>brush</i>(<i>group</i>)
 
-为指定的 *group* 应用brush, 一定是一个 [选择集](https://github.com/d3/d3-selection)，选择集为SVG的[G 元素](https://www.w3.org/TR/SVG/struct.html#Groups). 这个方法可以间接调用比如使用 [*selection*.call](https://github.com/d3/d3-selection#selection_call). 例如:
+为指定的 *group* 应用brush, 一定是一个 [选择集](https://github.com/d3/d3-selection)，选择集为SVG的[G 元素](https://www.w3.org/TR/SVG/struct.html#Groups). 这个方法可以间接调用, 也可以通过使用 [*selection*.call](https://github.com/d3/d3-selection#selection_call)来调用. 例如:
 
 ```js
 svg.append("g")
@@ -124,7 +124,7 @@ function filter() {
 
 <a href="#brushSelection" name="brushSelection">#</a> d3.<b>brushSelection</b>(<i>node</i>)
 
-返回指定节点的brush选择，在内部元素的brush或以 *element*.\_\_brush形式存储; 但是你应该使用d3.brushSelectionw而不是通过直接访问内部存储来调用，如果给定的node没有附加brush操作，则返回null. 此外 *selection* 被定义为一个数值数组. 对于 [二维 brush](#brush), 它是[[*x0*, *y0*], [*x1*, *y1*]]这种形式,  *x0* 和*y0* 表示最小x和y值, *x1*和 *y1* 表示最大x和y值, 对于[*x*-brush](#brushX), 表示为[*x0*, *x1*]; 对于 [*y*-brush](#brushY), 表示为[*y0*, *y1*].
+返回指定节点的brush选择，在内部元素的brush或以 *element*.\_\_brush形式存储; 但是你应该使用d3.brushSelection而不是通过直接访问内部存储来调用，如果给定的node没有附加brush操作，则返回null. 此外 *selection* 被定义为一个数值数组. 对于 [二维 brush](#brush), 它是[[*x0*, *y0*], [*x1*, *y1*]]这种形式,  *x0* 和*y0* 表示最小x和y值, *x1*和 *y1* 表示最大x和y值, 对于[*x*-brush](#brushX), 表示为[*x0*, *x1*]; 对于 [*y*-brush](#brushY), 表示为[*y0*, *y1*].
 
 ### Brush 事件
 

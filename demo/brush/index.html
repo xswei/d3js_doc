@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brush</title>
+	<script src="../libs/d3.v4.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		#main,#container,svg{
+			height:100%;
+			width:100%;
+		}
+		#main{
+			overflow:hidden;
+			position: relative;
+		}
+		.points{
+			r:3;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="container">
+			<svg id="svg"></svg>
+		</div>
+	</div>
+	<script>
+		window.onload = ()=>{
+			var svg = d3.select("#svg"),
+				w = parseInt(svg.style("width")),
+				h = parseInt(svg.style("height"));
+			var data = d3.range(0,1000).map(()=>{
+				return {
+					x:Math.random()*w,
+					y:Math.random()*h
+				}
+			})
+			var xScale = d3.scaleLinear()
+				.domain([0,w])
+				.range([0,w-200])
+			var yScale = d3.scaleLinear()
+				.domain([0,h])
+				.range([h-200,0])
+
+			var x_g = svg.append("g")
+			x_g.append("g").attr("transform","translate(100,"+(100)+")")
+				.call(d3.axisTop(xScale))
+			x_g.append("g").attr("transform","translate(100,"+(h-100)+")")
+				.call(d3.axisBottom(xScale))
+
+			var y_g = svg.append("g")
+			y_g.append("g").attr("transform","translate("+100+",100)")
+				.call(d3.axisLeft(yScale))
+			y_g.append("g").attr("transform","translate("+(w-100)+",100)")
+				.call(d3.axisRight(yScale))
+
+			var g = svg.append("g")
+				.attr("transform","translate(100,100)")
+
+			var points = g.append("g")
+				.attr("class","points")
+				.selectAll("circle")
+				.data(data)
+				.enter().append("circle")
+				.attr("class","points")
+				.attr("cx",(d)=>{
+					return xScale(d.x)
+				})
+				.attr("cy",(d)=>{
+					return yScale(d.y);
+				})
+				.attr("fill","steelblue")
+
+	
+
+			var brush = d3.brush()
+				.extent([[0,0],[w-200,h-200]])
+				.on("brush",()=>{
+					points.attr("fill","steelblue")
+					points.filter((d)=>{
+						return (xScale(d.x)>=d3.event.selection[0][0] && xScale(d.x)<=d3.event.selection[1][0])	&& (yScale(d.y)>=d3.event.selection[0][1] && yScale(d.y)<=d3.event.selection[1][1])
+					})
+					.attr("fill","red")
+				})
+
+			var brush_g = g.append("g")
+				
+			brush(brush_g)
+
+			
+		}
+	</script>
+</body>
+</html>

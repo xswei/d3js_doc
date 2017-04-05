@@ -26,7 +26,7 @@
 * [Arrays](https://github.com/xswei/d3js_doc/tree/master/API/d3-array-master)  (Statistics, Search, Transformations, Histograms)(**数组、
 静态方法、查找类方法、变换类方法、直方图**)
 
-* [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(坐标轴)
+* [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(**坐标轴**)
 
 * [Brushes](https://github.com/xswei/d3js_doc/tree/master/API/d3-brush-master)(刷子)
 
