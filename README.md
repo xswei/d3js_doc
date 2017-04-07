@@ -28,7 +28,7 @@
 
 * [Axes](https://github.com/xswei/d3js_doc/tree/master/API/d3-axis-master)(**坐标轴**)
 
-* [Brushes](https://github.com/xswei/d3js_doc/tree/master/API/d3-brush-master)(刷子)
+* [Brushes](https://github.com/xswei/d3js_doc/tree/master/API/d3-brush-master)(**刷子**)
 
 * [Chords](https://github.com/xswei/d3js_doc/tree/master/API/d3-chord-master)(弦图)
 

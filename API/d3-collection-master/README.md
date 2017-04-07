@@ -28,9 +28,7 @@ var map = d3.map()
 
 ### Objects
 
-Object是JavaScript中一种常见的数据结构，它是以key-value的形式存储。在遍历时可以使用[for…in 循环](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in).但是要注意，这个循环顺序是不确定的。
-
-但是要注意这个循环会将原型链上的属性遍历出来，因此要结合*hasOwnProperty*来过滤属性。
+Object是JavaScript中一种常见的数据结构，它是以key-value的形式存储。在遍历时可以使用[for…in 循环](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in).但是要注意，这个循环顺序是不确定的,并且会将原型链上的属性遍历出来，因此要结合*hasOwnProperty*来过滤属性。
 
 <a name="keys" href="#keys">#</a> d3.<b>keys</b>(<i>object</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/keys.js "Source")
 
@@ -55,7 +53,7 @@ d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", valu
 * Keys必须为字符串.
 * 使用[map.each](#map_each), 而是不是 [map.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach). (Also, no *thisArg*.)
 * 使用[map.remove](#map_remove)删除, 而不是[map.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete).
-* 使用[map.entries](#map_entries)返回{key, value}对象数组, not an iterator of [key, value].
+* 使用[map.entries](#map_entries)返回{key, value}对象数组, 而不是[key, value]的迭代器.
 * [map.size](#map_size)是一个方法, 而不是[property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size)属性; 同样[map.empty](#map_empty)也是.
 
 <a name="map" href="#map">#</a> d3.<b>map</b>([<i>object</i>[, <i>key</i>]]) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js "Source")
@@ -78,7 +76,6 @@ map.get("1"); // {"name": "bar"}
 map.get("foo"); // undefined
 ```
 
-See also [nests](#nests).
 
 <a name="map_has" href="#map_has">#</a> <i>map</i>.<b>has</b>(<i>key</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L7 "Source")
 
@@ -123,15 +120,15 @@ map.get("foo"); // 1
 
 <a name="map_each" href="#map_each">#</a> <i>map</i>.<b>each</b>(<i>function</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L48 "Source")
 
-为map中的每个元素执行 *function* , 传递当前的元素的 value 和 key 以及*map*自身为参数, 并返回 undefined. 
+为map中的每个元素执行 *function* , 传递当前的元素的 *value* 和 *key* 以及*map*自身为参数, 并返回 undefined. 
 
 <a name="map_empty" href="#map_empty">#</a> <i>map</i>.<b>empty</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L44 "Source")
 
-判断map是否为空，当且仅当map中有0个条目时返回true.
+判断*map*是否为空，当且仅当map中有0个条目时返回true.
 
 <a name="map_size" href="#map_size">#</a> <i>map</i>.<b>size</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L39 "Source")
 
-获取map中所包含的条目数量。.
+获取map中所包含的条目数量。
 
 ### Sets
 
@@ -197,6 +194,7 @@ d3.set(["foo", "bar", "foo", "baz"]).values(); // "foo", "bar", "baz"
 
 
 例如对于以下的列表数据:
+
 ```js
 var yields = [
   {yield: 27.00, variety: "Manchuria", year: 1931, site: "University Farm"},
@@ -215,7 +213,7 @@ var entries = d3.nest()
     .entries(yields);
 ```
 
-然后返回重构后的层级结构数据，输出的数组中的每个元素都是key-value对(使用了entries方法):
+然后返回重构后的层级结构数据，输出的数组中的每个元素都是以key-value形式出现(使用了entries方法):
 
 ```js
 [{key: "1931", values: [
@@ -229,7 +227,7 @@ var entries = d3.nest()
  {key: "1932", values: ...}]
 ```
 
-The nested form allows easy iteration and generation of hierarchical structures in SVG or HTML.
+Nest结构可以方便的生成SVG或HTML嵌套结构。
 
 关于嵌套的更多信息可以参考以下资料:
 
@@ -239,7 +237,6 @@ The nested form allows easy iteration and generation of hierarchical structures 
 <a name="nest" href="#nest">#</a> d3.<b>nest</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/nest.js "Source")
 
 创建一个嵌套结构操作，并且*keys*为空。
-Creates a new nest operator. The set of keys is initially empty.
 
 <a name="nest_key" href="#nest_key">#</a> <i>nest</i>.<b>key</b>(<i>key</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L4 "Source")
 
@@ -274,8 +271,8 @@ var entries = d3.nest()
 <a name="nest_object" href="#nest_object">#</a> <i>nest</i>.<b>object</b>(<i>array</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L49 "Source")
 
 
-为指定的数组应用嵌套操作，并以object的形式返回。
+为指定的数组应用嵌套操作，并以`object`的形式返回。
 
 <a name="nest_entries" href="#nest_entries">#</a> <i>nest</i>.<b>entries</b>(<i>array</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L51 "Source")
 
-为指定的数组应用嵌套操作，并以entrie的形式返回。
+为指定的数组应用嵌套操作，并以`entries`的形式返回。
