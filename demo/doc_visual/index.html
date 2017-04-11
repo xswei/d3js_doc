@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Doc Visualization</title>
+	<script src="../libs/d3.v4.js"></script>
+	<style>
+		.node{
+			r:5;
+		}
+		.link{
+			stroke:steelblue;
+			fill:none;
+			stroke-width:2; 
+		}
+		body{
+			background: #000;
+		}
+		text{
+			fill: white
+		}
+	</style>
+</head>
+<body>
+	<svg id="svg" width="960" height="2000"></svg>
+	<script>
+		window.onload = () => {
+			var svg = d3.select("#svg"),
+				g = svg.append("g").attr("transform", "translate(100,50)"),
+				width = 1400,
+				height = 10000;
+
+			svg.attr("background","#000")
+
+			svg.attr("width", width)
+				.attr("height", height)
+			var cluster = d3.tree()
+				.size([height-50, width - 380]);
+
+
+
+			d3.json("../dataset/doc.json", (err, json) => {
+				if (err) throw err;
+				console.log(json)
+
+				var hierachy = d3.hierarchy(json)
+
+				console.log(cluster(hierachy).descendants());
+
+				var root = cluster(hierachy)
+
+				g.selectAll(".link")
+					.data(root.descendants().slice(1))
+					.enter().append("path")
+					.attr("class", "link")
+					.attr("d", diagonal);
+
+				var node = g.selectAll(".node")
+					.data(root.descendants())
+					.enter().append("g")
+					.attr("class", function(d) {
+						return "node" + (d.children ? " node--internal" : " node--leaf");
+					})
+					.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+				node.append("circle")
+					.attr("r", (d) => {
+						if (d.depth == 0) {
+							return 10;
+						} else if (d.depth == 1) {
+							return 5;
+						} else if (d.depth == 2) {
+							return 3
+						}
+						return 2.5;
+					})
+					.attr("fill","#000")
+					.attr("stroke","#CCC")
+
+				node.append("text")
+					.attr("dy", function(d) { return d.children ?  "1.2em":".31em"; })
+					.attr("x", function(d) {
+						return d.x < 180 === !d.children ? 10 : 10;
+					})
+					.attr("font-size",(d)=>{
+						if (d.depth == 0) {
+							return 22;
+						} else if (d.depth == 1) {
+							return 18;
+						} else if (d.depth == 2) {
+							return 10
+						}
+						return 10;
+					})
+					.style("text-anchor", function(d) { return d.children ? "middle" : "start"; })
+					.text(function(d) {
+						return d.data.title.split("(")[0]
+					});
+
+			})
+
+
+		}
+
+		function diagonal(d) {
+		  return "M" + d.y + "," + d.x
+		      + "C" + (d.parent.y + 100) + "," + d.x
+		      + " " + (d.parent.y + 100) + "," + d.parent.x
+		      + " " + d.parent.y + "," + d.parent.x;
+		}
+	</script>
+</body>
+</html>
