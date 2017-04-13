@@ -1471,71 +1471,73 @@
     "children": [{
         "title": "d3.hierarchy",
         "desc": "constructs a root node from hierarchical data.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy"
-    }, {
-        "title": "node.ancestors",
-        "desc": "generate an array of ancestors.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_ancestors"
-    }, {
-        "title": "node.descendants",
-        "desc": "generate an array of descendants.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_descendants"
-    }, {
-        "title": "node.leaves",
-        "desc": "generate an array of leaves.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves"
-    }, {
-        "title": "node.path",
-        "desc": "generate the shortest path to another node.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_path"
-    }, {
-        "title": "node.links",
-        "desc": "generate an array of links.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_links"
-    }, {
-        "title": "node.sum",
-        "desc": "evaluate and aggregate quantitative values.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sum"
-    }, {
-        "title": "node.sort",
-        "desc": "sort all descendant siblings.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sort"
-    }, {
-        "title": "node.count",
-        "desc": "count the number of leaves.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_count"
-    }, {
-        "title": "node.each",
-        "desc": "breadth-first traversal.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_each"
-    }, {
-        "title": "node.eachAfter",
-        "desc": "post-order traversal.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachAfter"
-    }, {
-        "title": "node.eachBefore",
-        "desc": "pre-order traversal.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachBefore"
-    }, {
-        "title": "node.copy",
-        "desc": "copy a hierarchy.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_copy"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy",
+        "children": [{
+            "title": "node.ancestors",
+            "desc": "generate an array of ancestors.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_ancestors"
+        }, {
+            "title": "node.descendants",
+            "desc": "generate an array of descendants.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_descendants"
+        }, {
+            "title": "node.leaves",
+            "desc": "generate an array of leaves.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves"
+        }, {
+            "title": "node.path",
+            "desc": "generate the shortest path to another node.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_path"
+        }, {
+            "title": "node.links",
+            "desc": "generate an array of links.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_links"
+        }, {
+            "title": "node.sum",
+            "desc": "evaluate and aggregate quantitative values.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sum"
+        }, {
+            "title": "node.sort",
+            "desc": "sort all descendant siblings.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sort"
+        }, {
+            "title": "node.count",
+            "desc": "count the number of leaves.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_count"
+        }, {
+            "title": "node.each",
+            "desc": "breadth-first traversal.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_each"
+        }, {
+            "title": "node.eachAfter",
+            "desc": "post-order traversal.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachAfter"
+        }, {
+            "title": "node.eachBefore",
+            "desc": "pre-order traversal.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachBefore"
+        }, {
+            "title": "node.copy",
+            "desc": "copy a hierarchy.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#node_copy"
+        }]
     }, {
         "title": "d3.stratify",
         "desc": "create a new stratify operator.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify"
-    }, {
-        "title": "stratify",
-        "desc": "construct a root node from tabular data.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_stratify"
-    }, {
-        "title": "stratify.id",
-        "desc": "set the node id accessor.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify_id"
-    }, {
-        "title": "stratify.parentId",
-        "desc": "set the parent node id accessor.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify_parentId"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify",
+        "children": [{
+            "title": "stratify",
+            "desc": "construct a root node from tabular data.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_stratify"
+        }, {
+            "title": "stratify.id",
+            "desc": "set the node id accessor.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify_id"
+        }, {
+            "title": "stratify.parentId",
+            "desc": "set the parent node id accessor.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify_parentId"
+        }]
     }, {
         "title": "d3.cluster",
         "desc": "create a new cluster (dendrogram) layout.",
@@ -1543,19 +1545,20 @@
     }, {
         "title": "cluster",
         "desc": "layout the specified hierarchy in a dendrogram.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_cluster"
-    }, {
-        "title": "cluster.size",
-        "desc": "set the layout size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_size"
-    }, {
-        "title": "cluster.nodeSize",
-        "desc": "set the node size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_nodeSize"
-    }, {
-        "title": "cluster.separation",
-        "desc": "set the separation between leaves.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_separation"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_cluster",
+        "children": [{
+            "title": "cluster.size",
+            "desc": "set the layout size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_size"
+        }, {
+            "title": "cluster.nodeSize",
+            "desc": "set the node size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_nodeSize"
+        }, {
+            "title": "cluster.separation",
+            "desc": "set the separation between leaves.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster_separation"
+        }]
     }, {
         "title": "d3.tree",
         "desc": "create a new tidy tree layout.",
@@ -1563,19 +1566,20 @@
     }, {
         "title": "tree",
         "desc": "layout the specified hierarchy in a tidy tree.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_tree"
-    }, {
-        "title": "tree.size",
-        "desc": "set the layout size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_size"
-    }, {
-        "title": "tree.nodeSize",
-        "desc": "set the node size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_nodeSize"
-    }, {
-        "title": "tree.separation",
-        "desc": "set the separation between nodes.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_separation"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_tree",
+        "children": [{
+            "title": "tree.size",
+            "desc": "set the layout size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_size"
+        }, {
+            "title": "tree.nodeSize",
+            "desc": "set the node size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_nodeSize"
+        }, {
+            "title": "tree.separation",
+            "desc": "set the separation between nodes.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#tree_separation"
+        }]
     }, {
         "title": "d3.treemap",
         "desc": "create a new treemap layout.",
@@ -1583,47 +1587,48 @@
     }, {
         "title": "treemap",
         "desc": "layout the specified hierarchy as a treemap.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_treemap"
-    }, {
-        "title": "treemap.tile",
-        "desc": "set the tiling method.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_tile"
-    }, {
-        "title": "treemap.size",
-        "desc": "set the layout size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_size"
-    }, {
-        "title": "treemap.round",
-        "desc": "set whether the output coordinates are rounded.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_round"
-    }, {
-        "title": "treemap.padding",
-        "desc": "set the padding.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_padding"
-    }, {
-        "title": "treemap.paddingInner",
-        "desc": "set the padding between siblings.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingInner"
-    }, {
-        "title": "treemap.paddingOuter",
-        "desc": "set the padding between parent and children.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingOuter"
-    }, {
-        "title": "treemap.paddingTop",
-        "desc": "set the padding between the parent’s top edge and children.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingTop"
-    }, {
-        "title": "treemap.paddingRight",
-        "desc": "set the padding between the parent’s right edge and children.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingRight"
-    }, {
-        "title": "treemap.paddingBottom",
-        "desc": "set the padding between the parent’s bottom edge and children.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingBottom"
-    }, {
-        "title": "treemap.paddingLeft",
-        "desc": "set the padding between the parent’s left edge and children.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingLeft"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_treemap",
+        "children": [{
+            "title": "treemap.tile",
+            "desc": "set the tiling method.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_tile"
+        }, {
+            "title": "treemap.size",
+            "desc": "set the layout size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_size"
+        }, {
+            "title": "treemap.round",
+            "desc": "set whether the output coordinates are rounded.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_round"
+        }, {
+            "title": "treemap.padding",
+            "desc": "set the padding.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_padding"
+        }, {
+            "title": "treemap.paddingInner",
+            "desc": "set the padding between siblings.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingInner"
+        }, {
+            "title": "treemap.paddingOuter",
+            "desc": "set the padding between parent and children.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingOuter"
+        }, {
+            "title": "treemap.paddingTop",
+            "desc": "set the padding between the parent’s top edge and children.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingTop"
+        }, {
+            "title": "treemap.paddingRight",
+            "desc": "set the padding between the parent’s right edge and children.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingRight"
+        }, {
+            "title": "treemap.paddingBottom",
+            "desc": "set the padding between the parent’s bottom edge and children.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingBottom"
+        }, {
+            "title": "treemap.paddingLeft",
+            "desc": "set the padding between the parent’s left edge and children.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingLeft"
+        }]
     }, {
         "title": "d3.treemapBinary",
         "desc": "tile using a balanced binary tree.",
@@ -1647,11 +1652,12 @@
     }, {
         "title": "d3.treemapResquarify",
         "desc": "like d3.treemapSquarify, but performs stable updates.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapResquarify"
-    }, {
-        "title": "squarify.ratio",
-        "desc": "set the desired rectangle aspect ratio.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#squarify_ratio"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapResquarify",
+        "children": [{
+            "title": "squarify.ratio",
+            "desc": "set the desired rectangle aspect ratio.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#squarify_ratio"
+        }]
     }, {
         "title": "d3.partition",
         "desc": "create a new partition (icicle or sunburst) layout.",
@@ -1659,19 +1665,20 @@
     }, {
         "title": "partition",
         "desc": "layout the specified hierarchy as a partition diagram.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_partition"
-    }, {
-        "title": "partition.size",
-        "desc": "set the layout size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_size"
-    }, {
-        "title": "partition.round",
-        "desc": "set whether the output coordinates are rounded.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_round"
-    }, {
-        "title": "partition.padding",
-        "desc": "set the padding.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_padding"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_partition",
+        "children": [{
+            "title": "partition.size",
+            "desc": "set the layout size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_size"
+        }, {
+            "title": "partition.round",
+            "desc": "set whether the output coordinates are rounded.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_round"
+        }, {
+            "title": "partition.padding",
+            "desc": "set the padding.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_padding"
+        }]
     }, {
         "title": "d3.pack",
         "desc": "create a new circle-packing layout.",
@@ -1679,19 +1686,20 @@
     }, {
         "title": "pack",
         "desc": "layout the specified hierarchy using circle-packing.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_pack"
-    }, {
-        "title": "pack.radius",
-        "desc": "set the radius accessor.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_radius"
-    }, {
-        "title": "pack.size",
-        "desc": "set the layout size.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_size"
-    }, {
-        "title": "pack.padding",
-        "desc": "set the padding.",
-        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_padding"
+        "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#_pack",
+        "children": [{
+            "title": "pack.radius",
+            "desc": "set the radius accessor.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_radius"
+        }, {
+            "title": "pack.size",
+            "desc": "set the layout size.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_size"
+        }, {
+            "title": "pack.padding",
+            "desc": "set the padding.",
+            "cnhref": "https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_padding"
+        }]
     }, {
         "title": "d3.packSiblings",
         "desc": "pack the specified array of circles.",
@@ -1784,11 +1792,12 @@
     }, {
         "title": "d3.interpolateCubehelixLong",
         "desc": "interpolate Cubehelix colors, the long way.",
-        "cnhref": "https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateCubehelixLong"
-    }, {
-        "title": "interpolate.gamma",
-        "desc": "apply gamma correction during interpolation.",
-        "cnhref": "https://github.com/d3/d3-interpolate/blob/master/README.md#interpolate_gamma"
+        "cnhref": "https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateCubehelixLong",
+        "children": [{
+            "title": "interpolate.gamma",
+            "desc": "apply gamma correction during interpolation.",
+            "cnhref": "https://github.com/d3/d3-interpolate/blob/master/README.md#interpolate_gamma"
+        }]
     }, {
         "title": "d3.interpolateBasis",
         "desc": "generate a B-spline through a set of values.",
@@ -1809,43 +1818,44 @@
     "children": [{
         "title": "d3.path",
         "desc": "create a new path serializer.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path"
-    }, {
-        "title": "path.moveTo",
-        "desc": "move to the given point.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_moveTo"
-    }, {
-        "title": "path.closePath",
-        "desc": "close the current subpath.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_closePath"
-    }, {
-        "title": "path.lineTo",
-        "desc": "draw a straight line segment.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_lineTo"
-    }, {
-        "title": "path.quadraticCurveTo",
-        "desc": "draw a quadratic Bézier segment.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_quadraticCurveTo"
-    }, {
-        "title": "path.bezierCurveTo",
-        "desc": "draw a cubic Bézier segment.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_bezierCurveTo"
-    }, {
-        "title": "path.arcTo",
-        "desc": "draw a circular arc segment.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_arcTo"
-    }, {
-        "title": "path.arc",
-        "desc": "draw a circular arc segment.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_arc"
-    }, {
-        "title": "path.rect",
-        "desc": "draw a rectangle.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_rect"
-    }, {
-        "title": "path.toString",
-        "desc": "serialize to an SVG path data string.",
-        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_toString"
+        "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path",
+        "children": [{
+            "title": "path.moveTo",
+            "desc": "move to the given point.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_moveTo"
+        }, {
+            "title": "path.closePath",
+            "desc": "close the current subpath.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_closePath"
+        }, {
+            "title": "path.lineTo",
+            "desc": "draw a straight line segment.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_lineTo"
+        }, {
+            "title": "path.quadraticCurveTo",
+            "desc": "draw a quadratic Bézier segment.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_quadraticCurveTo"
+        }, {
+            "title": "path.bezierCurveTo",
+            "desc": "draw a cubic Bézier segment.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_bezierCurveTo"
+        }, {
+            "title": "path.arcTo",
+            "desc": "draw a circular arc segment.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_arcTo"
+        }, {
+            "title": "path.arc",
+            "desc": "draw a circular arc segment.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_arc"
+        }, {
+            "title": "path.rect",
+            "desc": "draw a rectangle.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_rect"
+        }, {
+            "title": "path.toString",
+            "desc": "serialize to an SVG path data string.",
+            "cnhref": "https://github.com/d3/d3-path/blob/master/README.md#path_toString"
+        }]
     }]
 }, {
     "title": "Polygons (d3-polygon)",
@@ -1879,65 +1889,66 @@
     "children": [{
         "title": "d3.quadtree",
         "desc": "create a new, empty quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree"
-    }, {
-        "title": "quadtree.x",
-        "desc": "set the x accessor.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_x"
-    }, {
-        "title": "quadtree.y",
-        "desc": "set the y accessor.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_y"
-    }, {
-        "title": "quadtree.add",
-        "desc": "add a datum to a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_add"
-    }, {
-        "title": "quadtree.addAll -",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_addAll"
-    }, {
-        "title": "quadtree.remove",
-        "desc": "remove a datum from a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_remove"
-    }, {
-        "title": "quadtree.removeAll -",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_removeAll"
-    }, {
-        "title": "quadtree.copy",
-        "desc": "create a copy of a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_copy"
-    }, {
-        "title": "quadtree.root",
-        "desc": "get the quadtree’s root node.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_root"
-    }, {
-        "title": "quadtree.data",
-        "desc": "retrieve all data from the quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_data"
-    }, {
-        "title": "quadtree.size",
-        "desc": "count the number of data in the quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_size"
-    }, {
-        "title": "quadtree.find",
-        "desc": "quickly find the closest datum in a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_find"
-    }, {
-        "title": "quadtree.visit",
-        "desc": "selectively visit nodes in a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visit"
-    }, {
-        "title": "quadtree.visitAfter",
-        "desc": "visit all nodes in a quadtree.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visitAfter"
-    }, {
-        "title": "quadtree.cover",
-        "desc": "extend the quadtree to cover a point.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_cover"
-    }, {
-        "title": "quadtree.extent",
-        "desc": "extend the quadtree to cover an extent.",
-        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_extent"
+        "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree",
+        "children": [{
+            "title": "quadtree.x",
+            "desc": "set the x accessor.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_x"
+        }, {
+            "title": "quadtree.y",
+            "desc": "set the y accessor.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_y"
+        }, {
+            "title": "quadtree.add",
+            "desc": "add a datum to a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_add"
+        }, {
+            "title": "quadtree.addAll -",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_addAll"
+        }, {
+            "title": "quadtree.remove",
+            "desc": "remove a datum from a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_remove"
+        }, {
+            "title": "quadtree.removeAll -",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_removeAll"
+        }, {
+            "title": "quadtree.copy",
+            "desc": "create a copy of a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_copy"
+        }, {
+            "title": "quadtree.root",
+            "desc": "get the quadtree’s root node.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_root"
+        }, {
+            "title": "quadtree.data",
+            "desc": "retrieve all data from the quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_data"
+        }, {
+            "title": "quadtree.size",
+            "desc": "count the number of data in the quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_size"
+        }, {
+            "title": "quadtree.find",
+            "desc": "quickly find the closest datum in a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_find"
+        }, {
+            "title": "quadtree.visit",
+            "desc": "selectively visit nodes in a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visit"
+        }, {
+            "title": "quadtree.visitAfter",
+            "desc": "visit all nodes in a quadtree.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visitAfter"
+        }, {
+            "title": "quadtree.cover",
+            "desc": "extend the quadtree to cover a point.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_cover"
+        }, {
+            "title": "quadtree.extent",
+            "desc": "extend the quadtree to cover an extent.",
+            "cnhref": "https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_extent"
+        }]
     }]
 }, {
     "title": "Queues (d3-queue)",
@@ -1946,23 +1957,24 @@
     "children": [{
         "title": "d3.queue",
         "desc": "manage the concurrent evaluation of asynchronous tasks.",
-        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue"
-    }, {
-        "title": "queue.defer",
-        "desc": "register a task for evaluation.",
-        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_defer"
-    }, {
-        "title": "queue.abort",
-        "desc": "abort any active tasks and cancel any pending ones.",
-        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_abort"
-    }, {
-        "title": "queue.await",
-        "desc": "register a callback for when tasks complete.",
-        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_await"
-    }, {
-        "title": "queue.awaitAll",
-        "desc": "register a callback for when tasks complete.",
-        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_awaitAll"
+        "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue",
+        "children": [{
+            "title": "queue.defer",
+            "desc": "register a task for evaluation.",
+            "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_defer"
+        }, {
+            "title": "queue.abort",
+            "desc": "abort any active tasks and cancel any pending ones.",
+            "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_abort"
+        }, {
+            "title": "queue.await",
+            "desc": "register a callback for when tasks complete.",
+            "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_await"
+        }, {
+            "title": "queue.awaitAll",
+            "desc": "register a callback for when tasks complete.",
+            "cnhref": "https://github.com/d3/d3-queue/blob/master/README.md#queue_awaitAll"
+        }]
     }]
 }, {
     "title": "Random Numbers (d3-random)",
@@ -2000,55 +2012,56 @@
     "children": [{
         "title": "d3.request",
         "desc": "make an asynchronous request.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request"
-    }, {
-        "title": "request.header",
-        "desc": "set a request header.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_header"
-    }, {
-        "title": "request.user",
-        "desc": "set the user for authentication.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_user"
-    }, {
-        "title": "request.password",
-        "desc": "set the password for authentication.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_password"
-    }, {
-        "title": "request.mimeType",
-        "desc": "set the MIME type.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_mimeType"
-    }, {
-        "title": "request.timeout",
-        "desc": "set the timeout in milliseconds.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_timeout"
-    }, {
-        "title": "request.responseType",
-        "desc": "set the response type.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_responseType"
-    }, {
-        "title": "request.response",
-        "desc": "set the response function.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_response"
-    }, {
-        "title": "request.get",
-        "desc": "send a GET request.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_get"
-    }, {
-        "title": "request.post",
-        "desc": "send a POST request.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_post"
-    }, {
-        "title": "request.send",
-        "desc": "set the request.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_send"
-    }, {
-        "title": "request.abort",
-        "desc": "abort the request.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_abort"
-    }, {
-        "title": "request.on",
-        "desc": "listen for a request event.",
-        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_on"
+        "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request",
+        "children": [{
+            "title": "request.header",
+            "desc": "set a request header.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_header"
+        }, {
+            "title": "request.user",
+            "desc": "set the user for authentication.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_user"
+        }, {
+            "title": "request.password",
+            "desc": "set the password for authentication.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_password"
+        }, {
+            "title": "request.mimeType",
+            "desc": "set the MIME type.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_mimeType"
+        }, {
+            "title": "request.timeout",
+            "desc": "set the timeout in milliseconds.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_timeout"
+        }, {
+            "title": "request.responseType",
+            "desc": "set the response type.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_responseType"
+        }, {
+            "title": "request.response",
+            "desc": "set the response function.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_response"
+        }, {
+            "title": "request.get",
+            "desc": "send a GET request.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_get"
+        }, {
+            "title": "request.post",
+            "desc": "send a POST request.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_post"
+        }, {
+            "title": "request.send",
+            "desc": "set the request.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_send"
+        }, {
+            "title": "request.abort",
+            "desc": "abort the request.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_abort"
+        }, {
+            "title": "request.on",
+            "desc": "listen for a request event.",
+            "cnhref": "https://github.com/d3/d3-request/blob/master/README.md#request_on"
+        }]
     }, {
         "title": "d3.csv",
         "desc": "get a comma-separated values (CSV) file.",
@@ -2085,47 +2098,48 @@
         "children": [{
             "title": "continuous",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_continuous"
-        }, {
-            "title": "continuous.invert",
-            "desc": "compute the domain value corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_invert"
-        }, {
-            "title": "continuous.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_domain"
-        }, {
-            "title": "continuous.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_range"
-        }, {
-            "title": "continuous.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_rangeRound"
-        }, {
-            "title": "continuous.clamp",
-            "desc": "enable clamping to the domain or range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_clamp"
-        }, {
-            "title": "continuous.interpolate",
-            "desc": "set the output interpolator.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_interpolate"
-        }, {
-            "title": "continuous.ticks",
-            "desc": "compute representative values from the domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks"
-        }, {
-            "title": "continuous.tickFormat",
-            "desc": "format ticks for human consumption.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat"
-        }, {
-            "title": "continuous.nice",
-            "desc": "extend the domain to nice round numbers.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_nice"
-        }, {
-            "title": "continuous.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_continuous",
+            "children": [{
+                "title": "continuous.invert",
+                "desc": "compute the domain value corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_invert"
+            }, {
+                "title": "continuous.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_domain"
+            }, {
+                "title": "continuous.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_range"
+            }, {
+                "title": "continuous.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_rangeRound"
+            }, {
+                "title": "continuous.clamp",
+                "desc": "enable clamping to the domain or range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_clamp"
+            }, {
+                "title": "continuous.interpolate",
+                "desc": "set the output interpolator.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_interpolate"
+            }, {
+                "title": "continuous.ticks",
+                "desc": "compute representative values from the domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks"
+            }, {
+                "title": "continuous.tickFormat",
+                "desc": "format ticks for human consumption.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat"
+            }, {
+                "title": "continuous.nice",
+                "desc": "extend the domain to nice round numbers.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_nice"
+            }, {
+                "title": "continuous.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#continuous_copy"
+            }]
         }, {
             "title": "d3.scaleLinear",
             "desc": "create a quantitative linear scale.",
@@ -2137,51 +2151,52 @@
         }, {
             "title": "pow",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_pow"
-        }, {
-            "title": "pow.invert",
-            "desc": "compute the domain value corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_invert"
-        }, {
-            "title": "pow.exponent",
-            "desc": "set the power exponent.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_exponent"
-        }, {
-            "title": "pow.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_domain"
-        }, {
-            "title": "pow.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_range"
-        }, {
-            "title": "pow.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_rangeRound"
-        }, {
-            "title": "pow.clamp",
-            "desc": "enable clamping to the domain or range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_clamp"
-        }, {
-            "title": "pow.interpolate",
-            "desc": "set the output interpolator.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_interpolate"
-        }, {
-            "title": "pow.ticks",
-            "desc": "compute representative values from the domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_ticks"
-        }, {
-            "title": "pow.tickFormat",
-            "desc": "format ticks for human consumption.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_tickFormat"
-        }, {
-            "title": "pow.nice",
-            "desc": "extend the domain to nice round numbers.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_nice"
-        }, {
-            "title": "pow.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_pow",
+            "children": [{
+                "title": "pow.invert",
+                "desc": "compute the domain value corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_invert"
+            }, {
+                "title": "pow.exponent",
+                "desc": "set the power exponent.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_exponent"
+            }, {
+                "title": "pow.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_domain"
+            }, {
+                "title": "pow.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_range"
+            }, {
+                "title": "pow.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_rangeRound"
+            }, {
+                "title": "pow.clamp",
+                "desc": "enable clamping to the domain or range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_clamp"
+            }, {
+                "title": "pow.interpolate",
+                "desc": "set the output interpolator.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_interpolate"
+            }, {
+                "title": "pow.ticks",
+                "desc": "compute representative values from the domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_ticks"
+            }, {
+                "title": "pow.tickFormat",
+                "desc": "format ticks for human consumption.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_tickFormat"
+            }, {
+                "title": "pow.nice",
+                "desc": "extend the domain to nice round numbers.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_nice"
+            }, {
+                "title": "pow.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#pow_copy"
+            }]
         }, {
             "title": "d3.scaleSqrt",
             "desc": "create a quantitative power scale with exponent 0.5.",
@@ -2193,51 +2208,52 @@
         }, {
             "title": "log",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_log"
-        }, {
-            "title": "log.invert",
-            "desc": "compute the domain value corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_invert"
-        }, {
-            "title": "log.base",
-            "desc": "set the logarithm base.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_base"
-        }, {
-            "title": "log.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_domain"
-        }, {
-            "title": "log.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_range"
-        }, {
-            "title": "log.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_rangeRound"
-        }, {
-            "title": "log.clamp",
-            "desc": "enable clamping to the domain or range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_clamp"
-        }, {
-            "title": "log.interpolate",
-            "desc": "set the output interpolator.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_interpolate"
-        }, {
-            "title": "log.ticks",
-            "desc": "compute representative values from the domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_ticks"
-        }, {
-            "title": "log.tickFormat",
-            "desc": "format ticks for human consumption.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_tickFormat"
-        }, {
-            "title": "log.nice",
-            "desc": "extend the domain to nice round numbers.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_nice"
-        }, {
-            "title": "log.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_log",
+            "children": [{
+                "title": "log.invert",
+                "desc": "compute the domain value corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_invert"
+            }, {
+                "title": "log.base",
+                "desc": "set the logarithm base.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_base"
+            }, {
+                "title": "log.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_domain"
+            }, {
+                "title": "log.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_range"
+            }, {
+                "title": "log.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_rangeRound"
+            }, {
+                "title": "log.clamp",
+                "desc": "enable clamping to the domain or range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_clamp"
+            }, {
+                "title": "log.interpolate",
+                "desc": "set the output interpolator.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_interpolate"
+            }, {
+                "title": "log.ticks",
+                "desc": "compute representative values from the domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_ticks"
+            }, {
+                "title": "log.tickFormat",
+                "desc": "format ticks for human consumption.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_tickFormat"
+            }, {
+                "title": "log.nice",
+                "desc": "extend the domain to nice round numbers.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_nice"
+            }, {
+                "title": "log.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#log_copy"
+            }]
         }, {
             "title": "d3.scaleIdentity",
             "desc": "create a quantitative identity scale.",
@@ -2249,47 +2265,48 @@
         }, {
             "title": "time",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_time"
-        }, {
-            "title": "time.invert",
-            "desc": "compute the domain value corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_invert"
-        }, {
-            "title": "time.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_domain"
-        }, {
-            "title": "time.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_range"
-        }, {
-            "title": "time.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_rangeRound"
-        }, {
-            "title": "time.clamp",
-            "desc": "enable clamping to the domain or range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_clamp"
-        }, {
-            "title": "time.interpolate",
-            "desc": "set the output interpolator.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_interpolate"
-        }, {
-            "title": "time.ticks",
-            "desc": "compute representative values from the domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_ticks"
-        }, {
-            "title": "time.tickFormat",
-            "desc": "format ticks for human consumption.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_tickFormat"
-        }, {
-            "title": "time.nice",
-            "desc": "extend the domain to nice round times.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_nice"
-        }, {
-            "title": "time.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_time",
+            "children": [{
+                "title": "time.invert",
+                "desc": "compute the domain value corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_invert"
+            }, {
+                "title": "time.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_domain"
+            }, {
+                "title": "time.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_range"
+            }, {
+                "title": "time.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_rangeRound"
+            }, {
+                "title": "time.clamp",
+                "desc": "enable clamping to the domain or range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_clamp"
+            }, {
+                "title": "time.interpolate",
+                "desc": "set the output interpolator.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_interpolate"
+            }, {
+                "title": "time.ticks",
+                "desc": "compute representative values from the domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_ticks"
+            }, {
+                "title": "time.tickFormat",
+                "desc": "format ticks for human consumption.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_tickFormat"
+            }, {
+                "title": "time.nice",
+                "desc": "extend the domain to nice round times.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_nice"
+            }, {
+                "title": "time.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#time_copy"
+            }]
         }, {
             "title": "d3.scaleUtc",
             "desc": "create a linear scale for UTC.",
@@ -2302,11 +2319,12 @@
         "children": [{
             "title": "d3.scaleSequential",
             "desc": "create a sequential scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential"
-        }, {
-            "title": "sequential.interpolator",
-            "desc": "set the scale’s output interpolator.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential",
+            "children": [{
+                "title": "sequential.interpolator",
+                "desc": "set the scale’s output interpolator.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator"
+            }]
         }, {
             "title": "d3.interpolateViridis",
             "desc": "a dark-to-light color scheme.",
@@ -2351,35 +2369,36 @@
         }, {
             "title": "quantize",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_quantize"
-        }, {
-            "title": "quantize.invertExtent",
-            "desc": "compute the domain values corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_invertExtent"
-        }, {
-            "title": "quantize.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_domain"
-        }, {
-            "title": "quantize.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_range"
-        }, {
-            "title": "quantize.nice",
-            "desc": "extend the domain to nice round numbers.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_nice"
-        }, {
-            "title": "quantize.ticks",
-            "desc": "compute representative values from the domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_ticks"
-        }, {
-            "title": "quantize.tickFormat",
-            "desc": "format ticks for human consumption.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_tickFormat"
-        }, {
-            "title": "quantize.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_quantize",
+            "children": [{
+                "title": "quantize.invertExtent",
+                "desc": "compute the domain values corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_invertExtent"
+            }, {
+                "title": "quantize.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_domain"
+            }, {
+                "title": "quantize.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_range"
+            }, {
+                "title": "quantize.nice",
+                "desc": "extend the domain to nice round numbers.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_nice"
+            }, {
+                "title": "quantize.ticks",
+                "desc": "compute representative values from the domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_ticks"
+            }, {
+                "title": "quantize.tickFormat",
+                "desc": "format ticks for human consumption.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_tickFormat"
+            }, {
+                "title": "quantize.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantize_copy"
+            }]
         }, {
             "title": "d3.scaleQuantile",
             "desc": "create a quantile quantizing linear scale.",
@@ -2387,27 +2406,28 @@
         }, {
             "title": "quantile",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_quantile"
-        }, {
-            "title": "quantile.invertExtent",
-            "desc": "compute the domain values corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_invertExtent"
-        }, {
-            "title": "quantile.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_domain"
-        }, {
-            "title": "quantile.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_range"
-        }, {
-            "title": "quantile.quantiles",
-            "desc": "get the quantile thresholds.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_quantiles"
-        }, {
-            "title": "quantile.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_quantile",
+            "children": [{
+                "title": "quantile.invertExtent",
+                "desc": "compute the domain values corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_invertExtent"
+            }, {
+                "title": "quantile.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_domain"
+            }, {
+                "title": "quantile.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_range"
+            }, {
+                "title": "quantile.quantiles",
+                "desc": "get the quantile thresholds.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_quantiles"
+            }, {
+                "title": "quantile.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#quantile_copy"
+            }]
         }, {
             "title": "d3.scaleThreshold",
             "desc": "create an arbitrary quantizing linear scale.",
@@ -2415,23 +2435,24 @@
         }, {
             "title": "threshold",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_threshold"
-        }, {
-            "title": "threshold.invertExtent",
-            "desc": "compute the domain values corresponding to a given range value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_invertExtent"
-        }, {
-            "title": "threshold.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_domain"
-        }, {
-            "title": "threshold.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_range"
-        }, {
-            "title": "threshold.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_threshold",
+            "children": [{
+                "title": "threshold.invertExtent",
+                "desc": "compute the domain values corresponding to a given range value.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_invertExtent"
+            }, {
+                "title": "threshold.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_domain"
+            }, {
+                "title": "threshold.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_range"
+            }, {
+                "title": "threshold.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#threshold_copy"
+            }]
         }]
     }, {
         "title": "Ordinal Scales",
@@ -2444,23 +2465,24 @@
         }, {
             "title": "ordinal",
             "desc": "compute the range value corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_ordinal"
-        }, {
-            "title": "ordinal.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_domain"
-        }, {
-            "title": "ordinal.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_range"
-        }, {
-            "title": "ordinal.unknown",
-            "desc": "set the output value for unknown inputs.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_unknown"
-        }, {
-            "title": "ordinal.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_ordinal",
+            "children": [{
+                "title": "ordinal.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_domain"
+            }, {
+                "title": "ordinal.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_range"
+            }, {
+                "title": "ordinal.unknown",
+                "desc": "set the output value for unknown inputs.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_unknown"
+            }, {
+                "title": "ordinal.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#ordinal_copy"
+            }]
         }, {
             "title": "d3.scaleImplicit",
             "desc": "a special unknown value for implicit domains.",
@@ -2472,51 +2494,52 @@
         }, {
             "title": "band",
             "desc": "compute the band start corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_band"
-        }, {
-            "title": "band.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_domain"
-        }, {
-            "title": "band.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_range"
-        }, {
-            "title": "band.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_rangeRound"
-        }, {
-            "title": "band.round",
-            "desc": "enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_round"
-        }, {
-            "title": "band.paddingInner",
-            "desc": "set padding between bands.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_paddingInner"
-        }, {
-            "title": "band.paddingOuter",
-            "desc": "set padding outside the first and last bands.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_paddingOuter"
-        }, {
-            "title": "band.padding",
-            "desc": "set padding outside and between bands.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_padding"
-        }, {
-            "title": "band.align",
-            "desc": "set band alignment, if there is extra space.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_align"
-        }, {
-            "title": "band.bandwidth",
-            "desc": "get the width of each band.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_bandwidth"
-        }, {
-            "title": "band.step",
-            "desc": "get the distance between the starts of adjacent bands.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_step"
-        }, {
-            "title": "band.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_band",
+            "children": [{
+                "title": "band.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_domain"
+            }, {
+                "title": "band.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_range"
+            }, {
+                "title": "band.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_rangeRound"
+            }, {
+                "title": "band.round",
+                "desc": "enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_round"
+            }, {
+                "title": "band.paddingInner",
+                "desc": "set padding between bands.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_paddingInner"
+            }, {
+                "title": "band.paddingOuter",
+                "desc": "set padding outside the first and last bands.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_paddingOuter"
+            }, {
+                "title": "band.padding",
+                "desc": "set padding outside and between bands.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_padding"
+            }, {
+                "title": "band.align",
+                "desc": "set band alignment, if there is extra space.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_align"
+            }, {
+                "title": "band.bandwidth",
+                "desc": "get the width of each band.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_bandwidth"
+            }, {
+                "title": "band.step",
+                "desc": "get the distance between the starts of adjacent bands.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_step"
+            }, {
+                "title": "band.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#band_copy"
+            }]
         }, {
             "title": "d3.scalePoint",
             "desc": "create an ordinal point scale.",
@@ -2524,43 +2547,44 @@
         }, {
             "title": "point",
             "desc": "compute the point corresponding to a given domain value.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_point"
-        }, {
-            "title": "point.domain",
-            "desc": "set the input domain.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_domain"
-        }, {
-            "title": "point.range",
-            "desc": "set the output range.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_range"
-        }, {
-            "title": "point.rangeRound",
-            "desc": "set the output range and enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_rangeRound"
-        }, {
-            "title": "point.round",
-            "desc": "enable rounding.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_round"
-        }, {
-            "title": "point.padding",
-            "desc": "set padding outside the first and last point.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_padding"
-        }, {
-            "title": "point.align",
-            "desc": "set point alignment, if there is extra space.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_align"
-        }, {
-            "title": "point.bandwidth",
-            "desc": "returns zero.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_bandwidth"
-        }, {
-            "title": "point.step",
-            "desc": "get the distance between the starts of adjacent points.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_step"
-        }, {
-            "title": "point.copy",
-            "desc": "create a copy of this scale.",
-            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_copy"
+            "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#_point",
+            "children": [{
+                "title": "point.domain",
+                "desc": "set the input domain.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_domain"
+            }, {
+                "title": "point.range",
+                "desc": "set the output range.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_range"
+            }, {
+                "title": "point.rangeRound",
+                "desc": "set the output range and enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_rangeRound"
+            }, {
+                "title": "point.round",
+                "desc": "enable rounding.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_round"
+            }, {
+                "title": "point.padding",
+                "desc": "set padding outside the first and last point.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_padding"
+            }, {
+                "title": "point.align",
+                "desc": "set point alignment, if there is extra space.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_align"
+            }, {
+                "title": "point.bandwidth",
+                "desc": "returns zero.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_bandwidth"
+            }, {
+                "title": "point.step",
+                "desc": "get the distance between the starts of adjacent points.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_step"
+            }, {
+                "title": "point.copy",
+                "desc": "create a copy of this scale.",
+                "cnhref": "https://github.com/d3/d3-scale/blob/master/README.md#point_copy"
+            }]
         }, {
             "title": "d3.schemeCategory10",
             "desc": "a categorical scheme with 10 colors.",
@@ -2586,8 +2610,237 @@
     "children": [{
         "title": "Selecting Elements",
         "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selecting-elements",
-        "desc": "\nd3.selection - select the root document element.\nd3.select - select an element from the document.\nd3.selectAll - select multiple elements from the document.\nselection.select - select a descendant element for each selected element.\nselection.selectAll - select multiple descendants for each selected element.\nselection.filter - filter elements based on data.\nselection.merge - merge this selection with another.\nd3.matcher - test whether an element matches a selector.\nd3.selector - select an element.\nd3.selectorAll - select elements.\nd3.window - get a node’s owner window.\n",
-        "children": []
+        "desc": "Transform the DOM by selecting elements and joining to data.",
+        "children": [{
+            "title": "Selecting Elements",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selecting-elements",
+            "children": [{
+                "title": "d3.selection",
+                "desc": "select the root document element.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection",
+                "children": [{
+                    "title": "selection.select",
+                    "desc": "select a descendant element for each selected element.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_select"
+                }, {
+                    "title": "selection.selectAll",
+                    "desc": "select multiple descendants for each selected element.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_selectAll"
+                }, {
+                    "title": "selection.filter",
+                    "desc": "filter elements based on data.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_filter"
+                }, {
+                    "title": "selection.merge",
+                    "desc": "merge this selection with another.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_merge"
+                }]
+            }, {
+                "title": "d3.select",
+                "desc": "select an element from the document.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#select"
+            }, {
+                "title": "d3.matcher",
+                "desc": "test whether an element matches a selector.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#matcher"
+            }, {
+                "title": "d3.selector",
+                "desc": "select an element.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selector"
+            }, {
+                "title": "d3.selectorAll",
+                "desc": "select elements.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selectorAll"
+            }, {
+                "title": "d3.window",
+                "desc": "get a node’s owner window.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#window"
+            }]
+        }, {
+            "title": "Modifying Elements",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#modifying-elements",
+            "children": [{
+                "title": "selection.attr",
+                "desc": "get or set an attribute.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_attr"
+            }, {
+                "title": "selection.classed",
+                "desc": "get, add or remove CSS classes.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_classed"
+            }, {
+                "title": "selection.style",
+                "desc": "get or set a style property.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_style"
+            }, {
+                "title": "selection.property",
+                "desc": "get or set a (raw) property.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_property"
+            }, {
+                "title": "selection.text",
+                "desc": "get or set the text content.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_text"
+            }, {
+                "title": "selection.html",
+                "desc": "get or set the inner HTML.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_html"
+            }, {
+                "title": "selection.append",
+                "desc": "create, append and select new elements.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_append"
+            }, {
+                "title": "selection.insert",
+                "desc": "create, insert and select new elements.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_insert"
+            }, {
+                "title": "selection.remove",
+                "desc": "remove elements from the document.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_remove"
+            }, {
+                "title": "selection.sort",
+                "desc": "sort elements in the document based on data.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_order"
+            }, {
+                "title": "selection.order",
+                "desc": "reorders elements in the document to match the selection",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_order"
+            }, {
+                "title": "selection.raise",
+                "desc": "reorders each element as the last child of its parent.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_raise"
+            }, {
+                "title": "selection.lower",
+                "desc": "reorders each element as the first child of its parent.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_lower"
+            }, {
+                "title": "d3.creator",
+                "desc": "create an element by name.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#creator"
+            }]
+        }, {
+            "title": "Joining Data",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#joining-data",
+            "children": [{
+                "title": "selection.data",
+                "desc": "join elements to data.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_data"
+            }, {
+                "title": "selection.enter",
+                "desc": "get the enter selection (data missing elements).",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_enter"
+            }, {
+                "title": "selection.exit",
+                "desc": "get the exit selection (elements missing data).",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_exit"
+            }, {
+                "title": "selection.datum",
+                "desc": "get or set element data (without joining).",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_datum"
+            }]
+        }, {
+            "title": "Handling Events",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#handling-events",
+            "children": [{
+                "title": "selection.on",
+                "desc": "add or remove event listeners.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_on"
+            }, {
+                "title": "selection.dispatch",
+                "desc": "dispatch a custom event.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_dispatch"
+            }, {
+                "title": "d3.event",
+                "desc": "the current user event, during interaction.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#event"
+            }, {
+                "title": "d3.customEvent",
+                "desc": "temporarily define a custom event.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#customEvent"
+            }, {
+                "title": "d3.mouse",
+                "desc": "get the mouse position relative to a given container.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#mouse"
+            }, {
+                "title": "d3.touch",
+                "desc": "get a touch position relative to a given container.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#touch"
+            }, {
+                "title": "d3.touches",
+                "desc": "get the touch positions relative to a given container.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#touches"
+            }]
+        }, {
+            "title": "Control Flow",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#control-flow",
+            "children": [{
+                "title": "selection.each",
+                "desc": "call a function for each element.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_each"
+            }, {
+                "title": "selection.call",
+                "desc": "call a function with this selection",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_call"
+            }, {
+                "title": "selection.empty",
+                "desc": "returns true if this selection is empty.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_empty"
+            }, {
+                "title": "selection.nodes",
+                "desc": "returns an array of all selected elements.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_nodes"
+            }, {
+                "title": "selection.node",
+                "desc": "returns the first (non-null) element.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_node"
+            }, {
+                "title": "selection.size",
+                "desc": "returns the count of elements.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#selection_size"
+            }]
+        }, {
+            "title": "Local Variables",
+            "desc": "",
+            "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local-variables",
+            "children": [{
+                "title": "d3.local ",
+                "desc": "declares a new local variable.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local",
+                "children": [{
+                    "title": "local.set",
+                    "desc": "set a local variable’s value.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local_set"
+                }, {
+                    "title": "local.get",
+                    "desc": "get a local variable’s value.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local_get"
+                }, {
+                    "title": "local.remove",
+                    "desc": "delete a local variable.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local_remove"
+                }, {
+                    "title": "local.toString",
+                    "desc": "get the property identifier of a local variable.",
+                    "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#local_toString"
+                }]
+            }]
+        }, {
+            "title": "Namespaces",
+            "desc": "",
+            "cnhref": "",
+            "children": [{
+                "title": "d3.namespace",
+                "desc": "qualify a prefixed XML name, such as 'xlink:href'.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#namespace"
+            }, {
+                "title": "d3.namespaces",
+                "desc": " the built-in XML namespaces.",
+                "cnhref": "https://github.com/d3/d3-selection/blob/master/README.md#namespaces"
+            }]
+        }]
     }]
 }, {
     "title": "Shapes (d3-shape)",
@@ -2604,43 +2857,44 @@
         }, {
             "title": "arc",
             "desc": "generate an arc for the given datum.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_arc"
-        }, {
-            "title": "arc.centroid",
-            "desc": "compute an arc’s midpoint.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_centroid"
-        }, {
-            "title": "arc.innerRadius",
-            "desc": "set the inner radius.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_innerRadius"
-        }, {
-            "title": "arc.outerRadius",
-            "desc": "set the outer radius.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_outerRadius"
-        }, {
-            "title": "arc.cornerRadius",
-            "desc": "set the corner radius, for rounded corners.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_cornerRadius"
-        }, {
-            "title": "arc.startAngle",
-            "desc": "set the start angle.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_startAngle"
-        }, {
-            "title": "arc.endAngle",
-            "desc": "set the end angle.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_endAngle"
-        }, {
-            "title": "arc.padAngle",
-            "desc": "set the angle between adjacent arcs, for padded arcs.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_padAngle"
-        }, {
-            "title": "arc.padRadius",
-            "desc": "set the radius at which to linearize padding.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_padRadius"
-        }, {
-            "title": "arc.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_context"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_arc",
+            "children": [{
+                "title": "arc.centroid",
+                "desc": "compute an arc’s midpoint.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_centroid"
+            }, {
+                "title": "arc.innerRadius",
+                "desc": "set the inner radius.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_innerRadius"
+            }, {
+                "title": "arc.outerRadius",
+                "desc": "set the outer radius.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_outerRadius"
+            }, {
+                "title": "arc.cornerRadius",
+                "desc": "set the corner radius, for rounded corners.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_cornerRadius"
+            }, {
+                "title": "arc.startAngle",
+                "desc": "set the start angle.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_startAngle"
+            }, {
+                "title": "arc.endAngle",
+                "desc": "set the end angle.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_endAngle"
+            }, {
+                "title": "arc.padAngle",
+                "desc": "set the angle between adjacent arcs, for padded arcs.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_padAngle"
+            }, {
+                "title": "arc.padRadius",
+                "desc": "set the radius at which to linearize padding.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_padRadius"
+            }, {
+                "title": "arc.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#arc_context"
+            }]
         }]
     }, {
         "title": "Pies",
@@ -2653,31 +2907,32 @@
         }, {
             "title": "pie",
             "desc": "compute the arc angles for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_pie"
-        }, {
-            "title": "pie.value",
-            "desc": "set the value accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_value"
-        }, {
-            "title": "pie.sort",
-            "desc": "set the sort order comparator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_sort"
-        }, {
-            "title": "pie.sortValues",
-            "desc": "set the sort order comparator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_sortValues"
-        }, {
-            "title": "pie.startAngle",
-            "desc": "set the overall start angle.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_startAngle"
-        }, {
-            "title": "pie.endAngle",
-            "desc": "set the overall end angle.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_endAngle"
-        }, {
-            "title": "pie.padAngle",
-            "desc": "set the pad angle between adjacent arcs.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_padAngle"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_pie",
+            "children": [{
+                "title": "pie.value",
+                "desc": "set the value accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_value"
+            }, {
+                "title": "pie.sort",
+                "desc": "set the sort order comparator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_sort"
+            }, {
+                "title": "pie.sortValues",
+                "desc": "set the sort order comparator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_sortValues"
+            }, {
+                "title": "pie.startAngle",
+                "desc": "set the overall start angle.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_startAngle"
+            }, {
+                "title": "pie.endAngle",
+                "desc": "set the overall end angle.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_endAngle"
+            }, {
+                "title": "pie.padAngle",
+                "desc": "set the pad angle between adjacent arcs.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#pie_padAngle"
+            }]
         }]
     }, {
         "title": "Lines",
@@ -2690,27 +2945,28 @@
         }, {
             "title": "line",
             "desc": "generate a line for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_line"
-        }, {
-            "title": "line.x",
-            "desc": "set the x accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_x"
-        }, {
-            "title": "line.y",
-            "desc": "set the y accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_y"
-        }, {
-            "title": "line.defined",
-            "desc": "set the defined accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_defined"
-        }, {
-            "title": "line.curve",
-            "desc": "set the curve interpolator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_curve"
-        }, {
-            "title": "line.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_context"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_line",
+            "children": [{
+                "title": "line.x",
+                "desc": "set the x accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_x"
+            }, {
+                "title": "line.y",
+                "desc": "set the y accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_y"
+            }, {
+                "title": "line.defined",
+                "desc": "set the defined accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_defined"
+            }, {
+                "title": "line.curve",
+                "desc": "set the curve interpolator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_curve"
+            }, {
+                "title": "line.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#line_context"
+            }]
         }, {
             "title": "d3.radialLine",
             "desc": "create a new radial line generator.",
@@ -2718,27 +2974,28 @@
         }, {
             "title": "radialLine",
             "desc": "generate a line for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_radialLine"
-        }, {
-            "title": "radialLine.angle",
-            "desc": "set the angle accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_angle"
-        }, {
-            "title": "radialLine.radius",
-            "desc": "set the radius accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_radius"
-        }, {
-            "title": "radialLine.defined",
-            "desc": "set the defined accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_defined"
-        }, {
-            "title": "radialLine.curve",
-            "desc": "set the curve interpolator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_curve"
-        }, {
-            "title": "radialLine.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_context"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_radialLine",
+            "children": [{
+                "title": "radialLine.angle",
+                "desc": "set the angle accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_angle"
+            }, {
+                "title": "radialLine.radius",
+                "desc": "set the radius accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_radius"
+            }, {
+                "title": "radialLine.defined",
+                "desc": "set the defined accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_defined"
+            }, {
+                "title": "radialLine.curve",
+                "desc": "set the curve interpolator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_curve"
+            }, {
+                "title": "radialLine.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialLine_context"
+            }]
         }]
     }, {
         "title": "Areas",
@@ -2751,59 +3008,60 @@
         }, {
             "title": "area",
             "desc": "generate an area for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_area"
-        }, {
-            "title": "area.x",
-            "desc": "set the x0 and x1 accessors.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x"
-        }, {
-            "title": "area.x0",
-            "desc": "set the baseline x accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x0"
-        }, {
-            "title": "area.x1",
-            "desc": "set the topline x accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x1"
-        }, {
-            "title": "area.y",
-            "desc": "set the y0 and y1 accessors.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y"
-        }, {
-            "title": "area.y0",
-            "desc": "set the baseline y accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y0"
-        }, {
-            "title": "area.y1",
-            "desc": "set the topline y accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y1"
-        }, {
-            "title": "area.defined",
-            "desc": "set the defined accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_defined"
-        }, {
-            "title": "area.curve",
-            "desc": "set the curve interpolator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_curve"
-        }, {
-            "title": "area.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_context"
-        }, {
-            "title": "area.lineX0",
-            "desc": "derive a line for the left edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineX0"
-        }, {
-            "title": "area.lineX1",
-            "desc": "derive a line for the right edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineX1"
-        }, {
-            "title": "area.lineY0",
-            "desc": "derive a line for the top edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineY0"
-        }, {
-            "title": "area.lineY1",
-            "desc": "derive a line for the bottom edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineY1"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_area",
+            "children": [{
+                "title": "area.x",
+                "desc": "set the x0 and x1 accessors.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x"
+            }, {
+                "title": "area.x0",
+                "desc": "set the baseline x accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x0"
+            }, {
+                "title": "area.x1",
+                "desc": "set the topline x accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_x1"
+            }, {
+                "title": "area.y",
+                "desc": "set the y0 and y1 accessors.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y"
+            }, {
+                "title": "area.y0",
+                "desc": "set the baseline y accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y0"
+            }, {
+                "title": "area.y1",
+                "desc": "set the topline y accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_y1"
+            }, {
+                "title": "area.defined",
+                "desc": "set the defined accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_defined"
+            }, {
+                "title": "area.curve",
+                "desc": "set the curve interpolator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_curve"
+            }, {
+                "title": "area.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_context"
+            }, {
+                "title": "area.lineX0",
+                "desc": "derive a line for the left edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineX0"
+            }, {
+                "title": "area.lineX1",
+                "desc": "derive a line for the right edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineX1"
+            }, {
+                "title": "area.lineY0",
+                "desc": "derive a line for the top edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineY0"
+            }, {
+                "title": "area.lineY1",
+                "desc": "derive a line for the bottom edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineY1"
+            }]
         }, {
             "title": "d3.radialArea",
             "desc": "create a new radial area generator.",
@@ -2811,59 +3069,60 @@
         }, {
             "title": "radialArea",
             "desc": "generate an area for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_radialArea"
-        }, {
-            "title": "radialArea.angle",
-            "desc": "set the start and end angle accessors.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_angle"
-        }, {
-            "title": "radialArea.startAngle",
-            "desc": "set the start angle accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_startAngle"
-        }, {
-            "title": "radialArea.endAngle",
-            "desc": "set the end angle accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_endAngle"
-        }, {
-            "title": "radialArea.radius",
-            "desc": "set the inner and outer radius accessors.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_radius"
-        }, {
-            "title": "radialArea.innerRadius",
-            "desc": "set the inner radius accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_innerRadius"
-        }, {
-            "title": "radialArea.outerRadius",
-            "desc": "set the outer radius accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_outerRadius"
-        }, {
-            "title": "radialArea.defined",
-            "desc": "set the defined accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_defined"
-        }, {
-            "title": "radialArea.curve",
-            "desc": "set the curve interpolator.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_curve"
-        }, {
-            "title": "radialArea.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_context"
-        }, {
-            "title": "radialArea.lineStartAngle",
-            "desc": "derive a line for the start edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineStartAngle"
-        }, {
-            "title": "radialArea.lineEndAngle",
-            "desc": "derive a line for the end edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineEndAngle"
-        }, {
-            "title": "radialArea.lineInnerRadius",
-            "desc": "derive a line for the inner edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineInnerRadius"
-        }, {
-            "title": "radialArea.lineOuterRadius",
-            "desc": "derive a line for the outer edge of an area.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineOuterRadius"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_radialArea",
+            "children": [{
+                "title": "radialArea.angle",
+                "desc": "set the start and end angle accessors.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_angle"
+            }, {
+                "title": "radialArea.startAngle",
+                "desc": "set the start angle accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_startAngle"
+            }, {
+                "title": "radialArea.endAngle",
+                "desc": "set the end angle accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_endAngle"
+            }, {
+                "title": "radialArea.radius",
+                "desc": "set the inner and outer radius accessors.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_radius"
+            }, {
+                "title": "radialArea.innerRadius",
+                "desc": "set the inner radius accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_innerRadius"
+            }, {
+                "title": "radialArea.outerRadius",
+                "desc": "set the outer radius accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_outerRadius"
+            }, {
+                "title": "radialArea.defined",
+                "desc": "set the defined accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_defined"
+            }, {
+                "title": "radialArea.curve",
+                "desc": "set the curve interpolator.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_curve"
+            }, {
+                "title": "radialArea.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#radialArea_context"
+            }, {
+                "title": "radialArea.lineStartAngle",
+                "desc": "derive a line for the start edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineStartAngle"
+            }, {
+                "title": "radialArea.lineEndAngle",
+                "desc": "derive a line for the end edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineEndAngle"
+            }, {
+                "title": "radialArea.lineInnerRadius",
+                "desc": "derive a line for the inner edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineInnerRadius"
+            }, {
+                "title": "radialArea.lineOuterRadius",
+                "desc": "derive a line for the outer edge of an area.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#area_lineOuterRadius"
+            }]
         }]
     }, {
         "title": "Curves",
@@ -2884,11 +3143,12 @@
         }, {
             "title": "d3.curveBundle",
             "desc": "a straightened cubic basis spline.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveBundle"
-        }, {
-            "title": "bundle.beta",
-            "desc": "set the bundle tension beta.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#bundle_beta"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveBundle",
+            "children": [{
+                "title": "bundle.beta",
+                "desc": "set the bundle tension beta.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#bundle_beta"
+            }]
         }, {
             "title": "d3.curveCardinal",
             "desc": "a cubic cardinal spline, with one-sided difference at each end.",
@@ -2900,11 +3160,12 @@
         }, {
             "title": "d3.curveCardinalOpen",
             "desc": "a cubic cardinal spline.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveCardinalOpen"
-        }, {
-            "title": "cardinal.tension",
-            "desc": "set the cardinal spline tension.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#cardinal_tension"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveCardinalOpen",
+            "children": [{
+                "title": "cardinal.tension",
+                "desc": "set the cardinal spline tension.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#cardinal_tension"
+            }]
         }, {
             "title": "d3.curveCatmullRom",
             "desc": "a cubic Catmull–Rom spline, with one-sided difference at each end.",
@@ -2916,11 +3177,12 @@
         }, {
             "title": "d3.curveCatmullRomOpen",
             "desc": "a cubic Catmull–Rom spline.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRomOpen"
-        }, {
-            "title": "catmullRom.alpha",
-            "desc": "set the Catmull–Rom parameter alpha.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#catmullRom_alpha"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRomOpen",
+            "children": [{
+                "title": "catmullRom.alpha",
+                "desc": "set the Catmull–Rom parameter alpha.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#catmullRom_alpha"
+            }]
         }, {
             "title": "d3.curveLinear",
             "desc": "a polyline.",
@@ -2952,27 +3214,28 @@
         }, {
             "title": "d3.curveStepBefore",
             "desc": "a piecewise constant function.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveStepBefore"
-        }, {
-            "title": "curve.areaStart",
-            "desc": "start a new area segment.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_areaStart"
-        }, {
-            "title": "curve.areaEnd",
-            "desc": "end the current area segment.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_areaEnd"
-        }, {
-            "title": "curve.lineStart",
-            "desc": "start a new line segment.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_lineStart"
-        }, {
-            "title": "curve.lineEnd",
-            "desc": "end the current line segment.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_lineEnd"
-        }, {
-            "title": "curve.point",
-            "desc": "add a point to the current line segment.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_point"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curveStepBefore",
+            "children": [{
+                "title": "curve.areaStart",
+                "desc": "start a new area segment.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_areaStart"
+            }, {
+                "title": "curve.areaEnd",
+                "desc": "end the current area segment.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_areaEnd"
+            }, {
+                "title": "curve.lineStart",
+                "desc": "start a new line segment.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_lineStart"
+            }, {
+                "title": "curve.lineEnd",
+                "desc": "end the current line segment.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_lineEnd"
+            }, {
+                "title": "curve.point",
+                "desc": "add a point to the current line segment.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#curve_point"
+            }]
         }]
     }, {
         "title": "Symbols",
@@ -2985,19 +3248,20 @@
         }, {
             "title": "symbol",
             "desc": "generate a symbol for the given datum.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_symbol"
-        }, {
-            "title": "symbol.type",
-            "desc": "set the symbol type.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_type"
-        }, {
-            "title": "symbol.size",
-            "desc": "set the size of the symbol in square pixels.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_size"
-        }, {
-            "title": "symbol.context",
-            "desc": "set the rendering context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_context"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_symbol",
+            "children": [{
+                "title": "symbol.type",
+                "desc": "set the symbol type.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_type"
+            }, {
+                "title": "symbol.size",
+                "desc": "set the size of the symbol in square pixels.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_size"
+            }, {
+                "title": "symbol.context",
+                "desc": "set the rendering context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbol_context"
+            }]
         }, {
             "title": "d3.symbols",
             "desc": "the array of built-in symbol types.",
@@ -3029,11 +3293,12 @@
         }, {
             "title": "d3.symbolWye",
             "desc": "a Y shape.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbolWye"
-        }, {
-            "title": "symbolType.draw",
-            "desc": "draw this symbol to the given context.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbolType_draw"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbolWye",
+            "children": [{
+                "title": "symbolType.draw",
+                "desc": "draw this symbol to the given context.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#symbolType_draw"
+            }]
         }]
     }, {
         "title": "Stacks",
@@ -3046,23 +3311,24 @@
         }, {
             "title": "stack",
             "desc": "generate a stack for the given dataset.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_stack"
-        }, {
-            "title": "stack.keys",
-            "desc": "set the keys accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_keys"
-        }, {
-            "title": "stack.value",
-            "desc": "set the value accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_value"
-        }, {
-            "title": "stack.order",
-            "desc": "set the order accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_order"
-        }, {
-            "title": "stack.offset",
-            "desc": "set the offset accessor.",
-            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_offset"
+            "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#_stack",
+            "children": [{
+                "title": "stack.keys",
+                "desc": "set the keys accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_keys"
+            }, {
+                "title": "stack.value",
+                "desc": "set the value accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_value"
+            }, {
+                "title": "stack.order",
+                "desc": "set the order accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_order"
+            }, {
+                "title": "stack.offset",
+                "desc": "set the offset accessor.",
+                "cnhref": "https://github.com/d3/d3-shape/blob/master/README.md#stack_offset"
+            }]
         }, {
             "title": "d3.stackOrderAscending",
             "desc": "put the smallest series on bottom.",
@@ -3136,23 +3402,24 @@
     }, {
         "title": "d3.timeFormatDefaultLocale",
         "desc": "define the default locale.",
-        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#timeFormatDefaultLocale"
-    }, {
-        "title": "locale.format",
-        "desc": "create a time formatter.",
-        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_format"
-    }, {
-        "title": "locale.parse",
-        "desc": "create a time parser.",
-        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_parse"
-    }, {
-        "title": "locale.utcFormat",
-        "desc": "create a UTC formatter.",
-        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcFormat"
-    }, {
-        "title": "locale.utcParse",
-        "desc": "create a UTC parser.",
-        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcParse"
+        "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#timeFormatDefaultLocale",
+        "children": [{
+            "title": "locale.format",
+            "desc": "create a time formatter.",
+            "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_format"
+        }, {
+            "title": "locale.parse",
+            "desc": "create a time parser.",
+            "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_parse"
+        }, {
+            "title": "locale.utcFormat",
+            "desc": "create a UTC formatter.",
+            "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcFormat"
+        }, {
+            "title": "locale.utcParse",
+            "desc": "create a UTC parser.",
+            "cnhref": "https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcParse"
+        }]
     }]
 }, {
     "title": "Time Intervals (d3-time)",
@@ -3165,39 +3432,40 @@
     }, {
         "title": "interval",
         "desc": "alias for interval.floor.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#_interval"
-    }, {
-        "title": "interval.floor",
-        "desc": "round down to the nearest boundary.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_floor"
-    }, {
-        "title": "interval.round",
-        "desc": "round to the nearest boundary.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_round"
-    }, {
-        "title": "interval.ceil",
-        "desc": "round up to the nearest boundary.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_ceil"
-    }, {
-        "title": "interval.offset",
-        "desc": "offset a date by some number of intervals.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_offset"
-    }, {
-        "title": "interval.range",
-        "desc": "generate a range of dates at interval boundaries.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_range"
-    }, {
-        "title": "interval.filter",
-        "desc": "create a filtered subset of this interval.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_filter"
-    }, {
-        "title": "interval.every",
-        "desc": "create a filtered subset of this interval.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_every"
-    }, {
-        "title": "interval.count",
-        "desc": "count interval boundaries between two dates.",
-        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_count"
+        "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#_interval",
+        "children": [{
+            "title": "interval.floor",
+            "desc": "round down to the nearest boundary.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_floor"
+        }, {
+            "title": "interval.round",
+            "desc": "round to the nearest boundary.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_round"
+        }, {
+            "title": "interval.ceil",
+            "desc": "round up to the nearest boundary.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_ceil"
+        }, {
+            "title": "interval.offset",
+            "desc": "offset a date by some number of intervals.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_offset"
+        }, {
+            "title": "interval.range",
+            "desc": "generate a range of dates at interval boundaries.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_range"
+        }, {
+            "title": "interval.filter",
+            "desc": "create a filtered subset of this interval.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_filter"
+        }, {
+            "title": "interval.every",
+            "desc": "create a filtered subset of this interval.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_every"
+        }, {
+            "title": "interval.count",
+            "desc": "count interval boundaries between two dates.",
+            "cnhref": "https://github.com/d3/d3-time/blob/master/README.md#interval_count"
+        }]
     }, {
         "title": "d3.timeMillisecond, d3.utcMillisecond",
         "desc": "the millisecond interval.",
@@ -3367,105 +3635,106 @@
     }, {
         "title": "d3.transition",
         "desc": "schedule a transition on the root document element.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition"
-    }, {
-        "title": "transition.select",
-        "desc": "schedule a transition on the selected elements.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_select"
-    }, {
-        "title": "transition.selectAll",
-        "desc": "schedule a transition on the selected elements.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_selectAll"
-    }, {
-        "title": "transition.filter",
-        "desc": "filter elements based on data.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_filter"
-    }, {
-        "title": "transition.merge",
-        "desc": "merge this transition with another.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_merge"
-    }, {
-        "title": "transition.selection",
-        "desc": "returns a selection for this transition.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_selection"
-    }, {
-        "title": "transition.transition",
-        "desc": "schedule a new transition following this one.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_transition"
-    }, {
-        "title": "transition.call",
-        "desc": "call a function with this transition.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_call"
-    }, {
-        "title": "transition.nodes",
-        "desc": "returns an array of all selected elements.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_nodes"
-    }, {
-        "title": "transition.node",
-        "desc": "returns the first (non-null) element.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_node"
-    }, {
-        "title": "transition.size",
-        "desc": "returns the count of elements.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_size"
-    }, {
-        "title": "transition.empty",
-        "desc": "returns true if this transition is empty.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_empty"
-    }, {
-        "title": "transition.each",
-        "desc": "call a function for each element.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_each"
-    }, {
-        "title": "transition.on",
-        "desc": "add or remove transition event listeners.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_on"
-    }, {
-        "title": "transition.attr",
-        "desc": "tween the given attribute using the default interpolator.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_attr"
-    }, {
-        "title": "transition.attrTween",
-        "desc": "tween the given attribute using a custom interpolator.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_attrTween"
-    }, {
-        "title": "transition.style",
-        "desc": "tween the given style property using the default interpolator.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_style"
-    }, {
-        "title": "transition.styleTween",
-        "desc": "tween the given style property using a custom interpolator.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_styleTween"
-    }, {
-        "title": "transition.text",
-        "desc": "set the text content when the transition starts.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_text"
-    }, {
-        "title": "transition.remove",
-        "desc": "remove the selected elements when the transition ends.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_remove"
-    }, {
-        "title": "transition.tween",
-        "desc": "run custom code during the transition.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_tween"
-    }, {
-        "title": "transition.delay",
-        "desc": "specify per-element delay in milliseconds.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_delay"
-    }, {
-        "title": "transition.duration",
-        "desc": "specify per-element duration in milliseconds.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_duration"
-    }, {
-        "title": "transition.ease",
-        "desc": "specify the easing function.",
-        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_ease"
+        "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition",
+        "children": [{
+            "title": "transition.select",
+            "desc": "schedule a transition on the selected elements.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_select"
+        }, {
+            "title": "transition.selectAll",
+            "desc": "schedule a transition on the selected elements.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_selectAll"
+        }, {
+            "title": "transition.filter",
+            "desc": "filter elements based on data.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_filter"
+        }, {
+            "title": "transition.merge",
+            "desc": "merge this transition with another.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_merge"
+        }, {
+            "title": "transition.selection",
+            "desc": "returns a selection for this transition.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_selection"
+        }, {
+            "title": "transition.transition",
+            "desc": "schedule a new transition following this one.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_transition"
+        }, {
+            "title": "transition.call",
+            "desc": "call a function with this transition.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_call"
+        }, {
+            "title": "transition.nodes",
+            "desc": "returns an array of all selected elements.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_nodes"
+        }, {
+            "title": "transition.node",
+            "desc": "returns the first (non-null) element.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_node"
+        }, {
+            "title": "transition.size",
+            "desc": "returns the count of elements.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_size"
+        }, {
+            "title": "transition.empty",
+            "desc": "returns true if this transition is empty.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_empty"
+        }, {
+            "title": "transition.each",
+            "desc": "call a function for each element.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_each"
+        }, {
+            "title": "transition.on",
+            "desc": "add or remove transition event listeners.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_on"
+        }, {
+            "title": "transition.attr",
+            "desc": "tween the given attribute using the default interpolator.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_attr"
+        }, {
+            "title": "transition.attrTween",
+            "desc": "tween the given attribute using a custom interpolator.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_attrTween"
+        }, {
+            "title": "transition.style",
+            "desc": "tween the given style property using the default interpolator.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_style"
+        }, {
+            "title": "transition.styleTween",
+            "desc": "tween the given style property using a custom interpolator.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_styleTween"
+        }, {
+            "title": "transition.text",
+            "desc": "set the text content when the transition starts.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_text"
+        }, {
+            "title": "transition.remove",
+            "desc": "remove the selected elements when the transition ends.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_remove"
+        }, {
+            "title": "transition.tween",
+            "desc": "run custom code during the transition.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_tween"
+        }, {
+            "title": "transition.delay",
+            "desc": "specify per-element delay in milliseconds.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_delay"
+        }, {
+            "title": "transition.duration",
+            "desc": "specify per-element duration in milliseconds.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_duration"
+        }, {
+            "title": "transition.ease",
+            "desc": "specify the easing function.",
+            "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#transition_ease"
+        }]
     }, {
         "title": "d3.active",
         "desc": "select the active transition for a given node.",
         "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#active"
     }, {
-        "title": "d3.interrupt -",
+        "title": "d3.interrupt",
         "cnhref": "https://github.com/d3/d3-transition/blob/master/README.md#interrupt"
     }]
 }, {
@@ -3479,51 +3748,52 @@
     }, {
         "title": "voronoi",
         "desc": "generate a new Voronoi diagram for the given points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#_voronoi"
-    }, {
-        "title": "voronoi.polygons",
-        "desc": "compute the Voronoi polygons for the given points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_polygons"
-    }, {
-        "title": "voronoi.triangles",
-        "desc": "compute the Delaunay triangles for the given points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_triangles"
-    }, {
-        "title": "voronoi.links",
-        "desc": "compute the Delaunay links for the given points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_links"
-    }, {
-        "title": "voronoi.x",
-        "desc": "set the x accessor.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_x"
-    }, {
-        "title": "voronoi.y",
-        "desc": "set the y accessor.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_y"
-    }, {
-        "title": "voronoi.extent",
-        "desc": "set the observed extent of points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_extent"
-    }, {
-        "title": "voronoi.size",
-        "desc": "set the observed extent of points.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_size"
-    }, {
-        "title": "diagram.polygons",
-        "desc": "compute the polygons for this Voronoi diagram.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_polygons"
-    }, {
-        "title": "diagram.triangles",
-        "desc": "compute the triangles for this Voronoi diagram.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_triangles"
-    }, {
-        "title": "diagram.links",
-        "desc": "compute the links for this Voronoi diagram.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_links"
-    }, {
-        "title": "diagram.find",
-        "desc": "find the closest point in this Voronoi diagram.",
-        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_find"
+        "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#_voronoi",
+        "children": [{
+            "title": "voronoi.polygons",
+            "desc": "compute the Voronoi polygons for the given points.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_polygons"
+        }, {
+            "title": "voronoi.triangles",
+            "desc": "compute the Delaunay triangles for the given points.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_triangles"
+        }, {
+            "title": "voronoi.links",
+            "desc": "compute the Delaunay links for the given points.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_links"
+        }, {
+            "title": "voronoi.x",
+            "desc": "set the x accessor.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_x"
+        }, {
+            "title": "voronoi.y",
+            "desc": "set the y accessor.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_y"
+        }, {
+            "title": "voronoi.extent",
+            "desc": "set the observed extent of points.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_extent"
+        }, {
+            "title": "voronoi.size",
+            "desc": "set the observed extent of points.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_size"
+        }, {
+            "title": "diagram.polygons",
+            "desc": "compute the polygons for this Voronoi diagram.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_polygons"
+        }, {
+            "title": "diagram.triangles",
+            "desc": "compute the triangles for this Voronoi diagram.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_triangles"
+        }, {
+            "title": "diagram.links",
+            "desc": "compute the links for this Voronoi diagram.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_links"
+        }, {
+            "title": "diagram.find",
+            "desc": "find the closest point in this Voronoi diagram.",
+            "cnhref": "https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_find"
+        }]
     }]
 }, {
     "title": "Zooming (d3-zoom)",
@@ -3536,99 +3806,101 @@
     }, {
         "title": "zoom",
         "desc": "apply the zoom behavior to the selected elements.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#_zoom"
-    }, {
-        "title": "zoom.transform",
-        "desc": "change the transform for the selected elements.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_transform"
-    }, {
-        "title": "zoom.translateBy",
-        "desc": "translate the transform for the selected elements.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateBy"
-    }, {
-        "title": "zoom.scaleBy",
-        "desc": "scale the transform for the selected elements.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleBy"
-    }, {
-        "title": "zoom.scaleTo",
-        "desc": "scale the transform for the selected elements.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleTo"
-    }, {
-        "title": "zoom.filter",
-        "desc": "control which input events initiate zooming.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_filter"
-    }, {
-        "title": "zoom.extent",
-        "desc": "set the extent of the viewport.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_extent"
-    }, {
-        "title": "zoom.scaleExtent",
-        "desc": "set the allowed scale range.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleExtent"
-    }, {
-        "title": "zoom.translateExtent",
-        "desc": "set the extent of the zoomable world.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateExtent"
-    }, {
-        "title": "zoom.duration",
-        "desc": "set the duration of zoom transitions.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_duration"
-    }, {
-        "title": "zoom.interpolate",
-        "desc": "control the interpolation of zoom transitions.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_interpolate"
-    }, {
-        "title": "zoom.on",
-        "desc": "listen for zoom events.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_on"
+        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#_zoom",
+        "children": [{
+            "title": "zoom.transform",
+            "desc": "change the transform for the selected elements.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_transform"
+        }, {
+            "title": "zoom.translateBy",
+            "desc": "translate the transform for the selected elements.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateBy"
+        }, {
+            "title": "zoom.scaleBy",
+            "desc": "scale the transform for the selected elements.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleBy"
+        }, {
+            "title": "zoom.scaleTo",
+            "desc": "scale the transform for the selected elements.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleTo"
+        }, {
+            "title": "zoom.filter",
+            "desc": "control which input events initiate zooming.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_filter"
+        }, {
+            "title": "zoom.extent",
+            "desc": "set the extent of the viewport.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_extent"
+        }, {
+            "title": "zoom.scaleExtent",
+            "desc": "set the allowed scale range.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleExtent"
+        }, {
+            "title": "zoom.translateExtent",
+            "desc": "set the extent of the zoomable world.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateExtent"
+        }, {
+            "title": "zoom.duration",
+            "desc": "set the duration of zoom transitions.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_duration"
+        }, {
+            "title": "zoom.interpolate",
+            "desc": "control the interpolation of zoom transitions.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_interpolate"
+        }, {
+            "title": "zoom.on",
+            "desc": "listen for zoom events.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoom_on"
+        }]
     }, {
         "title": "d3.zoomTransform",
         "desc": "get the zoom transform for a given element.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoomTransform"
-    }, {
-        "title": "transform.scale",
-        "desc": "scale a transform by the specified amount.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_scale"
-    }, {
-        "title": "transform.translate",
-        "desc": "translate a transform by the specified amount.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_translate"
-    }, {
-        "title": "transform.apply",
-        "desc": "apply the transform to the given point.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_apply"
-    }, {
-        "title": "transform.applyX",
-        "desc": "apply the transform to the given x-coordinate.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_applyX"
-    }, {
-        "title": "transform.applyY",
-        "desc": "apply the transform to the given y-coordinate.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_applyY"
-    }, {
-        "title": "transform.invert",
-        "desc": "unapply the transform to the given point.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invert"
-    }, {
-        "title": "transform.invertX",
-        "desc": "unapply the transform to the given x-coordinate.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertX"
-    }, {
-        "title": "transform.invertY",
-        "desc": "unapply the transform to the given y-coordinate.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertY"
-    }, {
-        "title": "transform.rescaleX",
-        "desc": "apply the transform to an x-scale’s domain.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleX"
-    }, {
-        "title": "transform.rescaleY",
-        "desc": "apply the transform to a y-scale’s domain.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleY"
-    }, {
-        "title": "transform.toString",
-        "desc": "format the transform as an SVG transform string.",
-        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_toString"
+        "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#zoomTransform",
+        "children": [{
+            "title": "transform.scale",
+            "desc": "scale a transform by the specified amount.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_scale"
+        }, {
+            "title": "transform.translate",
+            "desc": "translate a transform by the specified amount.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_translate"
+        }, {
+            "title": "transform.apply",
+            "desc": "apply the transform to the given point.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_apply"
+        }, {
+            "title": "transform.applyX",
+            "desc": "apply the transform to the given x-coordinate.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_applyX"
+        }, {
+            "title": "transform.applyY",
+            "desc": "apply the transform to the given y-coordinate.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_applyY"
+        }, {
+            "title": "transform.invert",
+            "desc": "unapply the transform to the given point.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invert"
+        }, {
+            "title": "transform.invertX",
+            "desc": "unapply the transform to the given x-coordinate.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertX"
+        }, {
+            "title": "transform.invertY",
+            "desc": "unapply the transform to the given y-coordinate.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertY"
+        }, {
+            "title": "transform.rescaleX",
+            "desc": "apply the transform to an x-scale’s domain.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleX"
+        }, {
+            "title": "transform.rescaleY",
+            "desc": "apply the transform to a y-scale’s domain.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleY"
+        }, {
+            "title": "transform.toString",
+            "desc": "format the transform as an SVG transform string.",
+            "cnhref": "https://github.com/d3/d3-zoom/blob/master/README.md#transform_toString"
+        }]
     }, {
         "title": "d3.zoomIdentity",
         "desc": "the identity transform.",
