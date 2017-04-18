@@ -1,6 +1,8 @@
 # d3-zoom
 
-平移和缩放是可视化中很重要的交互。在D3中缩放是通过d3-zoom实现的，既方便又灵活。它封装了输入事件并对浏览器兼容性做了处理。缩放操作与DOM无关，因此可以应用在SVG, HTML 或者 Canvas 中.
+平移和缩放是可视化中很重要的交互。 它易学易用: 点击-拖拽来平移，滚动滚轮来缩放，也可以使用触摸实现。 平移和缩放在基于web的地图中十分常见，但是也可以应用于其他的可视化设计比如时间序列和散点图等。
+
+在D3中缩放是通过d3-zoom实现的，既方便又灵活，可以对[selections](https://github.com/d3/d3-selection)进行平移和缩放，它封装了浏览器支持的[input events](#api-reference )并对浏览器兼容性做了处理。缩放操作与DOM无关，因此可以应用在SVG, HTML 或者 Canvas 中.
 
 [<img alt="Canvas Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/d1f7b58631e71fbf9c568345ee04a60e)[<img alt="SVG Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/4e3925cdc804db257a86fdef3a032a45)
 
@@ -8,15 +10,15 @@
 
 [<img alt="Axis Zooming" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/axis.png" width="420" height="219">](http://bl.ocks.org/mbostock/db6b4335bf1662b413e7968910104f0f)
 
-zoom操作可以和其他的操作结合起来，比如[d3-drag](https://github.com/d3/d3-drag).
+zoom操作可以和其他的操作结合起来，比如[d3-drag](https://github.com/d3/d3-drag) 和[d3-brush](https://github.com/d3/d3-brush)等。
 
 [<img alt="Drag & Zoom II" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084)
 
-zoom可以使用[*zoom*.transform](#zoom_transform)通过编程操作。平滑变换的实现基于[“Smooth and efficient zooming and panning”](http://www.win.tue.nl/~vanwijk/zoompan.pdf).
+zoom可以使用[*zoom*.transform](#zoom_transform)方法进行编程操作。平滑变换的实现基于[“Smooth and efficient zooming and panning”](http://www.win.tue.nl/~vanwijk/zoompan.pdf).
 
 [<img alt="Zoom Transitions" src="https://raw.githubusercontent.com/d3/d3-zoom/master/img/transition.png" width="420" height="219">](http://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee)
 
-参考[d3-tile](https://github.com/d3/d3-tile)获取更多关于平移缩放的例子
+参考[d3-tile](https://github.com/d3/d3-tile)获取更多关于平移缩放的例子。
 
 ## Installing
 
@@ -45,7 +47,7 @@ var zoom = d3.zoom();
 
 下面这个表是zoom时间和原生事件之间的对应关系:
 
-| Event        | Listening Element | Zoom Event  | Default Prevented? |
+| Event(事件)  | Listening Element(监听对象) | Zoom Event(缩放事件)  | Default Prevented?(阻止默认行为) |
 | ------------ | ----------------- | ----------- | ------------------ |
 | mousedown⁵   | selection         | start       | no¹                |
 | mousemove²   | window¹           | zoom        | yes                |
@@ -60,16 +62,16 @@ var zoom = d3.zoom();
 | touchend     | selection         | end         | no⁴                |
 | touchcancel  | selection         | end         | no⁴                |
 
-所有的时间传播都是被[immediately stopped(立即停止)](https://dom.spec.whatwg.org/#dom-event-stopimmediatepropagation).
+所有的事件传播都是被[immediately stopped(立即停止)](https://dom.spec.whatwg.org/#dom-event-stopimmediatepropagation).
 
 ¹ 有必要捕获iframe之外的事件; 参考 [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
-<br>² Only applies during an active, mouse-based gesture; see [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
-<br>³ Only applies immediately after a non-empty, mouse-based gesture.
-<br>⁴ Necessary to allow [click emulation](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW7) on touch input; see [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
-<br>⁵ Ignored if within 500ms of a touch gesture ending; assumes [click emulation](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW7).
-<br>⁶ Double-click and double-tap initiate a transition that emits start, zoom and end events.
-<br>⁷ The first wheel event emits a start event; an end event is emitted when no wheel events are received for 150ms.
-<br>⁸ Ignored if already at the corresponding limit of the [scale extent](#zoom_scaleExtent).
+<br>² 使用鼠标时仅有一个活动对象; 参考 [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
+<br>³ 只能在非空的基于鼠标的手势之后立即应用。
+<br>⁴ 允许在使用触摸输入时候进行 [click emulation(点击仿真)](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW7); 参考 [d3-drag#9](https://github.com/d3/d3-drag/issues/9).
+<br>⁵ 忽略500ms以内的触摸操作，如果可以使用[click emulation](https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW7)的话.
+<br>⁶ 双击触发缩放变换.
+<br>⁷ 两个相邻的滚轮事件在150ms之内触发的话，只触发最后一次滚轮事件。
+<br>⁸ 如果没有设置[scale extent](#zoom_scaleExtent)，则忽略缩放大小限制.
 
 <a href="#zoom" name="zoom">#</a> d3.<b>zoom</b>() [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js "Source")
 
@@ -91,6 +93,7 @@ selection.call(d3.zoom().on("zoom", zoomed));
 selection.on(".zoom", null);
 ```
 
+--------------------------------------------
 
 <a href="#zoom_transform" name="zoom_transform">#</a> <i>zoom</i>.<b>transform</b>(<i>selection</i>, <i>transform</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L63 "Source")
 
