@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./libs/d3.v4.js"></script>
+	<style>
+		*{
+			margin: 0px;
+			box-sizing: border-box;
+		}
+		html,body{
+			height:100%;
+			overflow: hidden;
+		}
+		#main{
+			height:100%;
+			width:100%;
+			overflow: hidden;
+		}
+		.xAxis line,.xAxis path{
+			stroke:none;
+		}
+		.xAxis text{
+			font-size: 16px;
+		}
+		.edges{
+			fill:none;
+			stroke-width:1;
+		}
+		.fade{
+			opacity: 0.01;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<svg id="svg"></svg>
+	</div>
+	<script src="./dataset/data.js"></script>
+	<script src="./libs/index.js"></script>
+</body>
+</html>
