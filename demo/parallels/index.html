@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="./libs/d3.v4.js"></script>
+	<title>Parallel Coordinates</title>
+	<script src="../libs/d3.v4.js"></script>
 	<style>
 		*{
 			margin: 0px;
@@ -37,7 +37,157 @@
 	<div id="main">
 		<svg id="svg"></svg>
 	</div>
-	<script src="./dataset/data.js"></script>
-	<script src="./libs/index.js"></script>
+	<script src="./data.js"></script>
+	<script>
+		window.onload = function() {
+			var w = parseInt(d3.select("#main").style("width")),
+				h = parseInt(d3.select("#main").style("height")),
+				svg = d3.select("#svg").attr("width", w).attr("height", h),
+				margin = {
+					left: 100,
+					top: 100,
+					right: 100,
+					bottom: 100
+				},
+				props = d3.keys(dataset[0]).map(function(d) {
+					var scale;
+					if (d == "year" || d == "brand") {
+						scale = d3.scalePoint()
+							.domain(d3.set(dataset.map(function(p) {
+								return p[d]
+							})).values().sort())
+							.range([h - margin.bottom, margin.top])
+					} else {
+						scale = d3.scaleLinear()
+							.domain(d3.extent(dataset, function(x) {
+								return x[d];
+							}))
+							.range([h - margin.bottom, margin.top])
+					}
+					return {
+						"prop": d,
+						"scale": scale,
+						"brush": d3.brushY()
+							.extent([
+								[-10, margin.top - 10],
+								[20, h - margin.bottom + 10]
+							])
+							.on("brush", brush)
+							.on("end", brushed)
+							.on("start", brushstart)
+					}
+				}),
+				g_polyline = svg.append("g"),
+				g_axes = svg.append("g"),
+				active = null;
+
+			var xScale = d3.scalePoint()
+				.domain(props.map(function(d) {
+					return d.prop;
+				}))
+				.range([margin.left, w - margin.right])
+			svg.append("g").attr("class", "xAxis")
+				.attr("transform", "translate(0," + (h - margin.bottom) + ")")
+				.call(d3.axisBottom(xScale).tickPadding(10));
+
+			var search = {};
+
+			for (var i = 0, len = props.length; i < len; ++i) {
+				search[props[i].prop] = {};
+				search[props[i].prop].scale = props[i].scale;
+				search[props[i].prop].brush = props[i].brush;
+				var axes;
+				if (i == len - 1) {
+					axes = d3.axisRight(props[i].scale);
+				} else {
+					axes = d3.axisLeft(props[i].scale);
+				}
+				var g = g_axes.append("g")
+					.attr("class", "yAxis")
+					.attr("id", props[i].prop)
+					.attr("transform", "translate(" + (xScale(props[i].prop)) + ",0)")
+					.call(axes)
+
+				g.call(props[i].brush)
+					.selectAll("rect")
+					.attr("width", 20)
+					.attr("x", -10)
+			}
+			console.log(search)
+			var polylines = g_polyline.append("g")
+				.attr("class", "edges")
+				.selectAll("polyline")
+				.data(dataset)
+				.enter().append("polyline")
+				.attr("points", function(d) {
+					var points = "";
+					for (p in d) {
+						points += xScale(p) + "," + search[p].scale(d[p]) + "-"
+					}
+					return points.split("-").join(" ");
+				})
+				.attr("stroke", function(d) {
+					if (d.brand == "US.") {
+						return "#006600"
+					} else if (d.brand == "Japan.") {
+						return "#3300FF"
+					} else {
+						return "#660000"
+					}
+				})
+
+			function brushstart() {
+				var id = d3.select(this).attr("id");
+				if (id != active) {
+					d3.selectAll(".yAxis")
+						.selectAll(".selection")
+						.style("display", "none")
+				}
+			}
+
+			function brush() {
+				var id = d3.select(this).attr("id"),
+					extent = d3.event.selection;
+				if (extent == null) {
+					return;
+				}
+				if (id == "year" || id == "brand") {
+					var selected = [],
+						value = d3.set(dataset.map(function(d) {
+							return d[id]
+						})).values();
+					value.map(function(p) {
+						var pos = search[id].scale(p);
+						if (pos < extent[1] && pos >= extent[0]) {
+							selected.push(p)
+						}
+					})
+					polylines.classed("fade", function(d) {
+						var flag = false;
+						for (var j = 0; j < selected.length; ++j) {
+							if (d[id] == selected[j]) {
+								flag = true;
+								break;
+							}
+						}
+						return !flag;
+					})
+				} else {
+					polylines.classed("fade", function(d) {
+						return !(search[id].scale(d[id]) >= extent[0] && search[id].scale(d[id]) <= extent[1]);
+					})
+				}
+
+			}
+
+			function brushed() {
+				active = d3.select(this).attr("id");
+				if (d3.event.selection == null) {
+					polylines.classed("fade", false);
+					active = null;
+				}
+			}
+		}
+	</script>
 </body>
 </html>
