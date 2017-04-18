@@ -10,6 +10,6 @@
 
 * [直方图](https://github.com/xswei/d3js_doc/tree/master/demo/histogram)
 
-* [平行坐标](https://github.com/xswei/d3js_doc/tree/master/demo/parallel)
+* [平行坐标](https://github.com/xswei/d3js_doc/tree/master/demo/parallels)
 
 * [文档结构(Pack)](https://github.com/xswei/d3js_doc/tree/master/demo/doc_visual)
