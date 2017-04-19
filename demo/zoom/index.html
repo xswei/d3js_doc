@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zoom</title>
+	<script src="../libs/d3.v4.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+		#main,#container,svg{
+			height:100%;
+			width:100%;
+		}
+		#main{
+			overflow:hidden;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="container">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+	<script>
+		window.onload = ()=>{
+			var w = parseInt(d3.select("#main").style("width")),
+				h = parseInt(d3.select("#main").style("height")),
+				canvas = document.querySelector("#canvas"),
+				nodes = d3.range(500).map(function(i) {
+					return {
+						index: i
+					};
+				}),
+				links = d3.range(500).map(function(i) {
+					return {
+						source: i,
+						target: (i + 3) % 500
+					};
+				});
+			nodes.forEach((d, i) => {
+				d.r = Math.random() * 20;
+			});
+			canvas.width = w;
+			canvas.height = h;
+			var ctx = canvas.getContext("2d");
+			var simulation = d3.forceSimulation(nodes)
+				.force("collision",d3.forceCollide().radius(function(d){
+					return d.r;
+				}))
+				.on("tick",draw);
+			function draw(){
+				ctx.save()
+				ctx.beginPath()
+				ctx.clearRect(0,0,w,h);
+				ctx.translate(w/2,h/2);
+				ctx.strokeStyle = "#ccc";
+				ctx.fillStyle = "steelblue";
+				nodes.forEach(function(d){
+					ctx.moveTo(d.x,d.y);
+					ctx.arc(d.x,d.y,d.r,0,2*Math.PI);
+				})	
+				ctx.fill();
+				ctx.restore()
+			}
+			var zoom = d3.zoom()
+				.on("zoom",zooming);
+			function zooming(){
+				ctx.save();
+				ctx.translate(d3.event.transform.x, d3.event.transform.y);
+				ctx.scale(d3.event.transform.k, d3.event.transform.k)
+				draw();
+				ctx.restore()
+			}
+			d3.select(canvas).call(zoom)
+		}
+	</script>
+</body>
+</html>
