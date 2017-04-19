@@ -82,5 +82,5 @@
 
 * [Voronoi Diagrams](https://github.com/xswei/d3js_doc/tree/master/API/d3-voronoi-master)(Voronoi图)
 
-* [Zooming](https://github.com/xswei/d3js_doc/tree/master/API/d3-zoom-master)(缩放)
+* [Zooming](https://github.com/xswei/d3js_doc/tree/master/API/d3-zoom-master)(**缩放**)
 

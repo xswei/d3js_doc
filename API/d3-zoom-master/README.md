@@ -93,43 +93,38 @@ selection.call(d3.zoom().on("zoom", zoomed));
 selection.on(".zoom", null);
 ```
 
---------------------------------------------
+如果要禁止滚轮滚动缩放，可以在讲zoom事件应用于选择集之后移除zoom事件中的滚轮事件：
+
+
+```js
+selection
+    .call(zoom)
+    .on("wheel.zoom", null);
+```
+
+此外，也可以使用[*zoom*.filter](#zoom_filter)来控制哪些事件可以用来缩放。
+
+应用缩放事件之后在可能也会同时设置[-webkit-tap-highlight-color](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5)样式为透明，禁止IOS上的高亮显示。如果想设置一个其他的高亮颜色，则可以移除这个样式然后重新设置。
+
 
 <a href="#zoom_transform" name="zoom_transform">#</a> <i>zoom</i>.<b>transform</b>(<i>selection</i>, <i>transform</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L63 "Source")
 
-如果*selection*是一个选择集，则将选择集中所有的元素变换设置为[current zoom transform](#zoomTransform)并立即触发start, zoom 和 end [events](#zoom-events)。
+如果*selection*是一个选择集，则将选择集中所有的元素变换设置为[current zoom transform](#zoomTransform)并立即触发start, zoom 和 end [events](#zoom-events)。如果*selection*是一个过渡，则使用[d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom)过渡到指定的变换并触发start, 过渡过程中的每一次tick都触发zoom，在过渡完成或中断后触发end[events](#zoom-events)。*transform*可以为一个[zoom transform(缩放变换)](#zoom-transforms)，也可以是一个返回缩放变换的函数，如果是一个函数，则会为每个选择集中的元素调用一次，并传递当前绑定的数据`d`、索引`i`，`this`指向当前DOM元素上下文。
 
-如果*selection*是一个过渡，则使用[d3.interpolateZoom](https://github.com/d3/d3-interpolate#interpolateZoom)过渡到指定的变换并触发start, 过渡中的每一次tick都触发zoom，在过渡完成或中断后触发end[events](#zoom-events)。
-
-*transform*要定义为[zoom transform](#zoom-transforms)或一个返回zoom transform的方法，如果是一个方法，则会为选择集中每个元素调用，并传递 `d` 和索引 `i`,  `this`指向当前的DOM元素。
-
-这个方法通常不直接使用，而是传递给[*selection*.call](https://github.com/d3/d3-selection#selection_call) 或[*transition*.call](https://github.com/d3/d3-transition#transition_call)，例如，立即将当前选择集中的元素归位:
-
+这个方法通常情况下不直接调用，而是通过 [*selection*.call](https://github.com/d3/d3-selection#selection_call) 或 [*transition*.call](https://github.com/d3/d3-transition#transition_call)调用。比如将缩放变换重新设置为[identity transform](#zoomIdentity)：
 
 ```js
 selection.call(zoom.transform, d3.zoomIdentity);
 ```
 
-d3.zoomIdentity是一个固定的transform对象:
-
-```js
-d3.zoomIdentity = {
-	k:1,
-	x:0,
-	y:0
-}
-
-```
-
-或者将当前的过渡平滑过渡到初始位置:
+使用过渡对当前元素进行变换：
 
 ```js
 selection.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
 ```
 
-这个方法需要完整的指定新的变换，目标状态一定要是transform对象。并且没有定义[scale extent](#zoom_scaleExtent) 和[translate extent](#zoom_translateExtent)。
+这个方法要求你指定新的完整的变化，并且不能定义[scale extent](#zoom_scaleExtent) 和 [translate extent](#zoom_translateExtent)。要从已有的缩放变换中导出一个新的变换，并执行缩放和兵役，可以参考[*zoom*.translateBy](#zoom_translateBy), [*zoom*.scaleBy](#zoom_scaleBy) 和 [*zoom*.scaleTo](#zoom_scaleTo)
 
-这个方法也提供了简单的接口，比如[*zoom*.translateBy](#zoom_translateBy), [*zoom*.scaleBy](#zoom_scaleBy) 和 [*zoom*.scaleTo](#zoom_scaleTo).
 
 <a href="#zoom_translateBy" name="zoom_translateBy">#</a> <i>zoom</i>.<b>translateBy</b>(<i>selection</i>, <i>x</i>, <i>y</i>) [<>](https://github.com/d3/d3-zoom/blob/master/src/zoom.js#L97 "Source")
 
