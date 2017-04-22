@@ -53,7 +53,7 @@ var matrix = [
 * `index` - 索引 *i*
 * `subindex` - 索引 *j*
 
-弦数据通常传递给[d3.ribbon](#ribbon)来生成图
+弦数据通常传递给[d3.ribbon](#ribbon)来显示相互之间的流量关系。
 
 弦图数组也包含了另一个表示分组的属性 *chords*.groups,*chords*.groups表示计算后的分组数组，每个分组包含以下属性:
 
@@ -62,11 +62,11 @@ var matrix = [
 * `value` - 从节点*i*出去的总量
 * `index` - 节点索引*i*
 
-分组数据传递给[d3.arc](https://github.com/d3/d3-shape#arc)来绘制
+分组数据传递给[d3.arc](https://github.com/d3/d3-shape#arc)来绘制。
 
 <a href="#chord_padAngle" name="#chord_padAngle">#</a> <i>chord</i>.<b>padAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L104 "Source")
 
-设置或获取相邻分组时间的间隔，默认为0
+设置或获取相邻分组之间的间隔，默认为0
 
 <a href="#chord_sortGroups" name="#chord_sortGroups">#</a> <i>chord</i>.<b>sortGroups</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L108 "Source")
 
@@ -109,7 +109,7 @@ ribbon({
 }); // "M164.0162810494058,-175.21032946354026A240,240,0,0,1,216.1595644740915,-104.28347273835429Q0,0,229.9158815306728,68.8381247563705A240,240,0,0,1,219.77316791012538,96.43523560788266Q0,0,164.0162810494058,-175.21032946354026Z"
 ```
 
-如果指定了cavnas的上下文则将路径信息保存的上下文中。
+如果指定了cavnas的上下文，则将路径信息保存在指定的context上下文中。
 
 <a href="#ribbon_source" name="ribbon_source">#</a> <i>ribbon</i>.<b>source</b>([<i>source</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L74 "Source")
 
@@ -133,7 +133,7 @@ function target(d) {
 
 <a href="#ribbon_radius" name="ribbon_radius">#</a> <i>ribbon</i>.<b>radius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js#L62 "Source")
 
-设置活获取半径
+设置或获取半径
 
 ```js
 function radius(d) {
