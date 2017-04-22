@@ -42,7 +42,7 @@
 
 * [Dragging](https://github.com/xswei/d3js_doc/tree/master/API/d3-drag-master)(拖拽)
 
-* [Easings](https://github.com/xswei/d3js_doc/tree/master/API/d3-ease-master)(过渡类型)
+* [Easings](https://github.com/xswei/d3js_doc/tree/master/API/d3-ease-master)(**过渡类型**)
 
 * [Forces](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master)(**力学仿真模拟**)
 

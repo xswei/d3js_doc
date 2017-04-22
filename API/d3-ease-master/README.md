@@ -1,10 +1,11 @@
 # d3-ease
 
+[过渡类型参考](https://bl.ocks.org/mbostock/248bac3b8e354a9103c4)
+
 *Easing*是一个控制动画过渡方式的函数，通常情况下为[slow-in, slow-out](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). 通过合理的调整缓动，可以使得动画更合理平滑。
 
 在这个模块中实现了一些[ease method](#ease_ease), 通过接受一个归一化的参数*t*返回当前的“eased” 时间 *tʹ*. *t*和*t'*都在[0,1]之间，0代表动画开始，1代表动画结束。一个好的过渡应该在*t*取0时返回0，*t*取1时返回1。参考[easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4).
 
-```
 注:在对动画进行过渡过程中，现实世界的时间变化是恒定的，比如从0秒到10秒之间为10秒，这个是没有办法改变的，而在对动画元素的插值过程中可以通过修改缓动函数指定属性的过渡方式。比如现实中0秒时候对应属性初始值，10秒时对应属性的目标值。但是在初始值和目标值之间不一定非要使用线性过渡，因此需要在现实中的0-10秒和属性的过渡时间之间建立一个对应关系。
 
 假设属性值的过渡也是线性的，对应的时候只需要将时间"错开对应"就能得到非线性的缓动过程，比如实际中的5s对应属性过渡的3s或7s处的值。
@@ -12,7 +13,7 @@
 举个例子:假设属性的初始值为100，目标值为200，过渡时间为10秒钟，那0秒对应的就是100,10秒对应的就是200。如果使用线性过渡，那5秒对应的就是150. 如果使用非线性过渡，那5秒对应的值就可能为130,也可能为160. 这样就产生了慢入慢出或快入快出等效果。
 
 与上述例子不同的是，这个模块在计算时候对时间进行了归一化，也就是参数*t*和计算后的参数*t'*都位于[0,1]范围内。
-```
+
 
 ## Installing
 
@@ -33,7 +34,7 @@ var ease = d3.easeCubic;
 
 <a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
 
-根据指定的*t*返回一个“eased” 时间 *tʹ*，都在0到1之间，不同的缓动函数采用不同的对应，比如线性过渡中0-1之间的数值一一对应。
+根据指定的*t*返回一个"eased" 时间 *tʹ*，都在0到1之间，不同的缓动函数采用不同的对应，比如线性过渡中0-1之间的数值一一对应。
 
 ```js
 var te = d3.easeCubic(t);
@@ -42,10 +43,10 @@ var te = d3.easeCubic(t);
 应用[elastic](#easeElastic)缓动:
 
 ```js
-// Before the animation starts, create your easing function.
+// 在过渡之前创建缓动函数
 var customElastic = d3.easeElastic.period(0.4);
 
-// During the animation, apply the easing function.
+// 在过渡期间通过缓动函数计算中间值
 var te = customElastic(t);
 ```
 
@@ -215,14 +216,14 @@ var linear = d3.easePoly.exponent(1),
 
 <a name="easeBackOut" href="#easeBackOut">#</a> d3.<b>easeBackOut</b>(<i>t</i>) [<>](https://github.com/d3/d3-ease/blob/master/src/back.js#L15 "Source")
 
-Reverse anticipatory easing; equivalent to 1 - [backIn](#easeBackIn)(1 - *t*).
+翻转anticipatory过渡，相当于1 - [backIn](#easeBackIn)(1 - *t*).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/backOut.png" alt="backOut" width="100%" height="300">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backOut)
 
 <a name="easeBack" href="#easeBack">#</a> d3.<b>easeBack</b>(<i>t</i>) [<>](https://github.com/d3/d3-ease/blob/master/src/back.js "Source")
 <br><a name="easeBackInOut" href="#easeBackInOut">#</a> d3.<b>easeBackInOut</b>(<i>t</i>) [<>](https://github.com/d3/d3-ease/blob/master/src/back.js#L27 "Source")
 
-Symmetric anticipatory easing; scales [backIn](#easeBackIn) for *t* in [0, 0.5] and [backOut](#easeBackOut) for *t* in [0.5, 1].
+*t* 在 [0, 0.5] 时候 [backIn](#easeBackIn)，*t* 在 [0.5, 1] 时候 [backOut](#easeBackOut) .
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/backInOut.png" alt="backInOut" width="100%" height="300">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backInOut)
 
