@@ -30,7 +30,7 @@
 
 * [Brushes](https://github.com/xswei/d3js_doc/tree/master/API/d3-brush-master)(**刷子**)
 
-* [Chords](https://github.com/xswei/d3js_doc/tree/master/API/d3-chord-master)(弦图)
+* [Chords](https://github.com/xswei/d3js_doc/tree/master/API/d3-chord-master)(**弦图**)
 
 * [Collections](https://github.com/xswei/d3js_doc/tree/master/API/d3-collection-master)  (Object,Maps,Sets,Nests)(**集合、对象、map、嵌套**)
 
