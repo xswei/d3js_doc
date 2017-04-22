@@ -38,7 +38,7 @@
 
 * [Delimiter-Separated Values(d3-dsv)](https://github.com/xswei/d3js_doc/tree/master/API/d3-dsv-master)(dsv模块)
 
-* [Dispatches](https://github.com/xswei/d3js_doc/tree/master/API/d3-dispatch-master)(事件调度)
+* [Dispatches](https://github.com/xswei/d3js_doc/tree/master/API/d3-dispatch-master)(**事件调度**)
 
 * [Dragging](https://github.com/xswei/d3js_doc/tree/master/API/d3-drag-master)(拖拽)
 

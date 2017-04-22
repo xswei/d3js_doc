@@ -14,7 +14,7 @@ dispatch.on("start", callback1);
 dispatch.on("start.foo", callback2);
 dispatch.on("end", callback3);
 ```
-然后可以通过 [*dispatch*.call](#dispatch_call) or [*dispatch*.apply] 来调用*start*事件的回调:
+然后可以通过 [*dispatch*.call](#dispatch_call) 或者 [*dispatch*.apply] 来调用*start*事件的回调:
 
 ```js
 dispatch.call("start");
