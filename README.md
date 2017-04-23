@@ -124,3 +124,18 @@ var document = jsdom.jsdom(),
 
 #### 本地开发
 
+由于浏览器的安全限制，不能直接读取本地文件。在本地开发的时候，必须要运行一个服务器环境而不是使用`file://`, 推荐使用Nodejs的[http-server](https://www.npmjs.com/package/http-server)，安装方法:
+
+```js
+npm install -g http-server
+
+```
+
+运行:
+
+```js
+http-server & 
+
+```
+
+然后会在当前目录启动一个 http://localhost:8080 的服务。
