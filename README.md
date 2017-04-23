@@ -84,3 +84,16 @@
 
 * [Zooming](https://github.com/xswei/d3js_doc/tree/master/API/d3-zoom-master)(**缩放**)
 
+#### 安装
+
+如果使用`npm`，则可以通过`npm install d3`来安装。此外还可以下载[最新版](https://unpkg.com/d3/build/)，最新版支持AMD、CommonJS以及vanilla环境。可以使用[Rollup创建自定义的库文件包](http://bl.ocks.org/mbostock/bb09af4c39c79cffcde4)，也可以直接从[d3js.org](https://d3js.org/)引用：
+
+···js
+<script src="https://d3js.org/d3.v4.js"></script>
+···
+
+压缩版:
+
+···js
+<script src="https://d3js.org/d3.v4.min.js"></script>
+···
