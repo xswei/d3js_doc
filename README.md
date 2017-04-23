@@ -88,12 +88,39 @@
 
 如果使用`npm`，则可以通过`npm install d3`来安装。此外还可以下载[最新版](https://unpkg.com/d3/build/)，最新版支持AMD、CommonJS以及vanilla环境。可以使用[Rollup创建自定义的库文件包](http://bl.ocks.org/mbostock/bb09af4c39c79cffcde4)，也可以直接从[d3js.org](https://d3js.org/)引用：
 
-···js
+```js
 <script src="https://d3js.org/d3.v4.js"></script>
-···
+```
 
 压缩版:
 
-···js
+```js
 <script src="https://d3js.org/d3.v4.min.js"></script>
-···
+```
+
+你也可以单独使用d3中的某个模块，比如,单独使用[d3-selection](https://github.com/d3/d3-selection)：
+
+```js
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+
+```
+
+如果要使用某个固定的版本，则考虑[CNDJS](https://cdnjs.com/libraries/d3) 或[ unpkg](https://unpkg.com/d3/)
+
+#### 支持环境
+
+D3支持“现代”浏览器，也就是除IE8及以下的浏览器。D3针对Firefox，Chrome，Safari，Opera，IE9 +，Android和iOS进行测试，D3的一部分功能能在旧版的浏览器中运行，因为D3的核心功能对浏览器的要求比较低：JavaScript和 [W3C DOM](http://www.w3.org/DOM/) API。D3使用 Level 1级[Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载[Sizzle](http://sizzlejs.com/)来实现兼容。现代浏览器对[SVG](http://www.w3.org/TR/SVG/)和[CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以D3不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么祝你好运...
+
+D3也可以运行在[Node](http://nodejs.org/) 和 [Web workers](http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html)中. 在Node环境中使用DOM的时候，必须要提供自己的DOM实现。推荐使用[JSDOM](https://github.com/tmpvar/jsdom)，为了避免定义全局`document`，建议将DOM传递给d3.select或者将NodeList传递给d3.selectAll,如下：
+
+```js
+var d3 = require("d3"),
+    jsdom = require("jsdom");
+
+var document = jsdom.jsdom(),
+    svg = d3.select(document.body).append("svg");
+
+```
+
+#### 本地开发
+
