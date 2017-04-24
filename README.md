@@ -40,7 +40,7 @@
 
 * [Dispatches](https://github.com/xswei/d3js_doc/tree/master/API/d3-dispatch-master)(**事件调度**)
 
-* [Dragging](https://github.com/xswei/d3js_doc/tree/master/API/d3-drag-master)(拖拽)
+* [Dragging](https://github.com/xswei/d3js_doc/tree/master/API/d3-drag-master)(**拖拽**)
 
 * [Easings](https://github.com/xswei/d3js_doc/tree/master/API/d3-ease-master)(**过渡类型**)
 

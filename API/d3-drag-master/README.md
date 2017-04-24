@@ -1,6 +1,6 @@
 # d3-drag
 
-[Drag-and-drop(拖拽)](https://en.wikipedia.org/wiki/Drag_and_drop) 是一种很流行的交互方式。 D3的 [drag behavior](#api-reference) 为[selections](https://github.com/d3/d3-selection交互, 例如你可以使用拖拽交互来增强 [力导向](https://github.com/d3/d3-force)效果, 或者拖拽力学仿真中相互碰撞的圆:
+[Drag-and-drop(拖拽)](https://en.wikipedia.org/wiki/Drag_and_drop) 是一种流行且易学的交互方式。D3的 [drag behavior](#api-reference) 为[selections](https://github.com/d3/d3-selection)提供了一个方便且灵活的交互方式, 例如你可以使用拖拽交互来增强 [力导向](https://github.com/d3/d3-force)效果, 或者拖拽力学仿真中相互碰撞的圆:
 
 [<img alt="Force Dragging III" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/force-graph.png" width="420" height="219">](http://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048)[<img alt="Force Dragging II" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/force-collide.png" width="420" height="219">](http://bl.ocks.org/mbostock/2990a882e007f8384b04827617752738)
 
@@ -9,7 +9,11 @@
 
 [<img alt="Line Drawing" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/drawing.png" width="420" height="219">](http://bl.ocks.org/mbostock/f705fc55e6f26df29354)
 
-拖拽交互对元素不敏感，所以你可以将其应用在SVG,HTML甚至Canvas上。并且可以通过其他技术手段对其进行扩展，比如可以将Voronoi叠加到目标元素上:
+拖拽交互也可以与其他交互结合使用，比如和[d3-zoom](https://github.com/d3/d3-zoom)结合使用 .
+
+[<img alt="Drag & Zoom II" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/dots.png" width="420" height="219">](http://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084)
+
+拖拽交互对DOM元素不敏感，所以你可以将其应用在SVG,HTML甚至Canvas上。并且可以通过其他技术手段对其进行扩展，比如可以将Voronoi叠加到目标元素上:
 
 [<img alt="Circle Dragging IV" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/voronoi.png" width="420" height="219">](http://bl.ocks.org/mbostock/ec10387f24c1fad2acac3bc11eb218a5)[<img alt="Circle Dragging II" src="https://raw.githubusercontent.com/d3/d3-drag/master/img/canvas.png" width="420" height="219">](http://bl.ocks.org/mbostock/c206c20294258c18832ff80d8fd395c3)
 
@@ -17,8 +21,6 @@
 有一点好处，那就是拖拽操作统一了鼠标和触摸输入，并且屏蔽了浏览器的差异性。如果支持[Pointer Events](https://www.w3.org/TR/pointerevents/) 那么也支持拖拽操作。
 
 W3C对Pointer的定义为：以任何输入设备在屏幕上做出接触点的效果，比如鼠标，笔，触摸等。
-
-A pointer can be any point of contact on the screen made by a mouse cursor, pen, touch (including multi-touch), or other pointing input device
 
 ## Installing
 
@@ -55,6 +57,12 @@ var drag = d3.drag();
 | touchcancel  | selection         | end        | no⁴                |
 
 所有的事件传播会被阻止，如果要防止某些非拖拽事件触发拖拽事件监听器，则要设置 [*drag*.filter](#drag_filter)来对事件进行过滤.
+
+¹ 必须捕获iframe外的事件; 参考 [#9](https://github.com/d3/d3-drag/issues/9).
+<br>² 仅适用于基于鼠标的活动; 参考 [#9](https://github.com/d3/d3-drag/issues/9).
+<br>³ 只能在非空的基于鼠标的手势之后立即应用.
+<br>⁴ 必须允许在触摸输入上进行点击仿真; 参考 [#9](https://github.com/d3/d3-drag/issues/9).
+<br>⁵ 忽略500ms内的同类型事件，为了避免过度的事件触发影响客户端性能。
 
 <a href="#drag" name="drag">#</a> d3.<b>drag</b>() [<>](https://github.com/d3/d3-drag/blob/master/src/drag.js "Source")
 
@@ -117,7 +125,7 @@ function filter() {
 
 不太理解，先放着。
 
-If *subject* is specified, sets the subject accessor to the specified object or function and returns the drag behavior. If *subject* is not specified, returns the current subject accessor, which defaults to:
+如果*subject*指定了，则设置当前的 subject 访问器为指定的对象或者函数，并返回当前的拖拽操作。如果没有指定*subject*,则返回当前的 subject 访问器，默认为：
 
 ```js
 function subject(d) {
@@ -125,9 +133,10 @@ function subject(d) {
 }
 ```
 
-The *subject* of a drag gesture represents *the thing being dragged*. It is computed when an initiating input event is received, such as a mousedown or touchstart, immediately before the drag gesture starts. The subject is then exposed as *event*.subject on subsequent [drag events](#drag-events) for this gesture.
+*subject* 表示 *当前正被拖拽的东西*。当接收到输入事件时被计算得到，比如鼠标按下或者开始触摸等在拖拽开始之前。然后 subject 作为*event*.subject被附加到[drag events](#drag-events)上。
 
-The default subject is the [datum](https://github.com/d3/d3-selection#selection_datum) of the element in the originating selection (see [*drag*](#_drag)) that received the initiating input event; if this datum is undefined, an object representing the coordinates of the pointer is created. When dragging circle elements in SVG, the default subject is thus the datum of the circle being dragged. With [Canvas](https://html.spec.whatwg.org/multipage/scripting.html#the-canvas-element), the default subject is the canvas element’s datum (regardless of where on the canvas you click). In this case, a custom subject accessor would be more appropriate, such as one that picks the closest circle to the mouse within a given search *radius*:
+
+默认的 subject 是接收拖拽事件的原始元素上绑定的[datum](https://github.com/d3/d3-selection#selection_datum)；如果datum未定义，则表示指针坐标位置的对象会被创建。当在SVG中拖拽圆时，默认的subject就是当前被拖拽圆上绑定的数据。当使用[Canvas](https://html.spec.whatwg.org/multipage/scripting.html#the-canvas-element)时，默认的subject就是当前canvas元素上的datum(无论你点击的是canvas上的哪个位置)。当使用canvas时，自定义的subject访问器就显得非常重要了，比如在当前位置指定半径区域内选取一个圆表示当前被拖拽的对象:
 
 ```js
 function subject() {
@@ -152,16 +161,16 @@ function subject() {
 }
 ```
 
-(If necessary, the above can be accelerated using [*quadtree*.find](https://github.com/d3/d3-quadtree#quadtree_find).)
+如果需要的话，上述操作可以使用[*quadtree*.find](https://github.com/d3/d3-quadtree#quadtree_find)来加速。
 
-The returned subject should be an object that exposes `x` and `y` properties, so that the relative position of the subject and the pointer can be preserved during the drag gesture. If the subject is null or undefined, no drag gesture is started for this pointer; however, other starting touches may yet start drag gestures. See also [*drag*.filter](#drag_filter).
+返回的subject应该是一个包含`x`和`y`属性的对象，所以subject和指针在拖拽过程中的相对位置可以保持。如果subject为null或者undefined，则不会启动拖拽手势；然而，其他的起始点也可以启动 拖拽手势，参考[*drag*.filter](#drag_filter)。
 
-The subject of a drag gesture may not be changed after the gesture starts. The subject accessor is invoked with the same context and arguments as [*selection*.on](https://github.com/d3/d3-selection#selection_on) listeners: the current datum `d` and index `i`, with the `this` context as the current DOM element. During the evaluation of the subject accessor, [d3.event](https://github.com/d3/d3-selection#event) is a beforestart [drag event](#drag-events). Use *event*.sourceEvent to access the initiating input event and *event*.identifier to access the touch identifier. The *event*.x and *event*.y are relative to the [container](#drag_container), and are computed using [d3.mouse](https://github.com/d3/d3-selection#mouse) or [d3.touch](https://github.com/d3/d3-selection#touch) as appropriate.
+拖拽过程中的subject可能在拖拽过程中没有变化。拖拽访问器和[*selection*.on](https://github.com/d3/d3-selection#selection_on)事件会以相同的上下文和参数被调用：当前数据`d`，索引`i`以及指向当前DOM元素的`this`。在对subject访问器进行计算过程中，[d3.event](https://github.com/d3/d3-selection#event)是一个先于[drag event](#drag-events)启动的事件。使用*event*.sourceEvent可以访问原始事件，*event*.identifier可以访问原始触摸标识符。*event*.x 和 *event*.y坐标是想对于[container](#drag_container)并使用[d3.mouse](https://github.com/d3/d3-selection#mouse) 或 [d3.touch](https://github.com/d3/d3-selection#touch)计算的，
 
 
 <a href="#drag_on" name="drag_on">#</a> <i>drag</i>.<b>on</b>(<i>typenames</i>, [<i>listener</i>]) [<>](https://github.com/d3/d3-drag/blob/master/src/drag.js#L138 "Source")
 
-如果指定了*listener*，则将其设置为指定类型的回调事件，并返回拖拽对象。如果已经为执行的*typename*注册了监听器，则会将其覆盖。如果*listener*为null，则相当于移除*typename*对应的监听器。如果没有指定*listener*，则返回与*typename*匹配的第一个监听器。当事件发生时，对应的监听器将会被执行，并传递当前元素绑定的数据 `d` 和索引 `i`,  `this` 指向当前DOM元素.
+如果指定了*listener*，则将其设置为指定类型的回调事件，并返回拖拽行为。如果已经为执行的*typename*注册了监听器，则会将其覆盖。如果*listener*为null，则相当于移除*typename*对应的监听器。如果没有指定*listener*，则返回与*typename*匹配的第一个监听器。当事件发生时，对应的监听器将会被执行，并传递当前元素绑定的数据 `d` 和索引 `i`,  `this` 指向当前DOM元素.
 
 
 *typenames* 是一个或多个由空格分割的字符串. 每个 *typename* 都是一个可以由(`.`)分割的 *type*和*name*, 比如`drag.foo` 和 `drag.bar`; *name* 允许为同一种*type*添加多个监听器，而*type*必须为如下几种:
@@ -183,22 +192,23 @@ The subject of a drag gesture may not be changed after the gesture starts. The s
 
 ### Drag Events
 
-When a [drag event listener](#drag_on) is invoked, [d3.event](https://github.com/d3/d3-selection#event) is set to the current drag event. The *event* object exposes several fields:
+当[drag event listener](#drag_on)被调用的时候, [d3.event](https://github.com/d3/d3-selection#event)会被设置为当前的拖拽事件. *event*对象包括以下几个属性:
 
-* `target` - the associated [drag behavior](#drag).
+* `target` - 关联的[drag behavior](#drag).
 * `type` - 事件类型， “start”, “drag” or “end”; 参考 [*drag*.on](#drag_on).
 * `subject` - 由 [*drag*.subject](#drag_subject)定义的.
 * `x` - 新的 *x*-坐标.
 * `y` - 新的 *y*-坐标.
 * `dx` - 相对与上个拖拽事件的*x*-方向的偏移.
 * `dy` - 相对与上个拖拽事件的*y*-方向的偏移.
-* `identifier` - 触发事件的设备， “mouse”, 或 [touch identifier](https://www.w3.org/TR/touch-events/#widl-Touch-identifier).
+* `identifier` - 字符串“mouse”, 或 [touch identifier](https://www.w3.org/TR/touch-events/#widl-Touch-identifier)标识符
 * `active` - 当前活动的拖放操作数量.
 * `sourceEvent` - 底层原生事件, 比如mousemove 或 touchmove.
 
 *event*.active 在多个拖放并发进行时是有用的。记录了同时进行拖放操作的数量。
 
-The *event* object also exposes the [*event*.on](#event_on) method.
+
+*event* 对象也包含 [*event*.on](#event_on) 方法.
 
 <a href="#event_on" name="event_on">#</a> <i>event</i>.<b>on</b>(<i>typenames</i>, [<i>listener</i>]) [<>](https://github.com/d3/d3-drag/blob/master/src/event.js "Source")
 
