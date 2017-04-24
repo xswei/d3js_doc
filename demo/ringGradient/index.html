@@ -7,42 +7,135 @@
 	<style>
 		path{
 			fill:none;
-			stroke: red
+			stroke: red;
+			stroke-width:5;
+			
+		}
+		.ring_1{
+			stroke:url(#linear_1);
+		}
+		.ring_2{
+			stroke:url(#linear_2);
+		}
+		.dot{
+			fill:white;
+			r:10;
+			stroke-width:5;
 		}
 	</style>
 </head>
 <body>
-	<svg id="svg"></svg>
+	<svg id="svg">
+		<defs>
+			<linearGradient id="linear_1" x1="0%" y1="0%" y2="100%" x2="0%">
+				<stop offset="0%" class="start_color"/>
+				<stop offset="100%" class="end_color"/>
+			</linearGradient>
+			<linearGradient id="linear_2" x1="0%" y2="0%" y1="100%" x2="0%">
+				<stop offset="0%" class="start_color"/>
+				<stop offset="100%" class="end_color"/>
+			</linearGradient>
+		</defs>
+	</svg>
 	<script>
-		window.onload = function(){
-			var w = 500,
-				h = 500,
-				svg = d3.select("#svg").attr("width",500).attr("height",500)
+		//window.onload = function(){
+			var w = 300,
+				h = 300,
+				svg = d3.select("#svg").attr("width",w).attr("height",h)
 
 			var g = svg.append("g")
 				.attr("transform","translate("+w/2+","+h/2+")")
+			g.append("path")
+				.attr("class","ring_1")
+			g.append("path")
+				.attr("class","ring_2")
+
+			var color = d3.scaleSequential(d3.interpolate("blue","red"))
+			var color1 = d3.interpolate("steelblue","green"),
+				color2 = d3.interpolate("green","red")
+				//.domain([0,0.5]);
+
+			var linear1 = d3.select("#linear_1");
+			linear1.select(".start_color").style("stop-color",color(0))
+			var linear2 = d3.select("#linear_2");
+			linear2.select(".start_color").style("stop-color",color(0.5))
 
 			var data = 1;
+			r = 100;
+			c = {x:w/2,y:h/2}
+			delta = 0;
+			g.append("circle")
+				.attr("cx",0)
+				.attr("cy",0)
+				.attr("r",5)
+				.attr("fill","#ccc")
 
-			updateRing(100,{x:100,y:100},0.5)
+			g.append("circle")
+				.attr("cx",0)
+				.attr("cy",-r)
+				.attr("r",5)
+				.attr("fill","steelblue")
+
+
 
 			function updateRing(r,c,t){
-				var ring = g.select("path.ring"),
-					deltaAngle = Math.PI*2*t,
-					dx = Math.cos(deltaAngle)*r,
-					dy = Math.sin(deltaAngle)*r,
-					flag = t>0.5?"1":"0"
-				if(ring.empty()){
-					ring = g.append("path").attr("class","ring")
+				if(t>=1){
+					g.select(".ring_2")
+						.attr("d","M"+0+" "+r+"A"+r+" "+r+" "+180+" 0 1 "+0+" "+(-r));
+					g.select("circle.dot").attr("cx",0)
+						.attr("cy",-r)
+					return;
 				}
-				console.log(deltaAngle)
+				var ring,
+					circle = g.select("circle.dot")
+					deltaAngle = Math.PI*2*t,
+					dx = Math.sin(deltaAngle)*r,
+					dy = Math.cos(deltaAngle)*r;
+
+				if(t<=0.5){
+					flag = 1;
+					ring = g.select("path.ring_1");
+					linear1.select(".end_color")
+						.style("stop-color",color(t))
+					if(ring.empty()){
+						ring = g.append("path").attr("class","ring_1")
+					}
+				}else{
+					flag = 2;
+					ring = g.select("path.ring_2");
+					linear2.select(".end_color")
+						.style("stop-color",color(t))
+					if(ring.empty()){
+						ring = g.append("path").attr("class","ring_2")
+					}
+				}
+
+				if(circle.empty()){
+					circle = g.append("circle").attr("class","dot")
+				}
 				ring.attr("d",function(){
-
-					return "M"+c.x+" "+c.y+"A"+r+" "+r+" "+360*t+" "+flag+" 0 "+(c.x+dx)+" "+c.y+dy;
+					if(flag ==1){
+						return "M"+0+" "+(-r)+"A"+r+" "+r+" "+ (360*t) +" 0"+" 1 "+(dx)+" "+(-dy);
+					}else{
+						g.select(".ring_1")
+							.attr("d","M"+0+" "+(-r)+"A"+r+" "+r+" "+ (180) +" 0"+" 1 "+0+" "+r)
+						return "M"+0+" "+r+"A"+r+" "+r+" "+ (360*(t-0.5)) +" 0 1 "+(dx)+" "+(-dy);
+					}
 				})
+				circle.attr("cx",dx)
+					.attr("cy",-dy)
+					.attr("stroke",function(){
+						return color(t);
+					})
 			}
-
-		}
+			var timer = setInterval(function(){
+				delta += 0.01;
+				updateRing(r,c,delta);
+				if(delta>=1){
+					clearInterval(timer)
+				}
+			},50)
+		//}
 	</script>
 </body>
 </html>
