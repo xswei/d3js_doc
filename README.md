@@ -36,7 +36,7 @@
 
 * [Colors](https://github.com/xswei/d3js_doc/tree/master/API/d3-color-master)(颜色)
 
-* [Delimiter-Separated Values(d3-dsv)](https://github.com/xswei/d3js_doc/tree/master/API/d3-dsv-master)(dsv模块)
+* [Delimiter-Separated Values(d3-dsv)](https://github.com/xswei/d3js_doc/tree/master/API/d3-dsv-master)(**dsv模块**)
 
 * [Dispatches](https://github.com/xswei/d3js_doc/tree/master/API/d3-dispatch-master)(**事件调度**)
 
