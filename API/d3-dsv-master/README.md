@@ -2,14 +2,14 @@
 
 这个模块提供了一个使用指定分割符对数据进行格式化的解析器，比如CSV和TSV。这种扁平化的表格类型在表格数据中很有用，比如EXCEL等，并且比JSON更节省空间。这个模块的实现基于 [RFC 4180](http://tools.ietf.org/html/rfc4180).
 
-CSV和TSV已经被内置到这个模块中，比如解析:
+CSV和TSV已经被内置到这个模块中，比如对CSV或TSV格式的字符串进行转化:
 
 ```js
 d3.csvParse("foo,bar\n1,2"); // [{foo: "1", bar: "2"}, columns: ["foo", "bar"]]
 d3.tsvParse("foo\tbar\n1\t2"); // [{foo: "1", bar: "2"}, columns: ["foo", "bar"]]
 ```
 
-或序列化:
+或将CSV或TSV序列化为字符串:
 
 ```js
 d3.csvFormat([{foo: "1", bar: "2"}]); // "foo,bar\n1,2"
@@ -83,7 +83,7 @@ var data = d3.csvParse(string);
 
 解析指定的*string*，返回一个对象数组，每个对象表示一行数据。
 
-与[*dsv*.parseRows](#dsv_parseRows)不同，这个方法要求DSV内容的第一行为列明。这些列明最后会被解析为数组中的属性名。例如，考虑如下的CSV文件:
+与[*dsv*.parseRows](#dsv_parseRows)不同，这个方法要求DSV内容的第一行为列名。这些列明最后会被解析为数组中的属性名。例如，考虑如下的CSV文件:
 
 ```
 Year,Make,Model,Length
@@ -162,7 +162,7 @@ var data = d3.csvParseRows(string, function(d, i) {
 
 <a name="dsv_format" href="#dsv_format">#</a> <i>dsv</i>.<b>format</b>(<i>rows</i>[, <i>columns</i>]) [<>](https://github.com/d3/d3-dsv/blob/master/src/dsv.js#L105 "Source")
 
-将指定的数组对象序列化为*string*类型，与[*dsv*.parse](#dsv_parse)的作用相反. 每行数据使用 (`\n`) 分割, 每列数据使用指定的分割符分割。 Values that contain either the delimiter, a double-quote (`"`) or a newline will be escaped using double-quotes.
+将指定的数组对象序列化为*string*类型，与[*dsv*.parse](#dsv_parse)的作用相反. 每行数据使用 (`\n`) 分割, 每列数据使用指定的分割符分割。 
 
 如果没有指定 *columns* ，则会使用所有数据的属性名作为列明。列明的顺序是不固定的。如果指定了 *columns* 则序列化后每行的顺序按照指定的顺序排列:
 
@@ -212,19 +212,20 @@ If a [content security policy](http://www.w3.org/TR/CSP/) is in place, note that
 
 ## Command Line Reference
 
-
+命令行引用
 
 ### dsv2dsv
 
 <a name="dsv2dsv" href="#dsv2dsv">#</a> <b>dsv2dsv</b> [<i>options…</i>] [<i>file</i>]
 
-Converts the specified DSV input *file* to DSV (typically with a different delimiter or encoding). If *file* is not specified, defaults to reading from stdin. For example, to convert to CSV to TSV:
+将指定的DSV输入*文件*转为另一种DSV文件，如果没有指定*file*，则默认从stdin中读取，比如讲CSV转为TSV:
+
 
 ```
 csv2tsv < example.csv > example.tsv
 ```
 
-To convert windows-1252 CSV to utf-8 CSV:
+将windows-1252 CSV 转为 utf-8 CSV:
 
 ```
 dsv2dsv --input-encoding windows-1252 < latin1.csv > utf8.csv
@@ -233,55 +234,64 @@ dsv2dsv --input-encoding windows-1252 < latin1.csv > utf8.csv
 <a name="dsv2dsv_help" href="dsv2dsv_help">#</a> dsv2dsv <b>-h</b>
 <br><a href="dsv2dsv_help">#</a> dsv2dsv <b>--help</b>
 
-Output usage information.
+输出使用帮助信息
+
 
 <a name="dsv2dsv_version" href="dsv2dsv_version">#</a> dsv2dsv <b>-V</b>
 <br><a href="dsv2dsv_version">#</a> dsv2dsv <b>--version</b>
 
-Output the version number.
+输出版本号
 
 <a name="dsv2dsv_out" href="dsv2dsv_out">#</a> dsv2dsv <b>-o</b> <i>file</i>
 <br><a href="dsv2dsv_out">#</a> dsv2dsv <b>--out</b> <i>file</i>
 
-Specify the output file name. Defaults to “-” for stdout.
+指定输出文件名，默认“-”
+
 
 <a name="dsv2dsv_input_delimiter" href="dsv2dsv_input_delimiter">#</a> dsv2dsv <b>-r</b> <i>delimiter</i>
 <br><a href="dsv2dsv_input_delimiter">#</a> dsv2dsv <b>--input-delimiter</b> <i>delimiter</i>
 
-Specify the input delimiter character. Defaults to “,” for reading CSV. (You can enter a tab on the command line by typing ⌃V.)
+指定输入文件分隔符，默认为“,”（CSV）.
+
 
 <a name="dsv2dsv_input_encoding" href="dsv2dsv_input_encoding">#</a> dsv2dsv <b>--input-encoding</b> <i>encoding</i>
 
-Specify the input character encoding. Defaults to “utf8”.
+指定输入文件的编码格式，默认为“utf8”.
 
 <a name="dsv2dsv_output_delimiter" href="dsv2dsv_output_delimiter">#</a> dsv2dsv <b>-w</b> <i>delimiter</i>
 <br><a href="dsv2dsv_output_delimiter">#</a> dsv2dsv <b>--output-delimiter</b> <i>delimiter</i>
 
-Specify the output delimiter character. Defaults to “,” for writing CSV. (You can enter a tab on the command line by typing ⌃V.)
+指定输出文件的分隔符，默认为“,”
 
 <a name="dsv2dsv_output_encoding" href="dsv2dsv_output_encoding">#</a> dsv2dsv <b>--output-encoding</b> <i>encoding</i>
 
-Specify the output character encoding. Defaults to “utf8”.
+指定输出文件的编码格式，默认为“utf8”.
+
 
 <a name="csv2tsv" href="#csv2tsv">#</a> <b>csv2tsv</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [dsv2dsv](#dsv2dsv), but the [output delimiter](#dsv2dsv_output_delimiter) defaults to the tab character (\t).
+等价于[dsv2dsv](#dsv2dsv)，但是[output delimiter](#dsv2dsv_output_delimiter)默认为“\t”
+
 
 <a name="tsv2csv" href="#tsv2csv">#</a> <b>tsv2csv</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [dsv2dsv](#dsv2dsv), but the [input delimiter](#dsv2dsv_output_delimiter) defaults to the tab character (\t).
+等价于[dsv2dsv](#dsv2dsv)，但是[input delimiter](#dsv2dsv_output_delimiter)默认为“\t”
+
 
 ### dsv2json
 
 <a name="dsv2json" href="#dsv2json">#</a> <b>dsv2json</b> [<i>options…</i>] [<i>file</i>]
 
-Converts the specified DSV input *file* to JSON. If *file* is not specified, defaults to reading from stdin. For example, to convert to CSV to JSON:
+将指定的DSV文件转为JSON。
+
+例如将csv转为json格式:
+
 
 ```
 csv2json < example.csv > example.json
 ```
 
-Or to convert CSV to a newline-delimited JSON stream:
+或者将CSV转为自动换行的 JSON 流:
 
 ```
 csv2json -n < example.csv > example.ndjson
@@ -290,56 +300,59 @@ csv2json -n < example.csv > example.ndjson
 <a name="dsv2json_help" href="dsv2json_help">#</a> dsv2json <b>-h</b>
 <br><a href="dsv2json_help">#</a> dsv2json <b>--help</b>
 
-Output usage information.
+输出帮助信息。
+
 
 <a name="dsv2json_version" href="dsv2json_version">#</a> dsv2json <b>-V</b>
 <br><a href="dsv2json_version">#</a> dsv2json <b>--version</b>
 
-Output the version number.
+输出版本号
 
 <a name="dsv2json_out" href="dsv2json_out">#</a> dsv2json <b>-o</b> <i>file</i>
 <br><a href="dsv2json_out">#</a> dsv2json <b>--out</b> <i>file</i>
 
-Specify the output file name. Defaults to “-” for stdout.
+指定输出文件名，默认为“-”
+
 
 <a name="dsv2json_input_delimiter" href="dsv2json_input_delimiter">#</a> dsv2json <b>-r</b> <i>delimiter</i>
 <br><a href="dsv2json_input_delimiter">#</a> dsv2json <b>--input-delimiter</b> <i>delimiter</i>
 
-Specify the input delimiter character. Defaults to “,” for reading CSV. (You can enter a tab on the command line by typing ⌃V.)
+指定输入文件的分隔符，默认为“,” 
 
 <a name="dsv2json_input_encoding" href="dsv2json_input_encoding">#</a> dsv2json <b>--input-encoding</b> <i>encoding</i>
 
-Specify the input character encoding. Defaults to “utf8”.
+指定输入文件的编码格式，默认为 “utf8”.
 
 <a name="dsv2json_output_encoding" href="dsv2json_output_encoding">#</a> dsv2json <b>-r</b> <i>encoding</i>
 <br><a href="dsv2json_output_encoding">#</a> dsv2json <b>--output-encoding</b> <i>encoding</i>
 
-Specify the output character encoding. Defaults to “utf8”.
+指定输出文件的编码格式，默认为 “utf8”.
 
 <a name="dsv2json_newline_delimited" href="dsv2json_newline_delimited">#</a> dsv2json <b>-n</b>
 <br><a href="dsv2json_newline_delimited">#</a> dsv2json <b>--newline-delimited</b>
 
-Output [newline-delimited JSON](https://github.com/mbostock/ndjson-cli) instead of a single JSON array.
+输出[newline-delimited JSON](https://github.com/mbostock/ndjson-cli) 而不是一个JSON数组
 
 <a name="csv2json" href="#csv2json">#</a> <b>csv2json</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [dsv2json](#dsv2json).
+等价于 [dsv2json](#dsv2json).
 
 <a name="tsv2json" href="#csv2json">#</a> <b>tsv2json</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [dsv2json](#dsv2json), but the [input delimiter](#dsv2json_input_delimiter) defaults to the tab character (\t).
+等价于 [dsv2json](#dsv2json),但是 [input delimiter](#dsv2json_input_delimiter)默认为 (\t).
 
 ### json2dsv
 
 <a name="json2dsv" href="#json2dsv">#</a> <b>json2dsv</b> [<i>options…</i>] [<i>file</i>]
 
-Converts the specified JSON input *file* to DSV. If *file* is not specified, defaults to reading from stdin. For example, to convert to JSON to CSV:
+将JSON文件转为DSV，比如讲JSON转为CSV：
+
 
 ```
 json2csv < example.json > example.csv
 ```
+或者将一个newline-delimited的JSON转为CSV：
 
-Or to convert a newline-delimited JSON stream to CSV:
 
 ```
 json2csv -n < example.ndjson > example.csv
@@ -348,40 +361,42 @@ json2csv -n < example.ndjson > example.csv
 <a name="json2dsv_help" href="json2dsv_help">#</a> json2dsv <b>-h</b>
 <br><a href="json2dsv_help">#</a> json2dsv <b>--help</b>
 
-Output usage information.
+输出帮助信息
+
 
 <a name="json2dsv_version" href="json2dsv_version">#</a> json2dsv <b>-V</b>
 <br><a href="json2dsv_version">#</a> json2dsv <b>--version</b>
 
-Output the version number.
+输出版本号
 
 <a name="json2dsv_out" href="json2dsv_out">#</a> json2dsv <b>-o</b> <i>file</i>
 <br><a href="json2dsv_out">#</a> json2dsv <b>--out</b> <i>file</i>
 
-Specify the output file name. Defaults to “-” for stdout.
+指定输出文件名，默认为“-”
+
 
 <a name="json2dsv_input_encoding" href="json2dsv_input_encoding">#</a> json2dsv <b>--input-encoding</b> <i>encoding</i>
 
-Specify the input character encoding. Defaults to “utf8”.
+指定输入文件编码格式，默认为 “utf8”.
 
 <a name="json2dsv_output_delimiter" href="json2dsv_output_delimiter">#</a> json2dsv <b>-w</b> <i>delimiter</i>
 <br><a href="json2dsv_output_delimiter">#</a> json2dsv <b>--output-delimiter</b> <i>delimiter</i>
 
-Specify the output delimiter character. Defaults to “,” for writing CSV. (You can enter a tab on the command line by typing ⌃V.)
+指定输出文件分隔符，默认为“,”
 
 <a name="json2dsv_output_encoding" href="json2dsv_output_encoding">#</a> json2dsv <b>--output-encoding</b> <i>encoding</i>
 
-Specify the output character encoding. Defaults to “utf8”.
+指定输出文件编码格式，默认为 “utf8”.
 
 <a name="json2dsv_newline_delimited" href="json2dsv_newline_delimited">#</a> json2dsv <b>-n</b>
 <br><a href="json2dsv_newline_delimited">#</a> json2dsv <b>--newline-delimited</b>
 
-Read [newline-delimited JSON](https://github.com/mbostock/ndjson-cli) instead of a single JSON array.
+读取一个 [newline-delimited JSON](https://github.com/mbostock/ndjson-cli) JSON  而不是 JSON数组
 
 <a name="csv2json" href="#csv2json">#</a> <b>csv2json</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [json2dsv](#json2dsv).
+等价于 [json2dsv](#json2dsv).
 
 <a name="tsv2json" href="#csv2json">#</a> <b>tsv2json</b> [<i>options…</i>] [<i>file</i>]
 
-Equivalent to [json2dsv](#json2dsv), but the [output delimiter](#json2dsv_output_delimiter) defaults to the tab character (\t).
+等价于 [json2dsv](#json2dsv), 但是 [output delimiter](#json2dsv_output_delimiter) 为(\t).
