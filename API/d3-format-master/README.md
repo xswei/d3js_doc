@@ -25,9 +25,7 @@ for (var i = 0; i < 10; i++) {
 
 这是因为 [binary floating point(二进制表示浮点类型数据)](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) 决定的! ಠ_ಠ
 
-对数值进行四舍五入远远不能满足需要。因为在实际应用中，不仅仅会遇到小数问题，还有表示方法的问题。比如将一个比较大的数值使用科学计数法表示等。
-
-Yet rounding error is not the only reason to customize number formatting. A table of numbers should be formatted consistently for comparison; above, 0.0 would be better than 0. Large numbers should have grouped digits (e.g., 42,000) or be in scientific or metric notation (4.2e+4, 42k). Currencies should have fixed precision ($3.50). Reported numerical results should be rounded to significant digits (4021 becomes 4000). Number formats should appropriate to the reader’s locale (42.000,00 or 42,000.00). The list goes on.
+对数值进行简单的四舍五入远远不能满足需要。因为在实际应用中，不仅仅会遇到小数问题，还有表示方法的问题。比如将一个比较大的数值使用科学计数法表示以及货币的表示格式等。
 
 d3-format是一个可以将数字格式化为人类友好的表示的模块。比如:
 
@@ -80,6 +78,21 @@ var format = d3.format(".2s");
 </script>
 ```
 
+不同区域的文件放在[unpkg](https://unpkg.com/)上，可以通过[d3.json](https://github.com/d3/d3-request/blob/master/README.md#json)加载。比如将Russian设置为默认区域:
+
+```js
+d3.json("https://unpkg.com/d3-format@1/locale/ru-RU.json", function(error, locale) {
+  if (error) throw error;
+
+  d3.formatDefaultLocale(locale);
+
+  var format = d3.format("$,");
+
+  console.log(format(1234.56)); // 1 234,56 руб.
+});
+
+```
+
 [Try d3-format in your browser.](https://tonicdev.com/npm/d3-format)
 
 ## API Reference
@@ -105,9 +118,9 @@ var format = d3.format(".2s");
 * `>` - 右对齐. (默认).
 * `<` - 左对齐.
 * `^` - 居中.
-* `=` - like `>`, but with any sign and symbol to the left of any padding.
+* `=` - 与`>`类似, but with any sign and symbol to the left of any padding.
 
-The *sign* can be:
+*sign* 可以为:
 
 * `-` - 如果是负数添加-号，如果是正数什么都不做. (Default behavior.)
 * `+` - 如果是正数也添加+号.

@@ -46,7 +46,7 @@
 
 * [Forces](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master)(**力学仿真模拟**)
 
-* [Number Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-format-master)(数值格式化)
+* [Number Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-format-master)(**数值格式化**)
 
 * [Geographies](https://github.com/xswei/d3js_doc/tree/master/API/d3-geo-master)(地理)
 
