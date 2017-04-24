@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ring Gradient</title>
+	<script src="../libs/d3.v4.js"></script>
+	<style>
+		path{
+			fill:none;
+			stroke: red
+		}
+	</style>
+</head>
+<body>
+	<svg id="svg"></svg>
+	<script>
+		window.onload = function(){
+			var w = 500,
+				h = 500,
+				svg = d3.select("#svg").attr("width",500).attr("height",500)
+
+			var g = svg.append("g")
+				.attr("transform","translate("+w/2+","+h/2+")")
+
+			var data = 1;
+
+			updateRing(100,{x:100,y:100},0.5)
+
+			function updateRing(r,c,t){
+				var ring = g.select("path.ring"),
+					deltaAngle = Math.PI*2*t,
+					dx = Math.cos(deltaAngle)*r,
+					dy = Math.sin(deltaAngle)*r,
+					flag = t>0.5?"1":"0"
+				if(ring.empty()){
+					ring = g.append("path").attr("class","ring")
+				}
+				console.log(deltaAngle)
+				ring.attr("d",function(){
+
+					return "M"+c.x+" "+c.y+"A"+r+" "+r+" "+360*t+" "+flag+" 0 "+(c.x+dx)+" "+c.y+dy;
+				})
+			}
+
+		}
+	</script>
+</body>
+</html>
