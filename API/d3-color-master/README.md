@@ -87,9 +87,7 @@ var steelblue = d3.rgb("steelblue");
 
 <a name="color_darker" href="#color_darker">#</a> *color*.<b>darker</b>([<i>k</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L225 "Source")
 
-
 将color调的更暗，k为一个可选的系数。k默认为 1.这个方法的具体实现依赖于颜色空间。
-
 
 <a name="color_displayable" href="#color_displayable">#</a> *color*.<b>displayable</b>() [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L169 "Source")
 
