@@ -22,11 +22,14 @@
 			r:10;
 			stroke-width:5;
 		}
+		svg{
+			border:2px #ccc solid;
+		}
 	</style>
 </head>
 <body>
-	<svg id="svg">
-		<defs>
+	<svg id="svg" width="600" height="600">
+		<!-- <defs>
 			<linearGradient id="linear_1" x1="0%" y1="0%" y2="100%" x2="0%">
 				<stop offset="0%" class="start_color"/>
 				<stop offset="100%" class="end_color"/>
@@ -35,11 +38,21 @@
 				<stop offset="0%" class="start_color"/>
 				<stop offset="100%" class="end_color"/>
 			</linearGradient>
-		</defs>
+		</defs> -->
 	</svg>
+	<script src="./ringGradient.js"></script>
 	<script>
+		var options = {
+			svg:"#svg",
+			cx:300,
+			cy:300
+		}
+		ring = new d3.RingGradient(options)
+
+
+
 		//window.onload = function(){
-			var w = 300,
+			/*var w = 300,
 				h = 300,
 				svg = d3.select("#svg").attr("width",w).attr("height",h)
 
@@ -134,7 +147,7 @@
 				if(delta>=1){
 					clearInterval(timer)
 				}
-			},50)
+			},50)*/
 		//}
 	</script>
 </body>
