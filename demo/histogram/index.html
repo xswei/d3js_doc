@@ -80,6 +80,10 @@
 					.attr("height",(d)=>{
 						return h-100-yscale(d.length);
 					})
+					.on("click",function(){
+						console.log(window.event);
+						console.log(d3.event)
+					})
 			}
 
 

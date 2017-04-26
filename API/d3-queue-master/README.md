@@ -1,6 +1,6 @@
 # d3-queue
 
-**queue(队列)**可以使得0个或多个延迟异步任务变得可配置:可以控制同时运行多少个任务。当所有的任务完成会出错后队列会将结果传递给*await*回调。这个有些类似于[Async.js](https://github.com/caolan/async)的 [parallel](https://github.com/caolan/async#paralleltasks-callback), [series](https://github.com/caolan/async#seriestasks-callback) (when *concurrency* is 1), 和[queue](https://github.com/caolan/async#queue), 但是脚本的体积更小: d3-queue 经过gzip压缩后大概只有700字节而Async会有4300字节.
+**queue(队列)**可以使得0个或多个延迟异步任务变得可配置:可以控制同时运行多少个任务。当所有的任务完成或出错后队列会将结果传递给*await*回调。这个有些类似于[Async.js](https://github.com/caolan/async)的 [parallel](https://github.com/caolan/async#paralleltasks-callback), [series](https://github.com/caolan/async#seriestasks-callback) (当 *concurrency* 为 1), 和 [queue](https://github.com/caolan/async#queue), 但是脚本的体积更小: d3-queue 经过gzip压缩后大概只有700字节而Async会有4300字节.
 
 
 每个任务都被定义为一个包含回调的函数。比如有个任务在延迟之后打印hello:
@@ -19,6 +19,7 @@ function delayedHello(callback) {
 如果要同时执行多个任务则创建一个队列，并使用*defer*来添加任务，然后注册一个*await*回调以备任务执行完成(成功或失败)后调用:
 
 ```js
+
 var q = d3.queue();
 q.defer(delayedHello);
 q.defer(delayedHello);
@@ -26,6 +27,7 @@ q.await(function(error) {
   if (error) throw error;
   console.log("Goodbye!");
 });
+
 ```
 
 当然你也可以使用`for`循环来延迟任务:
@@ -67,7 +69,7 @@ d3.queue()
       console.log("Goodbye!");
     });
 ```
-[asynchronous callback pattern(异步回调模式)](https://github.com/maxogden/art-of-node#callbacks)在Node.js中很常见。Queue可以直接与Node的接口一起使用，比如同时[stat two files](https://nodejs.org/dist/latest/docs/api/fs.html#fs_fs_stat_path_callback):
+[asynchronous callback pattern(异步回调模式)](https://github.com/maxogden/art-of-node#callbacks)在Node.js中很常见。Queue可以直接与Node的接口一起使用，比如同时[stat two files(并发两个文件)](https://nodejs.org/dist/latest/docs/api/fs.html#fs_fs_stat_path_callback):
 
 ```js
 d3.queue()
@@ -108,7 +110,7 @@ var q = d3.queue()
     });
 ```
 
-调用 `q.abort()`可以终端这些请求.
+调用 `q.abort()`可以中断这些请求.
 
 ## Installing
 
