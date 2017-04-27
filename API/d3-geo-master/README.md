@@ -42,7 +42,7 @@ var projection = d3.geoAlbers(),
 
 * [Paths(路径)](#paths)
 * [Projections(投影)](#projections) ([Azimuthal(方位角)](#azimuthal-projections), [Composite(合成投影)](#composite-projections), [Conic(锥)](#conic-projections), [Cylindrical(圆柱)](#cylindrical-projections))
-* [Raw Projections(原始投影)](#raw-projections)
+* [Raw Projections(原始|自定义投影)](#raw-projections)
 * [Spherical Math(球面数学)](#spherical-math)
 * [Spherical Shapes(球面几何)](#spherical-shapes)
 * [Streams(流)](#streams)
@@ -125,11 +125,10 @@ svg.selectAll("path")
 如果没有指定*context*则返回当前的渲染上下文，默认为null
 
 
--------------------------------------------------
-
 <a href="#path_pointRadius" name="path_pointRadius">#</a> <i>path</i>.<b>pointRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/path/index.js#L50 "Source")
 
-设置或获取点以及多个点特征的半径大小，默认为4.5. 当半径可以为常量也可以为计算每个特征的函数。这个函数会被传递给[path generator](#_path)调用。比如如果你的GeoJSON有其他的额外的属性，则可以通过这个属性来设置点的大小。也可以使用[d3.symbol](https://github.com/d3/d3-shape#symbols) 和 [projection](#geoProjection)来生成更多的形状。
+设置或获取点或者点集中点的半径大小，默认为4.5. 半径可以为常量也可以为计算每个特征的函数。这个函数会被传递给[path generator](#_path)调用。比如如果你的GeoJSON有其他的额外的属性，则可以通过这个属性来设置点的大小。也可以使用[d3.symbol](https://github.com/d3/d3-shape#symbols) 和 [projection](#geoProjection)来生成更多的形状。
+
 ### Projections
 
 投影的作用在于将球面多边形转为平面多边形，D3提供了几种标准的投影:
@@ -143,18 +142,20 @@ svg.selectAll("path")
 
 <a href="#_projection" name="_projection">#</a> <i>projection</i>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L34 "Source")
 
-根据指定的表示经纬度的\[*longitude*, *latitude*\]返回一个投影后对应的点\[*x*, *y*\], 也可能返回null,比如给定的坐标点位于投影裁剪之外。
+根据指定的表示经纬度的\[*longitude*, *latitude*\]返回一个投影后对应的屏幕点坐标\[*x*, *y*\], 也可能返回null,比如给定的坐标点位于投影裁剪范围之外。
 
 <a href="#projection_invert" name="projection_invert">#</a> <i>projection</i>.<b>invert</b>(<i>point</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L39 "Source")
 
 逆投影，根据坐标点返回经纬度。如果给定的点在投影裁剪区域之外则返回null。
 
-这个方法只在可逆投影中定义。
+这个方法只在可逆计算的投影中定义。
 
+-------------------------------------------------
 
 <a href="#projection_stream" name="projection_stream">#</a> <i>projection</i>.<b>stream</b>(<i>stream</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L48 "Source")
 
-为指定的输出流返回一个[projection stream](#streams)。在输出之前会对输入做投影转换。一个典型的转换过程:输入的几何首先被转换为弧度,然后围绕三个轴旋转,在反面子午线裁剪或泼削减成小圆,最后通过缩放平移等变换自适应采样投影到平面。
+
+为指定的输出流返回一个[projection stream](#streams)。在输出之前会对输入做投影转换。一个典型的转换过程 : 输入的几何首先被转换为三维坐标中的弧度以及角度,然后裁剪为小圆或者沿着180度经线剪,最后自适应采样并通过缩放平移等变换投影到平面。
 
 
 <a href="#projection_clipAngle" name="projection_clipAngle">#</a> <i>projection</i>.<b>clipAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L52 "Source")

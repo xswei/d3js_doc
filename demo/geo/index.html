@@ -21,6 +21,7 @@
 
 			var projection = d3.geoMercator();
 			var geoPath = d3.geoPath(projection)
+				.pointRadius(10)
 
 			d3.json("../json/world-110m.json",(err,topo)=>{
 				if(err) throw err;
