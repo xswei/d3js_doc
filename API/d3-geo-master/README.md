@@ -1,6 +1,6 @@
 # d3-geo
 
-地图投影实现了从经纬度到屏幕坐标点的转化，比如墨卡投影:
+地图投影实际上是实现了从经纬度到屏幕坐标点的相互转化，比如墨卡投影:
 
 ```js
 function mercator(x, y) {
@@ -8,13 +8,16 @@ function mercator(x, y) {
 }
 ```
 
-如果你的几何图形包含了一组点集则这个方法一种合理的数学方法。计算机的内存不是无限的，所以你必须使用一组离散的点表示多边形或折线。
+如果你的点集是一个包含无限个点的连续集，则这在数学上是行得通的。但是在计算机中不能计算无限多个点，因此在地理几何中要使用离散的点表示一个几何特征。
 
-在几何上，将一个曲面(地球球面)投影到平面上是很困难的，曲面的边界不是直线，而是[geodesics(测地线)](https://en.wikipedia.org/wiki/Geodesic)。要将其投影到平面上，除了[gnomonic(日晷投影)](#geoGnomonic)之外所有的投影的测地线都是曲线，因此准确的投影需要顺着弧度进行插值。D3使用基于[line simplification method](https://bost.ocks.org/mike/simplify/)的[adaptive sampling(自适应采样)](https://bl.ocks.org/mbostock/3795544)来对精度和性能进行平衡。
+在几何上，将一个曲面(地球球面)投影到平面上是很困难的，曲面的边界不是直线，而是[geodesics(测地线)](https://en.wikipedia.org/wiki/Geodesic)。要将其投影到平面上，除了[gnomonic(日晷投影)](#geoGnomonic)之外所有的投影的测地线都是曲线，因此准确的投影需要顺着弧度进行插值。D3使用基于[line simplification method(线简化方法)](https://bost.ocks.org/mike/simplify/)的[adaptive sampling(自适应采样)](https://bl.ocks.org/mbostock/3795544)来对精度和性能进行平衡。
 
-无论是多边形投影还是折线投影都必须处理曲面和平面之间的不同。有一些投影需要[crosses the antimeridian(穿过反面子午线)](https://bl.ocks.org/mbostock/3788999)裁剪几何，而有些需要[clipping geometry to a great circle(裁剪几何大圆)](http://bl.ocks.org/mbostock/3021474)。此外球面多边形还需要一个约定来确定多边形的哪一边属于内侧:D3和[TopoJSON](https://github.com/mbostock/topojson)中顺时针围绕的区域表示内侧。
+无论是对多边形还是折线进行投影都必须处理曲面和平面之间的差异。有一些投影需要[crosses the antimeridian(穿过180度经线)](https://bl.ocks.org/mbostock/3788999)裁剪几何，而有些需要[clipping geometry to a great circle(裁剪几何大圆)](http://bl.ocks.org/mbostock/3021474)。
 
-D3的方法提供了丰富的表现力:你可以根据你的数据选择正确的投影，D3支持各种常见的和[unusual map projections(不常见的地图投影)](https://github.com/d3/d3-geo-projection)。更多参考[The Toolmaker’s Guide](https://vimeo.com/106198518#t=20m0s).
+球面多边形还需要一个[winding order convention(约定)](https://bl.ocks.org/mbostock/a7bdfeb041e850799a8d3dce4d8c50c8)来定义那一侧属于内侧，哪一侧属于外侧：多角形的外环小于半球必须是顺时针方向，而多边形的外环大于半球必须是逆时针方向的。这个约定也被[TopoJSON](https://github.com/topojson) 和 [ESRI shapefiles](https://github.com/mbostock/shapefile)使用。但是这个规则与GeoJSON 的 [RFC 7946](https://tools.ietf.org/html/rfc7946#section-3.1.6)标准相反。另请注意，标准的GeoJSON WGS84使用平面等角坐标，而不是球面坐标，因此可能需要对180度经线进行[stitching(拼接)](https://github.com/d3/d3-geo-projection/blob/master/README.md#geostitch)以移除缝隙。
+
+
+D3的方法提供了丰富的表现力:你可以根据你的数据选择正确的投影，D3支持各种常见的和[unusual map projections(不常见的地图投影)](https://github.com/d3/d3-geo-projection)。更多参考[The Toolmaker’s Guide](https://vimeo.com/106198518#t=20m0s)和[The Toolmaker’s Guide](https://vimeo.com/106198518#t=20m0s).
 
 D3使用[GeoJSON](http://geojson.org/geojson-spec.html)来表示地理几何特性([TopoJSON(拓扑JSON)](https://github.com/mbostock/topojson)是GeoJSON的扩展版本，简化了JSON文件,可以使用ogr2ogr转为GeoJSON)。除此之外，[map projections](#projections)还包含了有用的[spherical shape generators(球面几何生成器)](#spherical-shapes)和[spherical math utilities(球面数学工具)](#spherical-math).
 
@@ -38,8 +41,8 @@ var projection = d3.geoAlbers(),
 ## API Reference
 
 * [Paths(路径)](#paths)
-* [Projections(投影)](#projections) ([Azimuthal](#azimuthal-projections), [Composite](#composite-projections), [Conic](#conic-projections), [Cylindrical](#cylindrical-projections))
-* [Raw Projections](#raw-projections)
+* [Projections(投影)](#projections) ([Azimuthal(方位角)](#azimuthal-projections), [Composite(合成投影)](#composite-projections), [Conic(锥)](#conic-projections), [Cylindrical(圆柱)](#cylindrical-projections))
+* [Raw Projections(原始投影)](#raw-projections)
 * [Spherical Math(球面数学)](#spherical-math)
 * [Spherical Shapes(球面几何)](#spherical-shapes)
 * [Streams(流)](#streams)
