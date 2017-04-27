@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Histogram</title>
+	<script src="../libs/d3.v4.js"></script>
+	<script src="../libs/topojson.v1.min.js"></script>
+	<style>
+		svg{
+			border:2px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<svg id="svg" width="1000" height="700"></svg>
+	<script>
+		window.onload = function(){
+			var w = 1000,
+				h = 700,
+				svg = d3.select("#svg");
+
+			var projection = d3.geoMercator();
+			var geoPath = d3.geoPath(projection)
+
+			d3.json("../json/world-110m.json",(err,topo)=>{
+				if(err) throw err;
+				console.log(topo)
+				console.log(topojson.feature(topo,topo.objects.countries));
+				svg.append("path")
+					.datum(topojson.feature(topo,topo.objects.countries))
+					.attr("d",geoPath)
+
+			})
+
+		}
+	</script>
+</body>
+</html>

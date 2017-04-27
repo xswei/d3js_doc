@@ -50,7 +50,7 @@ var projection = d3.geoAlbers(),
 
 ### Paths
 
-地理路径生成器[d3.geoPath](#geoPath)，有些类似[d3-shape](https://github.com/d3/d3-shape):给定一个GeoJSON几何或特征对象，生成一个SVG路径或[renders the path to a Canvas(渲染路径信息到canvas)](http://bl.ocks.org/mbostock/3783604)。canvas在创建动态和交互式投影时性能好，应当首先考虑使用。路径可以使用[projections](#projections) 或 [transforms](#transforms), 也可以直接渲染到SVG或Canvas平面
+地理路径生成器[d3.geoPath](#geoPath)，有些类似[d3-shape](https://github.com/d3/d3-shape):给定一个GeoJSON几何或特征对象，生成一个SVG路径或[renders the path to a Canvas(渲染路径信息到canvas)](http://bl.ocks.org/mbostock/3783604)。canvas在创建动态和交互式投影时性能好，应当首先考虑使用。路径可以使用[projections](#projections) 或 [transforms](#transforms), 也可以直接渲染到SVG或Canvas。
 
 <a href="#geoPath" name="geoPath">#</a> d3.<b>geoPath</b>([<i>projection</i>[, <i>context</i>]]) [<>](https://github.com/d3/d3-geo/blob/master/src/path/index.js "Source")
 
@@ -71,7 +71,7 @@ var projection = d3.geoAlbers(),
 * Feature - 一个表示几何对象的特征
 * FeatureCollection - 一组特征对象
 
-也支持用来渲染地球轮廓的*Sphere(球)*；球没有坐标。所有的*arguments*会被传递给[pointRadius](#path_pointRadius)访问器。
+也支持用来渲染地球轮廓的*Sphere(球)*，这在渲染地球轮廓的时候很有用；球没有坐标。所有的*arguments*会被传递给[pointRadius](#path_pointRadius)访问器。
 
 为了显示多个特征，需要将他们与特征集合结合:
 
@@ -96,7 +96,7 @@ svg.selectAll("path")
 
 <a href="#path_area" name="path_area">#</a> <i>path</i>.<b>area</b>(<i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/path/index.js#L24 "Source")
 
-返回指定GeoJSON对象投影的面的面积(平方像素)。Point, MultiPoint, LineString 和 MultiLineString特征的面积为0。对于多边形和多边形集合特征这个方法会首先计算最外层包围的面积，然后减去中间孔洞的面积。这个方法遵守[projection](#path_projection)的剪切方式。参考[*projection*.clipAngle](#projection_clipAngle) 和 [*projection*.clipExtent](#projection_clipExtent).
+返回指定GeoJSON对象投影的面的面积(平方像素)。Point, MultiPoint, LineString 和 MultiLineString的面积为0。对于多边形和多边形集合特征这个方法会首先计算最外层包围的面积，然后减去中间孔洞的面积。这个方法遵守[projection](#path_projection)的剪切方式。参考[*projection*.clipAngle](#projection_clipAngle) 和 [*projection*.clipExtent](#projection_clipExtent).
 
 <a href="#path_bounds" name="path_bounds">#</a> <i>path</i>.<b>bounds</b>(<i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/path/index.js#L29 "Source")
 
@@ -123,6 +123,9 @@ svg.selectAll("path")
 * *context*.closePath()
 
 如果没有指定*context*则返回当前的渲染上下文，默认为null
+
+
+-------------------------------------------------
 
 <a href="#path_pointRadius" name="path_pointRadius">#</a> <i>path</i>.<b>pointRadius</b>([<i>radius</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/path/index.js#L50 "Source")
 
