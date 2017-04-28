@@ -150,17 +150,14 @@ svg.selectAll("path")
 
 这个方法只在可逆计算的投影中定义。
 
--------------------------------------------------
-
 <a href="#projection_stream" name="projection_stream">#</a> <i>projection</i>.<b>stream</b>(<i>stream</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L48 "Source")
 
 
-为指定的输出流返回一个[projection stream](#streams)。在输出之前会对输入做投影转换。一个典型的转换过程 : 输入的几何首先被转换为三维坐标中的弧度以及角度,然后裁剪为小圆或者沿着180度经线剪,最后自适应采样并通过缩放平移等变换投影到平面。
-
+为指定的输出流返回一个[projection stream(投影流)](#streams)。在输出之前会对输入做投影转换。一个典型的转换过程 : 输入的几何首先被转换为三维坐标中的弧度以及角度,然后裁剪为小圆或者沿着180度经线剪,最后自适应采样并通过缩放平移等变换投影到平面。
 
 <a href="#projection_clipAngle" name="projection_clipAngle">#</a> <i>projection</i>.<b>clipAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L52 "Source")
 
-设置或获取投影的裁剪圆半径。如果*angle*为null则切换为[antimeridian cutting](http://bl.ocks.org/mbostock/3788999)。与[*projection*.clipExtent](#projection_clipExtent)相互独立。
+设置或获取投影的裁剪大圆的角度。如果*angle*为null则表示为[antimeridian cutting(沿着180度经线)](http://bl.ocks.org/mbostock/3788999)。与[*projection*.clipExtent](#projection_clipExtent)相互独立。
 
 <a href="#projection_clipExtent" name="projection_clipExtent">#</a> <i>projection</i>.<b>clipExtent</b>([<i>extent</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L56 "Source")
 
@@ -172,7 +169,7 @@ svg.selectAll("path")
 
 <a href="#projection_translate" name="projection_translate">#</a> <i>projection</i>.<b>translate</b>([<i>translate</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L64v "Source")
 
-设置或获取投影的平移偏移量。默认为[480, 250]。确定了投影[center](#projection_center)
+设置或获取投影的平移偏移量。默认为[480, 250]。等于在一个`960 x 500` 的区域中确定了投影[center(中心)](#projection_center)
 
 <a href="#projection_center" name="projection_center">#</a> <i>projection</i>.<b>center</b>([<i>center</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L68 "Source")
 
@@ -180,7 +177,7 @@ svg.selectAll("path")
 
 <a href="#projection_rotate" name="projection_rotate">#</a> <i>projection</i>.<b>rotate</b>([<i>angles</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L72 "Source")
 
-设置或获取投影的[three-axis rotation(三轴旋转)](http://bl.ocks.org/mbostock/4282586)。必须通过二元或三元数组指定，分别表示[*lambda*, *phi*, *gamma*], 这三个值表示[each spherical axis](http://bl.ocks.org/mbostock/4282586). 默认为[0,0,0], *gamma*默认为0，参考[d3.geoRotation](#geoRotation)
+设置或获取投影的[three-axis rotation(三轴旋转)](http://bl.ocks.org/mbostock/4282586)。必须通过二元或三元数组指定，分别表示[*lambda*, *phi*, *gamma*], 这三个值表示围绕[each spherical axis(三维轴)]上的选择角度(http://bl.ocks.org/mbostock/4282586). 默认为[0,0,0], *gamma*默认为0，参考[d3.geoRotation](#geoRotation)
 
 <a href="#projection_precision" name="projection_precision">#</a> <i>projection</i>.<b>precision</b>([<i>precision</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L76 "Source")
 
@@ -188,7 +185,7 @@ svg.selectAll("path")
 
 <a href="#projection_fitExtent" name="projection_fitExtent">#</a> <i>projection</i>.<b>fitExtent</b>(<i>extent</i>, <i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L80 "Source")
 
-设置投影的[scale](#projection_scale) 和 [translate](#projection_translate)来使得GeoJSON对象适应指定的*extent*. *extent*通过\[\[x₀, y₀\], \[x₁, y₁\]\]的形式指定。
+自动设置投影的[scale](#projection_scale) 和 [translate](#projection_translate)来使得GeoJSON对象适应指定的*extent*. *extent*通过\[\[x₀, y₀\], \[x₁, y₁\]\]的形式指定。
 
 参考[New Jersey State Plane projection](http://bl.ocks.org/mbostock/5126418)，在这个例子中nj表示GeoJSON对象，将其自适应调整在960×500,并且边界为20:
 
@@ -210,6 +207,8 @@ projection.fitSize([width, height], object);
 ```
 
 #### Azimuthal Projections
+
+方位角投影直接将球体投影到平面上。
 
 方位投影是一类投影，具体还可以细分
 
@@ -327,7 +326,7 @@ projection.fitSize([width, height], object);
 
 ### Raw Projections
 
-Raw projections(原始投影)是一个点与点之间相互转化的函数。通常被传递给[d3.geoProjection](#geoProjection) 或 [d3.geoProjectionMutator](#geoProjectionMutator)使用。原始投影接受球面经坐标\[*lambda*, *phi*\](弧度制)然后返回点\[*x*, *y*\]
+Raw projections(自定义投影)是一个点与点之间相互转化的函数。通常被传递给[d3.geoProjection](#geoProjection) 或 [d3.geoProjectionMutator](#geoProjectionMutator)使用。原始投影接受球面经坐标\[*lambda*, *phi*\](弧度制)然后返回点\[*x*, *y*\]
 
 
 <a href="#_project" name="_project">#</a> <i>project</i>(<i>lambda</i>, <i>phi</i>)
@@ -340,9 +339,9 @@ Raw projections(原始投影)是一个点与点之间相互转化的函数。通
 
 <a href="#geoProjection" name="geoProjection">#</a> d3.<b>geoProjection</b>(<i>project</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js#L18 "Source")
 
-根据指定的[raw projection](#_project)构建一个新的自定义的投影*project*。*project*接受*longitude* 和 *latitude*的弧度表示为参数，返回\[*x*, *y*\]。自定义的投影不需要对点进行缩放平移，会自动调用[*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), 和 [*projection*.center](#projection_center). 
+根据指定的[raw projection](#_project)构建一个新的自定义的投影*project*。*project*接收*longitude* 和 *latitude*的弧度表示为参数，返回\[*x*, *y*\]。自定义的投影不需要对点进行缩放平移，会自动调用[*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), 和 [*projection*.center](#projection_center). 
 
-别如墨卡托投影的实现如下:
+如墨卡托投影的实现如下:
 
 ```js
 var mercator = d3.geoProjection(function(x, y) {
@@ -471,7 +470,7 @@ function precision() {
 
 <a name="_graticule" href="#_graticule">#</a> <i>graticule</i>() [<>](https://github.com/d3/d3-geo/blob/master/src/graticule.js#L21 "Source")
 
-返回一个 GeoJSON MultiLineString几何对象，表示所有的子午线和纬线
+返回一个 GeoJSON MultiLineString几何对象，表示所有的经线和纬线
 
 <a name="graticule_lines" href="#graticule_lines">#</a> <i>graticule</i>.<b>lines</b>() [<>](https://github.com/d3/d3-geo/blob/master/src/graticule.js#L32 "Source")
 
@@ -604,3 +603,17 @@ function matrix(a, b, c, d, tx, ty) {
 <a href="#geoIdentity" name="geoIdentity">#</a> d3.<b>geoIdentity</b>() [<>](https://github.com/d3/d3-geo/blob/master/src/projection/identity.js "Source")
 
 恒等转化可以被来缩放，平移和平面的裁剪。它实现了[*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), [*projection*.fitExtent](#projection_fitExtent), [*projection*.fitSize](#projection_fitSize) 和 [*projection*.clipExtent](#projection_clipExtent).
+
+
+<a href="#identity_reflectX" name="identity_reflectX">#</a> <i>identity</i>.<b>reflectX</b>([<i>reflect</i>])
+
+设置或获取x方向的反射 *reflect* 
+
+If *reflect* is specified, sets whether or not the *x*-dimension is reflected (negated) in the output. If *reflect* is not specified, returns true if *x*-reflection is enabled, which defaults to false.
+
+<a href="#identity_reflectY" name="identity_reflectY">#</a> <i>identity</i>.<b>reflectY</b>([<i>reflect</i>])
+
+设置或获取y方向的反射 *reflect* 
+
+If *reflect* is specified, sets whether or not the *y*-dimension is reflected (negated) in the output. If *reflect* is not specified, returns true if *y*-reflection is enabled, which defaults to false. This is especially useful for transforming from standard [spatial reference systems](https://en.wikipedia.org/wiki/Spatial_reference_system), which treat positive *y* as pointing up, to display coordinate systems such as Canvas and SVG, which treat positive *y* as pointing down.
+
