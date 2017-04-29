@@ -62,7 +62,7 @@
 
 * [Queues](https://github.com/xswei/d3js_doc/tree/master/API/d3-queue-master)(**队列**)
 
-* [Random Numbers](https://github.com/xswei/d3js_doc/tree/master/API/d3-random-master)(随机数)
+* [Random Numbers](https://github.com/xswei/d3js_doc/tree/master/API/d3-random-master)(**随机数**)
 
 * [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(**数据请求**)
 
