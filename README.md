@@ -48,7 +48,7 @@
 
 * [Number Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-format-master)(**数值格式化**)
 
-* [Geographies](https://github.com/xswei/d3js_doc/tree/master/API/d3-geo-master)(地理)
+* [Geographies](https://github.com/xswei/d3js_doc/tree/master/API/d3-geo-master)(**地理**)
 
 * [Hierarchies](https://github.com/xswei/d3js_doc/tree/master/API/d3-hierarchy-master)(层次结构布局)
 
@@ -64,7 +64,7 @@
 
 * [Random Numbers](https://github.com/xswei/d3js_doc/tree/master/API/d3-random-master)(随机数)
 
-* [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(数据请求)
+* [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(**数据请求**)
 
 * [Scales](https://github.com/xswei/d3js_doc/tree/master/API/d3-scale-master)  (Continuous, Sequential, Quantize, Ordinal)(比例尺)
 
