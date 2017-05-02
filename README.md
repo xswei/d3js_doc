@@ -76,7 +76,7 @@
 
 * [Time Intervals](https://github.com/xswei/d3js_doc/tree/master/API/d3-time-master)(时间间隔)
 
-* [Timers](https://github.com/xswei/d3js_doc/tree/master/API/d3-timer-master)(定时器)
+* [Timers](https://github.com/xswei/d3js_doc/tree/master/API/d3-timer-master)(**定时器**)
 
 * [Transitions](https://github.com/xswei/d3js_doc/tree/master/API/d3-transition-master)(过渡)
 
