@@ -1,6 +1,6 @@
 # d3-timer
 
-这个模块提供了一个高效的队列，可以用来保证动画的一致性。在内部使用 [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) 实现。如果浏览器不支持，则切换使用 [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout) 来实现，调用间隔为多于24ms.
+这个模块提供了一个高效的队列，可以用来保证动画、以及时间同步。在内部使用 [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) 实现。如果浏览器不支持，则切换使用 [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout) 来实现，切换到setTimeout的话延迟会超过24ms.
 
 ## Installing
 
@@ -21,11 +21,10 @@ var timer = d3.timer(callback);
 
 <a name="now" href="#now">#</a> d3.<b>now</b>() [<>](https://github.com/d3/d3-timer/blob/master/src/timer.js#L15 "Source")
 
-返回由[performance.now](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now)定义的当前时间(如果可用)，否则返回 [Date.now](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/now) . 当前时间从页面的第一帧开始计算; 在同一帧里，这个值是一致的，同一帧内的定时器被认为是同步的。.
+返回由[performance.now](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now)定义的当前时间(如果可用)，如果不支持`performance.now`则返回 [Date.now](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/now) . 当前时间在每一帧更新一次，因此在每一帧中保持不变，在同一帧中的任何定时器都会被同步。如果这个方法被外部调用，比如用户事件等，则会计算当前时间，然后将其交给下一帧处理，以保证事件的同步。
 
 <a name="timer" href="#timer">#</a> d3.<b>timer</b>(<i>callback</i>[, <i>delay</i>[, <i>time</i>]]) [<>](https://github.com/d3/d3-timer/blob/master/src/timer.js#L52 "Source")
 
-执行频率与[requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)相当。
 
 定义一个新的*timer*定时器，一直调用*callback*直到定时器被[stopped](#timer_stop). 可选的 *delay* 以毫秒为单位定义了延时执行*callback*，如果没有定义延时，则表示立即执行; *delay* 的相对时间为第三个参数*time*，完整的参数结构为:从*time*开始计时，*delay*之后开始执行*callback*。*time*默认为[now](#now).
 
@@ -61,10 +60,9 @@ var t = d3.timer(function(elapsed) {
 
 <a name="timer_restart" href="#timer_restart">#</a> <i>timer</i>.<b>restart</b>(<i>callback</i>[, <i>delay</i>[, <i>time</i>]]) [<>](https://github.com/d3/d3-timer/blob/master/src/timer.js#L31 "Source")
 
-重启定时器。相当于终止当前定时器并创新创建了一个定时器。
+重启定时器。相当于终止当前定时器并重新创建了一个定时器。
 
 <a name="timer_stop" href="#timer_stop">#</a> <i>timer</i>.<b>stop</b>() [<>](https://github.com/d3/d3-timer/blob/master/src/timer.js#L43 "Source")
-
 
 终止当前定时器。对已经停止的定时器没有作用。
 
