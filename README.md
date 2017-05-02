@@ -11,7 +11,7 @@
 
 * [示例](http://bl.ocks.org/mbostock)
 
-* [插件](https://github.com/d3/d3/wiki/Plugins)
+* [插件](https://github.com/xswei/d3js_doc/tree/master/Plugins)
 
 * [英文教程](https://github.com/d3/d3/wiki/Tutorials)
 
