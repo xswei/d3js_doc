@@ -81,7 +81,6 @@ function goldsteinPrice(x, y) {
 
 
 
-
 ```js
 var n = 256, m = 256, values = new Array(n * m);
 for (var j = 0.5, k = 0; j < m; ++j) {
@@ -96,26 +95,31 @@ function goldsteinPrice(x, y) {
 }
 ```
 
+
+轮廓生成器使用的数据格式为一维数组形式，但这个一维数组其实表示的是一个矩阵。`n`和`m`实际上表示的是`列`和`行`，因此一维数组中共`n*m`个元素。然后通过[<i>i</i> + <i>jn</i>]来表示第`i`行第`j`列的值(二维矩阵中)。
+
+
+
 返回的几何对象通常被传给[d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath)来显示，使用null或者[d3.geoIdentity](https://github.com/d3/d3-geo/blob/master/README.md#geoIdentity)来与画布进行关联。
 
 
 <a name="contours_size" href="#contours_size">#</a> <i>contours</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js#L185 "Source")
 
-
-
-If *size* is specified, sets the expected size of the input *values* grid to the [contour generator](#_contour) and returns the contour generator. The *size* is specified as an array \[<i>n</i>, <i>m</i>\] where <i>n</i> is the number of columns in the grid and <i>m</i> is the number of rows; *n* and *m* must be positive integers. If *size* is not specified, returns the current size which defaults to [1, 1].
+设置或获取 [contour generator](#_contour)的尺寸。*size*以数组 \[<i>n</i>, <i>m</i>\]的形式指定，<i>n</i>表示二维数组的列数，<i>m</i>为行数。*n* 和 *m*必须为正值。如果没有指定*size*则返回当前的*size*, 默认为[1,1]
 
 <a name="contours_smooth" href="#contours_smooth">#</a> <i>contours</i>.<b>smooth</b>([<i>smooth</i>]) [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js#L196 "Source")
 
-If *smooth* is specified, sets whether or not the generated contour polygons are smoothed using linear interpolation. If *smooth* is not specified, returns the current smoothing flag, which defaults to true.
+设置或获取是否对轮廓进行平滑处理，默认为true。
 
 <a name="contours_thresholds" href="#contours_thresholds">#</a> <i>contours</i>.<b>thresholds</b>([<i>thresholds</i>]) [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js#L192 "Source")
 
-If *thresholds* is specified, sets the threshold generator to the specified function or array and returns this contour generator. If *thresholds* is not specified, returns the current threshold generator, which by default implements [Sturges’ formula](https://github.com/d3/d3-array/blob/master/README.md#thresholdSturges).
 
-Thresholds are defined as an array of values [*x0*, *x1*, …]. The first [generated contour](#_contour) corresponds to the area where the input values are greater than or equal to *x0*; the second contour corresponds to the area where the input values are greater than or equal to *x1*, and so on. Thus, there is exactly one generated MultiPolygon geometry object for each specified threshold value; the threshold value is exposed as <i>geometry</i>.value.
+设置或获取阈值生成器。阈值的指定形式为一个数组。默认的阈值生成方式使用[Sturges’ formula](https://github.com/d3/d3-array/blob/master/README.md#thresholdSturges)来生成。
 
-If a *count* is specified instead of an array of *thresholds*, then the input values’ [extent](https://github.com/d3/d3-array/blob/master/README.md#extent) will be uniformly divided into approximately *count* bins; see [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks).
+
+阈值通过[*x0*, *x1*, …]的数组形式指定。阈值用来对输入的矩阵进行区域划分，划分的边界根据指定的阈值来设置。也就是大于等于*x0*的为一组，大于等于*x1*的为一组，...以此类推。最后生成的几何对象中有一个value属性，表示当前对象对应的阈值大小。
+
+如果给阈值指定了一个数值而非数组，则输入的值将会根据这个值自动进行均匀划分，也就是划分为指定的数值个。这与[d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks)有些类似。
 
 ## Density Estimation
 

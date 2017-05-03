@@ -27,10 +27,10 @@
 				svg = d3.select("svg").attr("width", w).attr("height", h);
 
 
-			var n = 256,
+			var n = 512,
 				m = 256,
 				values = new Array(n * m),
-				contour = d3.contours().size([n, m]),
+				contour = d3.contours().size([n, m]).smooth(false)
 				projection = d3.geoProjection(function(x, y) {
 					return [x,y]
 				})
