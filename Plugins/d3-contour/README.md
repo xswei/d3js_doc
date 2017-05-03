@@ -69,13 +69,18 @@ function goldsteinPrice(x, y) {
 
 <a name="contours" href="#contours">#</a> d3.<b>contours</b>() [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js "Source")
 
-Constructs a new contour generator with the default settings.
+使用默认的设置构建一个`contour`生成器
+
 
 <a name="_contours" href="#_contours">#</a> <i>contours</i>(<i>values</i>) [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js#L34 "Source")
 
-Computes the contours for the given array of *values*, returning an array of [GeoJSON](http://geojson.org/geojson-spec.html) [MultiPolygon](http://geojson.org/geojson-spec.html#multipolygon) [geometry objects](http://geojson.org/geojson-spec.html#geometry-objects). Each geometry object represents the area where the input <i>values</i> are greater than or equal to the corresponding [threshold value](#contours_thresholds); the threshold value for each geometry object is exposed as <i>geometry</i>.value.
+根据指定的*value*数组计算其对应的轮廓，返回一个[GeoJSON](http://geojson.org/geojson-spec.html) [MultiPolygon](http://geojson.org/geojson-spec.html#multipolygon) [geometry objects](http://geojson.org/geojson-spec.html#geometry-objects)数组。数组中的每一个几何对象都表示一组大于或等于[threshold value(阈值)](#contours_thresholds)的值。阈值通过<i>geometry</i>.value属性暴露。
 
-The input *values* must be an array of length <i>n</i>×<i>m</i> where [<i>n</i>, <i>m</i>] is the contour generator’s [size](#contours_size); furthermore, each <i>values</i>[<i>i</i> + <i>jn</i>] must represent the value at the position ⟨<i>i</i>, <i>j</i>⟩. For example, to construct a 256×256 grid for the [Goldstein–Price function](https://en.wikipedia.org/wiki/Test_functions_for_optimization) where -2 ≤ <i>x</i> ≤ 2 and -2 ≤ <i>y</i> ≤ 1:
+输入的*values*必须是<i>n</i>×<i>m</i>的，也就是[<i>n</i>, <i>m</i>]为`contour`的[size(尺寸)](#contours_size)。此外，每一个[<i>i</i> + <i>jn</i>] 的 <i>values</i>必须表示⟨<i>i</i>, <i>j</i>⟩索引处的值。例如生成一个使用[Goldstein–Price function](https://en.wikipedia.org/wiki/Test_functions_for_optimization)生成的256x256的数据网格，其中-2 ≤ <i>x</i> ≤ 2 and -2 ≤ <i>y</i> ≤ 1:
+
+
+
+
 
 ```js
 var n = 256, m = 256, values = new Array(n * m);
@@ -91,9 +96,12 @@ function goldsteinPrice(x, y) {
 }
 ```
 
-The returned geometry objects are typically passed to [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath) to display, using null or [d3.geoIdentity](https://github.com/d3/d3-geo/blob/master/README.md#geoIdentity) as the associated projection.
+返回的几何对象通常被传给[d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath)来显示，使用null或者[d3.geoIdentity](https://github.com/d3/d3-geo/blob/master/README.md#geoIdentity)来与画布进行关联。
+
 
 <a name="contours_size" href="#contours_size">#</a> <i>contours</i>.<b>size</b>([<i>size</i>]) [<>](https://github.com/d3/d3-contour/blob/master/src/contours.js#L185 "Source")
+
+
 
 If *size* is specified, sets the expected size of the input *values* grid to the [contour generator](#_contour) and returns the contour generator. The *size* is specified as an array \[<i>n</i>, <i>m</i>\] where <i>n</i> is the number of columns in the grid and <i>m</i> is the number of rows; *n* and *m* must be positive integers. If *size* is not specified, returns the current size which defaults to [1, 1].
 
