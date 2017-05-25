@@ -101,7 +101,7 @@ x.invert(320); // 50
 
 <a name="continuous_domain" href="#continuous_domain">#</a> <i>continuous</i>.<b>domain</b>([<i>domain</i>]) [<>](https://github.com/d3/d3-scale/blob/master/src/continuous.js#L92 "Source")
 
-如果指定了*domain*,则设置比例尺的domain为指定的数组。domain数组比如有两个或两个以上的元素。如果给定的数组元素非数值，则将其强制转换为数值类型。如果没有指定*domain*则返回当前的doamin。
+如果指定了*domain*,则设置比例尺的domain为指定的数组。domain数组比如有两个或两个以上的元素。如果给定的数组元素非数值，则将其强制转换为数值类型。如果没有指定*domain*则返回当前的domain。
 
 一般情况下，domain和range都会设置两个值，表示起止范围。如果指定了多个值的话，会创建一个分段的比例尺。例如，创建一个负值在白色和红色之间插值，正值在白色和绿色之间插值的比例尺:
 
@@ -114,7 +114,7 @@ color(-0.5); // "rgb(255, 128, 128)"
 color(+0.5); // "rgb(128, 192, 128)"
 ```
 
-在内部，分段比例尺使用[binary search(二分查找)](https://github.com/d3/d3-array#bisect)对给定domain和range进行查找。也就是说doamin必须有序。如果domain和range的长度不同，分别为 *N* 和 *M*，那么取小的那一个。
+在内部，分段比例尺使用[binary search(二分查找)](https://github.com/d3/d3-array#bisect)对给定domain和range进行查找。也就是说domain必须有序。如果domain和range的长度不同，分别为 *N* 和 *M*，那么取小的那一个。
 
 
 <a name="continuous_range" href="#continuous_range">#</a> <i>continuous</i>.<b>range</b>([<i>range</i>]) [<>](https://github.com/d3/d3-scale/blob/master/src/continuous.js#L96 "Source")
@@ -214,7 +214,7 @@ ticks.map(tickFormat); // ["-100%", "-50%", "+0%", "+50%", "+100%"]
 
 <a name="continuous_nice" href="#continuous_nice">#</a> <i>continuous</i>.<b>nice</b>([<i>count</i>]) [<>](https://github.com/d3/d3-scale/blob/master/src/nice.js "Source")
 
-对[domain](#continuous_domain) 进行适当的扩展，以使其起始值是一个“整数”。当然如果本来就是整的，那就不做任何变化。比如如果你设置的doamin为[0.201479…, 0.996679…], 在进行nice操作后就成了 [0.2, 1.0]. 如果domain有多个值，则只对第一个和最后一个进行取整操作.
+对[domain](#continuous_domain) 进行适当的扩展，以使其起始值是一个“整数”。当然如果本来就是整的，那就不做任何变化。比如如果你设置的domain为[0.201479…, 0.996679…], 在进行nice操作后就成了 [0.2, 1.0]. 如果domain有多个值，则只对第一个和最后一个进行取整操作.
 
 <a name="continuous_copy" href="#continuous_copy">#</a> <i>continuous</i>.<b>copy</b>() [<>](https://github.com/d3/d3-scale/blob/master/src/continuous.js#L59 "Source")
 
