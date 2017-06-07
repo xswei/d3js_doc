@@ -67,15 +67,50 @@ window.onload = () => {
 			})
 			.attr("radius",R)
 
+		var tag = SVG.select("g.force_g")
+			.selectAll("text.tag").data(nodes);
+		tag.exit().remove();
+		tag.enter().append("text").attr("class","tag").merge(tag);
+		tag.attr("x", (d) => {
+				return d.x;
+			})
+			.attr("y", (d) => {
+				return d.y;
+			})
+			.attr("text-anchor","middle")
+			.attr("dy",".3em")
+			.text((d)=>{return d.name})
+
 		var edges_g = SVG.select("g.force_g")
 			.selectAll("g.edges").data(links);
 		var enter = edges_g.enter().append("g").attr("class", "edges")
 
 		enter.each(function(d){
 			d3.select(this).append("path").attr("class","links")
-				.attr("d","M0"+","+0+" L"+getDis(d.source,d.target)+",0")
+				.attr("d","M"+R+","+0+" L"+getDis(d.source,d.target)+",0")
+				.style("marker-end","url(#marker)")
+			var rect_g = d3.select(this).append("g").attr("class","rect_g"),
+				text_g = d3.select(this).append("g").attr("class","text_g");
+			var text = text_g.append("text").attr("x",getDis(d.source,d.target)/2)
+				.attr("y",0).attr("dy",".3em").attr("text-anchor","middle").text(d.tag);
+
+			var bbox = text.node().getBBox();
+
+			rect_g.append("rect").attr("x",bbox.x-5)
+				.attr("y",bbox.y)
+				.attr("width",bbox.width+10)
+				.attr("height",bbox.height)
+				.attr("fill","white")
+			//
 		})
-		edges_g.merge(edges_g)
+		edges_g.merge(edges_g).each(function(d){
+			d3.select(this).select("path")
+				.attr("d","M"+R+","+0+" L"+(getDis(d.source,d.target)-R)+",0")
+			var text = d3.select(this).select("text").attr("x",getDis(d.source,d.target)/2);
+			var bbox = text.node().getBBox();
+
+			d3.select(this).select("rect").attr("x",bbox.x-5)
+		})
 		edges_g.attr("transform", (d) => {
 			return getTransform(d.source,d.target,getDis(d.source,d.target))
 		})

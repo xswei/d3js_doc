@@ -15,3 +15,5 @@
 * [文档结构(Pack)](https://github.com/xswei/d3js_doc/tree/master/demo/doc_visual)
 
 * [SVG环形渐变](https://github.com/xswei/ringGradient)
+
+* [箭头-标签力学图](https://github.com/xswei/force2)

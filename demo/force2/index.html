@@ -7,16 +7,22 @@
 	<style>
 		circle{
 			r:20;
-			fill:steelblue;
+			fill:green;
 			stroke: #ccc;
 		}
 		.links{
-			stroke:red;
+			stroke:steelblue;
 		}
 	</style>
 </head>
 <body>
-	<svg></svg>
+	<svg>
+		<defs>
+    	<marker id="marker" markerWidth="10" markerHeight="10" refX="0" refY="4" orient="auto" markerUnits="strokeWidth">
+        	<path d="M 0 0 8 4 0 8Z" style="fill:steelblue;"/>
+    	</marker>
+		</defs>
+	</svg>
 	<script src="./index.js"></script>
 </body>
 </html>
