@@ -17,3 +17,5 @@
 * [SVG环形渐变](https://github.com/xswei/ringGradient)
 
 * [箭头-标签力学图](https://github.com/xswei/force2)
+
+![image](https://github.com/xswei/d3js_doc/blob/master/demo/img/force2.png)
