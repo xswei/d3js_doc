@@ -9,9 +9,9 @@
 * [力导向-动态添加删除节点](https://github.com/xswei/d3js_doc/tree/master/demo/force/add_remove_node.html)
 
 
-* [四叉树](https://github.com/xswei/d3js_doc/tree/master/demo/quandtree)
+* [四叉树](https://github.com/xswei/d3js_doc/tree/master/demo/quadtree)
 
-![image](https://github.com/xswei/d3js_doc/blob/master/demo/quandtree/q.png)
+![image](https://github.com/xswei/d3js_doc/blob/master/demo/quadtree/q.png)
 
 * [直方图](https://github.com/xswei/d3js_doc/tree/master/demo/histogram)
 
