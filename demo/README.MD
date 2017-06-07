@@ -27,6 +27,6 @@
 
 ![image](https://github.com/xswei/d3js_doc/blob/master/demo/img/ringGradient.png)
 
-* [箭头-标签力学图](https://github.com/xswei/force2)
+* [箭头-标签力学图](https://github.com/xswei/d3js_doc/tree/master/demo/force2)
 
 ![image](https://github.com/xswei/d3js_doc/blob/master/demo/img/force2.png)
