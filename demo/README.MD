@@ -2,7 +2,7 @@
 
 * [仿三维地球](https://github.com/xswei/d3js_doc/tree/master/demo/3d_earth)
 
-![image](https://github.com/xswei/d3js_doc/tree/master/demo/3d_earth/e.png)
+![image](https://github.com/xswei/d3js_doc/blob/master/demo/3d_earth/e.png)
 
 * [力导向](https://github.com/xswei/d3js_doc/tree/master/demo/force)
 
@@ -11,7 +11,7 @@
 
 * [四叉树](https://github.com/xswei/d3js_doc/tree/master/demo/quandtree)
 
-![image](https://github.com/xswei/d3js_doc/tree/master/demo/quandtree/q.png)
+![image](https://github.com/xswei/d3js_doc/blob/master/demo/quandtree/q.png)
 
 * [直方图](https://github.com/xswei/d3js_doc/tree/master/demo/histogram)
 
