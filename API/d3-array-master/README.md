@@ -106,7 +106,7 @@ d3.quantile(a, 0.1); // 2
 
 <a name="variance" href="#variance">#</a> d3.<b>variance</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/variance.js "Source")
 
-返回指定数组的[无偏估计总方差](http://mathworld.wolfram.com/SampleVariance.html) . 如果数组中包含的元素个数小于2则返回undefined.如果指定了*accessor*则相当于在计算之前调用了*array.map(accessor)*. 这个方法忽略了undefined 和 NaN .
+返回指定数组的[总体方差的无偏估计( unbiased estimator of the population variance)](http://mathworld.wolfram.com/SampleVariance.html) . 如果数组中包含的元素个数小于2则返回undefined.如果指定了*accessor*则相当于在计算之前调用了*array.map(accessor)*. 这个方法忽略了undefined 和 NaN .
 
 <a name="deviation" href="#deviation">#</a> d3.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/deviation.js "Source")
 
