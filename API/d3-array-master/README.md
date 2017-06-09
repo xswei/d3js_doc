@@ -261,7 +261,7 @@ d3.permute(object, fields); // returns ["University Farm", "Manchuria", 27]
 
 <a name="ticks" href="#ticks">#</a> d3.<b>ticks</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ticks.js "Source")
 
-在*start*和*stop*之间计算出一个等间隔的、精确的刻度序列，*count*用于指定参考刻度个数。由于小数可能并不精确，因此使用了[d3-format](https://github.com/d3/d3-format)进行了格式化。
+在*start*和*stop*之间计算出一个等间隔的、精确的刻度序列，*count*用于指定参考刻度个数。由于小数可能并不精确，因此可以使用[d3-format](https://github.com/d3/d3-format)进行了格式化。
 
 
 <a name="tickStep" href="#tickStep">#</a> d3.<b>tickStep</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
