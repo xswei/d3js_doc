@@ -125,7 +125,7 @@ function goldsteinPrice(x, y) {
 
 <a name="contourDensity" href="#contourDensity">#</a> d3.<b>contourDensity</b>() [<>](https://github.com/d3/d3-contour/blob/master/src/density.js "Source")
 
-Constructs a new density estimator with the default settings.
+使用默认的设置构建一个新的密度估计器
 
 <a name="_density" href="#_density">#</a> <i>density</i>(<i>data</i>) [<>](https://github.com/d3/d3-contour/blob/master/src/density.js#L27 "Source")
 
