@@ -26,7 +26,7 @@ d3.request("/path/to/resource")
     .post("a=2&b=3", callback);
 ```
 
-这个模块支持 [JSON](#json), [CSV](#csv) and [TSV](#tsv); 如果在浏览器环境, 也支持[HTML](#html) and [XML](#xml). 你也可以直接使用[request](#request) 或 [text](#text) 请求数据然后手动转换成需要的格式.
+这个模块支持 [JSON](#json), [CSV](#csv) and [TSV](#tsv); 如果在浏览器环境, 也支持[HTML](#html) 和 [XML](#xml). 你也可以直接使用[request](#request) 或 [text](#text) 请求数据然后手动转换成需要的格式.
 
 ## Installing
 
@@ -50,16 +50,23 @@ d3.csv("/path/to/file.csv", callback);
 
 <a name="request" href="#request">#</a> d3.<b>request</b>(<i>url</i>[, <i>callback</i>]) [<>](https://github.com/d3/d3-request/blob/master/src/request.js#L4 "Source")
 
-构建一个指向*url*的异步请求。如果没有指定*callback*并且则请求还没 [sent](#request_send) 则可以继续对请求进行设置。如果指定了 *callback* 则相当于在构建请求之后立即调用了 [*request*.get](#request_get):
+定义一个指向*url*的异步请求对象。如果没有指定*callback*并且则请求还没 [sent(发送)](#request_send) 的话则可以继续对请求进行设置。如果指定了 *callback* 则相当于在构建请求之后立即调用了 [*request*.get](#request_get):
 
 ```js
 d3.request(url)
     .get(callback);
 ```
+等价于：
+
+```js
+d3.request(url,callback);
+
+```
+
 
 注意：如果你要设置请求头或者MIME类型，那一定不能直接指定回调，必须在使用 [*request*.header](#request_header) 或 [*request*.mimeType](#request_mimeType) 之后使用 [*request*.get](#request_get) 来指定回调.
 
-因为一旦指定了回调，请求就会立即发出，在d3.request()中指定和使用request.get()指定一样。所以只能在request.get()之前设置请求头等信息。
+因为一旦指定了回调，请求就会立即发出而没有设置请求头的机会，在d3.request()中指定和使用request.get()指定一样。所以只能在request.get()之前设置请求头等信息。
 
 <a name="request_header" href="#request_header">#</a> <i>request</i>.<b>header</b>(<i>name</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-request/blob/master/src/request.js#L51 "Source")
 
@@ -128,7 +135,7 @@ request.send("POST", data, callback);
 
 <a name="request_send" href="#request_send">#</a> <i>request</i>.<b>send</b>(<i>method</i>[, <i>data</i>][, <i>callback</i>]) [<>](https://github.com/d3/d3-request/blob/master/src/request.js#L106 "Source")
 
-使用指定的 *method* (such as `GET` or `POST`)发送请求, *data* 参数是可选的。 如果指定了 *callback* 那么请求完成时被调动(成功或失败). callback有如下参数: error(如果出错的话),  [response value(响应值)](#request_response). 如果出错，那响应值为undefined. 这个方法相当于:
+使用指定的 *method* (比如 `GET` 或 `POST`)发送请求, *data* 参数是可选的。 如果指定了 *callback* 那么请求完成时被调动(成功或失败). `callback`有如下参数: error(如果出错的话),  [response value(响应值)](#request_response). 如果出错，那响应值为undefined. 这个方法相当于:
 
 ```js
 request
@@ -151,7 +158,7 @@ type必须为如下几种:
 * `beforesend` - 在[sent](#request_send)请求之前允许定义请求头 .
 * `progress` - 监控进度信息，参考[progress of the request](http://www.w3.org/TR/progress-events/).
 * `load` - 当请求成功完成时.
-* `error` - 当请求完成，但是没有成功时; 包括 4xx and 5xx 响应码.
+* `error` - 当请求完成，但是没有成功; 包括 4xx and 5xx 响应码.
 
 也可以通过(`.`)来为同一种type添加多个监听器，具体参考[d3-dispatch](https://github.com/d3/d3-dispatch)。
 

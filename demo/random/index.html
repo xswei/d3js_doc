@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Histogram</title>
+	<script src="../libs/d3.v4.js"></script>
+	<style>
+		rect{
+			fill:steelblue;
+		}
+	</style>
+</head>
+<body>
+	<svg id="svg"></svg>
+	<script>
+		window.onload = function() {
+			var w = 1400,
+				h = 800,
+				svg = d3.select("#svg").attr("width", w).attr("height", h),
+				n = 100,
+				margin = 30;
+			var dataset = [{
+				"type": "d3.randomUniform(-10,10)",
+				"values": d3.range(n).map(d3.randomUniform(-10, 10))
+			}, {
+				"type": "d3.randomLogNormal(0,1)",
+				"values": d3.range(n).map(d3.randomNormal(0, 1))
+			}, {
+				"type": "d3.randomLogNormal(0,1)",
+				"values": d3.range(n).map(d3.randomLogNormal(0, 1))
+			}, {
+				"type": "d3.randomBates(5)",
+				"values": d3.range(n).map(d3.randomBates(1))
+			}, {
+				"type": "d3.randomIrwinHall(5)",
+				"values": d3.range(n).map(d3.randomIrwinHall(1))
+			}, {
+				"type": "d3.randomExponential(5)",
+				"values": d3.range(n).map(d3.randomExponential(1))
+			}]
+			console.log(dataset)
+
+			var linear = d3.scaleLinear()
+				.range([h / 3 - margin, margin]);
+			var x = d3.scaleLinear()
+				.rangeRound([margin, w / 2 - margin]);
+
+			dataset.map(draw)
+
+
+
+			function draw(data, i) {
+				x.domain(d3.extent(data.values,function(d){
+						return d;
+					}))
+				var bins = d3.histogram()
+					.domain(x.domain())
+					.thresholds(x.ticks(50))
+					(data.values);
+				var g = svg.append("g")
+					.attr("transform", function() {
+						if (i < 2) {
+							return "translate(" + i * w / 2 + ",0)"
+						} else if (i < 4) {
+							return "translate(" + (i - 2) * (w / 2) + "," + h / 3 + ")";
+						} else {
+							return "translate(" + (i - 4) * (w / 2) + "," + h * 2 / 3 + ")";
+						}
+					})
+				var y = linear.domain([0, d3.max(bins, function(d) {
+						return d.length;
+					})]).range([h/3-margin, margin]);
+				console.log(bins)
+				g.append("text").attr("dy", "1em")
+					.attr("x", w / 4)
+					.attr("text-anchor", "middle")
+					.text(data.type)
+				g.append("g").attr("transform", "translate(" + margin + ",0)").call(d3.axisLeft(y))
+				g.append("g").attr("transform", "translate(" + 0 + "," + (h / 3 - margin) + ")")
+					.call(d3.axisBottom(x))
+				g.selectAll(".bar")
+					.data(bins)
+					.enter()
+					.append("rect")
+					.attr("transform","translate(0,"+0+")")
+					.attr("x", function(d){
+						return x(d.x0)
+					})
+					.attr("width",function(d){
+						return  x(bins[0].x1) - x(bins[0].x0) - 1
+					})
+					.attr("y", function(d) {
+						return  h/3-y(d.length);
+					})
+					.attr("height",function(d){
+						return y(d.length)-margin;
+					})
+			}
+		}
+	</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
 
 * [示例](http://bl.ocks.org/mbostock)
 
-* [插件](https://github.com/d3/d3/wiki/Plugins)
+* [插件](https://github.com/xswei/d3js_doc/tree/master/Plugins)
 
 * [英文教程](https://github.com/d3/d3/wiki/Tutorials)
 
@@ -48,7 +48,7 @@
 
 * [Number Formats](https://github.com/xswei/d3js_doc/tree/master/API/d3-format-master)(**数值格式化**)
 
-* [Geographies](https://github.com/xswei/d3js_doc/tree/master/API/d3-geo-master)(地理)
+* [Geographies](https://github.com/xswei/d3js_doc/tree/master/API/d3-geo-master)(**地理**)
 
 * [Hierarchies](https://github.com/xswei/d3js_doc/tree/master/API/d3-hierarchy-master)(层次结构布局)
 
@@ -62,9 +62,9 @@
 
 * [Queues](https://github.com/xswei/d3js_doc/tree/master/API/d3-queue-master)(**队列**)
 
-* [Random Numbers](https://github.com/xswei/d3js_doc/tree/master/API/d3-random-master)(随机数)
+* [Random Numbers](https://github.com/xswei/d3js_doc/tree/master/API/d3-random-master)(**随机数**)
 
-* [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(数据请求)
+* [Requests](https://github.com/xswei/d3js_doc/tree/master/API/d3-request-master)(**数据请求**)
 
 * [Scales](https://github.com/xswei/d3js_doc/tree/master/API/d3-scale-master)  (Continuous, Sequential, Quantize, Ordinal)(比例尺)
 
@@ -76,7 +76,7 @@
 
 * [Time Intervals](https://github.com/xswei/d3js_doc/tree/master/API/d3-time-master)(时间间隔)
 
-* [Timers](https://github.com/xswei/d3js_doc/tree/master/API/d3-timer-master)(定时器)
+* [Timers](https://github.com/xswei/d3js_doc/tree/master/API/d3-timer-master)(**定时器**)
 
 * [Transitions](https://github.com/xswei/d3js_doc/tree/master/API/d3-transition-master)(过渡)
 

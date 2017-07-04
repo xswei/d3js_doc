@@ -606,7 +606,6 @@ selection.datum(function() { return this.dataset; })
 
 selections允许监听和分发事件以支持交互。
 
-For interaction, selections allow listening for and dispatching of events.
 
 <a name="selection_on" href="#selection_on">#</a> <i>selection</i>.<b>on</b>(<i>typenames</i>[, <i>listener</i>[, <i>capture</i>]]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/on.js "Source")
 
@@ -614,11 +613,11 @@ For interaction, selections allow listening for and dispatching of events.
 
 当一个指定的事件被分发到一个被选中的元素节点上时，对应的*listener*将会被调用并传递绑定的数据(*d*),索引(*i*), 当前的分组(*nodes*), 回调中的*this*指向的是当前的DOM元素. 通过 [d3.event](#event)访问当前的事件对象.
 
-如果之前已经为*typenames*注册了事件监听器，则会覆盖。如果*listener*为null则会移除*typenames*对应的事件监听器。此时要注意事件类型的匹配，比如向`.foo`传递null则所有名为`foo`的事件监听器都被移除，类似于CSS类的选择模式。
+如果之前已经为*typenames*注册了事件监听器，则会覆盖。如果*listener*为null则会移除*typenames*对应的事件监听器。此时要注意事件类型的匹配，比如向`.foo`传递null则所有name为`foo`的事件监听器都被移除，类似于CSS类的选择模式。
 
-可选的*capture*标识相当于W3C 的 [useCapture flag](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-registration),默认为false。
+可选的*capture*标识相当于W3C 的 [useCapture flag](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-registration):当启用事件捕获后，指定类型的事件将被,默认为false。
 
-如果没有指定*listener*，则返回*typenames*对应的事件监听器，如果指定了多个*tylenames*则只返回第一个。
+如果没有指定*listener*，则返回*typenames*对应的事件监听器，如果指定了多个*typenames*则只返回第一个。
 
 <a name="selection_dispatch" href="#selection_dispatch">#</a> <i>selection</i>.<b>dispatch</b>(<i>type</i>[, <i>parameters</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/dispatch.js "Source")
 
