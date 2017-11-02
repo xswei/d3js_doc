@@ -267,7 +267,7 @@ d3.select("a")
 
 value可以是一个变量，也可以是一个方法，如果是方法，则会执行这个方法，并传递当前元素绑定的数据 (*d*), 索引(*i*), 以及当前分组(*nodes*), this指向的是当前的元素，将方法的返回值作为*name*对应的值。
 
-*name*可能是一个带前缀的属性，比如 `xlink:href`来指定`href`属性的明明空间. 参考[namespaces](#namespaces) 查询支持的明明空间.
+*name*可能是一个带前缀的属性，比如 `xlink:href`来指定`href`属性的命名空间. 参考[namespaces](#namespaces) 查询支持的命名空间.
 
 <a name="selection_classed" href="#selection_classed">#</a> <i>selection</i>.<b>classed</b>(<i>names</i>[, <i>value</i>]) [<>](https://github.com/d3/d3-selection/blob/master/src/selection/classed.js "Source")
 
