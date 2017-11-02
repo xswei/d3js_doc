@@ -9,7 +9,7 @@ JavaScript中**修改数组自身**的方法:
 * [*array*.reverse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse) - 数组翻转.
 * [*array*.shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) - 移除第一个元素.
 * [*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) - 排序.
-* [*array*.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) - 添加或着移除.
+* [*array*.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) - 添加或者移除.
 * [*array*.unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) - 在数组前添加一个或多个元素.
 
 JavaScript中数组的**存取方法**:
@@ -30,7 +30,11 @@ JavaScript中数组的**迭代方法**:
 * [*array*.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) - 从左到右执行reduce操作并返回一个值.
 * [*array*.reduceRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight) - 从右到左执行reduce操作并返回一个值.
 
-## Installing
+## 安装
+
+如果你使用NPM包管理器，可以用 **npm install d3-array** 安装。或者，直接下载 [最新版本](https://github.com/d3/d3-array/releases/latest)，也可以直接从 [d3.org](https://d3js.org) 加载 d3 4.0的部分模块。对D3库的引用支持普通引用方式，同时支持 AMD 和 CommonJS模块加载方式。
+
+下面是普通的引用方式：
 
 
 ```html
@@ -42,19 +46,19 @@ var min = d3.min(array);
 </script>
 ```
 
-[测试d3-array](https://tonicdev.com/npm/d3-array)
+[在浏览器中尝试d3-array](https://tonicdev.com/npm/d3-array)
 
-## API Reference
+## API 参考
 
-* [Statistics](#statistics)
-* [Search](#search)
-* [Transformations](#transformations)
-* [Histograms](#histograms)
-* [Histogram Thresholds](#histogram-thresholds)
+* 统计[(Statistics)](#statistics)
+* 搜索[(Search)](#search)
+* 转换[(Transformations)](#transformations)
+* 直方图[(Histograms)](#histograms)
+* 直方图阈值[(Histogram Thresholds)](#histogram-thresholds)
 
-### Statistics
+### 统计(Statistics)
 
-Methods for computing basic summary statistics.
+统计的基本方法汇总.
 
 <a name="min" href="#min">#</a> d3.<b>min</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/min.js "Source")
 
