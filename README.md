@@ -5,7 +5,7 @@
 **D3** (或者叫**D3.js**)是一个基于web标准的JavaScript可视化库。D3可以借助SVG,Canvas以及HTML将你的数据生动的展现出来。D3结合了强大的可视化交互技术以及数据驱动DOM的技术结合起来，让你可以借助于现代浏览器的强大功能自由的对数据进行可视化。
 
 
-## 资源
+## [资源](#resource)
 
 * [API 参考](https://github.com/d3/d3/blob/master/API.md)
 * [发布说明](https://github.com/d3/d3/releases)
@@ -13,7 +13,7 @@
 * [例子](https://bl.ocks.org/mbostock)
 * [Wiki](https://github.com/d3/d3/wiki)
 
-## 安装
+## [安装](#install)
 
 如果使用`npm`，则可以通过`npm install d3`来安装。此外还可以下载[最新版](https://unpkg.com/d3/build/)，最新版支持AMD、CommonJS以及vanilla环境。你也可以直接从 [d3js.org](https://d3js.org), [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载。比如:
 
