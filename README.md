@@ -1,6 +1,6 @@
 # D3: Data-Driven Documents
 
-<a href="https://d3js.org"><img src="https://d3js.org/logo.svg" align="left" hspace="10" vspace="10"></a>
+<a href="https://d3js.org"><img src="https://d3js.org/logo.svg" align="left" hspace="10" vspace="20"></a>
 
 **D3** (或者叫**D3.js**)是一个基于web标准的JavaScript可视化库。D3可以借助SVG,Canvas以及HTML将你的数据生动的展现出来。D3结合了强大的可视化交互技术以及数据驱动DOM的技术结合起来，让你可以借助于现代浏览器的强大功能自由的对数据进行可视化。
 
