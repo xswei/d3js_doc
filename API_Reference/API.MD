@@ -62,8 +62,8 @@ Methods for searching arrays for a specific element.
 * [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectRight) - 二分查找有序数组中指定元素的索引.
 * [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectLeft) - 二分查找有序数组中指定元素的索引.
 * [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector) - 用指定的访问器或比较器对二分查找.
-* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_left) - 与bisectLeft类型, 可以指定比较器.
-* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_right) - 与可以指定比较器bisectRight类型, 可以指定比较器.
+* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_left) - 与bisectLeft类似, 可以指定比较器.
+* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_right) - 与bisectRight类似, 可以指定比较器.
 * [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ascending) - 计算两个值的自然顺序.
 * [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#descending) - 计算两个值的自然顺序.
 
