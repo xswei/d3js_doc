@@ -1,13 +1,13 @@
 ### 力导向小节
 
 * [英文文档](https://github.com/d3/d3-force)
-* [中文文档](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master)
+* [中文文档](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/API/d3-force-master)
 
 ### 力学图的使用
 
 在使用力学图时，首先要定义一个仿真系统(simulation)，仿真系统本身不会布局，仿真系统主要用来对节点位置进行初始化以及设置仿真中的各个参数。
 
-在对节点布局时，首先要指定一个[力学模型](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master#forces)，力学模型有多种，按需定义，可定义多个。通过simulation.force指定:
+在对节点布局时，首先要指定一个[力学模型](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/API/d3-force-master#forces)，力学模型有多种，按需定义，可定义多个。通过simulation.force指定:
 
 ```js
 var simulation = d3.forceSimulation(nodes)
@@ -26,10 +26,10 @@ var simulation = d3.forceSimulation(nodes)
 
 #### 数据的link中不使用索引，使用字符串表示source和target
 
-可以，这种形式在指定力学模型为link时候，通过link.id来指定。参考[这里](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master#links)
+可以，这种形式在指定力学模型为link时候，通过link.id来指定。参考[这里](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/API/d3-force-master#links)
 
 
 #### 节点之间的连线单独指定
 
-可以，同样是link力学模型，设置link.distance即可，参考[这里](https://github.com/xswei/d3js_doc/tree/master/API/d3-force-master#link_distance)
+可以，同样是link力学模型，设置link.distance即可，参考[这里](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/API/d3-force-master#link_distance)
 

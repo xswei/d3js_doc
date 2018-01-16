@@ -52,7 +52,7 @@ d3.select("body").style("background-color", "black");
 
 选择器是[W3C所定义的选择集](http://www.w3.org/TR/selectors-api/),并且支持现代浏览器。如果浏览器比较老旧，则可以借助[Sizzle](http://sizzlejs.com/)来向后兼容。上述例子中"p"和"body"都是选择器中的一种。也可以使用其他的合法选择器:类选择器、ID选择器属性值选择器等。
 
-关于选择器的更多资料参考[Selection](https://github.com/d3/d3/wiki/Selections)或[选择集](https://github.com/xswei/d3js_doc/tree/master/API/d3-selection-master)
+关于选择器的更多资料参考[Selection](https://github.com/d3/d3/wiki/Selections)或[选择集](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/API/d3-selection-master)
 
 ### 动态属性
 

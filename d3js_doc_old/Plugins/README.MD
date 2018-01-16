@@ -6,4 +6,4 @@ D3js v4 插件集合
 
 #### 已翻译插件
 
-* [d3-contour](https://github.com/xswei/d3js_doc/tree/master/Plugins/d3-contour)
+* [d3-contour](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old/Plugins/d3-contour)
