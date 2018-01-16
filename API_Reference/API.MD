@@ -1,6 +1,6 @@
 # D3 API Reference
 
-D3 4.0 是一个相互协同工作的[模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。D3 3.x 和 4.x 之间的差异可以参考[CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考[这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
+D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。D3 3.x 和 4.x 之间的差异可以参考[CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考[这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms))
 * [Axes](#axes-d3-axis)
