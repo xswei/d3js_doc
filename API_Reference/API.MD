@@ -37,11 +37,11 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Arrays (d3-array)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD)
 
-Array maniAPI_Reference/d3-array/pulation, ordering, searching, summarizing, etc.
+数组操作，包括排序、查找、汇总等等
 
 ### [Statistics](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#statistics)
 
-Methods for computing basic summary statistics.
+基本的静态统计计算方法
 
 * [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#min) - 计算数组中的最小值.
 * [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#max) - 计算数组中的最大值.
@@ -55,7 +55,7 @@ Methods for computing basic summary statistics.
 
 ### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#search)
 
-Methods for searching arrays for a specific element.
+查找类方法
 
 * [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#scan) - 使用指定的比较器进行线性查找指定的元素.
 * [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisect) - 二分查找有序数组中指定元素的索引.
@@ -69,19 +69,19 @@ Methods for searching arrays for a specific element.
 
 ### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transformations)
 
-Methods for transforming arrays and for generating new arrays.
+数组变换和计算，返回新的数组
 
-* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#cross) - compute the Cartesian product of two arrays.
-* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#merge) - merge multiple arrays into one array.
-* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#pairs) - create an array of adjacent pairs of elements.
-* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#permute) - reorder an array of elements according to an array of indexes.
-* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#shuffle) - randomize the order of an array.
-* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ticks) - generate representative values from a numeric interval.
-* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickIncrement) - generate representative values from a numeric interval.
-* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickStep) - generate representative values from a numeric interval.
-* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#range) - generate a range of numeric values.
-* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transpose) - transpose an array of arrays.
-* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#zip) - transpose a variable number of arrays.
+* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#cross) - 计算两个数组的笛卡尔积.
+* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#merge) - 将多个数组合并为一个.
+* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#pairs) - 将数组中相邻的两个元素两两结合.
+* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#permute) - 根据指定的索引返回对数组重排后的结果.
+* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#shuffle) - 随机打乱数组顺序
+* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ticks) - 从给定的区间范围内生成一系列值.
+* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickIncrement) - 从给定的区间范围内生成一系列值.
+* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickStep) - 从给定的区间范围内生成一系列值.
+* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#range) - 根据指定的区间生成一系列值.
+* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transpose) - 将数组的数组进行转置.
+* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#zip) - 转置多个数组.
 
 ### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histograms)
 
