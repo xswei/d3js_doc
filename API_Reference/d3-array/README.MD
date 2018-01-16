@@ -200,11 +200,11 @@ function descending(a, b) {
 
 ### Transformations
 
-Methods for transforming arrays and for generating new arrays.
+数组转换类方法
 
 <a name="cross" href="#cross">#</a> d3.<b>cross</b>(<i>a</i>, <i>b</i>[, <i>reducer</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/cross.js "Source")
 
-Returns the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of the two arrays *a* and *b*. For each element *i* in the specified array *a* and each element *j* in the specified array *b*, in order, invokes the specified *reducer* function passing the element *i* and element *j*. If a *reducer* is not specified, it defaults to a function which creates a two-element array for each pair:
+返回a和b两个数组的[Cartesian product(笛卡尔乘积)]，对于数组*a*中的每个元素*i*和数组*b*中的每个元素*j*，分别有序的调用传入的*reducer*方法。*reducer*方法的参数分别为*i*和*j*，如果没有指定*reducer*则默认为*i*和*j*创建一个二维数组:
 
 ```js
 function pair(a, b) {
@@ -212,16 +212,16 @@ function pair(a, b) {
 }
 ```
 
-For example:
+例如:
 
 ```js
-d3.cross([1, 2], ["x", "y"]); // returns [[1, "x"], [1, "y"], [2, "x"], [2, "y"]]
-d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // returns ["1x", "1y", "2x", "2y"]
+d3.cross([1, 2], ["x", "y"]); // 返回 [[1, "x"], [1, "y"], [2, "x"], [2, "y"]]
+d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // 返回 ["1x", "1y", "2x", "2y"]
 ```
 
 <a name="merge" href="#merge">#</a> d3.<b>merge</b>(<i>arrays</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/merge.js "Source")
 
-Merges the specified *arrays* into a single array. This method is similar to the built-in array concat method; the only difference is that it is more convenient when you have an array of arrays.
+将指定的数组们合并为一个数组。这个方法与内置的concat方法有些像，但是当数组中嵌套另一个数组时会更方便：
 
 ```js
 d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
@@ -229,7 +229,7 @@ d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
 
 <a name="pairs" href="#pairs">#</a> d3.<b>pairs</b>(<i>array</i>[, <i>reducer</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/pairs.js "Source")
 
-For each adjacent pair of elements in the specified *array*, in order, invokes the specified *reducer* function passing the element *i* and element *i* - 1. If a *reducer* is not specified, it defaults to a function which creates a two-element array for each pair:
+为数组中邻近的两个元素有序的依次执行*reducer*方法，*reducer*两个参数为*i*和*i*-1。如果没有指定*reducer*则默认为每两个邻近的元素创建一个二维数组：
 
 ```js
 function pair(a, b) {
@@ -237,21 +237,20 @@ function pair(a, b) {
 }
 ```
 
-For example:
+例如:
 
 ```js
 d3.pairs([1, 2, 3, 4]); // returns [[1, 2], [2, 3], [3, 4]]
 d3.pairs([1, 2, 3, 4], (a, b) => b - a); // returns [1, 1, 1];
 ```
 
-If the specified array has fewer than two elements, returns the empty array.
+如果传入的数组元素个数小于2则返回一个空数组。
 
 <a name="permute" href="#permute">#</a> d3.<b>permute</b>(<i>array</i>, <i>indexes</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/permute.js "Source")
 
-Returns a permutation of the specified *array* using the specified array of *indexes*. The returned array contains the corresponding element in array for each index in indexes, in order. For example, permute(["a", "b", "c"], [1, 2, 0])
-returns ["b", "c", "a"]. It is acceptable for the array of indexes to be a different length from the array of elements, and for indexes to be duplicated or omitted.
+根据指定的索引和数组返回一组置换后的数组序列。返回后的数组序列顺序与*indexes*保持一致。比如permute(["a", "b", "c"], [1, 2, 0]) 返回 ["b", "c", "a"]. *indexes*的长度可以与*array*不一致，*indexes*可以被复制或省略。
 
-This method can also be used to extract the values from an object into an array with a stable order. Extracting keyed values in order can be useful for generating data arrays in nested selections. For example:
+这个方法也适用于使用`key`数组从对象中提取`value`序列，比如:
 
 ```js
 var object = {yield: 27, variety: "Manchuria", year: 1931, site: "University Farm"},
@@ -262,50 +261,49 @@ d3.permute(object, fields); // returns ["University Farm", "Manchuria", 27]
 
 <a name="shuffle" href="#shuffle">#</a> d3.<b>shuffle</b>(<i>array</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/shuffle.js "Source")
 
-Randomizes the order of the specified *array* using the [Fisher–Yates shuffle](http://bost.ocks.org/mike/shuffle/).
+使用[Fisher–Yates shuffle](http://bost.ocks.org/mike/shuffle/)算法对数组进行随机重排.
 
 <a name="ticks" href="#ticks">#</a> d3.<b>ticks</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/ticks.js "Source")
 
-Returns an array of approximately *count* + 1 uniformly-spaced, nicely-rounded values between *start* and *stop* (inclusive). Each value is a power of ten multiplied by 1, 2 or 5. See also [d3.tickIncrement](#tickIncrement), [d3.tickStep](#tickStep) and [*linear*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#linear_ticks).
-
-Ticks are inclusive in the sense that they may include the specified *start* and *stop* values if (and only if) they are exact, nicely-rounded values consistent with the inferred [step](#tickStep). More formally, each returned tick *t* satisfies *start* ≤ *t* and *t* ≤ *stop*.
+在*start* 和 *stop*(包含)之间返回大约 *count* + 1 个等间隔的数组序列，每个值都是十的1,2或5的次幂。参考[d3.tickIncrement](#tickIncrement), [d3.tickStep](#tickStep) 和 [*linear*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#linear_ticks)。
 
 <a name="tickIncrement" href="#tickIncrement">#</a> d3.<b>tickIncrement</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
-Like [d3.tickStep](#tickStep), except requires that *start* is always less than or equal to *step*, and if the tick step for the given *start*, *stop* and *count* would be less than one, returns the negative inverse tick step instead. This method is always guaranteed to return an integer, and is used by [d3.ticks](#ticks) to avoid guarantee that the returned tick values are represented as precisely as possible in IEEE 754 floating point.
+与 [d3.tickStep](#tickStep)类似, 只不过要求 *start* 不大于 *stop*, 如果根据指定的 *start*, *stop* 和 *count* 计算出的个数小于1， 则返回stop对应的负值， 这个方法始终返回一个整数用来被[d3.ticks](#ticks)使用，以避免因IEEE 754浮点数存储带来的不精确问题.
 
 <a name="tickStep" href="#tickStep">#</a> d3.<b>tickStep</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
-Returns the difference between adjacent tick values if the same arguments were passed to [d3.ticks](#ticks): a nicely-rounded value that is a power of ten multiplied by 1, 2 or 5. Note that due to the limited precision of IEEE 754 floating point, the returned value may not be exact decimals; use [d3-format](https://github.com/d3/d3-format) to format numbers for human consumption.
+和[d3.ticks](#ticks)不同的是: 这个方法返回的不是序列，而是序列的步长，这个步长是十的1,2或5的次幂。因浮点数的存储问题，返回的小数可能不精确，可以使用[d3-format]来进行格式化(https://github.com/d3/d3-format).
 
 <a name="range" href="#range">#</a> d3.<b>range</b>([<i>start</i>, ]<i>stop</i>[, <i>step</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/range.js "Source")
 
-Returns an array containing an arithmetic progression, similar to the Python built-in [range](http://docs.python.org/library/functions.html#range). This method is often used to iterate over a sequence of uniformly-spaced numeric values, such as the indexes of an array or the ticks of a linear scale. (See also [d3.ticks](#ticks) for nicely-rounded values.)
+与Python的[range](http://docs.python.org/library/functions.html#range)方法类似，返回一个数组序列，此方法通常用于迭代一系列一致间隔的数值，如数组的索引或线性刻度的刻度。
 
-If *step* is omitted, it defaults to 1. If *start* is omitted, it defaults to 0. The *stop* value is exclusive; it is not included in the result. If *step* is positive, the last element is the largest *start* + *i* \* *step* less than *stop*; if *step* is negative, the last element is the smallest *start* + *i* \* *step* greater than *stop*. If the returned array would contain an infinite number of values, an empty range is returned.
+如果没有指定*step*则默认的步长为 1。如果没有指定*start* 则默认从 0开始，返回的结果包含*stop*。 如果*step*为正则最后的元素*start* + *i* \* *step* 小于 *stop*;如果*step*为负，责返回的最后一个元素最小，*start* + *i* \* *step*大于*stop*。
 
-The arguments are not required to be integers; however, the results are more predictable if they are. The values in the returned array are defined as *start* + *i* \* *step*, where *i* is an integer from zero to one minus the total number of elements in the returned array. For example:
+这些参数不要求是整数，如果是整数的话返回的结果则可以更准确的预测，如果是小数则会出现以下情况：
 
 ```js
 d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
 ```
 
-This unexpected behavior is due to IEEE 754 double-precision floating point, which defines 0.2 * 3 = 0.6000000000000001. Use [d3-format](https://github.com/d3/d3-format) to format numbers for human consumption with appropriate rounding; see also [linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat) in [d3-scale](https://github.com/d3/d3-scale).
+这是由于IEEE 754 双精度浮点数的存储导致的, 如 0.2 * 3 = 0.6000000000000001. 此时可以使用[d3-format](https://github.com/d3/d3-format)来进行格式化操作。参考[d3-scale](https://github.com/d3/d3-scale)中的[linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat)操作
 
-Likewise, if the returned array should have a specific length, consider using [array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) on an integer range. For example:
+如果对返回的个数有要求的话，可以考虑使用[array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 实现，例如：
 
 ```js
-d3.range(0, 1, 1 / 49); // BAD: returns 50 elements!
-d3.range(49).map(function(d) { return d / 49; }); // GOOD: returns 49 elements.
+d3.range(0, 1, 1 / 49); // BAD: 返回 50 个元素!
+d3.range(49).map(function(d) { return d / 49; }); // GOOD: 返回 49 个元素.
 ```
 
 <a name="transpose" href="#transpose">#</a> d3.<b>transpose</b>(<i>matrix</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/transpose.js "Source")
 
-Uses the [zip](#zip) operator as a two-dimensional [matrix transpose](http://en.wikipedia.org/wiki/Transpose).
+使用 [zip](#zip) 操作对二维矩阵进行 [矩阵转置](http://en.wikipedia.org/wiki/Transpose).
 
 <a name="zip" href="#zip">#</a> d3.<b>zip</b>(<i>arrays…</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/zip.js "Source")
 
-Returns an array of arrays, where the *i*th array contains the *i*th element from each of the argument *arrays*. The returned array is truncated in length to the shortest array in *arrays*. If *arrays* contains only a single array, the returned array contains one-element arrays. With no arguments, the returned array is empty.
+返回数组的数组，其中第i个数组包含来自每个参数数组的第i个元素。返回数组的长度等于参数中最短数组的长度。如果参数中只有一个数组，则同样返回一个数组的数组，只不过是一个一维数组的数组。如果没有参数则返回一个空数组。
+
 
 ```js
 d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
