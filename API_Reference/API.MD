@@ -35,7 +35,7 @@ D3 4.0 是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 
 D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
 
-## [Arrays (d3-array)](https://github.com/xswei/d3js_doc)
+## [Arrays (d3-array)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md)
 
 Array maniAPI_Reference/d3-array/pulation, ordering, searching, summarizing, etc.
 
