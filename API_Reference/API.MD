@@ -43,29 +43,29 @@ Array maniAPI_Reference/d3-array/pulation, ordering, searching, summarizing, etc
 
 Methods for computing basic summary statistics.
 
-* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#min) - compute the minimum value in an array.
-* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#max) - compute the maximum value in an array.
-* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#extent) - compute the minimum and maximum value in an array.
-* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#sum) - compute the sum of an array of numbers.
-* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#mean) - compute the arithmetic mean of an array of numbers.
-* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#median) - compute the median of an array of numbers (the 0.5-quantile).
-* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#quantile) - compute a quantile for a sorted array of numbers.
-* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#variance) - compute the variance of an array of numbers.
-* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#deviation) - compute the standard deviation of an array of numbers.
+* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#min) - 计算数组中的最小值.
+* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#max) - 计算数组中的最大值.
+* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#extent) - 计算数组中的最大值和最小值.
+* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#sum) - 计算数组元素之和.
+* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#mean) - 计算数组元素的算术中位数.
+* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#median) - 计算数组元素的中位数 (也就是 0.5-分位数).
+* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#quantile) - 计算有序数组的分位数.
+* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#variance) - 计算数组元素的方差.
+* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#deviation) - 计算数组元素的标准差.
 
 ### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#search)
 
 Methods for searching arrays for a specific element.
 
-* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#scan) - linear search for an element using a comparator.
-* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisect) - binary search for a value in a sorted array.
-* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectRight) - binary search for a value in a sorted array.
-* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectLeft) - binary search for a value in a sorted array.
-* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector) - bisect using an accessor or comparator.
-* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_left) - bisectLeft, with the given comparator.
-* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_right) - bisectRight, with the given comparator.
-* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ascending) - compute the natural order of two values.
-* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#descending) - compute the natural order of two values.
+* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#scan) - 使用指定的比较器进行线性查找指定的元素.
+* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisect) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectRight) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectLeft) - 二分查找有序数组中指定元素的索引.
+* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector) - 用指定的访问器或比较器对二分查找.
+* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_left) - 与bisectLeft类似, 可以指定比较器.
+* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_right) - 与bisectRight类似, 可以指定比较器.
+* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ascending) - 计算两个值的自然顺序.
+* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#descending) - 计算两个值的自然顺序.
 
 ### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transformations)
 
