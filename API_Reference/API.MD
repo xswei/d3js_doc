@@ -1,6 +1,6 @@
 # D3 API Reference
 
-D3 4.0 is a [collection of modules](https://github.com/d3) that are designed to work together; you can use the modules independently, or you can use them together as part of the default build. The source and documentation for each module is available in its repository. Follow the links below to learn more. For changes between 3.x and 4.0, see [CHANGES](https://github.com/d3/d3/blob/master/CHANGES.md); see also the [3.x reference](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md).
+D3 4.0 是一个相互协同工作的[模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。D3 3.x 和 4.x 之间的差异可以参考[CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考[这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms))
 * [Axes](#axes-d3-axis)
@@ -33,68 +33,68 @@ D3 4.0 is a [collection of modules](https://github.com/d3) that are designed to 
 * [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
 * [Zooming](#zooming-d3-zoom)
 
-D3 uses [semantic versioning](http://semver.org/). The current version is exposed as d3.version.
+D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
 
-## [Arrays (d3-array)](https://github.com/d3/d3-array)
+## [Arrays (d3-array)](https://github.com/xswei/d3js_doc)
 
-Array manipulation, ordering, searching, summarizing, etc.
+Array maniAPI_Reference/d3-array/pulation, ordering, searching, summarizing, etc.
 
-### [Statistics](https://github.com/d3/d3-array/blob/master/README.md#statistics)
+### [Statistics](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#statistics)
 
 Methods for computing basic summary statistics.
 
-* [d3.min](https://github.com/d3/d3-array/blob/master/README.md#min) - compute the minimum value in an array.
-* [d3.max](https://github.com/d3/d3-array/blob/master/README.md#max) - compute the maximum value in an array.
-* [d3.extent](https://github.com/d3/d3-array/blob/master/README.md#extent) - compute the minimum and maximum value in an array.
-* [d3.sum](https://github.com/d3/d3-array/blob/master/README.md#sum) - compute the sum of an array of numbers.
-* [d3.mean](https://github.com/d3/d3-array/blob/master/README.md#mean) - compute the arithmetic mean of an array of numbers.
-* [d3.median](https://github.com/d3/d3-array/blob/master/README.md#median) - compute the median of an array of numbers (the 0.5-quantile).
-* [d3.quantile](https://github.com/d3/d3-array/blob/master/README.md#quantile) - compute a quantile for a sorted array of numbers.
-* [d3.variance](https://github.com/d3/d3-array/blob/master/README.md#variance) - compute the variance of an array of numbers.
-* [d3.deviation](https://github.com/d3/d3-array/blob/master/README.md#deviation) - compute the standard deviation of an array of numbers.
+* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#min) - compute the minimum value in an array.
+* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#max) - compute the maximum value in an array.
+* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#extent) - compute the minimum and maximum value in an array.
+* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#sum) - compute the sum of an array of numbers.
+* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#mean) - compute the arithmetic mean of an array of numbers.
+* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#median) - compute the median of an array of numbers (the 0.5-quantile).
+* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#quantile) - compute a quantile for a sorted array of numbers.
+* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#variance) - compute the variance of an array of numbers.
+* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#deviation) - compute the standard deviation of an array of numbers.
 
-### [Search](https://github.com/d3/d3-array/blob/master/README.md#search)
+### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#search)
 
 Methods for searching arrays for a specific element.
 
-* [d3.scan](https://github.com/d3/d3-array/blob/master/README.md#scan) - linear search for an element using a comparator.
-* [d3.bisect](https://github.com/d3/d3-array/blob/master/README.md#bisect) - binary search for a value in a sorted array.
-* [d3.bisectRight](https://github.com/d3/d3-array/blob/master/README.md#bisectRight) - binary search for a value in a sorted array.
-* [d3.bisectLeft](https://github.com/d3/d3-array/blob/master/README.md#bisectLeft) - binary search for a value in a sorted array.
-* [d3.bisector](https://github.com/d3/d3-array/blob/master/README.md#bisector) - bisect using an accessor or comparator.
-* [*bisector*.left](https://github.com/d3/d3-array/blob/master/README.md#bisector_left) - bisectLeft, with the given comparator.
-* [*bisector*.right](https://github.com/d3/d3-array/blob/master/README.md#bisector_right) - bisectRight, with the given comparator.
-* [d3.ascending](https://github.com/d3/d3-array/blob/master/README.md#ascending) - compute the natural order of two values.
-* [d3.descending](https://github.com/d3/d3-array/blob/master/README.md#descending) - compute the natural order of two values.
+* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#scan) - linear search for an element using a comparator.
+* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisect) - binary search for a value in a sorted array.
+* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectRight) - binary search for a value in a sorted array.
+* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectLeft) - binary search for a value in a sorted array.
+* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector) - bisect using an accessor or comparator.
+* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_left) - bisectLeft, with the given comparator.
+* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_right) - bisectRight, with the given comparator.
+* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ascending) - compute the natural order of two values.
+* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#descending) - compute the natural order of two values.
 
-### [Transformations](https://github.com/d3/d3-array/blob/master/README.md#transformations)
+### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transformations)
 
 Methods for transforming arrays and for generating new arrays.
 
-* [d3.cross](https://github.com/d3/d3-array/blob/master/README.md#cross) - compute the Cartesian product of two arrays.
-* [d3.merge](https://github.com/d3/d3-array/blob/master/README.md#merge) - merge multiple arrays into one array.
-* [d3.pairs](https://github.com/d3/d3-array/blob/master/README.md#pairs) - create an array of adjacent pairs of elements.
-* [d3.permute](https://github.com/d3/d3-array/blob/master/README.md#permute) - reorder an array of elements according to an array of indexes.
-* [d3.shuffle](https://github.com/d3/d3-array/blob/master/README.md#shuffle) - randomize the order of an array.
-* [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks) - generate representative values from a numeric interval.
-* [d3.tickIncrement](https://github.com/d3/d3-array/blob/master/README.md#tickIncrement) - generate representative values from a numeric interval.
-* [d3.tickStep](https://github.com/d3/d3-array/blob/master/README.md#tickStep) - generate representative values from a numeric interval.
-* [d3.range](https://github.com/d3/d3-array/blob/master/README.md#range) - generate a range of numeric values.
-* [d3.transpose](https://github.com/d3/d3-array/blob/master/README.md#transpose) - transpose an array of arrays.
-* [d3.zip](https://github.com/d3/d3-array/blob/master/README.md#zip) - transpose a variable number of arrays.
+* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#cross) - compute the Cartesian product of two arrays.
+* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#merge) - merge multiple arrays into one array.
+* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#pairs) - create an array of adjacent pairs of elements.
+* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#permute) - reorder an array of elements according to an array of indexes.
+* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#shuffle) - randomize the order of an array.
+* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ticks) - generate representative values from a numeric interval.
+* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickIncrement) - generate representative values from a numeric interval.
+* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickStep) - generate representative values from a numeric interval.
+* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#range) - generate a range of numeric values.
+* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transpose) - transpose an array of arrays.
+* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#zip) - transpose a variable number of arrays.
 
-### [Histograms](https://github.com/d3/d3-array/blob/master/README.md#histograms)
+### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histograms)
 
 Bin discrete samples into continuous, non-overlapping intervals.
 
-* [d3.histogram](https://github.com/d3/d3-array/blob/master/README.md#histogram) - create a new histogram generator.
-* [*histogram*](https://github.com/d3/d3-array/blob/master/README.md#_histogram) - compute the histogram for the given array of samples.
-* [*histogram*.value](https://github.com/d3/d3-array/blob/master/README.md#histogram_value) - specify a value accessor for each sample.
-* [*histogram*.domain](https://github.com/d3/d3-array/blob/master/README.md#histogram_domain) - specify the interval of observable values.
-* [*histogram*.thresholds](https://github.com/d3/d3-array/blob/master/README.md#histogram_thresholds) - specify how values are divided into bins.
-* [d3.thresholdFreedmanDiaconis](https://github.com/d3/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) - the Freedman–Diaconis binning rule.
-* [d3.thresholdScott](https://github.com/d3/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference binning rule.
-* [d3.thresholdSturges](https://github.com/d3/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ binning formula.
+* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram) - create a new histogram generator.
+* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#_histogram) - compute the histogram for the given array of samples.
+* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_value) - specify a value accessor for each sample.
+* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_domain) - specify the interval of observable values.
+* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_thresholds) - specify how values are divided into bins.
+* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdFreedmanDiaconis) - the Freedman–Diaconis binning rule.
+* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdScott) - Scott’s normal reference binning rule.
+* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdSturges) - Sturges’ binning formula.
 
 ## [Axes (d3-axis)](https://github.com/d3/d3-axis)
 
