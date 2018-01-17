@@ -90,7 +90,7 @@ var min = d3.min(array);
 
 对指定的数组使用[R-7 方法](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample)返回数组的中位数。如果数组为空则返回undefined.如果指定了*accessor*则相当于在计算之前调用了*array.map(accessor)*. 这个方法会忽略undefined 和 NaN.
 
-<a name="quantile" href="#quantile">#</a> d3.<b>quantile</b>(<i>array</i>, <i>p</i>[, <i>accessor</i>]) [源码<>](https://github.com/d3/d3-array/blob/master/src/quantile.js "Source")
+<a name="quantile" href="#quantile">#</a> d3.<b>quantile</b>(<i>array</i>, <i>p</i>[, <i>accessor</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/quantile.js "Source")
 
 返回指定**有序数组**的*p*-分位数, *p* 是 [0, 1]之间的小数. 例如中位数相当于 *p* = 0.5, 使用*p* = 0.25计算第一个四分位数, *p* = 0.75表示第三个四分位数. 这个方法也使用[R-7 方法](http://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population). 例如:
 
@@ -130,12 +130,12 @@ d3.scan(array, function(a, b) { return b.foo - a.foo; }); // 1
 
 这个操作与[min](#min)类似，不同的是此操作使用比较器而非访问器并且返回的是选定元素的索引。请参考 [bisect](#bisect).
 
-<a name="bisectLeft" href="#bisectLeft">#</a> d3.<b>bisectLeft</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [源码<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
+<a name="bisectLeft" href="#bisectLeft">#</a> d3.<b>bisectLeft</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
 
 二分查找，返回指定元素*x*在数组中的插入位置，以继续保持有序状态。参数*lo* 和 *hi* 可以用来指定一个子集来限制插入的位置。默认情况下可能插入到数组中的任何位置. 如果数组中已经存在x，则插入点的位置位于这个已经存在的元素之前(要考虑从左到右还是从右到左)。返回值*i*可以作为[splice](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice)的参数，可以将数组分为两部分， *array*.slice(*lo*, *i*) 表示左半边而 *array*.slice(*i*, *hi*) 表示右半边。
 
-<a name="bisect" href="#bisect">#</a> d3.<b>bisect</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [源码<>](https://github.com/d3/d3-array/blob/master/src/bisect.js "Source")<br>
-<a name="bisectRight" href="#bisectRight">#</a> d3.<b>bisectRight</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [源码<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
+<a name="bisect" href="#bisect">#</a> d3.<b>bisect</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/bisect.js "Source")<br>
+<a name="bisectRight" href="#bisectRight">#</a> d3.<b>bisectRight</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
 
 与 [bisectLeft](#bisectLeft)类似, 不同的是在计算插入点的位置时从右侧(数组末尾)开始计算
 
@@ -167,11 +167,11 @@ var bisectDate = d3.bisector(function(d, x) { return d.date - x; }).right;
 
 然后可以通过 *bisectDate*(*array*, *date*)进行使用, 同样返回一个索引. 需要注意的是比较器总是传递搜索值`x`作为第二个参数. 如果要按不同于自然顺序的顺序对值进行排序，请使用比较器而不是访问器，例如按降序而不是升序排列。
 
-<a name="bisector_left" href="#bisector_left">#</a> <i>bisector</i>.<b>left</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [源码<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L6 "Source")
+<a name="bisector_left" href="#bisector_left">#</a> <i>bisector</i>.<b>left</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L6 "Source")
 
 等价于 [bisectLeft](#bisectLeft), 只不过使用的是二分查找对象自己的对比方式.
 
-<a name="bisector_right" href="#bisector_right">#</a> <i>bisector</i>.<b>right</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [源码<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L16 "Source")
+<a name="bisector_right" href="#bisector_right">#</a> <i>bisector</i>.<b>right</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<源码>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L16 "Source")
 
 等价于 [bisectRight](#bisectRight), 只不过使用的是二分查找对象自己的对比方式.
 
@@ -267,11 +267,11 @@ d3.permute(object, fields); // returns ["University Farm", "Manchuria", 27]
 
 在*start* 和 *stop*(包含)之间返回大约 *count* + 1 个等间隔的数组序列，每个值都是十的1,2或5的次幂。参考[d3.tickIncrement](#tickIncrement), [d3.tickStep](#tickStep) 和 [*linear*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#linear_ticks)。
 
-<a name="tickIncrement" href="#tickIncrement">#</a> d3.<b>tickIncrement</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
+<a name="tickIncrement" href="#tickIncrement">#</a> d3.<b>tickIncrement</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
 与 [d3.tickStep](#tickStep)类似, 只不过要求 *start* 不大于 *stop*, 如果根据指定的 *start*, *stop* 和 *count* 计算出的个数小于1， 则返回stop对应的负值， 这个方法始终返回一个整数用来被[d3.ticks](#ticks)使用，以避免因IEEE 754浮点数存储带来的不精确问题.
 
-<a name="tickStep" href="#tickStep">#</a> d3.<b>tickStep</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
+<a name="tickStep" href="#tickStep">#</a> d3.<b>tickStep</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
 和[d3.ticks](#ticks)不同的是: 这个方法返回的不是序列，而是序列的步长，这个步长是十的1,2或5的次幂。因浮点数的存储问题，返回的小数可能不精确，可以使用[d3-format]来进行格式化(https://github.com/d3/d3-format).
 
@@ -326,7 +326,7 @@ Computes the histogram for the given array of *data* samples. Returns an array o
 * `x0` - the lower bound of the bin (inclusive).
 * `x1` - the upper bound of the bin (exclusive, except for the last bin).
 
-<a name="histogram_value" href="#histogram_value">#</a> <i>histogram</i>.<b>value</b>([<i>value</i>]) [源码<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L58 "Source")
+<a name="histogram_value" href="#histogram_value">#</a> <i>histogram</i>.<b>value</b>([<i>value</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L58 "Source")
 
 If *value* is specified, sets the value accessor to the specified function or constant and returns this histogram generator. If *value* is not specified, returns the current value accessor, which defaults to the identity function.
 
@@ -334,7 +334,7 @@ When a histogram is [generated](#_histogram), the value accessor will be invoked
 
 This is similar to mapping your data to values before invoking the histogram generator, but has the benefit that the input data remains associated with the returned bins, thereby making it easier to access other fields of the data.
 
-<a name="histogram_domain" href="#histogram_domain">#</a> <i>histogram</i>.<b>domain</b>([<i>domain</i>]) [源码<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L62 "Source")
+<a name="histogram_domain" href="#histogram_domain">#</a> <i>histogram</i>.<b>domain</b>([<i>domain</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L62 "Source")
 
 If *domain* is specified, sets the domain accessor to the specified function or array and returns this histogram generator. If *domain* is not specified, returns the current domain accessor, which defaults to [extent](#extent). The histogram domain is defined as an array [*min*, *max*], where *min* is the minimum observable value and *max* is the maximum observable value; both values are inclusive. Any value outside of this domain will be ignored when the histogram is [generated](#_histogram).
 
@@ -354,8 +354,8 @@ var bins = histogram(numbers);
 
 Note that the domain accessor is invoked on the materialized array of [values](#histogram_value), not on the input data array.
 
-<a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>count</i>]) [源码<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
-<br><a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>thresholds</i>])  [源码<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
+<a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>count</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
+<br><a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>thresholds</i>])  [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
 
 If *thresholds* is specified, sets the [threshold generator](#histogram-thresholds) to the specified function or array and returns this histogram generator. If *thresholds* is not specified, returns the current threshold generator, which by default implements [Sturges’ formula](#thresholdSturges). (Thus by default, the histogram values must be numbers!) Thresholds are defined as an array of values [*x0*, *x1*, …]. Any value less than *x0* will be placed in the first bin; any value greater than or equal to *x0* but less than *x1* will be placed in the second bin; and so on. Thus, the [generated histogram](#_histogram) will have *thresholds*.length + 1 bins. See [histogram thresholds](#histogram-thresholds) for more information.
 
@@ -367,14 +367,14 @@ If a *count* is specified instead of an array of *thresholds*, then the [domain]
 
 These functions are typically not used directly; instead, pass them to [*histogram*.thresholds](#histogram_thresholds). You may also implement your own threshold generator taking three arguments: the array of input [*values*](#histogram_value) derived from the data, and the [observable domain](#histogram_domain) represented as *min* and *max*. The generator may then return either the array of numeric thresholds or the *count* of bins; in the latter case the domain is divided uniformly into approximately *count* bins; see [ticks](#ticks).
 
-<a name="thresholdFreedmanDiaconis" href="#thresholdFreedmanDiaconis">#</a> d3.<b>thresholdFreedmanDiaconis</b>(<i>values</i>, <i>min</i>, <i>max</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/threshold/freedmanDiaconis.js "Source")
+<a name="thresholdFreedmanDiaconis" href="#thresholdFreedmanDiaconis">#</a> d3.<b>thresholdFreedmanDiaconis</b>(<i>values</i>, <i>min</i>, <i>max</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/freedmanDiaconis.js "Source")
 
 Returns the number of bins according to the [Freedman–Diaconis rule](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
 
-<a name="thresholdScott" href="#thresholdScott">#</a> d3.<b>thresholdScott</b>(<i>values</i>, <i>min</i>, <i>max</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/threshold/scott.js "Source")
+<a name="thresholdScott" href="#thresholdScott">#</a> d3.<b>thresholdScott</b>(<i>values</i>, <i>min</i>, <i>max</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/scott.js "Source")
 
 Returns the number of bins according to [Scott’s normal reference rule](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
 
-<a name="thresholdSturges" href="#thresholdSturges">#</a> d3.<b>thresholdSturges</b>(<i>values</i>) [源码<>](https://github.com/d3/d3-array/blob/master/src/threshold/sturges.js "Source")
+<a name="thresholdSturges" href="#thresholdSturges">#</a> d3.<b>thresholdSturges</b>(<i>values</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/sturges.js "Source")
 
 Returns the number of bins according to [Sturges’ formula](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
