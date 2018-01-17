@@ -342,9 +342,9 @@ d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
 
 <a name="histogram_domain" href="#histogram_domain">#</a> <i>histogram</i>.<b>domain</b>([<i>domain</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L62 "Source")
 
-If *domain* is specified, sets the domain accessor to the specified function or array and returns this histogram generator. If *domain* is not specified, returns the current domain accessor, which defaults to [extent](#extent). The histogram domain is defined as an array [*min*, *max*], where *min* is the minimum observable value and *max* is the maximum observable value; both values are inclusive. Any value outside of this domain will be ignored when the histogram is [generated](#_histogram).
+如果指定了*domain*参数则设置直方图的输入范围，输入数据中超出这个范围的元素将被忽略。*domain*为一个数组或者返回数组的方法。如果没有指定*domain*则返回当前的domain设置，默认为[extent](#extent)(也就是不对输入范围做要求)。直方图的domain参数由[*min*,*max*]确定，分别表示了输入范围的最小值和最大值。此范围外的值在直方图[生成](#_histogram)的时候被忽略.
 
-For example, if you are using the the histogram in conjunction with a [linear scale](https://github.com/d3/d3-scale/blob/master/README.md#linear-scales) `x`, you might say:
+比如当使用直方图和[线性比例尺] `x`(https://github.com/d3/d3-scale/blob/master/README.md#linear-scales) 一起使用的时候可以:
 
 ```js
 var histogram = d3.histogram()
@@ -352,35 +352,38 @@ var histogram = d3.histogram()
     .thresholds(x.ticks(20));
 ```
 
-You can then compute the bins from an array of numbers like so:
+然后就可以根据输入的数组计算出一组bins:
 
 ```js
 var bins = histogram(numbers);
 ```
 
-Note that the domain accessor is invoked on the materialized array of [values](#histogram_value), not on the input data array.
+需要注意的是domain访问器在经过[values](#histogram_value)计算之后的值上进行调用，而不是原始的输入数据.
 
 <a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>count</i>]) [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
 <br><a name="histogram_thresholds" href="#histogram_thresholds">#</a> <i>histogram</i>.<b>thresholds</b>([<i>thresholds</i>])  [<源码>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L66 "Source")
 
-If *thresholds* is specified, sets the [threshold generator](#histogram-thresholds) to the specified function or array and returns this histogram generator. If *thresholds* is not specified, returns the current threshold generator, which by default implements [Sturges’ formula](#thresholdSturges). (Thus by default, the histogram values must be numbers!) Thresholds are defined as an array of values [*x0*, *x1*, …]. Any value less than *x0* will be placed in the first bin; any value greater than or equal to *x0* but less than *x1* will be placed in the second bin; and so on. Thus, the [generated histogram](#_histogram) will have *thresholds*.length + 1 bins. See [histogram thresholds](#histogram-thresholds) for more information.
+首先说一下阈值这个概念，有没有发现上述文档中并没有提到在输入一组数据之后，输出bins的个数或者bins如何划分。因为默认情况下直方图有一个默认的划分规则，如果想按照自己的意愿(比如期待bins的个数，甚至最后的bins的范围都不一样)对一组数据进行划分那就需要阈值这个东西。
 
-Any threshold values outside the [domain](#histogram_domain) are ignored. The first *bin*.x0 is always equal to the minimum domain value, and the last *bin*.x1 is always equal to the maximum domain value.
+如果指定了*thresholds*则将[threshold generator(阈值生成器)](#histogram-thresholds)设置为指定的数组或方法并返回直方图生成器。如果没有指定*thresholds*参数则返回当前的阈值生成器，默认为[Sturges’ formula](#thresholdSturges)(出于这个原因，直方图的值必须是数字)。阈值由类似于[*x0*, *x1*, …]的数组进行定义，然后直方图生成器会根据这个数组对输入数据进行划分，小于*x0*的放到第一个bin中，大于等于*x0*并且小于*x1*的放到第二个bin中，大于等于*x1*小于*x2*的放到第三个bin中...以此类推...大于最后一个元素*xn*的放到最后一个bin中，这样就可以实现不等分bins。最后结果会生成*thresholds*.length + 1个bins。参考[直方图阈值](#histogram-thresholds).
 
-If a *count* is specified instead of an array of *thresholds*, then the [domain](#histogram_domain) will be uniformly divided into approximately *count* bins; see [ticks](#ticks).
+任何在[domain](#histogram_domain)之外的值都会被忽略，也就是第一个bin的*bin*.x0等于domain的最小值,最后一个bin的*bin*.x1等于domain的最大值。
+
+也可以通过制定*count*来设置期待的bins个数，如果设置*count*则阈值将会被统一的划分为近似的计数区。参考[ticks](#ticks)
 
 ### Histogram Thresholds
 
-These functions are typically not used directly; instead, pass them to [*histogram*.thresholds](#histogram_thresholds). You may also implement your own threshold generator taking three arguments: the array of input [*values*](#histogram_value) derived from the data, and the [observable domain](#histogram_domain) represented as *min* and *max*. The generator may then return either the array of numeric thresholds or the *count* of bins; in the latter case the domain is divided uniformly into approximately *count* bins; see [ticks](#ticks).
+这些功能不能直接使用，而是要传递给[*histogram*.thresholds](#histogram_thresholds)使用。你可以通过三个参数来实现自己的阈值生成器：输入[*values*](#histogram_value), 以及由 *min* 和 *max* 表示的[可观测区间](#histogram_domain)。自定义的阈值生成器也要遵循[直方图阈值](#histogram-thresholds)的要求，也就是返回一组阈值数组或者返回一个*count*。如果返回的是*count*则最后生成的bins个数近似等于*count*，可以参考[ticks](#ticks).
 
 <a name="thresholdFreedmanDiaconis" href="#thresholdFreedmanDiaconis">#</a> d3.<b>thresholdFreedmanDiaconis</b>(<i>values</i>, <i>min</i>, <i>max</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/freedmanDiaconis.js "Source")
 
-Returns the number of bins according to the [Freedman–Diaconis rule](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
+根据 [Freedman–Diaconis rule]算法返回bins个数
+(https://en.wikipedia.org/wiki/Histogram#Mathematical_definition) 返回理想的bins个数;*values*必须为数值类型数组.
 
 <a name="thresholdScott" href="#thresholdScott">#</a> d3.<b>thresholdScott</b>(<i>values</i>, <i>min</i>, <i>max</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/scott.js "Source")
 
-Returns the number of bins according to [Scott’s normal reference rule](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
+根据 [Scott’s normal reference rule](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition)返回理想的bins个数;*values*必须为数值类型数组.
 
 <a name="thresholdSturges" href="#thresholdSturges">#</a> d3.<b>thresholdSturges</b>(<i>values</i>) [<源码>](https://github.com/d3/d3-array/blob/master/src/threshold/sturges.js "Source")
 
-Returns the number of bins according to [Sturges’ formula](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition); the input *values* must be numbers.
+根据 [Sturges’ formula](https://en.wikipedia.org/wiki/Histogram#Mathematical_definition)返回理想的bins个数;*values*必须为数值类型数组.
