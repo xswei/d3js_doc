@@ -85,16 +85,17 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histograms)
 
+直方图将离散样本分成连续的，不重叠的区间。
 Bin discrete samples into continuous, non-overlapping intervals.
 
-* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram) - create a new histogram generator.
-* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#_histogram) - compute the histogram for the given array of samples.
-* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_value) - specify a value accessor for each sample.
-* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_domain) - specify the interval of observable values.
-* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_thresholds) - specify how values are divided into bins.
-* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdFreedmanDiaconis) - the Freedman–Diaconis binning rule.
-* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdScott) - Scott’s normal reference binning rule.
-* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdSturges) - Sturges’ binning formula.
+* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram) - 创建一个新的直方图生成器.
+* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#_histogram) - 根据给定的数组计算直方图.
+* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_value) - 设置或获取直方图值访问器.
+* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_domain) - 设置或获取直方图的可观测区间.
+* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_thresholds) - 设置直方图阈值(生成方式).
+* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdFreedmanDiaconis) - Freedman–Diaconis直方图生成规则.
+* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdScott) - Scott’s normal reference 直方图生成规则.
+* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdSturges) - Sturges’ 直方图生成规则.
 
 ## [Axes (d3-axis)](https://github.com/d3/d3-axis)
 
