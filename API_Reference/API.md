@@ -98,24 +98,24 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdScott) - Scott’s normal reference 直方图生成规则.
 * [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdSturges) - Sturges’ 直方图生成规则.
 
-## [Axes (d3-axis)](https://github.com/d3/d3-axis)
+## [Axes (d3-axis)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-axis)
 
 Human-readable reference marks for scales.
 
-* [d3.axisTop](https://github.com/d3/d3-axis/blob/master/README.md#axisTop) - create a new top-oriented axis generator.
-* [d3.axisRight](https://github.com/d3/d3-axis/blob/master/README.md#axisRight) - create a new right-oriented axis generator.
-* [d3.axisBottom](https://github.com/d3/d3-axis/blob/master/README.md#axisBottom) - create a new bottom-oriented axis generator.
-* [d3.axisLeft](https://github.com/d3/d3-axis/blob/master/README.md#axisLeft) - create a new left-oriented axis generator.
-* [*axis*](https://github.com/d3/d3-axis/blob/master/README.md#_axis) - generate an axis for the given selection.
-* [*axis*.scale](https://github.com/d3/d3-axis/blob/master/README.md#axis_scale) - set the scale.
-* [*axis*.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks) - customize how ticks are generated and formatted.
-* [*axis*.tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments) - customize how ticks are generated and formatted.
-* [*axis*.tickValues](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickValues) - set the tick values explicitly.
-* [*axis*.tickFormat](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickFormat) - set the tick format explicitly.
-* [*axis*.tickSize](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) - set the size of the ticks.
-* [*axis*.tickSizeInner](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeInner) - set the size of inner ticks.
-* [*axis*.tickSizeOuter](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeOuter) - set the size of outer (extent) ticks.
-* [*axis*.tickPadding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding) - set the padding between ticks and labels.
+* [d3.axisTop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisTop) - create a new top-oriented axis generator.
+* [d3.axisRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisRight) - create a new right-oriented axis generator.
+* [d3.axisBottom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisBottom) - create a new bottom-oriented axis generator.
+* [d3.axisLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisLeft) - create a new left-oriented axis generator.
+* [*axis*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#_axis) - generate an axis for the given selection.
+* [*axis*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_scale) - set the scale.
+* [*axis*.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_ticks) - customize how ticks are generated and formatted.
+* [*axis*.tickArguments](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickArguments) - customize how ticks are generated and formatted.
+* [*axis*.tickValues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickValues) - set the tick values explicitly.
+* [*axis*.tickFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickFormat) - set the tick format explicitly.
+* [*axis*.tickSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSize) - set the size of the ticks.
+* [*axis*.tickSizeInner](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeInner) - set the size of inner ticks.
+* [*axis*.tickSizeOuter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeOuter) - set the size of outer (extent) ticks.
+* [*axis*.tickPadding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickPadding) - set the padding between ticks and labels.
 
 ## [Brushes (d3-brush)](https://github.com/d3/d3-brush)
 
