@@ -287,7 +287,7 @@ d3.permute(object, fields); // returns ["University Farm", "Manchuria", 27]
 d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
 ```
 
-这是由于IEEE 754 双精度浮点数的存储导致的, 如 0.2 * 3 = 0.6000000000000001. 此时可以使用[d3-format](https://github.com/d3/d3-format)来进行格式化操作。参考[d3-scale](https://github.com/d3/d3-scale)中的[linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat)操作
+这是由于IEEE 754 双精度浮点数的存储导致的, 如 0.2 * 3 = 0.6000000000000001. 此时可以使用[d3-format](https://github.com/d3/d3-format)来进行格式化操作。参考[d3-scale](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale)中的[linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat)操作
 
 如果对返回的个数有要求的话，可以考虑使用[array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 实现，例如：
 
