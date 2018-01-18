@@ -117,7 +117,7 @@ Human-readable reference marks for scales.
 * [*axis*.tickSizeOuter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeOuter) - set the size of outer (extent) ticks.
 * [*axis*.tickPadding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickPadding) - set the padding between ticks and labels.
 
-## [Brushes (d3-brush)](https://github.com/d3/d3-brush)
+## [Brushes (d3-brush)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush)
 
 Select a one- or two-dimensional region using the mouse or touch.
 
@@ -132,7 +132,7 @@ Select a one- or two-dimensional region using the mouse or touch.
 * [*brush*.on](https://github.com/d3/d3-brush/blob/master/README.md#brush_on) - listen for brush events.
 * [d3.brushSelection](https://github.com/d3/d3-brush/blob/master/README.md#brushSelection) - get the brush selection for a given node.
 
-## [Chords (d3-chord)](https://github.com/d3/d3-chord)
+## [Chords (d3-chord)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord)
 
 * [d3.chord](https://github.com/d3/d3-chord/blob/master/README.md#chord) - create a new chord layout.
 * [*chord*](https://github.com/d3/d3-chord/blob/master/README.md#_chord) - compute the layout for the given matrix.
@@ -149,7 +149,7 @@ Select a one- or two-dimensional region using the mouse or touch.
 * [*ribbon*.endAngle](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_endAngle) - set the ribbon source or target end angle.
 * [*ribbon*.context](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_context) - set the render context.
 
-## [Collections (d3-collection)](https://github.com/d3/d3-collection)
+## [Collections (d3-collection)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection)
 
 Handy data structures for elements keyed by string.
 
@@ -205,7 +205,7 @@ Group data into arbitrary hierarchies.
 * [*nest*.object](https://github.com/d3/d3-collection/blob/master/README.md#nest_object) - generate the nest, returning an associative array.
 * [*nest*.entries](https://github.com/d3/d3-collection/blob/master/README.md#nest_entries) - generate the nest, returning an array of key-values tuples.
 
-## [Colors (d3-color)](https://github.com/d3/d3-color)
+## [Colors (d3-color)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color)
 
 Color manipulation and color space conversion.
 
@@ -221,7 +221,7 @@ Color manipulation and color space conversion.
 * [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) - create a new HCL color.
 * [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) - create a new Cubehelix color.
 
-## [Dispatches (d3-dispatch)](https://github.com/d3/d3-dispatch)
+## [Dispatches (d3-dispatch)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch)
 
 Separate concerns using named callbacks.
 
@@ -231,7 +231,7 @@ Separate concerns using named callbacks.
 * [*dispatch*.*call*](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_call) - dispatch an event to registered listeners.
 * [*dispatch*.*apply*](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_apply) - dispatch an event to registered listeners.
 
-## [Dragging (d3-drag)](https://github.com/d3/d3-drag)
+## [Dragging (d3-drag)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag)
 
 Drag and drop SVG, HTML or Canvas using mouse or touch input.
 
@@ -247,7 +247,7 @@ Drag and drop SVG, HTML or Canvas using mouse or touch input.
 * [d3.dragDisable](https://github.com/d3/d3-drag/blob/master/README.md#dragDisable) - prevent native drag-and-drop and text selection.
 * [d3.dragEnable](https://github.com/d3/d3-drag/blob/master/README.md#dragEnable) - enable native drag-and-drop and text selection.
 
-## [Delimiter-Separated Values (d3-dsv)](https://github.com/d3/d3-dsv)
+## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv)
 
 Parse and format delimiter-separated values, most commonly CSV and TSV.
 
@@ -265,7 +265,7 @@ Parse and format delimiter-separated values, most commonly CSV and TSV.
 * [d3.tsvFormat](https://github.com/d3/d3-dsv/blob/master/README.md#tsvFormat) - format the given array of objects as TSV.
 * [d3.tsvFormatRows](https://github.com/d3/d3-dsv/blob/master/README.md#tsvFormatRows) - format the given array of rows as TSV.
 
-## [Easings (d3-ease)](https://github.com/d3/d3-ease)
+## [Easings (d3-ease)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease)
 
 Easing functions for smooth animation.
 
@@ -311,7 +311,7 @@ Easing functions for smooth animation.
 * [d3.easeBounceOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBounceOut) - reverse bounce easing.
 * [d3.easeBounceInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBounceInOut) - symmetric bounce easing.
 
-## [Forces (d3-force)](https://github.com/d3/d3-force)
+## [Forces (d3-force)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force)
 
 Force-directed graph layout using velocity Verlet integration.
 
@@ -360,7 +360,7 @@ Force-directed graph layout using velocity Verlet integration.
 * [*radial*.x](https://github.com/d3/d3-force/blob/master/README.md#radial_x) - set the target center *x*-coordinate.
 * [*radial*.y](https://github.com/d3/d3-force/blob/master/README.md#radial_y) - set the target center *y*-coordinate.
 
-## [Number Formats (d3-format)](https://github.com/d3/d3-format)
+## [Number Formats (d3-format)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format)
 
 Format numbers for human consumption.
 
@@ -375,7 +375,7 @@ Format numbers for human consumption.
 * [d3.precisionPrefix](https://github.com/d3/d3-format/blob/master/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
 * [d3.precisionRound](https://github.com/d3/d3-format/blob/master/README.md#precisionRound) - compute significant digits for rounded notation.
 
-## [Geographies (d3-geo)](https://github.com/d3/d3-geo)
+## [Geographies (d3-geo)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo)
 
 Geographic projections, shapes and math.
 
@@ -492,7 +492,7 @@ Geographic projections, shapes and math.
 * [*identity*.reflectY](https://github.com/d3/d3-geo/blob/master/README.md#identity_reflectY) - reflect the *y*-dimension.
 * [d3.geoTransform](https://github.com/d3/d3-geo/blob/master/README.md#geoTransform) - define a custom geometry transform.
 
-## [Hierarchies (d3-hierarchy)](https://github.com/d3/d3-hierarchy)
+## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy)
 
 Layout algorithms for visualizing hierarchical data.
 
@@ -555,7 +555,7 @@ Layout algorithms for visualizing hierarchical data.
 * [d3.packSiblings](https://github.com/d3/d3-hierarchy/blob/master/README.md#packSiblings) - pack the specified array of circles.
 * [d3.packEnclose](https://github.com/d3/d3-hierarchy/blob/master/README.md#packEnclose) - enclose the specified array of circles.
 
-## [Interpolators (d3-interpolate)](https://github.com/d3/d3-interpolate)
+## [Interpolators (d3-interpolate)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate)
 
 Interpolate numbers, colors, strings, arrays, objects, whatever!
 
@@ -584,7 +584,7 @@ Interpolate numbers, colors, strings, arrays, objects, whatever!
 * [d3.interpolateBasisClosed](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateBasisClosed) - generate a closed B-spline through a set of values.
 * [d3.quantize](https://github.com/d3/d3-interpolate/blob/master/README.md#quantize) - generate uniformly-spaced samples from an interpolator.
 
-## [Paths (d3-path)](https://github.com/d3/d3-path)
+## [Paths (d3-path)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path)
 
 Serialize Canvas path commands to SVG.
 
@@ -599,7 +599,7 @@ Serialize Canvas path commands to SVG.
 * [*path*.rect](https://github.com/d3/d3-path/blob/master/README.md#path_rect) - draw a rectangle.
 * [*path*.toString](https://github.com/d3/d3-path/blob/master/README.md#path_toString) - serialize to an SVG path data string.
 
-## [Polygons (d3-polygon)](https://github.com/d3/d3-polygon)
+## [Polygons (d3-polygon)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon)
 
 Geometric operations for two-dimensional polygons.
 
@@ -609,7 +609,7 @@ Geometric operations for two-dimensional polygons.
 * [d3.polygonContains](https://github.com/d3/d3-polygon/blob/master/README.md#polygonContains) - test whether a point is inside a polygon.
 * [d3.polygonLength](https://github.com/d3/d3-polygon/blob/master/README.md#polygonLength) - compute the length of the given polygon’s perimeter.
 
-## [Quadtrees (d3-quadtree)](https://github.com/d3/d3-quadtree)
+## [Quadtrees (d3-quadtree)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree)
 
 Two-dimensional recursive spatial subdivision.
 
@@ -630,7 +630,7 @@ Two-dimensional recursive spatial subdivision.
 * [*quadtree*.cover](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_cover) - extend the quadtree to cover a point.
 * [*quadtree*.extent](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_extent) - extend the quadtree to cover an extent.
 
-## [Queues (d3-queue)](https://github.com/d3/d3-queue)
+## [Queues (d3-queue)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue)
 
 Evaluate asynchronous tasks with configurable concurrency.
 
@@ -640,7 +640,7 @@ Evaluate asynchronous tasks with configurable concurrency.
 * [*queue*.await](https://github.com/d3/d3-queue/blob/master/README.md#queue_await) - register a callback for when tasks complete.
 * [*queue*.awaitAll](https://github.com/d3/d3-queue/blob/master/README.md#queue_awaitAll) - register a callback for when tasks complete.
 
-## [Random Numbers (d3-random)](https://github.com/d3/d3-random)
+## [Random Numbers (d3-random)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random)
 
 Generate random numbers from various distributions.
 
@@ -652,7 +652,7 @@ Generate random numbers from various distributions.
 * [d3.randomExponential](https://github.com/d3/d3-random/blob/master/README.md#randomExponential) - from an exponential distribution.
 * [*random*.source](https://github.com/d3/d3-random/blob/master/README.md#random_source) - set the source of randomness.
 
-## [Requests (d3-request)](https://github.com/d3/d3-request)
+## [Requests (d3-request)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request)
 
 A convenient alternative to asynchronous XMLHttpRequest.
 
@@ -896,7 +896,7 @@ Transform the DOM by selecting elements and joining to data.
 * [d3.namespace](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
 * [d3.namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#namespaces) - the built-in XML namespaces.
 
-## [Shapes (d3-shape)](https://github.com/d3/d3-shape)
+## [Shapes (d3-shape)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape)
 
 Graphical primitives for visualization.
 
@@ -1069,7 +1069,7 @@ Stack shapes, placing one adjacent to another, as in a stacked bar chart.
 * [d3.stackOffsetSilhouette](https://github.com/d3/d3-shape/blob/master/README.md#stackOffsetSilhouette) - center the streamgraph around zero.
 * [d3.stackOffsetWiggle](https://github.com/d3/d3-shape/blob/master/README.md#stackOffsetWiggle) - minimize streamgraph wiggling.
 
-## [Time Formats (d3-time-format)](https://github.com/d3/d3-time-format)
+## [Time Formats (d3-time-format)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format)
 
 Parse and format times, inspired by strptime and strftime.
 
@@ -1086,7 +1086,7 @@ Parse and format times, inspired by strptime and strftime.
 * [*locale*.utcFormat](https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcFormat) - create a UTC formatter.
 * [*locale*.utcParse](https://github.com/d3/d3-time-format/blob/master/README.md#locale_utcParse) - create a UTC parser.
 
-## [Time Intervals (d3-time)](https://github.com/d3/d3-time)
+## [Time Intervals (d3-time)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time)
 
 A calculator for humanity’s peculiar conventions of time.
 
@@ -1131,7 +1131,7 @@ A calculator for humanity’s peculiar conventions of time.
 * [d3.timeYear](https://github.com/d3/d3-time/blob/master/README.md#timeYear), [d3.utcYear](https://github.com/d3/d3-time/blob/master/README.md#timeYear) - the year interval.
 * [d3.timeYears](https://github.com/d3/d3-time/blob/master/README.md#timeYear), [d3.utcYears](https://github.com/d3/d3-time/blob/master/README.md#timeYear) - aliases for year.range.
 
-## [Timers (d3-timer)](https://github.com/d3/d3-timer)
+## [Timers (d3-timer)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer)
 
 An efficient queue for managing thousands of concurrent animations.
 
@@ -1143,7 +1143,7 @@ An efficient queue for managing thousands of concurrent animations.
 * [d3.timeout](https://github.com/d3/d3-timer/blob/master/README.md#timeout) - schedule a timer that stops on its first callback.
 * [d3.interval](https://github.com/d3/d3-timer/blob/master/README.md#interval) - schedule a timer that is called with a configurable period.
 
-## [Transitions (d3-transition)](https://github.com/d3/d3-transition)
+## [Transitions (d3-transition)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition)
 
 Animated transitions for [selections](#selections).
 
@@ -1176,7 +1176,7 @@ Animated transitions for [selections](#selections).
 * [d3.active](https://github.com/d3/d3-transition/blob/master/README.md#active) - select the active transition for a given node.
 * [d3.interrupt](https://github.com/d3/d3-transition/blob/master/README.md#interrupt) - interrupt the active transition for a given node.
 
-## [Voronoi Diagrams (d3-voronoi)](https://github.com/d3/d3-voronoi)
+## [Voronoi Diagrams (d3-voronoi)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi)
 
 Compute the Voronoi diagram of a given set of points.
 
@@ -1194,7 +1194,7 @@ Compute the Voronoi diagram of a given set of points.
 * [*diagram*.links](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_links) - compute the links for this Voronoi diagram.
 * [*diagram*.find](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_find) - find the closest point in this Voronoi diagram.
 
-## [Zooming (d3-zoom)](https://github.com/d3/d3-zoom)
+## [Zooming (d3-zoom)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom)
 
 Pan and zoom SVG, HTML or Canvas using mouse or touch input.
 
