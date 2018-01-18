@@ -35,68 +35,68 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 
 D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
 
-## [Arrays (d3-array)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD)
+## [Arrays (d3-array)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md)
 
 **Done**
 
 数组操作，包括排序、查找、汇总等等
 
-### [Statistics](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#statistics)
+### [Statistics](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#statistics)
 
 基本的静态统计计算方法
 
-* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#min) - 计算数组中的最小值.
-* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#max) - 计算数组中的最大值.
-* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#extent) - 计算数组中的最大值和最小值.
-* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#sum) - 计算数组元素之和.
-* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#mean) - 计算数组元素的算术中位数.
-* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#median) - 计算数组元素的中位数 (也就是 0.5-分位数).
-* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#quantile) - 计算有序数组的分位数.
-* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#variance) - 计算数组元素的方差.
-* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#deviation) - 计算数组元素的标准差.
+* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#min) - 计算数组中的最小值.
+* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#max) - 计算数组中的最大值.
+* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#extent) - 计算数组中的最大值和最小值.
+* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#sum) - 计算数组元素之和.
+* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#mean) - 计算数组元素的算术中位数.
+* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#median) - 计算数组元素的中位数 (也就是 0.5-分位数).
+* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#quantile) - 计算有序数组的分位数.
+* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#variance) - 计算数组元素的方差.
+* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#deviation) - 计算数组元素的标准差.
 
-### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#search)
+### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#search)
 
 查找类方法
 
-* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#scan) - 使用指定的比较器进行线性查找指定的元素.
-* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisect) - 二分查找有序数组中指定元素的索引.
-* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectRight) - 二分查找有序数组中指定元素的索引.
-* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisectLeft) - 二分查找有序数组中指定元素的索引.
-* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector) - 用指定的访问器或比较器对二分查找.
-* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_left) - 与bisectLeft类似, 可以指定比较器.
-* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#bisector_right) - 与bisectRight类似, 可以指定比较器.
-* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ascending) - 计算两个值的自然顺序.
-* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#descending) - 计算两个值的自然顺序.
+* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#scan) - 使用指定的比较器进行线性查找指定的元素.
+* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisect) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectRight) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectLeft) - 二分查找有序数组中指定元素的索引.
+* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector) - 用指定的访问器或比较器对二分查找.
+* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_left) - 与bisectLeft类似, 可以指定比较器.
+* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_right) - 与bisectRight类似, 可以指定比较器.
+* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ascending) - 计算两个值的自然顺序.
+* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#descending) - 计算两个值的自然顺序.
 
-### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transformations)
+### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transformations)
 
 数组变换和计算，返回新的数组
 
-* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#cross) - 计算两个数组的笛卡尔积.
-* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#merge) - 将多个数组合并为一个.
-* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#pairs) - 将数组中相邻的两个元素两两结合.
-* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#permute) - 根据指定的索引返回对数组重排后的结果.
-* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#shuffle) - 随机打乱数组顺序
-* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#ticks) - 从给定的区间范围内生成一系列值.
-* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickIncrement) - 从给定的区间范围内生成一系列值.
-* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#tickStep) - 从给定的区间范围内生成一系列值.
-* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#range) - 根据指定的区间生成一系列值.
-* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#transpose) - 将数组的数组进行转置.
-* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#zip) - 转置多个数组.
+* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#cross) - 计算两个数组的笛卡尔积.
+* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#merge) - 将多个数组合并为一个.
+* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#pairs) - 将数组中相邻的两个元素两两结合.
+* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#permute) - 根据指定的索引返回对数组重排后的结果.
+* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#shuffle) - 随机打乱数组顺序
+* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ticks) - 从给定的区间范围内生成一系列值.
+* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickIncrement) - 从给定的区间范围内生成一系列值.
+* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickStep) - 从给定的区间范围内生成一系列值.
+* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#range) - 根据指定的区间生成一系列值.
+* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transpose) - 将数组的数组进行转置.
+* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#zip) - 转置多个数组.
 
-### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histograms)
+### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histograms)
 
 直方图将离散样本分成连续的，不重叠的区间。
 
-* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram) - 创建一个新的直方图生成器.
-* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#_histogram) - 根据给定的数组计算直方图.
-* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_value) - 设置或获取直方图值访问器.
-* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_domain) - 设置或获取直方图的可观测区间.
-* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#histogram_thresholds) - 设置直方图阈值(生成方式).
-* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdFreedmanDiaconis) - Freedman–Diaconis直方图生成规则.
-* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdScott) - Scott’s normal reference 直方图生成规则.
-* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.MD#thresholdSturges) - Sturges’ 直方图生成规则.
+* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram) - 创建一个新的直方图生成器.
+* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#_histogram) - 根据给定的数组计算直方图.
+* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_value) - 设置或获取直方图值访问器.
+* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_domain) - 设置或获取直方图的可观测区间.
+* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_thresholds) - 设置直方图阈值(生成方式).
+* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdFreedmanDiaconis) - Freedman–Diaconis直方图生成规则.
+* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdScott) - Scott’s normal reference 直方图生成规则.
+* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdSturges) - Sturges’ 直方图生成规则.
 
 ## [Axes (d3-axis)](https://github.com/d3/d3-axis)
 
@@ -680,221 +680,221 @@ A convenient alternative to asynchronous XMLHttpRequest.
 
 Encodings that map abstract data to visual representation.
 
-### [Continuous Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous-scales)
+### [Continuous Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous-scales)
 
 Map a continuous, quantitative domain to a continuous range.
 
-* [*continuous*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_continuous) - compute the range value corresponding to a given domain value.
-* [*continuous*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_invert) - compute the domain value corresponding to a given range value.
-* [*continuous*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_domain) - set the input domain.
-* [*continuous*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_range) - set the output range.
-* [*continuous*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_rangeRound) - set the output range and enable rounding.
-* [*continuous*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_clamp) - enable clamping to the domain or range.
-* [*continuous*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_interpolate) - set the output interpolator.
-* [*continuous*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_ticks) - compute representative values from the domain.
-* [*continuous*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_tickFormat) - format ticks for human consumption.
-* [*continuous*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_nice) - extend the domain to nice round numbers.
-* [*continuous*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#continuous_copy) - create a copy of this scale.
-* [d3.scaleLinear](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleLinear) - create a quantitative linear scale.
-* [d3.scalePow](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scalePow) - create a quantitative power scale.
-* [*pow*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_pow) - compute the range value corresponding to a given domain value.
-* [*pow*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_invert) - compute the domain value corresponding to a given range value.
-* [*pow*.exponent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_exponent) - set the power exponent.
-* [*pow*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_domain) - set the input domain.
-* [*pow*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_range) - set the output range.
-* [*pow*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_rangeRound) - set the output range and enable rounding.
-* [*pow*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_clamp) - enable clamping to the domain or range.
-* [*pow*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_interpolate) - set the output interpolator.
-* [*pow*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_ticks) - compute representative values from the domain.
-* [*pow*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_tickFormat) - format ticks for human consumption.
-* [*pow*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_nice) - extend the domain to nice round numbers.
-* [*pow*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#pow_copy) - create a copy of this scale.
-* [d3.scaleSqrt](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleSqrt) - create a quantitative power scale with exponent 0.5.
-* [d3.scaleLog](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleLog) - create a quantitative logarithmic scale.
-* [*log*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_log) - compute the range value corresponding to a given domain value.
-* [*log*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_invert) - compute the domain value corresponding to a given range value.
-* [*log*.base](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_base) - set the logarithm base.
-* [*log*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_domain) - set the input domain.
-* [*log*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_range) - set the output range.
-* [*log*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_rangeRound) - set the output range and enable rounding.
-* [*log*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_clamp) - enable clamping to the domain or range.
-* [*log*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_interpolate) - set the output interpolator.
-* [*log*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_ticks) - compute representative values from the domain.
-* [*log*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_tickFormat) - format ticks for human consumption.
-* [*log*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_nice) - extend the domain to nice round numbers.
-* [*log*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#log_copy) - create a copy of this scale.
-* [d3.scaleIdentity](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#identity) - create a quantitative identity scale.
-* [d3.scaleTime](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleTime) - create a linear scale for time.
-* [*time*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_time) - compute the range value corresponding to a given domain value.
-* [*time*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_invert) - compute the domain value corresponding to a given range value.
-* [*time*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_domain) - set the input domain.
-* [*time*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_range) - set the output range.
-* [*time*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_rangeRound) - set the output range and enable rounding.
-* [*time*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_clamp) - enable clamping to the domain or range.
-* [*time*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_interpolate) - set the output interpolator.
-* [*time*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_ticks) - compute representative values from the domain.
-* [*time*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_tickFormat) - format ticks for human consumption.
-* [*time*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_nice) - extend the domain to nice round times.
-* [*time*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#time_copy) - create a copy of this scale.
-* [d3.scaleUtc](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleUtc) - create a linear scale for UTC.
+* [*continuous*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_continuous) - compute the range value corresponding to a given domain value.
+* [*continuous*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_invert) - compute the domain value corresponding to a given range value.
+* [*continuous*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_domain) - set the input domain.
+* [*continuous*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_range) - set the output range.
+* [*continuous*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_rangeRound) - set the output range and enable rounding.
+* [*continuous*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_clamp) - enable clamping to the domain or range.
+* [*continuous*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_interpolate) - set the output interpolator.
+* [*continuous*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_ticks) - compute representative values from the domain.
+* [*continuous*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_tickFormat) - format ticks for human consumption.
+* [*continuous*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_nice) - extend the domain to nice round numbers.
+* [*continuous*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#continuous_copy) - create a copy of this scale.
+* [d3.scaleLinear](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleLinear) - create a quantitative linear scale.
+* [d3.scalePow](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scalePow) - create a quantitative power scale.
+* [*pow*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_pow) - compute the range value corresponding to a given domain value.
+* [*pow*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_invert) - compute the domain value corresponding to a given range value.
+* [*pow*.exponent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_exponent) - set the power exponent.
+* [*pow*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_domain) - set the input domain.
+* [*pow*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_range) - set the output range.
+* [*pow*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_rangeRound) - set the output range and enable rounding.
+* [*pow*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_clamp) - enable clamping to the domain or range.
+* [*pow*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_interpolate) - set the output interpolator.
+* [*pow*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_ticks) - compute representative values from the domain.
+* [*pow*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_tickFormat) - format ticks for human consumption.
+* [*pow*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_nice) - extend the domain to nice round numbers.
+* [*pow*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#pow_copy) - create a copy of this scale.
+* [d3.scaleSqrt](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleSqrt) - create a quantitative power scale with exponent 0.5.
+* [d3.scaleLog](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleLog) - create a quantitative logarithmic scale.
+* [*log*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_log) - compute the range value corresponding to a given domain value.
+* [*log*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_invert) - compute the domain value corresponding to a given range value.
+* [*log*.base](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_base) - set the logarithm base.
+* [*log*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_domain) - set the input domain.
+* [*log*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_range) - set the output range.
+* [*log*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_rangeRound) - set the output range and enable rounding.
+* [*log*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_clamp) - enable clamping to the domain or range.
+* [*log*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_interpolate) - set the output interpolator.
+* [*log*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_ticks) - compute representative values from the domain.
+* [*log*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_tickFormat) - format ticks for human consumption.
+* [*log*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_nice) - extend the domain to nice round numbers.
+* [*log*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#log_copy) - create a copy of this scale.
+* [d3.scaleIdentity](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#identity) - create a quantitative identity scale.
+* [d3.scaleTime](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleTime) - create a linear scale for time.
+* [*time*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_time) - compute the range value corresponding to a given domain value.
+* [*time*.invert](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_invert) - compute the domain value corresponding to a given range value.
+* [*time*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_domain) - set the input domain.
+* [*time*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_range) - set the output range.
+* [*time*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_rangeRound) - set the output range and enable rounding.
+* [*time*.clamp](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_clamp) - enable clamping to the domain or range.
+* [*time*.interpolate](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_interpolate) - set the output interpolator.
+* [*time*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_ticks) - compute representative values from the domain.
+* [*time*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_tickFormat) - format ticks for human consumption.
+* [*time*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_nice) - extend the domain to nice round times.
+* [*time*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#time_copy) - create a copy of this scale.
+* [d3.scaleUtc](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleUtc) - create a linear scale for UTC.
 
-### [Sequential Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#sequential-scales)
+### [Sequential Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#sequential-scales)
 
 Map a continuous, quantitative domain to a continuous, fixed interpolator.
 
-* [d3.scaleSequential](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleSequential) - create a sequential scale.
-* [*sequential*.interpolator](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#sequential_interpolator) - set the scale’s output interpolator.
-* [d3.interpolateViridis](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateViridis) - a dark-to-light color scheme.
-* [d3.interpolateInferno](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateInferno) - a dark-to-light color scheme.
-* [d3.interpolateMagma](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateMagma) - a dark-to-light color scheme.
-* [d3.interpolatePlasma](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolatePlasma) - a dark-to-light color scheme.
-* [d3.interpolateWarm](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateWarm) - a rotating-hue color scheme.
-* [d3.interpolateCool](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateCool) - a rotating-hue color scheme.
-* [d3.interpolateRainbow](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateRainbow) - a cyclical rotating-hue color scheme.
-* [d3.interpolateCubehelixDefault](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#interpolateCubehelixDefault) - a dark-to-light, rotating-hue color scheme.
+* [d3.scaleSequential](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleSequential) - create a sequential scale.
+* [*sequential*.interpolator](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#sequential_interpolator) - set the scale’s output interpolator.
+* [d3.interpolateViridis](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateViridis) - a dark-to-light color scheme.
+* [d3.interpolateInferno](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateInferno) - a dark-to-light color scheme.
+* [d3.interpolateMagma](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateMagma) - a dark-to-light color scheme.
+* [d3.interpolatePlasma](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolatePlasma) - a dark-to-light color scheme.
+* [d3.interpolateWarm](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateWarm) - a rotating-hue color scheme.
+* [d3.interpolateCool](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateCool) - a rotating-hue color scheme.
+* [d3.interpolateRainbow](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateRainbow) - a cyclical rotating-hue color scheme.
+* [d3.interpolateCubehelixDefault](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#interpolateCubehelixDefault) - a dark-to-light, rotating-hue color scheme.
 
-### [Quantize Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize-scales)
+### [Quantize Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize-scales)
 
 Map a continuous, quantitative domain to a discrete range.
 
-* [d3.scaleQuantize](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleQuantize) - create a uniform quantizing linear scale.
-* [*quantize*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_quantize) - compute the range value corresponding to a given domain value.
-* [*quantize*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_invertExtent) - compute the domain values corresponding to a given range value.
-* [*quantize*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_domain) - set the input domain.
-* [*quantize*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_range) - set the output range.
-* [*quantize*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_nice) - extend the domain to nice round numbers.
-* [*quantize*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_ticks) - compute representative values from the domain.
-* [*quantize*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_tickFormat) - format ticks for human consumption.
-* [*quantize*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantize_copy) - create a copy of this scale.
-* [d3.scaleQuantile](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleQuantile) - create a quantile quantizing linear scale.
-* [*quantile*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_quantile) - compute the range value corresponding to a given domain value.
-* [*quantile*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantile_invertExtent) - compute the domain values corresponding to a given range value.
-* [*quantile*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantile_domain) - set the input domain.
-* [*quantile*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantile_range) - set the output range.
-* [*quantile*.quantiles](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantile_quantiles) - get the quantile thresholds.
-* [*quantile*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#quantile_copy) - create a copy of this scale.
-* [d3.scaleThreshold](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleThreshold) - create an arbitrary quantizing linear scale.
-* [*threshold*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_threshold) - compute the range value corresponding to a given domain value.
-* [*threshold*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#threshold_invertExtent) - compute the domain values corresponding to a given range value.
-* [*threshold*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#threshold_domain) - set the input domain.
-* [*threshold*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#threshold_range) - set the output range.
-* [*threshold*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#threshold_copy) - create a copy of this scale.
+* [d3.scaleQuantize](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleQuantize) - create a uniform quantizing linear scale.
+* [*quantize*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_quantize) - compute the range value corresponding to a given domain value.
+* [*quantize*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_invertExtent) - compute the domain values corresponding to a given range value.
+* [*quantize*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_domain) - set the input domain.
+* [*quantize*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_range) - set the output range.
+* [*quantize*.nice](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_nice) - extend the domain to nice round numbers.
+* [*quantize*.ticks](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_ticks) - compute representative values from the domain.
+* [*quantize*.tickFormat](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_tickFormat) - format ticks for human consumption.
+* [*quantize*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantize_copy) - create a copy of this scale.
+* [d3.scaleQuantile](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleQuantile) - create a quantile quantizing linear scale.
+* [*quantile*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_quantile) - compute the range value corresponding to a given domain value.
+* [*quantile*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantile_invertExtent) - compute the domain values corresponding to a given range value.
+* [*quantile*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantile_domain) - set the input domain.
+* [*quantile*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantile_range) - set the output range.
+* [*quantile*.quantiles](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantile_quantiles) - get the quantile thresholds.
+* [*quantile*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#quantile_copy) - create a copy of this scale.
+* [d3.scaleThreshold](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleThreshold) - create an arbitrary quantizing linear scale.
+* [*threshold*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_threshold) - compute the range value corresponding to a given domain value.
+* [*threshold*.invertExtent](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#threshold_invertExtent) - compute the domain values corresponding to a given range value.
+* [*threshold*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#threshold_domain) - set the input domain.
+* [*threshold*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#threshold_range) - set the output range.
+* [*threshold*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#threshold_copy) - create a copy of this scale.
 
-### [Ordinal Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#ordinal-scales)
+### [Ordinal Scales](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#ordinal-scales)
 
 Map a discrete domain to a discrete range.
 
-* [d3.scaleOrdinal](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleOrdinal) - create an ordinal scale.
-* [*ordinal*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_ordinal) - compute the range value corresponding to a given domain value.
-* [*ordinal*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#ordinal_domain) - set the input domain.
-* [*ordinal*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#ordinal_range) - set the output range.
-* [*ordinal*.unknown](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#ordinal_unknown) - set the output value for unknown inputs.
-* [*ordinal*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#ordinal_copy) - create a copy of this scale.
-* [d3.scaleImplicit](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleImplicit) - a special unknown value for implicit domains.
-* [d3.scaleBand](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scaleBand) - create an ordinal band scale.
-* [*band*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_band) - compute the band start corresponding to a given domain value.
-* [*band*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_domain) - set the input domain.
-* [*band*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_range) - set the output range.
-* [*band*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_rangeRound) - set the output range and enable rounding.
-* [*band*.round](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_round) - enable rounding.
-* [*band*.paddingInner](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_paddingInner) - set padding between bands.
-* [*band*.paddingOuter](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_paddingOuter) - set padding outside the first and last bands.
-* [*band*.padding](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_padding) - set padding outside and between bands.
-* [*band*.align](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_align) - set band alignment, if there is extra space.
-* [*band*.bandwidth](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_bandwidth) - get the width of each band.
-* [*band*.step](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_step) - get the distance between the starts of adjacent bands.
-* [*band*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#band_copy) - create a copy of this scale.
-* [d3.scalePoint](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#scalePoint) - create an ordinal point scale.
-* [*point*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#_point) - compute the point corresponding to a given domain value.
-* [*point*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_domain) - set the input domain.
-* [*point*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_range) - set the output range.
-* [*point*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_rangeRound) - set the output range and enable rounding.
-* [*point*.round](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_round) - enable rounding.
-* [*point*.padding](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_padding) - set padding outside the first and last point.
-* [*point*.align](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_align) - set point alignment, if there is extra space.
-* [*point*.bandwidth](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_bandwidth) - returns zero.
-* [*point*.step](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_step) - get the distance between the starts of adjacent points.
-* [*point*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#point_copy) - create a copy of this scale.
-* [d3.schemeCategory10](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory10) - a categorical scheme with 10 colors.
-* [d3.schemeCategory20](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory20) - a categorical scheme with 20 colors.
-* [d3.schemeCategory20b](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory20b) - a categorical scheme with 20 colors.
-* [d3.schemeCategory20c](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory20c) - a categorical scheme with 20 colors.
+* [d3.scaleOrdinal](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleOrdinal) - create an ordinal scale.
+* [*ordinal*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_ordinal) - compute the range value corresponding to a given domain value.
+* [*ordinal*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#ordinal_domain) - set the input domain.
+* [*ordinal*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#ordinal_range) - set the output range.
+* [*ordinal*.unknown](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#ordinal_unknown) - set the output value for unknown inputs.
+* [*ordinal*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#ordinal_copy) - create a copy of this scale.
+* [d3.scaleImplicit](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleImplicit) - a special unknown value for implicit domains.
+* [d3.scaleBand](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scaleBand) - create an ordinal band scale.
+* [*band*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_band) - compute the band start corresponding to a given domain value.
+* [*band*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_domain) - set the input domain.
+* [*band*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_range) - set the output range.
+* [*band*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_rangeRound) - set the output range and enable rounding.
+* [*band*.round](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_round) - enable rounding.
+* [*band*.paddingInner](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_paddingInner) - set padding between bands.
+* [*band*.paddingOuter](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_paddingOuter) - set padding outside the first and last bands.
+* [*band*.padding](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_padding) - set padding outside and between bands.
+* [*band*.align](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_align) - set band alignment, if there is extra space.
+* [*band*.bandwidth](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_bandwidth) - get the width of each band.
+* [*band*.step](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_step) - get the distance between the starts of adjacent bands.
+* [*band*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#band_copy) - create a copy of this scale.
+* [d3.scalePoint](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#scalePoint) - create an ordinal point scale.
+* [*point*](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#_point) - compute the point corresponding to a given domain value.
+* [*point*.domain](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_domain) - set the input domain.
+* [*point*.range](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_range) - set the output range.
+* [*point*.rangeRound](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_rangeRound) - set the output range and enable rounding.
+* [*point*.round](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_round) - enable rounding.
+* [*point*.padding](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_padding) - set padding outside the first and last point.
+* [*point*.align](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_align) - set point alignment, if there is extra space.
+* [*point*.bandwidth](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_bandwidth) - returns zero.
+* [*point*.step](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_step) - get the distance between the starts of adjacent points.
+* [*point*.copy](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#point_copy) - create a copy of this scale.
+* [d3.schemeCategory10](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#schemeCategory10) - a categorical scheme with 10 colors.
+* [d3.schemeCategory20](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#schemeCategory20) - a categorical scheme with 20 colors.
+* [d3.schemeCategory20b](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#schemeCategory20b) - a categorical scheme with 20 colors.
+* [d3.schemeCategory20c](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.md#schemeCategory20c) - a categorical scheme with 20 colors.
 
 ## [Selections (d3-selection)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-selection)
 
 Transform the DOM by selecting elements and joining to data.
 
-### [Selecting Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selecting-elements)
+### [Selecting Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selecting-elements)
 
-* [d3.selection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection) - select the root document element.
-* [d3.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#select) - select an element from the document.
-* [d3.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selectAll) - select multiple elements from the document.
-* [*selection*.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_select) - select a descendant element for each selected element.
-* [*selection*.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_selectAll) - select multiple descendants for each selected element.
-* [*selection*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_filter) - filter elements based on data.
-* [*selection*.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_merge) - merge this selection with another.
-* [d3.matcher](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#matcher) - test whether an element matches a selector.
-* [d3.selector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selector) - select an element.
-* [d3.selectorAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selectorAll) - select elements.
-* [d3.window](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#window) - get a node’s owner window.
-* [d3.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#style) - get a node’s current style value.
+* [d3.selection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection) - select the root document element.
+* [d3.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#select) - select an element from the document.
+* [d3.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selectAll) - select multiple elements from the document.
+* [*selection*.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_select) - select a descendant element for each selected element.
+* [*selection*.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_selectAll) - select multiple descendants for each selected element.
+* [*selection*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_filter) - filter elements based on data.
+* [*selection*.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_merge) - merge this selection with another.
+* [d3.matcher](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#matcher) - test whether an element matches a selector.
+* [d3.selector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selector) - select an element.
+* [d3.selectorAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selectorAll) - select elements.
+* [d3.window](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#window) - get a node’s owner window.
+* [d3.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#style) - get a node’s current style value.
 
-### [Modifying Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#modifying-elements)
+### [Modifying Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#modifying-elements)
 
-* [*selection*.attr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_attr) - get or set an attribute.
-* [*selection*.classed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_classed) - get, add or remove CSS classes.
-* [*selection*.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_style) - get or set a style property.
-* [*selection*.property](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_property) - get or set a (raw) property.
-* [*selection*.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_text) - get or set the text content.
-* [*selection*.html](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_html) - get or set the inner HTML.
-* [*selection*.append](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_append) - create, append and select new elements.
-* [*selection*.insert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_insert) - create, insert and select new elements.
-* [*selection*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_remove) - remove elements from the document.
-* [*selection*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_sort) - sort elements in the document based on data.
-* [*selection*.order](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_order) - reorders elements in the document to match the selection.
-* [*selection*.raise](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_raise) - reorders each element as the last child of its parent.
-* [*selection*.lower](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_lower) - reorders each element as the first child of its parent.
-* [d3.creator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#creator) - create an element by name.
+* [*selection*.attr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_attr) - get or set an attribute.
+* [*selection*.classed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_classed) - get, add or remove CSS classes.
+* [*selection*.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_style) - get or set a style property.
+* [*selection*.property](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_property) - get or set a (raw) property.
+* [*selection*.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_text) - get or set the text content.
+* [*selection*.html](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_html) - get or set the inner HTML.
+* [*selection*.append](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_append) - create, append and select new elements.
+* [*selection*.insert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_insert) - create, insert and select new elements.
+* [*selection*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_remove) - remove elements from the document.
+* [*selection*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_sort) - sort elements in the document based on data.
+* [*selection*.order](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_order) - reorders elements in the document to match the selection.
+* [*selection*.raise](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_raise) - reorders each element as the last child of its parent.
+* [*selection*.lower](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_lower) - reorders each element as the first child of its parent.
+* [d3.creator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#creator) - create an element by name.
 
-### [Joining Data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#joining-data)
+### [Joining Data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#joining-data)
 
-* [*selection*.data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_data) - join elements to data.
-* [*selection*.enter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_enter) - get the enter selection (data missing elements).
-* [*selection*.exit](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_exit) - get the exit selection (elements missing data).
-* [*selection*.datum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_datum) - get or set element data (without joining).
+* [*selection*.data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_data) - join elements to data.
+* [*selection*.enter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_enter) - get the enter selection (data missing elements).
+* [*selection*.exit](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_exit) - get the exit selection (elements missing data).
+* [*selection*.datum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_datum) - get or set element data (without joining).
 
-### [Handling Events](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#handling-events)
+### [Handling Events](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#handling-events)
 
-* [*selection*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_on) - add or remove event listeners.
-* [*selection*.dispatch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_dispatch) - dispatch a custom event.
-* [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#event) - the current user event, during interaction.
-* [d3.customEvent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#customEvent) - temporarily define a custom event.
-* [d3.mouse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#mouse) - get the mouse position relative to a given container.
-* [d3.touch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#touch) - get a touch position relative to a given container.
-* [d3.touches](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#touches) - get the touch positions relative to a given container.
-* [d3.clientPoint](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#clientPoint) - get a position relative to a given container.
+* [*selection*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_on) - add or remove event listeners.
+* [*selection*.dispatch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_dispatch) - dispatch a custom event.
+* [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#event) - the current user event, during interaction.
+* [d3.customEvent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#customEvent) - temporarily define a custom event.
+* [d3.mouse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#mouse) - get the mouse position relative to a given container.
+* [d3.touch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#touch) - get a touch position relative to a given container.
+* [d3.touches](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#touches) - get the touch positions relative to a given container.
+* [d3.clientPoint](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#clientPoint) - get a position relative to a given container.
 
-### [Control Flow](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#control-flow)
+### [Control Flow](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#control-flow)
 
-* [*selection*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_each) - call a function for each element.
-* [*selection*.call](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_call) - call a function with this selection.
-* [*selection*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_empty) - returns true if this selection is empty.
-* [*selection*.nodes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_nodes) - returns an array of all selected elements.
-* [*selection*.node](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_node) - returns the first (non-null) element.
-* [*selection*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_size) - returns the count of elements.
+* [*selection*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_each) - call a function for each element.
+* [*selection*.call](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_call) - call a function with this selection.
+* [*selection*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_empty) - returns true if this selection is empty.
+* [*selection*.nodes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_nodes) - returns an array of all selected elements.
+* [*selection*.node](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_node) - returns the first (non-null) element.
+* [*selection*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_size) - returns the count of elements.
 
-### [Local Variables](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local-variables)
+### [Local Variables](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local-variables)
 
-* [d3.local](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local) - declares a new local variable.
-* [*local*.set](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_set) - set a local variable’s value.
-* [*local*.get](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_get) - get a local variable’s value.
-* [*local*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_remove) - delete a local variable.
-* [*local*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_toString) - get the property identifier of a local variable.
+* [d3.local](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local) - declares a new local variable.
+* [*local*.set](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local_set) - set a local variable’s value.
+* [*local*.get](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local_get) - get a local variable’s value.
+* [*local*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local_remove) - delete a local variable.
+* [*local*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#local_toString) - get the property identifier of a local variable.
 
-### [Namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespaces)
+### [Namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#namespaces)
 
-* [d3.namespace](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespace) - qualify a prefixed XML name, such as “xlink:href”.
-* [d3.namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespaces) - the built-in XML namespaces.
+* [d3.namespace](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
+* [d3.namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#namespaces) - the built-in XML namespaces.
 
 ## [Shapes (d3-shape)](https://github.com/d3/d3-shape)
 

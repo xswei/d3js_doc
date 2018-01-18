@@ -9,8 +9,8 @@
 
 ## 资源
 
-* [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.MD)
-* [发布说明](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD)
+* [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.md)
+* [发布说明](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
 * [画廊](https://github.com/d3/d3/wiki/Gallery)
 * [例子](https://bl.ocks.org/mbostock)
 * [Wiki](https://github.com/xswei/d3js_doc/wiki)
