@@ -20,19 +20,19 @@
 
 如果使用`npm`，则可以通过`npm install d3`来安装。此外还可以下载[最新版](https://unpkg.com/d3/build/)，最新版支持AMD、CommonJS以及vanilla环境。你也可以直接从 [d3js.org](https://d3js.org), [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载。比如:
 
-```html
+```js
 <script src="https://d3js.org/d3.v4.js"></script>
 ```
 
 压缩版:
 
-```html
+```js
 <script src="https://d3js.org/d3.v4.min.js"></script>
 ```
 
 你也可以单独使用d3中的某个模块，比如单独使用[d3-selection](https://github.com/d3/d3-selection)：
 
-```html
+```js
 <script src="https://d3js.org/d3-selection.v1.min.js"></script>
 
 ```
