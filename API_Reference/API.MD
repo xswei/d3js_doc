@@ -820,81 +820,81 @@ Map a discrete domain to a discrete range.
 * [d3.schemeCategory20b](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory20b) - a categorical scheme with 20 colors.
 * [d3.schemeCategory20c](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale/README.MD#schemeCategory20c) - a categorical scheme with 20 colors.
 
-## [Selections (d3-selection)](https://github.com/d3/d3-selection)
+## [Selections (d3-selection)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-selection)
 
 Transform the DOM by selecting elements and joining to data.
 
-### [Selecting Elements](https://github.com/d3/d3-selection/blob/master/README.md#selecting-elements)
+### [Selecting Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selecting-elements)
 
-* [d3.selection](https://github.com/d3/d3-selection/blob/master/README.md#selection) - select the root document element.
-* [d3.select](https://github.com/d3/d3-selection/blob/master/README.md#select) - select an element from the document.
-* [d3.selectAll](https://github.com/d3/d3-selection/blob/master/README.md#selectAll) - select multiple elements from the document.
-* [*selection*.select](https://github.com/d3/d3-selection/blob/master/README.md#selection_select) - select a descendant element for each selected element.
-* [*selection*.selectAll](https://github.com/d3/d3-selection/blob/master/README.md#selection_selectAll) - select multiple descendants for each selected element.
-* [*selection*.filter](https://github.com/d3/d3-selection/blob/master/README.md#selection_filter) - filter elements based on data.
-* [*selection*.merge](https://github.com/d3/d3-selection/blob/master/README.md#selection_merge) - merge this selection with another.
-* [d3.matcher](https://github.com/d3/d3-selection/blob/master/README.md#matcher) - test whether an element matches a selector.
-* [d3.selector](https://github.com/d3/d3-selection/blob/master/README.md#selector) - select an element.
-* [d3.selectorAll](https://github.com/d3/d3-selection/blob/master/README.md#selectorAll) - select elements.
-* [d3.window](https://github.com/d3/d3-selection/blob/master/README.md#window) - get a node’s owner window.
-* [d3.style](https://github.com/d3/d3-selection/blob/master/README.md#style) - get a node’s current style value.
+* [d3.selection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection) - select the root document element.
+* [d3.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#select) - select an element from the document.
+* [d3.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selectAll) - select multiple elements from the document.
+* [*selection*.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_select) - select a descendant element for each selected element.
+* [*selection*.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_selectAll) - select multiple descendants for each selected element.
+* [*selection*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_filter) - filter elements based on data.
+* [*selection*.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_merge) - merge this selection with another.
+* [d3.matcher](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#matcher) - test whether an element matches a selector.
+* [d3.selector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selector) - select an element.
+* [d3.selectorAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selectorAll) - select elements.
+* [d3.window](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#window) - get a node’s owner window.
+* [d3.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#style) - get a node’s current style value.
 
-### [Modifying Elements](https://github.com/d3/d3-selection/blob/master/README.md#modifying-elements)
+### [Modifying Elements](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#modifying-elements)
 
-* [*selection*.attr](https://github.com/d3/d3-selection/blob/master/README.md#selection_attr) - get or set an attribute.
-* [*selection*.classed](https://github.com/d3/d3-selection/blob/master/README.md#selection_classed) - get, add or remove CSS classes.
-* [*selection*.style](https://github.com/d3/d3-selection/blob/master/README.md#selection_style) - get or set a style property.
-* [*selection*.property](https://github.com/d3/d3-selection/blob/master/README.md#selection_property) - get or set a (raw) property.
-* [*selection*.text](https://github.com/d3/d3-selection/blob/master/README.md#selection_text) - get or set the text content.
-* [*selection*.html](https://github.com/d3/d3-selection/blob/master/README.md#selection_html) - get or set the inner HTML.
-* [*selection*.append](https://github.com/d3/d3-selection/blob/master/README.md#selection_append) - create, append and select new elements.
-* [*selection*.insert](https://github.com/d3/d3-selection/blob/master/README.md#selection_insert) - create, insert and select new elements.
-* [*selection*.remove](https://github.com/d3/d3-selection/blob/master/README.md#selection_remove) - remove elements from the document.
-* [*selection*.sort](https://github.com/d3/d3-selection/blob/master/README.md#selection_sort) - sort elements in the document based on data.
-* [*selection*.order](https://github.com/d3/d3-selection/blob/master/README.md#selection_order) - reorders elements in the document to match the selection.
-* [*selection*.raise](https://github.com/d3/d3-selection/blob/master/README.md#selection_raise) - reorders each element as the last child of its parent.
-* [*selection*.lower](https://github.com/d3/d3-selection/blob/master/README.md#selection_lower) - reorders each element as the first child of its parent.
-* [d3.creator](https://github.com/d3/d3-selection/blob/master/README.md#creator) - create an element by name.
+* [*selection*.attr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_attr) - get or set an attribute.
+* [*selection*.classed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_classed) - get, add or remove CSS classes.
+* [*selection*.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_style) - get or set a style property.
+* [*selection*.property](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_property) - get or set a (raw) property.
+* [*selection*.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_text) - get or set the text content.
+* [*selection*.html](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_html) - get or set the inner HTML.
+* [*selection*.append](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_append) - create, append and select new elements.
+* [*selection*.insert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_insert) - create, insert and select new elements.
+* [*selection*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_remove) - remove elements from the document.
+* [*selection*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_sort) - sort elements in the document based on data.
+* [*selection*.order](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_order) - reorders elements in the document to match the selection.
+* [*selection*.raise](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_raise) - reorders each element as the last child of its parent.
+* [*selection*.lower](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_lower) - reorders each element as the first child of its parent.
+* [d3.creator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#creator) - create an element by name.
 
-### [Joining Data](https://github.com/d3/d3-selection/blob/master/README.md#joining-data)
+### [Joining Data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#joining-data)
 
-* [*selection*.data](https://github.com/d3/d3-selection/blob/master/README.md#selection_data) - join elements to data.
-* [*selection*.enter](https://github.com/d3/d3-selection/blob/master/README.md#selection_enter) - get the enter selection (data missing elements).
-* [*selection*.exit](https://github.com/d3/d3-selection/blob/master/README.md#selection_exit) - get the exit selection (elements missing data).
-* [*selection*.datum](https://github.com/d3/d3-selection/blob/master/README.md#selection_datum) - get or set element data (without joining).
+* [*selection*.data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_data) - join elements to data.
+* [*selection*.enter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_enter) - get the enter selection (data missing elements).
+* [*selection*.exit](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_exit) - get the exit selection (elements missing data).
+* [*selection*.datum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_datum) - get or set element data (without joining).
 
-### [Handling Events](https://github.com/d3/d3-selection/blob/master/README.md#handling-events)
+### [Handling Events](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#handling-events)
 
-* [*selection*.on](https://github.com/d3/d3-selection/blob/master/README.md#selection_on) - add or remove event listeners.
-* [*selection*.dispatch](https://github.com/d3/d3-selection/blob/master/README.md#selection_dispatch) - dispatch a custom event.
-* [d3.event](https://github.com/d3/d3-selection/blob/master/README.md#event) - the current user event, during interaction.
-* [d3.customEvent](https://github.com/d3/d3-selection/blob/master/README.md#customEvent) - temporarily define a custom event.
-* [d3.mouse](https://github.com/d3/d3-selection/blob/master/README.md#mouse) - get the mouse position relative to a given container.
-* [d3.touch](https://github.com/d3/d3-selection/blob/master/README.md#touch) - get a touch position relative to a given container.
-* [d3.touches](https://github.com/d3/d3-selection/blob/master/README.md#touches) - get the touch positions relative to a given container.
-* [d3.clientPoint](https://github.com/d3/d3-selection/blob/master/README.md#clientPoint) - get a position relative to a given container.
+* [*selection*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_on) - add or remove event listeners.
+* [*selection*.dispatch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_dispatch) - dispatch a custom event.
+* [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#event) - the current user event, during interaction.
+* [d3.customEvent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#customEvent) - temporarily define a custom event.
+* [d3.mouse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#mouse) - get the mouse position relative to a given container.
+* [d3.touch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#touch) - get a touch position relative to a given container.
+* [d3.touches](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#touches) - get the touch positions relative to a given container.
+* [d3.clientPoint](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#clientPoint) - get a position relative to a given container.
 
-### [Control Flow](https://github.com/d3/d3-selection/blob/master/README.md#control-flow)
+### [Control Flow](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#control-flow)
 
-* [*selection*.each](https://github.com/d3/d3-selection/blob/master/README.md#selection_each) - call a function for each element.
-* [*selection*.call](https://github.com/d3/d3-selection/blob/master/README.md#selection_call) - call a function with this selection.
-* [*selection*.empty](https://github.com/d3/d3-selection/blob/master/README.md#selection_empty) - returns true if this selection is empty.
-* [*selection*.nodes](https://github.com/d3/d3-selection/blob/master/README.md#selection_nodes) - returns an array of all selected elements.
-* [*selection*.node](https://github.com/d3/d3-selection/blob/master/README.md#selection_node) - returns the first (non-null) element.
-* [*selection*.size](https://github.com/d3/d3-selection/blob/master/README.md#selection_size) - returns the count of elements.
+* [*selection*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_each) - call a function for each element.
+* [*selection*.call](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_call) - call a function with this selection.
+* [*selection*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_empty) - returns true if this selection is empty.
+* [*selection*.nodes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_nodes) - returns an array of all selected elements.
+* [*selection*.node](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_node) - returns the first (non-null) element.
+* [*selection*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#selection_size) - returns the count of elements.
 
-### [Local Variables](https://github.com/d3/d3-selection/blob/master/README.md#local-variables)
+### [Local Variables](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local-variables)
 
-* [d3.local](https://github.com/d3/d3-selection/blob/master/README.md#local) - declares a new local variable.
-* [*local*.set](https://github.com/d3/d3-selection/blob/master/README.md#local_set) - set a local variable’s value.
-* [*local*.get](https://github.com/d3/d3-selection/blob/master/README.md#local_get) - get a local variable’s value.
-* [*local*.remove](https://github.com/d3/d3-selection/blob/master/README.md#local_remove) - delete a local variable.
-* [*local*.toString](https://github.com/d3/d3-selection/blob/master/README.md#local_toString) - get the property identifier of a local variable.
+* [d3.local](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local) - declares a new local variable.
+* [*local*.set](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_set) - set a local variable’s value.
+* [*local*.get](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_get) - get a local variable’s value.
+* [*local*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_remove) - delete a local variable.
+* [*local*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#local_toString) - get the property identifier of a local variable.
 
-### [Namespaces](https://github.com/d3/d3-selection/blob/master/README.md#namespaces)
+### [Namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespaces)
 
-* [d3.namespace](https://github.com/d3/d3-selection/blob/master/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
-* [d3.namespaces](https://github.com/d3/d3-selection/blob/master/README.md#namespaces) - the built-in XML namespaces.
+* [d3.namespace](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespace) - qualify a prefixed XML name, such as “xlink:href”.
+* [d3.namespaces](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.MD#namespaces) - the built-in XML namespaces.
 
 ## [Shapes (d3-shape)](https://github.com/d3/d3-shape)
 
