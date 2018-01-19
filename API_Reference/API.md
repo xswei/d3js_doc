@@ -100,22 +100,22 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Axes (d3-axis)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-axis)
 
-Human-readable reference marks for scales.
+基于比例尺提供人类友好的标尺刻度
 
-* [d3.axisTop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisTop) - create a new top-oriented axis generator.
-* [d3.axisRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisRight) - create a new right-oriented axis generator.
-* [d3.axisBottom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisBottom) - create a new bottom-oriented axis generator.
-* [d3.axisLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisLeft) - create a new left-oriented axis generator.
-* [*axis*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#_axis) - generate an axis for the given selection.
-* [*axis*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_scale) - set the scale.
-* [*axis*.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_ticks) - customize how ticks are generated and formatted.
-* [*axis*.tickArguments](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickArguments) - customize how ticks are generated and formatted.
-* [*axis*.tickValues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickValues) - set the tick values explicitly.
-* [*axis*.tickFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickFormat) - set the tick format explicitly.
-* [*axis*.tickSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSize) - set the size of the ticks.
-* [*axis*.tickSizeInner](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeInner) - set the size of inner ticks.
-* [*axis*.tickSizeOuter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeOuter) - set the size of outer (extent) ticks.
-* [*axis*.tickPadding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickPadding) - set the padding between ticks and labels.
+* [d3.axisTop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisTop) - 创建一个新的刻度在上的坐标轴生成器
+* [d3.axisRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisRight) - 创建一个新的刻度在右的坐标轴生成器
+* [d3.axisBottom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisBottom) - 创建一个新的刻度在下的坐标轴生成器
+* [d3.axisLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisLeft) - 创建一个新的刻度在左的坐标轴生成器
+* [*axis*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#_axis) - 为指定的选择器生成一个坐标轴
+* [*axis*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_scale) - 设置坐标轴的比例尺
+* [*axis*.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_ticks) - 自定义刻度的显示方式以及格式化刻度
+* [*axis*.tickArguments](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickArguments) - 自定义如何生成刻度或者格式化刻度
+* [*axis*.tickValues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickValues) - 指定固定的刻度值
+* [*axis*.tickFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickFormat) - 指定固定的刻度格式化方式.
+* [*axis*.tickSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSize) - 设置刻度大小.
+* [*axis*.tickSizeInner](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeInner) - 设置内侧刻度大小.
+* [*axis*.tickSizeOuter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickSizeOuter) - 设置外侧(坐标轴两端)刻度大小.
+* [*axis*.tickPadding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axis_tickPadding) - 设置刻度和刻度文本之间的间距.
 
 ## [Brushes (d3-brush)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush)
 
