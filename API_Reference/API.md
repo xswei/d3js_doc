@@ -100,6 +100,8 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Axes (d3-axis)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-axis)
 
+**Done**
+
 基于比例尺提供人类友好的标尺刻度
 
 * [d3.axisTop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-axis/README.md#axisTop) - 创建一个新的刻度在上的坐标轴生成器
