@@ -64,7 +64,7 @@ var brush = d3.brush();
 
 <a href="#_brush" name="_brush">#</a> <i>brush</i>(<i>group</i>) [<源码>](https://github.com/d3/d3-brush/blob/master/src/brush.js#L142 "Source")
 
-Applies the brush to the specified *group*, which must be a [selection](https://github.com/d3/d3-selection) of SVG [G elements](https://www.w3.org/TR/SVG/struct.html#Groups). This function is typically not invoked directly, and is instead invoked via [*selection*.call](https://github.com/d3/d3-selection#selection_call). For example, to render a brush:
+将刷取交互应用到指定的*group*(分组元素)上，*group*必须是一个SVG [G 元素的](https://www.w3.org/TR/SVG/struct.html#Groups)[选择集](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-selection)(也可以直接应用到svg上，但是不建议这样用)。这个方法通常不直接调用，而是通过[*selection*.call](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_call)来使用，例如：
 
 ```js
 svg.append("g")
@@ -72,13 +72,13 @@ svg.append("g")
     .call(d3.brush().on("brush", brushed));
 ```
 
-Internally, the brush uses [*selection*.on](https://github.com/d3/d3-selection#selection_on) to bind the necessary event listeners for dragging. The listeners use the name `.brush`, so you can subsequently unbind the brush event listeners as follows:
+在内部，brush使用[*selection*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_on)方法来注册刷取所必需的事件监听器。事件监听器使用`.brush`作为事件类名称，所以当你需要取消选择集上的刷取事件监听器时，可以通过以下方式取消：
 
 ```js
 group.on(".brush", null);
 ```
 
-The brush also creates the SVG elements necessary to display the brush selection and to receive input events for interaction. You can add, remove or modify these elements as desired to change the brush appearance; you can also apply stylesheets to modify the brush appearance. The structure of a two-dimensional brush is as follows:
+刷取操作会创建一些必要的SVG元素来显示刷取交互显示元素。你可以添加，移除或者修改这些元素的外观。你也可以将样式文件应用到这些元素上。二维刷取所生成的元素结构如下：
 
 ```html
 <g class="brush" fill="none" pointer-events="all" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
@@ -95,15 +95,22 @@ The brush also creates the SVG elements necessary to display the brush selection
 </g>
 ```
 
-The overlay rect covers the brushable area defined by [*brush*.extent](#brush_extent). The selection rect covers the area defined by the current [brush selection](#brushSelection). The handle rects cover the edges and corners of the brush selection, allowing the corresponding value in the brush selection to be modified interactively. To modify the brush selection programmatically, use [*brush*.move](#brush_move).
+- `rect.overlay`表示由[*brush*.extent](#brush_extent)定义的可刷取的整个区域。
+- `rect.selection`表示当前[刷取选中](#brushSelection)的区域。
+- `handle.rect`表示已经刷取区域的边边角角，用来定义事件以便对已刷取的区域进行微调。
+- 以编程的方式对刷取范围进行调整请使用[*brush*.move](#brush_move).
 
 <a href="#brush_move" name="brush_move">#</a> <i>brush</i>.<b>move</b>(<i>group</i>, <i>selection</i>) [<源码>](https://github.com/d3/d3-brush/blob/master/src/brush.js#L189 "Source")
 
-Sets the active *selection* of the brush on the specified *group*, which must be a [selection](https://github.com/d3/d3-selection) or a [transition](https://github.com/d3/d3-transition) of SVG [G elements](https://www.w3.org/TR/SVG/struct.html#Groups). The *selection* must be defined as an array of numbers, or null to clear the brush selection. For a [two-dimensional brush](#brush), it must be defined as [[*x0*, *y0*], [*x1*, *y1*]], where *x0* is the minimum *x*-value, *y0* is the minimum *y*-value, *x1* is the maximum *x*-value, and *y1* is the maximum *y*-value. For an [*x*-brush](#brushX), it must be defined as [*x0*, *x1*]; for a [*y*-brush](#brushY), it must be defined as [*y0*, *y1*]. The selection may also be specified as a function which returns such an array; if a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. The returned array defines the brush selection for that element.
+通过编程的方式实现对刷取范围的调整，也就是将*group*的刷取范围设置为*selection*。*group*必须是一个SVG [G 元素的](https://www.w3.org/TR/SVG/struct.html#Groups)的[选择集](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-selection)或者[过渡](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-transition). selection必须是一个数值类型的数组，或者null(用以清空已选范围)。
+
+对于二维刷取来说，selection必须是一个类似于[[*x0*, *y0*], [*x1*, *y1*]]的二维数组，*x0*, *y0* 表示左上角坐标, *x1*, *y1* 表示右下角坐标。如果刷取操作是一个*x*-方向的一维的，则selection为[*x0*, *x1*]表示x方向的一维区间，同理如果是*y*-方向的, [*y0*, *y1*]也表示一个y方向的一维区间。
+
+除此之外，selection也可以是一个范围数组的方法，这个方法会传递当前绑定的数据`d`和索引`i`，`this`表示当前的DOM元素。
 
 <a href="#brush_extent" name="brush_extent">#</a> <i>brush</i>.<b>extent</b>([<i>extent</i>]) [<源码>](https://github.com/d3/d3-brush/blob/master/src/brush.js#L521 "Source")
 
-If *extent* is specified, sets the brushable extent to the specified array of points [[*x0*, *y0*], [*x1*, *y1*]], where [*x0*, *y0*] is the top-left corner and [*x1*, *y1*] is the bottom-right corner, and returns this brush. The *extent* may also be specified as a function which returns such an array; if a function, it is invoked for each selected element, being passed the current datum `d` and index `i`, with the `this` context as the current DOM element. If *extent* is not specified, returns the current extent accessor, which defaults to:
+设置或获取刷取操作的可刷取范围，*extent*参数类似于[[*x0*, *y0*], [*x1*, *y1*]],[*x0*, *y0*] 为左上角坐标，[*x1*, *y1*] 为右下角坐标。*extent*也可以是一个返回数组的方法，这个方法会传递当前绑定的数据`d`和索引`i`，`this`表示当前的DOM元素。如果没有指定则范湖当前刷取操作的可刷取范围，默认为当前元素所在的SVG的大小：
 
 ```js
 function extent() {
