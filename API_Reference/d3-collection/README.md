@@ -32,23 +32,21 @@ var map = d3.map()
 
 ### Objects
 
-在
+在JavaScript中常见的数据类型是*associative array*(关联数组), 简言之就是具有一个属性集的*对象*. 对象的的标准迭代方式是[for…in 循环](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in),但是迭代次序是未定义的。D3提供了以下几种将对象转为数字索引的标准数组的方法.
 
-A common data type in JavaScript is the *associative array*, or more simply the *object*, which has a set of named properties. The standard mechanism for iterating over the keys (or property names) in an associative array is the [for…in loop](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in). However, note that the iteration order is undefined. D3 provides several methods for converting associative arrays to standard arrays with numeric indexes.
-
-A word of caution: it is tempting to use plain objects as maps, but this causes [unexpected behavior](http://www.devthought.com/2012/01/18/an-object-is-not-a-hash/) when built-in property names are used as keys, such as `object["__proto__"] = 42` and `"hasOwnProperty" in object`. If you cannot guarantee that map keys and set values will be safe, use [maps](#maps) and [sets](#sets) (or their ES6 equivalents) instead of plain objects.
+请注意：当使用普通对象作为属性名是可以的，但是当使用特殊内置的属性名时会导致意想不到的事发生，比如使用`object["__proto__"] = 42` 和 `"hasOwnProperty" in object`. 如果不能保证映射的键是安全的情况下请使用[maps](#maps) 和 [sets](#sets)(或标准的ES6数据结构)来代替对象。
 
 <a name="keys" href="#keys">#</a> d3.<b>keys</b>(<i>object</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/keys.js "Source")
 
-Returns an array containing the property names of the specified object (an associative array). The order of the returned array is undefined.
+返回一个包含了指定对象属性名的数组。数组的顺序是未定义(不可靠)的。
 
 <a name="values" href="#values">#</a> d3.<b>values</b>(<i>object</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/values.js "Source")
 
-Returns an array containing the property values of the specified object (an associative array). The order of the returned array is undefined.
+返回一个包含了指定对象属性值的数组。数组的顺序是未定义(不可靠)的。
 
 <a name="entries" href="#entries">#</a> d3.<b>entries</b>(<i>object</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/entries.js "Source")
 
-Returns an array containing the property keys and values of the specified object (an associative array). Each entry is an object with a key and value attribute, such as `{key: "foo", value: 42}`. The order of the returned array is undefined.
+将对象转为标准的包含key和value的对象数组。也就是将对象的key-value对重组为一个对象，比如将`{foo: 42}`转为`{key: "foo", value: 42}`. 所传入的对象被重组为一个数组. 次序同样是不固定的：
 
 ```js
 d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", value: true}]
@@ -56,17 +54,17 @@ d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", valu
 
 ### Maps
 
-Like [ES6 Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), but with a few differences:
+与[ES6 Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)类似, 但是有以下几点不同:
 
-* Keys are coerced to strings.
-* [map.each](#map_each), not [map.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach). (Also, no *thisArg*.)
-* [map.remove](#map_remove), not [map.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete).
-* [map.entries](#map_entries) returns an array of {key, value} objects, not an iterator of [key, value].
-* [map.size](#map_size) is a method, not a [property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size); also, there’s [map.empty](#map_empty).
+* d3.maps的Keys强制要求为字符串.
+* 使用[map.each](#map_each)遍历, 而不是[map.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach). (并且没有*thisArg*参数.)
+* 使用[map.remove](#map_remove), 而不是[map.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete).
+* [map.entries](#map_entries)返回{key, value}对象数组而不是[key, value]迭代器
+* [map.size](#map_size)是一个方法而不是[property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size); [map.empty](#map_empty)同样也是方法不是属性.
 
 <a name="map" href="#map">#</a> d3.<b>map</b>([<i>object</i>[, <i>key</i>]]) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js "Source")
 
-Constructs a new map. If *object* is specified, copies all enumerable properties from the specified object into this map. The specified object may also be an array or another map. An optional *key* function may be specified to compute the key for each value in the array. For example:
+构建一个新的map. 如果指定了*object*则将其所有的可枚举对象复制到map中。*object*可以是一个数组也可以是其他的map对象。可选的*key*方法用来指定使用哪个属性作为key，比如:
 
 ```js
 var map = d3.map([{name: "foo"}, {name: "bar"}], function(d) { return d.name; });
@@ -75,19 +73,19 @@ map.get("bar"); // {"name": "bar"}
 map.get("baz"); // undefined
 ```
 
-See also [nests](#nests).
+参考 [nests](#nests).
 
 <a name="map_has" href="#map_has">#</a> <i>map</i>.<b>has</b>(<i>key</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L7 "Source")
 
-Returns true if and only if this map has an entry for the specified *key* string. Note: the value may be `null` or `undefined`.
+当且仅当map中包含指定的*key*的时候返回true, 要注意其对应的*value*可能为`null`或者`undefined`
 
 <a name="map_get" href="#map_get">#</a> <i>map</i>.<b>get</b>(<i>key</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L10 "Source")
 
-Returns the value for the specified *key* string. If the map does not have an entry for the specified *key*, returns `undefined`.
+返回指定的*key*对应的值，如果map中不包含指定的*key*则返回`undefined`
 
 <a name="map_set" href="#map_set">#</a> <i>map</i>.<b>set</b>(<i>key</i>, <i>value</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L13 "Source")
 
-Sets the *value* for the specified *key* string. If the map previously had an entry for the same *key* string, the old entry is replaced with the new value. Returns the map, allowing chaining. For example:
+设置map中指定的*key*为*value*, 如果已经有相同的*key*字符串则会被覆盖，此方法返回map对象因此可以链式调用. 例如:
 
 ```js
 var map = d3.map()
@@ -100,35 +98,35 @@ map.get("foo"); // 1
 
 <a name="map_remove" href="#map_remove">#</a> <i>map</i>.<b>remove</b>(<i>key</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L17 "Source")
 
-If the map has an entry for the specified *key* string, removes the entry and returns true. Otherwise, this method does nothing and returns false.
+如果map中包含指定的*key*则将其删除并返回true, 否则什么都不做并返回false.
 
 <a name="map_clear" href="#map_clear">#</a> <i>map</i>.<b>clear</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L21 "Source")
 
-Removes all entries from this map.
+情况map中所有的项
 
 <a name="map_keys" href="#map_keys">#</a> <i>map</i>.<b>keys</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L24 "Source")
 
-Returns an array of string keys for every entry in this map. The order of the returned keys is arbitrary.
+以数组的形式返回map中所有的*keys*, 顺序是不可靠的。
 
 <a name="map_values" href="#map_values">#</a> <i>map</i>.<b>values</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L29 "Source")
 
-Returns an array of values for every entry in this map. The order of the returned values is arbitrary.
+以数组的形式返回map中所有的*value*, 顺序是不可靠的。
 
 <a name="map_entries" href="#map_entries">#</a> <i>map</i>.<b>entries</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L34 "Source")
 
-Returns an array of key-value objects for each entry in this map. The order of the returned entries is arbitrary. Each entry’s key is a string, but the value has arbitrary type.
+将map中所有的项重组为key-value数组。顺序是随意的。每一项中*key*必须是字符串，但是对应的*value*可以是任意的类型.
 
 <a name="map_each" href="#map_each">#</a> <i>map</i>.<b>each</b>(<i>function</i>) [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L48 "Source")
 
-Calls the specified *function* for each entry in this map, passing the entry’s value and key as arguments, followed by the map itself. Returns undefined. The iteration order is arbitrary.
+遍历map中的每一项，并对每一项执行*function*, 当前项的value和key作为参数, 随后是map本身, 返回undefined.
 
 <a name="map_empty" href="#map_empty">#</a> <i>map</i>.<b>empty</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L44 "Source")
 
-Returns true if and only if this map has zero entries.
+当且仅当map中没有任何项时返回true
 
 <a name="map_size" href="#map_size">#</a> <i>map</i>.<b>size</b>() [<>](https://github.com/d3/d3-collection/blob/master/src/map.js#L39 "Source")
 
-Returns the number of entries in this map.
+返回map中项的个数
 
 ### Sets
 
