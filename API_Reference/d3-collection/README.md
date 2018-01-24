@@ -8,7 +8,7 @@
 - 下载[最新版](https://github.com/d3/d3-collection/releases/latest)
 - 直接从[d3js.org](https://d3js.org)以[单独的标准库](https://d3js.org/d3-collection.v1.min.js)引入或作为[D3 4.0](https://github.com/d3/d3)的一部分引入
 
-支持AMD, CommonJS,和 vanilla 环境，暴露`d3`全局变量:
+支持AMD, CommonJS,和 vanilla 环境,暴露`d3`全局变量:
 
 ```html
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
@@ -32,21 +32,21 @@ var map = d3.map()
 
 ### Objects
 
-在JavaScript中常见的数据类型是*associative array*(关联数组), 简言之就是具有一个属性集的*对象*. 对象的的标准迭代方式是[for…in 循环](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in),但是迭代次序是未定义的。D3提供了以下几种将对象转为数字索引的标准数组的方法.
+在JavaScript中常见的数据类型是*associative array*(关联数组), 简言之就是具有一个属性集的*对象*. 对象的的标准迭代方式是[for…in 循环](https://developer.mozilla.org/en/JavaScript/Reference/Statements/for...in),但是迭代次序是未定义的.D3提供了以下几种将对象转为数字索引的标准数组的方法.
 
-请注意：当使用普通对象作为属性名是可以的，但是当使用特殊内置的属性名时会导致意想不到的事发生，比如使用`object["__proto__"] = 42` 和 `"hasOwnProperty" in object`. 如果不能保证映射的键是安全的情况下请使用[maps](#maps) 和 [sets](#sets)(或标准的ES6数据结构)来代替对象。
+请注意：当使用普通对象作为属性名是可以的,但是当使用特殊内置的属性名时会导致意想不到的事发生,比如使用`object["__proto__"] = 42` 和 `"hasOwnProperty" in object`. 如果不能保证映射的键是安全的情况下请使用[maps](#maps) 和 [sets](#sets)(或标准的ES6数据结构)来代替对象.
 
 <a name="keys" href="#keys">#</a> d3.<b>keys</b>(<i>object</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/keys.js "Source")
 
-返回一个包含了指定对象属性名的数组。数组的顺序是未定义(不可靠)的。
+返回一个包含了指定对象属性名的数组.数组的顺序是未定义(不可靠)的.
 
 <a name="values" href="#values">#</a> d3.<b>values</b>(<i>object</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/values.js "Source")
 
-返回一个包含了指定对象属性值的数组。数组的顺序是未定义(不可靠)的。
+返回一个包含了指定对象属性值的数组.数组的顺序是未定义(不可靠)的.
 
 <a name="entries" href="#entries">#</a> d3.<b>entries</b>(<i>object</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/entries.js "Source")
 
-将对象转为标准的包含key和value的对象数组。也就是将对象的key-value对重组为一个对象，比如将`{foo: 42}`转为`{key: "foo", value: 42}`. 所传入的对象被重组为一个数组. 次序同样是不固定的：
+将对象转为标准的包含key和value的对象数组.也就是将对象的key-value对重组为一个对象,比如将`{foo: 42}`转为`{key: "foo", value: 42}`. 所传入的对象被重组为一个数组. 次序同样是不固定的：
 
 ```js
 d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", value: true}]
@@ -64,7 +64,7 @@ d3.entries({foo: 42, bar: true}); // [{key: "foo", value: 42}, {key: "bar", valu
 
 <a name="map" href="#map">#</a> d3.<b>map</b>([<i>object</i>[, <i>key</i>]]) [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js "Source")
 
-构建一个新的map. 如果指定了*object*则将其所有的可枚举对象复制到map中。*object*可以是一个数组也可以是其他的map对象。可选的*key*方法用来指定使用哪个属性作为key，比如:
+构建一个新的map. 如果指定了*object*则将其所有的可枚举对象复制到map中.*object*可以是一个数组也可以是其他的map对象.可选的*key*方法用来指定使用哪个属性作为key,比如:
 
 ```js
 var map = d3.map([{name: "foo"}, {name: "bar"}], function(d) { return d.name; });
@@ -81,11 +81,11 @@ map.get("baz"); // undefined
 
 <a name="map_get" href="#map_get">#</a> <i>map</i>.<b>get</b>(<i>key</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L10 "Source")
 
-返回指定的*key*对应的值，如果map中不包含指定的*key*则返回`undefined`
+返回指定的*key*对应的值,如果map中不包含指定的*key*则返回`undefined`
 
 <a name="map_set" href="#map_set">#</a> <i>map</i>.<b>set</b>(<i>key</i>, <i>value</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L13 "Source")
 
-设置map中指定的*key*为*value*, 如果已经有相同的*key*字符串则会被覆盖，此方法返回map对象因此可以链式调用. 例如:
+设置map中指定的*key*为*value*, 如果已经有相同的*key*字符串则会被覆盖,此方法返回map对象因此可以链式调用. 例如:
 
 ```js
 var map = d3.map()
@@ -106,19 +106,19 @@ map.get("foo"); // 1
 
 <a name="map_keys" href="#map_keys">#</a> <i>map</i>.<b>keys</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L24 "Source")
 
-以数组的形式返回map中所有的*keys*, 顺序是不可靠的。
+以数组的形式返回map中所有的*keys*, 顺序是不可靠的.
 
 <a name="map_values" href="#map_values">#</a> <i>map</i>.<b>values</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L29 "Source")
 
-以数组的形式返回map中所有的*value*, 顺序是不可靠的。
+以数组的形式返回map中所有的*value*, 顺序是不可靠的.
 
 <a name="map_entries" href="#map_entries">#</a> <i>map</i>.<b>entries</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L34 "Source")
 
-将map中所有的项重组为key-value数组。顺序是随意的。每一项中*key*必须是字符串，但是对应的*value*可以是任意的类型.
+将map中所有的项重组为key-value数组.顺序是随意的.每一项中*key*必须是字符串,但是对应的*value*可以是任意的类型.
 
 <a name="map_each" href="#map_each">#</a> <i>map</i>.<b>each</b>(<i>function</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L48 "Source")
 
-遍历map中的每一项，并对每一项执行*function*, 当前项的value和key作为参数, 随后是map本身, 返回undefined.
+遍历map中的每一项,并对每一项执行*function*, 当前项的value和key作为参数, 随后是map本身, 返回undefined.
 
 <a name="map_empty" href="#map_empty">#</a> <i>map</i>.<b>empty</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L44 "Source")
 
@@ -130,24 +130,24 @@ map.get("foo"); // 1
 
 ### Sets
 
-Like [ES6 Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set), but with a few differences:
+与 [ES6 Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)类似,但是有以下不同:
 
-* Values are coerced to strings.
-* [set.each](#set_each), not [set.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach). (Also, no *thisArg*.)
-* [set.remove](#set_remove), not [set.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete).
-* [set.size](#set_size) is a method, not a [property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size); also, there’s [set.empty](#set_empty).
+* 值必须为字符串.
+* [set.each](#set_each), 而非 [set.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach). (也没有*thisArg*参数.)
+* [set.remove](#set_remove), 而非[set.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete).
+* [set.size](#set_size) 是一个方法, 而不是[property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size); [set.empty](#set_empty)也是一个方法而不是属性.
 
 <a name="set" href="#set">#</a> d3.<b>set</b>([<i>array</i>[, <i>accessor</i>]]) [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js "Source")
 
-Constructs a new set. If *array* is specified, adds the given *array* of string values to the returned set. The specified array may also be another set. An optional *accessor* function may be specified, which is equivalent to calling *array.map(accessor)* before constructing the set.
+构建一个新的set对象.如果指定了 *array* 则将 *array* 中的元素都作为set的元素并返回.*array*也可以是其他的set对象.如果指定了 *accessor* ,则在将元素添加到set之前先对每个元素执行执行的访问器方法.
 
 <a name="set_has" href="#set_has">#</a> <i>set</i>.<b>has</b>(<i>value</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L9 "Source")
 
-Returns true if and only if this set has an entry for the specified *value* string.
+当set中包含指定的*value* 字符串时返回true.
 
 <a name="set_add" href="#set_add">#</a> <i>set</i>.<b>add</b>(<i>value</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L10 "Source")
 
-Adds the specified *value* string to this set. Returns the set, allowing chaining. For example:
+将指定的 *value* 字符串添加到set中并返回set,因此支持链式语法:
 
 ```js
 var set = d3.set()
@@ -160,15 +160,15 @@ set.has("foo"); // true
 
 <a name="set_remove" href="#set_remove">#</a> <i>set</i>.<b>remove</b>(<i>value</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L15 "Source")
 
-If the set contains the specified *value* string, removes it and returns true. Otherwise, this method does nothing and returns false.
+如果set中存在*value*字符串则将其移除并返回true,否则什么都不做并返回false.
 
 <a name="set_clear" href="#set_clear">#</a> <i>set</i>.<b>clear</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L16 "Source")
 
-Removes all values from this set.
+清空set.
 
 <a name="set_values" href="#set_values">#</a> <i>set</i>.<b>values</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L17 "Source")
 
-Returns an array of the string values in this set. The order of the returned values is arbitrary. Can be used as a convenient way of computing the unique values for a set of strings. For example:
+以数组的形式返回set中所有的values,顺序是任意不可信的,可以方便的用来去重:
 
 ```js
 d3.set(["foo", "bar", "foo", "baz"]).values(); // "foo", "bar", "baz"
@@ -176,15 +176,15 @@ d3.set(["foo", "bar", "foo", "baz"]).values(); // "foo", "bar", "baz"
 
 <a name="set_each" href="#set_each">#</a> <i>set</i>.<b>each</b>(<i>function</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L20 "Source")
 
-Calls the specified *function* for each value in this set, passing the value as the first two arguments (for symmetry with [*map*.each](#map_each)), followed by the set itself. Returns undefined. The iteration order is arbitrary.
+为set中每个元素执行*function*,前两个参数都为value(为了和 [*map*.each](#map_each)对称),其次为set自身.最终返回undefined,遍历次序任意不可信.
 
 <a name="set_empty" href="#set_empty">#</a> <i>set</i>.<b>empty</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L19 "Source")
 
-Returns true if and only if this set has zero values.
+当set中没有项时返回true.
 
 <a name="set_size" href="#set_size">#</a> <i>set</i>.<b>size</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/set.js#L18 "Source")
 
-Returns the number of values in this set.
+返回set中包含的项的个数.
 
 ### Nests
 
