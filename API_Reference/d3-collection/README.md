@@ -188,9 +188,15 @@ d3.set(["foo", "bar", "foo", "baz"]).values(); // "foo", "bar", "baz"
 
 ### Nests
 
-Nesting allows elements in an array to be grouped into a hierarchical tree structure; think of it like the GROUP BY operator in SQL, except you can have multiple levels of grouping, and the resulting output is a tree rather than a flat table. The levels in the tree are specified by key functions. The leaf nodes of the tree can be sorted by value, while the internal nodes can be sorted by key. An optional rollup function will collapse the elements in each leaf node using a summary function. The nest operator (the object returned by [nest](#nest)) is reusable, and does not retain any references to the data that is nested.
+Nests(嵌套操作)可以将数组类型的元素重组为层次结构数据。想象一下SQL中的GROUP BY操作。除了可以对元素进行分组之外，嵌套操作的输出是一个树而不是扁平的表。树的具体结构层级由`key`函数决定。同时可以根据`value`对树的叶节点进行排序，而非叶节点可以根据`key`进行排序.
 
-For example, consider the following tabular data structure of Barley yields, from various sites in Minnesota during 1931-2:
+An optional rollup function will collapse the elements in each leaf node using a summary function. 
+
+Nest操作(由[nest](#nest)返回的对象)是可以多次使用的，并且不保留对嵌套数据的任何引用。
+
+The nest operator (the object returned by [nest](#nest)) is reusable, and does not retain any references to the data that is nested.
+
+例如，考虑如下的扁平数据结构：
 
 ```js
 var yields = [
@@ -201,7 +207,7 @@ var yields = [
 ];
 ```
 
-To facilitate visualization, it may be useful to nest the elements first by year, and then by variety, as follows:
+在可视化时可能需要先根据年份然后按照类别进行分组重构，可以进行如下操作:
 
 ```js
 var entries = d3.nest()
@@ -210,7 +216,7 @@ var entries = d3.nest()
     .entries(yields);
 ```
 
-This returns a nested array. Each element of the outer array is a key-values pair, listing the values for each distinct key:
+返回的结果是一个嵌套的数组，最外层数据都由键值对组成:
 
 ```js
 [{key: "1931", values: [
@@ -224,18 +230,20 @@ This returns a nested array. Each element of the outer array is a key-values pai
  {key: "1932", values: ...}]
 ```
 
-The nested form allows easy iteration and generation of hierarchical structures in SVG or HTML.
+嵌套的数据结构能轻松的在SVG或HTML文档中生成分层结构。
 
-For a longer introduction to nesting, see:
+更多介绍参考:
 
 * Phoebe Bright’s [D3 Nest Tutorial and examples](http://bl.ocks.org/phoebebright/raw/3176159/)
 * Shan Carter’s [Mister Nester](http://bl.ocks.org/shancarter/raw/4748131/)
 
 <a name="nest" href="#nest">#</a> d3.<b>nest</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js "Source")
 
-Creates a new nest operator. The set of keys is initially empty.
+构建一个新的嵌套操作。`keys`初始为空
 
 <a name="nest_key" href="#nest_key">#</a> <i>nest</i>.<b>key</b>(<i>key</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L4 "Source")
+
+注册一个新的`key`函数，`key`函数将会在输入数组的每个元素上进行调用，并且返回一个字符串标识用来对所有元素进行分组。大多数情况下，是一个简单的访问器，就行上述例子中的年份和种类访问器一样。(`key`方法并不传递当前数组的索引)，每次注册`key`后，其会被添加到`key`数组的末尾，嵌套操作
 
 Registers a new *key* function. The *key* function will be invoked for each element in the input array and must return a string identifier to assign the element to its group. Most often, the function is a simple accessor, such as the year and variety accessors above. (Keys functions are *not* passed the input array index.) Each time a key is registered, it is pushed onto the end of the internal array of keys, and the nest operator applies an additional level of nesting.
 
