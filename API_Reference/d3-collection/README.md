@@ -102,7 +102,7 @@ map.get("foo"); // 1
 
 <a name="map_clear" href="#map_clear">#</a> <i>map</i>.<b>clear</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L21 "Source")
 
-清空map中所有的项
+情况map中所有的项
 
 <a name="map_keys" href="#map_keys">#</a> <i>map</i>.<b>keys</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L24 "Source")
 
@@ -243,13 +243,11 @@ var entries = d3.nest()
 
 <a name="nest_key" href="#nest_key">#</a> <i>nest</i>.<b>key</b>(<i>key</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L4 "Source")
 
-注册一个新的`key`函数，`key`函数将会在输入数组的每个元素上进行调用，并且返回一个字符串标识用来对所有元素进行分组。大多数情况下，是一个简单的访问器，就行上述例子中的年份和种类访问器一样。(`key`方法并不传递当前数组的索引)，每次注册`key`后，其会被添加到`key`数组的末尾，嵌套操作
-
-Registers a new *key* function. The *key* function will be invoked for each element in the input array and must return a string identifier to assign the element to its group. Most often, the function is a simple accessor, such as the year and variety accessors above. (Keys functions are *not* passed the input array index.) Each time a key is registered, it is pushed onto the end of the internal array of keys, and the nest operator applies an additional level of nesting.
+注册一个新的`key`函数，`key`函数将会在输入数组的每个元素上进行调用，并且返回一个字符串标识用来对所有元素进行分组。大多数情况下，是一个简单的访问器，就行上述例子中的年份和种类访问器一样。(`key`方法并不传递当前数组的索引)，每次注册`key`后，其会被添加到`key`数组的末尾，the nest operator applies an additional level of nesting.
 
 <a name="nest_sortKeys" href="#nest_sortKeys">#</a> <i>nest</i>.<b>sortKeys</b>(<i>comparator</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L5 "Source")
 
-Sorts key values for the [current key](#nest_key) using the specified *comparator* function, such as [d3.ascending](https://github.com/d3/d3-array#ascending) or [d3.descending](https://github.com/d3/d3-array#descending). If no comparator is specified for the current key, the order in which keys will be returned is undefined. For example, to sort years in ascending order and varieties in descending order:
+为[current key](#nest_key)指定一个*comparator*函数用以对当前`key`下的元素排序。和[d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ascending) or [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#descending)类似。如果没有指定，则默认的`key`排序为undefined。例如，根据year和varieties进行排序：
 
 ```js
 var entries = d3.nest()
@@ -258,21 +256,25 @@ var entries = d3.nest()
     .entries(yields);
 ```
 
-Note that this only affects the result of [*nest*.entries](#nest_entries); the order of keys returned by [*nest*.map](#nest_map) and [*nest*.object](#nest_object) is always undefined, regardless of comparator.
+排序操作仅仅影响[*nest*.entries](#nest_entries)的结果。由[*nest*.map](#nest_map) 和 [*nest*.object](#nest_object)返回的`keys`的顺序是未知的。
 
 <a name="nest_sortValues" href="#nest_sortValues">#</a> <i>nest</i>.<b>sortValues</b>(<i>comparator</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L6 "Source")
 
-Sorts leaf elements using the specified *comparator* function, such as [d3.ascending](https://github.com/d3/d3-array#ascending) or [d3.descending](https://github.com/d3/d3-array#descending). This is roughly equivalent to sorting the input array before applying the nest operator; however it is typically more efficient as the size of each group is smaller. If no value comparator is specified, elements will be returned in the order they appeared in the input array. This applies to [*nest*.map](#nest_map), [*nest*.entries](#nest_entries) and [*nest*.object](#nest_object).
+为嵌套操作的叶节点指定一个*comparator*，和[d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ascending) or [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#descending)类似。这与对数组进行嵌套重组之前进行排序是大致一致的。如果没有指定比较函数，则元素的顺序会依照输入数组的顺序排序。这个操作对[*nest*.map](#nest_map), [*nest*.entries](#nest_entries) 和 [*nest*.object](#nest_object)都有影响。
 
 <a name="nest_rollup" href="#nest_rollup">#</a> <i>nest</i>.<b>rollup</b>(<i>function</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L7 "Source")
 
-Specifies a rollup *function* to be applied on each group of leaf elements. The return value of the rollup function will replace the array of leaf values in either the associative array returned by [*nest*.map](#nest_map) or [*nest*.object](#nest_object); for [*nest*.entries](#nest_entries), it replaces the leaf *entry*.values with *entry*.value. If a [leaf comparator](#nest_sortValues) is specified, the leaf elements are sorted prior to invoking the rollup function.
+指定一个`rollup(归纳)`函数，应用在每个分组的叶节点上。归纳函数的返回值将代替由[*nest*.map](#nest_map) 或 [*nest*.object](#nest_object)返回的叶节点元素。对于[*nest*.entries](#nest_entries)操作，它会代替用*entry*.value 代替 *entry*.values。如果指定了[leaf comparator](#nest_sortValues)则叶节点会在调用归纳函数之前调用。
 
 <a name="nest_map" href="#nest_map">#</a> <i>nest</i>.<b>map</b>(<i>array</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L50 "Source")
 
-Applies the nest operator to the specified *array*, returning a nested [map](#map). Each entry in the returned map corresponds to a distinct key value returned by the first key function. The entry value depends on the number of registered key functions: if there is an additional key, the value is another map; otherwise, the value is the array of elements filtered from the input *array* that have the given key value. If no keys are defined, returns the input *array*.
+将嵌套操作应用到指定的数组，并返回嵌套后的[map](#map)。返回的map映射中的每一项都对应由第一个`key`函数的返回的独特的key值。每一项的值都取决于注册的key函数的数量：如果不止一个key函数则值是一个map，否则就是数组中经过过滤之后对应的key的元素数组。如果没有定义key函数，则返回输入数组。
 
 <a name="nest_object" href="#nest_object">#</a> <i>nest</i>.<b>object</b>(<i>array</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L49 "Source")
+
+将指定的嵌套操作应用到指定的*array*, 返回一个嵌套对象。返回的关联数组中的每一项都与第一个`key`函数相关。每一项的值取决于key函数的个数：如果不止一个key函数则值为一个关联数组，否则是经过key函数过滤之后的数组。
+
+注意的是如果输入数组中包括与JavaScript内置`key`（比如__proto__）冲突的话是不安全的。如果不能保证数组中所有的`key`都是安全的请使用[nest.map](#nest_map)代替。
 
 Applies the nest operator to the specified *array*, returning a nested object. Each entry in the returned associative array corresponds to a distinct key value returned by the first key function. The entry value depends on the number of registered key functions: if there is an additional key, the value is another associative array; otherwise, the value is the array of elements filtered from the input *array* that have the given key value.
 
