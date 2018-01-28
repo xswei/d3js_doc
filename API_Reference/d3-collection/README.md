@@ -102,7 +102,7 @@ map.get("foo"); // 1
 
 <a name="map_clear" href="#map_clear">#</a> <i>map</i>.<b>clear</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L21 "Source")
 
-情况map中所有的项
+清空map中所有的项
 
 <a name="map_keys" href="#map_keys">#</a> <i>map</i>.<b>keys</b>() [<源码>](https://github.com/d3/d3-collection/blob/master/src/map.js#L24 "Source")
 
