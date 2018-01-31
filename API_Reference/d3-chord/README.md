@@ -47,16 +47,16 @@ var matrix = [
 
 返回值是一组表示弦的对象数组，每个对象都有以下属性:
 
-* `source` - the source subgroup
-* `target` - the target subgroup
+* `source` - 该弦的源子分组对象
+* `target` - 该弦的目标子分组对象
 
 每一个`source`和`target`子分组都有以下数属性:
 
-* `startAngle` - the start angle in radians
-* `endAngle` - the end angle in radians
-* `value` - the flow value *matrix*[*i*][*j*]
-* `index` - the node index *i*
-* `subindex` - the node index *j*
+* `startAngle` - 起始角度
+* `endAngle` - 终止角度
+* `value` -  *matrix*[*i*][*j*]的值
+* `index` - 索引 *i*
+* `subindex` - 索引 *j*
 
 弦数据通常传递给[d3.ribbon](#ribbon)来显示相互之间的流量关系。
 
@@ -67,10 +67,6 @@ var matrix = [
 * `value` - 从节点*i*出去的总量
 * `index` - 节点索引*i*
 
-* `startAngle` - the start angle in radians
-* `endAngle` - the end angle in radians
-* `value` - the total outgoing flow value for node *i*
-* `index` - the node index *i*
 
 分组数据传递给[d3.arc](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_arc)来绘制。
 
