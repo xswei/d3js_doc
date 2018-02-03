@@ -73,68 +73,80 @@ var steelblue = d3.rgb("steelblue");
 
 支持的[颜色命名](http://www.w3.org/TR/SVG/types.html#ColorKeywords)列表由css指定
 
-Note: this function may also be used with `instanceof` to test if an object is a color instance. The same is true of color subclasses, allowing you to test whether a color is in a particular color space.
+这个方法也可以通过`instanceof`来测试一个对象是否是color实例.
 
 <a name="color_opacity" href="#color_opacity">#</a> *color*.<b>opacity</b>
 
-This color’s opacity, typically in the range [0, 1].
+设置color的透明度，范围[0,1].
 
 <a name="color_rgb" href="#color_rgb">#</a> *color*.<b>rgb</b>() [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L209 "Source")
 
-Returns the [RGB equivalent](#rgb) of this color. For RGB colors, that’s `this`.
+返回颜色的[RGB 表示](#rgb). 对于RGB颜色则返回自身
 
 <a name="color_brighter" href="#color_brighter">#</a> *color*.<b>brighter</b>([<i>k</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L221 "Source")
 
-Returns a brighter copy of this color. If *k* is specified, it controls how much brighter the returned color should be. If *k* is not specified, it defaults to 1. The behavior of this method is dependent on the implementing color space.
+将color调的更亮，k为一个可选的系数。k默认为 1.这个方法的具体实现依赖于颜色空间。
 
 <a name="color_darker" href="#color_darker">#</a> *color*.<b>darker</b>([<i>k</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L225 "Source")
 
-Returns a darker copy of this color. If *k* is specified, it controls how much darker the returned color should be. If *k* is not specified, it defaults to 1. The behavior of this method is dependent on the implementing color space.
+将color调的更暗，k为一个可选的系数。k默认为 1.这个方法的具体实现依赖于颜色空间。
 
 <a name="color_displayable" href="#color_displayable">#</a> *color*.<b>displayable</b>() [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L169 "Source")
 
-Returns true if and only if the color is displayable on standard hardware. For example, this returns false for an RGB color if any channel value is less than zero or greater than 255, or if the opacity is not in the range [0, 1].
+如果color在标准硬件上可显示的话返回true。例如对于RGB来说，任何一个颜色通道值不在[0,255]之间或透明度值不在[0,1]之间时返回false.
 
 <a name="color_toString" href="#color_toString">#</a> *color*.<b>toString</b>() [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L172 "Source")
 
-Returns a string representing this color according to the [CSS Object Model specification](https://drafts.csswg.org/cssom/#serialize-a-css-component-value), such as `rgb(247, 234, 186)`. If this color is not displayable, a suitable displayable color is returned instead. For example, RGB channel values greater than 255 are clamped to 255.
+将color转为[CSS Object Model specification](https://drafts.csswg.org/cssom/#serialize-a-css-component-value)字符串, 比如 `rgb(247, 234, 186)`. 如果color不可显示，则返回一个合适的可显示的字符串。比如如果值超过255会将其调整为255.
 
 <a name="rgb" href="#rgb">#</a> d3.<b>rgb</b>(<i>r</i>, <i>g</i>, <i>b</i>[, <i>opacity</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L209 "Source")<br>
 <a href="#rgb">#</a> d3.<b>rgb</b>(<i>specifier</i>)<br>
 <a href="#rgb">#</a> d3.<b>rgb</b>(<i>color</i>)<br>
 
-Constructs a new [RGB](https://en.wikipedia.org/wiki/RGB_color_model) color. The channel values are exposed as `r`, `g` and `b` properties on the returned instance. Use the [RGB color picker](http://bl.ocks.org/mbostock/78d64ca7ef013b4dcf8f) to explore this color space.
+构建一个[RGB](https://en.wikipedia.org/wiki/RGB_color_model)颜色通道的颜色对象。返回的颜色对象中包含`r`, `g` 和 `b`三个属性。可以使用[RGB color picker](http://bl.ocks.org/mbostock/78d64ca7ef013b4dcf8f)来了解三个值之间的相互影响。
 
-If *r*, *g* and *b* are specified, these represent the channel values of the returned color; an *opacity* may also be specified. If a CSS Color Module Level 3 *specifier* string is specified, it is parsed and then converted to the RGB color space. See [color](#color) for examples. If a [*color*](#color) instance is specified, it is converted to the RGB color space using [*color*.rgb](#color_rgb). Note that unlike [*color*.rgb](#color_rgb) this method *always* returns a new instance, even if *color* is already an RGB color.
+如果指定了*r*, *g* and *b*，则表示返回颜色对象的三个通道值。可选的*opacity* 用来表示透明度。
+如果指定的是一个CSS Color Module Level 3字符串,则会将其转换为RGB颜色空间。参考[color](#color)
+如果指定的是一个color对象则会被转换为RGB颜色空间对象。
+
+与[*color*.rgb](#color_rgb)不同的是，这个方法总会返回一个新的实例，即便是传入的也是RGB颜色实例。
 
 <a name="hsl" href="#hsl">#</a> d3.<b>hsl</b>(<i>h</i>, <i>s</i>, <i>l</i>[, <i>opacity</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/color.js#L281 "Source")<br>
 <a href="#hsl">#</a> d3.<b>hsl</b>(<i>specifier</i>)<br>
 <a href="#hsl">#</a> d3.<b>hsl</b>(<i>color</i>)<br>
 
-Constructs a new [HSL](https://en.wikipedia.org/wiki/HSL_and_HSV) color. The channel values are exposed as `h`, `s` and `l` properties on the returned instance. Use the [HSL color picker](http://bl.ocks.org/mbostock/debaad4fcce9bcee14cf) to explore this color space.
+构建一个[HSL](https://en.wikipedia.org/wiki/HSL_and_HSV)颜色通道的颜色对象。返回的颜色对象中包含`h`, `s` 和 `l`三个属性。可以使用[HSL color picker](http://bl.ocks.org/mbostock/debaad4fcce9bcee14cf)来了解三个值之间的相互影响。
 
-If *h*, *s* and *l* are specified, these represent the channel values of the returned color; an *opacity* may also be specified. If a CSS Color Module Level 3 *specifier* string is specified, it is parsed and then converted to the HSL color space. See [color](#color) for examples. If a [*color*](#color) instance is specified, it is converted to the RGB color space using [*color*.rgb](#color_rgb) and then converted to HSL. (Colors already in the HSL color space skip the conversion to RGB.)
+如果指定了*h*, *s* and *l*，则表示返回颜色对象的通道值。可选的*opacity* 用来表示透明度。
+如果指定的是一个CSS Color Module Level 3字符串,则会将其转换为HSL颜色空间。参考[color](#color)
+如果指定的是一个color对象则会先被转为RGB颜色空间值，然后被转换为HSL颜色空间对象。
 
 <a name="lab" href="#lab">#</a> d3.<b>lab</b>(<i>l</i>, <i>a</i>, <i>b</i>[, <i>opacity</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/lab.js#L30 "Source")<br>
 <a href="#lab">#</a> d3.<b>lab</b>(<i>specifier</i>)<br>
 <a href="#lab">#</a> d3.<b>lab</b>(<i>color</i>)<br>
 
-Constructs a new [Lab](https://en.wikipedia.org/wiki/Lab_color_space#CIELAB) color. The channel values are exposed as `l`, `a` and `b` properties on the returned instance. Use the [Lab color picker](http://bl.ocks.org/mbostock/9f37cc207c0cb166921b) to explore this color space.
+构建一个[Lab](https://en.wikipedia.org/wiki/Lab_color_space#CIELAB)颜色通道的颜色对象。返回的颜色对象中包含`l`, `a` 和 `b`三个属性。可以使用[Lab color picker](http://bl.ocks.org/mbostock/9f37cc207c0cb166921b)来了解三个值之间的相互影响。
 
-If *l*, *a* and *b* are specified, these represent the channel values of the returned color; an *opacity* may also be specified. If a CSS Color Module Level 3 *specifier* string is specified, it is parsed and then converted to the Lab color space. See [color](#color) for examples. If a [*color*](#color) instance is specified, it is converted to the RGB color space using [*color*.rgb](#color_rgb) and then converted to Lab. (Colors already in the Lab color space skip the conversion to RGB, and colors in the HCL color space are converted directly to Lab.)
+如果指定了*l*, *a* and *b*，则表示返回颜色对象的通道值。可选的*opacity* 用来表示透明度。
+如果指定的是一个CSS Color Module Level 3字符串,则会将其转换为Lab颜色空间。参考[color](#color)
+如果指定的是一个color对象则会先被转为RGB颜色空间值，然后被转换为Lab颜色空间对象。
 
 <a name="hcl" href="#hcl">#</a> d3.<b>hcl</b>(<i>h</i>, <i>c</i>, <i>l</i>[, <i>opacity</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/lab.js#L87 "Source")<br>
 <a href="#hcl">#</a> d3.<b>hcl</b>(<i>specifier</i>)<br>
 <a href="#hcl">#</a> d3.<b>hcl</b>(<i>color</i>)<br>
 
-Constructs a new [HCL](https://en.wikipedia.org/wiki/HCL_color_space) color. The channel values are exposed as `h`, `c` and `l` properties on the returned instance. Use the [HCL color picker](http://bl.ocks.org/mbostock/3e115519a1b495e0bd95) to explore this color space.
+构建一个[HCL](https://en.wikipedia.org/wiki/HCL_color_space)颜色通道的颜色对象。返回的颜色对象中包含`h`, `c` 和 `l`三个属性。可以使用[HCL color picker](http://bl.ocks.org/mbostock/3e115519a1b495e0bd95)来了解三个值之间的相互影响。
 
-If *h*, *c* and *l* are specified, these represent the channel values of the returned color; an *opacity* may also be specified. If a CSS Color Module Level 3 *specifier* string is specified, it is parsed and then converted to the HCL color space. See [color](#color) for examples. If a [*color*](#color) instance is specified, it is converted to the RGB color space using [*color*.rgb](#color_rgb) and then converted to HCL. (Colors already in the HCL color space skip the conversion to RGB, and colors in the Lab color space are converted directly to HCL.)
+如果指定了*h*, *c* and *l*，则表示返回颜色对象的通道值。可选的*opacity* 用来表示透明度。
+如果指定的是一个CSS Color Module Level 3字符串,则会将其转换为HCL颜色空间。参考[color](#color)
+如果指定的是一个color对象则会先被转为RGB颜色空间值，然后被转换为HCL颜色空间对象。
 
 <a name="cubehelix" href="#cubehelix">#</a> d3.<b>cubehelix</b>(<i>h</i>, <i>s</i>, <i>l</i>[, <i>opacity</i>]) [<>](https://github.com/d3/d3-color/blob/master/src/cubehelix.js#L32 "Source")<br>
 <a href="#cubehelix">#</a> d3.<b>cubehelix</b>(<i>specifier</i>)<br>
 <a href="#cubehelix">#</a> d3.<b>cubehelix</b>(<i>color</i>)<br>
 
-Constructs a new [Cubehelix](https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/) color. The channel values are exposed as `h`, `s` and `l` properties on the returned instance. Use the [Cubehelix color picker](http://bl.ocks.org/mbostock/ba8d75e45794c27168b5) to explore this color space.
+构建一个[Cubehelix](https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/) 颜色通道的颜色对象。返回的颜色对象中包含`h`, `s` 和 `l`三个属性。可以使用[Cubehelix color picker](http://bl.ocks.org/mbostock/ba8d75e45794c27168b5)来了解三个值之间的相互影响。
 
-If *h*, *s* and *l* are specified, these represent the channel values of the returned color; an *opacity* may also be specified. If a CSS Color Module Level 3 *specifier* string is specified, it is parsed and then converted to the Cubehelix color space. See [color](#color) for examples. If a [*color*](#color) instance is specified, it is converted to the RGB color space using [*color*.rgb](#color_rgb) and then converted to Cubehelix. (Colors already in the Cubehelix color space skip the conversion to RGB.)
+如果指定了*h*, *s* and *l*，则表示返回颜色对象的通道值。可选的*opacity* 用来表示透明度。
+如果指定的是一个CSS Color Module Level 3字符串,则会将其转换为Cubehelix颜色空间。参考[color](#color)
+如果指定的是一个color对象则会先被转为RGB颜色空间值，然后被转换为Cubehelix颜色空间对象。
