@@ -215,17 +215,17 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 Color manipulation and color space conversion.
 
-* [d3.color](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color) - parse the given CSS color specifier.
-* [*color*.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_rgb) - compute the RGB equivalent of this color.
-* [*color*.brighter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_brighter) - create a brighter copy of this color.
-* [*color*.darker](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_darker) - create a darker copy of this color.
-* [*color*.displayable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_displayable) - returns true if the color is displayable on standard hardware.
-* [*color*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_toString) - format the color as an RGB hexadecimal string.
-* [d3.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#rgb) - create a new RGB color.
-* [d3.hsl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hsl) - create a new HSL color.
-* [d3.lab](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#lab) - create a new Lab color.
-* [d3.hcl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hcl) - create a new HCL color.
-* [d3.cubehelix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#cubehelix) - create a new Cubehelix color.
+* [d3.color](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color) - 转换指定的CSS颜色字符串.
+* [*color*.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_rgb) - 计算当前颜色值的RGB表示.
+* [*color*.brighter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_brighter) - 创建一个更亮的颜色副本.
+* [*color*.darker](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_darker) - 创建一个更暗的颜色副本
+* [*color*.displayable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_displayable) - 判断当前设备是否支持当前颜色
+* [*color*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_toString) - 将当前颜色转为RGB颜色的十六进制表示
+* [d3.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#rgb) - 创建一个新的RGB颜色.
+* [d3.hsl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hsl) - 创建一个新的HSL颜色.
+* [d3.lab](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#lab) - 创建一个新的Lab颜色.
+* [d3.hcl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hcl) - 创建一个新的HCL颜色.
+* [d3.cubehelix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
 
 ## [Dispatches (d3-dispatch)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch)
 
