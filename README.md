@@ -8,6 +8,24 @@
 
 <br>
 
+## 最新更新动态
+
+### 5.0.0
+
+- 移除[d3-request](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request); 添加[d3-fetch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md)
+- 移除[d3-queue](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-queue); 参考[Promise.all](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+- 添加[d3-scale-chromatic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md)
+- 添加[d3-contour](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-contour/README.md) 
+- 添加[*selection*.clone]()
+- 添加[d3.create]()
+- 移除`d3.schemeCategory20*`颜色方案
+- 修复不同版本的D3模块的重复安装问题([#3256](https://github.com/d3/d3/issues/3256))
+- Fix d3.format’s SI format for locales with currency suffixes.
+
+D3现在包含新的基于[ColorBrewer]()的[category color schemes(类别颜色方案)].ColorBrewer配色方案拥有卓越的[divering(发散)](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#diverging)和[sequential(连续)](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#sequential)颜色方案。移除`d3.schemeCategory20*`是因为其设计经常被错误的用来暗示不存在的关系：颜色相近的常被误以为是一组，而亮度则常被误以为是排序。
+
+5.0.0可以通过`npm install d3@next`来体验
+
 ## 资源
 
 * [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.md)
