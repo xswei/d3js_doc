@@ -266,6 +266,9 @@ var entries = d3.nest()
 
 指定一个`rollup(归纳)`函数，应用在每个分组的叶节点上。归纳函数的返回值将代替由[*nest*.map](#nest_map) 或 [*nest*.object](#nest_object)返回的叶节点元素。对于[*nest*.entries](#nest_entries)操作，它会代替用*entry*.value 代替 *entry*.values。如果指定了[leaf comparator](#nest_sortValues)则叶节点会在调用归纳函数之前调用。
 
+
+注意：上述操作都在定义嵌套的行为，要将嵌套应用到具体的数据上，需要调用`nest.map`, `nest.object`以及`nest.entries`方法
+
 <a name="nest_map" href="#nest_map">#</a> <i>nest</i>.<b>map</b>(<i>array</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L50 "Source")
 
 将嵌套操作应用到指定的数组，并返回嵌套后的[map](#map)。返回的map映射中的每一项都对应由第一个`key`函数的返回的独特的key值。每一项的值都取决于注册的key函数的数量：如果不止一个key函数则值是一个map，否则就是数组中经过过滤之后对应的key的元素数组。如果没有定义key函数，则返回输入数组。
@@ -276,10 +279,7 @@ var entries = d3.nest()
 
 注意的是如果输入数组中包括与JavaScript内置`key`（比如__proto__）冲突的话是不安全的。如果不能保证数组中所有的`key`都是安全的请使用[nest.map](#nest_map)代替。
 
-Applies the nest operator to the specified *array*, returning a nested object. Each entry in the returned associative array corresponds to a distinct key value returned by the first key function. The entry value depends on the number of registered key functions: if there is an additional key, the value is another associative array; otherwise, the value is the array of elements filtered from the input *array* that have the given key value.
-
-Note: this method is unsafe if any of the keys conflict with built-in JavaScript properties, such as `__proto__`. If you cannot guarantee that the keys will be safe, you should use [nest.map](#nest_map) instead.
 
 <a name="nest_entries" href="#nest_entries">#</a> <i>nest</i>.<b>entries</b>(<i>array</i>) [<源码>](https://github.com/d3/d3-collection/blob/master/src/nest.js#L51 "Source")
 
-Applies the nest operator to the specified *array*, returning an array of key-values entries. Conceptually, this is similar to applying [*map*.entries](#map_entries) to the associative array returned by [*nest*.map](#nest_map), but it applies to every level of the hierarchy rather than just the first (outermost) level. Each entry in the returned array corresponds to a distinct key value returned by the first key function. The entry value depends on the number of registered key functions: if there is an additional key, the value is another nested array of entries; otherwise, the value is the array of elements filtered from the input *array* that have the given key value.
+将指定的嵌套操作应用到指定的*array*，返回经过嵌套处理后的`key-values`对。与将[*map*.entries](#map_entries)应用到关联数组类似。但是具有层次结构，嵌套体现在`value`，如果指定了多个`key`则如果对应的`key`下有数据的话，其`value`也为一个`key-values`对象，以此类推。
