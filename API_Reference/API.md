@@ -983,10 +983,12 @@ Transform the DOM by selecting elements and joining to data.
 * [*selection*.append](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_append) - create, append and select new elements.
 * [*selection*.insert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_insert) - create, insert and select new elements.
 * [*selection*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_remove) - remove elements from the document.
+* [*selection*.clone](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_clone) - insert clones of selected elements.
 * [*selection*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_sort) - sort elements in the document based on data.
 * [*selection*.order](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_order) - reorders elements in the document to match the selection.
 * [*selection*.raise](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_raise) - reorders each element as the last child of its parent.
 * [*selection*.lower](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#selection_lower) - reorders each element as the first child of its parent.
+* [d3.create](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#create) - create and select a detached element.
 * [d3.creator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#creator) - create an element by name.
 
 ### [Joining Data](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#joining-data)
