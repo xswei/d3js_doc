@@ -213,7 +213,9 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Colors (d3-color)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color)
 
-Color manipulation and color space conversion.
+**Done**
+
+颜色空间以及转换
 
 * [d3.color](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color) - 转换指定的CSS颜色字符串.
 * [*color*.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_rgb) - 计算当前颜色值的RGB表示.
