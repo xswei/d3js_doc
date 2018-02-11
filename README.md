@@ -8,6 +8,15 @@
 
 <br>
 
+## 资源
+
+* [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.md)
+* [发布说明](https://github.com/d3/d3/releases)
+* [D3v3与D3v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
+* [画廊](https://github.com/d3/d3/wiki/Gallery)
+* [例子](https://bl.ocks.org/mbostock)
+* [Wiki](https://github.com/xswei/d3js_doc/wiki)
+
 ### 最新版本动态
 
 #### 5.0.0
@@ -25,15 +34,6 @@
 D3现在包含新的基于[ColorBrewer]()的[category color schemes(类别颜色方案)].ColorBrewer配色方案拥有卓越的[divering(发散)](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#diverging)和[sequential(连续)](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#sequential)颜色方案。移除`d3.schemeCategory20*`是因为其设计经常被错误的用来暗示不存在的关系：颜色相近的常被误以为是一组，而亮度则常被误以为是排序。
 
 5.0.0可以通过`npm install d3@next`来体验
-
-## 资源
-
-* [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.md)
-* [发布说明](https://github.com/d3/d3/releases)
-* [D3v3与D3v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
-* [画廊](https://github.com/d3/d3/wiki/Gallery)
-* [例子](https://bl.ocks.org/mbostock)
-* [Wiki](https://github.com/xswei/d3js_doc/wiki)
 
 ## 安装
 
