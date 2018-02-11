@@ -8,9 +8,9 @@
 
 <br>
 
-## 最新更新动态
+### 最新版本动态
 
-### 5.0.0
+#### 5.0.0
 
 - 移除[d3-request](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request); 添加[d3-fetch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md)
 - 移除[d3-queue](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-queue); 参考[Promise.all](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
