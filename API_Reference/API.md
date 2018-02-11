@@ -157,6 +157,8 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Collections (d3-collection)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection)
 
+**Done**
+
 一组方便的数据结构。
 
 ### [Objects](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#objects)
