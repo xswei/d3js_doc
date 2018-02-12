@@ -343,13 +343,15 @@ Compute contour polygons using marching squares.
 
 ## [Dispatches (d3-dispatch)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch)
 
-Separate concerns using named callbacks.
+**Done**
 
-* [d3.dispatch](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch) - create a custom event dispatcher.
-* [*dispatch*.on](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_on) - register or unregister an event listener.
-* [*dispatch*.copy](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_copy) - create a copy of a dispatcher.
-* [*dispatch*.*call*](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_call) - dispatch an event to registered listeners.
-* [*dispatch*.*apply*](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_apply) - dispatch an event to registered listeners.
+使用命名回调函数分离关注点
+
+* [d3.dispatch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch) - 创建一个自定义事件分发器
+* [*dispatch*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_on) - 注册或取消注册事件监听器
+* [*dispatch*.copy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_copy) - 创建分发器的副本
+* [*dispatch*.*call*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_call) - 分发事件到注册的事件监听器
+* [*dispatch*.*apply*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_apply) - 分发事件到注册事件监听器
 
 ## [Dragging (d3-drag)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag)
 
