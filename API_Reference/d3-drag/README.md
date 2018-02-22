@@ -191,38 +191,38 @@ If *distance* is specified, sets the maximum distance that the mouse can move be
 
 参考 [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on).
 
-Changes to registered listeners via *drag*.on during a drag gesture *do not affect* the current drag gesture. Instead, you must use [*event*.on](#event_on), which also allows you to register temporary event listeners for the current drag gesture. **Separate events are dispatched for each active pointer** during a drag gesture. For example, if simultaneously dragging multiple subjects with multiple fingers, a start event is dispatched for each finger, even if both fingers start touching simultaneously. See [Drag Events](#drag-events) for more.
+在拖拽过程中通过*drag*.on改变事件监听器不会影响当前的拖拽手势，相反，必须使用[*event*.on](#event_on)，[*event*.on](#event_on)也允许为当前的拖拽注册一个临时的事件监听器。在拖拽期间**为每个活动的指针分发一个单独的事件**。例如，如果拖拽是由多个手指触发的话，start事件会被派发给每个手指触摸点，即使两个手指同时开始触摸。参考[Drag Events](#drag-events)
 
 <a href="#dragDisable" name="dragDisable">#</a> d3.<b>dragDisable</b>(<i>window</i>) [<源码>](https://github.com/d3/d3-drag/blob/master/src/nodrag.js#L4 "Source")
 
-Prevents native drag-and-drop and text selection on the specified *window*. As an alternative to preventing the default action of mousedown events (see [#9](https://github.com/d3/d3-drag/issues/9)), this method prevents undesirable default actions following mousedown. In supported browsers, this means capturing dragstart and selectstart events, preventing the associated default actions, and immediately stopping their propagation. In browsers that do not support selection events, the user-select CSS property is set to none on the document element. This method is intended to be called on mousedown, followed by [d3.dragEnable](#dragEnable) on mouseup.
+阻止指定的*window*下原生的拖拽以及文本选中事件。作为防止mousedown事件默认行为的替代方法(参考[#9](https://github.com/d3/d3-drag/issues/9))，这个方法可以防止mousedown事件发生后不需要的默认行为。在支持的浏览器中，这个方法捕捉dragstart 和 selectstart事件，阻止相关联的默认行为并且阻止冒泡。在不支持选择事件的浏览器中，将元素的user-select CSS属性设置为none。这个方法在mousedown时会特意触发，在mouseup的时候会调用[d3.dragEnable](#dragEnable)。
 
 <a href="#dragEnable" name="dragEnable">#</a> d3.<b>dragEnable</b>(<i>window</i>[, <i>noclick</i>]) [<源码>](https://github.com/d3/d3-drag/blob/master/src/nodrag.js#L15 "Source")
 
-Allows native drag-and-drop and text selection on the specified *window*; undoes the effect of [d3.dragDisable](#dragDisable). This method is intended to be called on mouseup, preceded by [d3.dragDisable](#dragDisable) on mousedown. If *noclick* is true, this method also temporarily suppresses click events. The suppression of click events expires after a zero-millisecond timeout, such that it only suppress the click event that would immediately follow the current mouseup event, if any.
+允许指定*window*上原生的拖拽和文本选中。取消[d3.dragDisable](#dragDisable)的影响。这个方法在mouseup时会调用，前序的mousedown会调用[d3.dragDisable](#dragDisable)。如果*noclick*为true，这个方法会临时抑制click事件，抑制click事件在零毫秒超时后终止，这样它只会抑制紧跟在当前mouseup事件之后的click事件（如果有的话）。
 
 ### Drag Events
 
-When a [drag event listener](#drag_on) is invoked, [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#event) is set to the current drag event. The *event* object exposes several fields:
+当[drag event listener](#drag_on)被调用时, [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#event)会被设置为当前的拖拽事件，*event*对象暴露以下属性：
 
-* `target` - the associated [drag behavior](#drag).
-* `type` - the string “start”, “drag” or “end”; see [*drag*.on](#drag_on).
-* `subject` - the drag subject, defined by [*drag*.subject](#drag_subject).
-* `x` - the new *x*-coordinate of the subject; see [*drag*.container](#drag_container).
-* `y` - the new *y*-coordinate of the subject; see [*drag*.container](#drag_container).
-* `dx` - the change in *x*-coordinate since the previous drag event.
-* `dy` - the change in *y*-coordinate since the previous drag event.
-* `identifier` - the string “mouse”, or a numeric [touch identifier](https://www.w3.org/TR/touch-events/#widl-Touch-identifier).
-* `active` - the number of currently active drag gestures (on start and end, not including this one).
-* `sourceEvent` - the underlying input event, such as mousemove or touchmove.
+* `target` - 相关联的[drag behavior](#drag).
+* `type` - 字符串 “start”, “drag” 或 “end”; 参考 [*drag*.on](#drag_on).
+* `subject` - 通过 [*drag*.subject](#drag_subject)定义的subject.
+* `x` - subject 的 *x*-坐标; 参考 [*drag*.container](#drag_container).
+* `y` - subject 的 *y*-坐标; 参考 [*drag*.container](#drag_container).
+* `dx` - 与上一次拖拽相比 *x*-坐标 的变化.
+* `dy` - 与上一次拖拽相比 *y*-坐标 的变化.
+* `identifier` - 字符串 “mouse”, 或者表示 [touch identifier](https://www.w3.org/TR/touch-events/#widl-Touch-identifier)的数字.
+* `active` - 当前活动的拖拽手势的数量(在start和end, 不包含这个).
+* `sourceEvent` - 底层原始事件比如 mousemove 或 touchmove.
 
-The *event*.active field is useful for detecting the first start event and the last end event in a sequence of concurrent drag gestures: it is zero when the first drag gesture starts, and zero when the last drag gesture ends.
+*event*.active属性对判断并发的拖拽手势序列中的start事件和end事件: 在拖拽手势开始时为0，在拖拽结束最后一个手势事件时为0。
 
-The *event* object also exposes the [*event*.on](#event_on) method.
+*event* 对象也暴露了 [*event*.on](#event_on) 方法.
 
 <a href="#event_on" name="event_on">#</a> <i>event</i>.<b>on</b>(<i>typenames</i>, [<i>listener</i>]) [<源码>](https://github.com/d3/d3-drag/blob/master/src/event.js "Source")
 
-Equivalent to [*drag*.on](#drag_on), but only applies to the current drag gesture. Before the drag gesture starts, a [copy](https://github.com/d3/d3-dispatch#dispatch_copy) of the current drag [event listeners](#drag_on) is made. This copy is bound to the current drag gesture and modified by *event*.on. This is useful for temporary listeners that only receive events for the current drag gesture. For example, this start event listener registers temporary drag and end event listeners as closures:
+与 [*drag*.on](#drag_on)等价, 但是仅仅应用在当前的拖拽手势。在拖拽手势开始时会创建一个当前拖拽[event listeners](#drag_on)的 [copy](https://github.com/d3/d3-dispatch#dispatch_copy) . 这个副本会被绑定到当前拖拽手势并且可以被 *event*.on 修改. 这对于仅接收当前手势的临时监听器很有用。例如下面事件监听器将临时拖拽事件以及结束事件注册为闭包:
 
 ```js
 function started() {
