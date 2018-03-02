@@ -433,18 +433,18 @@ Easing functions for smooth animation.
 * [d3.easeBounceOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounceOut) - reverse bounce easing.
 * [d3.easeBounceInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounceInOut) - symmetric bounce easing.
 
-## [Fetches (d3-fetch)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md)
+## [Fetches (d3-fetch)](https://github.com/xswei/d3-fetch)
 
 Convenience methods on top of the Fetch API.
 
-* [d3.blob](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#blob) - get a file as a blob.
-* [d3.buffer](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#buffer) - get a file as an array buffer.
-* [d3.csv](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#csv) - get a comma-separated values (CSV) file.
-* [d3.dsv](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#dsv) - get a delimiter-separated values (CSV) file.
-* [d3.image](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#image) - get an image.
-* [d3.json](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#json) - get a JSON file.
-* [d3.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#text) - get a plain text file.
-* [d3.tsv](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-fetch/README.md#tsv) - get a tab-separated values (TSV) file.
+* [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 blob 的形式获取文件.
+* [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 array buffer 的形式获取文件.
+* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件get a comma-separated values (CSV) file.
+* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - get a delimiter-separated values (CSV) file.以 blob 的形式获取文件.
+* [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - get an image.以 blob 的形式获取文件.
+* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - get a JSON file.以 blob 的形式获取文件.
+* [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - get a plain text file.
+* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - get a tab-separated values (TSV) file.
 
 ## [Forces (d3-force)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force)
 
