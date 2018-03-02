@@ -14,7 +14,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Dragging](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
-* [Fetches](#fetches-d3-fetch)(V5 新增模块) - 完成
+* [Fetches](#fetches-d3-fetch)(V5 新增模块) - **完成**
 * [Forces](#forces-d3-force)
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
@@ -439,12 +439,12 @@ Easing functions for smooth animation.
 
 * [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 blob 的形式获取文件.
 * [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 array buffer 的形式获取文件.
-* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件get a comma-separated values (CSV) file.
-* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - get a delimiter-separated values (CSV) file.以 blob 的形式获取文件.
-* [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - get an image.以 blob 的形式获取文件.
-* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - get a JSON file.以 blob 的形式获取文件.
-* [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - get a plain text file.
-* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - get a tab-separated values (TSV) file.
+* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件.
+* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符(DSV)文件.
+* [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - 获取图片.
+* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - 获取 JSON 文件.
+* [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - 获取无格式文本.
+* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 tab 分隔符(TSV)文件.
 
 ## [Forces (d3-force)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force)
 
