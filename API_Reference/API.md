@@ -439,21 +439,12 @@ Easing functions for smooth animation.
 
 * [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 blob 的形式获取文件.
 * [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 array buffer 的形式获取文件.
-<<<<<<< HEAD
-* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件get a comma-separated values (CSV) file.
-* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - get a delimiter-separated values (CSV) file.以 blob 的形式获取文件.
-* [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - get an image.以 blob 的形式获取文件.
-* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - get a JSON file.以 blob 的形式获取文件.
-* [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - get a plain text file.
-* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - get a tab-separated values (TSV) file.
-=======
 * [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件.
 * [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符(DSV)文件.
 * [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - 获取图片.
 * [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - 获取 JSON 文件.
 * [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - 获取无格式文本.
 * [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 tab 分隔符(TSV)文件.
->>>>>>> 5dd7d52152e7e88a53c756b3dbf608047e242ffb
 
 ## [Forces (d3-force)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force)
 
