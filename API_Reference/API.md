@@ -14,7 +14,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Dragging](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
-* [Fetches](#fetches-d3-fetch)(V5 新增模块)
+* [Fetches](#fetches-d3-fetch)(V5 新增模块) - 完成
 * [Forces](#forces-d3-force)
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
