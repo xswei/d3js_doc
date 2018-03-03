@@ -31,7 +31,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
 * [Time Formats](#time-formats-d3-time-format)
 * [Time Intervals](#time-intervals-d3-time)
-* [Timers](#timers-d3-timer)
+* [Timers](#timers-d3-timer) - **完成**
 * [Transitions](#transitions-d3-transition)
 * [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
 * [Zooming](#zooming-d3-zoom)
@@ -1268,17 +1268,17 @@ A calculator for humanity’s peculiar conventions of time.
 * [d3.timeYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - the year interval.
 * [d3.timeYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - aliases for year.range.
 
-## [Timers (d3-timer)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer)
+## [Timers (d3-timer)](https://github.com/xswei/d3-timer)
 
-An efficient queue for managing thousands of concurrent animations.
+一个高效的可以用来管理上千并发动画的队列
 
-* [d3.now](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#now) - get the current high-resolution time.
-* [d3.timer](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer) - schedule a new timer.
-* [*timer*.restart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer_restart) - reset the timer’s start time and callback.
-* [*timer*.stop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer_stop) - stop the timer.
-* [d3.timerFlush](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timerFlush) - immediately execute any eligible timers.
-* [d3.timeout](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timeout) - schedule a timer that stops on its first callback.
-* [d3.interval](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#interval) - schedule a timer that is called with a configurable period.
+* [d3.now](https://github.com/xswei/d3-timer/blob/master/README.md#now) - 获取当前高精度时间戳(参考[DOMHighResTimeStamp](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp)).
+* [d3.timer](https://github.com/xswei/d3-timer/blob/master/README.md#timer) - 定义一个定时器.
+* [*timer*.restart](https://github.com/xswei/d3-timer/blob/master/README.md#timer_restart) - 重新设置定时器的开始时间和回调.
+* [*timer*.stop](https://github.com/xswei/d3-timer/blob/master/README.md#timer_stop) - 停止定时器.
+* [d3.timerFlush](https://github.com/xswei/d3-timer/blob/master/README.md#timerFlush) - 立即执行合法的定时器.
+* [d3.timeout](https://github.com/xswei/d3-timer/blob/master/README.md#timeout) - 定义一个只执行一次回调的定时器.
+* [d3.interval](https://github.com/xswei/d3-timer/blob/master/README.md#interval) - 定义一个可以按照指定间隔执行回调的定时器.
 
 ## [Transitions (d3-transition)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition)
 
