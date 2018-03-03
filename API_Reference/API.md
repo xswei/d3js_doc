@@ -23,7 +23,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Paths](#paths-d3-path)
 * [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
-* [Queues](#queues-d3-queue)
+* [Queues](#queues-d3-queue)(V5移除，使用[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)替代) - **完成**
 * [Random Numbers](#random-numbers-d3-random) - **完成**
 * [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch))
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
@@ -765,15 +765,15 @@ Two-dimensional recursive spatial subdivision.
 * [*quadtree*.cover](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree/README.md#quadtree_cover) - extend the quadtree to cover a point.
 * [*quadtree*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree/README.md#quadtree_extent) - extend the quadtree to cover an extent.
 
-## [Queues (d3-queue)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue)
+## [Queues (d3-queue)](https://github.com/xswei/d3-queue)
 
-Evaluate asynchronous tasks with configurable concurrency.
+使用可配置的并发管理异步任务.
 
-* [d3.queue](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue) - manage the concurrent evaluation of asynchronous tasks.
-* [*queue*.defer](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_defer) - register a task for evaluation.
-* [*queue*.abort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_abort) - abort any active tasks and cancel any pending ones.
-* [*queue*.await](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_await) - register a callback for when tasks complete.
-* [*queue*.awaitAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_awaitAll) - register a callback for when tasks complete.
+* [d3.queue](https://github.com/xswei/d3-queue/blob/master/README.md#queue) - 管理异步任务的并发执行.
+* [*queue*.defer](https://github.com/xswei/d3-queue/blob/master/README.md#queue_defer) - 注册异步任务.
+* [*queue*.abort](https://github.com/xswei/d3-queue/blob/master/README.md#queue_abort) - 中断活动的异步任务并且取消未执行的任务.
+* [*queue*.await](https://github.com/xswei/d3-queue/blob/master/README.md#queue_await) - 注册任务完成时的回调.
+* [*queue*.awaitAll](https://github.com/xswei/d3-queue/blob/master/README.md#queue_awaitAll) - 注册任务完成时的回调.
 
 ## [Random Numbers (d3-random)](https://github.com/xswei/d3-random)
 
