@@ -24,7 +24,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Polygons](#polygons-d3-polygon)
 * [Quadtrees](#quadtrees-d3-quadtree)
 * [Queues](#queues-d3-queue)
-* [Random Numbers](#random-numbers-d3-random)
+* [Random Numbers](#random-numbers-d3-random) - **完成**
 * [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch))
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
@@ -775,17 +775,17 @@ Evaluate asynchronous tasks with configurable concurrency.
 * [*queue*.await](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_await) - register a callback for when tasks complete.
 * [*queue*.awaitAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_awaitAll) - register a callback for when tasks complete.
 
-## [Random Numbers (d3-random)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random)
+## [Random Numbers (d3-random)](https://github.com/xswei/d3-random)
 
-Generate random numbers from various distributions.
+基于多种多样的分布模型生成随机数.
 
-* [d3.randomUniform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomUniform) - from a uniform distribution.
-* [d3.randomNormal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomNormal) - from a normal distribution.
-* [d3.randomLogNormal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomLogNormal) - from a log-normal distribution.
-* [d3.randomBates](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomBates) - from a Bates distribution.
-* [d3.randomIrwinHall](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomIrwinHall) - from an Irwin–Hall distribution.
-* [d3.randomExponential](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomExponential) - from an exponential distribution.
-* [*random*.source](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#random_source) - set the source of randomness.
+* [d3.randomUniform](https://github.com/xswei/d3-random/blob/master/README.md#randomUniform) - 一般分布.
+* [d3.randomNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomNormal) - 标准高斯分布.
+* [d3.randomLogNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomLogNormal) - 对数分布.
+* [d3.randomBates](https://github.com/xswei/d3-random/blob/master/README.md#randomBates) - 贝茨分布.
+* [d3.randomIrwinHall](https://github.com/xswei/d3-random/blob/master/README.md#randomIrwinHall) - Irwin–Hall 分布.
+* [d3.randomExponential](https://github.com/xswei/d3-random/blob/master/README.md#randomExponential) - 指数分布.
+* [*random*.source](https://github.com/xswei/d3-random/blob/master/README.md#random_source) - 设置随机数生成源.
 
 ## [Requests (d3-request)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request)
 
