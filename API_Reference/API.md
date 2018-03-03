@@ -21,7 +21,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Hierarchies](#hierarchies-d3-hierarchy)
 * [Interpolators](#interpolators-d3-interpolate)
 * [Paths](#paths-d3-path)
-* [Polygons](#polygons-d3-polygon)
+* [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
 * [Queues](#queues-d3-queue)
 * [Random Numbers](#random-numbers-d3-random) - **完成**
@@ -734,15 +734,15 @@ Serialize Canvas path commands to SVG.
 * [*path*.rect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_rect) - draw a rectangle.
 * [*path*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_toString) - serialize to an SVG path data string.
 
-## [Polygons (d3-polygon)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon)
+## [Polygons (d3-polygon)](https://github.com/xswei/d3-polygon)
 
-Geometric operations for two-dimensional polygons.
+二维多边形的几何操作.
 
-* [d3.polygonArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonArea) - compute the area of the given polygon.
-* [d3.polygonCentroid](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonCentroid) - compute the centroid of the given polygon.
-* [d3.polygonHull](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonHull) - compute the convex hull of the given points.
-* [d3.polygonContains](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonContains) - test whether a point is inside a polygon.
-* [d3.polygonLength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonLength) - compute the length of the given polygon’s perimeter.
+* [d3.polygonArea](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonArea) - 计算指定多边形的面积.
+* [d3.polygonCentroid](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonCentroid) - 计算指定多边形的几何中心.
+* [d3.polygonHull](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonHull) - 计算指定一系列点的凸包.
+* [d3.polygonContains](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonContains) - 测试某个点是否在某个多边形内部.
+* [d3.polygonLength](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonLength) - 计算指定多边形的周长.
 
 ## [Quadtrees (d3-quadtree)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree)
 
