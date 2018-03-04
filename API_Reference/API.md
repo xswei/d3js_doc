@@ -25,7 +25,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Quadtrees](#quadtrees-d3-quadtree)
 * [Queues](#queues-d3-queue)
 * [Random Numbers](#random-numbers-d3-random)
-* [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch))
+* [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch)) - **完成**
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
@@ -787,29 +787,29 @@ Generate random numbers from various distributions.
 * [d3.randomExponential](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomExponential) - from an exponential distribution.
 * [*random*.source](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#random_source) - set the source of randomness.
 
-## [Requests (d3-request)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request)
+## [Requests (d3-request)](https://github.com/xswei/d3-request)
 
-A convenient alternative to asynchronous XMLHttpRequest.
+基于异步 XMLHttpRequest 的易用封装
 
-* [d3.request](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request) - make an asynchronous request.
-* [*request*.header](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_header) - set a request header.
-* [*request*.user](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_user) - set the user for authentication.
-* [*request*.password](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_password) - set the password for authentication.
-* [*request*.mimeType](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_mimeType) - set the MIME type.
-* [*request*.timeout](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_timeout) - set the timeout in milliseconds.
-* [*request*.responseType](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_responseType) - set the response type.
-* [*request*.response](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_response) - set the response function.
-* [*request*.get](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_get) - send a GET request.
-* [*request*.post](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_post) - send a POST request.
-* [*request*.send](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_send) - set the request.
-* [*request*.abort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_abort) - abort the request.
-* [*request*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#request_on) - listen for a request event.
-* [d3.csv](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#csv) - get a comma-separated values (CSV) file.
-* [d3.html](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#html) - get an HTML file.
-* [d3.json](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#json) - get a JSON file.
-* [d3.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#text) - get a plain text file.
-* [d3.tsv](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#tsv) - get a tab-separated values (TSV) file.
-* [d3.xml](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-request/README.md#xml) - get an XML file.
+* [d3.request](https://github.com/xswei/d3-request/blob/master/README.md#request) - 创建一个异步请求.
+* [*request*.header](https://github.com/xswei/d3-request/blob/master/README.md#request_header) - 设置请求头.
+* [*request*.user](https://github.com/xswei/d3-request/blob/master/README.md#request_user) - 设置身份验证用户名.
+* [*request*.password](https://github.com/xswei/d3-request/blob/master/README.md#request_password) - 设置身份验证密码.
+* [*request*.mimeType](https://github.com/xswei/d3-request/blob/master/README.md#request_mimeType) - 设置 MIME 类型.
+* [*request*.timeout](https://github.com/xswei/d3-request/blob/master/README.md#request_timeout) - 设置超时时间(毫秒).
+* [*request*.responseType](https://github.com/xswei/d3-request/blob/master/README.md#request_responseType) - 设置相应类型.
+* [*request*.response](https://github.com/xswei/d3-request/blob/master/README.md#request_response) - 设置响应函数.
+* [*request*.get](https://github.com/xswei/d3-request/blob/master/README.md#request_get) - 以 GET 形式发送请求.
+* [*request*.post](https://github.com/xswei/d3-request/blob/master/README.md#request_post) - 以 POST 形式发送请求.
+* [*request*.send](https://github.com/xswei/d3-request/blob/master/README.md#request_send) - 发送请求.
+* [*request*.abort](https://github.com/xswei/d3-request/blob/master/README.md#request_abort) - 中断请求.
+* [*request*.on](https://github.com/xswei/d3-request/blob/master/README.md#request_on) - 设置请求事件监听.
+* [d3.csv](https://github.com/xswei/d3-request/blob/master/README.md#csv) - 获取 CSV 文件.
+* [d3.html](https://github.com/xswei/d3-request/blob/master/README.md#html) - 获取 HTML 文件.
+* [d3.json](https://github.com/xswei/d3-request/blob/master/README.md#json) - 获取 JSON 文件.
+* [d3.text](https://github.com/xswei/d3-request/blob/master/README.md#text) - 获取文本文件.
+* [d3.tsv](https://github.com/xswei/d3-request/blob/master/README.md#tsv) - 获取 TSV 文件.
+* [d3.xml](https://github.com/xswei/d3-request/blob/master/README.md#xml) - 获取 XML 文件.
 
 ## [Scales (d3-scale)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-scale)
 
