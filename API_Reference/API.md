@@ -23,15 +23,12 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Paths](#paths-d3-path)
 * [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
-<<<<<<< HEAD
 * [Queues](#queues-d3-queue)
 * [Random Numbers](#random-numbers-d3-random)
 * [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch)) - **完成**
-=======
 * [Queues](#queues-d3-queue)(V5移除，使用[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)替代) - **完成**
 * [Random Numbers](#random-numbers-d3-random) - **完成**
 * [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch))
->>>>>>> 1918c5e01a84d726fbaa72457ec56499b397cdc8
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
