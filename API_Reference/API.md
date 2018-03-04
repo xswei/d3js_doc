@@ -21,17 +21,23 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Hierarchies](#hierarchies-d3-hierarchy)
 * [Interpolators](#interpolators-d3-interpolate)
 * [Paths](#paths-d3-path)
-* [Polygons](#polygons-d3-polygon)
+* [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
+<<<<<<< HEAD
 * [Queues](#queues-d3-queue)
 * [Random Numbers](#random-numbers-d3-random)
 * [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch)) - **完成**
+=======
+* [Queues](#queues-d3-queue)(V5移除，使用[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)替代) - **完成**
+* [Random Numbers](#random-numbers-d3-random) - **完成**
+* [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch))
+>>>>>>> 1918c5e01a84d726fbaa72457ec56499b397cdc8
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
 * [Time Formats](#time-formats-d3-time-format)
 * [Time Intervals](#time-intervals-d3-time)
-* [Timers](#timers-d3-timer)
+* [Timers](#timers-d3-timer) - **完成**
 * [Transitions](#transitions-d3-transition)
 * [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
 * [Zooming](#zooming-d3-zoom)
@@ -734,15 +740,15 @@ Serialize Canvas path commands to SVG.
 * [*path*.rect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_rect) - draw a rectangle.
 * [*path*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_toString) - serialize to an SVG path data string.
 
-## [Polygons (d3-polygon)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon)
+## [Polygons (d3-polygon)](https://github.com/xswei/d3-polygon)
 
-Geometric operations for two-dimensional polygons.
+二维多边形的几何操作.
 
-* [d3.polygonArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonArea) - compute the area of the given polygon.
-* [d3.polygonCentroid](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonCentroid) - compute the centroid of the given polygon.
-* [d3.polygonHull](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonHull) - compute the convex hull of the given points.
-* [d3.polygonContains](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonContains) - test whether a point is inside a polygon.
-* [d3.polygonLength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-polygon/README.md#polygonLength) - compute the length of the given polygon’s perimeter.
+* [d3.polygonArea](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonArea) - 计算指定多边形的面积.
+* [d3.polygonCentroid](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonCentroid) - 计算指定多边形的几何中心.
+* [d3.polygonHull](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonHull) - 计算指定一系列点的凸包.
+* [d3.polygonContains](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonContains) - 测试某个点是否在某个多边形内部.
+* [d3.polygonLength](https://github.com/xswei/d3-polygon/blob/master/README.md#polygonLength) - 计算指定多边形的周长.
 
 ## [Quadtrees (d3-quadtree)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree)
 
@@ -765,27 +771,27 @@ Two-dimensional recursive spatial subdivision.
 * [*quadtree*.cover](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree/README.md#quadtree_cover) - extend the quadtree to cover a point.
 * [*quadtree*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-quadtree/README.md#quadtree_extent) - extend the quadtree to cover an extent.
 
-## [Queues (d3-queue)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue)
+## [Queues (d3-queue)](https://github.com/xswei/d3-queue)
 
-Evaluate asynchronous tasks with configurable concurrency.
+使用可配置的并发管理异步任务.
 
-* [d3.queue](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue) - manage the concurrent evaluation of asynchronous tasks.
-* [*queue*.defer](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_defer) - register a task for evaluation.
-* [*queue*.abort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_abort) - abort any active tasks and cancel any pending ones.
-* [*queue*.await](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_await) - register a callback for when tasks complete.
-* [*queue*.awaitAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-queue/README.md#queue_awaitAll) - register a callback for when tasks complete.
+* [d3.queue](https://github.com/xswei/d3-queue/blob/master/README.md#queue) - 管理异步任务的并发执行.
+* [*queue*.defer](https://github.com/xswei/d3-queue/blob/master/README.md#queue_defer) - 注册异步任务.
+* [*queue*.abort](https://github.com/xswei/d3-queue/blob/master/README.md#queue_abort) - 中断活动的异步任务并且取消未执行的任务.
+* [*queue*.await](https://github.com/xswei/d3-queue/blob/master/README.md#queue_await) - 注册任务完成时的回调.
+* [*queue*.awaitAll](https://github.com/xswei/d3-queue/blob/master/README.md#queue_awaitAll) - 注册任务完成时的回调.
 
-## [Random Numbers (d3-random)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random)
+## [Random Numbers (d3-random)](https://github.com/xswei/d3-random)
 
-Generate random numbers from various distributions.
+基于多种多样的分布模型生成随机数.
 
-* [d3.randomUniform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomUniform) - from a uniform distribution.
-* [d3.randomNormal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomNormal) - from a normal distribution.
-* [d3.randomLogNormal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomLogNormal) - from a log-normal distribution.
-* [d3.randomBates](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomBates) - from a Bates distribution.
-* [d3.randomIrwinHall](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomIrwinHall) - from an Irwin–Hall distribution.
-* [d3.randomExponential](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#randomExponential) - from an exponential distribution.
-* [*random*.source](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-random/README.md#random_source) - set the source of randomness.
+* [d3.randomUniform](https://github.com/xswei/d3-random/blob/master/README.md#randomUniform) - 一般分布.
+* [d3.randomNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomNormal) - 标准高斯分布.
+* [d3.randomLogNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomLogNormal) - 对数分布.
+* [d3.randomBates](https://github.com/xswei/d3-random/blob/master/README.md#randomBates) - 贝茨分布.
+* [d3.randomIrwinHall](https://github.com/xswei/d3-random/blob/master/README.md#randomIrwinHall) - Irwin–Hall 分布.
+* [d3.randomExponential](https://github.com/xswei/d3-random/blob/master/README.md#randomExponential) - 指数分布.
+* [*random*.source](https://github.com/xswei/d3-random/blob/master/README.md#random_source) - 设置随机数生成源.
 
 ## [Requests (d3-request)](https://github.com/xswei/d3-request)
 
@@ -1268,17 +1274,17 @@ A calculator for humanity’s peculiar conventions of time.
 * [d3.timeYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - the year interval.
 * [d3.timeYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - aliases for year.range.
 
-## [Timers (d3-timer)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer)
+## [Timers (d3-timer)](https://github.com/xswei/d3-timer)
 
-An efficient queue for managing thousands of concurrent animations.
+一个高效的可以用来管理上千并发动画的队列
 
-* [d3.now](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#now) - get the current high-resolution time.
-* [d3.timer](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer) - schedule a new timer.
-* [*timer*.restart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer_restart) - reset the timer’s start time and callback.
-* [*timer*.stop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timer_stop) - stop the timer.
-* [d3.timerFlush](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timerFlush) - immediately execute any eligible timers.
-* [d3.timeout](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#timeout) - schedule a timer that stops on its first callback.
-* [d3.interval](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-timer/README.md#interval) - schedule a timer that is called with a configurable period.
+* [d3.now](https://github.com/xswei/d3-timer/blob/master/README.md#now) - 获取当前高精度时间戳(参考[DOMHighResTimeStamp](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp)).
+* [d3.timer](https://github.com/xswei/d3-timer/blob/master/README.md#timer) - 定义一个定时器.
+* [*timer*.restart](https://github.com/xswei/d3-timer/blob/master/README.md#timer_restart) - 重新设置定时器的开始时间和回调.
+* [*timer*.stop](https://github.com/xswei/d3-timer/blob/master/README.md#timer_stop) - 停止定时器.
+* [d3.timerFlush](https://github.com/xswei/d3-timer/blob/master/README.md#timerFlush) - 立即执行合法的定时器.
+* [d3.timeout](https://github.com/xswei/d3-timer/blob/master/README.md#timeout) - 定义一个只执行一次回调的定时器.
+* [d3.interval](https://github.com/xswei/d3-timer/blob/master/README.md#interval) - 定义一个可以按照指定间隔执行回调的定时器.
 
 ## [Transitions (d3-transition)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition)
 
