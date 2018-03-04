@@ -20,7 +20,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
 * [Hierarchies](#hierarchies-d3-hierarchy)
 * [Interpolators](#interpolators-d3-interpolate)
-* [Paths](#paths-d3-path)
+* [Paths](#paths-d3-path) - **完成**
 * [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
 * [Queues](#queues-d3-queue)(V5移除，使用[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)替代) - **完成**
@@ -719,20 +719,20 @@ Interpolate numbers, colors, strings, arrays, objects, whatever!
 * [d3.interpolateBasisClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateBasisClosed) - generate a closed B-spline through a set of values.
 * [d3.quantize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#quantize) - generate uniformly-spaced samples from an interpolator.
 
-## [Paths (d3-path)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path)
+## [Paths (d3-path)](https://github.com/xswei/d3-path)
 
-Serialize Canvas path commands to SVG.
+将 Canvas 路径命令序列化为 SVG 路径字符串。
 
-* [d3.path](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path) - create a new path serializer.
-* [*path*.moveTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_moveTo) - move to the given point.
-* [*path*.closePath](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_closePath) - close the current subpath.
-* [*path*.lineTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_lineTo) - draw a straight line segment.
-* [*path*.quadraticCurveTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_quadraticCurveTo) - draw a quadratic Bézier segment.
-* [*path*.bezierCurveTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_bezierCurveTo) - draw a cubic Bézier segment.
-* [*path*.arcTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_arcTo) - draw a circular arc segment.
-* [*path*.arc](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_arc) - draw a circular arc segment.
-* [*path*.rect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_rect) - draw a rectangle.
-* [*path*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-path/README.md#path_toString) - serialize to an SVG path data string.
+* [d3.path](https://github.com/xswei/d3-path/blob/master/README.md#path) - 创建一个新的路径序列化.
+* [*path*.moveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_moveTo) - 移动到指定的点.
+* [*path*.closePath](https://github.com/xswei/d3-path/blob/master/README.md#path_closePath) - 闭合当前子路径.
+* [*path*.lineTo](https://github.com/xswei/d3-path/blob/master/README.md#path_lineTo) - 绘制直线.
+* [*path*.quadraticCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_quadraticCurveTo) - 绘制二次 Bézier 曲线.
+* [*path*.bezierCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_bezierCurveTo) - 绘制三次 Bézier 曲线.
+* [*path*.arcTo](https://github.com/xswei/d3-path/blob/master/README.md#path_arcTo) - 绘制弧线段.
+* [*path*.arc](https://github.com/xswei/d3-path/blob/master/README.md#path_arc) - 绘制弧线段.
+* [*path*.rect](https://github.com/xswei/d3-path/blob/master/README.md#path_rect) - 绘制矩形.
+* [*path*.toString](https://github.com/xswei/d3-path/blob/master/README.md#path_toString) - 序列化为 SVG 路径字符串.
 
 ## [Polygons (d3-polygon)](https://github.com/xswei/d3-polygon)
 
