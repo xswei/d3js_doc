@@ -10,7 +10,7 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Colors](#colors-d3-color)
 * [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
 * [Contours](#contours-d3-contour)(V5 新增模块)
-* [Dispatches](#dispatches-d3-dispatch)
+* [Dispatches](#dispatches-d3-dispatch) - **完成**
 * [Dragging](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
@@ -341,17 +341,15 @@ Compute contour polygons using marching squares.
 * *density*.thresholds -
 * *density*.bandwidth -
 
-## [Dispatches (d3-dispatch)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch)
-
-**Done**
+## [Dispatches (d3-dispatch)](https://github.com/xswei/d3-dispatch)
 
 使用命名回调函数分离关注点
 
-* [d3.dispatch](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch) - 创建一个自定义事件分发器
-* [*dispatch*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_on) - 注册或取消注册事件监听器
-* [*dispatch*.copy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_copy) - 创建分发器的副本
-* [*dispatch*.*call*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_call) - 分发事件到注册的事件监听器
-* [*dispatch*.*apply*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dispatch/README.md#dispatch_apply) - 分发事件到注册事件监听器
+* [d3.dispatch](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch) - 创建一个自定义事件分发器
+* [*dispatch*.on](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_on) - 注册或取消注册事件监听器
+* [*dispatch*.copy](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_copy) - 创建分发器的副本
+* [*dispatch*.*call*](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_call) - 分发事件到注册的事件监听器
+* [*dispatch*.*apply*](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_apply) - 分发事件到注册事件监听器
 
 ## [Dragging (d3-drag)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag)
 
