@@ -7,14 +7,14 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Brushes](#brushes-d3-brush)
 * [Chords](#chords-d3-chord)
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests))
-* [Colors](#colors-d3-color)
+* [Colors](#colors-d3-color) - **完成**
 * [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
-* [Contours](#contours-d3-contour)(V5 新增模块)
+* [Contours](#contours-d3-contour) ( V5 新增模块 )
 * [Dispatches](#dispatches-d3-dispatch) - **完成**
 * [Dragging](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
-* [Fetches](#fetches-d3-fetch)(V5 新增模块) - **完成**
+* [Fetches](#fetches-d3-fetch) ( V5 新增模块 ) - **完成**
 * [Forces](#forces-d3-force)
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
@@ -23,9 +23,9 @@ D3 4.0是一个相互协同工作的[模块集合](https://github.com/d3); 你�
 * [Paths](#paths-d3-path) - **完成**
 * [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
-* [Queues](#queues-d3-queue)(V5移除，使用[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)替代) - **完成**
+* [Queues](#queues-d3-queue) ( V5移除, 使用 **[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)** 替代) - **完成**
 * [Random Numbers](#random-numbers-d3-random) - **完成**
-* [Requests](#requests-d3-request)(V5 移除, 替代品为[Fetches](#fetches-d3-fetch)) - **完成**
+* [Requests](#requests-d3-request) ( V5 移除, 使用 **[Fetches](#fetches-d3-fetch)** 替代 ) - **完成**
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
@@ -216,23 +216,21 @@ D3 使用[语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*nest*.object](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_object) - 生成嵌套结果并返回一个关联数组
 * [*nest*.entries](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_entries) - 生成嵌套结果，并返回一组`key-value`元组
 
-## [Colors (d3-color)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color)
-
-**Done**
+## [Colors (d3-color)](https://github.com/xswei/d3-color)
 
 颜色空间以及转换
 
-* [d3.color](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color) - 转换指定的CSS颜色字符串.
-* [*color*.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_rgb) - 计算当前颜色值的RGB表示.
-* [*color*.brighter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_brighter) - 创建一个更亮的颜色副本.
-* [*color*.darker](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_darker) - 创建一个更暗的颜色副本
-* [*color*.displayable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_displayable) - 判断当前设备是否支持当前颜色
-* [*color*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#color_toString) - 将当前颜色转为RGB颜色的十六进制表示
-* [d3.rgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#rgb) - 创建一个新的RGB颜色.
-* [d3.hsl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hsl) - 创建一个新的HSL颜色.
-* [d3.lab](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#lab) - 创建一个新的Lab颜色.
-* [d3.hcl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#hcl) - 创建一个新的HCL颜色.
-* [d3.cubehelix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-color/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
+* [d3.color](https://github.com/xswei/d3-color/blob/master/README.md#color) - 转换指定的CSS颜色字符串.
+* [*color*.rgb](https://github.com/xswei/d3-color/blob/master/README.md#color_rgb) - 计算当前颜色值的RGB表示.
+* [*color*.brighter](https://github.com/xswei/d3-color/blob/master/README.md#color_brighter) - 创建一个更亮的颜色副本.
+* [*color*.darker](https://github.com/xswei/d3-color/blob/master/README.md#color_darker) - 创建一个更暗的颜色副本
+* [*color*.displayable](https://github.com/xswei/d3-color/blob/master/README.md#color_displayable) - 判断当前设备是否支持当前颜色
+* [*color*.toString](https://github.com/xswei/d3-color/blob/master/README.md#color_toString) - 将当前颜色转为RGB颜色的十六进制表示
+* [d3.rgb](https://github.com/xswei/d3-color/blob/master/README.md#rgb) - 创建一个新的RGB颜色.
+* [d3.hsl](https://github.com/xswei/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色.
+* [d3.lab](https://github.com/xswei/d3-color/blob/master/README.md#lab) - 创建一个新的Lab颜色.
+* [d3.hcl](https://github.com/xswei/d3-color/blob/master/README.md#hcl) - 创建一个新的HCL颜色.
+* [d3.cubehelix](https://github.com/xswei/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
 
 ## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md)
 
