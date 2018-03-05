@@ -30,7 +30,7 @@ console.log(psv.parse("foo|bar\n1|2")); // [{foo: "1", bar: "2"}, columns: ["foo
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 <script>
 

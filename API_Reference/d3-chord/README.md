@@ -12,7 +12,7 @@
 
 在页面中使用标签形式引用时会创建一个`d3`全局变量：
 
-```html
+```js
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script src="https://d3js.org/d3-path.v1.min.js"></script>
 <script src="https://d3js.org/d3-chord.v1.min.js"></script>

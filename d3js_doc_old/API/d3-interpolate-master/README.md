@@ -34,7 +34,7 @@ i(1.0); // {colors: ["rgb(255, 255, 255)", "rgb(0, 0, 0)"]}
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 <script>

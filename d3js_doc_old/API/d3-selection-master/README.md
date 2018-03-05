@@ -37,7 +37,7 @@ d3.select("body")
 
 NPM等安装方法略。
 
-```html
+```js
 <script src="https://d3js.org/d3-selection.v1.min.js"></script>
 <script>
 
@@ -452,7 +452,7 @@ var td = tr.selectAll("td")
 
 比如对于下面的DOM文档:
 
-```html
+```js
 <div id="Ford"></div>
 <div id="Jarrah"></div>
 <div id="Kwon"></div>
@@ -536,7 +536,7 @@ var div = d3.select("body")
 
 如果初始状态下body为空则会创建6个DIV元素并将其添加到body中:
 
-```html
+```js
 <div>4</div>
 <div>8</div>
 <div>15</div>
@@ -569,7 +569,7 @@ div.exit().remove();
 
 此时的DOM如下:
 
-```html
+```js
 <div>1</div>
 <div>2</div>
 <div>4</div>
@@ -588,7 +588,7 @@ DOM元素的顺序与数据元素的顺序一致。
 
 如果*value*没有指定，则返回当前选择集中第一个非null元素绑定的数据，这个方法在访问HTML5 的 [custom data attributes](http://www.w3.org/TR/html5/dom.html#custom-data-attribute)时是有用的. 比如有如下元素:
 
-```html
+```js
 <ul id="list">
   <li data-username="shawnbot">Shawn Allen</li>
   <li data-username="mbostock">Mike Bostock</li>

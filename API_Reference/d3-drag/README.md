@@ -24,7 +24,7 @@
 - NPM, `npm install d3-drag`. 
 - 下载 [latest release](https://github.com/d3/d3-drag/releases/latest)，可以作为单独的标准库，也可以作为D3 v4的一部分引入
 
-```html
+```js
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-selection.v1.min.js"></script>
 <script src="https://d3js.org/d3-drag.v1.min.js"></script>

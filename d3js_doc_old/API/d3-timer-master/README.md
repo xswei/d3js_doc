@@ -6,7 +6,7 @@
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-timer.v1.min.js"></script>
 <script>
 

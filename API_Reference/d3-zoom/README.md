@@ -24,7 +24,7 @@ See also [d3-tile](https://github.com/d3/d3-tile) for examples panning and zoomi
 
 If you use NPM, `npm install d3-zoom`. Otherwise, download the [latest release](https://github.com/d3/d3-zoom/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-zoom.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-ease.v1.min.js"></script>

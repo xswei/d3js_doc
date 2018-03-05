@@ -41,7 +41,7 @@ Cubehelix 的亮度是单调的，而*Lab*和*HCL*的感觉更均匀。*HCL*是*
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script>
 

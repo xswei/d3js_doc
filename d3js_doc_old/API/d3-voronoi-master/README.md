@@ -21,7 +21,7 @@ Voronoi图不仅在视觉上有吸引力，而且是一个交互的是实用工�
 NPM等安装方法略。
 
 
-```html
+```js
 <script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
 <script>
 

@@ -1,4 +1,4 @@
-# d3-path
+s# d3-path
 
 在使用2D Canvas绘图时，你会使用到如下代码::
 
@@ -24,7 +24,7 @@ pathElement.setAttribute("d", context.toString());
 NPM等安装方法略
 
 
-```html
+```js
 <script src="https://d3js.org/d3-path.v1.min.js"></script>
 <script>
 

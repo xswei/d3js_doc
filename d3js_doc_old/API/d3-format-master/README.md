@@ -69,7 +69,7 @@ d3.format(",.2r")(4223);  // grouped thousands with two significant digits, "4,2
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-format.v1.min.js"></script>
 <script>
 

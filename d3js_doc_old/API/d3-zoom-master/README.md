@@ -24,7 +24,7 @@ zoom可以使用[*zoom*.transform](#zoom_transform)方法进行编程操作。�
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-ease.v1.min.js"></script>

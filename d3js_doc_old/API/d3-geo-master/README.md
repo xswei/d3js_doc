@@ -25,7 +25,7 @@ D3使用[GeoJSON](http://geojson.org/geojson-spec.html)来表示地理几何特�
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
 <script>

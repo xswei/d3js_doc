@@ -12,7 +12,7 @@ axis.tickArguments([a,b])相当于 axis.ticks(a) + axis.tickFormat(b)
 
 如果你使用NPM, `npm install d3-axis`. 也下载[最新版](https://github.com/d3/d3-axis/releases/latest). 或者以[独立库](https://d3js.org/d3-axis.v1.min.js) 或[D3 4.0](https://github.com/d3/d3)的一部分的形式从[d3js.org](https://d3js.org)获取. (你可能还需要 [d3-scale](https://github.com/d3/d3-scale)和 [d3-selection](https://github.com/d3/d3-selection),但是这些不是硬性要求). 也支持AMD, CommonJS,和vanilla环境. 在vanilla中, `d3`以如下方式被引入:
 
-```html
+```js
 <script src="https://d3js.org/d3-axis.v1.min.js"></script>
 <script>
 
@@ -40,7 +40,7 @@ d3.select("body").append("svg")
 
 由axis创建的元素是可以通过外部样式表或修改其属性来自定义轴的外观. 轴元素由一个class为"domain"的[path元素](https://www.w3.org/TR/SVG/paths.html#PathElement)来表示比例尺的输入范围, 后面跟随几个经过变换的class为"tick"的[g 元素](https://www.w3.org/TR/SVG/struct.html#Groups)来表示刻度. 每个刻度包含一个[line元素](https://www.w3.org/TR/SVG/shapes.html#LineElement) 来表示刻度线, 和一个[text 元素](https://www.w3.org/TR/SVG/text.html#TextElement) 表示刻度值. 如下为一个典型的bottom-oriented轴:
 
-```html
+```js
 <g fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
   <path class="domain" stroke="#000" d="M0.5,6V0.5H880.5V6"></path>
   <g class="tick" opacity="1" transform="translate(0,0)">

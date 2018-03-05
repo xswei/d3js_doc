@@ -28,7 +28,7 @@ line.context(context)(data);
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-path.v1.min.js"></script>
 <script src="https://d3js.org/d3-shape.v1.min.js"></script>
 <script>

@@ -84,7 +84,7 @@ var ticks = d3.ticks(0, 10, 5); // [0, 2, 4, 6, 8, 10]
 
 > 在3.x中你必须设置如下样式
 
-```html
+```js
 <style>
 
 .axis path,

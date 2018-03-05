@@ -26,7 +26,7 @@ W3C对Pointer的定义为：以任何输入设备在屏幕上做出接触点的�
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-selection.v1.min.js"></script>
 <script src="https://d3js.org/d3-drag.v1.min.js"></script>

@@ -35,7 +35,7 @@ JavaScript中数组的**迭代方法**:
 
 通过npm命令: `npm install d3-array` 安装. 或者下载[最新发布](https://github.com/d3/d3-array/releases/latest)的版本. 也可以直接从 [d3js.org](https://d3js.org) 下载, 可以作为一个 [标准库](https://d3js.org/d3-array.v1.min.js) 或者 [D3 4.0](https://github.com/d3/d3)的一部分. 支持AMD, CommonJS, and vanilla 环境. 在 vanilla 环境中, 会暴露出一个 `d3` 全局变量:
 
-```html
+```js
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script>
 

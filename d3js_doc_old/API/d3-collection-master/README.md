@@ -6,7 +6,7 @@ D3内置的一些数据结构，包括对象(Object),集合(Set),映射(Map)以�
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
 <script>
 

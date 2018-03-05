@@ -116,7 +116,7 @@ var q = d3.queue()
 
 NPM等安装方法略
 
-```html
+```js
 <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 <script>
 

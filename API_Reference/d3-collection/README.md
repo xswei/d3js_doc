@@ -10,7 +10,7 @@
 
 支持AMD, CommonJS,和 vanilla 环境,暴露`d3`全局变量:
 
-```html
+```js
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
 <script>
 

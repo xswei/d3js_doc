@@ -10,7 +10,7 @@
 
 使用下面方式引入时会创建一个`d3`全局变量:
 
-```html
+```js
 <script src="https://d3js.org/d3-axis.v1.min.js"></script>
 <script>
 
@@ -45,7 +45,7 @@ d3.select("body").append("svg")
 
 坐标轴的DOM结构如下：
 
-```html
+```js
 <g fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
   <path class="domain" stroke="#000" d="M0.5,6V0.5H880.5V6"></path>
   <g class="tick" opacity="1" transform="translate(0.5,0)">

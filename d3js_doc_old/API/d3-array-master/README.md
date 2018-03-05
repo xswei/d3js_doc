@@ -37,7 +37,7 @@ JavaScript中数组的**迭代方法**:
 下面是普通的引用方式：
 
 
-```html
+```js
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script>
 

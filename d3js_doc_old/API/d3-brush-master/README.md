@@ -13,7 +13,7 @@ Brush也可以通过编程方式控制. 比如添加[*end* 事件](#brush-events
 
 如果你使用NPM, `npm install d3-brush`. 也可以从 [d3js.org](https://d3js.org)直接下载 [最新版](https://github.com/d3/d3-brush/releases/latest).  可以作为[单独的模块](https://d3js.org/d3-brush.v1.min.js) 或 [D3 4.0](https://github.com/d3/d3)一部分使用. 也支持AMD, CommonJS, 和 vanilla环境. 在使用时，会创建`d3`全局变量:
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-ease.v1.min.js"></script>
@@ -62,7 +62,7 @@ group.on(".brush", null);
 ```
 brush会创建SVG元素来显示选中的区域，你可以添加、删除或按需改变这些元素的样式，也可以通过样式表来修改外观. 二维的brush元素结构如下：
 
-```html
+```js
 <g class="brush" fill="none" pointer-events="all" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
   <rect class="overlay" pointer-events="all" cursor="crosshair" x="0" y="0" width="960" height="500"></rect>
   <rect class="selection" cursor="move" fill="#777" fill-opacity="0.3" stroke="#fff" shape-rendering="crispEdges" x="112" y="194" width="182" height="83"></rect>

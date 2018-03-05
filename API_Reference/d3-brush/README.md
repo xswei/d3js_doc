@@ -29,7 +29,7 @@ d3-brush模块的实现基于注册于[SVG](https://www.w3.org/TR/SVG/)上的鼠
 
 安装后会对全局暴露一个`d3`全局变量：
 
-```html
+```js
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-ease.v1.min.js"></script>
@@ -80,7 +80,7 @@ group.on(".brush", null);
 
 刷取操作会创建一些必要的SVG元素来显示刷取交互显示元素.你可以添加,移除或者修改这些元素的外观.你也可以将样式文件应用到这些元素上.二维刷取所生成的元素结构如下：
 
-```html
+```js
 <g class="brush" fill="none" pointer-events="all" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
   <rect class="overlay" pointer-events="all" cursor="crosshair" x="0" y="0" width="960" height="500"></rect>
   <rect class="selection" cursor="move" fill="#777" fill-opacity="0.3" stroke="#fff" shape-rendering="crispEdges" x="112" y="194" width="182" height="83"></rect>
@@ -156,7 +156,7 @@ function filter() {
 <a href="#brushSelection" name="brushSelection">#</a> d3.<b>brushSelection</b>(<i>node</i>) [<源码>](https://github.com/d3/d3-brush/blob/master/src/brush.js#L118 "Source")
 
 返回指定*node*的刷取区间.在内部元素的刷取状态存储在*element*.\_\_brush属性上；但是不能直接使用这个属性.如果给定的*node*没有应用刷取操作,则返回`null`.*selection*被定义为数组.对于二维刷取操作,由[[*x0*, *y0*], [*x1*, *y1*]]表示.对于一维的*x* 或 *y*方向刷取,则由[*x0*, *x1*] 和 [*y0*, *y1*]表示.
-
+sss
 ### Brush Events
 
 当[brush event listener](#brush_on)被调用时, [d3.event](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-selection/README.md#event) 被设置为当前的刷取事件对象.当前的*event*对象有以下几个属性:

@@ -10,7 +10,7 @@ d3js是一个可以基于数据来操作文档的JavaScript库。可以帮助你
 
 或者插入如下代码来在线使用:
 
-```html
+```js
 <script src="https://d3js.org/d3.v4.min.js"></script>
 ```
 

@@ -32,7 +32,7 @@ d3.request("/path/to/resource")
 
 NPM等安装方法略:
 
-```html
+```js
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
 <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
 <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
