@@ -2,7 +2,7 @@
 
 `d3` v4.0 是一个相互协同工作的 [模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。`d3` v3.x 和 4.x 之间的差异可以参考 [CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考 [这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 
-* [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms))
+* [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms)) - **完成**
 * [Axes](#axes-d3-axis)
 * [Brushes](#brushes-d3-brush)
 * [Chords](#chords-d3-chord)
@@ -38,68 +38,66 @@
 
 D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
 
-## [Arrays (d3-array)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md)
-
-**Done**
+## [Arrays (d3-array)](https://github.com/xswei/d3-array)
 
 数组操作，包括排序、查找、汇总等等
 
-### [Statistics](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#statistics)
+### [Statistics](https://github.com/xswei/d3-array/blob/master/README.md#statistics)
 
 基本的静态统计计算方法
 
-* [d3.min](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#min) - 计算数组中的最小值.
-* [d3.max](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#max) - 计算数组中的最大值.
-* [d3.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#extent) - 计算数组中的最大值和最小值.
-* [d3.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#sum) - 计算数组元素之和.
-* [d3.mean](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#mean) - 计算数组元素的算术中位数.
-* [d3.median](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#median) - 计算数组元素的中位数 (也就是 0.5-分位数).
-* [d3.quantile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#quantile) - 计算有序数组的分位数.
-* [d3.variance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#variance) - 计算数组元素的方差.
-* [d3.deviation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#deviation) - 计算数组元素的标准差.
+* [d3.min](https://github.com/xswei/d3-array/blob/master/README.md#min) - 计算数组中的最小值.
+* [d3.max](https://github.com/xswei/d3-array/blob/master/README.md#max) - 计算数组中的最大值.
+* [d3.extent](https://github.com/xswei/d3-array/blob/master/README.md#extent) - 计算数组中的最大值和最小值.
+* [d3.sum](https://github.com/xswei/d3-array/blob/master/README.md#sum) - 计算数组元素之和.
+* [d3.mean](https://github.com/xswei/d3-array/blob/master/README.md#mean) - 计算数组元素的算术中位数.
+* [d3.median](https://github.com/xswei/d3-array/blob/master/README.md#median) - 计算数组元素的中位数 (也就是 0.5-分位数).
+* [d3.quantile](https://github.com/xswei/d3-array/blob/master/README.md#quantile) - 计算有序数组的分位数.
+* [d3.variance](https://github.com/xswei/d3-array/blob/master/README.md#variance) - 计算数组元素的方差.
+* [d3.deviation](https://github.com/xswei/d3-array/blob/master/README.md#deviation) - 计算数组元素的标准差.
 
-### [Search](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#search)
+### [Search](https://github.com/xswei/d3-array/blob/master/README.md#search)
 
 查找类方法
 
-* [d3.scan](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#scan) - 使用指定的比较器进行线性查找指定的元素.
-* [d3.bisect](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisect) - 二分查找有序数组中指定元素的索引.
-* [d3.bisectRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectRight) - 二分查找有序数组中指定元素的索引.
-* [d3.bisectLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisectLeft) - 二分查找有序数组中指定元素的索引.
-* [d3.bisector](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector) - 用指定的访问器或比较器对二分查找.
-* [*bisector*.left](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_left) - 与bisectLeft类似, 可以指定比较器.
-* [*bisector*.right](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#bisector_right) - 与bisectRight类似, 可以指定比较器.
-* [d3.ascending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ascending) - 计算两个值的自然顺序.
-* [d3.descending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#descending) - 计算两个值的自然顺序.
+* [d3.scan](https://github.com/xswei/d3-array/blob/master/README.md#scan) - 使用指定的比较器进行线性查找指定的元素.
+* [d3.bisect](https://github.com/xswei/d3-array/blob/master/README.md#bisect) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectRight](https://github.com/xswei/d3-array/blob/master/README.md#bisectRight) - 二分查找有序数组中指定元素的索引.
+* [d3.bisectLeft](https://github.com/xswei/d3-array/blob/master/README.md#bisectLeft) - 二分查找有序数组中指定元素的索引.
+* [d3.bisector](https://github.com/xswei/d3-array/blob/master/README.md#bisector) - 用指定的访问器或比较器对二分查找.
+* [*bisector*.left](https://github.com/xswei/d3-array/blob/master/README.md#bisector_left) - 与 bisectLeft 类似, 可以指定比较器.
+* [*bisector*.right](https://github.com/xswei/d3-array/blob/master/README.md#bisector_right) - 与 bisectRight 类似, 可以指定比较器.
+* [d3.ascending](https://github.com/xswei/d3-array/blob/master/README.md#ascending) - 计算两个值的自然顺序.
+* [d3.descending](https://github.com/xswei/d3-array/blob/master/README.md#descending) - 计算两个值的自然顺序.
 
-### [Transformations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transformations)
+### [Transformations](https://github.com/xswei/d3-array/blob/master/README.md#transformations)
 
 数组变换和计算，返回新的数组
 
-* [d3.cross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#cross) - 计算两个数组的笛卡尔积.
-* [d3.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#merge) - 将多个数组合并为一个.
-* [d3.pairs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#pairs) - 将数组中相邻的两个元素两两结合.
-* [d3.permute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#permute) - 根据指定的索引返回对数组重排后的结果.
-* [d3.shuffle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#shuffle) - 随机打乱数组顺序
-* [d3.ticks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#ticks) - 从给定的区间范围内生成一系列值.
-* [d3.tickIncrement](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickIncrement) - 从给定的区间范围内生成一系列值.
-* [d3.tickStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#tickStep) - 从给定的区间范围内生成一系列值.
-* [d3.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#range) - 根据指定的区间生成一系列值.
-* [d3.transpose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#transpose) - 将数组的数组进行转置.
-* [d3.zip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#zip) - 转置多个数组.
+* [d3.cross](https://github.com/xswei/d3-array/blob/master/README.md#cross) - 计算两个数组的笛卡尔积.
+* [d3.merge](https://github.com/xswei/d3-array/blob/master/README.md#merge) - 将多个数组合并为一个.
+* [d3.pairs](https://github.com/xswei/d3-array/blob/master/README.md#pairs) - 将数组中相邻的两个元素两两结合.
+* [d3.permute](https://github.com/xswei/d3-array/blob/master/README.md#permute) - 根据指定的索引返回对数组重排后的结果.
+* [d3.shuffle](https://github.com/xswei/d3-array/blob/master/README.md#shuffle) - 随机打乱数组顺序
+* [d3.ticks](https://github.com/xswei/d3-array/blob/master/README.md#ticks) - 从给定的区间范围内生成一系列值.
+* [d3.tickIncrement](https://github.com/xswei/d3-array/blob/master/README.md#tickIncrement) - 从给定的区间范围内生成一系列值.
+* [d3.tickStep](https://github.com/xswei/d3-array/blob/master/README.md#tickStep) - 从给定的区间范围内生成一系列值.
+* [d3.range](https://github.com/xswei/d3-array/blob/master/README.md#range) - 根据指定的区间生成一系列值.
+* [d3.transpose](https://github.com/xswei/d3-array/blob/master/README.md#transpose) - 将数组的数组进行转置.
+* [d3.zip](https://github.com/xswei/d3-array/blob/master/README.md#zip) - 转置多个数组.
 
-### [Histograms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histograms)
+### [Histograms](https://github.com/xswei/d3-array/blob/master/README.md#histograms)
 
 直方图将离散样本分成连续的，不重叠的区间。
 
-* [d3.histogram](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram) - 创建一个新的直方图生成器.
-* [*histogram*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#_histogram) - 根据给定的数组计算直方图.
-* [*histogram*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_value) - 设置或获取直方图值访问器.
-* [*histogram*.domain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_domain) - 设置或获取直方图的可观测区间.
-* [*histogram*.thresholds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#histogram_thresholds) - 设置直方图阈值(生成方式).
-* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdFreedmanDiaconis) - Freedman–Diaconis直方图生成规则.
-* [d3.thresholdScott](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdScott) - Scott’s normal reference 直方图生成规则.
-* [d3.thresholdSturges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-array/README.md#thresholdSturges) - Sturges’ 直方图生成规则.
+* [d3.histogram](https://github.com/xswei/d3-array/blob/master/README.md#histogram) - 创建一个新的直方图生成器.
+* [*histogram*](https://github.com/xswei/d3-array/blob/master/README.md#_histogram) - 根据给定的数组计算直方图.
+* [*histogram*.value](https://github.com/xswei/d3-array/blob/master/README.md#histogram_value) - 设置或获取直方图值访问器.
+* [*histogram*.domain](https://github.com/xswei/d3-array/blob/master/README.md#histogram_domain) - 设置或获取直方图的可观测区间.
+* [*histogram*.thresholds](https://github.com/xswei/d3-array/blob/master/README.md#histogram_thresholds) - 设置直方图阈值生成方式.
+* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) - Freedman–Diaconis 阈值生成规则.
+* [d3.thresholdScott](https://github.com/xswei/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference 阈值生成规则.
+* [d3.thresholdSturges](https://github.com/xswei/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ 阈值生成规则.
 
 ## [Axes (d3-axis)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-axis)
 
