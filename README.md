@@ -19,6 +19,7 @@
 * [教程](https://github.com/d3/d3/wiki/Tutorials)
 * [插件](https://github.com/d3/d3/wiki/Plugins)
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
+* [一些 Demo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/EXAMPLES.md)
 
 ### 最新版本动态
 
