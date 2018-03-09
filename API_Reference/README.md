@@ -440,54 +440,54 @@ Easing functions for smooth animation.
 * [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - 获取无格式文本.
 * [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 tab 分隔符(TSV)文件.
 
-## [Forces (d3-force)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force)
+## [Forces (d3-force)](https://github.com/xswei/d3-force)
 
 Force-directed graph layout using velocity Verlet integration.
 
-* [d3.forceSimulation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceSimulation) - create a new force simulation.
-* [*simulation*.restart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_restart) - reheat and restart the simulation’s timer.
-* [*simulation*.stop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_stop) - stop the simulation’s timer.
-* [*simulation*.tick](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_tick) - advance the simulation one step.
-* [*simulation*.nodes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_nodes) - set the simulation’s nodes.
-* [*simulation*.alpha](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_alpha) - set the current alpha.
-* [*simulation*.alphaMin](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_alphaMin) - set the minimum alpha threshold.
-* [*simulation*.alphaDecay](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_alphaDecay) - set the alpha exponential decay rate.
-* [*simulation*.alphaTarget](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_alphaTarget) - set the target alpha.
-* [*simulation*.velocityDecay](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_velocityDecay) - set the velocity decay rate.
-* [*simulation*.force](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_force) - add or remove a force.
-* [*simulation*.find](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_find) - find the closest node to the given position.
-* [*simulation*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#simulation_on) - add or remove an event listener.
-* [*force*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#_force) - apply the force.
-* [*force*.initialize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#force_initialize) - initialize the force with the given nodes.
-* [d3.forceCenter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceCenter) - create a centering force.
-* [*center*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#center_x) - set the center *x*-coordinate.
-* [*center*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#center_y) - set the center *y*-coordinate.
-* [d3.forceCollide](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceCollide) - create a circle collision force.
-* [*collide*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#collide_radius) - set the circle radius.
-* [*collide*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#collide_strength) - set the collision resolution strength.
-* [*collide*.iterations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#collide_iterations) - set the number of iterations.
-* [d3.forceLink](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceLink) - create a link force.
-* [*link*.links](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#link_links) - set the array of links.
-* [*link*.id](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#link_id) - link nodes by numeric index or string identifier.
-* [*link*.distance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#link_distance) - set the link distance.
-* [*link*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#link_strength) - set the link strength.
-* [*link*.iterations](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#link_iterations) - set the number of iterations.
-* [d3.forceManyBody](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceManyBody) - create a many-body force.
-* [*manyBody*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#manyBody_strength) - set the force strength.
-* [*manyBody*.theta](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#manyBody_theta) - set the Barnes–Hut approximation accuracy.
-* [*manyBody*.distanceMin](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#manyBody_distanceMin) - limit the force when nodes are close.
-* [*manyBody*.distanceMax](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#manyBody_distanceMax) - limit the force when nodes are far.
-* [d3.forceX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceX) - create an *x*-positioning force.
-* [*x*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#x_strength) - set the force strength.
-* [*x*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#x_x) - set the target *x*-coordinate.
-* [d3.forceY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceY) - create an *y*-positioning force.
-* [*y*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#y_strength) - set the force strength.
-* [*y*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#y_y) - set the target *y*-coordinate.
-* [d3.forceRadial](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#forceRadial) - create a radial positioning force.
-* [*radial*.strength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#radial_strength) - set the force strength.
-* [*radial*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#radial_radius) - set the target radius.
-* [*radial*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#radial_x) - set the target center *x*-coordinate.
-* [*radial*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-force/README.md#radial_y) - set the target center *y*-coordinate.
+* [d3.forceSimulation](https://github.com/xswei/d3-force/blob/master/README.md#forceSimulation) - create a new force simulation.
+* [*simulation*.restart](https://github.com/xswei/d3-force/blob/master/README.md#simulation_restart) - reheat and restart the simulation’s timer.
+* [*simulation*.stop](https://github.com/xswei/d3-force/blob/master/README.md#simulation_stop) - stop the simulation’s timer.
+* [*simulation*.tick](https://github.com/xswei/d3-force/blob/master/README.md#simulation_tick) - advance the simulation one step.
+* [*simulation*.nodes](https://github.com/xswei/d3-force/blob/master/README.md#simulation_nodes) - set the simulation’s nodes.
+* [*simulation*.alpha](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alpha) - set the current alpha.
+* [*simulation*.alphaMin](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaMin) - set the minimum alpha threshold.
+* [*simulation*.alphaDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaDecay) - set the alpha exponential decay rate.
+* [*simulation*.alphaTarget](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaTarget) - set the target alpha.
+* [*simulation*.velocityDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_velocityDecay) - set the velocity decay rate.
+* [*simulation*.force](https://github.com/xswei/d3-force/blob/master/README.md#simulation_force) - add or remove a force.
+* [*simulation*.find](https://github.com/xswei/d3-force/blob/master/README.md#simulation_find) - find the closest node to the given position.
+* [*simulation*.on](https://github.com/xswei/d3-force/blob/master/README.md#simulation_on) - add or remove an event listener.
+* [*force*](https://github.com/xswei/d3-force/blob/master/README.md#_force) - apply the force.
+* [*force*.initialize](https://github.com/xswei/d3-force/blob/master/README.md#force_initialize) - initialize the force with the given nodes.
+* [d3.forceCenter](https://github.com/xswei/d3-force/blob/master/README.md#forceCenter) - create a centering force.
+* [*center*.x](https://github.com/xswei/d3-force/blob/master/README.md#center_x) - set the center *x*-coordinate.
+* [*center*.y](https://github.com/xswei/d3-force/blob/master/README.md#center_y) - set the center *y*-coordinate.
+* [d3.forceCollide](https://github.com/xswei/d3-force/blob/master/README.md#forceCollide) - create a circle collision force.
+* [*collide*.radius](https://github.com/xswei/d3-force/blob/master/README.md#collide_radius) - set the circle radius.
+* [*collide*.strength](https://github.com/xswei/d3-force/blob/master/README.md#collide_strength) - set the collision resolution strength.
+* [*collide*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#collide_iterations) - set the number of iterations.
+* [d3.forceLink](https://github.com/xswei/d3-force/blob/master/README.md#forceLink) - create a link force.
+* [*link*.links](https://github.com/xswei/d3-force/blob/master/README.md#link_links) - set the array of links.
+* [*link*.id](https://github.com/xswei/d3-force/blob/master/README.md#link_id) - link nodes by numeric index or string identifier.
+* [*link*.distance](https://github.com/xswei/d3-force/blob/master/README.md#link_distance) - set the link distance.
+* [*link*.strength](https://github.com/xswei/d3-force/blob/master/README.md#link_strength) - set the link strength.
+* [*link*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#link_iterations) - set the number of iterations.
+* [d3.forceManyBody](https://github.com/xswei/d3-force/blob/master/README.md#forceManyBody) - create a many-body force.
+* [*manyBody*.strength](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_strength) - set the force strength.
+* [*manyBody*.theta](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_theta) - set the Barnes–Hut approximation accuracy.
+* [*manyBody*.distanceMin](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMin) - limit the force when nodes are close.
+* [*manyBody*.distanceMax](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMax) - limit the force when nodes are far.
+* [d3.forceX](https://github.com/xswei/d3-force/blob/master/README.md#forceX) - create an *x*-positioning force.
+* [*x*.strength](https://github.com/xswei/d3-force/blob/master/README.md#x_strength) - set the force strength.
+* [*x*.x](https://github.com/xswei/d3-force/blob/master/README.md#x_x) - set the target *x*-coordinate.
+* [d3.forceY](https://github.com/xswei/d3-force/blob/master/README.md#forceY) - create an *y*-positioning force.
+* [*y*.strength](https://github.com/xswei/d3-force/blob/master/README.md#y_strength) - set the force strength.
+* [*y*.y](https://github.com/xswei/d3-force/blob/master/README.md#y_y) - set the target *y*-coordinate.
+* [d3.forceRadial](https://github.com/xswei/d3-force/blob/master/README.md#forceRadial) - create a radial positioning force.
+* [*radial*.strength](https://github.com/xswei/d3-force/blob/master/README.md#radial_strength) - set the force strength.
+* [*radial*.radius](https://github.com/xswei/d3-force/blob/master/README.md#radial_radius) - set the target radius.
+* [*radial*.x](https://github.com/xswei/d3-force/blob/master/README.md#radial_x) - set the target center *x*-coordinate.
+* [*radial*.y](https://github.com/xswei/d3-force/blob/master/README.md#radial_y) - set the target center *y*-coordinate.
 
 ## [Number Formats (d3-format)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format)
 
