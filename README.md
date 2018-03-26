@@ -92,5 +92,5 @@ var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-
 
 如果本文档对您有帮助，请打赏以示鼓励！
 
-![image](https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg)
-![image](https://github.com/xswei/d3js_doc/blob/master/img/zfb.jpg)
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="200">
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/zfb.jpg" width="200">
