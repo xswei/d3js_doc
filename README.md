@@ -23,6 +23,13 @@
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
 * [一些 Demo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/EXAMPLES.md)
 
+## 鼓励作者
+
+如果本文档对您有帮助，请打赏以示鼓励！
+
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="200">
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/zfb.jpg" width="200">
+
 ### 最新版本动态
 
 #### 5.0.0(RC3)
@@ -88,9 +95,3 @@ var d3 = require("d3");
 var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-geo-projection"));
 ```
 
-## 鼓励作者
-
-如果本文档对您有帮助，请打赏以示鼓励！
-
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="200">
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/zfb.jpg" width="200">
