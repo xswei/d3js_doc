@@ -29,13 +29,6 @@
 
 QQ: 214175619
 
-## 鼓励译者
-
-如果本文档对您有帮助，请打赏以示鼓励！
-
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="200">
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/zfb.jpg" width="200">
-
 ### 最新版本动态
 
 #### 5.0.0(RC3)
