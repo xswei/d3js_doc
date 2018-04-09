@@ -118,22 +118,20 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*axis*.tickSizeOuter](https://github.com/xswei/d3-axis/blob/master/README.md#axis_tickSizeOuter) - 设置外侧(坐标轴两端)刻度大小.
 * [*axis*.tickPadding](https://github.com/xswei/d3-axis/blob/master/README.md#axis_tickPadding) - 设置刻度和刻度文本之间的间距.
 
-## [Brushes (d3-brush)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush)
-
-**Done**
+## [Brushes (d3-brush)](https://github.com/xswei/d3-brush)
 
 使用鼠标或触摸选择一维或二维区域。
 
-* [d3.brush](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush) - 创建一个新的二维刷取交互
-* [d3.brushX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brushX) - 创建一个新的*x*-维度的刷取交互
-* [d3.brushY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brushY) - 创建一个新的*y*-维度的刷取交互
-* [*brush*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#_brush) - 将刷取操作应用到一个`selection`上
-* [*brush*.move](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush_move) - 移动刷取框选
-* [*brush*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush_extent) - 定义可刷取的范围
-* [*brush*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush_filter) - 过滤器定义哪些事件不触发刷取操作
-* [*brush*.handleSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush_handleSize) - 设置刷取把柄的大小
-* [*brush*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brush_on) - 注册刷取事件句柄
-* [d3.brushSelection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-brush/README.md#brushSelection) - 获取指定节点的刷取范围
+* [d3.brush](https://github.com/xswei/d3-brush/blob/master/README.md#brush) - 创建一个新的二维刷取交互
+* [d3.brushX](https://github.com/xswei/d3-brush/blob/master/README.md#brushX) - 创建一个新的*x*-维度的刷取交互
+* [d3.brushY](https://github.com/xswei/d3-brush/blob/master/README.md#brushY) - 创建一个新的*y*-维度的刷取交互
+* [*brush*](https://github.com/xswei/d3-brush/blob/master/README.md#_brush) - 将刷取操作应用到一个`selection`上
+* [*brush*.move](https://github.com/xswei/d3-brush/blob/master/README.md#brush_move) - 移动刷取框选
+* [*brush*.extent](https://github.com/xswei/d3-brush/blob/master/README.md#brush_extent) - 定义可刷取的范围
+* [*brush*.filter](https://github.com/xswei/d3-brush/blob/master/README.md#brush_filter) - 过滤器定义哪些事件不触发刷取操作
+* [*brush*.handleSize](https://github.com/xswei/d3-brush/blob/master/README.md#brush_handleSize) - 设置刷取把柄的大小
+* [*brush*.on](https://github.com/xswei/d3-brush/blob/master/README.md#brush_on) - 注册刷取事件句柄
+* [d3.brushSelection](https://github.com/xswei/d3-brush/blob/master/README.md#brushSelection) - 获取指定节点的刷取范围
 
 ## [Chords (d3-chord)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord)
 
