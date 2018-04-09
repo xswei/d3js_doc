@@ -23,11 +23,11 @@
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
 * [一些 Demo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/EXAMPLES.md)
 
-## 联系译者
+### 联系译者
 
 微信：weichat_6955
 
-QQ: 214175619
+QQ： 214175619
 
 ### 最新版本动态
 
