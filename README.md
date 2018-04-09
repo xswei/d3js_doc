@@ -114,3 +114,52 @@ var d3 = require("d3");
 var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-geo-projection"));
 ```
 
+## 支持环境
+
+D3 5+ 支持最新浏览器，比如 Chrome，Edge，Firefox 以及 Safari。D3 4以及之的版本支持 IE 9 以上的版本。D3 的一部分功能能在旧版的浏览器中运行，因为 D3 的核心功能对浏览器的要求比较低。例如 d3-selection 使用 Level 1 级 [Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载[Sizzle](http://sizzlejs.com/)来实现兼容。现代浏览器对 [SVG](http://www.w3.org/TR/SVG/)和 [CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以D3不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么对不起了，老铁。
+
+D3也可以运行在 [Node](http://nodejs.org/) 和 [Web workers](http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html) 中. 在 Node 环境中使用 DOM 的时候，必须要提供自己的 DOM 实现。推荐使用 [JSDOM](https://github.com/tmpvar/jsdom)，为了避免定义全局 `document`，建议将 DOM 传递给 d3.select 或者将 NodeList 传递给 d3.selectAll,如下：
+
+```js
+var d3 = require("d3"),
+    jsdom = require("jsdom");
+
+var document = jsdom.jsdom(),
+    svg = d3.select(document.body).append("svg");
+```
+在支持 [ES 模块化](http://exploringjs.com/es6/ch_modules.html) 的环境中，你可以将 `d3` 作为一个命名空间来导入D3的全部功能:
+
+```js
+import * as d3 from "d3";
+```
+如果你不想导入全部模块，则分配命名空间的时候要和 `d3` 进行区分:
+
+```js
+import * as d3 from "d3";
+import * as d3GeoProjection from "d3-geo-projection";
+```
+出于这个原因，应该优先考虑D3模块中的原有变量名，可以按需导入：
+
+```js
+import {select, selectAll} from "d3-selection";
+import {geoPath} from "d3-geo";
+import {geoPatterson} from "d3-geo-projection";
+```
+如果你使用打包工具，则确保已经配置好正确的入口，可以参考 [resolve.mainFields](https://webpack.js.org/configuration/resolve/#resolve-mainfields)
+
+## 本地开发
+
+由于浏览器的安全限制，不能直接读取本地文件。在本地开发的时候，必须要运行一个服务器环境而不是使用`file://`, 推荐使用Nodejs的[http-server](https://www.npmjs.com/package/http-server)，安装方法:
+
+```js
+npm install -g http-server
+```
+
+运行:
+
+```js
+http-server & 
+
+```
+
+然后会在当前目录启动一个 http://localhost:8080 的服务。
