@@ -99,7 +99,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [d3.thresholdScott](https://github.com/xswei/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference 阈值生成规则.
 * [d3.thresholdSturges](https://github.com/xswei/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ 阈值生成规则.
 
-## [Axes (d3-axis)](https://github.com/xswei/d3js_doc/tree/master/API_Reference/d3-axis)
+## [Axes (d3-axis)](https://github.com/d3/d3-axis)
 
 基于比例尺提供人类友好的标尺刻度
 
