@@ -74,25 +74,23 @@ D3 提供了通过 [d3-contour](https://github.com/d3/d3-contour) 实现的 [mar
 如果使用 `npm`, 则可以通过 `npm install d3` 来安装. 此外还可以下载 [最新版](https://unpkg.com/d3/build/), 最新版支持 AMD、CommonJS 以及基础标签引入形式. 你也可以直接从 [d3js.org](https://d3js.org), [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载. 比如:
 
 ```js
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
 ```
 
 压缩版:
 
 ```js
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 ```
 
 你也可以单独使用 `d3` 中的某个模块, 比如单独使用 [d3-selection](https://github.com/d3/d3-selection): 
 
 ```js
-<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.js"></script>
 
 ```
 
-如果要使用某个固定的版本, 则考虑 [CNDJS](https://cdnjs.com/libraries/d3) 或 [ unpkg](https://unpkg.com/d3/)
-
-D3基于 [ES2015 modules](http://www.2ality.com/2014/09/es6-modules-final.html) 开发.  可以使用 Roolup, webpack 或者其他你偏爱的打包工具进行构建. 在一个符合 ES2015 的应用中导入 `d3` 或者 `d3` 的某些模块:
+D3基于 [ES2015 modules](http://www.2ality.com/2014/09/es6-modules-final.html) 开发.  可以使用 `Rollup`, `webpack` 或者其他你偏爱的打包工具进行构建. 在一个符合 ES2015 的应用中导入 `d3` 或者 `d3` 的某些模块:
 
 ```js
 import {scaleLinear} from "d3-scale";
