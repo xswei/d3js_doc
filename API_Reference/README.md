@@ -3,7 +3,7 @@
 `d3` v4.0 是一个相互协同工作的 [模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。`d3` v3.x 和 4.x 之间的差异可以参考 [CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考 [这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms)) - **完成**
-* [Axes](#axes-d3-axis)
+* [Axes](#axes-d3-axis) - **完成**
 * [Brushes](#brushes-d3-brush)
 * [Chords](#chords-d3-chord)
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests))
@@ -99,7 +99,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [d3.thresholdScott](https://github.com/xswei/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference 阈值生成规则.
 * [d3.thresholdSturges](https://github.com/xswei/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ 阈值生成规则.
 
-## [Axes (d3-axis)](https://github.com/d3/d3-axis)
+## [Axes (d3-axis)](https://github.com/xswei/d3-axis)
 
 基于比例尺提供人类友好的标尺刻度
 
