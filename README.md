@@ -17,11 +17,11 @@
 * [发布说明](https://github.com/d3/d3/releases)
 * [官方画廊](https://github.com/d3/d3/wiki/Gallery)
 * [Mike Bostock 的示例](https://bl.ocks.org/mbostock)
-* [可视化编程](https://beta.observablehq.com/?utm_source=d3js-org)
 * [教程](https://github.com/d3/d3/wiki/Tutorials)
 * [插件](https://github.com/d3/d3/wiki/Plugins)
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md)
-* [一些 Demo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/EXAMPLES.md)
+* [d3.js on Stack Overflow](https://stackoverflow.com/questions/tagged/d3.js)
+* [d3-js Google Group](http://groups.google.com/group/d3-js)
 
 ### 联系译者
 
