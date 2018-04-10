@@ -14,6 +14,8 @@
 
 * [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/README.md)
 * [API 参考 ( 原英文版 )](https://github.com/d3/d3/blob/master/API.md)
+* [理解数据绑定](https://bost.ocks.org/mike/join/)
+* [数据绑定示例](https://bl.ocks.org/mbostock/3808218)
 * [发布说明](https://github.com/d3/d3/releases)
 * [官方画廊](https://github.com/d3/d3/wiki/Gallery)
 * [Mike Bostock 的示例](https://bl.ocks.org/mbostock)
