@@ -133,24 +133,22 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*brush*.on](https://github.com/xswei/d3-brush/blob/master/README.md#brush_on) - 注册刷取事件句柄
 * [d3.brushSelection](https://github.com/xswei/d3-brush/blob/master/README.md#brushSelection) - 获取指定节点的刷取范围
 
-## [Chords (d3-chord)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord)
+## [Chords (d3-chord)](https://github.com/xswei/d3-chord)
 
-**Done**
-
-* [d3.chord](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#chord) - 创建一个新的弦图布局.
-* [*chord*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#_chord) - 根据指定的方阵计算布局.
-* [*chord*.padAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#chord_padAngle) - 设置相邻的分组之间的间隔
-* [*chord*.sortGroups](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#chord_sortGroups) - 定义分组排序规则
-* [*chord*.sortSubgroups](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#chord_sortSubgroups) - 定义分组内部子分组的排序规则
-* [*chord*.sortChords](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#chord_sortChords) - 定义弦之间的排序规则
-* [d3.ribbon](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon) - 创建一个ribbon(弦)生成器
-* [*ribbon*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#_ribbon) - 根据指定的数据返回一个path路径以表示弦.
-* [*ribbon*.source](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_source) - 设置ribbon的源访问器.
-* [*ribbon*.target](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_target) - 设置ribbon的目标访问器.
-* [*ribbon*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_radius) - 设置ribbon的半径.
-* [*ribbon*.startAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_startAngle) - 设置ribbon的起始角度访问器.
-* [*ribbon*.endAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_endAngle) - 设置ribbon的终止角度访问器.
-* [*ribbon*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-chord/README.md#ribbon_context) - 设置渲染上下文(canvas用).
+* [d3.chord](https://github.com/xswei/d3-chord/blob/master/README.md#chord) - 创建一个新的弦图布局.
+* [*chord*](https://github.com/xswei/d3-chord/blob/master/README.md#_chord) - 根据指定的方阵计算布局.
+* [*chord*.padAngle](https://github.com/xswei/d3-chord/blob/master/README.md#chord_padAngle) - 设置相邻的分组之间的间隔
+* [*chord*.sortGroups](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortGroups) - 定义分组排序规则
+* [*chord*.sortSubgroups](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortSubgroups) - 定义分组内部子分组的排序规则
+* [*chord*.sortChords](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortChords) - 定义弦之间的排序规则
+* [d3.ribbon](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon) - 创建一个ribbon(弦)生成器
+* [*ribbon*](https://github.com/xswei/d3-chord/blob/master/README.md#_ribbon) - 根据指定的数据返回一个path路径以表示弦.
+* [*ribbon*.source](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_source) - 设置ribbon的源访问器.
+* [*ribbon*.target](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_target) - 设置ribbon的目标访问器.
+* [*ribbon*.radius](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_radius) - 设置ribbon的半径.
+* [*ribbon*.startAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_startAngle) - 设置ribbon的起始角度访问器.
+* [*ribbon*.endAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_endAngle) - 设置ribbon的终止角度访问器.
+* [*ribbon*.context](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_context) - 设置渲染上下文(canvas用).
 
 ## [Collections (d3-collection)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection)
 
