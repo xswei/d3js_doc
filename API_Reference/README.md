@@ -150,63 +150,61 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*ribbon*.endAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_endAngle) - 设置ribbon的终止角度访问器.
 * [*ribbon*.context](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_context) - 设置渲染上下文(canvas用).
 
-## [Collections (d3-collection)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection)
-
-**Done**
+## [Collections (d3-collection)](https://github.com/xswei/d3-collection)
 
 一组方便的数据结构。
 
-### [Objects](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#objects)
+### [Objects](https://github.com/xswei/d3-collection/blob/master/README.md#objects)
 
 将关联数组(对象)转为数组的一组方法
 
-* [d3.keys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#keys) - 关联数组中所有的键
-* [d3.values](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#values) - 关联数组中所有的值
-* [d3.entries](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#entries) - 将关联数组转为`key-value`形式的对象数组
+* [d3.keys](https://github.com/xswei/d3-collection/blob/master/README.md#keys) - 关联数组中所有的键
+* [d3.values](https://github.com/xswei/d3-collection/blob/master/README.md#values) - 关联数组中所有的值
+* [d3.entries](https://github.com/xswei/d3-collection/blob/master/README.md#entries) - 将关联数组转为 `key-value` 形式的对象数组
 
-### [Maps](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#maps)
+### [Maps](https://github.com/xswei/d3-collection/blob/master/README.md#maps)
 
-与ES6的Map类似，但是有些不同
+与 `ES6` 的 `Map` 类似，但是有些不同
 
-* [d3.map](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map) - 创建一个新的空的map映射.
-* [*map*.has](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_has) - 当map映射中有给定的`key`时返回true
-* [*map*.get](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_get) - 根据指定的`key`返回对应的值
-* [*map*.set](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_set) - 设置指定的`key`对应的值为指定的值
-* [*map*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_remove) - 移除指定的`key`以及值
-* [*map*.clear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_clear) - 清空map映射中所有的项
-* [*map*.keys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_keys) - 以数组的形式获取map映射中的`key`
-* [*map*.values](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_values) - 以数组的形式获取map映射中的`value`
-* [*map*.entries](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_entries) - 以数组的形式获取map映射中的`key-values`对象
-* [*map*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_each) - 遍历每一项并执行指定的方法.
-* [*map*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_empty) - 判断map映射是否为空
-* [*map*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#map_size) - 计算map映射中项的数目
+* [d3.map](https://github.com/xswei/d3-collection/blob/master/README.md#map) - 创建一个新的空的 `map` 映射.
+* [*map*.has](https://github.com/xswei/d3-collection/blob/master/README.md#map_has) - 当map映射中有给定的 `key` 时返回 `true`
+* [*map*.get](https://github.com/xswei/d3-collection/blob/master/README.md#map_get) - 根据指定的 `key` 返回对应的值
+* [*map*.set](https://github.com/xswei/d3-collection/blob/master/README.md#map_set) - 设置指定的 `key` 对应的值为指定的值
+* [*map*.remove](https://github.com/xswei/d3-collection/blob/master/README.md#map_remove) - 移除指定的 `key` 以及值
+* [*map*.clear](https://github.com/xswei/d3-collection/blob/master/README.md#map_clear) - 清空map映射中所有的项
+* [*map*.keys](https://github.com/xswei/d3-collection/blob/master/README.md#map_keys) - 以数组的形式获取map映射中的 `key`
+* [*map*.values](https://github.com/xswei/d3-collection/blob/master/README.md#map_values) - 以数组的形式获取map映射中的 `value`
+* [*map*.entries](https://github.com/xswei/d3-collection/blob/master/README.md#map_entries) - 以数组的形式获取map映射中的 `key-values` 对象
+* [*map*.each](https://github.com/xswei/d3-collection/blob/master/README.md#map_each) - 遍历每一项并执行指定的方法.
+* [*map*.empty](https://github.com/xswei/d3-collection/blob/master/README.md#map_empty) - 判断 `map` 映射是否为空
+* [*map*.size](https://github.com/xswei/d3-collection/blob/master/README.md#map_size) - 计算 `map` 映射中项的数目
 
-### [Sets](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#sets)
+### [Sets](https://github.com/xswei/d3-collection/blob/master/README.md#sets)
 
-与ES6的Set类似，但是有些不同
+与 `ES6`的 `Set` 类似，但是有些不同
 
-* [d3.set](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set) - 创建一个新的空的集合
-* [*set*.has](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_has) - 判断集合中是否包含给定的值
-* [*set*.add](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_add) - 将指定的值添加到集合中
-* [*set*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_remove) - 移除集合中指定的值
-* [*set*.clear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_clear) - 清空集合中所有的值
-* [*set*.values](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_values) - 以数组的形式获取集合中的所有值
-* [*set*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_each) - 为集合中每一个值执行指定的函数
-* [*set*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_empty) - 判断集合是否为空
-* [*set*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#set_size) - 获取集合中项的多少
+* [d3.set](https://github.com/xswei/d3-collection/blob/master/README.md#set) - 创建一个新的空的集合
+* [*set*.has](https://github.com/xswei/d3-collection/blob/master/README.md#set_has) - 判断集合中是否包含给定的值
+* [*set*.add](https://github.com/xswei/d3-collection/blob/master/README.md#set_add) - 将指定的值添加到集合中
+* [*set*.remove](https://github.com/xswei/d3-collection/blob/master/README.md#set_remove) - 移除集合中指定的值
+* [*set*.clear](https://github.com/xswei/d3-collection/blob/master/README.md#set_clear) - 清空集合中所有的值
+* [*set*.values](https://github.com/xswei/d3-collection/blob/master/README.md#set_values) - 以数组的形式获取集合中的所有值
+* [*set*.each](https://github.com/xswei/d3-collection/blob/master/README.md#set_each) - 为集合中每一个值执行指定的函数
+* [*set*.empty](https://github.com/xswei/d3-collection/blob/master/README.md#set_empty) - 判断集合是否为空
+* [*set*.size](https://github.com/xswei/d3-collection/blob/master/README.md#set_size) - 获取集合中项的多少
 
-### [Nests](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nests)
+### [Nests](https://github.com/xswei/d3-collection/blob/master/README.md#nests)
 
 根据指定的规则将数组重组为层次结构
 
-* [d3.nest](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest) - 创建一个新的嵌套对象.
-* [*nest*.key](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_key) - 为嵌套操作添加一个`key`作为分层依据
-* [*nest*.sortKeys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_sortKeys) - 根据`key`对当前层次的进行排序
-* [*nest*.sortValues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_sortValues) - 根据`value`对当叶节点进行排序
-* [*nest*.rollup](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_rollup) - 为叶节点指定一个rollup(归纳)函数
-* [*nest*.map](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_map) - 生成嵌套结果，并返回一个map映射
-* [*nest*.object](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_object) - 生成嵌套结果并返回一个关联数组
-* [*nest*.entries](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-collection/README.md#nest_entries) - 生成嵌套结果，并返回一组`key-value`元组
+* [d3.nest](https://github.com/xswei/d3-collection/blob/master/README.md#nest) - 创建一个新的嵌套对象.
+* [*nest*.key](https://github.com/xswei/d3-collection/blob/master/README.md#nest_key) - 为嵌套操作添加一个 `key` 作为分层依据
+* [*nest*.sortKeys](https://github.com/xswei/d3-collection/blob/master/README.md#nest_sortKeys) - 根据 `key` 对当前层次的进行排序
+* [*nest*.sortValues](https://github.com/xswei/d3-collection/blob/master/README.md#nest_sortValues) - 根据 `value` 对当叶节点进行排序
+* [*nest*.rollup](https://github.com/xswei/d3-collection/blob/master/README.md#nest_rollup) - 为叶节点指定一个 `rollup` (归纳)函数
+* [*nest*.map](https://github.com/xswei/d3-collection/blob/master/README.md#nest_map) - 生成嵌套结果，并返回一个 `map` 映射
+* [*nest*.object](https://github.com/xswei/d3-collection/blob/master/README.md#nest_object) - 生成嵌套结果并返回一个关联数组
+* [*nest*.entries](https://github.com/xswei/d3-collection/blob/master/README.md#nest_entries) - 生成嵌套结果，并返回一组  `key-value` 元组
 
 ## [Colors (d3-color)](https://github.com/xswei/d3-color)
 
