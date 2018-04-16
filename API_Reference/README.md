@@ -4,7 +4,7 @@
 
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms)) - **完成**
 * [Axes](#axes-d3-axis) - **完成**
-* [Brushes](#brushes-d3-brush)
+* [Brushes](#brushes-d3-brush) - **完成**
 * [Chords](#chords-d3-chord)
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests))
 * [Colors](#colors-d3-color) - **完成**
