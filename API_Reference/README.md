@@ -339,21 +339,21 @@ Compute contour polygons using marching squares.
 * [*dispatch*.*call*](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_call) - 分发事件到注册的事件监听器
 * [*dispatch*.*apply*](https://github.com/xswei/d3-dispatch/blob/master/README.md#dispatch_apply) - 分发事件到注册事件监听器
 
-## [Dragging (d3-drag)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag)
+## [Dragging (d3-drag)](https://github.com/xswei/d3-drag)
 
 Drag and drop SVG, HTML or Canvas using mouse or touch input.
 
-* [d3.drag](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag) - create a drag behavior.
-* [*drag*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#_drag) - apply the drag behavior to a selection.
-* [*drag*.container](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_container) - set the coordinate system.
-* [*drag*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_filter) - ignore some initiating input events.
-* [*drag*.touchable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_touchable) - set the touch support detector.
-* [*drag*.subject](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_subject) - set the thing being dragged.
-* [*drag*.clickDistance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_clickDistance) - set the click distance threshold.
-* [*drag*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#drag_on) - listen for drag events.
-* [*event*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#event_on) - listen for drag events on the current gesture.
-* [d3.dragDisable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#dragDisable) - prevent native drag-and-drop and text selection.
-* [d3.dragEnable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-drag/README.md#dragEnable) - enable native drag-and-drop and text selection.
+* [d3.drag](https://github.com/xswei/d3-drag/blob/master/README.md#drag) - create a drag behavior.
+* [*drag*](https://github.com/xswei/d3-drag/blob/master/README.md#_drag) - apply the drag behavior to a selection.
+* [*drag*.container](https://github.com/xswei/d3-drag/blob/master/README.md#drag_container) - set the coordinate system.
+* [*drag*.filter](https://github.com/xswei/d3-drag/blob/master/README.md#drag_filter) - ignore some initiating input events.
+* [*drag*.touchable](https://github.com/xswei/d3-drag/blob/master/README.md#drag_touchable) - set the touch support detector.
+* [*drag*.subject](https://github.com/xswei/d3-drag/blob/master/README.md#drag_subject) - set the thing being dragged.
+* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - set the click distance threshold.
+* [*drag*.on](https://github.com/xswei/d3-drag/blob/master/README.md#drag_on) - listen for drag events.
+* [*event*.on](https://github.com/xswei/d3-drag/blob/master/README.md#event_on) - listen for drag events on the current gesture.
+* [d3.dragDisable](https://github.com/xswei/d3-drag/blob/master/README.md#dragDisable) - prevent native drag-and-drop and text selection.
+* [d3.dragEnable](https://github.com/xswei/d3-drag/blob/master/README.md#dragEnable) - enable native drag-and-drop and text selection.
 
 ## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv)
 
