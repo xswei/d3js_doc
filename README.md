@@ -165,3 +165,13 @@ http-server &
 ```
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
+
+### 翻译说明
+
+每个子仓库中包含三个 `.md` 文件:
+
+- *README.md* 文件是翻译后的中文版
+- *README_EN.md* 文件是翻译时参照的英文版
+- *README_ORIGIN.md* 文件是源仓库文档
+
+更新时, 首先将 *README_ORIGIN.md* 与官网文档进行同步, 然后将 *README_EN.md* 和 *README_ORIGIN.md* 进行比对, 将 `diff` 更新至 *README.md*, 同时将 *README_EN.md* 与 *README_ORIGIN.md* 进行同步.
