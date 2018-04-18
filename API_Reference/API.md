@@ -15,7 +15,7 @@
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
 * [Fetches](#fetches-d3-fetch) ( V5 新增模块 ) - **完成**
-* [Forces](#forces-d3-force)
+* [Forces](#forces-d3-force) - **完成**
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
 * [Hierarchies](#hierarchies-d3-hierarchy)
