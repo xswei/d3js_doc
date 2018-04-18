@@ -220,6 +220,8 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [d3.hsl](https://github.com/xswei/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色.
 * [d3.lab](https://github.com/xswei/d3-color/blob/master/README.md#lab) - 创建一个新的Lab颜色.
 * [d3.hcl](https://github.com/xswei/d3-color/blob/master/README.md#hcl) - 创建一个新的HCL颜色.
+* [d3.lch](https://github.com/d3/d3-color/blob/master/README.md#lch) - create a new HCL color.
+* [d3.gray](https://github.com/d3/d3-color/blob/master/README.md#gray) - create a new Lab gray.
 * [d3.cubehelix](https://github.com/xswei/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
 
 ## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md)
