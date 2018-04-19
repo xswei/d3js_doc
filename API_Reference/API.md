@@ -314,16 +314,16 @@ Color ramps and palettes for quantitative, ordinal and categorical scales.
 
 * [d3.interpolateRainbow](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
 
-## [Contours (d3-contour)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-contour/README.md)
+## [Contours (d3-contour)](https://github.com/xswei/d3-contour)
 
 Compute contour polygons using marching squares.
 
-* [d3.contours](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-contour/README.md#contours) - create a new contour generator.
+* [d3.contours](https://github.com/xswei/d3-contour/blob/master/README.md#contours) - create a new contour generator.
 * *contours* - compute the contours for a given grid of values.
 * *contours*.size -
 * *contours*.smooth -
 * *contours*.thresholds -
-* [d3.contourDensity](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-contour/README.md#contourDensity) - create a new density estimator.
+* [d3.contourDensity](https://github.com/xswei/d3-contour/blob/master/README.md#contourDensity) - create a new density estimator.
 * *density* - estimate the density of a given array of samples.
 * *density*.x -
 * *density*.y -
