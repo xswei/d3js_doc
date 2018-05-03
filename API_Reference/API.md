@@ -224,95 +224,95 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [d3.gray](https://github.com/d3/d3-color/blob/master/README.md#gray) - create a new Lab gray.
 * [d3.cubehelix](https://github.com/xswei/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
 
-## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md)
+## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3-scale-chromatic)
 
 Color ramps and palettes for quantitative, ordinal and categorical scales.
 
 ### Categorical
 
-* [d3.schemeCategory10](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeCategory10) -
-* [d3.schemeAccent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeAccent) -
-* [d3.schemeDark2](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeDark2) -
-* [d3.schemePaired](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePaired) -
-* [d3.schemePastel1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePastel1) -
-* [d3.schemePastel2](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePastel2) -
-* [d3.schemeSet1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeSet1) -
-* [d3.schemeSet2](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeSet2) -
-* [d3.schemeSet3](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeSet3) -
+* [d3.schemeCategory10](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeCategory10) -
+* [d3.schemeAccent](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeAccent) -
+* [d3.schemeDark2](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeDark2) -
+* [d3.schemePaired](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePaired) -
+* [d3.schemePastel1](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePastel1) -
+* [d3.schemePastel2](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePastel2) -
+* [d3.schemeSet1](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeSet1) -
+* [d3.schemeSet2](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeSet2) -
+* [d3.schemeSet3](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeSet3) -
 
 ### Diverging
 
-* [d3.interpolateBrBG](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePiYG](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePRGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePuOr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateRdBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateRdGy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateRdYlBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateRdYlGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateSpectral](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.schemeBrBG](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeBrBG) -
-* [d3.schemePiYG](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePiYG) -
-* [d3.schemePRGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePRGn) -
-* [d3.schemePuOr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePuOr) -
-* [d3.schemeRdBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeRdBu) -
-* [d3.schemeRdGy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeRdGy) -
-* [d3.schemeRdYlBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeRdYlBu) -
-* [d3.schemeRdYlGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeRdYlGn) -
-* [d3.schemeSpectral](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeSpectral) -
+* [d3.interpolateBrBG](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePiYG](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePRGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePuOr](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRdBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRdGy](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRdYlBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRdYlGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateSpectral](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.schemeBrBG](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeBrBG) -
+* [d3.schemePiYG](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePiYG) -
+* [d3.schemePRGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePRGn) -
+* [d3.schemePuOr](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePuOr) -
+* [d3.schemeRdBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeRdBu) -
+* [d3.schemeRdGy](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeRdGy) -
+* [d3.schemeRdYlBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeRdYlBu) -
+* [d3.schemeRdYlGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeRdYlGn) -
+* [d3.schemeSpectral](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeSpectral) -
 
 ### Sequential (Single Hue)
 
-* [d3.interpolateBlues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateGreens](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateGreys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateOranges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePurples](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateReds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.schemeBlues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeBlues) -
-* [d3.schemeGreens](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeGreens) -
-* [d3.schemeGreys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeGreys) -
-* [d3.schemeOranges](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeOranges) -
-* [d3.schemePurples](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePurples) -
-* [d3.schemeReds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeReds) -
+* [d3.interpolateBlues](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateGreens](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateGreys](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateOranges](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePurples](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateReds](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.schemeBlues](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeBlues) -
+* [d3.schemeGreens](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeGreens) -
+* [d3.schemeGreys](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeGreys) -
+* [d3.schemeOranges](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeOranges) -
+* [d3.schemePurples](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePurples) -
+* [d3.schemeReds](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeReds) -
 
 ### Sequential (Multi-Hue)
 
-* [d3.interpolateBuGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateBuPu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateCool](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateCubehelixDefault](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateGnBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateInferno](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateMagma](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateOrRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePlasma](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePuBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePuBuGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolatePuRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateRdPu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateViridis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateWarm](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateYlGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateYlGnBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateYlOrBr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.interpolateYlOrRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
-* [d3.schemeBuGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeBuGn) -
-* [d3.schemeBuPu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeBuPu) -
-* [d3.schemeGnBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeGnBu) -
-* [d3.schemeOrRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeOrRd) -
-* [d3.schemePuBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePuBu) -
-* [d3.schemePuBuGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePuBuGn) -
-* [d3.schemePuRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemePuRd) -
-* [d3.schemeRdPu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeRdPu) -
-* [d3.schemeYlGn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeYlGn) -
-* [d3.schemeYlGnBu](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeYlGnBu) -
-* [d3.schemeYlOrBr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeYlOrBr) -
-* [d3.schemeYlOrRd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md#schemeYlOrRd) -
+* [d3.interpolateBuGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateBuPu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateCool](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateCubehelixDefault](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateGnBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateInferno](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateMagma](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateOrRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePlasma](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePuBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePuBuGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolatePuRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRdPu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateViridis](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateWarm](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateYlGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateYlGnBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateYlOrBr](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateYlOrRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.schemeBuGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeBuGn) -
+* [d3.schemeBuPu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeBuPu) -
+* [d3.schemeGnBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeGnBu) -
+* [d3.schemeOrRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeOrRd) -
+* [d3.schemePuBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePuBu) -
+* [d3.schemePuBuGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePuBuGn) -
+* [d3.schemePuRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemePuRd) -
+* [d3.schemeRdPu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeRdPu) -
+* [d3.schemeYlGn](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeYlGn) -
+* [d3.schemeYlGnBu](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeYlGnBu) -
+* [d3.schemeYlOrBr](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeYlOrBr) -
+* [d3.schemeYlOrRd](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md#schemeYlOrRd) -
 
 ### Cyclical
 
-* [d3.interpolateRainbow](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-scale-chromatic/README.md) -
+* [d3.interpolateRainbow](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
 
 ## [Contours (d3-contour)](https://github.com/xswei/d3-contour)
 
