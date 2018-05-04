@@ -357,69 +357,69 @@ Compute contour polygons using marching squares.
 * [d3.dragDisable](https://github.com/xswei/d3-drag/blob/master/README.md#dragDisable) - 阻止原生拖拽以及文本选择.
 * [d3.dragEnable](https://github.com/xswei/d3-drag/blob/master/README.md#dragEnable) - 启用原生拖拽以及文本选择.
 
-## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv)
+## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3-dsv)
 
 Parse and format delimiter-separated values, most commonly CSV and TSV.
 
-* [d3.dsvFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#dsvFormat) - create a new parser and formatter for the given delimiter.
-* [*dsv*.parse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#dsv_parse) - parse the given string, returning an array of objects.
-* [*dsv*.parseRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#dsv_parseRows) - parse the given string, returning an array of rows.
-* [*dsv*.format](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#dsv_format) - format the given array of objects.
-* [*dsv*.formatRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#dsv_formatRows) - format the given array of rows.
-* [d3.csvParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#csvParse) - parse the given CSV string, returning an array of objects.
-* [d3.csvParseRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#csvParseRows) - parse the given CSV string, returning an array of rows.
-* [d3.csvFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#csvFormat) - format the given array of objects as CSV.
-* [d3.csvFormatRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#csvFormatRows) - format the given array of rows as CSV.
-* [d3.tsvParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#tsvParse) - parse the given TSV string, returning an array of objects.
-* [d3.tsvParseRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#tsvParseRows) - parse the given TSV string, returning an array of rows.
-* [d3.tsvFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#tsvFormat) - format the given array of objects as TSV.
-* [d3.tsvFormatRows](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-dsv/README.md#tsvFormatRows) - format the given array of rows as TSV.
+* [d3.dsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#dsvFormat) - create a new parser and formatter for the given delimiter.
+* [*dsv*.parse](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parse) - parse the given string, returning an array of objects.
+* [*dsv*.parseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parseRows) - parse the given string, returning an array of rows.
+* [*dsv*.format](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_format) - format the given array of objects.
+* [*dsv*.formatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_formatRows) - format the given array of rows.
+* [d3.csvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParse) - parse the given CSV string, returning an array of objects.
+* [d3.csvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParseRows) - parse the given CSV string, returning an array of rows.
+* [d3.csvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormat) - format the given array of objects as CSV.
+* [d3.csvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormatRows) - format the given array of rows as CSV.
+* [d3.tsvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParse) - parse the given TSV string, returning an array of objects.
+* [d3.tsvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParseRows) - parse the given TSV string, returning an array of rows.
+* [d3.tsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormat) - format the given array of objects as TSV.
+* [d3.tsvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormatRows) - format the given array of rows as TSV.
 
-## [Easings (d3-ease)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease)
+## [Easings (d3-ease)](https://github.com/xswei/d3-ease)
 
 Easing functions for smooth animation.
 
-* [*ease*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#_ease) - ease the given normalized time.
-* [d3.easeLinear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeLinear) - linear easing; the identity function.
-* [d3.easePolyIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easePolyIn) - polynomial easing; raises time to the given power.
-* [d3.easePolyOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easePolyOut) - reverse polynomial easing.
-* [d3.easePolyInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easePolyInOut) - symmetric polynomial easing.
-* [*poly*.exponent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#poly_exponent) - specify the polynomial exponent.
-* [d3.easeQuad](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeQuad) - an alias for easeQuadInOut.
-* [d3.easeQuadIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeQuadIn) - quadratic easing; squares time.
-* [d3.easeQuadOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeQuadOut) - reverse quadratic easing.
-* [d3.easeQuadInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeQuadInOut) - symmetric quadratic easing.
-* [d3.easeCubic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCubic) - an alias for easeCubicInOut.
-* [d3.easeCubicIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCubicIn) - cubic easing; cubes time.
-* [d3.easeCubicOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCubicOut) - reverse cubic easing.
-* [d3.easeCubicInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCubicInOut) - symmetric cubic easing.
-* [d3.easeSin](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeSin) - an alias for easeSinInOut.
-* [d3.easeSinIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeSinIn) - sinusoidal easing.
-* [d3.easeSinOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeSinOut) - reverse sinusoidal easing.
-* [d3.easeSinInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeSinInOut) - symmetric sinusoidal easing.
-* [d3.easeExp](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeExp) - an alias for easeExpInOut.
-* [d3.easeExpIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeExpIn) - exponential easing.
-* [d3.easeExpOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeExpOut) - reverse exponential easing.
-* [d3.easeExpInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeExpInOut) - symmetric exponential easing.
-* [d3.easeCircle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCircle) - an alias for easeCircleInOut.
-* [d3.easeCircleIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCircleIn) - circular easing.
-* [d3.easeCircleOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCircleOut) - reverse circular easing.
-* [d3.easeCircleInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeCircleInOut) - symmetric circular easing.
-* [d3.easeElastic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeElastic) - an alias for easeElasticOut.
-* [d3.easeElasticIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeElasticIn) - elastic easing, like a rubber band.
-* [d3.easeElasticOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeElasticOut) - reverse elastic easing.
-* [d3.easeElasticInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeElasticInOut) - symmetric elastic easing.
-* [*elastic*.amplitude](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#elastic_amplitude) - specify the elastic amplitude.
-* [*elastic*.period](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#elastic_period) - specify the elastic period.
-* [d3.easeBack](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBack) - an alias for easeBackInOut.
-* [d3.easeBackIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBackIn) - anticipatory easing, like a dancer bending his knees before jumping.
-* [d3.easeBackOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBackOut) - reverse anticipatory easing.
-* [d3.easeBackInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBackInOut) - symmetric anticipatory easing.
-* [*back*.overshoot](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#back_overshoot) - specify the amount of overshoot.
-* [d3.easeBounce](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounce) - an alias for easeBounceOut.
-* [d3.easeBounceIn](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounceIn) - bounce easing, like a rubber ball.
-* [d3.easeBounceOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounceOut) - reverse bounce easing.
-* [d3.easeBounceInOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-ease/README.md#easeBounceInOut) - symmetric bounce easing.
+* [*ease*](https://github.com/xswei/d3-ease/blob/master/README.md#_ease) - ease the given normalized time.
+* [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - linear easing; the identity function.
+* [d3.easePolyIn](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyIn) - polynomial easing; raises time to the given power.
+* [d3.easePolyOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyOut) - reverse polynomial easing.
+* [d3.easePolyInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyInOut) - symmetric polynomial easing.
+* [*poly*.exponent](https://github.com/xswei/d3-ease/blob/master/README.md#poly_exponent) - specify the polynomial exponent.
+* [d3.easeQuad](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuad) - an alias for easeQuadInOut.
+* [d3.easeQuadIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadIn) - quadratic easing; squares time.
+* [d3.easeQuadOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadOut) - reverse quadratic easing.
+* [d3.easeQuadInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadInOut) - symmetric quadratic easing.
+* [d3.easeCubic](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubic) - an alias for easeCubicInOut.
+* [d3.easeCubicIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicIn) - cubic easing; cubes time.
+* [d3.easeCubicOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicOut) - reverse cubic easing.
+* [d3.easeCubicInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicInOut) - symmetric cubic easing.
+* [d3.easeSin](https://github.com/xswei/d3-ease/blob/master/README.md#easeSin) - an alias for easeSinInOut.
+* [d3.easeSinIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinIn) - sinusoidal easing.
+* [d3.easeSinOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinOut) - reverse sinusoidal easing.
+* [d3.easeSinInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinInOut) - symmetric sinusoidal easing.
+* [d3.easeExp](https://github.com/xswei/d3-ease/blob/master/README.md#easeExp) - an alias for easeExpInOut.
+* [d3.easeExpIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpIn) - exponential easing.
+* [d3.easeExpOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpOut) - reverse exponential easing.
+* [d3.easeExpInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpInOut) - symmetric exponential easing.
+* [d3.easeCircle](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircle) - an alias for easeCircleInOut.
+* [d3.easeCircleIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleIn) - circular easing.
+* [d3.easeCircleOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleOut) - reverse circular easing.
+* [d3.easeCircleInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleInOut) - symmetric circular easing.
+* [d3.easeElastic](https://github.com/xswei/d3-ease/blob/master/README.md#easeElastic) - an alias for easeElasticOut.
+* [d3.easeElasticIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticIn) - elastic easing, like a rubber band.
+* [d3.easeElasticOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticOut) - reverse elastic easing.
+* [d3.easeElasticInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticInOut) - symmetric elastic easing.
+* [*elastic*.amplitude](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_amplitude) - specify the elastic amplitude.
+* [*elastic*.period](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_period) - specify the elastic period.
+* [d3.easeBack](https://github.com/xswei/d3-ease/blob/master/README.md#easeBack) - an alias for easeBackInOut.
+* [d3.easeBackIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackIn) - anticipatory easing, like a dancer bending his knees before jumping.
+* [d3.easeBackOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackOut) - reverse anticipatory easing.
+* [d3.easeBackInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackInOut) - symmetric anticipatory easing.
+* [*back*.overshoot](https://github.com/xswei/d3-ease/blob/master/README.md#back_overshoot) - specify the amount of overshoot.
+* [d3.easeBounce](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounce) - an alias for easeBounceOut.
+* [d3.easeBounceIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceIn) - bounce easing, like a rubber ball.
+* [d3.easeBounceOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceOut) - reverse bounce easing.
+* [d3.easeBounceInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceInOut) - symmetric bounce easing.
 
 ## [Fetches (d3-fetch)](https://github.com/xswei/d3-fetch)
 
@@ -483,137 +483,137 @@ Force-directed graph layout using velocity Verlet integration.
 * [*radial*.x](https://github.com/xswei/d3-force/blob/master/README.md#radial_x) - set the target center *x*-coordinate.
 * [*radial*.y](https://github.com/xswei/d3-force/blob/master/README.md#radial_y) - set the target center *y*-coordinate.
 
-## [Number Formats (d3-format)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format)
+## [Number Formats (d3-format)](https://github.com/xswei/d3-format)
 
 Format numbers for human consumption.
 
-* [d3.format](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#format) - alias for *locale*.format on the default locale.
-* [d3.formatPrefix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#formatPrefix) - alias for *locale*.formatPrefix on the default locale.
-* [d3.formatSpecifier](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#formatSpecifier) - parse a number format specifier.
-* [d3.formatLocale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#formatLocale) - define a custom locale.
-* [d3.formatDefaultLocale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#formatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#locale_format) - create a number format.
-* [*locale*.formatPrefix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#locale_formatPrefix) - create a SI-prefix number format.
-* [d3.precisionFixed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#precisionFixed) - compute decimal precision for fixed-point notation.
-* [d3.precisionPrefix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
-* [d3.precisionRound](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-format/README.md#precisionRound) - compute significant digits for rounded notation.
+* [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - alias for *locale*.format on the default locale.
+* [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - alias for *locale*.formatPrefix on the default locale.
+* [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - parse a number format specifier.
+* [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - define a custom locale.
+* [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - define the default locale.
+* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - create a number format.
+* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - create a SI-prefix number format.
+* [d3.precisionFixed](https://github.com/xswei/d3-format/blob/master/README.md#precisionFixed) - compute decimal precision for fixed-point notation.
+* [d3.precisionPrefix](https://github.com/xswei/d3-format/blob/master/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
+* [d3.precisionRound](https://github.com/xswei/d3-format/blob/master/README.md#precisionRound) - compute significant digits for rounded notation.
 
-## [Geographies (d3-geo)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo)
+## [Geographies (d3-geo)](https://github.com/xswei/d3-geo)
 
 Geographic projections, shapes and math.
 
-### [Paths](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#paths)
+### [Paths](https://github.com/xswei/d3-geo/blob/master/README.md#paths)
 
-* [d3.geoPath](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoPath) - create a new geographic path generator.
-* [*path*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_path) - project and render the specified feature.
-* [*path*.area](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_area) - compute the projected planar area of a given feature.
-* [*path*.bounds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_bounds) - compute the projected planar bounding box of a given feature.
-* [*path*.centroid](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_centroid) - compute the projected planar centroid of a given feature.
-* [*path*.measure](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_measure) - compute the projected planar length of a given feature.
-* [*path*.projection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_projection) - set the geographic projection.
-* [*path*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_context) - set the render context.
-* [*path*.pointRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#path_pointRadius) - set the radius to display point features.
+* [d3.geoPath](https://github.com/xswei/d3-geo/blob/master/README.md#geoPath) - create a new geographic path generator.
+* [*path*](https://github.com/xswei/d3-geo/blob/master/README.md#_path) - project and render the specified feature.
+* [*path*.area](https://github.com/xswei/d3-geo/blob/master/README.md#path_area) - compute the projected planar area of a given feature.
+* [*path*.bounds](https://github.com/xswei/d3-geo/blob/master/README.md#path_bounds) - compute the projected planar bounding box of a given feature.
+* [*path*.centroid](https://github.com/xswei/d3-geo/blob/master/README.md#path_centroid) - compute the projected planar centroid of a given feature.
+* [*path*.measure](https://github.com/xswei/d3-geo/blob/master/README.md#path_measure) - compute the projected planar length of a given feature.
+* [*path*.projection](https://github.com/xswei/d3-geo/blob/master/README.md#path_projection) - set the geographic projection.
+* [*path*.context](https://github.com/xswei/d3-geo/blob/master/README.md#path_context) - set the render context.
+* [*path*.pointRadius](https://github.com/xswei/d3-geo/blob/master/README.md#path_pointRadius) - set the radius to display point features.
 
-### [Projections](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projections)
+### [Projections](https://github.com/xswei/d3-geo/blob/master/README.md#projections)
 
-* [*projection*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_projection) - project the specified point from the sphere to the plane.
-* [*projection*.invert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_invert) - unproject the specified point from the plane to the sphere.
-* [*projection*.stream](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_stream) - wrap the specified stream to project geometry.
-* [*projection*.clipAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_clipAngle) - set the radius of the clip circle.
-* [*projection*.clipExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_clipExtent) - set the viewport clip extent, in pixels.
-* [*projection*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_scale) - set the scale factor.
-* [*projection*.translate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_translate) - set the translation offset.
-* [*projection*.fitExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_fitExtent) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_fitSize) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitWidth](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_fitWidth) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitHeight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_fitHeight) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.center](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_center) - set the center point.
-* [*projection*.rotate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_rotate) - set the three-axis spherical rotation angles.
-* [*projection*.precision](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection_precision) - set the precision threshold for adaptive sampling.
-* [*projection*.preclip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection.preclip) - set the spherical clipping stream transform.
-* [*projection*.postclip](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#projection.postclip) - set the planar clipping stream transform.
-* [d3.geoClipAntimeridian](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoClipAntimeridian) - cuts spherical geometries that cross the antimeridian.
-* [d3.geoClipCircle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoClipCircle) - clips spherical geometries to a small circle.
-* [d3.geoClipRectangle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoClipRectangle) - clips planar geometries to a rectangular viewport.
-* [d3.geoAlbers](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAlbers) - the Albers equal-area conic projection.
-* [d3.geoAlbersUsa](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAlbersUsa) - a composite Albers projection for the United States.
-* [d3.geoAzimuthalEqualArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAzimuthalEqualArea) - the azimuthal equal-area projection.
-* [d3.geoAzimuthalEquidistant](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAzimuthalEquidistant) - the azimuthal equidistant projection.
-* [d3.geoConicConformal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicConformal) - the conic conformal projection.
-* [d3.geoConicEqualArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicEqualArea) - the conic equal-area (Albers) projection.
-* [d3.geoConicEquidistant](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicEquidistant) - the conic equidistant projection.
-* [*conic*.parallels](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#conic_parallels) - set the two standard parallels.
-* [d3.geoEquirectangular](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoEquirectangular) - the equirectangular (plate carreé) projection.
-* [d3.geoGnomonic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoGnomonic) - the gnomonic projection.
-* [d3.geoMercator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoMercator) - the spherical Mercator projection.
-* [d3.geoOrthographic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoOrthographic) - the azimuthal orthographic projection.
-* [d3.geoStereographic](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoStereographic) - the azimuthal stereographic projection.
-* [d3.geoTransverseMercator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoTransverseMercator) - the transverse spherical Mercator projection.
-* [*project*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_project) - project the specified point from the sphere to the plane.
-* [*project*.invert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#project_invert) - unproject the specified point from the plane to the sphere.
-* [d3.geoProjection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoProjection) - create a custom projection.
-* [d3.geoProjectionMutator](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoProjectionMutator) - create a custom configurable projection.
-* [d3.geoAzimuthalEqualAreaRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAzimuthalEqualAreaRaw) - the raw azimuthal equal-area projection.
-* [d3.geoAzimuthalEquidistantRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoAzimuthalEquidistantRaw) - the raw azimuthal equidistant projection.
-* [d3.geoConicConformalRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicConformalRaw) - the raw conic conformal projection.
-* [d3.geoConicEqualAreaRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicEqualAreaRaw) - the raw conic equal-area (Albers) projection.
-* [d3.geoConicEquidistantRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoConicEquidistantRaw) - the raw conic equidistant projection.
-* [d3.geoEquirectangularRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoEquirectangularRaw) - the raw equirectangular (plate carreé) projection.
-* [d3.geoGnomonicRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoGnomonicRaw) - the raw gnomonic projection.
-* [d3.geoMercatorRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoMercatorRaw) - the raw Mercator projection.
-* [d3.geoOrthographicRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoOrthographicRaw) - the raw azimuthal orthographic projection.
-* [d3.geoStereographicRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoStereographicRaw) - the raw azimuthal stereographic projection.
-* [d3.geoTransverseMercatorRaw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoTransverseMercatorRaw) - the raw transverse spherical Mercator projection.
+* [*projection*](https://github.com/xswei/d3-geo/blob/master/README.md#_projection) - project the specified point from the sphere to the plane.
+* [*projection*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#projection_invert) - unproject the specified point from the plane to the sphere.
+* [*projection*.stream](https://github.com/xswei/d3-geo/blob/master/README.md#projection_stream) - wrap the specified stream to project geometry.
+* [*projection*.clipAngle](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipAngle) - set the radius of the clip circle.
+* [*projection*.clipExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipExtent) - set the viewport clip extent, in pixels.
+* [*projection*.scale](https://github.com/xswei/d3-geo/blob/master/README.md#projection_scale) - set the scale factor.
+* [*projection*.translate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_translate) - set the translation offset.
+* [*projection*.fitExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitExtent) - set the scale and translate to fit a GeoJSON object.
+* [*projection*.fitSize](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitSize) - set the scale and translate to fit a GeoJSON object.
+* [*projection*.fitWidth](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitWidth) - set the scale and translate to fit a GeoJSON object.
+* [*projection*.fitHeight](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitHeight) - set the scale and translate to fit a GeoJSON object.
+* [*projection*.center](https://github.com/xswei/d3-geo/blob/master/README.md#projection_center) - set the center point.
+* [*projection*.rotate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_rotate) - set the three-axis spherical rotation angles.
+* [*projection*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#projection_precision) - set the precision threshold for adaptive sampling.
+* [*projection*.preclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.preclip) - set the spherical clipping stream transform.
+* [*projection*.postclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.postclip) - set the planar clipping stream transform.
+* [d3.geoClipAntimeridian](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipAntimeridian) - cuts spherical geometries that cross the antimeridian.
+* [d3.geoClipCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipCircle) - clips spherical geometries to a small circle.
+* [d3.geoClipRectangle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipRectangle) - clips planar geometries to a rectangular viewport.
+* [d3.geoAlbers](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbers) - the Albers equal-area conic projection.
+* [d3.geoAlbersUsa](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbersUsa) - a composite Albers projection for the United States.
+* [d3.geoAzimuthalEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualArea) - the azimuthal equal-area projection.
+* [d3.geoAzimuthalEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistant) - the azimuthal equidistant projection.
+* [d3.geoConicConformal](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformal) - the conic conformal projection.
+* [d3.geoConicEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualArea) - the conic equal-area (Albers) projection.
+* [d3.geoConicEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistant) - the conic equidistant projection.
+* [*conic*.parallels](https://github.com/xswei/d3-geo/blob/master/README.md#conic_parallels) - set the two standard parallels.
+* [d3.geoEquirectangular](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangular) - the equirectangular (plate carreé) projection.
+* [d3.geoGnomonic](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonic) - the gnomonic projection.
+* [d3.geoMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercator) - the spherical Mercator projection.
+* [d3.geoOrthographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographic) - the azimuthal orthographic projection.
+* [d3.geoStereographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographic) - the azimuthal stereographic projection.
+* [d3.geoTransverseMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercator) - the transverse spherical Mercator projection.
+* [*project*](https://github.com/xswei/d3-geo/blob/master/README.md#_project) - project the specified point from the sphere to the plane.
+* [*project*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#project_invert) - unproject the specified point from the plane to the sphere.
+* [d3.geoProjection](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjection) - create a custom projection.
+* [d3.geoProjectionMutator](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjectionMutator) - create a custom configurable projection.
+* [d3.geoAzimuthalEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualAreaRaw) - the raw azimuthal equal-area projection.
+* [d3.geoAzimuthalEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistantRaw) - the raw azimuthal equidistant projection.
+* [d3.geoConicConformalRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformalRaw) - the raw conic conformal projection.
+* [d3.geoConicEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualAreaRaw) - the raw conic equal-area (Albers) projection.
+* [d3.geoConicEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistantRaw) - the raw conic equidistant projection.
+* [d3.geoEquirectangularRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangularRaw) - the raw equirectangular (plate carreé) projection.
+* [d3.geoGnomonicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonicRaw) - the raw gnomonic projection.
+* [d3.geoMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercatorRaw) - the raw Mercator projection.
+* [d3.geoOrthographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographicRaw) - the raw azimuthal orthographic projection.
+* [d3.geoStereographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographicRaw) - the raw azimuthal stereographic projection.
+* [d3.geoTransverseMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercatorRaw) - the raw transverse spherical Mercator projection.
 
-### [Spherical Math](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#spherical-math)
+### [Spherical Math](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-math)
 
-* [d3.geoArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoArea) - compute the spherical area of a given feature.
-* [d3.geoBounds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoBounds) - compute the latitude-longitude bounding box for a given feature.
-* [d3.geoCentroid](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoCentroid) - compute the spherical centroid of a given feature.
-* [d3.geoContains](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoContains) - test whether a point is inside a given feature.
-* [d3.geoDistance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoDistance) - compute the great-arc distance between two points.
-* [d3.geoLength](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoLength) - compute the length of a line string or the perimeter of a polygon.
-* [d3.geoInterpolate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoInterpolate) - interpolate between two points along a great arc.
-* [d3.geoRotation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoRotation) - create a rotation function for the specified angles.
-* [*rotation*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_rotation) - rotate the given point around the sphere.
-* [*rotation*.invert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#rotation_invert) - unrotate the given point around the sphere.
+* [d3.geoArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoArea) - compute the spherical area of a given feature.
+* [d3.geoBounds](https://github.com/xswei/d3-geo/blob/master/README.md#geoBounds) - compute the latitude-longitude bounding box for a given feature.
+* [d3.geoCentroid](https://github.com/xswei/d3-geo/blob/master/README.md#geoCentroid) - compute the spherical centroid of a given feature.
+* [d3.geoContains](https://github.com/xswei/d3-geo/blob/master/README.md#geoContains) - test whether a point is inside a given feature.
+* [d3.geoDistance](https://github.com/xswei/d3-geo/blob/master/README.md#geoDistance) - compute the great-arc distance between two points.
+* [d3.geoLength](https://github.com/xswei/d3-geo/blob/master/README.md#geoLength) - compute the length of a line string or the perimeter of a polygon.
+* [d3.geoInterpolate](https://github.com/xswei/d3-geo/blob/master/README.md#geoInterpolate) - interpolate between two points along a great arc.
+* [d3.geoRotation](https://github.com/xswei/d3-geo/blob/master/README.md#geoRotation) - create a rotation function for the specified angles.
+* [*rotation*](https://github.com/xswei/d3-geo/blob/master/README.md#_rotation) - rotate the given point around the sphere.
+* [*rotation*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#rotation_invert) - unrotate the given point around the sphere.
 
-### [Spherical Shapes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#spherical-shapes)
+### [Spherical Shapes](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-shapes)
 
-* [d3.geoCircle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoCircle) - create a circle generator.
-* [*circle*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_circle) - generate a piecewise circle as a Polygon.
-* [*circle*.center](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#circle_center) - specify the circle center in latitude and longitude.
-* [*circle*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#circle_radius) - specify the angular radius in degrees.
-* [*circle*.precision](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#circle_precision) - specify the precision of the piecewise circle.
-* [d3.geoGraticule](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoGraticule) - create a graticule generator.
-* [*graticule*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#_graticule) - generate a MultiLineString of meridians and parallels.
-* [*graticule*.lines](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_lines) - generate an array of LineStrings of meridians and parallels.
-* [*graticule*.outline](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_outline) - generate a Polygon of the graticule’s extent.
-* [*graticule*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_extent) - get or set the major & minor extents.
-* [*graticule*.extentMajor](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_extentMajor) - get or set the major extent.
-* [*graticule*.extentMinor](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_extentMinor) - get or set the minor extent.
-* [*graticule*.step](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_step) - get or set the major & minor step intervals.
-* [*graticule*.stepMajor](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_stepMajor) - get or set the major step intervals.
-* [*graticule*.stepMinor](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_stepMinor) - get or set the minor step intervals.
-* [*graticule*.precision](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#graticule_precision) - get or set the latitudinal precision.
-* [d3.geoGraticule10](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoGraticule10) - generate the default 10° global graticule.
+* [d3.geoCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoCircle) - create a circle generator.
+* [*circle*](https://github.com/xswei/d3-geo/blob/master/README.md#_circle) - generate a piecewise circle as a Polygon.
+* [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - specify the circle center in latitude and longitude.
+* [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - specify the angular radius in degrees.
+* [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - specify the precision of the piecewise circle.
+* [d3.geoGraticule](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule) - create a graticule generator.
+* [*graticule*](https://github.com/xswei/d3-geo/blob/master/README.md#_graticule) - generate a MultiLineString of meridians and parallels.
+* [*graticule*.lines](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_lines) - generate an array of LineStrings of meridians and parallels.
+* [*graticule*.outline](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_outline) - generate a Polygon of the graticule’s extent.
+* [*graticule*.extent](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extent) - get or set the major & minor extents.
+* [*graticule*.extentMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMajor) - get or set the major extent.
+* [*graticule*.extentMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMinor) - get or set the minor extent.
+* [*graticule*.step](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_step) - get or set the major & minor step intervals.
+* [*graticule*.stepMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMajor) - get or set the major step intervals.
+* [*graticule*.stepMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMinor) - get or set the minor step intervals.
+* [*graticule*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_precision) - get or set the latitudinal precision.
+* [d3.geoGraticule10](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule10) - generate the default 10° global graticule.
 
-#### [Streams](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#streams)
+#### [Streams](https://github.com/xswei/d3-geo/blob/master/README.md#streams)
 
-* [d3.geoStream](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoStream) - convert a GeoJSON object to a geometry stream.
-* [*stream*.point](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_point) - indicates a point with the specified coordinates.
-* [*stream*.lineStart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_lineStart) - indicates the start of a line or ring.
-* [*stream*.lineEnd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_lineEnd) - indicates the end of a line or ring.
-* [*stream*.polygonStart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_polygonStart) - indicates the start of a polygon.
-* [*stream*.polygonEnd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_polygonEnd) - indicates the end of a polygon.
-* [*stream*.sphere](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#stream_sphere) - indicates the sphere.
+* [d3.geoStream](https://github.com/xswei/d3-geo/blob/master/README.md#geoStream) - convert a GeoJSON object to a geometry stream.
+* [*stream*.point](https://github.com/xswei/d3-geo/blob/master/README.md#stream_point) - indicates a point with the specified coordinates.
+* [*stream*.lineStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineStart) - indicates the start of a line or ring.
+* [*stream*.lineEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineEnd) - indicates the end of a line or ring.
+* [*stream*.polygonStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonStart) - indicates the start of a polygon.
+* [*stream*.polygonEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonEnd) - indicates the end of a polygon.
+* [*stream*.sphere](https://github.com/xswei/d3-geo/blob/master/README.md#stream_sphere) - indicates the sphere.
 
-### [Transforms](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#transforms)
+### [Transforms](https://github.com/xswei/d3-geo/blob/master/README.md#transforms)
 
-* [d3.geoIdentity](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoIdentity) - scale, translate or clip planar geometry.
-* [*identity*.reflectX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#identity_reflectX) - reflect the *x*-dimension.
-* [*identity*.reflectY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#identity_reflectY) - reflect the *y*-dimension.
-* [d3.geoTransform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-geo/README.md#geoTransform) - define a custom geometry transform.
+* [d3.geoIdentity](https://github.com/xswei/d3-geo/blob/master/README.md#geoIdentity) - scale, translate or clip planar geometry.
+* [*identity*.reflectX](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectX) - reflect the *x*-dimension.
+* [*identity*.reflectY](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectY) - reflect the *y*-dimension.
+* [d3.geoTransform](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransform) - define a custom geometry transform.
 
 ## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy)
 
