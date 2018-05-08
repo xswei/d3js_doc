@@ -5,7 +5,7 @@
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms)) - **完成**
 * [Axes](#axes-d3-axis) - **完成**
 * [Brushes](#brushes-d3-brush) - **完成**
-* [Chords](#chords-d3-chord)
+* [Chords](#chords-d3-chord) - **完成**
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests)) -**完成**
 * [Colors](#colors-d3-color) - **完成**
 * [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
