@@ -11,7 +11,7 @@
 * [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
 * [Contours](#contours-d3-contour) ( V5 新增模块 )
 * [Dispatches](#dispatches-d3-dispatch) - **完成**
-* [Dragging](#dragging-d3-drag) -**TODO**
+* [Dragging](#dragging-d3-drag) - **完成**
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
 * [Fetches](#fetches-d3-fetch) ( V5 新增模块 ) - **完成**
