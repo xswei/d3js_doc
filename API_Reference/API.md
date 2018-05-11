@@ -1301,23 +1301,23 @@ Animated transitions for [selections](#selections).
 * [d3.active](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#active) - select the active transition for a given node.
 * [d3.interrupt](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#interrupt) - interrupt the active transition for a given node.
 
-## [Voronoi Diagrams (d3-voronoi)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi)
+## [Voronoi Diagrams (d3-voronoi)](https://github.com/xswei/d3-voronoi)
 
 Compute the Voronoi diagram of a given set of points.
 
-* [d3.voronoi](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi) - create a new Voronoi generator.
-* [*voronoi*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#_voronoi) - generate a new Voronoi diagram for the given points.
-* [*voronoi*.polygons](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_polygons) - compute the Voronoi polygons for the given points.
-* [*voronoi*.triangles](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_triangles) - compute the Delaunay triangles for the given points.
-* [*voronoi*.links](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_links) - compute the Delaunay links for the given points.
-* [*voronoi*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_x) - set the *x* accessor.
-* [*voronoi*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_y) - set the *y* accessor.
-* [*voronoi*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_extent) - set the observed extent of points.
-* [*voronoi*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#voronoi_size) - set the observed extent of points.
-* [*diagram*.polygons](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#diagram_polygons) - compute the polygons for this Voronoi diagram.
-* [*diagram*.triangles](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#diagram_triangles) - compute the triangles for this Voronoi diagram.
-* [*diagram*.links](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#diagram_links) - compute the links for this Voronoi diagram.
-* [*diagram*.find](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-voronoi/README.md#diagram_find) - find the closest point in this Voronoi diagram.
+* [d3.voronoi](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi) - create a new Voronoi generator.
+* [*voronoi*](https://github.com/xswei/d3-voronoi/blob/master/README.md#_voronoi) - generate a new Voronoi diagram for the given points.
+* [*voronoi*.polygons](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_polygons) - compute the Voronoi polygons for the given points.
+* [*voronoi*.triangles](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_triangles) - compute the Delaunay triangles for the given points.
+* [*voronoi*.links](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_links) - compute the Delaunay links for the given points.
+* [*voronoi*.x](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_x) - set the *x* accessor.
+* [*voronoi*.y](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_y) - set the *y* accessor.
+* [*voronoi*.extent](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_extent) - set the observed extent of points.
+* [*voronoi*.size](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_size) - set the observed extent of points.
+* [*diagram*.polygons](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_polygons) - compute the polygons for this Voronoi diagram.
+* [*diagram*.triangles](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_triangles) - compute the triangles for this Voronoi diagram.
+* [*diagram*.links](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_links) - compute the links for this Voronoi diagram.
+* [*diagram*.find](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_find) - find the closest point in this Voronoi diagram.
 
 ## [Zooming (d3-zoom)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom)
 
