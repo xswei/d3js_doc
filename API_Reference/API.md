@@ -436,52 +436,52 @@ Easing functions for smooth animation.
 
 ## [Forces (d3-force)](https://github.com/xswei/d3-force)
 
-Force-directed graph layout using velocity Verlet integration.
+使用速度 `Verlet` 积分的力模型仿真布局.
 
-* [d3.forceSimulation](https://github.com/xswei/d3-force/blob/master/README.md#forceSimulation) - create a new force simulation.
-* [*simulation*.restart](https://github.com/xswei/d3-force/blob/master/README.md#simulation_restart) - reheat and restart the simulation’s timer.
-* [*simulation*.stop](https://github.com/xswei/d3-force/blob/master/README.md#simulation_stop) - stop the simulation’s timer.
-* [*simulation*.tick](https://github.com/xswei/d3-force/blob/master/README.md#simulation_tick) - advance the simulation one step.
-* [*simulation*.nodes](https://github.com/xswei/d3-force/blob/master/README.md#simulation_nodes) - set the simulation’s nodes.
-* [*simulation*.alpha](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alpha) - set the current alpha.
-* [*simulation*.alphaMin](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaMin) - set the minimum alpha threshold.
-* [*simulation*.alphaDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaDecay) - set the alpha exponential decay rate.
-* [*simulation*.alphaTarget](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaTarget) - set the target alpha.
-* [*simulation*.velocityDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_velocityDecay) - set the velocity decay rate.
-* [*simulation*.force](https://github.com/xswei/d3-force/blob/master/README.md#simulation_force) - add or remove a force.
-* [*simulation*.find](https://github.com/xswei/d3-force/blob/master/README.md#simulation_find) - find the closest node to the given position.
-* [*simulation*.on](https://github.com/xswei/d3-force/blob/master/README.md#simulation_on) - add or remove an event listener.
-* [*force*](https://github.com/xswei/d3-force/blob/master/README.md#_force) - apply the force.
-* [*force*.initialize](https://github.com/xswei/d3-force/blob/master/README.md#force_initialize) - initialize the force with the given nodes.
-* [d3.forceCenter](https://github.com/xswei/d3-force/blob/master/README.md#forceCenter) - create a centering force.
-* [*center*.x](https://github.com/xswei/d3-force/blob/master/README.md#center_x) - set the center *x*-coordinate.
-* [*center*.y](https://github.com/xswei/d3-force/blob/master/README.md#center_y) - set the center *y*-coordinate.
-* [d3.forceCollide](https://github.com/xswei/d3-force/blob/master/README.md#forceCollide) - create a circle collision force.
-* [*collide*.radius](https://github.com/xswei/d3-force/blob/master/README.md#collide_radius) - set the circle radius.
-* [*collide*.strength](https://github.com/xswei/d3-force/blob/master/README.md#collide_strength) - set the collision resolution strength.
-* [*collide*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#collide_iterations) - set the number of iterations.
-* [d3.forceLink](https://github.com/xswei/d3-force/blob/master/README.md#forceLink) - create a link force.
-* [*link*.links](https://github.com/xswei/d3-force/blob/master/README.md#link_links) - set the array of links.
-* [*link*.id](https://github.com/xswei/d3-force/blob/master/README.md#link_id) - link nodes by numeric index or string identifier.
-* [*link*.distance](https://github.com/xswei/d3-force/blob/master/README.md#link_distance) - set the link distance.
-* [*link*.strength](https://github.com/xswei/d3-force/blob/master/README.md#link_strength) - set the link strength.
-* [*link*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#link_iterations) - set the number of iterations.
-* [d3.forceManyBody](https://github.com/xswei/d3-force/blob/master/README.md#forceManyBody) - create a many-body force.
-* [*manyBody*.strength](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_strength) - set the force strength.
-* [*manyBody*.theta](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_theta) - set the Barnes–Hut approximation accuracy.
-* [*manyBody*.distanceMin](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMin) - limit the force when nodes are close.
-* [*manyBody*.distanceMax](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMax) - limit the force when nodes are far.
-* [d3.forceX](https://github.com/xswei/d3-force/blob/master/README.md#forceX) - create an *x*-positioning force.
-* [*x*.strength](https://github.com/xswei/d3-force/blob/master/README.md#x_strength) - set the force strength.
-* [*x*.x](https://github.com/xswei/d3-force/blob/master/README.md#x_x) - set the target *x*-coordinate.
-* [d3.forceY](https://github.com/xswei/d3-force/blob/master/README.md#forceY) - create an *y*-positioning force.
-* [*y*.strength](https://github.com/xswei/d3-force/blob/master/README.md#y_strength) - set the force strength.
-* [*y*.y](https://github.com/xswei/d3-force/blob/master/README.md#y_y) - set the target *y*-coordinate.
-* [d3.forceRadial](https://github.com/xswei/d3-force/blob/master/README.md#forceRadial) - create a radial positioning force.
-* [*radial*.strength](https://github.com/xswei/d3-force/blob/master/README.md#radial_strength) - set the force strength.
-* [*radial*.radius](https://github.com/xswei/d3-force/blob/master/README.md#radial_radius) - set the target radius.
-* [*radial*.x](https://github.com/xswei/d3-force/blob/master/README.md#radial_x) - set the target center *x*-coordinate.
-* [*radial*.y](https://github.com/xswei/d3-force/blob/master/README.md#radial_y) - set the target center *y*-coordinate.
+* [d3.forceSimulation](https://github.com/xswei/d3-force/blob/master/README.md#forceSimulation) - 创建一个新的力学仿真.
+* [*simulation*.restart](https://github.com/xswei/d3-force/blob/master/README.md#simulation_restart) - 重新启动仿真的定时器.
+* [*simulation*.stop](https://github.com/xswei/d3-force/blob/master/README.md#simulation_stop) - 停止仿真的定时器.
+* [*simulation*.tick](https://github.com/xswei/d3-force/blob/master/README.md#simulation_tick) - 进行一步仿真模拟.
+* [*simulation*.nodes](https://github.com/xswei/d3-force/blob/master/README.md#simulation_nodes) - 设置仿真的节点.
+* [*simulation*.alpha](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alpha) - 设置当前的 `alpha` 值.
+* [*simulation*.alphaMin](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaMin) - 设置最小 `alpha` 阈值.
+* [*simulation*.alphaDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaDecay) - 设置 `alpha` 衰减率.
+* [*simulation*.alphaTarget](https://github.com/xswei/d3-force/blob/master/README.md#simulation_alphaTarget) - 设置目标 `alpha` 值.
+* [*simulation*.velocityDecay](https://github.com/xswei/d3-force/blob/master/README.md#simulation_velocityDecay) - 设置速度衰减率.
+* [*simulation*.force](https://github.com/xswei/d3-force/blob/master/README.md#simulation_force) - 添加或移除一个力模型.
+* [*simulation*.find](https://github.com/xswei/d3-force/blob/master/README.md#simulation_find) - 根据指定的位置找出最近的节点.
+* [*simulation*.on](https://github.com/xswei/d3-force/blob/master/README.md#simulation_on) - 添加或移除事件监听器.
+* [*force*](https://github.com/xswei/d3-force/blob/master/README.md#_force) - 应用力模型.
+* [*force*.initialize](https://github.com/xswei/d3-force/blob/master/README.md#force_initialize) - 根据指定的节点初始化力模型.
+* [d3.forceCenter](https://github.com/xswei/d3-force/blob/master/README.md#forceCenter) - 创建一个中心作用力.
+* [*center*.x](https://github.com/xswei/d3-force/blob/master/README.md#center_x) - 设置中心作用力的 *x* -坐标.
+* [*center*.y](https://github.com/xswei/d3-force/blob/master/README.md#center_y) - 设置中心作用力的 *y* -坐标.
+* [d3.forceCollide](https://github.com/xswei/d3-force/blob/master/README.md#forceCollide) - 创建一个圆形区域的碰撞检测力模型.
+* [*collide*.radius](https://github.com/xswei/d3-force/blob/master/README.md#collide_radius) - 设置碰撞半径.
+* [*collide*.strength](https://github.com/xswei/d3-force/blob/master/README.md#collide_strength) - 设置碰撞检测力模型的强度.
+* [*collide*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#collide_iterations) - 设置迭代次数.
+* [d3.forceLink](https://github.com/xswei/d3-force/blob/master/README.md#forceLink) - 创建一个 `link`(弹簧) 作用力.
+* [*link*.links](https://github.com/xswei/d3-force/blob/master/README.md#link_links) - 设置弹簧作用力的边.
+* [*link*.id](https://github.com/xswei/d3-force/blob/master/README.md#link_id) - 设置边元素中节点的查找方式是索引还是 `id` 字符串.
+* [*link*.distance](https://github.com/xswei/d3-force/blob/master/README.md#link_distance) - 设置 `link` 的距离.
+* [*link*.strength](https://github.com/xswei/d3-force/blob/master/README.md#link_strength) - 设置 `link` 的强度.
+* [*link*.iterations](https://github.com/xswei/d3-force/blob/master/README.md#link_iterations) - 设置迭代次数.
+* [d3.forceManyBody](https://github.com/xswei/d3-force/blob/master/README.md#forceManyBody) - 创建一个电荷作用力模型.
+* [*manyBody*.strength](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_strength) - 设置电荷力模型的强度.
+* [*manyBody*.theta](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_theta) - 设置 `Barnes–Hut` 算法的精度.
+* [*manyBody*.distanceMin](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMin) - 限制节点之间的最小距离.
+* [*manyBody*.distanceMax](https://github.com/xswei/d3-force/blob/master/README.md#manyBody_distanceMax) - 限制节点之间的最大距离.
+* [d3.forceX](https://github.com/xswei/d3-force/blob/master/README.md#forceX) - 创建一个 *x* -方向的一维作用力.
+* [*x*.strength](https://github.com/xswei/d3-force/blob/master/README.md#x_strength) - 设置力强度.
+* [*x*.x](https://github.com/xswei/d3-force/blob/master/README.md#x_x) - 设置目标 *x* -坐标.
+* [d3.forceY](https://github.com/xswei/d3-force/blob/master/README.md#forceY) - 创建一个 *y* -方向的一维作用力.
+* [*y*.strength](https://github.com/xswei/d3-force/blob/master/README.md#y_strength) - 设置力强度.
+* [*y*.y](https://github.com/xswei/d3-force/blob/master/README.md#y_y) - 设置目标 *y* -坐标.
+* [d3.forceRadial](https://github.com/xswei/d3-force/blob/master/README.md#forceRadial) - 创建一个环形布局的作用力.
+* [*radial*.strength](https://github.com/xswei/d3-force/blob/master/README.md#radial_strength) - 设置力强度.
+* [*radial*.radius](https://github.com/xswei/d3-force/blob/master/README.md#radial_radius) - 设置目标半径.
+* [*radial*.x](https://github.com/xswei/d3-force/blob/master/README.md#radial_x) - 设置环形作用力的目标中心 *x* -坐标.
+* [*radial*.y](https://github.com/xswei/d3-force/blob/master/README.md#radial_y) - 设置环形作用力的目标中心 *y* -坐标.
 
 ## [Number Formats (d3-format)](https://github.com/xswei/d3-format)
 
