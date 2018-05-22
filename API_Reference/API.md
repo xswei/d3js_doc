@@ -1021,240 +1021,240 @@ Transform the DOM by selecting elements and joining to data.
 * [d3.namespace](https://github.com/xswei/d3-selection/blob/master/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
 * [d3.namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces) - the built-in XML namespaces.
 
-## [Shapes (d3-shape)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape)
+## [Shapes (d3-shape)](https://github.com/xswei/d3-shape)
 
 Graphical primitives for visualization.
 
-### [Arcs](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arcs)
+### [Arcs](https://github.com/xswei/d3-shape/blob/master/README.md#arcs)
 
 Circular or annular sectors, as in a pie or donut chart.
 
-* [d3.arc](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc) - create a new arc generator.
-* [*arc*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_arc) - generate an arc for the given datum.
-* [*arc*.centroid](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_centroid) - compute an arc’s midpoint.
-* [*arc*.innerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_innerRadius) - set the inner radius.
-* [*arc*.outerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_outerRadius) - set the outer radius.
-* [*arc*.cornerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_cornerRadius) - set the corner radius, for rounded corners.
-* [*arc*.startAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_startAngle) - set the start angle.
-* [*arc*.endAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_endAngle) - set the end angle.
-* [*arc*.padAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_padAngle) - set the angle between adjacent arcs, for padded arcs.
-* [*arc*.padRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_padRadius) - set the radius at which to linearize padding.
-* [*arc*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#arc_context) - set the rendering context.
+* [d3.arc](https://github.com/xswei/d3-shape/blob/master/README.md#arc) - create a new arc generator.
+* [*arc*](https://github.com/xswei/d3-shape/blob/master/README.md#_arc) - generate an arc for the given datum.
+* [*arc*.centroid](https://github.com/xswei/d3-shape/blob/master/README.md#arc_centroid) - compute an arc’s midpoint.
+* [*arc*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_innerRadius) - set the inner radius.
+* [*arc*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_outerRadius) - set the outer radius.
+* [*arc*.cornerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_cornerRadius) - set the corner radius, for rounded corners.
+* [*arc*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_startAngle) - set the start angle.
+* [*arc*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_endAngle) - set the end angle.
+* [*arc*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padAngle) - set the angle between adjacent arcs, for padded arcs.
+* [*arc*.padRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padRadius) - set the radius at which to linearize padding.
+* [*arc*.context](https://github.com/xswei/d3-shape/blob/master/README.md#arc_context) - set the rendering context.
 
-### [Pies](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pies)
+### [Pies](https://github.com/xswei/d3-shape/blob/master/README.md#pies)
 
 Compute the necessary angles to represent a tabular dataset as a pie or donut chart.
 
-* [d3.pie](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie) - create a new pie generator.
-* [*pie*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_pie) - compute the arc angles for the given dataset.
-* [*pie*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_value) - set the value accessor.
-* [*pie*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_sort) - set the sort order comparator.
-* [*pie*.sortValues](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_sortValues) - set the sort order comparator.
-* [*pie*.startAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_startAngle) - set the overall start angle.
-* [*pie*.endAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_endAngle) - set the overall end angle.
-* [*pie*.padAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#pie_padAngle) - set the pad angle between adjacent arcs.
+* [d3.pie](https://github.com/xswei/d3-shape/blob/master/README.md#pie) - create a new pie generator.
+* [*pie*](https://github.com/xswei/d3-shape/blob/master/README.md#_pie) - compute the arc angles for the given dataset.
+* [*pie*.value](https://github.com/xswei/d3-shape/blob/master/README.md#pie_value) - set the value accessor.
+* [*pie*.sort](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sort) - set the sort order comparator.
+* [*pie*.sortValues](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sortValues) - set the sort order comparator.
+* [*pie*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_startAngle) - set the overall start angle.
+* [*pie*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_endAngle) - set the overall end angle.
+* [*pie*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_padAngle) - set the pad angle between adjacent arcs.
 
-### [Lines](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#lines)
+### [Lines](https://github.com/xswei/d3-shape/blob/master/README.md#lines)
 
 A spline or polyline, as in a line chart.
 
-* [d3.line](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line) - create a new line generator.
-* [*line*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_line) - generate a line for the given dataset.
-* [*line*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line_x) - set the *x* accessor.
-* [*line*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line_y) - set the *y* accessor.
-* [*line*.defined](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line_defined) - set the defined accessor.
-* [*line*.curve](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line_curve) - set the curve interpolator.
-* [*line*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#line_context) - set the rendering context.
-* [d3.radialLine](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine) - create a new radial line generator.
-* [*radialLine*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_radialLine) - generate a line for the given dataset.
-* [*radialLine*.angle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine_angle) - set the angle accessor.
-* [*radialLine*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine_radius) - set the radius accessor.
-* [*radialLine*.defined](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine_defined) - set the defined accessor.
-* [*radialLine*.curve](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine_curve) - set the curve interpolator.
-* [*radialLine*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLine_context) - set the rendering context.
+* [d3.line](https://github.com/xswei/d3-shape/blob/master/README.md#line) - create a new line generator.
+* [*line*](https://github.com/xswei/d3-shape/blob/master/README.md#_line) - generate a line for the given dataset.
+* [*line*.x](https://github.com/xswei/d3-shape/blob/master/README.md#line_x) - set the *x* accessor.
+* [*line*.y](https://github.com/xswei/d3-shape/blob/master/README.md#line_y) - set the *y* accessor.
+* [*line*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#line_defined) - set the defined accessor.
+* [*line*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#line_curve) - set the curve interpolator.
+* [*line*.context](https://github.com/xswei/d3-shape/blob/master/README.md#line_context) - set the rendering context.
+* [d3.radialLine](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine) - create a new radial line generator.
+* [*radialLine*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialLine) - generate a line for the given dataset.
+* [*radialLine*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_angle) - set the angle accessor.
+* [*radialLine*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_radius) - set the radius accessor.
+* [*radialLine*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_defined) - set the defined accessor.
+* [*radialLine*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_curve) - set the curve interpolator.
+* [*radialLine*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_context) - set the rendering context.
 
-### [Areas](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#areas)
+### [Areas](https://github.com/xswei/d3-shape/blob/master/README.md#areas)
 
 An area, defined by a bounding topline and baseline, as in an area chart.
 
-* [d3.area](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area) - create a new area generator.
-* [*area*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_area) - generate an area for the given dataset.
-* [*area*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_x) - set the *x0* and *x1* accessors.
-* [*area*.x0](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_x0) - set the baseline *x* accessor.
-* [*area*.x1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_x1) - set the topline *x* accessor.
-* [*area*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_y) - set the *y0* and *y1* accessors.
-* [*area*.y0](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_y0) - set the baseline *y* accessor.
-* [*area*.y1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_y1) - set the topline *y* accessor.
-* [*area*.defined](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_defined) - set the defined accessor.
-* [*area*.curve](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_curve) - set the curve interpolator.
-* [*area*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_context) - set the rendering context.
-* [*area*.lineX0](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineX0) - derive a line for the left edge of an area.
-* [*area*.lineX1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineX1) - derive a line for the right edge of an area.
-* [*area*.lineY0](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineY0) - derive a line for the top edge of an area.
-* [*area*.lineY1](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineY1) - derive a line for the bottom edge of an area.
-* [d3.radialArea](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea) - create a new radial area generator.
-* [*radialArea*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_radialArea) - generate an area for the given dataset.
-* [*radialArea*.angle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_angle) - set the start and end angle accessors.
-* [*radialArea*.startAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_startAngle) - set the start angle accessor.
-* [*radialArea*.endAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_endAngle) - set the end angle accessor.
-* [*radialArea*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_radius) - set the inner and outer radius accessors.
-* [*radialArea*.innerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_innerRadius) - set the inner radius accessor.
-* [*radialArea*.outerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_outerRadius) - set the outer radius accessor.
-* [*radialArea*.defined](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_defined) - set the defined accessor.
-* [*radialArea*.curve](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_curve) - set the curve interpolator.
-* [*radialArea*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialArea_context) - set the rendering context.
-* [*radialArea*.lineStartAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineStartAngle) - derive a line for the start edge of an area.
-* [*radialArea*.lineEndAngle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineEndAngle) - derive a line for the end edge of an area.
-* [*radialArea*.lineInnerRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineInnerRadius) - derive a line for the inner edge of an area.
-* [*radialArea*.lineOuterRadius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#area_lineOuterRadius) - derive a line for the outer edge of an area.
+* [d3.area](https://github.com/xswei/d3-shape/blob/master/README.md#area) - create a new area generator.
+* [*area*](https://github.com/xswei/d3-shape/blob/master/README.md#_area) - generate an area for the given dataset.
+* [*area*.x](https://github.com/xswei/d3-shape/blob/master/README.md#area_x) - set the *x0* and *x1* accessors.
+* [*area*.x0](https://github.com/xswei/d3-shape/blob/master/README.md#area_x0) - set the baseline *x* accessor.
+* [*area*.x1](https://github.com/xswei/d3-shape/blob/master/README.md#area_x1) - set the topline *x* accessor.
+* [*area*.y](https://github.com/xswei/d3-shape/blob/master/README.md#area_y) - set the *y0* and *y1* accessors.
+* [*area*.y0](https://github.com/xswei/d3-shape/blob/master/README.md#area_y0) - set the baseline *y* accessor.
+* [*area*.y1](https://github.com/xswei/d3-shape/blob/master/README.md#area_y1) - set the topline *y* accessor.
+* [*area*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#area_defined) - set the defined accessor.
+* [*area*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#area_curve) - set the curve interpolator.
+* [*area*.context](https://github.com/xswei/d3-shape/blob/master/README.md#area_context) - set the rendering context.
+* [*area*.lineX0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX0) - derive a line for the left edge of an area.
+* [*area*.lineX1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX1) - derive a line for the right edge of an area.
+* [*area*.lineY0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY0) - derive a line for the top edge of an area.
+* [*area*.lineY1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY1) - derive a line for the bottom edge of an area.
+* [d3.radialArea](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea) - create a new radial area generator.
+* [*radialArea*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialArea) - generate an area for the given dataset.
+* [*radialArea*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_angle) - set the start and end angle accessors.
+* [*radialArea*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_startAngle) - set the start angle accessor.
+* [*radialArea*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_endAngle) - set the end angle accessor.
+* [*radialArea*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_radius) - set the inner and outer radius accessors.
+* [*radialArea*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_innerRadius) - set the inner radius accessor.
+* [*radialArea*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_outerRadius) - set the outer radius accessor.
+* [*radialArea*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_defined) - set the defined accessor.
+* [*radialArea*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_curve) - set the curve interpolator.
+* [*radialArea*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_context) - set the rendering context.
+* [*radialArea*.lineStartAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineStartAngle) - derive a line for the start edge of an area.
+* [*radialArea*.lineEndAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineEndAngle) - derive a line for the end edge of an area.
+* [*radialArea*.lineInnerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineInnerRadius) - derive a line for the inner edge of an area.
+* [*radialArea*.lineOuterRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineOuterRadius) - derive a line for the outer edge of an area.
 
-### [Curves](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curves)
+### [Curves](https://github.com/xswei/d3-shape/blob/master/README.md#curves)
 
 Interpolate between points to produce a continuous shape.
 
-* [d3.curveBasis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveBasis) - a cubic basis spline, repeating the end points.
-* [d3.curveBasisClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveBasisClosed) - a closed cubic basis spline.
-* [d3.curveBasisOpen](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveBasisOpen) - a cubic basis spline.
-* [d3.curveBundle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveBundle) - a straightened cubic basis spline.
-* [*bundle*.beta](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#bundle_beta) - set the bundle tension *beta*.
-* [d3.curveCardinal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCardinal) - a cubic cardinal spline, with one-sided difference at each end.
-* [d3.curveCardinalClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCardinalClosed) - a closed cubic cardinal spline.
-* [d3.curveCardinalOpen](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCardinalOpen) - a cubic cardinal spline.
-* [*cardinal*.tension](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#cardinal_tension) - set the cardinal spline tension.
-* [d3.curveCatmullRom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCatmullRom) - a cubic Catmull–Rom spline, with one-sided difference at each end.
-* [d3.curveCatmullRomClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCatmullRomClosed) - a closed cubic Catmull–Rom spline.
-* [d3.curveCatmullRomOpen](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveCatmullRomOpen) - a cubic Catmull–Rom spline.
-* [*catmullRom*.alpha](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#catmullRom_alpha) - set the Catmull–Rom parameter *alpha*.
-* [d3.curveLinear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveLinear) - a polyline.
-* [d3.curveLinearClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveLinearClosed) - a closed polyline.
-* [d3.curveMonotoneX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveMonotoneX) - a cubic spline that, given monotonicity in *x*, preserves it in *y*.
-* [d3.curveMonotoneY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveMonotoneY) - a cubic spline that, given monotonicity in *y*, preserves it in *x*.
-* [d3.curveNatural](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveNatural) - a natural cubic spline.
-* [d3.curveStep](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveStep) - a piecewise constant function.
-* [d3.curveStepAfter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveStepAfter) - a piecewise constant function.
-* [d3.curveStepBefore](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curveStepBefore) - a piecewise constant function.
-* [*curve*.areaStart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curve_areaStart) - start a new area segment.
-* [*curve*.areaEnd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curve_areaEnd) - end the current area segment.
-* [*curve*.lineStart](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curve_lineStart) - start a new line segment.
-* [*curve*.lineEnd](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curve_lineEnd) - end the current line segment.
-* [*curve*.point](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#curve_point) - add a point to the current line segment.
+* [d3.curveBasis](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasis) - a cubic basis spline, repeating the end points.
+* [d3.curveBasisClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisClosed) - a closed cubic basis spline.
+* [d3.curveBasisOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisOpen) - a cubic basis spline.
+* [d3.curveBundle](https://github.com/xswei/d3-shape/blob/master/README.md#curveBundle) - a straightened cubic basis spline.
+* [*bundle*.beta](https://github.com/xswei/d3-shape/blob/master/README.md#bundle_beta) - set the bundle tension *beta*.
+* [d3.curveCardinal](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinal) - a cubic cardinal spline, with one-sided difference at each end.
+* [d3.curveCardinalClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalClosed) - a closed cubic cardinal spline.
+* [d3.curveCardinalOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalOpen) - a cubic cardinal spline.
+* [*cardinal*.tension](https://github.com/xswei/d3-shape/blob/master/README.md#cardinal_tension) - set the cardinal spline tension.
+* [d3.curveCatmullRom](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRom) - a cubic Catmull–Rom spline, with one-sided difference at each end.
+* [d3.curveCatmullRomClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomClosed) - a closed cubic Catmull–Rom spline.
+* [d3.curveCatmullRomOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomOpen) - a cubic Catmull–Rom spline.
+* [*catmullRom*.alpha](https://github.com/xswei/d3-shape/blob/master/README.md#catmullRom_alpha) - set the Catmull–Rom parameter *alpha*.
+* [d3.curveLinear](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinear) - a polyline.
+* [d3.curveLinearClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinearClosed) - a closed polyline.
+* [d3.curveMonotoneX](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneX) - a cubic spline that, given monotonicity in *x*, preserves it in *y*.
+* [d3.curveMonotoneY](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneY) - a cubic spline that, given monotonicity in *y*, preserves it in *x*.
+* [d3.curveNatural](https://github.com/xswei/d3-shape/blob/master/README.md#curveNatural) - a natural cubic spline.
+* [d3.curveStep](https://github.com/xswei/d3-shape/blob/master/README.md#curveStep) - a piecewise constant function.
+* [d3.curveStepAfter](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepAfter) - a piecewise constant function.
+* [d3.curveStepBefore](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepBefore) - a piecewise constant function.
+* [*curve*.areaStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaStart) - start a new area segment.
+* [*curve*.areaEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaEnd) - end the current area segment.
+* [*curve*.lineStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineStart) - start a new line segment.
+* [*curve*.lineEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineEnd) - end the current line segment.
+* [*curve*.point](https://github.com/xswei/d3-shape/blob/master/README.md#curve_point) - add a point to the current line segment.
 
-### [Links](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#links)
+### [Links](https://github.com/xswei/d3-shape/blob/master/README.md#links)
 
 A smooth cubic Bézier curve from a source to a target.
 
-* [d3.linkVertical](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#linkVertical) - create a new vertical link generator.
-* [d3.linkHorizontal](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#linkHorizontal) - create a new horizontal link generator.
-* [*link*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_link) - generate a link.
-* [*link*.source](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#link_source) - set the source accessor.
-* [*link*.target](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#link_target) - set the target accessor.
-* [*link*.x](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#link_x) - set the point *x*-accessor.
-* [*link*.y](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#link_y) - set the point *y*-accessor.
-* [d3.linkRadial](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#linkRadial) - create a new radial link generator.
-* [*radialLink*.angle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLink_angle) - set the point *angle* accessor.
-* [*radialLink*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#radialLink_radius) - set the point *radius* accessor.
+* [d3.linkVertical](https://github.com/xswei/d3-shape/blob/master/README.md#linkVertical) - create a new vertical link generator.
+* [d3.linkHorizontal](https://github.com/xswei/d3-shape/blob/master/README.md#linkHorizontal) - create a new horizontal link generator.
+* [*link*](https://github.com/xswei/d3-shape/blob/master/README.md#_link) - generate a link.
+* [*link*.source](https://github.com/xswei/d3-shape/blob/master/README.md#link_source) - set the source accessor.
+* [*link*.target](https://github.com/xswei/d3-shape/blob/master/README.md#link_target) - set the target accessor.
+* [*link*.x](https://github.com/xswei/d3-shape/blob/master/README.md#link_x) - set the point *x*-accessor.
+* [*link*.y](https://github.com/xswei/d3-shape/blob/master/README.md#link_y) - set the point *y*-accessor.
+* [d3.linkRadial](https://github.com/xswei/d3-shape/blob/master/README.md#linkRadial) - create a new radial link generator.
+* [*radialLink*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_angle) - set the point *angle* accessor.
+* [*radialLink*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_radius) - set the point *radius* accessor.
 
-### [Symbols](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbols)
+### [Symbols](https://github.com/xswei/d3-shape/blob/master/README.md#symbols)
 
 A categorical shape encoding, as in a scatterplot.
 
-* [d3.symbol](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbol) - create a new symbol generator.
-* [*symbol*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_symbol) - generate a symbol for the given datum.
-* [*symbol*.type](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbol_type) - set the symbol type.
-* [*symbol*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbol_size) - set the size of the symbol in square pixels.
-* [*symbol*.context](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbol_context) - set the rendering context.
-* [d3.symbols](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbols) - the array of built-in symbol types.
-* [d3.symbolCircle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolCircle) - a circle.
-* [d3.symbolCross](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolCross) - a Greek cross with arms of equal length.
-* [d3.symbolDiamond](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolDiamond) - a rhombus.
-* [d3.symbolSquare](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolSquare) - a square.
-* [d3.symbolStar](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolStar) - a pentagonal star (pentagram).
-* [d3.symbolTriangle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolTriangle) - an up-pointing triangle.
-* [d3.symbolWye](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolWye) - a Y shape.
-* [*symbolType*.draw](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#symbolType_draw) - draw this symbol to the given context.
+* [d3.symbol](https://github.com/xswei/d3-shape/blob/master/README.md#symbol) - create a new symbol generator.
+* [*symbol*](https://github.com/xswei/d3-shape/blob/master/README.md#_symbol) - generate a symbol for the given datum.
+* [*symbol*.type](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_type) - set the symbol type.
+* [*symbol*.size](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_size) - set the size of the symbol in square pixels.
+* [*symbol*.context](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_context) - set the rendering context.
+* [d3.symbols](https://github.com/xswei/d3-shape/blob/master/README.md#symbols) - the array of built-in symbol types.
+* [d3.symbolCircle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCircle) - a circle.
+* [d3.symbolCross](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCross) - a Greek cross with arms of equal length.
+* [d3.symbolDiamond](https://github.com/xswei/d3-shape/blob/master/README.md#symbolDiamond) - a rhombus.
+* [d3.symbolSquare](https://github.com/xswei/d3-shape/blob/master/README.md#symbolSquare) - a square.
+* [d3.symbolStar](https://github.com/xswei/d3-shape/blob/master/README.md#symbolStar) - a pentagonal star (pentagram).
+* [d3.symbolTriangle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolTriangle) - an up-pointing triangle.
+* [d3.symbolWye](https://github.com/xswei/d3-shape/blob/master/README.md#symbolWye) - a Y shape.
+* [*symbolType*.draw](https://github.com/xswei/d3-shape/blob/master/README.md#symbolType_draw) - draw this symbol to the given context.
 
-### [Stacks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stacks)
+### [Stacks](https://github.com/xswei/d3-shape/blob/master/README.md#stacks)
 
 Stack shapes, placing one adjacent to another, as in a stacked bar chart.
 
-* [d3.stack](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stack) - create a new stack generator.
-* [*stack*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#_stack) - generate a stack for the given dataset.
-* [*stack*.keys](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stack_keys) - set the keys accessor.
-* [*stack*.value](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stack_value) - set the value accessor.
-* [*stack*.order](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stack_order) - set the order accessor.
-* [*stack*.offset](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stack_offset) - set the offset accessor.
-* [d3.stackOrderAscending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOrderAscending) - put the smallest series on bottom.
-* [d3.stackOrderDescending](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOrderDescending) - put the largest series on bottom.
-* [d3.stackOrderInsideOut](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOrderInsideOut) - put larger series in the middle.
-* [d3.stackOrderNone](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOrderNone) - use the given series order.
-* [d3.stackOrderReverse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOrderReverse) - use the reverse of the given series order.
-* [d3.stackOffsetExpand](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOffsetExpand) - normalize the baseline to zero and topline to one.
-* [d3.stackOffsetDiverging](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOffsetDiverging) - positive above zero; negative below zero.
-* [d3.stackOffsetNone](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOffsetNone) - apply a zero baseline.
-* [d3.stackOffsetSilhouette](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOffsetSilhouette) - center the streamgraph around zero.
-* [d3.stackOffsetWiggle](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-shape/README.md#stackOffsetWiggle) - minimize streamgraph wiggling.
+* [d3.stack](https://github.com/xswei/d3-shape/blob/master/README.md#stack) - create a new stack generator.
+* [*stack*](https://github.com/xswei/d3-shape/blob/master/README.md#_stack) - generate a stack for the given dataset.
+* [*stack*.keys](https://github.com/xswei/d3-shape/blob/master/README.md#stack_keys) - set the keys accessor.
+* [*stack*.value](https://github.com/xswei/d3-shape/blob/master/README.md#stack_value) - set the value accessor.
+* [*stack*.order](https://github.com/xswei/d3-shape/blob/master/README.md#stack_order) - set the order accessor.
+* [*stack*.offset](https://github.com/xswei/d3-shape/blob/master/README.md#stack_offset) - set the offset accessor.
+* [d3.stackOrderAscending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderAscending) - put the smallest series on bottom.
+* [d3.stackOrderDescending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderDescending) - put the largest series on bottom.
+* [d3.stackOrderInsideOut](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderInsideOut) - put larger series in the middle.
+* [d3.stackOrderNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderNone) - use the given series order.
+* [d3.stackOrderReverse](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderReverse) - use the reverse of the given series order.
+* [d3.stackOffsetExpand](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetExpand) - normalize the baseline to zero and topline to one.
+* [d3.stackOffsetDiverging](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetDiverging) - positive above zero; negative below zero.
+* [d3.stackOffsetNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetNone) - apply a zero baseline.
+* [d3.stackOffsetSilhouette](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetSilhouette) - center the streamgraph around zero.
+* [d3.stackOffsetWiggle](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetWiggle) - minimize streamgraph wiggling.
 
-## [Time Formats (d3-time-format)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format)
+## [Time Formats (d3-time-format)](https://github.com/xswei/d3-time-format)
 
 Parse and format times, inspired by strptime and strftime.
 
-* [d3.timeFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#timeFormat) - alias for *locale*.format on the default locale.
-* [d3.timeParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#timeParse) - alias for *locale*.parse on the default locale.
-* [d3.utcFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#utcFormat) -  alias for *locale*.utcFormat on the default locale.
-* [d3.utcParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#utcParse) -  alias for *locale*.utcParse on the default locale.
-* [d3.isoFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#isoFormat) - an ISO 8601 UTC formatter.
-* [d3.isoParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#isoParse) - an ISO 8601 UTC parser.
-* [d3.timeFormatLocale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#timeFormatLocale) - define a custom locale.
-* [d3.timeFormatDefaultLocale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#timeFormatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#locale_format) - create a time formatter.
-* [*locale*.parse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#locale_parse) - create a time parser.
-* [*locale*.utcFormat](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#locale_utcFormat) - create a UTC formatter.
-* [*locale*.utcParse](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time-format/README.md#locale_utcParse) - create a UTC parser.
+* [d3.timeFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormat) - alias for *locale*.format on the default locale.
+* [d3.timeParse](https://github.com/xswei/d3-time-format/blob/master/README.md#timeParse) - alias for *locale*.parse on the default locale.
+* [d3.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#utcFormat) -  alias for *locale*.utcFormat on the default locale.
+* [d3.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#utcParse) -  alias for *locale*.utcParse on the default locale.
+* [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - an ISO 8601 UTC formatter.
+* [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - an ISO 8601 UTC parser.
+* [d3.timeFormatLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatLocale) - define a custom locale.
+* [d3.timeFormatDefaultLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatDefaultLocale) - define the default locale.
+* [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - create a time formatter.
+* [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - create a time parser.
+* [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - create a UTC formatter.
+* [*locale*.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcParse) - create a UTC parser.
 
-## [Time Intervals (d3-time)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time)
+## [Time Intervals (d3-time)](https://github.com/xswei/d3-time)
 
 A calculator for humanity’s peculiar conventions of time.
 
-* [d3.timeInterval](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeInterval) - implement a new custom time interval.
-* [*interval*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#_interval) - alias for *interval*.floor.
-* [*interval*.floor](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_floor) - round down to the nearest boundary.
-* [*interval*.round](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_round) - round to the nearest boundary.
-* [*interval*.ceil](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_ceil) - round up to the nearest boundary.
-* [*interval*.offset](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_offset) - offset a date by some number of intervals.
-* [*interval*.range](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_range) - generate a range of dates at interval boundaries.
-* [*interval*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_filter) - create a filtered subset of this interval.
-* [*interval*.every](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_every) - create a filtered subset of this interval.
-* [*interval*.count](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#interval_count) - count interval boundaries between two dates.
-* [d3.timeMillisecond](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMillisecond), [d3.utcMillisecond](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMillisecond) - the millisecond interval.
-* [d3.timeMilliseconds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMillisecond), [d3.utcMilliseconds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMillisecond) - aliases for millisecond.range.
-* [d3.timeSecond](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSecond), [d3.utcSecond](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSecond) - the second interval.
-* [d3.timeSeconds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSecond), [d3.utcSeconds](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSecond) - aliases for second.range.
-* [d3.timeMinute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMinute), [d3.utcMinute](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMinute) - the minute interval.
-* [d3.timeMinutes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMinute), [d3.utcMinutes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMinute) - aliases for minute.range.
-* [d3.timeHour](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeHour), [d3.utcHour](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeHour) - the hour interval.
-* [d3.timeHours](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeHour), [d3.utcHours](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeHour) - aliases for hour.range.
-* [d3.timeDay](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeDay), [d3.utcDay](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeDay) - the day interval.
-* [d3.timeDays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeDay), [d3.utcDays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeDay) - aliases for day.range.
-* [d3.timeWeek](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWeek), [d3.utcWeek](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWeek) - aliases for sunday.
-* [d3.timeWeeks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWeek), [d3.utcWeeks](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWeek) - aliases for week.range.
-* [d3.timeSunday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSunday), [d3.utcSunday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSunday) - the week interval, starting on Sunday.
-* [d3.timeSundays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSunday), [d3.utcSundays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSunday) - aliases for sunday.range.
-* [d3.timeMonday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonday), [d3.utcMonday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonday) - the week interval, starting on Monday.
-* [d3.timeMondays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonday), [d3.utcMondays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonday) - aliases for monday.range.
-* [d3.timeTuesday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeTuesday), [d3.utcTuesday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeTuesday) - the week interval, starting on Tuesday.
-* [d3.timeTuesdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeTuesday), [d3.utcTuesdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeTuesday) - aliases for tuesday.range.
-* [d3.timeWednesday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWednesday), [d3.utcWednesday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWednesday) - the week interval, starting on Wednesday.
-* [d3.timeWednesdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWednesday), [d3.utcWednesdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeWednesday) - aliases for wednesday.range.
-* [d3.timeThursday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeThursday), [d3.utcThursday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeThursday) - the week interval, starting on Thursday.
-* [d3.timeThursdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeThursday), [d3.utcThursdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeThursday) - aliases for thursday.range.
-* [d3.timeFriday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeFriday), [d3.utcFriday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeFriday) - the week interval, starting on Friday.
-* [d3.timeFridays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeFriday), [d3.utcFridays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeFriday) - aliases for friday.range.
-* [d3.timeSaturday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSaturday), [d3.utcSaturday](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSaturday) - the week interval, starting on Saturday.
-* [d3.timeSaturdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSaturday), [d3.utcSaturdays](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeSaturday) - aliases for saturday.range.
-* [d3.timeMonth](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonth), [d3.utcMonth](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonth) - the month interval.
-* [d3.timeMonths](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonth), [d3.utcMonths](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeMonth) - aliases for month.range.
-* [d3.timeYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - the year interval.
-* [d3.timeYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-time/README.md#timeYear) - aliases for year.range.
+* [d3.timeInterval](https://github.com/xswei/d3-time/blob/master/README.md#timeInterval) - implement a new custom time interval.
+* [*interval*](https://github.com/xswei/d3-time/blob/master/README.md#_interval) - alias for *interval*.floor.
+* [*interval*.floor](https://github.com/xswei/d3-time/blob/master/README.md#interval_floor) - round down to the nearest boundary.
+* [*interval*.round](https://github.com/xswei/d3-time/blob/master/README.md#interval_round) - round to the nearest boundary.
+* [*interval*.ceil](https://github.com/xswei/d3-time/blob/master/README.md#interval_ceil) - round up to the nearest boundary.
+* [*interval*.offset](https://github.com/xswei/d3-time/blob/master/README.md#interval_offset) - offset a date by some number of intervals.
+* [*interval*.range](https://github.com/xswei/d3-time/blob/master/README.md#interval_range) - generate a range of dates at interval boundaries.
+* [*interval*.filter](https://github.com/xswei/d3-time/blob/master/README.md#interval_filter) - create a filtered subset of this interval.
+* [*interval*.every](https://github.com/xswei/d3-time/blob/master/README.md#interval_every) - create a filtered subset of this interval.
+* [*interval*.count](https://github.com/xswei/d3-time/blob/master/README.md#interval_count) - count interval boundaries between two dates.
+* [d3.timeMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - the millisecond interval.
+* [d3.timeMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - aliases for millisecond.range.
+* [d3.timeSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) - the second interval.
+* [d3.timeSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) - aliases for second.range.
+* [d3.timeMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) - the minute interval.
+* [d3.timeMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) - aliases for minute.range.
+* [d3.timeHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) - the hour interval.
+* [d3.timeHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) - aliases for hour.range.
+* [d3.timeDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) - the day interval.
+* [d3.timeDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) - aliases for day.range.
+* [d3.timeWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) - aliases for sunday.
+* [d3.timeWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) - aliases for week.range.
+* [d3.timeSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) - the week interval, starting on Sunday.
+* [d3.timeSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) - aliases for sunday.range.
+* [d3.timeMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - the week interval, starting on Monday.
+* [d3.timeMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - aliases for monday.range.
+* [d3.timeTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - the week interval, starting on Tuesday.
+* [d3.timeTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - aliases for tuesday.range.
+* [d3.timeWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - the week interval, starting on Wednesday.
+* [d3.timeWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - aliases for wednesday.range.
+* [d3.timeThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - the week interval, starting on Thursday.
+* [d3.timeThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - aliases for thursday.range.
+* [d3.timeFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - the week interval, starting on Friday.
+* [d3.timeFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - aliases for friday.range.
+* [d3.timeSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - the week interval, starting on Saturday.
+* [d3.timeSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - aliases for saturday.range.
+* [d3.timeMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - the month interval.
+* [d3.timeMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - aliases for month.range.
+* [d3.timeYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - the year interval.
+* [d3.timeYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - aliases for year.range.
 
 ## [Timers (d3-timer)](https://github.com/xswei/d3-timer)
 
