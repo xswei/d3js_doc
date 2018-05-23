@@ -615,97 +615,97 @@ Geographic projections, shapes and math.
 * [*identity*.reflectY](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectY) - reflect the *y*-dimension.
 * [d3.geoTransform](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransform) - define a custom geometry transform.
 
-## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy)
+## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3-hierarchy)
 
 Layout algorithms for visualizing hierarchical data.
 
-* [d3.hierarchy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#hierarchy) - constructs a root node from hierarchical data.
-* [*node*.ancestors](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_ancestors) - generate an array of ancestors.
-* [*node*.descendants](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_descendants) - generate an array of descendants.
-* [*node*.leaves](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_leaves) - generate an array of leaves.
-* [*node*.path](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_path) - generate the shortest path to another node.
-* [*node*.links](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_links) - generate an array of links.
-* [*node*.sum](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_sum) - evaluate and aggregate quantitative values.
-* [*node*.sort](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_sort) - sort all descendant siblings.
-* [*node*.count](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_count) - count the number of leaves.
-* [*node*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_each) - breadth-first traversal.
-* [*node*.eachAfter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_eachAfter) - post-order traversal.
-* [*node*.eachBefore](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_eachBefore) - pre-order traversal.
-* [*node*.copy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#node_copy) - copy a hierarchy.
-* [d3.stratify](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#stratify) - create a new stratify operator.
-* [*stratify*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_stratify) - construct a root node from tabular data.
-* [*stratify*.id](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#stratify_id) - set the node id accessor.
-* [*stratify*.parentId](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#stratify_parentId) - set the parent node id accessor.
-* [d3.cluster](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#cluster) - create a new cluster (dendrogram) layout.
-* [*cluster*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_cluster) - layout the specified hierarchy in a dendrogram.
-* [*cluster*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#cluster_size) - set the layout size.
-* [*cluster*.nodeSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#cluster_nodeSize) - set the node size.
-* [*cluster*.separation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#cluster_separation) - set the separation between leaves.
-* [d3.tree](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#tree) - create a new tidy tree layout.
-* [*tree*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_tree) - layout the specified hierarchy in a tidy tree.
-* [*tree*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#tree_size) - set the layout size.
-* [*tree*.nodeSize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#tree_nodeSize) - set the node size.
-* [*tree*.separation](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#tree_separation) - set the separation between nodes.
-* [d3.treemap](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap) - create a new treemap layout.
-* [*treemap*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_treemap) - layout the specified hierarchy as a treemap.
-* [*treemap*.tile](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_tile) - set the tiling method.
-* [*treemap*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_size) - set the layout size.
-* [*treemap*.round](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_round) - set whether the output coordinates are rounded.
-* [*treemap*.padding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_padding) - set the padding.
-* [*treemap*.paddingInner](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingInner) - set the padding between siblings.
-* [*treemap*.paddingOuter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingOuter) - set the padding between parent and children.
-* [*treemap*.paddingTop](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingTop) - set the padding between the parent’s top edge and children.
-* [*treemap*.paddingRight](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingRight) - set the padding between the parent’s right edge and children.
-* [*treemap*.paddingBottom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingBottom) - set the padding between the parent’s bottom edge and children.
-* [*treemap*.paddingLeft](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemap_paddingLeft) - set the padding between the parent’s left edge and children.
-* [d3.treemapBinary](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapBinary) - tile using a balanced binary tree.
-* [d3.treemapDice](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapDice) - tile into a horizontal row.
-* [d3.treemapSlice](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapSlice) - tile into a vertical column.
-* [d3.treemapSliceDice](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapSliceDice) - alternate between slicing and dicing.
-* [d3.treemapSquarify](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapSquarify) - tile using squarified rows per Bruls *et. al.*
-* [d3.treemapResquarify](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#treemapResquarify) - like d3.treemapSquarify, but performs stable updates.
-* [*squarify*.ratio](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#squarify_ratio) - set the desired rectangle aspect ratio.
-* [d3.partition](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#partition) - create a new partition (icicle or sunburst) layout.
-* [*partition*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_partition) - layout the specified hierarchy as a partition diagram.
-* [*partition*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#partition_size) - set the layout size.
-* [*partition*.round](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#partition_round) - set whether the output coordinates are rounded.
-* [*partition*.padding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#partition_padding) - set the padding.
-* [d3.pack](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#pack) - create a new circle-packing layout.
-* [*pack*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#_pack) - layout the specified hierarchy using circle-packing.
-* [*pack*.radius](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#pack_radius) - set the radius accessor.
-* [*pack*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#pack_size) - set the layout size.
-* [*pack*.padding](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#pack_padding) - set the padding.
-* [d3.packSiblings](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#packSiblings) - pack the specified array of circles.
-* [d3.packEnclose](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-hierarchy/README.md#packEnclose) - enclose the specified array of circles.
+* [d3.hierarchy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#hierarchy) - constructs a root node from hierarchical data.
+* [*node*.ancestors](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_ancestors) - generate an array of ancestors.
+* [*node*.descendants](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_descendants) - generate an array of descendants.
+* [*node*.leaves](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_leaves) - generate an array of leaves.
+* [*node*.path](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_path) - generate the shortest path to another node.
+* [*node*.links](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_links) - generate an array of links.
+* [*node*.sum](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sum) - evaluate and aggregate quantitative values.
+* [*node*.sort](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sort) - sort all descendant siblings.
+* [*node*.count](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_count) - count the number of leaves.
+* [*node*.each](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_each) - breadth-first traversal.
+* [*node*.eachAfter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachAfter) - post-order traversal.
+* [*node*.eachBefore](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachBefore) - pre-order traversal.
+* [*node*.copy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_copy) - copy a hierarchy.
+* [d3.stratify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify) - create a new stratify operator.
+* [*stratify*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_stratify) - construct a root node from tabular data.
+* [*stratify*.id](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_id) - set the node id accessor.
+* [*stratify*.parentId](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_parentId) - set the parent node id accessor.
+* [d3.cluster](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster) - create a new cluster (dendrogram) layout.
+* [*cluster*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_cluster) - layout the specified hierarchy in a dendrogram.
+* [*cluster*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_size) - set the layout size.
+* [*cluster*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_nodeSize) - set the node size.
+* [*cluster*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_separation) - set the separation between leaves.
+* [d3.tree](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree) - create a new tidy tree layout.
+* [*tree*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_tree) - layout the specified hierarchy in a tidy tree.
+* [*tree*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_size) - set the layout size.
+* [*tree*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_nodeSize) - set the node size.
+* [*tree*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_separation) - set the separation between nodes.
+* [d3.treemap](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap) - create a new treemap layout.
+* [*treemap*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_treemap) - layout the specified hierarchy as a treemap.
+* [*treemap*.tile](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_tile) - set the tiling method.
+* [*treemap*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_size) - set the layout size.
+* [*treemap*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_round) - set whether the output coordinates are rounded.
+* [*treemap*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_padding) - set the padding.
+* [*treemap*.paddingInner](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingInner) - set the padding between siblings.
+* [*treemap*.paddingOuter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingOuter) - set the padding between parent and children.
+* [*treemap*.paddingTop](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingTop) - set the padding between the parent’s top edge and children.
+* [*treemap*.paddingRight](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingRight) - set the padding between the parent’s right edge and children.
+* [*treemap*.paddingBottom](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) - set the padding between the parent’s bottom edge and children.
+* [*treemap*.paddingLeft](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingLeft) - set the padding between the parent’s left edge and children.
+* [d3.treemapBinary](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapBinary) - tile using a balanced binary tree.
+* [d3.treemapDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapDice) - tile into a horizontal row.
+* [d3.treemapSlice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSlice) - tile into a vertical column.
+* [d3.treemapSliceDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSliceDice) - alternate between slicing and dicing.
+* [d3.treemapSquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSquarify) - tile using squarified rows per Bruls *et. al.*
+* [d3.treemapResquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapResquarify) - like d3.treemapSquarify, but performs stable updates.
+* [*squarify*.ratio](https://github.com/xswei/d3-hierarchy/blob/master/README.md#squarify_ratio) - set the desired rectangle aspect ratio.
+* [d3.partition](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition) - create a new partition (icicle or sunburst) layout.
+* [*partition*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_partition) - layout the specified hierarchy as a partition diagram.
+* [*partition*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_size) - set the layout size.
+* [*partition*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_round) - set whether the output coordinates are rounded.
+* [*partition*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_padding) - set the padding.
+* [d3.pack](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack) - create a new circle-packing layout.
+* [*pack*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_pack) - layout the specified hierarchy using circle-packing.
+* [*pack*.radius](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_radius) - set the radius accessor.
+* [*pack*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_size) - set the layout size.
+* [*pack*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_padding) - set the padding.
+* [d3.packSiblings](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packSiblings) - pack the specified array of circles.
+* [d3.packEnclose](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packEnclose) - enclose the specified array of circles.
 
-## [Interpolators (d3-interpolate)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate)
+## [Interpolators (d3-interpolate)](https://github.com/xswei/d3-interpolate)
 
 Interpolate numbers, colors, strings, arrays, objects, whatever!
 
-* [d3.interpolate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolate) - interpolate arbitrary values.
-* [d3.interpolateArray](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateArray) - interpolate arrays of arbitrary values.
-* [d3.interpolateDate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateDate) - interpolate dates.
-* [d3.interpolateNumber](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateNumber) - interpolate numbers.
-* [d3.interpolateObject](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateObject) - interpolate arbitrary objects.
-* [d3.interpolateRound](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateRound) - interpolate integers.
-* [d3.interpolateString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateString) - interpolate strings with embedded numbers.
-* [d3.interpolateTransformCss](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateTransformCss) - interpolate 2D CSS transforms.
-* [d3.interpolateTransformSvg](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateTransformSvg) - interpolate 2D SVG transforms.
-* [d3.interpolateZoom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateZoom) - zoom and pan between two views.
-* [d3.interpolateRgb](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateRgb) - interpolate RGB colors.
-* [d3.interpolateRgbBasis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateRgbBasis) - generate a B-spline through a set of colors.
-* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateRgbBasisClosed) - generate a closed B-spline through a set of colors.
-* [d3.interpolateHsl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateHsl) - interpolate HSL colors.
-* [d3.interpolateHslLong](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateHslLong) - interpolate HSL colors, the long way.
-* [d3.interpolateLab](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateLab) - interpolate Lab colors.
-* [d3.interpolateHcl](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateHcl) - interpolate HCL colors.
-* [d3.interpolateHclLong](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateHclLong) - interpolate HCL colors, the long way.
-* [d3.interpolateCubehelix](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateCubehelix) - interpolate Cubehelix colors.
-* [d3.interpolateCubehelixLong](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateCubehelixLong) - interpolate Cubehelix colors, the long way.
-* [*interpolate*.gamma](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolate_gamma) - apply gamma correction during interpolation.
-* [d3.interpolateBasis](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateBasis) - generate a B-spline through a set of values.
-* [d3.interpolateBasisClosed](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#interpolateBasisClosed) - generate a closed B-spline through a set of values.
-* [d3.quantize](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-interpolate/README.md#quantize) - generate uniformly-spaced samples from an interpolator.
+* [d3.interpolate](https://github.com/xswei/d3-interpolate#interpolate) - interpolate arbitrary values.
+* [d3.interpolateArray](https://github.com/xswei/d3-interpolate#interpolateArray) - interpolate arrays of arbitrary values.
+* [d3.interpolateDate](https://github.com/xswei/d3-interpolate#interpolateDate) - interpolate dates.
+* [d3.interpolateNumber](https://github.com/xswei/d3-interpolate#interpolateNumber) - interpolate numbers.
+* [d3.interpolateObject](https://github.com/xswei/d3-interpolate#interpolateObject) - interpolate arbitrary objects.
+* [d3.interpolateRound](https://github.com/xswei/d3-interpolate#interpolateRound) - interpolate integers.
+* [d3.interpolateString](https://github.com/xswei/d3-interpolate#interpolateString) - interpolate strings with embedded numbers.
+* [d3.interpolateTransformCss](https://github.com/xswei/d3-interpolate#interpolateTransformCss) - interpolate 2D CSS transforms.
+* [d3.interpolateTransformSvg](https://github.com/xswei/d3-interpolate#interpolateTransformSvg) - interpolate 2D SVG transforms.
+* [d3.interpolateZoom](https://github.com/xswei/d3-interpolate#interpolateZoom) - zoom and pan between two views.
+* [d3.interpolateRgb](https://github.com/xswei/d3-interpolate#interpolateRgb) - interpolate RGB colors.
+* [d3.interpolateRgbBasis](https://github.com/xswei/d3-interpolate#interpolateRgbBasis) - generate a B-spline through a set of colors.
+* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3-interpolate#interpolateRgbBasisClosed) - generate a closed B-spline through a set of colors.
+* [d3.interpolateHsl](https://github.com/xswei/d3-interpolate#interpolateHsl) - interpolate HSL colors.
+* [d3.interpolateHslLong](https://github.com/xswei/d3-interpolate#interpolateHslLong) - interpolate HSL colors, the long way.
+* [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - interpolate Lab colors.
+* [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - interpolate HCL colors.
+* [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - interpolate HCL colors, the long way.
+* [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - interpolate Cubehelix colors.
+* [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - interpolate Cubehelix colors, the long way.
+* [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - apply gamma correction during interpolation.
+* [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - generate a B-spline through a set of values.
+* [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - generate a closed B-spline through a set of values.
+* [d3.quantize](https://github.com/xswei/d3-interpolate#quantize) - generate uniformly-spaced samples from an interpolator.
 
 ## [Paths (d3-path)](https://github.com/xswei/d3-path)
 
