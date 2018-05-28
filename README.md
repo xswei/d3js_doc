@@ -1,6 +1,6 @@
 **转载请注明本仓库地址**
 
-最新版文档逐步完善中, 之前版本请参考 [**这里**](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old)
+最新版文档逐步完善中, 之前版本请参考 [**这里**](https://github.com/xswei/d3js_doc/tree/master/d3js_doc_old).
 
 # D3: Data-Driven Documents
 
