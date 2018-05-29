@@ -120,7 +120,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ## [Brushes (d3-brush)](https://github.com/xswei/d3-brush)
 
-使用鼠标或触摸选择一维或二维区域。
+使用鼠标或触摸选择一维或二维区域
 
 * [d3.brush](https://github.com/xswei/d3-brush/blob/master/README.md#brush) - 创建一个新的二维刷取交互
 * [d3.brushX](https://github.com/xswei/d3-brush/blob/master/README.md#brushX) - 创建一个新的*x*-维度的刷取交互
