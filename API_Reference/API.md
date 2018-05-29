@@ -1023,36 +1023,36 @@ Transform the DOM by selecting elements and joining to data.
 
 ## [Shapes (d3-shape)](https://github.com/xswei/d3-shape)
 
-Graphical primitives for visualization.
+可视化基本图元
 
 ### [Arcs](https://github.com/xswei/d3-shape/blob/master/README.md#arcs)
 
-Circular or annular sectors, as in a pie or donut chart.
+圆形或环形，在饼图或者环形图中用到
 
-* [d3.arc](https://github.com/xswei/d3-shape/blob/master/README.md#arc) - create a new arc generator.
-* [*arc*](https://github.com/xswei/d3-shape/blob/master/README.md#_arc) - generate an arc for the given datum.
-* [*arc*.centroid](https://github.com/xswei/d3-shape/blob/master/README.md#arc_centroid) - compute an arc’s midpoint.
-* [*arc*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_innerRadius) - set the inner radius.
-* [*arc*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_outerRadius) - set the outer radius.
-* [*arc*.cornerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_cornerRadius) - set the corner radius, for rounded corners.
-* [*arc*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_startAngle) - set the start angle.
-* [*arc*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_endAngle) - set the end angle.
-* [*arc*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padAngle) - set the angle between adjacent arcs, for padded arcs.
+* [d3.arc](https://github.com/xswei/d3-shape/blob/master/README.md#arc) - 创建一个环生成器.
+* [*arc*](https://github.com/xswei/d3-shape/blob/master/README.md#_arc) - 根据指定的数据生成环.
+* [*arc*.centroid](https://github.com/xswei/d3-shape/blob/master/README.md#arc_centroid) - 计算环的中心点.
+* [*arc*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_innerRadius) - 设置环的内半径.
+* [*arc*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_outerRadius) - 设置环的外半径.
+* [*arc*.cornerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_cornerRadius) - 设置拐角半径.
+* [*arc*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_startAngle) - 设置起始角度.
+* [*arc*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_endAngle) - 设置终止角度.
+* [*arc*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padAngle) - 设置相邻两个环之间的间隙角度.
 * [*arc*.padRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padRadius) - set the radius at which to linearize padding.
-* [*arc*.context](https://github.com/xswei/d3-shape/blob/master/README.md#arc_context) - set the rendering context.
+* [*arc*.context](https://github.com/xswei/d3-shape/blob/master/README.md#arc_context) - 设置渲染上下文.
 
 ### [Pies](https://github.com/xswei/d3-shape/blob/master/README.md#pies)
 
-Compute the necessary angles to represent a tabular dataset as a pie or donut chart.
+将一组表格数据转换成生成饼图或者环形图需要的数据
 
-* [d3.pie](https://github.com/xswei/d3-shape/blob/master/README.md#pie) - create a new pie generator.
-* [*pie*](https://github.com/xswei/d3-shape/blob/master/README.md#_pie) - compute the arc angles for the given dataset.
-* [*pie*.value](https://github.com/xswei/d3-shape/blob/master/README.md#pie_value) - set the value accessor.
-* [*pie*.sort](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sort) - set the sort order comparator.
-* [*pie*.sortValues](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sortValues) - set the sort order comparator.
-* [*pie*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_startAngle) - set the overall start angle.
-* [*pie*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_endAngle) - set the overall end angle.
-* [*pie*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_padAngle) - set the pad angle between adjacent arcs.
+* [d3.pie](https://github.com/xswei/d3-shape/blob/master/README.md#pie) - 创建一个新的饼图生成器.
+* [*pie*](https://github.com/xswei/d3-shape/blob/master/README.md#_pie) - 根据指定的数据计算每条数据对应环形的角度.
+* [*pie*.value](https://github.com/xswei/d3-shape/blob/master/README.md#pie_value) - 设置值访问器.
+* [*pie*.sort](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sort) - 设置排序比较器.
+* [*pie*.sortValues](https://github.com/xswei/d3-shape/blob/master/README.md#pie_sortValues) - 设置排序比较器.
+* [*pie*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_startAngle) - 设置所有环形的起始角度.
+* [*pie*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_endAngle) - 设置所有环形的终止角度.
+* [*pie*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#pie_padAngle) - 设置相邻两个环之间的间隙角度.
 
 ### [Lines](https://github.com/xswei/d3-shape/blob/master/README.md#lines)
 
