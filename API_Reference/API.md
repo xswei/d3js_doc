@@ -88,7 +88,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 
 ### [Histograms](https://github.com/xswei/d3-array/blob/master/README.md#histograms)
 
-直方图将离散样本分成连续的，不重叠的区间。
+直方图将离散样本分成连续的，不重叠的区间
 
 * [d3.histogram](https://github.com/xswei/d3-array/blob/master/README.md#histogram) - 创建一个新的直方图生成器.
 * [*histogram*](https://github.com/xswei/d3-array/blob/master/README.md#_histogram) - 根据给定的数组计算直方图.
