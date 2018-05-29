@@ -1321,27 +1321,27 @@ Compute the Voronoi diagram of a given set of points.
 
 ## [Zooming (d3-zoom)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom)
 
-Pan and zoom SVG, HTML or Canvas using mouse or touch input.
+使用触摸鼠标或者触摸面板缩放 SVG, HTML 或者 Canvas.
 
-* [d3.zoom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom) - create a zoom behavior.
-* [*zoom*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#_zoom) - apply the zoom behavior to the selected elements.
-* [*zoom*.transform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_transform) - change the transform for the selected elements.
-* [*zoom*.translateTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateTo) - translate the transform for the selected elements.
-* [*zoom*.translateBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateBy) - translate the transform for the selected elements.
-* [*zoom*.scaleBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleBy) - scale the transform for the selected elements.
-* [*zoom*.scaleTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleTo) - scale the transform for the selected elements.
-* [*zoom*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_filter) - control which input events initiate zooming.
-* [*zoom*.touchable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_touchable) - set the touch support detector.
+* [d3.zoom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom) - 创建一个缩放交互.
+* [*zoom*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#_zoom) - 将缩放交互应用到指定的被选中的元素上.
+* [*zoom*.transform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_transform) - 修改指定的选中的元素的变换.
+* [*zoom*.translateTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateTo) - 对指定的选中元素进行平移变换.
+* [*zoom*.translateBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateBy) - 对指定的选中元素进行平移变换.
+* [*zoom*.scaleBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleBy) - 对指定的选中元素进行苏佛昂变换.
+* [*zoom*.scaleTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleTo) - 对指定的选中元素进行平移变换.
+* [*zoom*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_filter) - 控制哪些输入事件可以触发缩放操作.
+* [*zoom*.touchable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_touchable) - 设置触摸支持检测其器.
 * [*zoom*.wheelDelta](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_wheelDelta) - override scaling for wheel events.
 * [*zoom*.clickDistance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_clickDistance) - set the click distance threshold.
-* [*zoom*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_extent) - set the extent of the viewport.
-* [*zoom*.scaleExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleExtent) - set the allowed scale range.
-* [*zoom*.translateExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateExtent) - set the extent of the zoomable world.
+* [*zoom*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_extent) - 设置视口的范围.
+* [*zoom*.scaleExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleExtent) - 设置可缩放系数大小.
+* [*zoom*.translateExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateExtent) - 设置可缩放世界大小.
 * [*zoom*.constrain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_constrain) - override the transform constraint logic.
-* [*zoom*.duration](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_duration) - set the duration of zoom transitions.
-* [*zoom*.interpolate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_interpolate) - control the interpolation of zoom transitions.
-* [*zoom*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_on) - listen for zoom events.
-* [d3.zoomTransform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoomTransform) - get the zoom transform for a given element.
+* [*zoom*.duration](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_duration) - 设置缩放变换的过渡时间.
+* [*zoom*.interpolate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_interpolate) - 控制缩放变换的插值方式.
+* [*zoom*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_on) - 监听缩放事件.
+* [d3.zoomTransform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoomTransform) - 获取指定元素的缩放变换.
 * [*transform*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_scale) - scale a transform by the specified amount.
 * [*transform*.translate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_translate) - translate a transform by the specified amount.
 * [*transform*.apply](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_apply) - apply the transform to the given point.
