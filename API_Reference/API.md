@@ -1315,8 +1315,8 @@ Animated transitions for [selections](#selections).
 * [*voronoi*.extent](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_extent) - 设置点集合的可观测边界.
 * [*voronoi*.size](https://github.com/xswei/d3-voronoi/blob/master/README.md#voronoi_size) - 设置点集合的可观测边界.
 * [*diagram*.polygons](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_polygons) - 返回指定泰森多边形的多边形数组.
-* [*diagram*.triangles](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_triangles) - 返回指定泰森多边形的三角形数组.compute the triangles for this Voronoi diagram.
-* [*diagram*.links](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_links) - 返回指定泰森多边形的边数组.compute the links for this Voronoi diagram.
+* [*diagram*.triangles](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_triangles) - 返回指定泰森多边形的三角形数组.
+* [*diagram*.links](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_links) - 返回指定泰森多边形的边数组.
 * [*diagram*.find](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_find) - 找到当前泰森多边形划分中距离目标点指定半径范围内最近的点.
 
 ## [Zooming (d3-zoom)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom)
