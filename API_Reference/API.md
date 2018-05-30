@@ -359,21 +359,21 @@ Compute contour polygons using marching squares.
 
 ## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3-dsv)
 
-Parse and format delimiter-separated values, most commonly CSV and TSV.
+解析和格式化以分隔符隔开的特定格式文件或字符串，大多数情况下指 CSV 和 TSV.
 
-* [d3.dsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#dsvFormat) - create a new parser and formatter for the given delimiter.
-* [*dsv*.parse](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parse) - parse the given string, returning an array of objects.
-* [*dsv*.parseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parseRows) - parse the given string, returning an array of rows.
-* [*dsv*.format](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_format) - format the given array of objects.
-* [*dsv*.formatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_formatRows) - format the given array of rows.
-* [d3.csvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParse) - parse the given CSV string, returning an array of objects.
-* [d3.csvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParseRows) - parse the given CSV string, returning an array of rows.
-* [d3.csvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormat) - format the given array of objects as CSV.
-* [d3.csvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormatRows) - format the given array of rows as CSV.
-* [d3.tsvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParse) - parse the given TSV string, returning an array of objects.
-* [d3.tsvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParseRows) - parse the given TSV string, returning an array of rows.
-* [d3.tsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormat) - format the given array of objects as TSV.
-* [d3.tsvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormatRows) - format the given array of rows as TSV.
+* [d3.dsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#dsvFormat) - 根据指定的分隔符创建一个新的解析器和格式化器.
+* [*dsv*.parse](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parse) - 解析指定的字符串并返回对象数组.
+* [*dsv*.parseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parseRows) - 解析指定的字符串并返回行数组.
+* [*dsv*.format](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_format) - 格式化指定的对象数组为字符串.
+* [*dsv*.formatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_formatRows) - 格式化指定的行数组为字符串.
+* [d3.csvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParse) - 解析指定的 CSV 字符串并返回对象数组.
+* [d3.csvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParseRows) - 解析指定的 CSV 字符串并返回行数组.
+* [d3.csvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormat) - 格式化指定的对象数组为 CSV.
+* [d3.csvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormatRows) - 格式化指定的行数组为 CSV.
+* [d3.tsvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParse) - 解析指定的 TSV 字符串并返回对象数组.
+* [d3.tsvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParseRows) - 解析指定的 TSV 字符串并返回行数组.
+* [d3.tsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormat) - 格式化指定的对象数组为 TSV.
+* [d3.tsvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormatRows) - 格式化指定的行数组为 TSV.
 
 ## [Easings (d3-ease)](https://github.com/xswei/d3-ease)
 
