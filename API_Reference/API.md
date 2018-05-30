@@ -945,36 +945,36 @@ Map a discrete domain to a discrete range.
 
 ## [Selections (d3-selection)](https://github.com/xswei/d3-selection)
 
-Transform the DOM by selecting elements and joining to data.
+通过选择元素和绑定数据对 DOM 元素进行修改或变换.
 
 ### [Selecting Elements](https://github.com/xswei/d3-selection/blob/master/README.md#selecting-elements)
 
-* [d3.selection](https://github.com/xswei/d3-selection/blob/master/README.md#selection) - select the root document element.
-* [d3.select](https://github.com/xswei/d3-selection/blob/master/README.md#select) - select an element from the document.
-* [d3.selectAll](https://github.com/xswei/d3-selection/blob/master/README.md#selectAll) - select multiple elements from the document.
-* [*selection*.select](https://github.com/xswei/d3-selection/blob/master/README.md#selection_select) - select a descendant element for each selected element.
-* [*selection*.selectAll](https://github.com/xswei/d3-selection/blob/master/README.md#selection_selectAll) - select multiple descendants for each selected element.
-* [*selection*.filter](https://github.com/xswei/d3-selection/blob/master/README.md#selection_filter) - filter elements based on data.
-* [*selection*.merge](https://github.com/xswei/d3-selection/blob/master/README.md#selection_merge) - merge this selection with another.
-* [d3.matcher](https://github.com/xswei/d3-selection/blob/master/README.md#matcher) - test whether an element matches a selector.
-* [d3.selector](https://github.com/xswei/d3-selection/blob/master/README.md#selector) - select an element.
-* [d3.selectorAll](https://github.com/xswei/d3-selection/blob/master/README.md#selectorAll) - select elements.
-* [d3.window](https://github.com/xswei/d3-selection/blob/master/README.md#window) - get a node’s owner window.
-* [d3.style](https://github.com/xswei/d3-selection/blob/master/README.md#style) - get a node’s current style value.
+* [d3.selection](https://github.com/xswei/d3-selection/blob/master/README.md#selection) - 选取文档元素的根节点.
+* [d3.select](https://github.com/xswei/d3-selection/blob/master/README.md#select) - 从文档中选取一个元素.
+* [d3.selectAll](https://github.com/xswei/d3-selection/blob/master/README.md#selectAll) - 从文档中选择多个元素.
+* [*selection*.select](https://github.com/xswei/d3-selection/blob/master/README.md#selection_select) - 从每个被选中的元素中选择一个后代元素.
+* [*selection*.selectAll](https://github.com/xswei/d3-selection/blob/master/README.md#selection_selectAll) -从每个被选中的元素中选择多个后代元素.
+* [*selection*.filter](https://github.com/xswei/d3-selection/blob/master/README.md#selection_filter) - 基于数据对元素进行过滤.
+* [*selection*.merge](https://github.com/xswei/d3-selection/blob/master/README.md#selection_merge) - 将当前选择集与其他选择集进行合并.
+* [d3.matcher](https://github.com/xswei/d3-selection/blob/master/README.md#matcher) - 测试一个元素是否符合某种选择器.
+* [d3.selector](https://github.com/xswei/d3-selection/blob/master/README.md#selector) - 选择一个元素.
+* [d3.selectorAll](https://github.com/xswei/d3-selection/blob/master/README.md#selectorAll) - 选择多个元素.
+* [d3.window](https://github.com/xswei/d3-selection/blob/master/README.md#window) - 获取节点所属的 window.
+* [d3.style](https://github.com/xswei/d3-selection/blob/master/README.md#style) - 获取节点当前的指定样式名称的样式值.
 
 ### [Modifying Elements](https://github.com/xswei/d3-selection/blob/master/README.md#modifying-elements)
 
-* [*selection*.attr](https://github.com/xswei/d3-selection/blob/master/README.md#selection_attr) - get or set an attribute.
-* [*selection*.classed](https://github.com/xswei/d3-selection/blob/master/README.md#selection_classed) - get, add or remove CSS classes.
-* [*selection*.style](https://github.com/xswei/d3-selection/blob/master/README.md#selection_style) - get or set a style property.
-* [*selection*.property](https://github.com/xswei/d3-selection/blob/master/README.md#selection_property) - get or set a (raw) property.
-* [*selection*.text](https://github.com/xswei/d3-selection/blob/master/README.md#selection_text) - get or set the text content.
-* [*selection*.html](https://github.com/xswei/d3-selection/blob/master/README.md#selection_html) - get or set the inner HTML.
-* [*selection*.append](https://github.com/xswei/d3-selection/blob/master/README.md#selection_append) - create, append and select new elements.
-* [*selection*.insert](https://github.com/xswei/d3-selection/blob/master/README.md#selection_insert) - create, insert and select new elements.
-* [*selection*.remove](https://github.com/xswei/d3-selection/blob/master/README.md#selection_remove) - remove elements from the document.
-* [*selection*.clone](https://github.com/xswei/d3-selection/blob/master/README.md#selection_clone) - insert clones of selected elements.
-* [*selection*.sort](https://github.com/xswei/d3-selection/blob/master/README.md#selection_sort) - sort elements in the document based on data.
+* [*selection*.attr](https://github.com/xswei/d3-selection/blob/master/README.md#selection_attr) - 设置或获取属性.
+* [*selection*.classed](https://github.com/xswei/d3-selection/blob/master/README.md#selection_classed) - 获取，添加或者移除 CSS 类.
+* [*selection*.style](https://github.com/xswei/d3-selection/blob/master/README.md#selection_style) - 获取或设置样式属性.
+* [*selection*.property](https://github.com/xswei/d3-selection/blob/master/README.md#selection_property) - 获取或设置一个特殊属性.
+* [*selection*.text](https://github.com/xswei/d3-selection/blob/master/README.md#selection_text) - 设置或获取文本内容.
+* [*selection*.html](https://github.com/xswei/d3-selection/blob/master/README.md#selection_html) - 设置或获取 HTML 内容.
+* [*selection*.append](https://github.com/xswei/d3-selection/blob/master/README.md#selection_append) - 创建、添加并返回一个新的元素.
+* [*selection*.insert](https://github.com/xswei/d3-selection/blob/master/README.md#selection_insert) - 创建、插入并返回一个新的元素.
+* [*selection*.remove](https://github.com/xswei/d3-selection/blob/master/README.md#selection_remove) - 从文档中移除元素.
+* [*selection*.clone](https://github.com/xswei/d3-selection/blob/master/README.md#selection_clone) - 插入选中元素的克隆.
+* [*selection*.sort](https://github.com/xswei/d3-selection/blob/master/README.md#selection_sort) - 基于数据对文档中的元素进行排序.
 * [*selection*.order](https://github.com/xswei/d3-selection/blob/master/README.md#selection_order) - reorders elements in the document to match the selection.
 * [*selection*.raise](https://github.com/xswei/d3-selection/blob/master/README.md#selection_raise) - reorders each element as the last child of its parent.
 * [*selection*.lower](https://github.com/xswei/d3-selection/blob/master/README.md#selection_lower) - reorders each element as the first child of its parent.
@@ -983,21 +983,21 @@ Transform the DOM by selecting elements and joining to data.
 
 ### [Joining Data](https://github.com/xswei/d3-selection/blob/master/README.md#joining-data)
 
-* [*selection*.data](https://github.com/xswei/d3-selection/blob/master/README.md#selection_data) - join elements to data.
-* [*selection*.enter](https://github.com/xswei/d3-selection/blob/master/README.md#selection_enter) - get the enter selection (data missing elements).
-* [*selection*.exit](https://github.com/xswei/d3-selection/blob/master/README.md#selection_exit) - get the exit selection (elements missing data).
-* [*selection*.datum](https://github.com/xswei/d3-selection/blob/master/README.md#selection_datum) - get or set element data (without joining).
+* [*selection*.data](https://github.com/xswei/d3-selection/blob/master/README.md#selection_data) - 将元素与数据绑定.
+* [*selection*.enter](https://github.com/xswei/d3-selection/blob/master/README.md#selection_enter) - 获取需要插入的选择集(数据个数大于元素个数)的占位符.
+* [*selection*.exit](https://github.com/xswei/d3-selection/blob/master/README.md#selection_exit) - 获取多余的元素的选择集(数据个数小于元素个数).
+* [*selection*.datum](https://github.com/xswei/d3-selection/blob/master/README.md#selection_datum) - 设置或获取元素绑定的数据集(不进行数据与元素个数的对比).
 
 ### [Handling Events](https://github.com/xswei/d3-selection/blob/master/README.md#handling-events)
 
-* [*selection*.on](https://github.com/xswei/d3-selection/blob/master/README.md#selection_on) - add or remove event listeners.
-* [*selection*.dispatch](https://github.com/xswei/d3-selection/blob/master/README.md#selection_dispatch) - dispatch a custom event.
-* [d3.event](https://github.com/xswei/d3-selection/blob/master/README.md#event) - the current user event, during interaction.
-* [d3.customEvent](https://github.com/xswei/d3-selection/blob/master/README.md#customEvent) - temporarily define a custom event.
-* [d3.mouse](https://github.com/xswei/d3-selection/blob/master/README.md#mouse) - get the mouse position relative to a given container.
-* [d3.touch](https://github.com/xswei/d3-selection/blob/master/README.md#touch) - get a touch position relative to a given container.
-* [d3.touches](https://github.com/xswei/d3-selection/blob/master/README.md#touches) - get the touch positions relative to a given container.
-* [d3.clientPoint](https://github.com/xswei/d3-selection/blob/master/README.md#clientPoint) - get a position relative to a given container.
+* [*selection*.on](https://github.com/xswei/d3-selection/blob/master/README.md#selection_on) - 添加或移除事件监听器.
+* [*selection*.dispatch](https://github.com/xswei/d3-selection/blob/master/README.md#selection_dispatch) - 分发一个自定义事件.
+* [d3.event](https://github.com/xswei/d3-selection/blob/master/README.md#event) - 当前交互中的用户事件对象.
+* [d3.customEvent](https://github.com/xswei/d3-selection/blob/master/README.md#customEvent) - 临时定义一个自定义事件.
+* [d3.mouse](https://github.com/xswei/d3-selection/blob/master/README.md#mouse) - 获取鼠标相对于给定容器的坐标位置.
+* [d3.touch](https://github.com/xswei/d3-selection/blob/master/README.md#touch) - 获取相对于给定容器的触摸坐标位置.
+* [d3.touches](https://github.com/xswei/d3-selection/blob/master/README.md#touches) - 获取相对于给定容器的触摸坐标位置.
+* [d3.clientPoint](https://github.com/xswei/d3-selection/blob/master/README.md#clientPoint) - 获取相对于给定容器的位置.
 
 ### [Control Flow](https://github.com/xswei/d3-selection/blob/master/README.md#control-flow)
 
