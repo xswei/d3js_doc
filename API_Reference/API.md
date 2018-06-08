@@ -1268,38 +1268,38 @@ A calculator for humanity’s peculiar conventions of time.
 * [d3.timeout](https://github.com/xswei/d3-timer/blob/master/README.md#timeout) - 定义一个只执行一次回调的定时器.
 * [d3.interval](https://github.com/xswei/d3-timer/blob/master/README.md#interval) - 定义一个可以按照指定间隔执行回调的定时器.
 
-## [Transitions (d3-transition)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition)
+## [Transitions (d3-transition)](https://github.com/xswei/d3-transition)
 
 Animated transitions for [selections](#selections).
 
-* [*selection*.transition](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#selection_transition) - schedule a transition for the selected elements.
-* [*selection*.interrupt](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#selection_interrupt) - interrupt and cancel transitions on the selected elements.
-* [d3.transition](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition) - schedule a transition on the root document element.
-* [*transition*.select](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_select) - schedule a transition on the selected elements.
-* [*transition*.selectAll](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_selectAll) - schedule a transition on the selected elements.
-* [*transition*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_filter) - filter elements based on data.
-* [*transition*.merge](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_merge) - merge this transition with another.
-* [*transition*.selection](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_selection) - returns a selection for this transition.
-* [*transition*.transition](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_transition) - schedule a new transition following this one.
-* [*transition*.call](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_call) - call a function with this transition.
-* [*transition*.nodes](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_nodes) - returns an array of all selected elements.
-* [*transition*.node](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_node) - returns the first (non-null) element.
-* [*transition*.size](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_size) - returns the count of elements.
-* [*transition*.empty](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_empty) - returns true if this transition is empty.
-* [*transition*.each](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_each) - call a function for each element.
-* [*transition*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_on) - add or remove transition event listeners.
-* [*transition*.attr](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_attr) - tween the given attribute using the default interpolator.
-* [*transition*.attrTween](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_attrTween) - tween the given attribute using a custom interpolator.
-* [*transition*.style](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_style) - tween the given style property using the default interpolator.
-* [*transition*.styleTween](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_styleTween) - tween the given style property using a custom interpolator.
-* [*transition*.text](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_text) - set the text content when the transition starts.
-* [*transition*.remove](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_remove) - remove the selected elements when the transition ends.
-* [*transition*.tween](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_tween) - run custom code during the transition.
-* [*transition*.delay](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_delay) - specify per-element delay in milliseconds.
-* [*transition*.duration](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_duration) - specify per-element duration in milliseconds.
-* [*transition*.ease](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#transition_ease) - specify the easing function.
-* [d3.active](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#active) - select the active transition for a given node.
-* [d3.interrupt](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-transition/README.md#interrupt) - interrupt the active transition for a given node.
+* [*selection*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#selection_transition) - schedule a transition for the selected elements.
+* [*selection*.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#selection_interrupt) - interrupt and cancel transitions on the selected elements.
+* [d3.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition) - schedule a transition on the root document element.
+* [*transition*.select](https://github.com/xswei/d3-transition/blob/master/README.md#transition_select) - schedule a transition on the selected elements.
+* [*transition*.selectAll](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selectAll) - schedule a transition on the selected elements.
+* [*transition*.filter](https://github.com/xswei/d3-transition/blob/master/README.md#transition_filter) - filter elements based on data.
+* [*transition*.merge](https://github.com/xswei/d3-transition/blob/master/README.md#transition_merge) - merge this transition with another.
+* [*transition*.selection](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selection) - returns a selection for this transition.
+* [*transition*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition_transition) - schedule a new transition following this one.
+* [*transition*.call](https://github.com/xswei/d3-transition/blob/master/README.md#transition_call) - call a function with this transition.
+* [*transition*.nodes](https://github.com/xswei/d3-transition/blob/master/README.md#transition_nodes) - returns an array of all selected elements.
+* [*transition*.node](https://github.com/xswei/d3-transition/blob/master/README.md#transition_node) - returns the first (non-null) element.
+* [*transition*.size](https://github.com/xswei/d3-transition/blob/master/README.md#transition_size) - returns the count of elements.
+* [*transition*.empty](https://github.com/xswei/d3-transition/blob/master/README.md#transition_empty) - returns true if this transition is empty.
+* [*transition*.each](https://github.com/xswei/d3-transition/blob/master/README.md#transition_each) - call a function for each element.
+* [*transition*.on](https://github.com/xswei/d3-transition/blob/master/README.md#transition_on) - add or remove transition event listeners.
+* [*transition*.attr](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attr) - tween the given attribute using the default interpolator.
+* [*transition*.attrTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attrTween) - tween the given attribute using a custom interpolator.
+* [*transition*.style](https://github.com/xswei/d3-transition/blob/master/README.md#transition_style) - tween the given style property using the default interpolator.
+* [*transition*.styleTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_styleTween) - tween the given style property using a custom interpolator.
+* [*transition*.text](https://github.com/xswei/d3-transition/blob/master/README.md#transition_text) - set the text content when the transition starts.
+* [*transition*.remove](https://github.com/xswei/d3-transition/blob/master/README.md#transition_remove) - remove the selected elements when the transition ends.
+* [*transition*.tween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_tween) - run custom code during the transition.
+* [*transition*.delay](https://github.com/xswei/d3-transition/blob/master/README.md#transition_delay) - specify per-element delay in milliseconds.
+* [*transition*.duration](https://github.com/xswei/d3-transition/blob/master/README.md#transition_duration) - specify per-element duration in milliseconds.
+* [*transition*.ease](https://github.com/xswei/d3-transition/blob/master/README.md#transition_ease) - specify the easing function.
+* [d3.active](https://github.com/xswei/d3-transition/blob/master/README.md#active) - select the active transition for a given node.
+* [d3.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#interrupt) - interrupt the active transition for a given node.
 
 ## [Voronoi Diagrams (d3-voronoi)](https://github.com/xswei/d3-voronoi)
 
@@ -1319,38 +1319,38 @@ Animated transitions for [selections](#selections).
 * [*diagram*.links](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_links) - 返回指定泰森多边形的边数组.
 * [*diagram*.find](https://github.com/xswei/d3-voronoi/blob/master/README.md#diagram_find) - 找到当前泰森多边形划分中距离目标点指定半径范围内最近的点.
 
-## [Zooming (d3-zoom)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom)
+## [Zooming (d3-zoom)](https://github.com/xswei/d3-zoom)
 
 使用触摸鼠标或者触摸面板缩放 SVG, HTML 或者 Canvas.
 
-* [d3.zoom](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom) - 创建一个缩放交互.
-* [*zoom*](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#_zoom) - 将缩放交互应用到指定的被选中的元素上.
-* [*zoom*.transform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_transform) - 修改指定的选中的元素的变换.
-* [*zoom*.translateTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateTo) - 对指定的选中元素进行平移变换.
-* [*zoom*.translateBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateBy) - 对指定的选中元素进行平移变换.
-* [*zoom*.scaleBy](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleBy) - 对指定的选中元素进行苏佛昂变换.
-* [*zoom*.scaleTo](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleTo) - 对指定的选中元素进行平移变换.
-* [*zoom*.filter](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_filter) - 控制哪些输入事件可以触发缩放操作.
-* [*zoom*.touchable](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_touchable) - 设置触摸支持检测其器.
-* [*zoom*.wheelDelta](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_wheelDelta) - override scaling for wheel events.
-* [*zoom*.clickDistance](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_clickDistance) - set the click distance threshold.
-* [*zoom*.extent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_extent) - 设置视口的范围.
-* [*zoom*.scaleExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_scaleExtent) - 设置可缩放系数大小.
-* [*zoom*.translateExtent](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_translateExtent) - 设置可缩放世界大小.
-* [*zoom*.constrain](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_constrain) - override the transform constraint logic.
-* [*zoom*.duration](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_duration) - 设置缩放变换的过渡时间.
-* [*zoom*.interpolate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_interpolate) - 控制缩放变换的插值方式.
-* [*zoom*.on](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoom_on) - 监听缩放事件.
-* [d3.zoomTransform](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoomTransform) - 获取指定元素的缩放变换.
-* [*transform*.scale](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_scale) - scale a transform by the specified amount.
-* [*transform*.translate](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_translate) - translate a transform by the specified amount.
-* [*transform*.apply](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_apply) - apply the transform to the given point.
-* [*transform*.applyX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_applyX) - apply the transform to the given *x*-coordinate.
-* [*transform*.applyY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_applyY) - apply the transform to the given *y*-coordinate.
-* [*transform*.invert](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_invert) - unapply the transform to the given point.
-* [*transform*.invertX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_invertX) - unapply the transform to the given *x*-coordinate.
-* [*transform*.invertY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_invertY) - unapply the transform to the given *y*-coordinate.
-* [*transform*.rescaleX](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_rescaleX) - apply the transform to an *x*-scale’s domain.
-* [*transform*.rescaleY](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_rescaleY) - apply the transform to a *y*-scale’s domain.
-* [*transform*.toString](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#transform_toString) - format the transform as an SVG transform string.
-* [d3.zoomIdentity](https://github.com/xswei/d3js_doc/blob/master/API_Reference/d3-zoom/README.md#zoomIdentity) - the identity transform.
+* [d3.zoom](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom) - 创建一个缩放交互.
+* [*zoom*](https://github.com/xswei/d3-zoom/blob/master/README.md#_zoom) - 将缩放交互应用到指定的被选中的元素上.
+* [*zoom*.transform](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_transform) - 修改指定的选中的元素的变换.
+* [*zoom*.translateTo](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_translateTo) - 对指定的选中元素进行平移变换.
+* [*zoom*.translateBy](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_translateBy) - 对指定的选中元素进行平移变换.
+* [*zoom*.scaleBy](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_scaleBy) - 对指定的选中元素进行苏佛昂变换.
+* [*zoom*.scaleTo](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_scaleTo) - 对指定的选中元素进行平移变换.
+* [*zoom*.filter](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_filter) - 控制哪些输入事件可以触发缩放操作.
+* [*zoom*.touchable](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_touchable) - 设置触摸支持检测其器.
+* [*zoom*.wheelDelta](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_wheelDelta) - override scaling for wheel events.
+* [*zoom*.clickDistance](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_clickDistance) - set the click distance threshold.
+* [*zoom*.extent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_extent) - 设置视口的范围.
+* [*zoom*.scaleExtent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_scaleExtent) - 设置可缩放系数大小.
+* [*zoom*.translateExtent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_translateExtent) - 设置可缩放世界大小.
+* [*zoom*.constrain](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_constrain) - override the transform constraint logic.
+* [*zoom*.duration](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_duration) - 设置缩放变换的过渡时间.
+* [*zoom*.interpolate](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_interpolate) - 控制缩放变换的插值方式.
+* [*zoom*.on](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_on) - 监听缩放事件.
+* [d3.zoomTransform](https://github.com/xswei/d3-zoom/blob/master/README.md#zoomTransform) - 获取指定元素的缩放变换.
+* [*transform*.scale](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_scale) - scale a transform by the specified amount.
+* [*transform*.translate](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_translate) - translate a transform by the specified amount.
+* [*transform*.apply](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_apply) - apply the transform to the given point.
+* [*transform*.applyX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyX) - apply the transform to the given *x*-coordinate.
+* [*transform*.applyY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyY) - apply the transform to the given *y*-coordinate.
+* [*transform*.invert](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invert) - unapply the transform to the given point.
+* [*transform*.invertX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertX) - unapply the transform to the given *x*-coordinate.
+* [*transform*.invertY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertY) - unapply the transform to the given *y*-coordinate.
+* [*transform*.rescaleX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleX) - apply the transform to an *x*-scale’s domain.
+* [*transform*.rescaleY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleY) - apply the transform to a *y*-scale’s domain.
+* [*transform*.toString](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_toString) - format the transform as an SVG transform string.
+* [d3.zoomIdentity](https://github.com/xswei/d3-zoom/blob/master/README.md#zoomIdentity) - the identity transform.
