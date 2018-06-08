@@ -500,24 +500,24 @@ Format numbers for human consumption.
 
 ## [Geographies (d3-geo)](https://github.com/xswei/d3-geo)
 
-Geographic projections, shapes and math.
+地理投影, 形状以及数学计算.
 
 ### [Paths](https://github.com/xswei/d3-geo/blob/master/README.md#paths)
 
-* [d3.geoPath](https://github.com/xswei/d3-geo/blob/master/README.md#geoPath) - create a new geographic path generator.
-* [*path*](https://github.com/xswei/d3-geo/blob/master/README.md#_path) - project and render the specified feature.
-* [*path*.area](https://github.com/xswei/d3-geo/blob/master/README.md#path_area) - compute the projected planar area of a given feature.
-* [*path*.bounds](https://github.com/xswei/d3-geo/blob/master/README.md#path_bounds) - compute the projected planar bounding box of a given feature.
-* [*path*.centroid](https://github.com/xswei/d3-geo/blob/master/README.md#path_centroid) - compute the projected planar centroid of a given feature.
-* [*path*.measure](https://github.com/xswei/d3-geo/blob/master/README.md#path_measure) - compute the projected planar length of a given feature.
-* [*path*.projection](https://github.com/xswei/d3-geo/blob/master/README.md#path_projection) - set the geographic projection.
-* [*path*.context](https://github.com/xswei/d3-geo/blob/master/README.md#path_context) - set the render context.
-* [*path*.pointRadius](https://github.com/xswei/d3-geo/blob/master/README.md#path_pointRadius) - set the radius to display point features.
+* [d3.geoPath](https://github.com/xswei/d3-geo/blob/master/README.md#geoPath) - 创建一个新的地理路径生成器.
+* [*path*](https://github.com/xswei/d3-geo/blob/master/README.md#_path) - 投影并渲染指定的地理特征.
+* [*path*.area](https://github.com/xswei/d3-geo/blob/master/README.md#path_area) - 计算指定的二位地理特征面积.
+* [*path*.bounds](https://github.com/xswei/d3-geo/blob/master/README.md#path_bounds) - 计算指定的二位地理特征包裹框.
+* [*path*.centroid](https://github.com/xswei/d3-geo/blob/master/README.md#path_centroid) - 算指定的二位地理特征中心.
+* [*path*.measure](https://github.com/xswei/d3-geo/blob/master/README.md#path_measure) - 算指定的二位地理特征周长.
+* [*path*.projection](https://github.com/xswei/d3-geo/blob/master/README.md#path_projection) - 设置地理路径生成器的投影方式.
+* [*path*.context](https://github.com/xswei/d3-geo/blob/master/README.md#path_context) - 设置渲染上下文.
+* [*path*.pointRadius](https://github.com/xswei/d3-geo/blob/master/README.md#path_pointRadius) - 设置点特征的半径.
 
 ### [Projections](https://github.com/xswei/d3-geo/blob/master/README.md#projections)
 
-* [*projection*](https://github.com/xswei/d3-geo/blob/master/README.md#_projection) - project the specified point from the sphere to the plane.
-* [*projection*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#projection_invert) - unproject the specified point from the plane to the sphere.
+* [*projection*](https://github.com/xswei/d3-geo/blob/master/README.md#_projection) - 将指定的球面上一点投影到平面.
+* [*projection*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#projection_invert) - 逆转投影，根据平面一点反向计算球面坐标.
 * [*projection*.stream](https://github.com/xswei/d3-geo/blob/master/README.md#projection_stream) - wrap the specified stream to project geometry.
 * [*projection*.clipAngle](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipAngle) - set the radius of the clip circle.
 * [*projection*.clipExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipExtent) - set the viewport clip extent, in pixels.
@@ -567,16 +567,16 @@ Geographic projections, shapes and math.
 
 ### [Spherical Math](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-math)
 
-* [d3.geoArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoArea) - compute the spherical area of a given feature.
-* [d3.geoBounds](https://github.com/xswei/d3-geo/blob/master/README.md#geoBounds) - compute the latitude-longitude bounding box for a given feature.
-* [d3.geoCentroid](https://github.com/xswei/d3-geo/blob/master/README.md#geoCentroid) - compute the spherical centroid of a given feature.
-* [d3.geoContains](https://github.com/xswei/d3-geo/blob/master/README.md#geoContains) - test whether a point is inside a given feature.
-* [d3.geoDistance](https://github.com/xswei/d3-geo/blob/master/README.md#geoDistance) - compute the great-arc distance between two points.
-* [d3.geoLength](https://github.com/xswei/d3-geo/blob/master/README.md#geoLength) - compute the length of a line string or the perimeter of a polygon.
-* [d3.geoInterpolate](https://github.com/xswei/d3-geo/blob/master/README.md#geoInterpolate) - interpolate between two points along a great arc.
-* [d3.geoRotation](https://github.com/xswei/d3-geo/blob/master/README.md#geoRotation) - create a rotation function for the specified angles.
-* [*rotation*](https://github.com/xswei/d3-geo/blob/master/README.md#_rotation) - rotate the given point around the sphere.
-* [*rotation*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#rotation_invert) - unrotate the given point around the sphere.
+* [d3.geoArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoArea) - 根据给定的地理特征计算球面面积.
+* [d3.geoBounds](https://github.com/xswei/d3-geo/blob/master/README.md#geoBounds) - 根据指定的地理特征计算包裹框(经纬度).
+* [d3.geoCentroid](https://github.com/xswei/d3-geo/blob/master/README.md#geoCentroid) - 根据给定的地理特征计算球面中心.
+* [d3.geoContains](https://github.com/xswei/d3-geo/blob/master/README.md#geoContains) - 测试一个点是否在给定的地理特征轮廓内部.
+* [d3.geoDistance](https://github.com/xswei/d3-geo/blob/master/README.md#geoDistance) - 计算两个点之间的大圆距离.
+* [d3.geoLength](https://github.com/xswei/d3-geo/blob/master/README.md#geoLength) - 计算一条线的长度或者多边形的周长.
+* [d3.geoInterpolate](https://github.com/xswei/d3-geo/blob/master/README.md#geoInterpolate) - 在两个点之间沿着大圆进行插值.
+* [d3.geoRotation](https://github.com/xswei/d3-geo/blob/master/README.md#geoRotation) - 根据指定的角度创建一个旋转函数.
+* [*rotation*](https://github.com/xswei/d3-geo/blob/master/README.md#_rotation) - 沿着指定的球面对指定点进行旋转.
+* [*rotation*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#rotation_invert) - 计算某个点在旋转之前的点.
 
 ### [Spherical Shapes](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-shapes)
 
