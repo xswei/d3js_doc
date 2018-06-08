@@ -1332,25 +1332,25 @@ A calculator for humanity’s peculiar conventions of time.
 * [*zoom*.scaleTo](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_scaleTo) - 对指定的选中元素进行平移变换.
 * [*zoom*.filter](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_filter) - 控制哪些输入事件可以触发缩放操作.
 * [*zoom*.touchable](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_touchable) - 设置触摸支持检测其器.
-* [*zoom*.wheelDelta](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_wheelDelta) - override scaling for wheel events.
-* [*zoom*.clickDistance](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_clickDistance) - set the click distance threshold.
+* [*zoom*.wheelDelta](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_wheelDelta) - 重置滚轮事件与缩放之间对应的倍数.
+* [*zoom*.clickDistance](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_clickDistance) - 设置点击距离阈值.
 * [*zoom*.extent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_extent) - 设置视口的范围.
 * [*zoom*.scaleExtent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_scaleExtent) - 设置可缩放系数大小.
 * [*zoom*.translateExtent](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_translateExtent) - 设置可缩放世界大小.
-* [*zoom*.constrain](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_constrain) - override the transform constraint logic.
+* [*zoom*.constrain](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_constrain) - 重置缩放约束逻辑.
 * [*zoom*.duration](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_duration) - 设置缩放变换的过渡时间.
 * [*zoom*.interpolate](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_interpolate) - 控制缩放变换的插值方式.
 * [*zoom*.on](https://github.com/xswei/d3-zoom/blob/master/README.md#zoom_on) - 监听缩放事件.
 * [d3.zoomTransform](https://github.com/xswei/d3-zoom/blob/master/README.md#zoomTransform) - 获取指定元素的缩放变换.
-* [*transform*.scale](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_scale) - scale a transform by the specified amount.
-* [*transform*.translate](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_translate) - translate a transform by the specified amount.
-* [*transform*.apply](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_apply) - apply the transform to the given point.
-* [*transform*.applyX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyX) - apply the transform to the given *x*-coordinate.
-* [*transform*.applyY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyY) - apply the transform to the given *y*-coordinate.
-* [*transform*.invert](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invert) - unapply the transform to the given point.
-* [*transform*.invertX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertX) - unapply the transform to the given *x*-coordinate.
-* [*transform*.invertY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertY) - unapply the transform to the given *y*-coordinate.
-* [*transform*.rescaleX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleX) - apply the transform to an *x*-scale’s domain.
-* [*transform*.rescaleY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleY) - apply the transform to a *y*-scale’s domain.
-* [*transform*.toString](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_toString) - format the transform as an SVG transform string.
-* [d3.zoomIdentity](https://github.com/xswei/d3-zoom/blob/master/README.md#zoomIdentity) - the identity transform.
+* [*transform*.scale](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_scale) - 根据指定的数值缩放当前坐标变换.
+* [*transform*.translate](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_translate) - 根据指定的值平移当前坐标变换.
+* [*transform*.apply](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_apply) - 返回指定的点经过坐标转换后的新坐标.
+* [*transform*.applyX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyX) - 返回指定的 *x*-坐标经过坐标转换后的新坐标.
+* [*transform*.applyY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_applyY) - 返回指定的 *y*-坐标经过坐标转换后的新坐标.
+* [*transform*.invert](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invert) - 返回指定的点经过坐标转换之前的坐标.
+* [*transform*.invertX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertX) - 返回指定的点经过坐标转换之前的 *x*-坐标.
+* [*transform*.invertY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_invertY) - 返回指定的点经过坐标转换之前的 *y*-坐标.
+* [*transform*.rescaleX](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleX) - 将当前坐标变换应用到指定的 *x*- 比例尺的 `domain`.
+* [*transform*.rescaleY](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_rescaleY) - 将当前坐标变换应用到指定的 *y*- 比例尺的 `domain`.
+* [*transform*.toString](https://github.com/xswei/d3-zoom/blob/master/README.md#transform_toString) - 将坐标转换格式化为 `SVG` 可直接用的字符串.
+* [d3.zoomIdentity](https://github.com/xswei/d3-zoom/blob/master/README.md#zoomIdentity) - 当前坐标变换标识.
