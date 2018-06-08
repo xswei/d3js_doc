@@ -1270,36 +1270,36 @@ A calculator for humanity’s peculiar conventions of time.
 
 ## [Transitions (d3-transition)](https://github.com/xswei/d3-transition)
 
-Animated transitions for [selections](#selections).
+对 [selections](#selections) 进行动画过渡.
 
-* [*selection*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#selection_transition) - schedule a transition for the selected elements.
-* [*selection*.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#selection_interrupt) - interrupt and cancel transitions on the selected elements.
-* [d3.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition) - schedule a transition on the root document element.
-* [*transition*.select](https://github.com/xswei/d3-transition/blob/master/README.md#transition_select) - schedule a transition on the selected elements.
-* [*transition*.selectAll](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selectAll) - schedule a transition on the selected elements.
-* [*transition*.filter](https://github.com/xswei/d3-transition/blob/master/README.md#transition_filter) - filter elements based on data.
-* [*transition*.merge](https://github.com/xswei/d3-transition/blob/master/README.md#transition_merge) - merge this transition with another.
-* [*transition*.selection](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selection) - returns a selection for this transition.
-* [*transition*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition_transition) - schedule a new transition following this one.
-* [*transition*.call](https://github.com/xswei/d3-transition/blob/master/README.md#transition_call) - call a function with this transition.
-* [*transition*.nodes](https://github.com/xswei/d3-transition/blob/master/README.md#transition_nodes) - returns an array of all selected elements.
-* [*transition*.node](https://github.com/xswei/d3-transition/blob/master/README.md#transition_node) - returns the first (non-null) element.
-* [*transition*.size](https://github.com/xswei/d3-transition/blob/master/README.md#transition_size) - returns the count of elements.
-* [*transition*.empty](https://github.com/xswei/d3-transition/blob/master/README.md#transition_empty) - returns true if this transition is empty.
-* [*transition*.each](https://github.com/xswei/d3-transition/blob/master/README.md#transition_each) - call a function for each element.
-* [*transition*.on](https://github.com/xswei/d3-transition/blob/master/README.md#transition_on) - add or remove transition event listeners.
-* [*transition*.attr](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attr) - tween the given attribute using the default interpolator.
-* [*transition*.attrTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attrTween) - tween the given attribute using a custom interpolator.
-* [*transition*.style](https://github.com/xswei/d3-transition/blob/master/README.md#transition_style) - tween the given style property using the default interpolator.
-* [*transition*.styleTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_styleTween) - tween the given style property using a custom interpolator.
-* [*transition*.text](https://github.com/xswei/d3-transition/blob/master/README.md#transition_text) - set the text content when the transition starts.
-* [*transition*.remove](https://github.com/xswei/d3-transition/blob/master/README.md#transition_remove) - remove the selected elements when the transition ends.
-* [*transition*.tween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_tween) - run custom code during the transition.
-* [*transition*.delay](https://github.com/xswei/d3-transition/blob/master/README.md#transition_delay) - specify per-element delay in milliseconds.
-* [*transition*.duration](https://github.com/xswei/d3-transition/blob/master/README.md#transition_duration) - specify per-element duration in milliseconds.
-* [*transition*.ease](https://github.com/xswei/d3-transition/blob/master/README.md#transition_ease) - specify the easing function.
-* [d3.active](https://github.com/xswei/d3-transition/blob/master/README.md#active) - select the active transition for a given node.
-* [d3.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#interrupt) - interrupt the active transition for a given node.
+* [*selection*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#selection_transition) - 为指定的选择集指定一个过渡.
+* [*selection*.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#selection_interrupt) - 中断并且取消选中元素的过渡.
+* [d3.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition) - 为文档根元素指定一个过渡.
+* [*transition*.select](https://github.com/xswei/d3-transition/blob/master/README.md#transition_select) - 在选中的元素上指定一个过渡.
+* [*transition*.selectAll](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selectAll) - 在指定的元素上指定一个过渡.
+* [*transition*.filter](https://github.com/xswei/d3-transition/blob/master/README.md#transition_filter) - 基于数据对元素进行过滤.
+* [*transition*.merge](https://github.com/xswei/d3-transition/blob/master/README.md#transition_merge) - 将当前过渡与其他的过渡进行合并.
+* [*transition*.selection](https://github.com/xswei/d3-transition/blob/master/README.md#transition_selection) - 返回过渡所应用的选择集.
+* [*transition*.transition](https://github.com/xswei/d3-transition/blob/master/README.md#transition_transition) - 基于当前过渡继续指定一个新的过渡.
+* [*transition*.call](https://github.com/xswei/d3-transition/blob/master/README.md#transition_call) - 为当前过渡指定一次指定的函数.
+* [*transition*.nodes](https://github.com/xswei/d3-transition/blob/master/README.md#transition_nodes) - 返回当前过渡元素的数组.
+* [*transition*.node](https://github.com/xswei/d3-transition/blob/master/README.md#transition_node) - 返回第一个非空元素.
+* [*transition*.size](https://github.com/xswei/d3-transition/blob/master/README.md#transition_size) - 返回元素的数量.
+* [*transition*.empty](https://github.com/xswei/d3-transition/blob/master/README.md#transition_empty) - 如果过渡为空则返回 `true`.
+* [*transition*.each](https://github.com/xswei/d3-transition/blob/master/README.md#transition_each) - 为每个元素调用指定的方法.
+* [*transition*.on](https://github.com/xswei/d3-transition/blob/master/README.md#transition_on) - 添加或移除过渡事件句柄.
+* [*transition*.attr](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attr) - 使用默认的插值器在两个给定的属性之间进行过渡.
+* [*transition*.attrTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_attrTween) - 使用自定义插值器在给定的属性之间进行过渡.
+* [*transition*.style](https://github.com/xswei/d3-transition/blob/master/README.md#transition_style) - 使用默认的插值器在两个给定的样式之间进行过渡.
+* [*transition*.styleTween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_styleTween) -  使用自定义插值器在给定的样式之间进行过渡.
+* [*transition*.text](https://github.com/xswei/d3-transition/blob/master/README.md#transition_text) - 在过渡开始时设置文本内容.
+* [*transition*.remove](https://github.com/xswei/d3-transition/blob/master/README.md#transition_remove) - 在过渡结束后移除选中的元素.
+* [*transition*.tween](https://github.com/xswei/d3-transition/blob/master/README.md#transition_tween) - 对于每个选定的元素，在过渡过程中执行指定的函数.
+* [*transition*.delay](https://github.com/xswei/d3-transition/blob/master/README.md#transition_delay) - 指定每个元素的过渡延时时间(毫秒).
+* [*transition*.duration](https://github.com/xswei/d3-transition/blob/master/README.md#transition_duration) - 指定每个过渡元素的过渡时间(毫秒).
+* [*transition*.ease](https://github.com/xswei/d3-transition/blob/master/README.md#transition_ease) - 指定过渡函数(过渡动画类型).
+* [d3.active](https://github.com/xswei/d3-transition/blob/master/README.md#active) - 返回指定节点上活动的过渡，可用来创建重复动画.
+* [d3.interrupt](https://github.com/xswei/d3-transition/blob/master/README.md#interrupt) - 中断指定节点上的过渡并取消符合条件的未执行的过渡.
 
 ## [Voronoi Diagrams (d3-voronoi)](https://github.com/xswei/d3-voronoi)
 
