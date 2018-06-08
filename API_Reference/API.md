@@ -680,32 +680,32 @@ Layout algorithms for visualizing hierarchical data.
 
 ## [Interpolators (d3-interpolate)](https://github.com/xswei/d3-interpolate)
 
-Interpolate numbers, colors, strings, arrays, objects, whatever!
+对数值、颜色、字符串、数组、对象等进行插值
 
-* [d3.interpolate](https://github.com/xswei/d3-interpolate#interpolate) - interpolate arbitrary values.
-* [d3.interpolateArray](https://github.com/xswei/d3-interpolate#interpolateArray) - interpolate arrays of arbitrary values.
-* [d3.interpolateDate](https://github.com/xswei/d3-interpolate#interpolateDate) - interpolate dates.
-* [d3.interpolateNumber](https://github.com/xswei/d3-interpolate#interpolateNumber) - interpolate numbers.
-* [d3.interpolateObject](https://github.com/xswei/d3-interpolate#interpolateObject) - interpolate arbitrary objects.
-* [d3.interpolateRound](https://github.com/xswei/d3-interpolate#interpolateRound) - interpolate integers.
-* [d3.interpolateString](https://github.com/xswei/d3-interpolate#interpolateString) - interpolate strings with embedded numbers.
-* [d3.interpolateTransformCss](https://github.com/xswei/d3-interpolate#interpolateTransformCss) - interpolate 2D CSS transforms.
-* [d3.interpolateTransformSvg](https://github.com/xswei/d3-interpolate#interpolateTransformSvg) - interpolate 2D SVG transforms.
-* [d3.interpolateZoom](https://github.com/xswei/d3-interpolate#interpolateZoom) - zoom and pan between two views.
-* [d3.interpolateRgb](https://github.com/xswei/d3-interpolate#interpolateRgb) - interpolate RGB colors.
-* [d3.interpolateRgbBasis](https://github.com/xswei/d3-interpolate#interpolateRgbBasis) - generate a B-spline through a set of colors.
-* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3-interpolate#interpolateRgbBasisClosed) - generate a closed B-spline through a set of colors.
-* [d3.interpolateHsl](https://github.com/xswei/d3-interpolate#interpolateHsl) - interpolate HSL colors.
-* [d3.interpolateHslLong](https://github.com/xswei/d3-interpolate#interpolateHslLong) - interpolate HSL colors, the long way.
-* [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - interpolate Lab colors.
-* [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - interpolate HCL colors.
-* [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - interpolate HCL colors, the long way.
-* [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - interpolate Cubehelix colors.
-* [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - interpolate Cubehelix colors, the long way.
-* [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - apply gamma correction during interpolation.
-* [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - generate a B-spline through a set of values.
-* [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - generate a closed B-spline through a set of values.
-* [d3.quantize](https://github.com/xswei/d3-interpolate#quantize) - generate uniformly-spaced samples from an interpolator.
+* [d3.interpolate](https://github.com/xswei/d3-interpolate#interpolate) - 生成一个任意数值的插值器.
+* [d3.interpolateArray](https://github.com/xswei/d3-interpolate#interpolateArray) - 生成一个数组插值器.
+* [d3.interpolateDate](https://github.com/xswei/d3-interpolate#interpolateDate) - 生成一个时间类型插值器.
+* [d3.interpolateNumber](https://github.com/xswei/d3-interpolate#interpolateNumber) - 生成一个时间类型插值器.
+* [d3.interpolateObject](https://github.com/xswei/d3-interpolate#interpolateObject) - 生成一个对象类型插值器.
+* [d3.interpolateRound](https://github.com/xswei/d3-interpolate#interpolateRound) - 生成一个数值类型插值器.
+* [d3.interpolateString](https://github.com/xswei/d3-interpolate#interpolateString) - 生成一个字符串类型插值器.
+* [d3.interpolateTransformCss](https://github.com/xswei/d3-interpolate#interpolateTransformCss) - 生成一个 2D css 样式过渡插值器.
+* [d3.interpolateTransformSvg](https://github.com/xswei/d3-interpolate#interpolateTransformSvg) - 生成一个 2D SVG 过渡插值器.
+* [d3.interpolateZoom](https://github.com/xswei/d3-interpolate#interpolateZoom) - 在两个缩放视图之间过渡的插值器.
+* [d3.interpolateRgb](https://github.com/xswei/d3-interpolate#interpolateRgb) - 生成一个RGB类型插值器.
+* [d3.interpolateRgbBasis](https://github.com/xswei/d3-interpolate#interpolateRgbBasis) - 根据一组颜色返回一个 B- 样条插值器.
+* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3-interpolate#interpolateRgbBasisClosed) - 根据一组颜色返回一个 B- 样条插值器.
+* [d3.interpolateHsl](https://github.com/xswei/d3-interpolate#interpolateHsl) - 生成一个 Hsl 类型插值器.
+* [d3.interpolateHslLong](https://github.com/xswei/d3-interpolate#interpolateHslLong) - 生成一个 Hsl 类型插值器(反向模式).
+* [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - 生成一个 Lab 类型插值器.
+* [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - 生成一个 Hcl 类型插值器.
+* [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - 生成一个 Hcl 类型插值器(反向模式).
+* [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - 生成一个 Cubehelix 类型插值器 interpolate Cubehelix colors.
+* [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - 生成一个 Cubehelix 类型插值器(反向模式).
+* [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - 应用 `gamma` 修正.
+* [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - 根据一组数值返回一个 B- 样条插值器.
+* [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - 根据一组数值返回一个 B- 样条插值器.
+* [d3.quantize](https://github.com/xswei/d3-interpolate#quantize) - 插值器生成一组均匀采样.
 
 ## [Paths (d3-path)](https://github.com/xswei/d3-path)
 
