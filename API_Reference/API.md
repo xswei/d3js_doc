@@ -700,7 +700,7 @@ Layout algorithms for visualizing hierarchical data.
 * [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - 生成一个 Lab 类型插值器.
 * [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - 生成一个 Hcl 类型插值器.
 * [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - 生成一个 Hcl 类型插值器(反向模式).
-* [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - 生成一个 Cubehelix 类型插值器 interpolate Cubehelix colors.
+* [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - 生成一个 Cubehelix 类型插值器.
 * [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - 生成一个 Cubehelix 类型插值器(反向模式).
 * [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - 应用 `gamma` 修正.
 * [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - 根据一组数值返回一个 B- 样条插值器.
