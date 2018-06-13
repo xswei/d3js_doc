@@ -617,21 +617,21 @@ Format numbers for human consumption.
 
 ## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3-hierarchy)
 
-Layout algorithms for visualizing hierarchical data.
+对层次数据进行可视化的一些布局算法.
 
-* [d3.hierarchy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#hierarchy) - constructs a root node from hierarchical data.
-* [*node*.ancestors](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_ancestors) - generate an array of ancestors.
-* [*node*.descendants](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_descendants) - generate an array of descendants.
-* [*node*.leaves](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_leaves) - generate an array of leaves.
-* [*node*.path](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_path) - generate the shortest path to another node.
-* [*node*.links](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_links) - generate an array of links.
+* [d3.hierarchy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#hierarchy) - 从给定的层次结构数据构造一个根节点并为各个节点指定深度等属性.
+* [*node*.ancestors](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_ancestors) - 从当前节点开始返回其祖先节点数组.
+* [*node*.descendants](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_descendants) - 从当前节点开始返回其后代节点数组.
+* [*node*.leaves](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_leaves) - 返回当前节点为根节点的子树的叶节点.
+* [*node*.path](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_path) - 返回从当前节点到指定目标节点的最短路径.
+* [*node*.links](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_links) - 返回当前节点所在子树的所有边.
 * [*node*.sum](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sum) - evaluate and aggregate quantitative values.
 * [*node*.sort](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sort) - sort all descendant siblings.
 * [*node*.count](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_count) - count the number of leaves.
-* [*node*.each](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_each) - breadth-first traversal.
-* [*node*.eachAfter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachAfter) - post-order traversal.
-* [*node*.eachBefore](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachBefore) - pre-order traversal.
-* [*node*.copy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_copy) - copy a hierarchy.
+* [*node*.each](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_each) - 广度优先遍历当前子树.
+* [*node*.eachAfter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachAfter) - 后续遍历当前子树.
+* [*node*.eachBefore](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachBefore) - 前序遍历当前子树.
+* [*node*.copy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_copy) - 拷贝一个当前节点为根节点的子树的副本.
 * [d3.stratify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify) - create a new stratify operator.
 * [*stratify*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_stratify) - construct a root node from tabular data.
 * [*stratify*.id](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_id) - set the node id accessor.
