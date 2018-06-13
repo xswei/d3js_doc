@@ -632,28 +632,28 @@ Format numbers for human consumption.
 * [*node*.eachAfter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachAfter) - 后续遍历当前子树.
 * [*node*.eachBefore](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachBefore) - 前序遍历当前子树.
 * [*node*.copy](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_copy) - 拷贝一个当前节点为根节点的子树的副本.
-* [d3.stratify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify) - create a new stratify operator.
-* [*stratify*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_stratify) - construct a root node from tabular data.
-* [*stratify*.id](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_id) - set the node id accessor.
-* [*stratify*.parentId](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_parentId) - set the parent node id accessor.
-* [d3.cluster](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster) - create a new cluster (dendrogram) layout.
-* [*cluster*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_cluster) - layout the specified hierarchy in a dendrogram.
-* [*cluster*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_size) - set the layout size.
-* [*cluster*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_nodeSize) - set the node size.
-* [*cluster*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_separation) - set the separation between leaves.
-* [d3.tree](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree) - create a new tidy tree layout.
-* [*tree*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_tree) - layout the specified hierarchy in a tidy tree.
-* [*tree*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_size) - set the layout size.
-* [*tree*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_nodeSize) - set the node size.
-* [*tree*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_separation) - set the separation between nodes.
-* [d3.treemap](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap) - create a new treemap layout.
-* [*treemap*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_treemap) - layout the specified hierarchy as a treemap.
-* [*treemap*.tile](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_tile) - set the tiling method.
-* [*treemap*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_size) - set the layout size.
-* [*treemap*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_round) - set whether the output coordinates are rounded.
-* [*treemap*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_padding) - set the padding.
-* [*treemap*.paddingInner](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingInner) - set the padding between siblings.
-* [*treemap*.paddingOuter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingOuter) - set the padding between parent and children.
+* [d3.stratify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify) - 创建一个新的分层操作.
+* [*stratify*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_stratify) - 根据扁平数据创建一个分层数据.
+* [*stratify*.id](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_id) - 设置节点 `id` 访问器.
+* [*stratify*.parentId](https://github.com/xswei/d3-hierarchy/blob/master/README.md#stratify_parentId) - 设置父节点 `id` 访问器.
+* [d3.cluster](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster) - 创建一个新的集群(系统树图)布局.
+* [*cluster*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_cluster) - 将指定的数据布局为系统树图.
+* [*cluster*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_size) - 设置布局尺寸.
+* [*cluster*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_nodeSize) - 设计节点尺寸.
+* [*cluster*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#cluster_separation) - 设置两个叶节点之间的间距.
+* [d3.tree](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree) - 创建一个新的整齐(同深度节点对齐)的树布局.
+* [*tree*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_tree) - 将指定的层次数据布局为整齐的树布局.
+* [*tree*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_size) - 设置布局尺寸.
+* [*tree*.nodeSize](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_nodeSize) - 设置节点尺寸.
+* [*tree*.separation](https://github.com/xswei/d3-hierarchy/blob/master/README.md#tree_separation) - 设置两个相邻的节点之间的间距.
+* [d3.treemap](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap) - 创建一个矩阵树图布局.
+* [*treemap*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_treemap) - 将层次数据布局为矩阵树图.
+* [*treemap*.tile](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_tile) - 设置矩阵树图布局的填铺方法.
+* [*treemap*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_size) - 设置布局尺寸.
+* [*treemap*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_round) - 设置输出坐标是否取整.
+* [*treemap*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_padding) - 设置间隔参数.
+* [*treemap*.paddingInner](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingInner) - 设置同级节点之间的间隔.
+* [*treemap*.paddingOuter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingOuter) - 设置父节点和子节点之间的间距.
 * [*treemap*.paddingTop](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingTop) - set the padding between the parent’s top edge and children.
 * [*treemap*.paddingRight](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingRight) - set the padding between the parent’s right edge and children.
 * [*treemap*.paddingBottom](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) - set the padding between the parent’s bottom edge and children.
