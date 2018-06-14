@@ -425,14 +425,14 @@ Easing functions for smooth animation.
 
 基于 Fetch API 的更为便捷的获取数据方法.
 
-* [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 blob 的形式获取文件.
-* [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 array buffer 的形式获取文件.
-* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(CSV)文件.
-* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符(DSV)文件.
+* [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 `blob` 的形式获取文件.
+* [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 `array buffer` 的形式获取文件.
+* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(`CSV`)文件.
+* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符(`DSV`)文件.
 * [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - 获取图片.
-* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - 获取 JSON 文件.
+* [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - 获取 `JSON` 文件.
 * [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - 获取无格式文本.
-* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 tab 分隔符(TSV)文件.
+* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 `tab` 分隔符(`TSV`)文件.
 
 ## [Forces (d3-force)](https://github.com/xswei/d3-force)
 
@@ -654,10 +654,10 @@ Format numbers for human consumption.
 * [*treemap*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_padding) - 设置间隔参数.
 * [*treemap*.paddingInner](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingInner) - 设置同级节点之间的间隔.
 * [*treemap*.paddingOuter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingOuter) - 设置父节点和子节点之间的间距.
-* [*treemap*.paddingTop](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingTop) - set the padding between the parent’s top edge and children.
-* [*treemap*.paddingRight](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingRight) - set the padding between the parent’s right edge and children.
-* [*treemap*.paddingBottom](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) - set the padding between the parent’s bottom edge and children.
-* [*treemap*.paddingLeft](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingLeft) - set the padding between the parent’s left edge and children.
+* [*treemap*.paddingTop](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingTop) - 设置父节点和子节点之间的顶部间距.
+* [*treemap*.paddingRight](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingRight) - 设置父节点和子节点之间的右侧间距.
+* [*treemap*.paddingBottom](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) - 设置父节点和子节点之间的底部间距.
+* [*treemap*.paddingLeft](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingLeft) - 设置父节点和子节点之间的左侧间距.
 * [d3.treemapBinary](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapBinary) - tile using a balanced binary tree.
 * [d3.treemapDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapDice) - tile into a horizontal row.
 * [d3.treemapSlice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSlice) - tile into a vertical column.
@@ -665,18 +665,18 @@ Format numbers for human consumption.
 * [d3.treemapSquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSquarify) - tile using squarified rows per Bruls *et. al.*
 * [d3.treemapResquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapResquarify) - like d3.treemapSquarify, but performs stable updates.
 * [*squarify*.ratio](https://github.com/xswei/d3-hierarchy/blob/master/README.md#squarify_ratio) - set the desired rectangle aspect ratio.
-* [d3.partition](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition) - create a new partition (icicle or sunburst) layout.
-* [*partition*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_partition) - layout the specified hierarchy as a partition diagram.
-* [*partition*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_size) - set the layout size.
-* [*partition*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_round) - set whether the output coordinates are rounded.
-* [*partition*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_padding) - set the padding.
-* [d3.pack](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack) - create a new circle-packing layout.
-* [*pack*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_pack) - layout the specified hierarchy using circle-packing.
-* [*pack*.radius](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_radius) - set the radius accessor.
-* [*pack*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_size) - set the layout size.
-* [*pack*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_padding) - set the padding.
-* [d3.packSiblings](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packSiblings) - pack the specified array of circles.
-* [d3.packEnclose](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packEnclose) - enclose the specified array of circles.
+* [d3.partition](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition) - 创建一个新的分区布局.
+* [*partition*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_partition) - 将层次数据布局为分区图(属性计算).
+* [*partition*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_size) - 设置分区图的尺寸.
+* [*partition*.round](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_round) - 设置输出坐标是否取整.
+* [*partition*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_padding) - 设置间隙.
+* [d3.pack](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack) - 创建一个新的圆形打包图.
+* [*pack*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_pack) - 为指定的层次数据计算绘制打包图需要的属性.
+* [*pack*.radius](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_radius) - 设置半径访问器.
+* [*pack*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_size) - 设置布局尺寸.
+* [*pack*.padding](https://github.com/xswei/d3-hierarchy/blob/master/README.md#pack_padding) - 设置间隙.
+* [d3.packSiblings](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packSiblings) - 将一组圆进行打包.
+* [d3.packEnclose](https://github.com/xswei/d3-hierarchy/blob/master/README.md#packEnclose) - 计算指定圆数组的最小包裹圆.
 
 ## [Interpolators (d3-interpolate)](https://github.com/xswei/d3-interpolate)
 
