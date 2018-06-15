@@ -1056,143 +1056,143 @@ Map a discrete domain to a discrete range.
 
 ### [Lines](https://github.com/xswei/d3-shape/blob/master/README.md#lines)
 
-A spline or polyline, as in a line chart.
+曲线或折线，在折线图中使用.
 
-* [d3.line](https://github.com/xswei/d3-shape/blob/master/README.md#line) - create a new line generator.
-* [*line*](https://github.com/xswei/d3-shape/blob/master/README.md#_line) - generate a line for the given dataset.
-* [*line*.x](https://github.com/xswei/d3-shape/blob/master/README.md#line_x) - set the *x* accessor.
-* [*line*.y](https://github.com/xswei/d3-shape/blob/master/README.md#line_y) - set the *y* accessor.
-* [*line*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#line_defined) - set the defined accessor.
-* [*line*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#line_curve) - set the curve interpolator.
-* [*line*.context](https://github.com/xswei/d3-shape/blob/master/README.md#line_context) - set the rendering context.
-* [d3.radialLine](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine) - create a new radial line generator.
-* [*radialLine*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialLine) - generate a line for the given dataset.
-* [*radialLine*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_angle) - set the angle accessor.
-* [*radialLine*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_radius) - set the radius accessor.
-* [*radialLine*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_defined) - set the defined accessor.
-* [*radialLine*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_curve) - set the curve interpolator.
-* [*radialLine*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_context) - set the rendering context.
+* [d3.line](https://github.com/xswei/d3-shape/blob/master/README.md#line) - 创建一个新的线条生成器.
+* [*line*](https://github.com/xswei/d3-shape/blob/master/README.md#_line) - 根据指定的数据集生成一条线.
+* [*line*.x](https://github.com/xswei/d3-shape/blob/master/README.md#line_x) - 设置线条生成器的 *x*-访问器.
+* [*line*.y](https://github.com/xswei/d3-shape/blob/master/README.md#line_y) - 设置线条生成器的 *y*-访问器.
+* [*line*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#line_defined) - 设置 `defined`(缺省) 访问器.
+* [*line*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#line_curve) - 设置插值方式.
+* [*line*.context](https://github.com/xswei/d3-shape/blob/master/README.md#line_context) - 设置渲染上下文.
+* [d3.radialLine](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine) - 创建一个新的放射线条生成器.
+* [*radialLine*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialLine) - 根据指定的数据集生成一条线.
+* [*radialLine*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_angle) - 设置角度访问器.
+* [*radialLine*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_radius) - 设置半径访问器.
+* [*radialLine*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_defined) - 设置 `defined`(缺省) 访问器.
+* [*radialLine*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_curve) - 设置插值方式.
+* [*radialLine*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialLine_context) - 设置渲染上下文.
 
 ### [Areas](https://github.com/xswei/d3-shape/blob/master/README.md#areas)
 
-An area, defined by a bounding topline and baseline, as in an area chart.
+由基线和顶线围成的一块区域，在面积图中使用.
 
-* [d3.area](https://github.com/xswei/d3-shape/blob/master/README.md#area) - create a new area generator.
-* [*area*](https://github.com/xswei/d3-shape/blob/master/README.md#_area) - generate an area for the given dataset.
-* [*area*.x](https://github.com/xswei/d3-shape/blob/master/README.md#area_x) - set the *x0* and *x1* accessors.
-* [*area*.x0](https://github.com/xswei/d3-shape/blob/master/README.md#area_x0) - set the baseline *x* accessor.
-* [*area*.x1](https://github.com/xswei/d3-shape/blob/master/README.md#area_x1) - set the topline *x* accessor.
-* [*area*.y](https://github.com/xswei/d3-shape/blob/master/README.md#area_y) - set the *y0* and *y1* accessors.
-* [*area*.y0](https://github.com/xswei/d3-shape/blob/master/README.md#area_y0) - set the baseline *y* accessor.
-* [*area*.y1](https://github.com/xswei/d3-shape/blob/master/README.md#area_y1) - set the topline *y* accessor.
-* [*area*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#area_defined) - set the defined accessor.
-* [*area*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#area_curve) - set the curve interpolator.
-* [*area*.context](https://github.com/xswei/d3-shape/blob/master/README.md#area_context) - set the rendering context.
-* [*area*.lineX0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX0) - derive a line for the left edge of an area.
-* [*area*.lineX1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX1) - derive a line for the right edge of an area.
-* [*area*.lineY0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY0) - derive a line for the top edge of an area.
-* [*area*.lineY1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY1) - derive a line for the bottom edge of an area.
-* [d3.radialArea](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea) - create a new radial area generator.
-* [*radialArea*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialArea) - generate an area for the given dataset.
-* [*radialArea*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_angle) - set the start and end angle accessors.
-* [*radialArea*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_startAngle) - set the start angle accessor.
-* [*radialArea*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_endAngle) - set the end angle accessor.
-* [*radialArea*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_radius) - set the inner and outer radius accessors.
-* [*radialArea*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_innerRadius) - set the inner radius accessor.
-* [*radialArea*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_outerRadius) - set the outer radius accessor.
-* [*radialArea*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_defined) - set the defined accessor.
-* [*radialArea*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_curve) - set the curve interpolator.
-* [*radialArea*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_context) - set the rendering context.
-* [*radialArea*.lineStartAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineStartAngle) - derive a line for the start edge of an area.
-* [*radialArea*.lineEndAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineEndAngle) - derive a line for the end edge of an area.
-* [*radialArea*.lineInnerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineInnerRadius) - derive a line for the inner edge of an area.
-* [*radialArea*.lineOuterRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineOuterRadius) - derive a line for the outer edge of an area.
+* [d3.area](https://github.com/xswei/d3-shape/blob/master/README.md#area) - 创建一个新的区域生成器.
+* [*area*](https://github.com/xswei/d3-shape/blob/master/README.md#_area) - 根据指定的数据集生成一个区域.
+* [*area*.x](https://github.com/xswei/d3-shape/blob/master/README.md#area_x) - 设置 *x0* 和 *x1* 访问器.
+* [*area*.x0](https://github.com/xswei/d3-shape/blob/master/README.md#area_x0) - 设置基线 *x* 访问器.
+* [*area*.x1](https://github.com/xswei/d3-shape/blob/master/README.md#area_x1) - 设置顶线 *x* 访问器.
+* [*area*.y](https://github.com/xswei/d3-shape/blob/master/README.md#area_y) - 设置 *y0* 和 *y1* 访问器.
+* [*area*.y0](https://github.com/xswei/d3-shape/blob/master/README.md#area_y0) - 设置基线 *y* 访问器.
+* [*area*.y1](https://github.com/xswei/d3-shape/blob/master/README.md#area_y1) - 设置顶线 *y* 访问器.
+* [*area*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#area_defined) - 设置 `defined`(缺省) 访问器.
+* [*area*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#area_curve) - 设置曲线插值方式.
+* [*area*.context](https://github.com/xswei/d3-shape/blob/master/README.md#area_context) - 设置渲染上下文.
+* [*area*.lineX0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX0) - 派生出一条区域左侧边界线条生成器.
+* [*area*.lineX1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineX1) - 派生出一条区域右侧边界线条生成器.
+* [*area*.lineY0](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY0) - 派生出一条区域顶部边界线条生成器.
+* [*area*.lineY1](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineY1) - 派生出一条区域底部边界线条生成器.
+* [d3.radialArea](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea) - 创建一个新的径向区域生成器.
+* [*radialArea*](https://github.com/xswei/d3-shape/blob/master/README.md#_radialArea) - 根据指定的数据集生成一个区域.
+* [*radialArea*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_angle) - 设置起止角度访问器.
+* [*radialArea*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_startAngle) - 设置起始角度访问器.
+* [*radialArea*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_endAngle) - 设置终止角度访问器.
+* [*radialArea*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_radius) - 设置内外半径访问器.
+* [*radialArea*.innerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_innerRadius) - 设置内半径访问器.
+* [*radialArea*.outerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_outerRadius) - 设置外半径访问器.
+* [*radialArea*.defined](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_defined) - 设置 `defined` 访问器.
+* [*radialArea*.curve](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_curve) - 设置插值方式.
+* [*radialArea*.context](https://github.com/xswei/d3-shape/blob/master/README.md#radialArea_context) - 设置渲染上下文.
+* [*radialArea*.lineStartAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineStartAngle) - 派生出一条区域起始角度边界线条生成器.
+* [*radialArea*.lineEndAngle](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineEndAngle) - 派生出一条区域终止角度边界线条生成器.
+* [*radialArea*.lineInnerRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineInnerRadius) - 派生出一条区域内半径边界线条生成器.
+* [*radialArea*.lineOuterRadius](https://github.com/xswei/d3-shape/blob/master/README.md#area_lineOuterRadius) - 派生出一条区域外半径边界线条生成器.
 
 ### [Curves](https://github.com/xswei/d3-shape/blob/master/README.md#curves)
 
-Interpolate between points to produce a continuous shape.
+在一系列点之间进行插值，形成一条连续的线.
 
-* [d3.curveBasis](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasis) - a cubic basis spline, repeating the end points.
-* [d3.curveBasisClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisClosed) - a closed cubic basis spline.
-* [d3.curveBasisOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisOpen) - a cubic basis spline.
-* [d3.curveBundle](https://github.com/xswei/d3-shape/blob/master/README.md#curveBundle) - a straightened cubic basis spline.
-* [*bundle*.beta](https://github.com/xswei/d3-shape/blob/master/README.md#bundle_beta) - set the bundle tension *beta*.
-* [d3.curveCardinal](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinal) - a cubic cardinal spline, with one-sided difference at each end.
-* [d3.curveCardinalClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalClosed) - a closed cubic cardinal spline.
-* [d3.curveCardinalOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalOpen) - a cubic cardinal spline.
-* [*cardinal*.tension](https://github.com/xswei/d3-shape/blob/master/README.md#cardinal_tension) - set the cardinal spline tension.
-* [d3.curveCatmullRom](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRom) - a cubic Catmull–Rom spline, with one-sided difference at each end.
-* [d3.curveCatmullRomClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomClosed) - a closed cubic Catmull–Rom spline.
-* [d3.curveCatmullRomOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomOpen) - a cubic Catmull–Rom spline.
-* [*catmullRom*.alpha](https://github.com/xswei/d3-shape/blob/master/README.md#catmullRom_alpha) - set the Catmull–Rom parameter *alpha*.
-* [d3.curveLinear](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinear) - a polyline.
-* [d3.curveLinearClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinearClosed) - a closed polyline.
-* [d3.curveMonotoneX](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneX) - a cubic spline that, given monotonicity in *x*, preserves it in *y*.
-* [d3.curveMonotoneY](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneY) - a cubic spline that, given monotonicity in *y*, preserves it in *x*.
-* [d3.curveNatural](https://github.com/xswei/d3-shape/blob/master/README.md#curveNatural) - a natural cubic spline.
-* [d3.curveStep](https://github.com/xswei/d3-shape/blob/master/README.md#curveStep) - a piecewise constant function.
-* [d3.curveStepAfter](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepAfter) - a piecewise constant function.
-* [d3.curveStepBefore](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepBefore) - a piecewise constant function.
-* [*curve*.areaStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaStart) - start a new area segment.
-* [*curve*.areaEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaEnd) - end the current area segment.
-* [*curve*.lineStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineStart) - start a new line segment.
-* [*curve*.lineEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineEnd) - end the current line segment.
-* [*curve*.point](https://github.com/xswei/d3-shape/blob/master/README.md#curve_point) - add a point to the current line segment.
+* [d3.curveBasis](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasis) - 三次 `basis ` 曲线.
+* [d3.curveBasisClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisClosed) - 闭合的三次 `basis ` 曲线.
+* [d3.curveBasisOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveBasisOpen) - 三次 `basis ` 曲线.
+* [d3.curveBundle](https://github.com/xswei/d3-shape/blob/master/README.md#curveBundle) - 可设置张力的三次 `basis ` 曲线.
+* [*bundle*.beta](https://github.com/xswei/d3-shape/blob/master/README.md#bundle_beta) - 设置三次 `basis ` 曲线的张力 *beta*.
+* [d3.curveCardinal](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinal) - 三次 `cardinal` 曲线.
+* [d3.curveCardinalClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalClosed) - 闭合的三次 `cardinal` 曲线.
+* [d3.curveCardinalOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCardinalOpen) - 三次 `cardinal` 曲线.
+* [*cardinal*.tension](https://github.com/xswei/d3-shape/blob/master/README.md#cardinal_tension) - 设置三次 `cardinal` 曲线的张力系数.
+* [d3.curveCatmullRom](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRom) - 三次 `Catmull–Rom` 曲线.
+* [d3.curveCatmullRomClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomClosed) - 三次 `Catmull–Rom` 曲线.
+* [d3.curveCatmullRomOpen](https://github.com/xswei/d3-shape/blob/master/README.md#curveCatmullRomOpen) - 三次 `Catmull–Rom` 曲线.
+* [*catmullRom*.alpha](https://github.com/xswei/d3-shape/blob/master/README.md#catmullRom_alpha) - 设置三次 `Catmull–Rom` 曲线的 *alpha* 参数.
+* [d3.curveLinear](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinear) - 折线.
+* [d3.curveLinearClosed](https://github.com/xswei/d3-shape/blob/master/README.md#curveLinearClosed) - 闭合的折线.
+* [d3.curveMonotoneX](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneX) - 保持 *x* 单调性的三次曲线.
+* [d3.curveMonotoneY](https://github.com/xswei/d3-shape/blob/master/README.md#curveMonotoneY) - 保持 *y* 单调性的三次曲线.
+* [d3.curveNatural](https://github.com/xswei/d3-shape/blob/master/README.md#curveNatural) - 自然三次样条曲线.
+* [d3.curveStep](https://github.com/xswei/d3-shape/blob/master/README.md#curveStep) - 分段常数函数.
+* [d3.curveStepAfter](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepAfter) - 分段常数函数.
+* [d3.curveStepBefore](https://github.com/xswei/d3-shape/blob/master/README.md#curveStepBefore) - 分段常数函数.
+* [*curve*.areaStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaStart) - 开始一个新的区域段.
+* [*curve*.areaEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_areaEnd) - 结束当前的区域段.
+* [*curve*.lineStart](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineStart) - 开始一个新的线段.
+* [*curve*.lineEnd](https://github.com/xswei/d3-shape/blob/master/README.md#curve_lineEnd) - 结束当前的线段end the current line segment.
+* [*curve*.point](https://github.com/xswei/d3-shape/blob/master/README.md#curve_point) - 为当前的线段中添加一个点.
 
 ### [Links](https://github.com/xswei/d3-shape/blob/master/README.md#links)
 
-A smooth cubic Bézier curve from a source to a target.
+源点到目标点之间的圆滑三次 `Bézier` 曲线.
 
-* [d3.linkVertical](https://github.com/xswei/d3-shape/blob/master/README.md#linkVertical) - create a new vertical link generator.
-* [d3.linkHorizontal](https://github.com/xswei/d3-shape/blob/master/README.md#linkHorizontal) - create a new horizontal link generator.
-* [*link*](https://github.com/xswei/d3-shape/blob/master/README.md#_link) - generate a link.
-* [*link*.source](https://github.com/xswei/d3-shape/blob/master/README.md#link_source) - set the source accessor.
-* [*link*.target](https://github.com/xswei/d3-shape/blob/master/README.md#link_target) - set the target accessor.
-* [*link*.x](https://github.com/xswei/d3-shape/blob/master/README.md#link_x) - set the point *x*-accessor.
-* [*link*.y](https://github.com/xswei/d3-shape/blob/master/README.md#link_y) - set the point *y*-accessor.
-* [d3.linkRadial](https://github.com/xswei/d3-shape/blob/master/README.md#linkRadial) - create a new radial link generator.
-* [*radialLink*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_angle) - set the point *angle* accessor.
-* [*radialLink*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_radius) - set the point *radius* accessor.
+* [d3.linkVertical](https://github.com/xswei/d3-shape/blob/master/README.md#linkVertical) - 创建一个新的垂直 `link` 生成器.
+* [d3.linkHorizontal](https://github.com/xswei/d3-shape/blob/master/README.md#linkHorizontal) - 创建一个新的水平的 `link` 生成器.
+* [*link*](https://github.com/xswei/d3-shape/blob/master/README.md#_link) - 生成一个 `link`.
+* [*link*.source](https://github.com/xswei/d3-shape/blob/master/README.md#link_source) - 设置源点访问器.
+* [*link*.target](https://github.com/xswei/d3-shape/blob/master/README.md#link_target) - 设置目标点访问器.
+* [*link*.x](https://github.com/xswei/d3-shape/blob/master/README.md#link_x) - 设置点的 *x*-访问器.
+* [*link*.y](https://github.com/xswei/d3-shape/blob/master/README.md#link_y) - 设置点的 *y*-访问器.
+* [d3.linkRadial](https://github.com/xswei/d3-shape/blob/master/README.md#linkRadial) - 创建一个新的径向 `link` 生成器.
+* [*radialLink*.angle](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_angle) - 设置点的 *angle* 访问器.
+* [*radialLink*.radius](https://github.com/xswei/d3-shape/blob/master/README.md#radialLink_radius) - 设置点的 *radius* 访问器.
 
 ### [Symbols](https://github.com/xswei/d3-shape/blob/master/README.md#symbols)
 
-A categorical shape encoding, as in a scatterplot.
+分类形状编码，应用于散点图等场景中.
 
-* [d3.symbol](https://github.com/xswei/d3-shape/blob/master/README.md#symbol) - create a new symbol generator.
-* [*symbol*](https://github.com/xswei/d3-shape/blob/master/README.md#_symbol) - generate a symbol for the given datum.
-* [*symbol*.type](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_type) - set the symbol type.
-* [*symbol*.size](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_size) - set the size of the symbol in square pixels.
-* [*symbol*.context](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_context) - set the rendering context.
-* [d3.symbols](https://github.com/xswei/d3-shape/blob/master/README.md#symbols) - the array of built-in symbol types.
-* [d3.symbolCircle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCircle) - a circle.
-* [d3.symbolCross](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCross) - a Greek cross with arms of equal length.
-* [d3.symbolDiamond](https://github.com/xswei/d3-shape/blob/master/README.md#symbolDiamond) - a rhombus.
-* [d3.symbolSquare](https://github.com/xswei/d3-shape/blob/master/README.md#symbolSquare) - a square.
-* [d3.symbolStar](https://github.com/xswei/d3-shape/blob/master/README.md#symbolStar) - a pentagonal star (pentagram).
-* [d3.symbolTriangle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolTriangle) - an up-pointing triangle.
-* [d3.symbolWye](https://github.com/xswei/d3-shape/blob/master/README.md#symbolWye) - a Y shape.
-* [*symbolType*.draw](https://github.com/xswei/d3-shape/blob/master/README.md#symbolType_draw) - draw this symbol to the given context.
+* [d3.symbol](https://github.com/xswei/d3-shape/blob/master/README.md#symbol) - 创建一个新的符号生成器.
+* [*symbol*](https://github.com/xswei/d3-shape/blob/master/README.md#_symbol) - 根据指定的数据生成一个符号.
+* [*symbol*.type](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_type) - 设置符号的类型.
+* [*symbol*.size](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_size) - 以平方像素为单位设置符号的大小.
+* [*symbol*.context](https://github.com/xswei/d3-shape/blob/master/README.md#symbol_context) - 设置渲染上下文.
+* [d3.symbols](https://github.com/xswei/d3-shape/blob/master/README.md#symbols) - 返回内置的符号类型数组.
+* [d3.symbolCircle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCircle) - 圆.
+* [d3.symbolCross](https://github.com/xswei/d3-shape/blob/master/README.md#symbolCross) - 十字.
+* [d3.symbolDiamond](https://github.com/xswei/d3-shape/blob/master/README.md#symbolDiamond) - 菱形.
+* [d3.symbolSquare](https://github.com/xswei/d3-shape/blob/master/README.md#symbolSquare) - 正方形.
+* [d3.symbolStar](https://github.com/xswei/d3-shape/blob/master/README.md#symbolStar) - 五角星.
+* [d3.symbolTriangle](https://github.com/xswei/d3-shape/blob/master/README.md#symbolTriangle) - 上三角.
+* [d3.symbolWye](https://github.com/xswei/d3-shape/blob/master/README.md#symbolWye) - `Y` 符号.
+* [*symbolType*.draw](https://github.com/xswei/d3-shape/blob/master/README.md#symbolType_draw) - 将符号绘制到指定的上下文中.
 
 ### [Stacks](https://github.com/xswei/d3-shape/blob/master/README.md#stacks)
 
-Stack shapes, placing one adjacent to another, as in a stacked bar chart.
+堆叠图，堆叠面积、堆叠柱状图等.
 
-* [d3.stack](https://github.com/xswei/d3-shape/blob/master/README.md#stack) - create a new stack generator.
-* [*stack*](https://github.com/xswei/d3-shape/blob/master/README.md#_stack) - generate a stack for the given dataset.
-* [*stack*.keys](https://github.com/xswei/d3-shape/blob/master/README.md#stack_keys) - set the keys accessor.
-* [*stack*.value](https://github.com/xswei/d3-shape/blob/master/README.md#stack_value) - set the value accessor.
-* [*stack*.order](https://github.com/xswei/d3-shape/blob/master/README.md#stack_order) - set the order accessor.
-* [*stack*.offset](https://github.com/xswei/d3-shape/blob/master/README.md#stack_offset) - set the offset accessor.
-* [d3.stackOrderAscending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderAscending) - put the smallest series on bottom.
-* [d3.stackOrderDescending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderDescending) - put the largest series on bottom.
-* [d3.stackOrderInsideOut](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderInsideOut) - put larger series in the middle.
-* [d3.stackOrderNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderNone) - use the given series order.
-* [d3.stackOrderReverse](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderReverse) - use the reverse of the given series order.
-* [d3.stackOffsetExpand](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetExpand) - normalize the baseline to zero and topline to one.
-* [d3.stackOffsetDiverging](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetDiverging) - positive above zero; negative below zero.
-* [d3.stackOffsetNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetNone) - apply a zero baseline.
-* [d3.stackOffsetSilhouette](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetSilhouette) - center the streamgraph around zero.
-* [d3.stackOffsetWiggle](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetWiggle) - minimize streamgraph wiggling.
+* [d3.stack](https://github.com/xswei/d3-shape/blob/master/README.md#stack) - 创建一个新的堆叠生成器.
+* [*stack*](https://github.com/xswei/d3-shape/blob/master/README.md#_stack) - 根据给定数据集计算其堆叠图需要的各个属性.
+* [*stack*.keys](https://github.com/xswei/d3-shape/blob/master/README.md#stack_keys) - 设置 `keys` 访问器.
+* [*stack*.value](https://github.com/xswei/d3-shape/blob/master/README.md#stack_value) - 设置 `value` 访问器.
+* [*stack*.order](https://github.com/xswei/d3-shape/blob/master/README.md#stack_order) - 设置排序访问器.
+* [*stack*.offset](https://github.com/xswei/d3-shape/blob/master/README.md#stack_offset) - 设置偏移访问器.
+* [d3.stackOrderAscending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderAscending) - 将和最小的值的序列放在底部.
+* [d3.stackOrderDescending](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderDescending) - 将和最大的值的序列放在底部.
+* [d3.stackOrderInsideOut](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderInsideOut) - 和越大越靠近中间.
+* [d3.stackOrderNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderNone) - 使用原始数据的顺序不进行顺序调整.
+* [d3.stackOrderReverse](https://github.com/xswei/d3-shape/blob/master/README.md#stackOrderReverse) - 将原始数据顺序逆转.
+* [d3.stackOffsetExpand](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetExpand) - 将基线设置为 `0` 并且顶线为 `1`.
+* [d3.stackOffsetDiverging](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetDiverging) - 正值在 `0` 之上，负值在 `0` 之下.
+* [d3.stackOffsetNone](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetNone) - 使用 `0` 基线.
+* [d3.stackOffsetSilhouette](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetSilhouette) - 将流图以 `0` 为中心居中.
+* [d3.stackOffsetWiggle](https://github.com/xswei/d3-shape/blob/master/README.md#stackOffsetWiggle) - 最小化流图的摆动.
 
 ## [Time Formats (d3-time-format)](https://github.com/xswei/d3-time-format)
 
