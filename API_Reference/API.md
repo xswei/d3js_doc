@@ -1001,25 +1001,25 @@ Map a discrete domain to a discrete range.
 
 ### [Control Flow](https://github.com/xswei/d3-selection/blob/master/README.md#control-flow)
 
-* [*selection*.each](https://github.com/xswei/d3-selection/blob/master/README.md#selection_each) - call a function for each element.
-* [*selection*.call](https://github.com/xswei/d3-selection/blob/master/README.md#selection_call) - call a function with this selection.
-* [*selection*.empty](https://github.com/xswei/d3-selection/blob/master/README.md#selection_empty) - returns true if this selection is empty.
-* [*selection*.nodes](https://github.com/xswei/d3-selection/blob/master/README.md#selection_nodes) - returns an array of all selected elements.
-* [*selection*.node](https://github.com/xswei/d3-selection/blob/master/README.md#selection_node) - returns the first (non-null) element.
-* [*selection*.size](https://github.com/xswei/d3-selection/blob/master/README.md#selection_size) - returns the count of elements.
+* [*selection*.each](https://github.com/xswei/d3-selection/blob/master/README.md#selection_each) - 为每个选中的元素执行相应的函数.
+* [*selection*.call](https://github.com/xswei/d3-selection/blob/master/README.md#selection_call) - 为当前选择集指向相应的函数.
+* [*selection*.empty](https://github.com/xswei/d3-selection/blob/master/README.md#selection_empty) - 判断当前选择集是否为空.
+* [*selection*.nodes](https://github.com/xswei/d3-selection/blob/master/README.md#selection_nodes) - 以数组的形式返回当前选择集中的所有被选中的元素.
+* [*selection*.node](https://github.com/xswei/d3-selection/blob/master/README.md#selection_node) - 返回当前选择集中第一个非空元素.
+* [*selection*.size](https://github.com/xswei/d3-selection/blob/master/README.md#selection_size) - 返回选择集中元素选中的数量.
 
 ### [Local Variables](https://github.com/xswei/d3-selection/blob/master/README.md#local-variables)
 
-* [d3.local](https://github.com/xswei/d3-selection/blob/master/README.md#local) - declares a new local variable.
-* [*local*.set](https://github.com/xswei/d3-selection/blob/master/README.md#local_set) - set a local variable’s value.
-* [*local*.get](https://github.com/xswei/d3-selection/blob/master/README.md#local_get) - get a local variable’s value.
-* [*local*.remove](https://github.com/xswei/d3-selection/blob/master/README.md#local_remove) - delete a local variable.
-* [*local*.toString](https://github.com/xswei/d3-selection/blob/master/README.md#local_toString) - get the property identifier of a local variable.
+* [d3.local](https://github.com/xswei/d3-selection/blob/master/README.md#local) - 声明一个新的局部变量.
+* [*local*.set](https://github.com/xswei/d3-selection/blob/master/README.md#local_set) - 设置一个局部变量的值.
+* [*local*.get](https://github.com/xswei/d3-selection/blob/master/README.md#local_get) - 获取一个局部变量的值.
+* [*local*.remove](https://github.com/xswei/d3-selection/blob/master/README.md#local_remove) - 移除一个局部变量.
+* [*local*.toString](https://github.com/xswei/d3-selection/blob/master/README.md#local_toString) - 获取局部变量的属性标识符.
 
 ### [Namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces)
 
 * [d3.namespace](https://github.com/xswei/d3-selection/blob/master/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
-* [d3.namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces) - the built-in XML namespaces.
+* [d3.namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces) - 内置的 `XML` 命名空间.
 
 ## [Shapes (d3-shape)](https://github.com/xswei/d3-shape)
 
