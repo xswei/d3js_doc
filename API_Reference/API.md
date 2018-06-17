@@ -801,64 +801,64 @@ Format numbers for human consumption.
 
 ## [Scales (d3-scale)](https://github.com/xswei/d3-scale)
 
-Encodings that map abstract data to visual representation.
+将抽象数据映射到可视化表示的编码.
 
 ### [Continuous Scales](https://github.com/xswei/d3-scale/blob/master/README.md#continuous-scales)
 
-Map a continuous, quantitative domain to a continuous range.
+将一个连续的，定量的输入映射到连续的输出区间.
 
-* [*continuous*](https://github.com/xswei/d3-scale/blob/master/README.md#_continuous) - compute the range value corresponding to a given domain value.
-* [*continuous*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_invert) - compute the domain value corresponding to a given range value.
-* [*continuous*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_domain) - set the input domain.
-* [*continuous*.range](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_range) - set the output range.
-* [*continuous*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_rangeRound) - set the output range and enable rounding.
-* [*continuous*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_clamp) - enable clamping to the domain or range.
-* [*continuous*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_interpolate) - set the output interpolator.
-* [*continuous*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_ticks) - compute representative values from the domain.
-* [*continuous*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_tickFormat) - format ticks for human consumption.
-* [*continuous*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_nice) - extend the domain to nice round numbers.
-* [*continuous*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_copy) - create a copy of this scale.
-* [d3.scaleLinear](https://github.com/xswei/d3-scale/blob/master/README.md#scaleLinear) - create a quantitative linear scale.
-* [d3.scalePow](https://github.com/xswei/d3-scale/blob/master/README.md#scalePow) - create a quantitative power scale.
-* [*pow*](https://github.com/xswei/d3-scale/blob/master/README.md#_pow) - compute the range value corresponding to a given domain value.
-* [*pow*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#pow_invert) - compute the domain value corresponding to a given range value.
-* [*pow*.exponent](https://github.com/xswei/d3-scale/blob/master/README.md#pow_exponent) - set the power exponent.
-* [*pow*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#pow_domain) - set the input domain.
-* [*pow*.range](https://github.com/xswei/d3-scale/blob/master/README.md#pow_range) - set the output range.
-* [*pow*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#pow_rangeRound) - set the output range and enable rounding.
-* [*pow*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#pow_clamp) - enable clamping to the domain or range.
-* [*pow*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#pow_interpolate) - set the output interpolator.
-* [*pow*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#pow_ticks) - compute representative values from the domain.
-* [*pow*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#pow_tickFormat) - format ticks for human consumption.
-* [*pow*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#pow_nice) - extend the domain to nice round numbers.
-* [*pow*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#pow_copy) - create a copy of this scale.
-* [d3.scaleSqrt](https://github.com/xswei/d3-scale/blob/master/README.md#scaleSqrt) - create a quantitative power scale with exponent 0.5.
-* [d3.scaleLog](https://github.com/xswei/d3-scale/blob/master/README.md#scaleLog) - create a quantitative logarithmic scale.
-* [*log*](https://github.com/xswei/d3-scale/blob/master/README.md#_log) - compute the range value corresponding to a given domain value.
-* [*log*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#log_invert) - compute the domain value corresponding to a given range value.
-* [*log*.base](https://github.com/xswei/d3-scale/blob/master/README.md#log_base) - set the logarithm base.
-* [*log*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#log_domain) - set the input domain.
-* [*log*.range](https://github.com/xswei/d3-scale/blob/master/README.md#log_range) - set the output range.
+* [*continuous*](https://github.com/xswei/d3-scale/blob/master/README.md#_continuous) - 根据给定的输入值计算对应的输出值.
+* [*continuous*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_invert) - 根据输出值计算对应的输入值.
+* [*continuous*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_domain) - 设置输入范围.
+* [*continuous*.range](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_range) - 设置输出范围.
+* [*continuous*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_rangeRound) - 设置输出范围并且启用四舍五入.
+* [*continuous*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_clamp) - 启用输入或输出的范围限制(输入输出限制在定义的范围之内).
+* [*continuous*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_interpolate) - 设置输出插值器.
+* [*continuous*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_ticks) - 从输入范围中提取具有代表意义的值.
+* [*continuous*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_tickFormat) - 将刻度格式化为人类友好的格式.
+* [*continuous*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_nice) - 将输入范围扩展到漂亮的整数.
+* [*continuous*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#continuous_copy) - 创建一个当前比例尺的副本.
+* [d3.scaleLinear](https://github.com/xswei/d3-scale/blob/master/README.md#scaleLinear) - 创建一个定量的线性比例尺.
+* [d3.scalePow](https://github.com/xswei/d3-scale/blob/master/README.md#scalePow) - 创建一个定量的指数比例尺.
+* [*pow*](https://github.com/xswei/d3-scale/blob/master/README.md#_pow) - 根据输入值计算对应的输出值.
+* [*pow*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#pow_invert) - 根据输出值计算对应的输入值.
+* [*pow*.exponent](https://github.com/xswei/d3-scale/blob/master/README.md#pow_exponent) - 设置指数.
+* [*pow*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#pow_domain) - 设置输入范围.
+* [*pow*.range](https://github.com/xswei/d3-scale/blob/master/README.md#pow_range) - 设置输出范围.
+* [*pow*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#pow_rangeRound) - 设置输出范围并且启用四舍五入.
+* [*pow*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#pow_clamp) - 启用输入或输出的范围限制.
+* [*pow*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#pow_interpolate) - 设置输出插值器.
+* [*pow*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#pow_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
+* [*pow*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#pow_tickFormat) - 将刻度格式化为人类友好的格式.
+* [*pow*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#pow_nice) - 将输入范围扩展到漂亮的整数.
+* [*pow*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#pow_copy) - 创建一个当前比例尺的副本.
+* [d3.scaleSqrt](https://github.com/xswei/d3-scale/blob/master/README.md#scaleSqrt) - 创建一个指数为 `0.5` 的指数比例尺.
+* [d3.scaleLog](https://github.com/xswei/d3-scale/blob/master/README.md#scaleLog) - 创建一个对数比例尺.
+* [*log*](https://github.com/xswei/d3-scale/blob/master/README.md#_log) - 根据输入值计算对应的输出值.
+* [*log*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#log_invert) - 根据输出值计算对应的输入值.
+* [*log*.base](https://github.com/xswei/d3-scale/blob/master/README.md#log_base) - 设置对数的基.
+* [*log*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#log_domain) - 设置输入范围.
+* [*log*.range](https://github.com/xswei/d3-scale/blob/master/README.md#log_range) - 设置输出范围.
 * [*log*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#log_rangeRound) - set the output range and enable rounding.
 * [*log*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#log_clamp) - enable clamping to the domain or range.
-* [*log*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#log_interpolate) - set the output interpolator.
-* [*log*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#log_ticks) - compute representative values from the domain.
-* [*log*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#log_tickFormat) - format ticks for human consumption.
-* [*log*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#log_nice) - extend the domain to nice round numbers.
-* [*log*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#log_copy) - create a copy of this scale.
+* [*log*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#log_interpolate) - 设置输出插值器.
+* [*log*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#log_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
+* [*log*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#log_tickFormat) - 将刻度格式化为人类友好的格式.
+* [*log*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#log_nice) - 将输入范围扩展到漂亮的整数.
+* [*log*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#log_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleIdentity](https://github.com/xswei/d3-scale/blob/master/README.md#identity) - create a quantitative identity scale.
 * [d3.scaleTime](https://github.com/xswei/d3-scale/blob/master/README.md#scaleTime) - create a linear scale for time.
-* [*time*](https://github.com/xswei/d3-scale/blob/master/README.md#_time) - compute the range value corresponding to a given domain value.
-* [*time*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#time_invert) - compute the domain value corresponding to a given range value.
-* [*time*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#time_domain) - set the input domain.
-* [*time*.range](https://github.com/xswei/d3-scale/blob/master/README.md#time_range) - set the output range.
+* [*time*](https://github.com/xswei/d3-scale/blob/master/README.md#_time) - 根据输入值计算对应的输出值.
+* [*time*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#time_invert) - 根据输出值计算对应的输入值.
+* [*time*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#time_domain) - 设置输入范围.
+* [*time*.range](https://github.com/xswei/d3-scale/blob/master/README.md#time_range) - 设置输出范围.
 * [*time*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#time_rangeRound) - set the output range and enable rounding.
 * [*time*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#time_clamp) - enable clamping to the domain or range.
-* [*time*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#time_interpolate) - set the output interpolator.
-* [*time*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#time_ticks) - compute representative values from the domain.
-* [*time*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#time_tickFormat) - format ticks for human consumption.
+* [*time*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#time_interpolate) - 设置输出插值器.
+* [*time*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#time_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
+* [*time*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#time_tickFormat) - 将刻度格式化为人类友好的格式.
 * [*time*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#time_nice) - extend the domain to nice round times.
-* [*time*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#time_copy) - create a copy of this scale.
+* [*time*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#time_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleUtc](https://github.com/xswei/d3-scale/blob/master/README.md#scaleUtc) - create a linear scale for UTC.
 
 ### [Sequential Scales](https://github.com/xswei/d3-scale/blob/master/README.md#sequential-scales)
@@ -881,43 +881,43 @@ Map a continuous, quantitative domain to a continuous, fixed interpolator.
 Map a continuous, quantitative domain to a discrete range.
 
 * [d3.scaleQuantize](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantize) - create a uniform quantizing linear scale.
-* [*quantize*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantize) - compute the range value corresponding to a given domain value.
+* [*quantize*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantize) - 根据输入值计算对应的输出值.
 * [*quantize*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_invertExtent) - compute the domain values corresponding to a given range value.
-* [*quantize*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_domain) - set the input domain.
-* [*quantize*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_range) - set the output range.
-* [*quantize*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_nice) - extend the domain to nice round numbers.
-* [*quantize*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_ticks) - compute representative values from the domain.
-* [*quantize*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_tickFormat) - format ticks for human consumption.
-* [*quantize*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_copy) - create a copy of this scale.
+* [*quantize*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_domain) - 设置输入范围.
+* [*quantize*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_range) - 设置输出范围.
+* [*quantize*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_nice) - 将输入范围扩展到漂亮的整数.
+* [*quantize*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
+* [*quantize*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_tickFormat) - 将刻度格式化为人类友好的格式.
+* [*quantize*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleQuantile](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantile) - create a quantile quantizing linear scale.
-* [*quantile*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantile) - compute the range value corresponding to a given domain value.
+* [*quantile*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantile) - 根据输入值计算对应的输出值.
 * [*quantile*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_invertExtent) - compute the domain values corresponding to a given range value.
-* [*quantile*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_domain) - set the input domain.
-* [*quantile*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_range) - set the output range.
+* [*quantile*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_domain) - 设置输入范围.
+* [*quantile*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_range) - 设置输出范围.
 * [*quantile*.quantiles](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_quantiles) - get the quantile thresholds.
-* [*quantile*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_copy) - create a copy of this scale.
+* [*quantile*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleThreshold](https://github.com/xswei/d3-scale/blob/master/README.md#scaleThreshold) - create an arbitrary quantizing linear scale.
-* [*threshold*](https://github.com/xswei/d3-scale/blob/master/README.md#_threshold) - compute the range value corresponding to a given domain value.
+* [*threshold*](https://github.com/xswei/d3-scale/blob/master/README.md#_threshold) - 根据输入值计算对应的输出值.
 * [*threshold*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_invertExtent) - compute the domain values corresponding to a given range value.
-* [*threshold*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_domain) - set the input domain.
-* [*threshold*.range](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_range) - set the output range.
-* [*threshold*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_copy) - create a copy of this scale.
+* [*threshold*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_domain) - 设置输入范围.
+* [*threshold*.range](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_range) - 设置输出范围.
+* [*threshold*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_copy) - 创建一个当前比例尺的副本.
 
 ### [Ordinal Scales](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal-scales)
 
 Map a discrete domain to a discrete range.
 
 * [d3.scaleOrdinal](https://github.com/xswei/d3-scale/blob/master/README.md#scaleOrdinal) - create an ordinal scale.
-* [*ordinal*](https://github.com/xswei/d3-scale/blob/master/README.md#_ordinal) - compute the range value corresponding to a given domain value.
-* [*ordinal*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_domain) - set the input domain.
-* [*ordinal*.range](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_range) - set the output range.
+* [*ordinal*](https://github.com/xswei/d3-scale/blob/master/README.md#_ordinal) - 根据输入值计算对应的输出值.
+* [*ordinal*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_domain) - 设置输入范围.
+* [*ordinal*.range](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_range) - 设置输出范围.
 * [*ordinal*.unknown](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_unknown) - set the output value for unknown inputs.
-* [*ordinal*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_copy) - create a copy of this scale.
+* [*ordinal*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleImplicit](https://github.com/xswei/d3-scale/blob/master/README.md#scaleImplicit) - a special unknown value for implicit domains.
 * [d3.scaleBand](https://github.com/xswei/d3-scale/blob/master/README.md#scaleBand) - create an ordinal band scale.
 * [*band*](https://github.com/xswei/d3-scale/blob/master/README.md#_band) - compute the band start corresponding to a given domain value.
-* [*band*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#band_domain) - set the input domain.
-* [*band*.range](https://github.com/xswei/d3-scale/blob/master/README.md#band_range) - set the output range.
+* [*band*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#band_domain) - 设置输入范围.
+* [*band*.range](https://github.com/xswei/d3-scale/blob/master/README.md#band_range) - 设置输出范围.
 * [*band*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#band_rangeRound) - set the output range and enable rounding.
 * [*band*.round](https://github.com/xswei/d3-scale/blob/master/README.md#band_round) - enable rounding.
 * [*band*.paddingInner](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingInner) - set padding between bands.
@@ -926,18 +926,18 @@ Map a discrete domain to a discrete range.
 * [*band*.align](https://github.com/xswei/d3-scale/blob/master/README.md#band_align) - set band alignment, if there is extra space.
 * [*band*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#band_bandwidth) - get the width of each band.
 * [*band*.step](https://github.com/xswei/d3-scale/blob/master/README.md#band_step) - get the distance between the starts of adjacent bands.
-* [*band*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#band_copy) - create a copy of this scale.
+* [*band*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#band_copy) - 创建一个当前比例尺的副本.
 * [d3.scalePoint](https://github.com/xswei/d3-scale/blob/master/README.md#scalePoint) - create an ordinal point scale.
 * [*point*](https://github.com/xswei/d3-scale/blob/master/README.md#_point) - compute the point corresponding to a given domain value.
-* [*point*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#point_domain) - set the input domain.
-* [*point*.range](https://github.com/xswei/d3-scale/blob/master/README.md#point_range) - set the output range.
+* [*point*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#point_domain) - 设置输入范围.
+* [*point*.range](https://github.com/xswei/d3-scale/blob/master/README.md#point_range) - 设置输出范围.
 * [*point*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#point_rangeRound) - set the output range and enable rounding.
 * [*point*.round](https://github.com/xswei/d3-scale/blob/master/README.md#point_round) - enable rounding.
 * [*point*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#point_padding) - set padding outside the first and last point.
 * [*point*.align](https://github.com/xswei/d3-scale/blob/master/README.md#point_align) - set point alignment, if there is extra space.
 * [*point*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#point_bandwidth) - returns zero.
 * [*point*.step](https://github.com/xswei/d3-scale/blob/master/README.md#point_step) - get the distance between the starts of adjacent points.
-* [*point*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#point_copy) - create a copy of this scale.
+* [*point*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#point_copy) - 创建一个当前比例尺的副本.
 * [d3.schemeCategory10](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory10) - a categorical scheme with 10 colors.
 * [d3.schemeCategory20](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory20) - a categorical scheme with 20 colors.
 * [d3.schemeCategory20b](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory20b) - a categorical scheme with 20 colors.
