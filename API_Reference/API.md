@@ -9,12 +9,12 @@
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests)) -**完成**
 * [Colors](#colors-d3-color) - **完成**
 * [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
-* [Contours](#contours-d3-contour) ( V5 新增模块 )
+* [Contours](#contours-d3-contour)
 * [Dispatches](#dispatches-d3-dispatch) - **完成**
 * [Dragging](#dragging-d3-drag) - **完成**
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
-* [Fetches](#fetches-d3-fetch) ( V5 新增模块 ) - **完成**
+* [Fetches](#fetches-d3-fetch) - **完成**
 * [Forces](#forces-d3-force) - **完成**
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
@@ -23,9 +23,7 @@
 * [Paths](#paths-d3-path) - **完成**
 * [Polygons](#polygons-d3-polygon) - **完成**
 * [Quadtrees](#quadtrees-d3-quadtree)
-* [Queues](#queues-d3-queue) ( V5移除, 使用 **[Promise.all](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)** 替代) - **完成**
 * [Random Numbers](#random-numbers-d3-random) - **完成**
-* [Requests](#requests-d3-request) ( V5 移除, 使用 **[Fetches](#fetches-d3-fetch)** 替代 ) - **完成**
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
@@ -215,6 +213,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*color*.brighter](https://github.com/xswei/d3-color/blob/master/README.md#color_brighter) - 创建一个更亮的颜色副本.
 * [*color*.darker](https://github.com/xswei/d3-color/blob/master/README.md#color_darker) - 创建一个更暗的颜色副本
 * [*color*.displayable](https://github.com/xswei/d3-color/blob/master/README.md#color_displayable) - 判断当前设备是否支持当前颜色
+* [*color*.hex](https://github.com/d3/d3-color/blob/master/README.md#color_hex) - 返回十六进制的 `RGB` 字符串标识当前的颜色.
 * [*color*.toString](https://github.com/xswei/d3-color/blob/master/README.md#color_toString) - 将当前颜色转为RGB颜色的十六进制表示
 * [d3.rgb](https://github.com/xswei/d3-color/blob/master/README.md#rgb) - 创建一个新的RGB颜色.
 * [d3.hsl](https://github.com/xswei/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色.
@@ -312,24 +311,26 @@ Color ramps and palettes for quantitative, ordinal and categorical scales.
 
 ### Cyclical
 
-* [d3.interpolateRainbow](https://github.com/xswei/d3-scale-chromatic/blob/master/README.md) -
+* [d3.interpolateRainbow](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#interpolateRainbow) - the “less-angry” rainbow
+* [d3.interpolateSinebow](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#interpolateSinebow) - the “sinebow” smooth rainbow
 
 ## [Contours (d3-contour)](https://github.com/xswei/d3-contour)
 
 Compute contour polygons using marching squares.
 
-* [d3.contours](https://github.com/xswei/d3-contour/blob/master/README.md#contours) - create a new contour generator.
-* *contours* - compute the contours for a given grid of values.
-* *contours*.size -
-* *contours*.smooth -
-* *contours*.thresholds -
-* [d3.contourDensity](https://github.com/xswei/d3-contour/blob/master/README.md#contourDensity) - create a new density estimator.
-* *density* - estimate the density of a given array of samples.
-* *density*.x -
-* *density*.y -
-* *density*.cellSize -
-* *density*.thresholds -
-* *density*.bandwidth -
+* [d3.contours](https://github.com/d3/d3-contour/blob/master/README.md#contours) - create a new contour generator.
+* [contours](https://github.com/d3/d3-contour/blob/master/README.md#_contours) - compute the contours for a given grid of values.
+* [contours.contour](https://github.com/d3/d3-contour/blob/master/README.md#contours_contour) -
+* [contours.size](https://github.com/d3/d3-contour/blob/master/README.md#contours_size) -
+* [contours.smooth](https://github.com/d3/d3-contour/blob/master/README.md#contours_smooth) -
+* [contours.thresholds](https://github.com/d3/d3-contour/blob/master/README.md#contours_thresholds) -
+* [d3.contourDensity](https://github.com/d3/d3-contour/blob/master/README.md#contourDensity) - create a new density estimator.
+* [density](https://github.com/d3/d3-contour/blob/master/README.md#_density) - estimate the density of a given array of samples.
+* [density.x](https://github.com/d3/d3-contour/blob/master/README.md#density_x) -
+* [density.y](https://github.com/d3/d3-contour/blob/master/README.md#density_y) -
+* [density.cellSize](https://github.com/d3/d3-contour/blob/master/README.md#density_cellSize) -
+* [density.thresholds](https://github.com/d3/d3-contour/blob/master/README.md#density_thresholds) -
+* [density.bandwidth](https://github.com/d3/d3-contour/blob/master/README.md#density_bandwidth) -
 
 ## [Dispatches (d3-dispatch)](https://github.com/xswei/d3-dispatch)
 
@@ -521,6 +522,7 @@ Format numbers for human consumption.
 * [*projection*.stream](https://github.com/xswei/d3-geo/blob/master/README.md#projection_stream) - wrap the specified stream to project geometry.
 * [*projection*.clipAngle](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipAngle) - set the radius of the clip circle.
 * [*projection*.clipExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipExtent) - set the viewport clip extent, in pixels.
+* [*projection*.angle](https://github.com/d3/d3-geo/blob/master/README.md#projection_angle) - set the post-projection rotation.
 * [*projection*.scale](https://github.com/xswei/d3-geo/blob/master/README.md#projection_scale) - set the scale factor.
 * [*projection*.translate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_translate) - set the translation offset.
 * [*projection*.fitExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitExtent) - set the scale and translate to fit a GeoJSON object.
@@ -705,6 +707,7 @@ Format numbers for human consumption.
 * [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - 应用 `gamma` 修正.
 * [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - 根据一组数值返回一个 B- 样条插值器.
 * [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - 根据一组数值返回一个 B- 样条插值器.
+* [d3.piecewise](https://github.com/d3/d3-interpolate/blob/master/README.md#piecewise) - generate a piecewise linear interpolator from a set of values.
 * [d3.quantize](https://github.com/xswei/d3-interpolate#quantize) - 插值器生成一组均匀采样.
 
 ## [Paths (d3-path)](https://github.com/xswei/d3-path)
@@ -753,16 +756,6 @@ Format numbers for human consumption.
 * [*quadtree*.cover](https://github.com/xswei/d3-quadtree/blob/master/README.md#quadtree_cover) - 扩展四叉树直到覆盖指定的点.
 * [*quadtree*.extent](https://github.com/xswei/d3-quadtree/blob/master/README.md#quadtree_extent) - 扩展四叉树以覆盖指定的区间.
 
-## [Queues (d3-queue)](https://github.com/xswei/d3-queue)
-
-使用可配置的并发管理异步任务.
-
-* [d3.queue](https://github.com/xswei/d3-queue/blob/master/README.md#queue) - 管理异步任务的并发执行.
-* [*queue*.defer](https://github.com/xswei/d3-queue/blob/master/README.md#queue_defer) - 注册异步任务.
-* [*queue*.abort](https://github.com/xswei/d3-queue/blob/master/README.md#queue_abort) - 中断活动的异步任务并且取消未执行的任务.
-* [*queue*.await](https://github.com/xswei/d3-queue/blob/master/README.md#queue_await) - 注册任务完成时的回调.
-* [*queue*.awaitAll](https://github.com/xswei/d3-queue/blob/master/README.md#queue_awaitAll) - 注册任务完成时的回调.
-
 ## [Random Numbers (d3-random)](https://github.com/xswei/d3-random)
 
 基于多种多样的分布模型生成随机数.
@@ -774,30 +767,6 @@ Format numbers for human consumption.
 * [d3.randomIrwinHall](https://github.com/xswei/d3-random/blob/master/README.md#randomIrwinHall) - Irwin–Hall 分布.
 * [d3.randomExponential](https://github.com/xswei/d3-random/blob/master/README.md#randomExponential) - 指数分布.
 * [*random*.source](https://github.com/xswei/d3-random/blob/master/README.md#random_source) - 设置随机数生成源.
-
-## [Requests (d3-request)](https://github.com/xswei/d3-request)
-
-基于异步 XMLHttpRequest 的易用封装
-
-* [d3.request](https://github.com/xswei/d3-request/blob/master/README.md#request) - 创建一个异步请求.
-* [*request*.header](https://github.com/xswei/d3-request/blob/master/README.md#request_header) - 设置请求头.
-* [*request*.user](https://github.com/xswei/d3-request/blob/master/README.md#request_user) - 设置身份验证用户名.
-* [*request*.password](https://github.com/xswei/d3-request/blob/master/README.md#request_password) - 设置身份验证密码.
-* [*request*.mimeType](https://github.com/xswei/d3-request/blob/master/README.md#request_mimeType) - 设置 MIME 类型.
-* [*request*.timeout](https://github.com/xswei/d3-request/blob/master/README.md#request_timeout) - 设置超时时间(毫秒).
-* [*request*.responseType](https://github.com/xswei/d3-request/blob/master/README.md#request_responseType) - 设置相应类型.
-* [*request*.response](https://github.com/xswei/d3-request/blob/master/README.md#request_response) - 设置响应函数.
-* [*request*.get](https://github.com/xswei/d3-request/blob/master/README.md#request_get) - 以 GET 形式发送请求.
-* [*request*.post](https://github.com/xswei/d3-request/blob/master/README.md#request_post) - 以 POST 形式发送请求.
-* [*request*.send](https://github.com/xswei/d3-request/blob/master/README.md#request_send) - 发送请求.
-* [*request*.abort](https://github.com/xswei/d3-request/blob/master/README.md#request_abort) - 中断请求.
-* [*request*.on](https://github.com/xswei/d3-request/blob/master/README.md#request_on) - 设置请求事件监听.
-* [d3.csv](https://github.com/xswei/d3-request/blob/master/README.md#csv) - 获取 CSV 文件.
-* [d3.html](https://github.com/xswei/d3-request/blob/master/README.md#html) - 获取 HTML 文件.
-* [d3.json](https://github.com/xswei/d3-request/blob/master/README.md#json) - 获取 JSON 文件.
-* [d3.text](https://github.com/xswei/d3-request/blob/master/README.md#text) - 获取文本文件.
-* [d3.tsv](https://github.com/xswei/d3-request/blob/master/README.md#tsv) - 获取 TSV 文件.
-* [d3.xml](https://github.com/xswei/d3-request/blob/master/README.md#xml) - 获取 XML 文件.
 
 ## [Scales (d3-scale)](https://github.com/xswei/d3-scale)
 
@@ -865,16 +834,15 @@ Format numbers for human consumption.
 
 Map a continuous, quantitative domain to a continuous, fixed interpolator.
 
-* [d3.scaleSequential](https://github.com/xswei/d3-scale/blob/master/README.md#scaleSequential) - create a sequential scale.
-* [*sequential*.interpolator](https://github.com/xswei/d3-scale/blob/master/README.md#sequential_interpolator) - set the scale’s output interpolator.
-* [d3.interpolateViridis](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateViridis) - a dark-to-light color scheme.
-* [d3.interpolateInferno](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateInferno) - a dark-to-light color scheme.
-* [d3.interpolateMagma](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateMagma) - a dark-to-light color scheme.
-* [d3.interpolatePlasma](https://github.com/xswei/d3-scale/blob/master/README.md#interpolatePlasma) - a dark-to-light color scheme.
-* [d3.interpolateWarm](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateWarm) - a rotating-hue color scheme.
-* [d3.interpolateCool](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateCool) - a rotating-hue color scheme.
-* [d3.interpolateRainbow](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateRainbow) - a cyclical rotating-hue color scheme.
-* [d3.interpolateCubehelixDefault](https://github.com/xswei/d3-scale/blob/master/README.md#interpolateCubehelixDefault) - a dark-to-light, rotating-hue color scheme.
+* [d3.scaleSequential](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential) - create a sequential scale.
+* [*sequential*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator) - set the scale’s output interpolator.
+
+### [Diverging Scales](https://github.com/d3/d3-scale/blob/master/README.md#diverging-scales)
+
+Map a continuous, quantitative domain to a continuous, fixed interpolator.
+
+* [d3.scaleDiverging](https://github.com/d3/d3-scale/blob/master/README.md#scaleDiverging) - create a diverging scale.
+* [*diverging*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#diverging_interpolator) - set the scale’s output interpolator.
 
 ### [Quantize Scales](https://github.com/xswei/d3-scale/blob/master/README.md#quantize-scales)
 
@@ -938,10 +906,6 @@ Map a discrete domain to a discrete range.
 * [*point*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#point_bandwidth) - returns zero.
 * [*point*.step](https://github.com/xswei/d3-scale/blob/master/README.md#point_step) - get the distance between the starts of adjacent points.
 * [*point*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#point_copy) - 创建一个当前比例尺的副本.
-* [d3.schemeCategory10](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory10) - a categorical scheme with 10 colors.
-* [d3.schemeCategory20](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory20) - a categorical scheme with 20 colors.
-* [d3.schemeCategory20b](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory20b) - a categorical scheme with 20 colors.
-* [d3.schemeCategory20c](https://github.com/xswei/d3-scale/blob/master/README.md#schemeCategory20c) - a categorical scheme with 20 colors.
 
 ## [Selections (d3-selection)](https://github.com/xswei/d3-selection)
 
