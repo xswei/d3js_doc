@@ -378,7 +378,7 @@ Compute contour polygons using marching squares.
 
 ## [Easings (d3-ease)](https://github.com/xswei/d3-ease)
 
-Easing functions for smooth animation.
+平滑过渡的过渡函数.
 
 * [*ease*](https://github.com/xswei/d3-ease/blob/master/README.md#_ease) - ease the given normalized time.
 * [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - linear easing; the identity function.
