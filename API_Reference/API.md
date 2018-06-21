@@ -875,20 +875,20 @@ Map a continuous, quantitative domain to a discrete range.
 
 Map a discrete domain to a discrete range.
 
-* [d3.scaleOrdinal](https://github.com/xswei/d3-scale/blob/master/README.md#scaleOrdinal) - create an ordinal scale.
+* [d3.scaleOrdinal](https://github.com/xswei/d3-scale/blob/master/README.md#scaleOrdinal) - 创建一个序数比例尺.
 * [*ordinal*](https://github.com/xswei/d3-scale/blob/master/README.md#_ordinal) - 根据输入值计算对应的输出值.
 * [*ordinal*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_domain) - 设置输入范围.
 * [*ordinal*.range](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_range) - 设置输出范围.
-* [*ordinal*.unknown](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_unknown) - set the output value for unknown inputs.
+* [*ordinal*.unknown](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_unknown) - 设置未知输入的输出值.
 * [*ordinal*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_copy) - 创建一个当前比例尺的副本.
 * [d3.scaleImplicit](https://github.com/xswei/d3-scale/blob/master/README.md#scaleImplicit) - a special unknown value for implicit domains.
-* [d3.scaleBand](https://github.com/xswei/d3-scale/blob/master/README.md#scaleBand) - create an ordinal band scale.
-* [*band*](https://github.com/xswei/d3-scale/blob/master/README.md#_band) - compute the band start corresponding to a given domain value.
+* [d3.scaleBand](https://github.com/xswei/d3-scale/blob/master/README.md#scaleBand) - 创建一个序数分段比例尺.
+* [*band*](https://github.com/xswei/d3-scale/blob/master/README.md#_band) - 根据给定的输入值计算经过映射之后的分段的起点值.
 * [*band*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#band_domain) - 设置输入范围.
 * [*band*.range](https://github.com/xswei/d3-scale/blob/master/README.md#band_range) - 设置输出范围.
-* [*band*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#band_rangeRound) - set the output range and enable rounding.
-* [*band*.round](https://github.com/xswei/d3-scale/blob/master/README.md#band_round) - enable rounding.
-* [*band*.paddingInner](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingInner) - set padding between bands.
+* [*band*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#band_rangeRound) - 设置输出范围并启用四舍五入.
+* [*band*.round](https://github.com/xswei/d3-scale/blob/master/README.md#band_round) - 启用四舍五入.
+* [*band*.paddingInner](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingInner) - 设置分段之间的间隔.
 * [*band*.paddingOuter](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingOuter) - set padding outside the first and last bands.
 * [*band*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#band_padding) - set padding outside and between bands.
 * [*band*.align](https://github.com/xswei/d3-scale/blob/master/README.md#band_align) - set band alignment, if there is extra space.
