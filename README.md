@@ -171,7 +171,6 @@ http-server &
 
 ### 联系译者
 
-| :earth_africa: | :rocket: | :bomb: |
---- | --- | ---
 QQ | :penguin:  | 214175619
+--- | --- | ---
 Email | :e-mail:  | xs.wei@foxmail.com
