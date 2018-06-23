@@ -2,39 +2,39 @@
 
 `D3` 是一个相互协同工作的 [模块集合](https://github.com/d3); 你可以单独使用其中某些模块也可以使用默认构建的全部功能。每个模块的源码和文档都在对应的仓库中获取到。可以通过下面的链接获取更多信息。`d3` v3.x 和 4.x 之间的差异可以参考 [CHANGES](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.MD); 3.x 的文档可以参考 [这里](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 
-* [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms)) - **完成**
-* [Axes](#axes-d3-axis) - **完成**
-* [Brushes](#brushes-d3-brush) - **完成**
-* [Chords](#chords-d3-chord) - **完成**
-* [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests)) -**完成**
-* [Colors](#colors-d3-color) - **完成**
-* [Color Schemes](#color-schemes-d3-scale-chromatic)(V5 新增模块)
+* [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms))
+* [Axes](#axes-d3-axis)
+* [Brushes](#brushes-d3-brush)
+* [Chords](#chords-d3-chord)
+* [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests))
+* [Colors](#colors-d3-color)
+* [Color Schemes](#color-schemes-d3-scale-chromatic)
 * [Contours](#contours-d3-contour)
-* [Dispatches](#dispatches-d3-dispatch) - **完成**
-* [Dragging](#dragging-d3-drag) - **完成**
+* [Dispatches](#dispatches-d3-dispatch)
+* [Dragging](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
-* [Fetches](#fetches-d3-fetch) - **完成**
-* [Forces](#forces-d3-force) - **完成**
+* [Fetches](#fetches-d3-fetch)
+* [Forces](#forces-d3-force)
 * [Number Formats](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
 * [Hierarchies](#hierarchies-d3-hierarchy)
 * [Interpolators](#interpolators-d3-interpolate)
-* [Paths](#paths-d3-path) - **完成**
-* [Polygons](#polygons-d3-polygon) - **完成**
+* [Paths](#paths-d3-path)
+* [Polygons](#polygons-d3-polygon)
 * [Quadtrees](#quadtrees-d3-quadtree)
-* [Random Numbers](#random-numbers-d3-random) - **完成**
+* [Random Numbers](#random-numbers-d3-random)
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
 * [Time Formats](#time-formats-d3-time-format)
 * [Time Intervals](#time-intervals-d3-time)
-* [Timers](#timers-d3-timer) - **完成**
+* [Timers](#timers-d3-timer)
 * [Transitions](#transitions-d3-transition)
 * [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
 * [Zooming](#zooming-d3-zoom)
 
-D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
+`D3` 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号通过 `d3.version` 暴露.
 
 ## [Arrays (d3-array)](https://github.com/xswei/d3-array)
 
@@ -146,7 +146,7 @@ D3 使用 [语义化版本](https://semver.org/lang/zh-CN/). 当前的版本号�
 * [*ribbon*.radius](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_radius) - 设置ribbon的半径.
 * [*ribbon*.startAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_startAngle) - 设置ribbon的起始角度访问器.
 * [*ribbon*.endAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_endAngle) - 设置ribbon的终止角度访问器.
-* [*ribbon*.context](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_context) - 设置渲染上下文(canvas用).
+* [*ribbon*.context](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_context) - 设置渲染上下文(`canvas`).
 
 ## [Collections (d3-collection)](https://github.com/xswei/d3-collection)
 
@@ -808,27 +808,27 @@ Format numbers for human consumption.
 * [*log*.base](https://github.com/xswei/d3-scale/blob/master/README.md#log_base) - 设置对数的基.
 * [*log*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#log_domain) - 设置输入范围.
 * [*log*.range](https://github.com/xswei/d3-scale/blob/master/README.md#log_range) - 设置输出范围.
-* [*log*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#log_rangeRound) - set the output range and enable rounding.
-* [*log*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#log_clamp) - enable clamping to the domain or range.
+* [*log*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#log_rangeRound) - 设置输出范围并且启用四舍五入.
+* [*log*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#log_clamp) - 启用输入或输出的范围限制.
 * [*log*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#log_interpolate) - 设置输出插值器.
 * [*log*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#log_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
 * [*log*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#log_tickFormat) - 将刻度格式化为人类友好的格式.
 * [*log*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#log_nice) - 将输入范围扩展到漂亮的整数.
 * [*log*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#log_copy) - 创建一个当前比例尺的副本.
-* [d3.scaleIdentity](https://github.com/xswei/d3-scale/blob/master/README.md#identity) - create a quantitative identity scale.
-* [d3.scaleTime](https://github.com/xswei/d3-scale/blob/master/README.md#scaleTime) - create a linear scale for time.
+* [d3.scaleIdentity](https://github.com/xswei/d3-scale/blob/master/README.md#identity) - 创建一个定量的恒等比例尺.
+* [d3.scaleTime](https://github.com/xswei/d3-scale/blob/master/README.md#scaleTime) - 创建一个线性的时间比例尺.
 * [*time*](https://github.com/xswei/d3-scale/blob/master/README.md#_time) - 根据输入值计算对应的输出值.
 * [*time*.invert](https://github.com/xswei/d3-scale/blob/master/README.md#time_invert) - 根据输出值计算对应的输入值.
 * [*time*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#time_domain) - 设置输入范围.
 * [*time*.range](https://github.com/xswei/d3-scale/blob/master/README.md#time_range) - 设置输出范围.
-* [*time*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#time_rangeRound) - set the output range and enable rounding.
-* [*time*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#time_clamp) - enable clamping to the domain or range.
+* [*time*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#time_rangeRound) - 设置输出范围并且启用四舍五入.
+* [*time*.clamp](https://github.com/xswei/d3-scale/blob/master/README.md#time_clamp) - 启用输入或输出的范围限制.
 * [*time*.interpolate](https://github.com/xswei/d3-scale/blob/master/README.md#time_interpolate) - 设置输出插值器.
 * [*time*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#time_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
 * [*time*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#time_tickFormat) - 将刻度格式化为人类友好的格式.
-* [*time*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#time_nice) - extend the domain to nice round times.
+* [*time*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#time_nice) - 扩展输入范围到一个友好的时间.
 * [*time*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#time_copy) - 创建一个当前比例尺的副本.
-* [d3.scaleUtc](https://github.com/xswei/d3-scale/blob/master/README.md#scaleUtc) - create a linear scale for UTC.
+* [d3.scaleUtc](https://github.com/xswei/d3-scale/blob/master/README.md#scaleUtc) - 创建一个 `UTC` 线性比例尺.
 
 ### [Sequential Scales](https://github.com/xswei/d3-scale/blob/master/README.md#sequential-scales)
 
@@ -899,7 +899,7 @@ Map a discrete domain to a discrete range.
 * [*point*](https://github.com/xswei/d3-scale/blob/master/README.md#_point) - compute the point corresponding to a given domain value.
 * [*point*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#point_domain) - 设置输入范围.
 * [*point*.range](https://github.com/xswei/d3-scale/blob/master/README.md#point_range) - 设置输出范围.
-* [*point*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#point_rangeRound) - set the output range and enable rounding.
+* [*point*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#point_rangeRound) - 设置输出范围并且启用四舍五入.
 * [*point*.round](https://github.com/xswei/d3-scale/blob/master/README.md#point_round) - enable rounding.
 * [*point*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#point_padding) - set padding outside the first and last point.
 * [*point*.align](https://github.com/xswei/d3-scale/blob/master/README.md#point_align) - set point alignment, if there is extra space.
@@ -923,7 +923,7 @@ Map a discrete domain to a discrete range.
 * [d3.matcher](https://github.com/xswei/d3-selection/blob/master/README.md#matcher) - 测试一个元素是否符合某种选择器.
 * [d3.selector](https://github.com/xswei/d3-selection/blob/master/README.md#selector) - 选择一个元素.
 * [d3.selectorAll](https://github.com/xswei/d3-selection/blob/master/README.md#selectorAll) - 选择多个元素.
-* [d3.window](https://github.com/xswei/d3-selection/blob/master/README.md#window) - 获取节点所属的 window.
+* [d3.window](https://github.com/xswei/d3-selection/blob/master/README.md#window) - 获取节点所属的 `window`.
 * [d3.style](https://github.com/xswei/d3-selection/blob/master/README.md#style) - 获取节点当前的指定样式名称的样式值.
 
 ### [Modifying Elements](https://github.com/xswei/d3-selection/blob/master/README.md#modifying-elements)
@@ -939,11 +939,11 @@ Map a discrete domain to a discrete range.
 * [*selection*.remove](https://github.com/xswei/d3-selection/blob/master/README.md#selection_remove) - 从文档中移除元素.
 * [*selection*.clone](https://github.com/xswei/d3-selection/blob/master/README.md#selection_clone) - 插入选中元素的克隆.
 * [*selection*.sort](https://github.com/xswei/d3-selection/blob/master/README.md#selection_sort) - 基于数据对文档中的元素进行排序.
-* [*selection*.order](https://github.com/xswei/d3-selection/blob/master/README.md#selection_order) - reorders elements in the document to match the selection.
-* [*selection*.raise](https://github.com/xswei/d3-selection/blob/master/README.md#selection_raise) - reorders each element as the last child of its parent.
-* [*selection*.lower](https://github.com/xswei/d3-selection/blob/master/README.md#selection_lower) - reorders each element as the first child of its parent.
-* [d3.create](https://github.com/xswei/d3-selection/blob/master/README.md#create) - create and select a detached element.
-* [d3.creator](https://github.com/xswei/d3-selection/blob/master/README.md#creator) - create an element by name.
+* [*selection*.order](https://github.com/xswei/d3-selection/blob/master/README.md#selection_order) - 在文档中重新排列元素.
+* [*selection*.raise](https://github.com/xswei/d3-selection/blob/master/README.md#selection_raise) - 将每个选中的元素重新排列为其对应父节点的最后一个子元素.
+* [*selection*.lower](https://github.com/xswei/d3-selection/blob/master/README.md#selection_lower) - 将每个选中的元素重新排列为其对应父节点的第一个子元素.
+* [d3.create](https://github.com/xswei/d3-selection/blob/master/README.md#create) - 创建一个指定名称的与文档分离的元素.
+* [d3.creator](https://github.com/xswei/d3-selection/blob/master/README.md#creator) - 根据名称返回一个创建指定元素的函数.
 
 ### [Joining Data](https://github.com/xswei/d3-selection/blob/master/README.md#joining-data)
 
@@ -982,7 +982,7 @@ Map a discrete domain to a discrete range.
 
 ### [Namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces)
 
-* [d3.namespace](https://github.com/xswei/d3-selection/blob/master/README.md#namespace) - qualify a prefixed XML name, such as “xlink:href”.
+* [d3.namespace](https://github.com/xswei/d3-selection/blob/master/README.md#namespace) - 限定一个前缀的 `XML` 名称, 比如 “xlink:href”.
 * [d3.namespaces](https://github.com/xswei/d3-selection/blob/master/README.md#namespaces) - 内置的 `XML` 命名空间.
 
 ## [Shapes (d3-shape)](https://github.com/xswei/d3-shape)
