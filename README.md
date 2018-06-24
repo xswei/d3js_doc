@@ -158,6 +158,12 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
+### 版权说明
+
+未经允许该项目下任何内容以及相关联的子模块禁止任何形式的转载。
+
+欢迎通过 Issue 或者 Pull Request 提建议。
+
 ### 翻译说明
 
 每个子仓库中包含三个 `.md` 文件:
@@ -168,9 +174,12 @@ http-server &
 
 更新时, 首先将 *README_ORIGIN.md* 与官网文档进行同步, 然后将 *README_EN.md* 和 *README_ORIGIN.md* 进行比对, 将 `diff` 更新至 *README.md*, 同时将 *README_EN.md* 与 *README_ORIGIN.md* 进行同步.
 
-
 ### 联系译者
 
 QQ | :penguin:  | 214175619
 --- | --- | ---
 Email | :e-mail:  | xs.wei@foxmail.com
+
+### 鼓励译者
+
+![image](https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg)
