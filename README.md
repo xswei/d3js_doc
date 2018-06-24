@@ -182,4 +182,4 @@ Email | :e-mail:  | xs.wei@foxmail.com
 
 ### 鼓励译者
 
-![image](https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg=300x300)
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="300"></img>
