@@ -66,7 +66,7 @@ console.log(data);
 ## 安装
 
 如果使用 `npm`, 则可以通过 `npm install d3` 来安装. 此外还可以下载 [最新版](https://unpkg.com/d3/build/), 最新版支持 `AMD`、`CommonJS` 以及基础标签引入形式. 你也可以直接从 [d3js.org](https://d3js.org), [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载. 比如:
-
+«
 ```js
 <script src="https://d3js.org/d3.v5.js"></script>
 ```
@@ -182,4 +182,4 @@ Email | :e-mail:  | xs.wei@foxmail.com
 
 ### 鼓励译者
 
-![image](https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg)
+![image](https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg=300x300)
