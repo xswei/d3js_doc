@@ -360,7 +360,7 @@ Compute contour polygons using marching squares.
 
 ## [Delimiter-Separated Values (d3-dsv)](https://github.com/xswei/d3-dsv)
 
-解析和格式化以分隔符隔开的特定格式文件或字符串，大多数情况下指 CSV 和 TSV.
+解析和格式化以分隔符隔开的特定格式文件或字符串，大多数情况下指 `CSV` 和 `TSV`.
 
 * [d3.dsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#dsvFormat) - 根据指定的分隔符创建一个新的解析器和格式化器.
 * [*dsv*.parse](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parse) - 解析指定的字符串并返回对象数组.
@@ -380,47 +380,47 @@ Compute contour polygons using marching squares.
 
 平滑过渡的过渡函数.
 
-* [*ease*](https://github.com/xswei/d3-ease/blob/master/README.md#_ease) - ease the given normalized time.
-* [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - linear easing; the identity function.
-* [d3.easePolyIn](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyIn) - polynomial easing; raises time to the given power.
-* [d3.easePolyOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyOut) - reverse polynomial easing.
-* [d3.easePolyInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyInOut) - symmetric polynomial easing.
-* [*poly*.exponent](https://github.com/xswei/d3-ease/blob/master/README.md#poly_exponent) - specify the polynomial exponent.
-* [d3.easeQuad](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuad) - an alias for easeQuadInOut.
-* [d3.easeQuadIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadIn) - quadratic easing; squares time.
-* [d3.easeQuadOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadOut) - reverse quadratic easing.
-* [d3.easeQuadInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadInOut) - symmetric quadratic easing.
-* [d3.easeCubic](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubic) - an alias for easeCubicInOut.
-* [d3.easeCubicIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicIn) - cubic easing; cubes time.
-* [d3.easeCubicOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicOut) - reverse cubic easing.
-* [d3.easeCubicInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicInOut) - symmetric cubic easing.
-* [d3.easeSin](https://github.com/xswei/d3-ease/blob/master/README.md#easeSin) - an alias for easeSinInOut.
-* [d3.easeSinIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinIn) - sinusoidal easing.
-* [d3.easeSinOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinOut) - reverse sinusoidal easing.
-* [d3.easeSinInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinInOut) - symmetric sinusoidal easing.
-* [d3.easeExp](https://github.com/xswei/d3-ease/blob/master/README.md#easeExp) - an alias for easeExpInOut.
-* [d3.easeExpIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpIn) - exponential easing.
-* [d3.easeExpOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpOut) - reverse exponential easing.
-* [d3.easeExpInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpInOut) - symmetric exponential easing.
-* [d3.easeCircle](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircle) - an alias for easeCircleInOut.
-* [d3.easeCircleIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleIn) - circular easing.
-* [d3.easeCircleOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleOut) - reverse circular easing.
-* [d3.easeCircleInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleInOut) - symmetric circular easing.
-* [d3.easeElastic](https://github.com/xswei/d3-ease/blob/master/README.md#easeElastic) - an alias for easeElasticOut.
-* [d3.easeElasticIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticIn) - elastic easing, like a rubber band.
-* [d3.easeElasticOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticOut) - reverse elastic easing.
-* [d3.easeElasticInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticInOut) - symmetric elastic easing.
-* [*elastic*.amplitude](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_amplitude) - specify the elastic amplitude.
-* [*elastic*.period](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_period) - specify the elastic period.
-* [d3.easeBack](https://github.com/xswei/d3-ease/blob/master/README.md#easeBack) - an alias for easeBackInOut.
-* [d3.easeBackIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackIn) - anticipatory easing, like a dancer bending his knees before jumping.
-* [d3.easeBackOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackOut) - reverse anticipatory easing.
-* [d3.easeBackInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackInOut) - symmetric anticipatory easing.
-* [*back*.overshoot](https://github.com/xswei/d3-ease/blob/master/README.md#back_overshoot) - specify the amount of overshoot.
-* [d3.easeBounce](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounce) - an alias for easeBounceOut.
-* [d3.easeBounceIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceIn) - bounce easing, like a rubber ball.
-* [d3.easeBounceOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceOut) - reverse bounce easing.
-* [d3.easeBounceInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceInOut) - symmetric bounce easing.
+* [*ease*](https://github.com/xswei/d3-ease/blob/master/README.md#_ease) - 计算标准时间经过缓动方法计算后的时间.
+* [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - linear 缓动; 恒等函数.
+* [d3.easePolyIn](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyIn) - polynomial 缓动.
+* [d3.easePolyOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyOut) - 反转 polynomial 缓动.
+* [d3.easePolyInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyInOut) - 对称 polynomial 缓动.
+* [*poly*.exponent](https://github.com/xswei/d3-ease/blob/master/README.md#poly_exponent) - 指定 polynomial 的指数.
+* [d3.easeQuad](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuad) - easeQuadInOut 的别名.
+* [d3.easeQuadIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadIn) - quadratic 缓动.
+* [d3.easeQuadOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadOut) - 反转 quadratic 缓动.
+* [d3.easeQuadInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadInOut) - 对称 quadratic 缓动.
+* [d3.easeCubic](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubic) - easeCubicInOut 的别名.
+* [d3.easeCubicIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicIn) - cubic 缓动.
+* [d3.easeCubicOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicOut) - 反转 cubic 缓动.
+* [d3.easeCubicInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicInOut) - 对称 cubic 缓动.
+* [d3.easeSin](https://github.com/xswei/d3-ease/blob/master/README.md#easeSin) - easeSinInOut 的别名.
+* [d3.easeSinIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinIn) - sinusoidal 缓动.
+* [d3.easeSinOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinOut) - 反转 sinusoidal 缓动.
+* [d3.easeSinInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinInOut) - 对称 sinusoidal 缓动.
+* [d3.easeExp](https://github.com/xswei/d3-ease/blob/master/README.md#easeExp) - easeExpInOut 的别名.
+* [d3.easeExpIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpIn) - exponential 缓动.
+* [d3.easeExpOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpOut) - 反转 exponential 缓动.
+* [d3.easeExpInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpInOut) - 对称 exponential 缓动.
+* [d3.easeCircle](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircle) - easeCircleInOut 的别名.
+* [d3.easeCircleIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleIn) - circular 缓动.
+* [d3.easeCircleOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleOut) - 反转 circular 缓动.
+* [d3.easeCircleInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleInOut) - 对称 circular 缓动.
+* [d3.easeElastic](https://github.com/xswei/d3-ease/blob/master/README.md#easeElastic) - easeElasticOut 的别名.
+* [d3.easeElasticIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticIn) - elastic 缓动, 就像是橡皮筋.
+* [d3.easeElasticOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticOut) - 反转 elastic 缓动.
+* [d3.easeElasticInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticInOut) - 对称 elastic 缓动.
+* [*elastic*.amplitude](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_amplitude) - 指定 elastic 的振幅.
+* [*elastic*.period](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_period) - 指定 elastic 的周期.
+* [d3.easeBack](https://github.com/xswei/d3-ease/blob/master/README.md#easeBack) - easeBackInOut 的别名.
+* [d3.easeBackIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackIn) - anticipatory 缓动, 就像是舞者在跳跃之前先弯曲膝盖.
+* [d3.easeBackOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackOut) - 反转 anticipatory 缓动.
+* [d3.easeBackInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackInOut) - 对称 anticipatory 缓动.
+* [*back*.overshoot](https://github.com/xswei/d3-ease/blob/master/README.md#back_overshoot) - 指定超调量.
+* [d3.easeBounce](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounce) - easeBounceOut 的别名.
+* [d3.easeBounceIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceIn) - bounce 缓动, 就像是橡皮球.
+* [d3.easeBounceOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceOut) - 反转 bounce 缓动.
+* [d3.easeBounceInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceInOut) - 对称 bounce 缓动.
 
 ## [Fetches (d3-fetch)](https://github.com/xswei/d3-fetch)
 
