@@ -160,9 +160,7 @@ http-server &
 
 ### 版权说明
 
-未经允许该项目下任何内容以及相关联的子模块禁止任何形式的转载。
-
-欢迎通过 Issue 或者 Pull Request 提建议。
+<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
 
 ### 翻译说明
 
