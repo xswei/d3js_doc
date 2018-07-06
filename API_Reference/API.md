@@ -577,7 +577,7 @@ Format numbers for human consumption.
 * [d3.geoLength](https://github.com/xswei/d3-geo/blob/master/README.md#geoLength) - 计算一条线的长度或者多边形的周长.
 * [d3.geoInterpolate](https://github.com/xswei/d3-geo/blob/master/README.md#geoInterpolate) - 在两个点之间沿着大圆进行插值.
 * [d3.geoRotation](https://github.com/xswei/d3-geo/blob/master/README.md#geoRotation) - 根据指定的角度创建一个旋转函数.
-* [*rotation*](https://github.com/xswei/d3-geo/blob/master/README.md#_rotation) - 沿着指定的球面对指定点进行旋转.
+* [*rotation*](https://github.com/xswei/d3-geo/blob/master/README.md#_rotation) - 沿着指定的球面对指定点进行旋转.
 * [*rotation*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#rotation_invert) - 计算某个点在旋转之前的点.
 
 ### [Spherical Shapes](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-shapes)
