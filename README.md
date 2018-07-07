@@ -1,3 +1,8 @@
+[![GitHub stars](https://img.shields.io/github/stars/xswei/d3js_doc.svg?style=flat-square)](https://github.com/xswei/d3js_doc/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/xswei/d3js_doc.svg?style=flat-square)](https://github.com/xswei/d3js_doc/issues)
+[![GitHub forks](https://img.shields.io/github/forks/xswei/d3js_doc.svg?style=flat-square)](https://github.com/xswei/d3js_doc/network)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square)](https://github.com/xswei/d3js_doc)
+
 # D3: Data-Driven Documents
 
 <a href="https://d3js.org"><img src="https://d3js.org/logo.svg" align="left" hspace="10" vspace="10"></a>
