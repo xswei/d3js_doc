@@ -1,113 +1,49 @@
-# Changes in D3 5.0
+### D3 4.0 做了哪些改进   
+        
 
-[Released March 22, 2018.](https://github.com/d3/d3/releases/tag/v5.0.0)
 
-D3 5.0 introduces only a few non-backwards-compatible changes.
+D3 4.0是由各个模块协同工作的，而不是一个单独的库。你可以按需加载独立的模块，默认的大库包含了大概30个子库。
 
-D3 now uses [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises) instead of asynchronous callbacks to load data. Promises simplify the structure of asynchronous code, especially in modern browsers that support [async and await](https://javascript.info/async-await). (See this [introduction to promises](https://beta.observablehq.com/@mbostock/introduction-to-promises) on [Observable](https://beta.observablehq.com).) For example, to load a CSV file in v4, you might say:
-
-```js
-d3.csv("file.csv", function(error, data) {
-  if (error) throw error;
-  console.log(data);
-});
-```
-
-In v5, using promises:
+例如：
 
 ```js
-d3.csv("file.csv").then(function(data) {
-  console.log(data);
-});
+<script src="https://d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
 ```
 
-Note that you don’t need to rethrow the error—the promise will reject automatically, and you can *promise*.catch if desired. Using await, the code is even simpler:
+你可以使用可选的插件，比如使用颜色生成器：
 
 ```js
-const data = await d3.csv("file.csv");
-console.log(data);
+
+<script src="https://d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
 ```
 
-With the adoption of promises, D3 now uses the [Fetch API](https://fetch.spec.whatwg.org/) instead of [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest): the [d3-request](https://github.com/d3/d3-request) module has been replaced by [d3-fetch](https://github.com/d3/d3-fetch). Fetch supports many powerful new features, such as [streaming responses](https://beta.observablehq.com/@mbostock/streaming-shapefiles). D3 5.0 also deprecates and removes the [d3-queue](https://github.com/d3/d3-queue) module. Use [Promise.all](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) to run a batch of asynchronous tasks in parallel, or a helper library such as [p-queue](https://github.com/sindresorhus/p-queue) to [control concurrency](https://beta.observablehq.com/@mbostock/hello-p-queue).
+如果你不需要使用默认的库，而是仅仅使用D3的选择器功能，则可以将D3的选择器模块单独引入：
 
-D3 no longer provides the d3.schemeCategory20* categorical color schemes. These twenty-color schemes were flawed because their grouped design could falsely imply relationships in the data: a shared hue can imply that the encoded data are part of a group (a super-category), while relative lightness can imply order. Instead, D3 now includes [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic), which implements excellent schemes from ColorBrewer, including [categorical](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#categorical), [diverging](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#diverging), [sequential single-hue](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#sequential-single-hue) and [sequential multi-hue](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#sequential-multi-hue) schemes. These schemes are available in both discrete and continuous variants.
+```js
+<script src="https://d3js.org/d3-selection.v0.9.min.js"></script>
 
-D3 now provides implementations of [marching squares](https://beta.observablehq.com/@mbostock/d3-contour-plot) and [density estimation](https://beta.observablehq.com/@mbostock/d3-density-contours) via [d3-contour](https://github.com/d3/d3-contour)! There are two new [d3-selection](https://github.com/d3/d3-selection) methods: [*selection*.clone](https://github.com/d3/d3-selection/blob/master/README.md#selection_clone) for inserting clones of the selected nodes, and [d3.create](https://github.com/d3/d3-selection/blob/master/README.md#create) for creating detached elements. [Geographic projections](https://github.com/d3/d3-geo) now support [*projection*.angle](https://github.com/d3/d3-geo/blob/master/README.md#projection_angle), which has enabled several fantastic new [polyhedral projections](https://github.com/d3/d3-geo-polygon) by Philippe Rivière.
-
-Lastly, D3’s [package.json](https://github.com/d3/d3/blob/master/package.json) no longer pins exact versions of the dependent D3 modules. This fixes an issue with [duplicate installs](https://github.com/d3/d3/issues/3256) of D3 modules.
-
-# Changes in D3 4.0
-
-[Released June 28, 2016.](https://github.com/d3/d3/releases/tag/v4.0.0)
-
-D3 4.0 is modular. Instead of one library, D3 is now [many small libraries](#table-of-contents) that are designed to work together. You can pick and choose which parts to use as you see fit. Each library is maintained in its own repository, allowing decentralized ownership and independent release cycles. The default bundle combines about thirty of these microlibraries.
-
-```html
-<script src="https://d3js.org/d3.v4.js"></script>
 ```
 
-As before, you can load optional plugins on top of the default bundle, such as [ColorBrewer scales](https://github.com/d3/d3-scale-chromatic):
+你也可以使用Webpack或Rollup来管理所需要的模块，来生成更轻量化的包。模块化更容易让人理解、开发和测试，有利于扩展更丰富的功能。
 
-```html
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v0.3.js"></script>
-```
+如果你觉得模块化不重要，可以继续使用默认的包。但是使用ES6的模块有一个不可避免的后果：D3 4.0中每一个功能都有一个独立的命名空间，而D3 3.x则是相互叠加的。比如d3.scale.linear成了现在的d3.scaleLinear,d3.layout.treemap成了d3.treemap。而使用ES6的模块化意味着D3 4.0是在严格模式下编写的，具有更好的可读性，在3.x的基础上几乎进行了重写，其他功能也得到了改善。
 
-You are not required to use the default bundle! If you’re just using [d3-selection](https://github.com/d3/d3-selection), use it as a standalone library. Like the default bundle, you can load D3 microlibraries using vanilla script tags or RequireJS (great for HTTP/2!):
+## 其他改变
 
-```html
-<script src="https://d3js.org/d3-selection.v1.js"></script>
-```
+默认的通用模块定义是匿名的。D3子模块共享d3全局变量，甚至你单独的引入它们。这样无论你是否使用了默认包能保证代码的一致性。
 
-You can also `cat` D3 microlibraries into a custom bundle, or use tools such as [Webpack](https://webpack.github.io/) and [Rollup](http://rollupjs.org/) to create [optimized bundles](https://bl.ocks.org/mbostock/bb09af4c39c79cffcde4). Custom bundles are great for applications that use a subset of D3’s features; for example, a React chart library might use D3 for scales and shapes, and React to manipulate the DOM. The D3 microlibraries are written as [ES6 modules](http://www.2ality.com/2014/09/es6-modules-final.html), and Rollup lets you pick at the symbol level to produce smaller bundles.
+使用D3 3.x时有时候会因编码问题发生SyntaxError错误，因为3.x中使用了λ，φ，τ和π等unicode字符作为数学简明变量名。这样在你使用ISO-8859-1来代替UTF-8编码时出错，在4.0中仅仅使用ascii来编码变量和字符串，避免出现编码问题。
 
-Small files are nice, but modularity is also about making D3 more *fun*. Microlibraries are easier to understand, develop and test. They make it easier for new people to get involved and contribute. They reduce the distinction between a “core module” and a “plugin”, and increase the pace of development in D3 features.
 
-If you don’t care about modularity, you can mostly ignore this change and keep using the default bundle. However, there is one unavoidable consequence of adopting ES6 modules: every symbol in D3 4.0 now shares a flat namespace rather than the nested one of D3 3.x. For example, d3.scale.linear is now d3.scaleLinear, and d3.layout.treemap is now d3.treemap. The adoption of ES6 modules also means that D3 is now written exclusively in [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) and has better readability. And there have been many other significant improvements to D3’s features! (Nearly all of the code from D3 3.x has been rewritten.) These changes are covered below.
+# 目录
 
-### Other Global Changes
 
-The default [UMD bundle](https://github.com/umdjs/umd) is now [anonymous](https://github.com/requirejs/requirejs/wiki/Updating-existing-libraries#register-as-an-anonymous-module-). No `d3` global is exported if AMD or CommonJS is detected. In a vanilla environment, the D3 microlibraries share the `d3` global, even if you load them independently; thus, code you write is the same whether or not you use the default bundle. (See [Let’s Make a (D3) Plugin](https://bost.ocks.org/mike/d3-plugin/) for more.) The generated bundle is no longer stored in the Git repository; Bower has been repointed to [d3-bower](https://github.com/mbostock-bower/d3-bower), and you can find the generated files on [npm](https://unpkg.com/d3) or attached to the [latest release](https://github.com/d3/d3/releases/latest). The non-minified default bundle is no longer mangled, making it more readable and preserving inline comments.
+## Arrays(d3-array)
 
-To the consternation of some users, 3.x employed Unicode variable names such as λ, φ, τ and π for a concise representation of mathematical operations. A downside of this approach was that a SyntaxError would occur if you loaded the non-minified D3 using ISO-8859-1 instead of UTF-8. 3.x also used Unicode string literals, such as the SI-prefix µ for 1e-6. 4.0 uses only ASCII variable names and ASCII string literals (see [rollup-plugin-ascii](https://github.com/mbostock/rollup-plugin-ascii)), avoiding encoding problems.
 
-### Table of Contents
-
-* [Arrays](#arrays-d3-array)
-* [Axes](#axes-d3-axis)
-* [Brushes](#brushes-d3-brush)
-* [Chords](#chords-d3-chord)
-* [Collections](#collections-d3-collection)
-* [Colors](#colors-d3-color)
-* [Dispatches](#dispatches-d3-dispatch)
-* [Dragging](#dragging-d3-drag)
-* [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
-* [Easings](#easings-d3-ease)
-* [Forces](#forces-d3-force)
-* [Number Formats](#number-formats-d3-format)
-* [Geographies](#geographies-d3-geo)
-* [Hierarchies](#hierarchies-d3-hierarchy)
-* [Internals](#internals)
-* [Interpolators](#interpolators-d3-interpolate)
-* [Paths](#paths-d3-path)
-* [Polygons](#polygons-d3-polygon)
-* [Quadtrees](#quadtrees-d3-quadtree)
-* [Queues](#queues-d3-queue)
-* [Random Numbers](#random-numbers-d3-random)
-* [Requests](#requests-d3-request)
-* [Scales](#scales-d3-scale)
-* [Selections](#selections-d3-selection)
-* [Shapes](#shapes-d3-shape)
-* [Time Formats](#time-formats-d3-time-format)
-* [Time Intervals](#time-intervals-d3-time)
-* [Timers](#timers-d3-timer)
-* [Transitions](#transitions-d3-transition)
-* [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
-* [Zooming](#zooming-d3-zoom)
-
-## [Arrays (d3-array)](https://github.com/d3/d3-array/blob/master/README.md)
-
-The new [d3.scan](https://github.com/d3/d3-array/blob/master/README.md#scan) method performs a linear scan of an array, returning the index of the least element according to the specified comparator. This is similar to [d3.min](https://github.com/d3/d3-array/blob/master/README.md#min) and [d3.max](https://github.com/d3/d3-array/blob/master/README.md#max), except you can use it to find the position of an extreme element, rather than just calculate an extreme value.
+新的d3.scan方法对数组进行线性扫描，并根据指定的比较函数返回至少一个元素的索引。这个方法有点类似于d3.min和d3.max。而d3.scan可以得到极值的索引而不仅仅是计算极值。如
 
 ```js
 var data = [
@@ -118,28 +54,37 @@ var data = [
 ];
 
 var i = d3.scan(data, function(a, b) { return a.value - b.value; }); // 2
+//d3对data中的元素两两比较，返回较小的，funtion运行了3+2+1=6次
 data[i]; // {name: "Carol", value: 1}
 ```
 
-The new [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks) and [d3.tickStep](https://github.com/d3/d3-array/blob/master/README.md#tickStep) methods are useful for generating human-readable numeric ticks. These methods are a low-level alternative to [*continuous*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks) from [d3-scale](https://github.com/d3/d3-scale). The new implementation is also more accurate, returning the optimal number of ticks as measured by relative error.
+d3.ticks和d3.tickStep方法在生成刻度时是非常有用的。可以代替生成d3-scale的continuous.ticks。新的方法更精确，比如返回由相对误差测量的最佳刻度数量。
+
+```
+var ticks = d3.ticks(0, 10, 5); // [0, 2, 4, 6, 8, 10]
+//0到10之间取5个刻度
+```
+d3.range方法，当step非整数时候不再对浮点进行校正，而是严格返回start+i*step，其中i为整数。当范围为无限大时返回空数组而不是报错。如下
 
 ```js
-var ticks = d3.ticks(0, 10, 5); // [0, 2, 4, 6, 8, 10]
+    3.x中
+        d3.range(0,1,0.3)   //[0, 0.3, 0.6, 0.9]
+        d3.range(Infinity)  //出错
+4.0中
+        d3.range(0,1,0.3)   //[0, 0.3, 0.6, 0.8999999999999999]
+        d3.range(Infinity)  //[]
 ```
 
-The [d3.range](https://github.com/d3/d3-array/blob/master/README.md#range) method no longer makes an elaborate attempt to avoid floating-point error when *step* is not an integer. The returned values are strictly defined as *start* + *i* \* *step*, where *i* is an integer. (Learn more about [floating point math](http://0.30000000000000004.com/).) d3.range returns the empty array for infinite ranges, rather than throwing an error.
+一些数组访问方式被改为更方便的数组方法，比如array.forEach:访问器 被传入的参数有当前的元素d、索引i以及数组自身array。这影响了d3.min,d3.max,d3,extent,d3.sum,d3.mean,d3.median,d3,quantile,d3.variance和d3.deviation。d3.quantile方法之前不接受访问器。一些方法在没有参数传入时候被当做确实而不是直接检查arguments.length。
 
-The method signature for optional accessors has been changed to be more consistent with array methods such as [*array*.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach): the accessor is passed the current element (*d*), the index (*i*), and the array (*data*), with *this* as undefined. This affects [d3.min](https://github.com/d3/d3-array/blob/master/README.md#min), [d3.max](https://github.com/d3/d3-array/blob/master/README.md#max), [d3.extent](https://github.com/d3/d3-array/blob/master/README.md#extent), [d3.sum](https://github.com/d3/d3-array/blob/master/README.md#sum), [d3.mean](https://github.com/d3/d3-array/blob/master/README.md#mean), [d3.median](https://github.com/d3/d3-array/blob/master/README.md#median), [d3.quantile](https://github.com/d3/d3-array/blob/master/README.md#quantile), [d3.variance](https://github.com/d3/d3-array/blob/master/README.md#variance) and [d3.deviation](https://github.com/d3/d3-array/blob/master/README.md#deviation). The [d3.quantile](https://github.com/d3/d3-array/blob/master/README.md#quantile) method previously did not take an accessor. Some methods with optional arguments now treat those arguments as missing if they are null or undefined, rather than strictly checking arguments.length.
+新的d3.histogram API代替原有的d3.layout.histogram。返回的每个bin的bin.x和bin.dx被替换为bin.x0和bin.x1。bin.x0正好等于前一个bin的bin.x1。每一个bin只是简单的根据输入的数据产生。
+histogram.range方法被重命名为histogram.domain。histogram.bins方法被重命名为histogram.thresholds并不再接受上限值参数。d3.histogram现在使用d3.ticks计算好的阈值。
 
-The new [d3.histogram](https://github.com/d3/d3-array/blob/master/README.md#histograms) API replaces d3.layout.histogram. Rather than exposing *bin*.x and *bin*.dx on each returned bin, the histogram exposes *bin*.x0 and *bin*.x1, guaranteeing that *bin*.x0 is exactly equal to *bin*.x1 on the preceeding bin. The “frequency” and “probability” modes are no longer supported; each bin is simply an array of elements from the input data, so *bin*.length is equal to D3 3.x’s *bin*.y in frequency mode. To compute a probability distribution, divide the number of elements in each bin by the total number of elements.
+## Axes(d3-axis)
 
-The *histogram*.range method has been renamed [*histogram*.domain](https://github.com/d3/d3-array/blob/master/README.md#histogram_domain) for consistency with scales. The *histogram*.bins method has been renamed [*histogram*.thresholds](https://github.com/d3/d3-array/blob/master/README.md#histogram_thresholds), and no longer accepts an upper value: *n* thresholds will produce *n* + 1 bins. If you specify a desired number of bins rather than thresholds, d3.histogram now uses [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks) to compute nice bin thresholds. In addition to the default Sturges’ formula, D3 now implements the [Freedman-Diaconis rule](https://github.com/d3/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) and [Scott’s normal reference rule](https://github.com/d3/d3-array/blob/master/README.md#thresholdScott).
+在3.x中你必须设置如下样式
 
-## [Axes (d3-axis)](https://github.com/d3/d3-axis/blob/master/README.md)
-
-To render axes properly in D3 3.x, you needed to style them:
-
-```html
+```js
 <style>
 
 .axis path,
@@ -163,14 +108,13 @@ d3.select(".axis")
 
 </script>
 ```
+要不然你会看到这样：
 
-If you didn’t, you saw this:
+![image](https://raw.githubusercontent.com/d3/d3/master/img/axis-v3.png)
 
-<img src="https://raw.githubusercontent.com/d3/d3/master/img/axis-v3.png" width="100%" height="105">
+4.0提供了默认的样式和更精简的语法。3.x中使用d3.svg.axis和axis.orient来定义坐标轴，而4.0你可以直接使用d3.axisTop, d3.axisRight, d3.axisBottom, d3.axisLeft四种方法来生成轴。
 
-D3 4.0 provides default styles and shorter syntax. In place of d3.svg.axis and *axis*.orient, D3 4.0 now provides four constructors for each orientation: [d3.axisTop](https://github.com/d3/d3-axis/blob/master/README.md#axisTop), [d3.axisRight](https://github.com/d3/d3-axis/blob/master/README.md#axisRight), [d3.axisBottom](https://github.com/d3/d3-axis/blob/master/README.md#axisBottom), [d3.axisLeft](https://github.com/d3/d3-axis/blob/master/README.md#axisLeft). These constructors accept a scale, so you can reduce all of the above to:
-
-```html
+```js
 <script>
 
 d3.select(".axis")
@@ -178,51 +122,47 @@ d3.select(".axis")
 
 </script>
 ```
+生成如下,你也可以像之前一样自定义样式或修改元素
 
-And get this:
+![image](https://raw.githubusercontent.com/d3/d3/master/img/axis-v4.png)
 
-<img src="https://raw.githubusercontent.com/d3/d3/master/img/axis-v4.png" width="100%" height="105">
+还可以使用axis.tickArguments、axis.ticks、axis.tickSize、axis.tickSizeInner或axis.tickSizeOuter方法来设置要显示刻度规律和刻度线大小等。
 
-As before, you can customize the axis appearance either by applying stylesheets or by modifying the axis elements. The default appearance has been changed slightly to offset the axis by a half-pixel;  this fixes a crisp-edges rendering issue on Safari where the axis would be drawn two-pixels thick.
+## Brushes(d3-brush)
 
-There’s now an [*axis*.tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments) method, as an alternative to [*axis*.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks) that also allows the axis tick arguments to be inspected. The [*axis*.tickSize](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) method has been changed to only allow a single argument when setting the tick size. The *axis*.innerTickSize and *axis*.outerTickSize methods have been renamed [*axis*.tickSizeInner](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeInner) and [*axis*.tickSizeOuter](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeOuter), respectively.
+代替d3.svg.brush方法，4.0提供了d3.brushX,d3.brushY和d3.brush来表示沿着x方向,y方向和两个方向的3个子类。brushes不再依赖于比例尺而是定义了一个基于屏幕坐标的选择集。但是可以根据坐标和比例尺反转来查询对应的域中包含的数据。不必依靠比例尺的范围来确定可选取的区域。可以通过*brush.extent*方法来设置。如果不设置extent，则默认可选取的范围为当前元素所属的整个SVG元素。brush.clamp方法也被移除。刷子的范围只在所定义的extent内有效。
 
-## [Brushes (d3-brush)](https://github.com/d3/d3-brush/blob/master/README.md)
+刷子不再在内部存储被选中的元素，刷子的位置被保存在被应用了刷子功能的元素上。可以在被选中元素事件上使用刷子的位置信息。如果以编程的方式移动刷子则使用brush.move方法
 
-Replacing d3.svg.brush, there are now three classes of brush for brushing along the *x*-dimension, the *y*-dimension, or both: [d3.brushX](https://github.com/d3/d3-brush/blob/master/README.md#brushX), [d3.brushY](https://github.com/d3/d3-brush/blob/master/README.md#brushY), [d3.brush](https://github.com/d3/d3-brush/blob/master/README.md#brush). Brushes are no longer dependent on [scales](#scales-d3-scale); instead, each brush defines a selection in screen coordinates. This selection can be [inverted](https://github.com/d3/d3-scale/blob/master/README.md#continuous_invert) if you want to compute the corresponding data domain. And rather than rely on the scales’ ranges to determine the brushable area, there is now a [*brush*.extent](https://github.com/d3/d3-brush/blob/master/README.md#brush_extent) method for setting it. If you do not set the brush extent, it defaults to the full extent of the owner SVG element. The *brush*.clamp method has also been eliminated; brushing is always restricted to the brushable area defined by the brush extent.
+刷子提高了交互能力。默认情况下刷子忽略右键单击操作，你可以通过brush.filter来设置。刷子也忽略了IOS上的鼠标仿真事件。
 
-Brushes no longer store the active brush selection (*i.e.*, the highlighted region; the brush’s position) internally. The brush’s position is now stored on any elements to which the brush has been applied. The brush’s position is available as *event*.selection within a brush event or by calling [d3.brushSelection](https://github.com/d3/d3-brush/blob/master/README.md#brushSelection) on a given *element*. To move the brush programmatically, use [*brush*.move](https://github.com/d3/d3-brush/blob/master/README.md#brush_move) with a given [selection](#selections-d3-selection) or [transition](#transitions-d3-transition); see the [brush snapping example](https://bl.ocks.org/mbostock/6232537). The *brush*.event method has been removed.
+刷子的默认样式也得到了改变。3.x你必须要给刷子一个样式，比如
 
-Brush interaction has been improved. By default, brushes now ignore right-clicks intended for the context menu; you can change this behavior using [*brush*.filter](https://github.com/d3/d3-brush/blob/master/README.md#brush_filter). Brushes also ignore emulated mouse events on iOS. Holding down SHIFT (⇧) while brushing locks the *x*- or *y*-position of the brush. Holding down META (⌘) while clicking and dragging starts a new selection, rather than translating the existing selection.
-
-The default appearance of the brush has also been improved and slightly simplified. Previously it was necessary to apply styles to the brush to give it a reasonable appearance, such as:
-
-```css
+```
 .brush .extent {
   stroke: #fff;
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
 ```
+现在这些样式默认提供，当然你也可以自定义。(4.0中轴也提供了默认的样式)。brush.handleSize方法用来改变刷柄的尺寸，默认为6像素。刷子brushstart和brushend事件修改为start和end。更容易与其他交互结合。
 
-These styles are now applied by default as attributes; if you want to customize the brush appearance, you can still apply external styles or modify the brush elements. (D3 4.0 features a similar improvement to [axes](#axes-d3-axis).) A new [*brush*.handleSize](https://github.com/d3/d3-brush/blob/master/README.md#brush_handleSize) method lets you override the brush handle size; it defaults to six pixels.
+[刷子例子](http://bl.ocks.org/mbostock/6232537)
 
-The brush now consumes handled events, making it easier to combine with other interactive behaviors such as [dragging](#dragging-d3-drag) and [zooming](#zooming-d3-zoom). The *brushstart* and *brushend* events have been renamed to *start* and *end*, respectively. The brush event no longer reports a *event*.mode to distinguish between resizing and dragging the brush.
+## Chords(d3-chord)
 
-## [Chords (d3-chord)](https://github.com/d3/d3-chord/blob/master/README.md)
+扁平化命名空间
 
-Pursuant to the great namespace flattening:
+d3.layout.chord -> [d3.chord](https://github.com/d3/d3-chord#chord)
 
-* d3.layout.chord ↦ [d3.chord](https://github.com/d3/d3-chord/blob/master/README.md#chord)
-* d3.svg.chord ↦ [d3.ribbon](https://github.com/d3/d3-chord/blob/master/README.md#ribbon)
+d3.svg.chord -> [d3.ribbon](https://github.com/d3/d3-chord#ribbon)
+为了保持与arc.padAngle的一致性，chord.padding被重命名为ribbon.padAngle。新的ribbon.context方法支持使用canvas画布。见[d3-path](https://github.com/d3/d3/blob/master/CHANGES.md#paths-d3-path)
 
-For consistency with [*arc*.padAngle](https://github.com/d3/d3-shape/blob/master/README.md#arc_padAngle), *chord*.padding has also been renamed to [*ribbon*.padAngle](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_padAngle). A new [*ribbon*.context](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_context) method lets you render chord diagrams to Canvas! See also [d3-path](#paths-d3-path).
+## Colletions(d3-collection)
 
-## [Collections (d3-collection)](https://github.com/d3/d3-collection/blob/master/README.md)
+[d3.set](https://github.com/d3/d3-collection#set)构造器可以接受已存在的集作为副本。当传入一个数组时候的同时，你也可以传入一个值访问器。访问器函数可以使用标准参数：当前元素d,索引i以及整个数组data。如下：
 
-The [d3.set](https://github.com/d3/d3-collection/blob/master/README.md#set) constructor now accepts an existing set for making a copy. If you pass an array to d3.set, you can also pass a value accessor. This accessor takes the standard arguments: the current element (*d*), the index (*i*), and the array (*data*), with *this* undefined. For example:
-
-```js
+```
 var yields = [
   {yield: 22.13333, variety: "Manchuria",        year: 1932, site: "Grand Rapids"},
   {yield: 26.76667, variety: "Peatland",         year: 1932, site: "Grand Rapids"},
@@ -235,208 +175,249 @@ var yields = [
 
 var sites = d3.set(yields, function(d) { return d.site; }); // Grand Rapids, Duluth, Waseca, Crookston
 ```
+[d3.map](https://github.com/d3/d3-collection#map)也遵循标准的数组访问器参数模式。
+map.forEach和set.forEach被重命名为map.each和set.each。map.each的参数依次为值,键和map。set.each的参数顺序为值，值和set。这与ES6的map.forEach和set.forEach更接近。与ES6的Map和Set类似，map.set和set.add返回当前的集合(3.x返回当前值)。新添加的map.clear和set.clear用来清空map和set。
 
-The [d3.map](https://github.com/d3/d3-collection/blob/master/README.md#map) constructor also follows the standard array accessor argument pattern.
+nest.map方法总是返回d3.map的实例。当与nest.rollup结合使用的时候,nest.entries返回叶节点的{key,value}对象而不是{key,value}。这使得nest.rollup更容易与层次结构结合使用。比如[nest treemap 例子](http://bl.ocks.org/mbostock/2838bf53e0e65f369f476afd653663a2)
 
-The *map*.forEach and *set*.forEach methods have been renamed to [*map*.each](https://github.com/d3/d3-collection/blob/master/README.md#map_each) and [*set*.each](https://github.com/d3/d3-collection/blob/master/README.md#set_each) respectively. The order of arguments for *map*.each has also been changed to *value*, *key* and *map*, while the order of arguments for *set*.each is now *value*, *value* and *set*. This is closer to ES6 [*map*.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach) and [*set*.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/forEach). Also like ES6 Map and Set, *map*.set and *set*.add now return the current collection (rather than the added value) to facilitate method chaining. New [*map*.clear](https://github.com/d3/d3-collection/blob/master/README.md#map_clear) and [*set*.clear](https://github.com/d3/d3-collection/blob/master/README.md#set_clear) methods can be used to empty collections.
+## Colors(d3-color)
 
-The [*nest*.map](https://github.com/d3/d3-collection/blob/master/README.md#nest_map) method now always returns a d3.map instance. For a plain object, use [*nest*.object](https://github.com/d3/d3-collection/blob/master/README.md#nest_object) instead. When used in conjunction with [*nest*.rollup](https://github.com/d3/d3-collection/blob/master/README.md#nest_rollup), [*nest*.entries](https://github.com/d3/d3-collection/blob/master/README.md#nest_entries) now returns {key, value} objects for the leaf entries, instead of {key, values}. This makes *nest*.rollup easier to use in conjunction with [hierarchies](#hierarchies-d3-hierarchy), as in this [Nest Treemap example](https://bl.ocks.org/mbostock/2838bf53e0e65f369f476afd653663a2).
+所有的颜色都可以使用color.opacity来设置透明度([0,1])。可以使用一个不含透明度参数的构造方法产生一个颜色，如d3.rgb,d3.hsl,d3.lab,d3.hcl或者d3.cubehelix。
 
-## [Colors (d3-color)](https://github.com/d3/d3-color/blob/master/README.md)
+可以使用d3.color方法来将CSS颜色字符串转为RGB或HSL颜色。它返回d3.color的实例或者null(如果字符串无效)
 
-All colors now have opacity exposed as *color*.opacity, which is a number in [0, 1]. You can pass an optional opacity argument to the color space constructors [d3.rgb](https://github.com/d3/d3-color/blob/master/README.md#rgb), [d3.hsl](https://github.com/d3/d3-color/blob/master/README.md#hsl), [d3.lab](https://github.com/d3/d3-color/blob/master/README.md#lab), [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) or [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix).
 
-You can now parse rgba(…) and hsla(…) CSS color specifiers or the string “transparent” using [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color). The “transparent” color is defined as an RGB color with zero opacity and undefined red, green and blue channels; this differs slightly from CSS which defines it as transparent black, but is useful for simplifying color interpolation logic where either the starting or ending color has undefined channels. The [*color*.toString](https://github.com/d3/d3-color/blob/master/README.md#color_toString) method now likewise returns an rgb(…) or rgba(…) string with integer channel values, not the hexadecimal RGB format, consistent with CSS computed values. This improves performance by short-circuiting transitions when the element’s starting style matches its ending style.
-
-The new [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color) method is the primary method for parsing colors: it returns a d3.color instance in the appropriate color space, or null if the CSS color specifier is invalid. For example:
-
-```js
+```
 var red = d3.color("hsl(0, 80%, 50%)"); // {h: 0, l: 0.5, s: 0.8, opacity: 1}
 ```
 
-The parsing implementation is now more robust. For example, you can no longer mix integers and percentages in rgb(…), and it correctly handles whitespace, decimal points, number signs, and other edge cases. The color space constructors d3.rgb, d3.hsl, d3.lab, d3.hcl and d3.cubehelix now always return a copy of the input color, converted to the corresponding color space. While [*color*.rgb](https://github.com/d3/d3-color/blob/master/README.md#color_rgb) remains, *rgb*.hsl has been removed; use d3.hsl to convert a color to the RGB color space.
+4.0中颜色解析能力更强，d3.rgb，d3.hsl，d3.lab，d3.hcl和d3.cubehelix总是返回输入颜色转化为相应的颜色空间后的副本。使用color.rgb来替换掉rgb.hsl,来进行不同空间颜色转化。
 
-The RGB color space no longer greedily quantizes and clamps channel values when creating colors, improving accuracy in color space conversion. Quantization and clamping now occurs in *color*.toString when formatting a color for display. You can use the new [*color*.displayable](https://github.com/d3/d3-color/blob/master/README.md#color_displayable) to test whether a color is [out-of-gamut](https://en.wikipedia.org/wiki/Gamut).
+rgb颜色空间不再贪婪量化颜色，改善了颜色精度。在进行color.toString时，可以使用color.displayable来判断颜色是否超出范围。rgb.brighter方法得到了改进，对黑色执行这个操作时返回的依然是黑色。使用了新的颜色空间[d3.cubehelix](https://github.com/d3/d3-color#cubehelix)。
+## Dispatched(d3-dispatch)
 
-The [*rgb*.brighter](https://github.com/d3/d3-color/blob/master/README.md#rgb_brighter) method no longer special-cases black. This is a multiplicative operator, defining a new color *r*′, *g*′, *b*′ where *r*′ = *r* × *pow*(0.7, *k*), *g*′ = *g* × *pow*(0.7, *k*) and *b*′ = *b* × *pow*(0.7, *k*); a brighter black is still black.
+与在每个事件类型上装饰调度对象不同，4.0中调度对象对外提供dispatch.call和dispatch.apply两个方法并且将类型字符串作为第一个参数,例如在3.x中：
 
-There’s a new [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) color space, generalizing Dave Green’s color scheme! (See also [d3.interpolateCubehelixDefault](https://github.com/d3/d3-scale/blob/master/README.md#interpolateCubehelixDefault) from [d3-scale](#scales-d3-scale).) You can continue to define your own custom color spaces, too; see [d3-hsv](https://github.com/d3/d3-hsv) for an example.
-
-## [Dispatches (d3-dispatch)](https://github.com/d3/d3-dispatch/blob/master/README.md)
-
-Rather than decorating the *dispatch* object with each event type, the dispatch object now exposes generic [*dispatch*.call](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_call) and [*dispatch*.apply](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_apply) methods which take the *type* string as the first argument. For example, in D3 3.x, you might say:
-
-```js
+```
 dispatcher.foo.call(that, "Hello, Foo!");
 ```
 
-To dispatch a *foo* event in D3 4.0, you’d say:
+而在4.0中是这样：
 
-```js
+```
 dispatcher.call("foo", that, "Hello, Foo!");
 ```
+dispatch.on方法可以接受多个类型名称，可以同时对多个事件类型添加或移除事件监听器。比如:
 
-The [*dispatch*.on](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_on) method now accepts multiple typenames, allowing you to add or remove listeners for multiple events simultaneously. For example, to send both *foo* and *bar* events to the same listener:
-
-```js
+```
 dispatcher.on("foo bar", function(message) {
   console.log(message);
 });
 ```
 
-This matches the new behavior of [*selection*.on](https://github.com/d3/d3-selection/blob/master/README.md#selection_on) in [d3-selection](#selections-d3-selection). The *dispatch*.on method now validates that the specifier *listener* is a function, rather than throwing an error in the future.
+这符合d3-selection中选择集的新特定。dispatch.on添加了对监听器类型的检测(须一个方法)，以免之后出现错误。
 
-The new implementation d3.dispatch is faster, using fewer closures to improve performance. There’s also a new [*dispatch*.copy](https://github.com/d3/d3-dispatch/blob/master/README.md#dispatch_copy) method for making a copy of a dispatcher; this is used by [d3-transition](#transitions-d3-transition) to improve the performance of transitions in the common case where all elements in a transition have the same transition event listeners.
+新的d3.dispatch实现更快，使用更少的闭包来提高性能。此外还有一个dispatch.copy方法来拷贝一个dispatcher对象。当使用d3-transition对所有元素添加相同的过渡事件监听器的时候这种性能上的提高就显得很有用了。
 
-## [Dragging (d3-drag)](https://github.com/d3/d3-drag/blob/master/README.md)
+## Dragging(d3-drag)
 
-The drag behavior d3.behavior.drag has been renamed to d3.drag. The *drag*.origin method has been replaced by [*drag*.subject](https://github.com/d3/d3-drag/blob/master/README.md#drag_subject), which allows you to define the thing being dragged at the start of a drag gesture. This is particularly useful with Canvas, where draggable objects typically share a Canvas element (as opposed to SVG, where draggable objects typically have distinct DOM elements); see the [circle dragging example](https://bl.ocks.org/mbostock/444757cc9f0fde320a5f469cd36860f4).
+拖拽行为d3.behavior.drag被重命名为d3.drag。drag.origin由drag.subject替代用以定义拖拽的起始参考点。这在使用Canvas画布时非常有用，因为拖拽对象共享一个Canvas元素(在SVG中拖拽的元素都是独立的DOM元素)，比如[拖拽圆的例子](http://bl.ocks.org/mbostock/444757cc9f0fde320a5f469cd36860f4)
 
-A new [*drag*.container](https://github.com/d3/d3-drag/blob/master/README.md#drag_container) method lets you override the parent element that defines the drag gesture coordinate system. This defaults to the parent node of the element to which the drag behavior was applied. For dragging on Canvas elements, you probably want to use the Canvas element as the container.
+新的drag.container方法允许重新设置拖动元素的父级元素坐标系。坐标系默认为拖拽元素父节点。在Canvas上应用拖拽你可能要使用Canvas作为容器元素。
 
-[Drag events](https://github.com/d3/d3-drag/blob/master/README.md#drag-events) now expose an [*event*.on](https://github.com/d3/d3-drag/blob/master/README.md#event_on) method for registering temporary listeners for duration of the current drag gesture; these listeners can capture state for the current gesture, such as the thing being dragged. A new *event*.active property lets you detect whether multiple (multitouch) drag gestures are active concurrently. The *dragstart* and *dragend* events have been renamed to *start* and *end*. By default, drag behaviors now ignore right-clicks intended for the context menu; use [*drag*.filter](https://github.com/d3/d3-drag/blob/master/README.md#drag_filter) to control which events are ignored. The drag behavior also ignores emulated mouse events on iOS. The drag behavior now consumes handled events, making it easier to combine with other interactive behaviors such as [zooming](#zooming-d3-zoom).
+Drag事件提供drag.on方法来为当前拖拽动作添加临时事件监听器。这些监听器可以捕获当前拖拽状态，比如有元素正在被拖动。使用event.active属性可以监测到当前是否有多个拖拽动作。dragstart和dragend事件被重命名为start和end。默认情况下，拖拽动作会忽略鼠标右击事件。使用drag.filter可以控制是否忽略它。拖拽行为也忽略IOS上的仿真鼠标事件。
 
-The new [d3.dragEnable](https://github.com/d3/d3-drag/blob/master/README.md#dragEnable) and [d3.dragDisable](https://github.com/d3/d3-drag/blob/master/README.md#dragDisable) methods provide a low-level API for implementing drag gestures across browsers and devices. These methods are also used by other D3 components, such as the [brush](#brushes-d3-brush).
+新的d3.dragEnable和d3.dragDisable方法为跨浏览器和设备提供了低级别的API。这些方法在其他组件中也有，比如d3.brush。
 
-## [Delimiter-Separated Values (d3-dsv)](https://github.com/d3/d3-dsv/blob/master/README.md)
+## Delimiter-Separated Values(d3-dsv)
 
-Pursuant to the great namespace flattening, various CSV and TSV methods have new names:
+根据命名空间扁平化的思想，CSV和TSV的方法都做了重命名：
 
-* d3.csv.parse ↦ [d3.csvParse](https://github.com/d3/d3-dsv/blob/master/README.md#csvParse)
-* d3.csv.parseRows ↦ [d3.csvParseRows](https://github.com/d3/d3-dsv/blob/master/README.md#csvParseRows)
-* d3.csv.format ↦ [d3.csvFormat](https://github.com/d3/d3-dsv/blob/master/README.md#csvFormat)
-* d3.csv.formatRows ↦ [d3.csvFormatRows](https://github.com/d3/d3-dsv/blob/master/README.md#csvFormatRows)
-* d3.tsv.parse ↦ [d3.tsvParse](https://github.com/d3/d3-dsv/blob/master/README.md#tsvParse)
-* d3.tsv.parseRows ↦ [d3.tsvParseRows](https://github.com/d3/d3-dsv/blob/master/README.md#tsvParseRows)
-* d3.tsv.format ↦ [d3.tsvFormat](https://github.com/d3/d3-dsv/blob/master/README.md#tsvFormat)
-* d3.tsv.formatRows ↦ [d3.tsvFormatRows](https://github.com/d3/d3-dsv/blob/master/README.md#tsvFormatRows)
+d3.csv.parse -> [d3.csvParse](https://github.com/d3/d3-dsv#csvParse)
 
-The [d3.csv](https://github.com/d3/d3-request/blob/master/README.md#csv) and [d3.tsv](https://github.com/d3/d3-request/blob/master/README.md#tsv) methods for loading files of the corresponding formats have not been renamed, however! Those are defined in [d3-request](#requests-d3-request).There’s no longer a d3.dsv method, which served the triple purpose of defining a DSV formatter, a DSV parser and a DSV requestor; instead, there’s just [d3.dsvFormat](https://github.com/d3/d3-dsv/blob/master/README.md#dsvFormat) which you can use to define a DSV formatter and parser. You can use [*request*.response](https://github.com/d3/d3-request/blob/master/README.md#request_response) to make a request and then parse the response body, or just use [d3.text](https://github.com/d3/d3-request/blob/master/README.md#text).
+d3.csv.parseRows -> [d3.csvParseRows](https://github.com/d3/d3-dsv#csvParseRows)
 
-The [*dsv*.parse](https://github.com/d3/d3-dsv/blob/master/README.md#dsv_parse) method now exposes the column names and their input order as *data*.columns. For example:
+d3.csv.format -> [d3.csvFormat](https://github.com/d3/d3-dsv#csvFormat)
 
-```js
+d3.csv.formatRows -> [d3.csvFormatRows](https://github.com/d3/d3-dsv#csvFormatRows)
+
+d3.tsv.parse -> [d3.tsvParse](https://github.com/d3/d3-dsv#tsvParse)
+
+d3.tsv.parseRows -> [d3.tsvParseRows](https://github.com/d3/d3-dsv#tsvParseRows)
+
+d3.tsv.format -> [d3.tsvFormat](https://github.com/d3/d3-dsv#tsvFormat)
+
+d3.tsv.formatRows -> [d3.tsvFormatRows](https://github.com/d3/d3-dsv#tsvFormatRows)
+
+用以加载文件的d3.csv和d3.tsv方法没有被重命名，但是他们被定义在d3-request。不再由d3.dsv来定义。而是使用d3.dsvFormat方法来定义自定义分割解析器。你可以使用request.response来获取内容然后解析。或者使用d3.text方法。
+
+dsv.parse方法提供了columns来获取列名，比如：
+
+```
 d3.csv("cars.csv", function(error, data) {
   if (error) throw error;
   console.log(data.columns); // ["Year", "Make", "Model", "Length"]
 });
 ```
 
-You can likewise pass an optional array of column names to [*dsv*.format](https://github.com/d3/d3-dsv/blob/master/README.md#dsv_format) to format only a subset of columns, or to specify the column order explicitly:
+你可以为dsv.format方法传入一个数组来按顺序获取指定的列,比如：
 
-```js
+```
 var string = d3.csvFormat(data, ["Year", "Model", "Length"]);
 ```
 
-The parser is a bit faster and the formatter is a bit more robust: inputs are coerced to strings before formatting, fixing an obscure crash, and deprecated support for falling back to [*dsv*.formatRows](https://github.com/d3/d3-dsv/blob/master/README.md#dsv_formatRows) when the input *data* is an array of arrays has been removed.
+新的解析器更快并且更强大：输入数据在转化格式之前被强制转为字符串可以修复转化崩溃问题。
 
-## [Easings (d3-ease)](https://github.com/d3/d3-ease/blob/master/README.md)
+## Easings(d3-ease)
 
-D3 3.x used strings, such as “cubic-in-out”, to identify easing methods; these strings could be passed to d3.ease or *transition*.ease. D3 4.0 uses symbols instead, such as [d3.easeCubicInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCubicInOut). Symbols are simpler and cleaner. They work well with Rollup to produce smaller custom bundles. You can still define your own custom easing function, too, if desired. Here’s the full list of equivalents:
+在3.x中使用字符串来定义过渡类型，然后将这些字符串传入d3.ease或transition.ease。在4.0中通过定义符号来设置过渡类型。比如[d3.easeCubicInOut.](https://github.com/d3/d3-ease#easeCubicInOut)。定义过渡符号是简洁的。如果需要的话你也可以自定义过渡类型。下面是3.x中字符与4.0中符号的对应关系：
 
-* linear ↦ [d3.easeLinear](https://github.com/d3/d3-ease/blob/master/README.md#easeLinear)¹
-* linear-in ↦ [d3.easeLinear](https://github.com/d3/d3-ease/blob/master/README.md#easeLinear)¹
-* linear-out ↦ [d3.easeLinear](https://github.com/d3/d3-ease/blob/master/README.md#easeLinear)¹
-* linear-in-out ↦ [d3.easeLinear](https://github.com/d3/d3-ease/blob/master/README.md#easeLinear)¹
-* linear-out-in ↦ [d3.easeLinear](https://github.com/d3/d3-ease/blob/master/README.md#easeLinear)¹
-* poly-in ↦ [d3.easePolyIn](https://github.com/d3/d3-ease/blob/master/README.md#easePolyIn)
-* poly-out ↦ [d3.easePolyOut](https://github.com/d3/d3-ease/blob/master/README.md#easePolyOut)
-* poly-in-out ↦ [d3.easePolyInOut](https://github.com/d3/d3-ease/blob/master/README.md#easePolyInOut)
-* poly-out-in ↦ REMOVED²
-* quad-in ↦ [d3.easeQuadIn](https://github.com/d3/d3-ease/blob/master/README.md#easeQuadIn)
-* quad-out ↦ [d3.easeQuadOut](https://github.com/d3/d3-ease/blob/master/README.md#easeQuadOut)
-* quad-in-out ↦ [d3.easeQuadInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeQuadInOut)
-* quad-out-in ↦ REMOVED²
-* cubic-in ↦ [d3.easeCubicIn](https://github.com/d3/d3-ease/blob/master/README.md#easeCubicIn)
-* cubic-out ↦ [d3.easeCubicOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCubicOut)
-* cubic-in-out ↦ [d3.easeCubicInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCubicInOut)
-* cubic-out-in ↦ REMOVED²
-* sin-in ↦ [d3.easeSinIn](https://github.com/d3/d3-ease/blob/master/README.md#easeSinIn)
-* sin-out ↦ [d3.easeSinOut](https://github.com/d3/d3-ease/blob/master/README.md#easeSinOut)
-* sin-in-out ↦ [d3.easeSinInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeSinInOut)
-* sin-out-in ↦ REMOVED²
-* exp-in ↦ [d3.easeExpIn](https://github.com/d3/d3-ease/blob/master/README.md#easeExpIn)
-* exp-out ↦ [d3.easeExpOut](https://github.com/d3/d3-ease/blob/master/README.md#easeExpOut)
-* exp-in-out ↦ [d3.easeExpInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeExpInOut)
-* exp-out-in ↦ REMOVED²
-* circle-in ↦ [d3.easeCircleIn](https://github.com/d3/d3-ease/blob/master/README.md#easeCircleIn)
-* circle-out ↦ [d3.easeCircleOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCircleOut)
-* circle-in-out ↦ [d3.easeCircleInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCircleInOut)
-* circle-out-in ↦ REMOVED²
-* elastic-in ↦ [d3.easeElasticOut](https://github.com/d3/d3-ease/blob/master/README.md#easeElasticOut)²
-* elastic-out ↦ [d3.easeElasticIn](https://github.com/d3/d3-ease/blob/master/README.md#easeElasticIn)²
-* elastic-in-out ↦ REMOVED²
-* elastic-out-in ↦ [d3.easeElasticInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeElasticInOut)²
-* back-in ↦ [d3.easeBackIn](https://github.com/d3/d3-ease/blob/master/README.md#easeBackIn)
-* back-out ↦ [d3.easeBackOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBackOut)
-* back-in-out ↦ [d3.easeBackInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBackInOut)
-* back-out-in ↦ REMOVED²
-* bounce-in ↦ [d3.easeBounceOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBounceOut)²
-* bounce-out ↦ [d3.easeBounceIn](https://github.com/d3/d3-ease/blob/master/README.md#easeBounceIn)²
-* bounce-in-out ↦ REMOVED²
-* bounce-out-in ↦ [d3.easeBounceInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeBounceInOut)²
 
-¹ The -in, -out and -in-out variants of linear easing are identical, so there’s just d3.easeLinear.
-<br>² Elastic and bounce easing were inadvertently reversed in 3.x, so 4.0 eliminates -out-in easing!
+linear -> d3.easeLinear¹
 
-For convenience, there are also default aliases for each easing method. For example, [d3.easeCubic](https://github.com/d3/d3-ease/blob/master/README.md#easeCubic) is an alias for [d3.easeCubicInOut](https://github.com/d3/d3-ease/blob/master/README.md#easeCubicInOut). Most default to -in-out; the exceptions are [d3.easeBounce](https://github.com/d3/d3-ease/blob/master/README.md#easeBounce) and [d3.easeElastic](https://github.com/d3/d3-ease/blob/master/README.md#easeElastic), which default to -out.
+linear-in -> d3.easeLinear¹
 
-Rather than pass optional arguments to d3.ease or *transition*.ease, parameterizable easing functions now have named parameters: [*poly*.exponent](https://github.com/d3/d3-ease/blob/master/README.md#poly_exponent), [*elastic*.amplitude](https://github.com/d3/d3-ease/blob/master/README.md#elastic_amplitude), [*elastic*.period](https://github.com/d3/d3-ease/blob/master/README.md#elastic_period) and [*back*.overshoot](https://github.com/d3/d3-ease/blob/master/README.md#back_overshoot). For example, in D3 3.x you might say:
+linear-out -> d3.easeLinear¹
 
-```js
+linear-in-out -> d3.easeLinear¹
+
+linear-out-in -> d3.easeLinear¹
+
+poly-in -> d3.easePolyIn
+
+poly-out -> d3.easePolyOut
+
+poly-in-out -> d3.easePolyInOut
+
+poly-out-in -> REMOVED²
+
+quad-in -> d3.easeQuadIn
+
+quad-out -> d3.easeQuadOut
+
+quad-in-out -> d3.easeQuadInOut
+
+quad-out-in -> REMOVED²
+
+cubic-in -> d3.easeCubicIn
+
+cubic-out -> d3.easeCubicOut
+
+cubic-in-out -> d3.easeCubicInOut
+
+cubic-out-in -> REMOVED²
+
+sin-in -> d3.easeSinIn
+
+sin-out -> d3.easeSinOut
+
+sin-in-out -> d3.easeSinInOut
+
+sin-out-in -> REMOVED²
+
+exp-in -> d3.easeExpIn
+
+exp-out -> d3.easeExpOut
+
+exp-in-out -> d3.easeExpInOut
+
+exp-out-in -> REMOVED²
+
+circle-in -> d3.easeCircleIn
+
+circle-out -> d3.easeCircleOut
+
+circle-in-out -> d3.easeCircleInOut
+
+circle-out-in -> REMOVED²
+
+elastic-in -> d3.easeElasticOut²
+
+elastic-out -> d3.easeElasticIn²
+
+elastic-in-out -> REMOVED²
+
+elastic-out-in -> d3.easeElasticInOut²
+
+back-in -> d3.easeBackIn
+
+back-out -> d3.easeBackOut
+
+back-in-out -> d3.easeBackInOut
+
+back-out-in -> REMOVED²
+
+bounce-in -> d3.easeBounceOut²
+
+bounce-out -> d3.easeBounceIn²
+
+bounce-in-out -> REMOVED²
+
+bounce-out-in -> d3.easeBounceInOut²
+
+与为d3.ease和transition.ease传入字符串不同，参数化的过渡更加灵活，比如指数过渡时候可以传入指数大小，其他也类似(poly.exponent, elastic.amplitude, elastic.period，back.overshoot)。比如在3.x中你可以如下定义：
+
+
+```
 var e = d3.ease("elastic-out-in", 1.2);
 ```
 
-The equivalent in D3 4.0 is:
+而在4.0中你可以如下定义：
 
-```js
+```
 var e = d3.easeElastic.amplitude(1.2);
 ```
 
-Many of the easing functions have been optimized for performance and accuracy. Several bugs have been fixed, as well, such as the interpretation of the overshoot parameter for back easing, and the period parameter for elastic easing. Also, [d3-transition](#transitions-d3-transition) now explicitly guarantees that the last tick of the transition happens at exactly *t* = 1, avoiding floating point errors in some easing functions.
+许多过渡方法都得到了性能和精确度上的优化。并修复了一些bug，比如transition中保证了最后一帧时候t=1避免因小数点引起的错误。
 
-There’s now a nice [visual reference](https://github.com/d3/d3-ease/blob/master/README.md) and an [animated reference](https://bl.ocks.org/mbostock/248bac3b8e354a9103c4) to the new easing functions, too!
+新过渡方法的[视觉参考](https://github.com/d3/d3-ease/blob/master/README.md)和[动画参考](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4)。
 
-## [Forces (d3-force)](https://github.com/d3/d3-force/blob/master/README.md)
+## Forces(d3-force)
 
-The force layout d3.layout.force has been renamed to d3.forceSimulation. The force simulation now uses [velocity Verlet integration](https://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet) rather than position Verlet, tracking the nodes’ positions (*node*.x, *node*.y) and velocities (*node*.vx, *node*.vy) rather than their previous positions (*node*.px, *node*.py).
+d3.layout.force被重命名为d3.forceSimulation。新的力导向仿真使用速度Verlet算法而不是位置Verlet算法，即追踪节点的位置(node.x，node.y)和速度(node.vx,node.vy)而不是之前的位置(node.px，node.py)。
 
-Rather than hard-coding a set of built-in forces, the force simulation is now extensible: you specify which forces you want! The approach affords greater flexibility through composition. The new forces are more flexible, too: force parameters can typically be configured per-node or per-link. There are separate positioning forces for [*x*](https://github.com/d3/d3-force/blob/master/README.md#forceX) and [*y*](https://github.com/d3/d3-force/blob/master/README.md#forceY) that replace *force*.gravity; [*x*.x](https://github.com/d3/d3-force/blob/master/README.md#x_x) and [*y*.y](https://github.com/d3/d3-force/blob/master/README.md#y_y) replace *force*.size. The new [link force](https://github.com/d3/d3-force/blob/master/README.md#forceLink) replaces *force*.linkStrength and employs better default heuristics to improve stability. The new [many-body force](https://github.com/d3/d3-force/blob/master/README.md#forceManyBody) replaces *force*.charge and supports a new [minimum-distance parameter](https://github.com/d3/d3-force/blob/master/README.md#manyBody_distanceMin) and performance improvements thanks to 4.0’s [new quadtrees](#quadtrees-d3-quadtree). There are also brand-new forces for [centering nodes](https://github.com/d3/d3-force/blob/master/README.md#forceCenter) and [collision resolution](https://github.com/d3/d3-force/blob/master/README.md#forceCollision).
+现在的力导向仿真可以很好的扩展：你可以指定哪些受力。这个方法使得作品更柔和。新的力导向也更灵活：可以为每个节点和连接设置参数。可以指定单独的x和y来代替force.gravity。新的link force代替force.linkStrength并且更稳定。新的many-body force代替原有的force.charge并且支持最小距离参数。性能的提高归功于4.0的新的四叉树。4.0提供了冲突解决和向中对齐的方法。
 
-The new forces and simulation have been carefully crafted to avoid nondeterminism. Rather than initializing nodes randomly, if the nodes do not have preset positions, they are placed in a phyllotaxis pattern:
+新的力导向仿真避免不确定性，比如在3.x中结点的初始位置是随机的，如果结点没有初始位置，则被放置在一个类似叶序图案上。
 
-<img alt="Phyllotaxis" src="https://raw.githubusercontent.com/d3/d3-force/master/img/phyllotaxis.png" width="420" height="219">
+![image](https://raw.githubusercontent.com/d3/d3-force/master/img/phyllotaxis.png)
 
-Random jitter is still needed to resolve link, collision and many-body forces if there are coincident nodes, but at least in the common case, the force simulation (and the resulting force-directed graph layout) is now consistent across browsers and reloads. D3 no longer plays dice!
+力导向仿真提供了一些方法来控制结点"过热"(根本停不下来那种),比如simulation.alphaMin和simulation.alphaDecay和内部计时器。调用simulation.alpha时对内部计时器没有影响，它由simulation.stop和simulatonrestart独立控制。与3.x一样，4.0使用simulation.tick来打点。force.frition由simulation.velocityDecay代替。新的simulation.alphaTarget方法允许设置期望的仿真"温度"(什么时候停下来)。这样可以使仿真重新开始然后再次冷却，提高了交互过程中的稳定性。
 
-The force simulation has several new methods for greater control over heating, such as [*simulation*.alphaMin](https://github.com/d3/d3-force/blob/master/README.md#simulation_alphaMin) and [*simulation*.alphaDecay](https://github.com/d3/d3-force/blob/master/README.md#simulation_alphaDecay), and the internal timer. Calling [*simulation*.alpha](https://github.com/d3/d3-force/blob/master/README.md#simulation_alpha) now has no effect on the internal timer, which is controlled independently via [*simulation*.stop](https://github.com/d3/d3-force/blob/master/README.md#simulation_stop) and [*simulation*.restart](https://github.com/d3/d3-force/blob/master/README.md#simulation_restart). The force layout’s internal timer now starts automatically on creation, removing *force*.start. As in 3.x, you can advance the simulation manually using [*simulation*.tick](https://github.com/d3/d3-force/blob/master/README.md#simulation_tick). The *force*.friction parameter is replaced by *simulation*.velocityDecay. A new [*simulation*.alphaTarget](https://github.com/d3/d3-force/blob/master/README.md#simulation_alphaTarget) method allows you to set the desired alpha (temperature) of the simulation, such that the simulation can be smoothly reheated during interaction, and then smoothly cooled again. This improves the stability of the graph during interaction.
+force布局不再依赖拖拽行为，因为你可以直接创建一个可拖动的力导向布局。设置node.fx和node.fy来修正节点的位置。simulation.find方法替代了泰森多边形的SVG叠加，以找到最近节点的引用。
 
-The force layout no longer depends on the [drag behavior](#dragging-d3-drag), though you can certainly create [draggable force-directed graphs](https://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048)! Set *node*.fx and *node*.fy to fix a node’s position. As an alternative to a [Voronoi](#voronoi-d3-voronoi) SVG overlay, you can now use [*simulation*.find](https://github.com/d3/d3-force/blob/master/README.md#simulation_find) to find the closest node to a pointer.
+## Number Formats(d3-format)
 
-## [Number Formats (d3-format)](https://github.com/d3/d3-format/blob/master/README.md)
+默认精度发生了变化：除了none以外所有的指令位数默认为6，而3.x中为12。4.0中的默认精度产生的结果格式更一致：
 
-If a precision is not specified, the formatting behavior has changed: there is now a default precision of 6 for all directives except *none*, which defaults to 12. In 3.x, if you did not specify a precision, the number was formatted using its shortest unique representation (per [*number*.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)); this could lead to unexpected digits due to [floating point math](http://0.30000000000000004.com/). The new default precision in 4.0 produces more consistent results:
-
-```js
+```
 var f = d3.format("e");
 f(42);        // "4.200000e+1"
 f(0.1 + 0.2); // "3.000000e-1"
 ```
 
-To trim insignificant trailing zeroes, use the *none* directive, which is similar `g`. For example:
+在3.x中
 
-```js
+```
+var f = d3.format("e");
+f(42);        // "4.200000e+1"
+f(0.1 + 0.2); // "3.0000000000000004e-1"
+```
+
+使用node指令去除去无关紧要的末尾0，类似于g,例如
+
+```
 var f = d3.format(".3");
 f(0.12345);   // "0.123"
 f(0.10000);   // "0.1"
 f(0.1 + 0.2); // "0.3"
 ```
 
-Under the hood, number formatting has improved accuracy with very large and very small numbers by using [*number*.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential) rather than [Math.log](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/log) to extract the mantissa and exponent. Negative zero (-0, an IEEE 754 construct) and very small numbers that round to zero are now formatted as unsigned zero. The inherently unsafe d3.round method has been removed, along with d3.requote.
+在实现方面，使用number.toExponential代替Math.log来获取小数和指数提高了精确度。负0被格式化为无符号0。内部不安全的d3.round方法和d3.d3.requote被移除。
 
-The [d3.formatPrefix](https://github.com/d3/d3-format/blob/master/README.md#formatPrefix) method has been changed. Rather than returning an SI-prefix string, it returns an SI-prefix format function for a given *specifier* and reference *value*. For example, to format thousands:
+d3.formatPrefix方法被改变。与返回带国际单位的字符串不同，它根据给定的分隔符和参考值返回一个国际单位格式化函数。比如格式化千：
 
-```js
+```
 var f = d3.formatPrefix(",.0", 1e3);
 f(1e3); // "1k"
 f(1e4); // "10k"
@@ -444,9 +425,9 @@ f(1e5); // "100k"
 f(1e6); // "1,000k"
 ```
 
-Unlike the `s` format directive, d3.formatPrefix always employs the same SI-prefix, producing consistent results:
+与d3.format的s指令不同，d3.formatPrefix总是返回相同的单位：
 
-```js
+```
 var f = d3.format(".0s");
 f(1e3); // "1k"
 f(1e4); // "10k"
@@ -454,101 +435,134 @@ f(1e5); // "100k"
 f(1e6); // "1M"
 ```
 
-The new `(` sign option uses parentheses for negative values. This is particularly useful in conjunction with `$`. For example:
+(标示用来将负数括起来，这在与$一起使用时很有用：
 
-```js
+```
 d3.format("+.0f")(-42);  // "-42"
 d3.format("(.0f")(-42);  // "(42)"
 d3.format("+$.0f")(-42); // "-$42"
 d3.format("($.0f")(-42); // "($42)"
 ```
 
-The new `=` align option places any sign and symbol to the left of any padding:
+=标示用来在左侧填充间隔：
 
-```js
+```
 d3.format(">6d")(-42);  // "   -42"
 d3.format("=6d")(-42);  // "-   42"
 d3.format(">(6d")(-42); // "  (42)"
 d3.format("=(6d")(-42); // "(  42)"
 ```
 
-The `b`, `o`, `d` and `x` directives now round to the nearest integer, rather than returning the empty string for non-integers:
+b,o,d和x指令会将参数四舍五入为最近整数后转化，而不是在遇到非整型数字时返回空字符串：
 
-```js
+```
 d3.format("b")(41.9); // "101010"
 d3.format("o")(41.9); // "52"
 d3.format("d")(41.9); // "42"
 d3.format("x")(41.9); // "2a"
 ```
 
-The `c` directive is now for character data (*i.e.*, literal strings), not for character codes. The is useful if you just want to apply padding and alignment and don’t care about formatting numbers. For example, the infamous [left-pad](http://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm) (as well as center- and right-pad!) can be conveniently implemented as:
+c指令用来处理字符串数据，在想要填补对齐的时候是很有用的，比如三种对齐方式：
 
-```js
+```
 d3.format(">10c")("foo"); // "       foo"
 d3.format("^10c")("foo"); // "   foo    "
 d3.format("<10c")("foo"); // "foo       "
 ```
 
-There are several new methods for computing suggested decimal precisions; these are used by [d3-scale](#scales-d3-scale) for tick formatting, and are helpful for implementing custom number formats: [d3.precisionFixed](https://github.com/d3/d3-format/blob/master/README.md#precisionFixed), [d3.precisionPrefix](https://github.com/d3/d3-format/blob/master/README.md#precisionPrefix) and [d3.precisionRound](https://github.com/d3/d3-format/blob/master/README.md#precisionRound). There’s also a new [d3.formatSpecifier](https://github.com/d3/d3-format/blob/master/README.md#formatSpecifier) method for parsing, validating and debugging format specifiers; it’s also good for deriving related format specifiers, such as when you want to substitute the precision automatically.
+提供了一些新的的方法来计算建议的小数位数。这些方法也被d3-scale的刻度格式化使用并且很有用: d3.precisionFixed, d3.precisionPrefix和d3.precisionRound
 
-You can now set the default locale using [d3.formatDefaultLocale](https://github.com/d3/d3-format/blob/master/README.md#formatDefaultLocale)! The locales are published as [JSON](https://github.com/d3/d3-request/blob/master/README.md#json) to [npm](https://unpkg.com/d3-format/locale/).
+## Geographies(d3-geo)
 
-## [Geographies (d3-geo)](https://github.com/d3/d3-geo/blob/master/README.md)
+为了扁平化命名空间，对下列方法进行了重命名：
 
-Pursuant to the great namespace flattening, various methods have new names:
+d3.geo.graticule -> d3.geoGraticule
 
-* d3.geo.graticule ↦ [d3.geoGraticule](https://github.com/d3/d3-geo/blob/master/README.md#geoGraticule)
-* d3.geo.circle ↦ [d3.geoCircle](https://github.com/d3/d3-geo/blob/master/README.md#geoCircle)
-* d3.geo.area ↦ [d3.geoArea](https://github.com/d3/d3-geo/blob/master/README.md#geoArea)
-* d3.geo.bounds ↦ [d3.geoBounds](https://github.com/d3/d3-geo/blob/master/README.md#geoBounds)
-* d3.geo.centroid ↦ [d3.geoCentroid](https://github.com/d3/d3-geo/blob/master/README.md#geoCentroid)
-* d3.geo.distance ↦ [d3.geoDistance](https://github.com/d3/d3-geo/blob/master/README.md#geoDistance)
-* d3.geo.interpolate ↦ [d3.geoInterpolate](https://github.com/d3/d3-geo/blob/master/README.md#geoInterpolate)
-* d3.geo.length ↦ [d3.geoLength](https://github.com/d3/d3-geo/blob/master/README.md#geoLength)
-* d3.geo.rotation ↦ [d3.geoRotation](https://github.com/d3/d3-geo/blob/master/README.md#geoRotation)
-* d3.geo.stream ↦ [d3.geoStream](https://github.com/d3/d3-geo/blob/master/README.md#geoStream)
-* d3.geo.path ↦ [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath)
-* d3.geo.projection ↦ [d3.geoProjection](https://github.com/d3/d3-geo/blob/master/README.md#geoProjection)
-* d3.geo.projectionMutator ↦ [d3.geoProjectionMutator](https://github.com/d3/d3-geo/blob/master/README.md#geoProjectionMutator)
-* d3.geo.albers ↦ [d3.geoAlbers](https://github.com/d3/d3-geo/blob/master/README.md#geoAlbers)
-* d3.geo.albersUsa ↦ [d3.geoAlbersUsa](https://github.com/d3/d3-geo/blob/master/README.md#geoAlbersUsa)
-* d3.geo.azimuthalEqualArea ↦ [d3.geoAzimuthalEqualArea](https://github.com/d3/d3-geo/blob/master/README.md#geoAzimuthalEqualArea)
-* d3.geo.azimuthalEquidistant ↦ [d3.geoAzimuthalEquidistant](https://github.com/d3/d3-geo/blob/master/README.md#geoAzimuthalEquidistant)
-* d3.geo.conicConformal ↦ [d3.geoConicConformal](https://github.com/d3/d3-geo/blob/master/README.md#geoConicConformal)
-* d3.geo.conicEqualArea ↦ [d3.geoConicEqualArea](https://github.com/d3/d3-geo/blob/master/README.md#geoConicEqualArea)
-* d3.geo.conicEquidistant ↦ [d3.geoConicEquidistant](https://github.com/d3/d3-geo/blob/master/README.md#geoConicEquidistant)
-* d3.geo.equirectangular ↦ [d3.geoEquirectangular](https://github.com/d3/d3-geo/blob/master/README.md#geoEquirectangular)
-* d3.geo.gnomonic ↦ [d3.geoGnomonic](https://github.com/d3/d3-geo/blob/master/README.md#geoGnomonic)
-* d3.geo.mercator ↦ [d3.geoMercator](https://github.com/d3/d3-geo/blob/master/README.md#geoMercator)
-* d3.geo.orthographic ↦ [d3.geoOrthographic](https://github.com/d3/d3-geo/blob/master/README.md#geoOrthographic)
-* d3.geo.stereographic ↦ [d3.geoStereographic](https://github.com/d3/d3-geo/blob/master/README.md#geoStereographic)
-* d3.geo.transverseMercator ↦ [d3.geoTransverseMercator](https://github.com/d3/d3-geo/blob/master/README.md#geoTransverseMercator)
+d3.geo.circle -> d3.geoCircle
 
-Also renamed for consistency:
+d3.geo.area -> d3.geoArea
 
-* *circle*.origin ↦ [*circle*.center](https://github.com/d3/d3-geo/blob/master/README.md#circle_center)
-* *circle*.angle ↦ [*circle*.radius](https://github.com/d3/d3-geo/blob/master/README.md#circle_radius)
-* *graticule*.majorExtent ↦ [*graticule*.extentMajor](https://github.com/d3/d3-geo/blob/master/README.md#graticule_extentMajor)
-* *graticule*.minorExtent ↦ [*graticule*.extentMinor](https://github.com/d3/d3-geo/blob/master/README.md#graticule_extentMinor)
-* *graticule*.majorStep ↦ [*graticule*.stepMajor](https://github.com/d3/d3-geo/blob/master/README.md#graticule_stepMajor)
-* *graticule*.minorStep ↦ [*graticule*.stepMinor](https://github.com/d3/d3-geo/blob/master/README.md#graticule_stepMinor)
+d3.geo.bounds -> d3.geoBounds
 
-Projections now have more appropriate defaults. For example, [d3.geoOrthographic](https://github.com/d3/d3-geo/blob/master/README.md#geoOrthographic) has a 90° clip angle by default, showing only the front hemisphere, and [d3.geoGnomonic](https://github.com/d3/d3-geo/blob/master/README.md#geoGnomonic) has a default 60° clip angle. The default [projection](https://github.com/d3/d3-geo/blob/master/README.md#path_projection) for [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath) is now null rather than [d3.geoAlbersUsa](https://github.com/d3/d3-geo/blob/master/README.md#geoAlbersUsa); a null projection is used with [pre-projected geometry](https://bl.ocks.org/mbostock/5557726) and is typically faster to render.
+d3.geo.centroid -> d3.geoCentroid
 
-“Fallback projections”—when you pass a function rather than a projection to [*path*.projection](https://github.com/d3/d3-geo/blob/master/README.md#path_projection)—are no longer supported. For geographic projections, use [d3.geoProjection](https://github.com/d3/d3-geo/blob/master/README.md#geoProjection) or [d3.geoProjectionMutator](https://github.com/d3/d3-geo/blob/master/README.md#geoProjectionMutator) to define a custom projection. For arbitrary geometry transformations, implement the [stream interface](https://github.com/d3/d3-geo/blob/master/README.md#streams); see also [d3.geoTransform](https://github.com/d3/d3-geo/blob/master/README.md#geoTransform). The “raw” projections (e.g., d3.geo.equirectangular.raw) are no longer exported.
+d3.geo.distance -> d3.geoDistance
 
-## [Hierarchies (d3-hierarchy)](https://github.com/d3/d3-hierarchy/blob/master/README.md)
+d3.geo.interpolate -> d3.geoInterpolate
 
-Pursuant to the great namespace flattening:
+d3.geo.length -> d3.geoLength
 
-* d3.layout.cluster ↦ [d3.cluster](https://github.com/d3/d3-hierarchy/blob/master/README.md#cluster)
-* d3.layout.hierarchy ↦ [d3.hierarchy](https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy)
-* d3.layout.pack ↦ [d3.pack](https://github.com/d3/d3-hierarchy/blob/master/README.md#pack)
-* d3.layout.partition ↦ [d3.partition](https://github.com/d3/d3-hierarchy/blob/master/README.md#partition)
-* d3.layout.tree ↦ [d3.tree](https://github.com/d3/d3-hierarchy/blob/master/README.md#tree)
-* d3.layout.treemap ↦ [d3.treemap](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap)
+d3.geo.rotation -> d3.geoRotation
 
-As an alternative to using JSON to represent hierarchical data (such as the “flare.json format” used by many D3 examples), the new [d3.stratify](https://github.com/d3/d3-hierarchy/blob/master/README.md#stratify) operator simplifies the conversion of tabular data to hierarchical data! This is convenient if you already have data in a tabular format, such as the result of a SQL query or a CSV file:
+d3.geo.stream -> d3.geoStream
+
+d3.geo.path -> d3.geoPath
+
+d3.geo.projection -> d3.geoProjection
+
+d3.geo.projectionMutator -> d3.geoProjectionMutator
+
+d3.geo.albers -> d3.geoAlbers
+
+d3.geo.albersUsa -> d3.geoAlbersUsa
+
+d3.geo.azimuthalEqualArea -> d3.geoAzimuthalEqualArea
+
+d3.geo.azimuthalEquidistant -> d3.geoAzimuthalEquidistant
+
+d3.geo.conicConformal -> d3.geoConicConformal
+
+d3.geo.conicEqualArea -> d3.geoConicEqualArea
+
+d3.geo.conicEquidistant -> d3.geoConicEquidistant
+
+d3.geo.equirectangular -> d3.geoEquirectangular
+
+d3.geo.gnomonic -> d3.geoGnomonic
+
+d3.geo.mercator -> d3.geoMercator
+
+d3.geo.orthographic -> d3.geoOrthographic
+
+d3.geo.stereographic -> d3.geoStereographic
+
+d3.geo.transverseMercator -> d3.geoTransverseMercator
+
+也为了一致性对下面方法进行了重命名：
+
+circle.origin -> circle.center
+
+circle.angle -> circle.radius
+
+graticule.majorExtent -> graticule.extentMajor
+
+graticule.minorExtent -> graticule.extentMinor
+
+graticule.majorStep -> graticule.stepMajor
+
+graticule.minorStep -> graticule.stepMinor
+
+4.0中投影有更多的默认设置，比如d3.geoOrthographic默认90度的弯角。仅仅显示前半球。d3.geoGnomonic默认60度的夹角。d3.geoPath默认的投影为null而不是d3.geoAlbersUsa。空投影在使用pre-projected geometry时可以被更快的渲染。
+
+path.projection不再被支持，而是使用d3.geoProjection或d3.geoProjectionMutator来定义一个自定义投影方式。对于任意的几何变换，可以参考[d3-geoTransform](https://github.com/d3/d3-geo#geoTransform)。
+
+## Hierarchies(d3-hierarchy)
+
+为了扁平化命名空间，对下列方法进行了重命名：
+
+d3.layout.cluster -> d3.cluster
+
+d3.layout.hierarchy -> d3.hierarchy
+
+d3.layout.pack -> d3.pack
+
+d3.layout.partition -> d3.partition
+
+d3.layout.tree -> d3.tree
+
+d3.layout.treemap -> d3.treemap
+
+作为JSON的替代,d3的分层操作d3-stratify可以将一个列表数据转为层次结构数据。如果你使用的是SQL查询结果或CSV数据时可以使用这个方法：
 
 ```
 name,parent
@@ -563,148 +577,121 @@ Enoch,Awan
 Azura,Eve
 ```
 
-To convert this to a root [*node*](https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy):
+转化操作：
 
-```js
+```
 var root = d3.stratify()
     .id(function(d) { return d.name; })
     .parentId(function(d) { return d.parent; })
     (nodes);
 ```
 
-The resulting *root* can be passed to [d3.tree](https://github.com/d3/d3-hierarchy/blob/master/README.md#tree) to produce a tree diagram like this:
+使用d3.tree对root进行可视化结果：
 
-<img src="https://raw.githubusercontent.com/d3/d3/master/img/stratify.png" width="298" height="137">
+![image](https://raw.githubusercontent.com/d3/d3/master/img/stratify.png)
 
-Root nodes can also be created from JSON data using [d3.hierarchy](https://github.com/d3/d3-hierarchy/blob/master/README.md#hierarchy). The hierarchy layouts now take these root nodes as input rather than operating directly on JSON data, which helps to provide a cleaner separation between the input data and the computed layout. (For example, use [*node*.copy](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_copy) to isolate layout changes.) It also simplifies the API: rather than each hierarchy layout needing to implement value and sorting accessors, there are now generic [*node*.sum](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sum) and [*node*.sort](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_sort) methods that work with any hierarchy layout.
+root节点当然也可以使用d3.hierarchy方法由JSON数据创建。4.0中层次布局使用root节点而非直接使用JSON数据可以在输入数据和布局之间很容易的进行区分。(比如node、.copy可以阻断布局的改变)。并且API也更简单：与之前相比，不再需要向value和sort来传入访问器函数，现在使用更一般的方法node.sum和node.sort来与层次结构布局结合。
 
-The new d3.hierarchy API also provides a richer set of methods for manipulating hierarchical data. For example, to generate an array of all nodes in topological order, use [*node*.descendants](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_descendants); for just leaf nodes, use [*node*.leaves](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_leaves). To highlight the ancestors of a given *node* on mouseover, use [*node*.ancestors](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_ancestors). To generate an array of {source, target} links for a given hierarchy, use [*node*.links](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_links); this replaces *treemap*.links and similar methods on the other layouts. The new [*node*.path](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_path) method replaces d3.layout.bundle; see also [d3.curveBundle](https://github.com/d3/d3-shape/blob/master/README.md#curveBundle) for hierarchical edge bundling.
+新的d3.hierarchy API也为多样化的层级数据提供了更丰富的方法。比如，使用node.descendants为将拓扑序列所有的节点生成为数组。使用node.ancestors来访问祖先节点。使用node.links来生成{source,target}连接。替换了类似treemap.links以及其他布局中相似的方法。node.path方法代替了d3.layout.bundle布局。可以参考层级边捆绑的
+[d3.curveBundle实例](https://github.com/d3/d3-shape#curveBundle)。
 
-The hierarchy layouts have been rewritten using new, non-recursive traversal methods ([*node*.each](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_each), [*node*.eachAfter](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachAfter) and [*node*.eachBefore](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachBefore)), improving performance on large datasets. The d3.tree layout no longer uses a *node*.\_ field to store temporary state during layout.
+层级布局也被重写了。不在使用递归遍历方法，提高了性能(尤其是大数据集)。d3.tree布局不再使用node._来存储布局过程中的临时状态。
 
-Treemap tiling is now [extensible](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap-tiling) via [*treemap*.tile](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_tile)! The default squarified tiling algorithm, [d3.treemapSquarify](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapSquarify), has been completely rewritten, improving performance and fixing bugs in padding and rounding. The *treemap*.sticky method has been replaced with the [d3.treemapResquarify](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapResquarify), which is identical to d3.treemapSquarify except it performs stable neighbor-preserving updates. The *treemap*.ratio method has been replaced with [*squarify*.ratio](https://github.com/d3/d3-hierarchy/blob/master/README.md#squarify_ratio). And there’s a new [d3.treemapBinary](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapBinary) for binary treemaps!
+treemap可以通过treemap.tile来扩展。默认的分区算法d3.treemapSquarify被重写了，提高了性能并修复了间距和取整bug。treemap.sticky方法由d3.treemapResquarify替代，treemap.ratio由squarify.ratio替代。并且新添加了d3.treemapBinay来实现二叉树图。
 
-Treemap padding has also been improved. The treemap now distinguishes between [outer padding](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingOuter) that separates a parent from its children, and [inner padding](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingInner) that separates adjacent siblings. You can set the [top-](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingTop), [right-](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingRight), [bottom-](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) and [left-](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap_paddingLeft)outer padding separately. There are new examples for the traditional [nested treemap](https://bl.ocks.org/mbostock/911ad09bdead40ec0061) and for Lü and Fogarty’s [cascaded treemap](https://bl.ocks.org/mbostock/f85ffb3a5ac518598043). And there’s a new example demonstrating [d3.nest with d3.treemap](https://bl.ocks.org/mbostock/2838bf53e0e65f369f476afd653663a2).
+树图的间距也得到了提升。比如可以分开设置父子节点之间的间距(out padding)以及兄弟节点之间的间距(inner padding)。并且可以设置top-,right-,bottom-和left-outer间距。比如[nested treemap](http://bl.ocks.org/mbostock/911ad09bdead40ec0061)
 
-The space-filling layouts [d3.treemap](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemap) and [d3.partition](https://github.com/d3/d3-hierarchy/blob/master/README.md#partition) now output *x0*, *x1*, *y0*, *y1* on each node instead of *x0*, *dx*, *y0*, *dy*. This improves accuracy by ensuring that the edges of adjacent cells are exactly equal, rather than sometimes being slightly off due to floating point math. The partition layout now supports [rounding](https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_round) and [padding](https://github.com/d3/d3-hierarchy/blob/master/README.md#partition_padding).
+间隙填充布局d3.treemap和d3.partition现在为每个节点提供x0,x1,y0,y1来代替原有的x0,dx,y0,dy。这可以确保相邻的两个元素之间的边是相等的，解决了由于浮点数引起的细微的差别。
 
-The circle-packing layout, [d3.pack](https://github.com/d3/d3-hierarchy/blob/master/README.md#pack), has been completely rewritten to better implement Wang et al.’s algorithm, fixing major bugs and improving results! Welzl’s algorithm is now used to compute the exact [smallest enclosing circle](https://bl.ocks.org/mbostock/29c534ff0b270054a01c) for each parent, rather than the approximate answer used by Wang et al. The 3.x output is shown on the left; 4.0 is shown on the right:
+圆形布局d3-pack也根据Welzl’的算法重写了，修复了一些bug。Welzl’ al.的算法可以精准的计算出每个父节点的最小包围圈，这比之前使用Wang et al的算法要准确很多。对比：下图中左边是3.x，右边是4.0：
 
-<img alt="Circle Packing in 3.x" src="https://raw.githubusercontent.com/d3/d3/master/img/pack-v3.png" width="420" height="420"> <img alt="Circle Packing in 4.0" src="https://raw.githubusercontent.com/d3/d3/master/img/pack-v4.png" width="420" height="420">
+3.x | 4.0
+---|---
+![image](https://raw.githubusercontent.com/d3/d3/master/img/pack-v3.png) | ![row 1 col 2](https://raw.githubusercontent.com/d3/d3/master/img/pack-v4.png)
 
-A non-hierarchical implementation is also available as [d3.packSiblings](https://github.com/d3/d3-hierarchy/blob/master/README.md#packSiblings), and the smallest enclosing circle implementation is available as [d3.packEnclose](https://github.com/d3/d3-hierarchy/blob/master/README.md#packEnclose). [Pack padding](https://github.com/d3/d3-hierarchy/blob/master/README.md#pack_padding) now applies between a parent and its children, as well as between adjacent siblings. In addition, you can now specify padding as a function that is computed dynamically for each parent.
 
-## Internals
+## Interpolators(d3-interpolate)
 
-The d3.rebind method has been removed. (See the [3.x source](https://github.com/d3/d3/blob/v3.5.17/src/core/rebind.js).) If you want to wrap a getter-setter method, the recommend pattern is to implement a wrapper method and check the return value. For example, given a *component* that uses an internal [*dispatch*](#dispatches-d3-dispatch), *component*.on can rebind *dispatch*.on as follows:
+d3.interpolate方法不再依赖被移除的d3.interpolators了。它本地直接定义在库中，并且当对数值插值时稍快些。当使用d3.interpolateRgb对有效的CSS颜色说明符插值时，如果终点值为null,undefined或者布尔值时始终返回终点值。
 
-```js
-component.on = function() {
-  var value = dispatch.on.apply(dispatch, arguments);
-  return value === dispatch ? component : value;
-};
+d3.interpolateObject和d3.interpolateArray做了一些改变。当起始值a不存在终止值b中时，这些不存在的将会被忽略。如下在4.0中bar属性被忽略：
+
 ```
-
-The d3.functor method has been removed. (See the [3.x source](https://github.com/d3/d3/blob/v3.5.17/src/core/functor.js).) If you want to promote a constant value to a function, the recommended pattern is to implement a closure that returns the constant value. If desired, you can use a helper method as follows:
-
-```js
-function constant(x) {
-  return function() {
-    return x;
-  };
-}
-```
-
-Given a value *x*, to promote *x* to a function if it is not already:
-
-```js
-var fx = typeof x === "function" ? x : constant(x);
-```
-
-## [Interpolators (d3-interpolate)](https://github.com/d3/d3-interpolate/blob/master/README.md)
-
-The [d3.interpolate](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolate) method no longer delegates to d3.interpolators, which has been removed; its behavior is now defined by the library. It is now slightly faster in the common case that *b* is a number. It only uses [d3.interpolateRgb](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateRgb) if *b* is a valid CSS color specifier (and not approximately one). And if the end value *b* is null, undefined, true or false, d3.interpolate now returns a constant function which always returns *b*.
-
-The behavior of [d3.interpolateObject](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateObject) and [d3.interpolateArray](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateArray) has changed slightly with respect to properties or elements in the start value *a* that do not exist in the end value *b*: these properties and elements are now ignored, such that the ending value of the interpolator at *t* = 1 is now precisely equal to *b*. So, in 3.x:
-
-```js
 d3.interpolateObject({foo: 2, bar: 1}, {foo: 3})(0.5); // {bar: 1, foo: 2.5} in 3.x
-```
 
-Whereas in 4.0, *a*.bar is ignored:
-
-```js
 d3.interpolateObject({foo: 2, bar: 1}, {foo: 3})(0.5); // {foo: 2.5} in 4.0
 ```
 
-If *a* or *b* are undefined or not an object, they are now implicitly converted to the empty object or empty array as appropriate, rather than throwing a TypeError.
+如果a或者b为undefined或者不是对象类型时，它们将隐式的转为对象类型而不是抛出类型错误。
 
-The d3.interpolateTransform interpolator has been renamed to [d3.interpolateTransformSvg](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateTransformSvg), and there is a new [d3.interpolateTransformCss](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateTransformCss) to interpolate CSS transforms! This allows [d3-transition](#transitions-d3-transition) to automatically interpolate both the SVG [transform attribute](https://www.w3.org/TR/SVG/coords.html#TransformAttribute) and the CSS [transform style property](https://www.w3.org/TR/css-transforms-1/#transform-property). (Note, however, that only 2D CSS transforms are supported.) The d3.transform method has been removed.
+对变化进行插值被改名为d3.interpolateTransformSvg。对css插值也有对应的d3.interpolateTransformCss方法。并且允许自动在变换属性和样式属性之间插值(仅仅支持2D变换)。d3.transform方法被移除。
 
-Color space interpolators now interpolate opacity (see [d3-color](#colors-d3-color)) and return rgb(…) or rgba(…) CSS color specifier strings rather than using the RGB hexadecimal format. This is necessary to support opacity interpolation, but is also beneficial because it matches CSS computed values. When a channel in the start color *a* is undefined, color interpolators now use the corresponding channel value from the end color *b*, or *vice versa*. This logic previously applied to some channels (such as saturation in HSL), but now applies to all channels in all color spaces, and is especially useful when interpolating to or from transparent.
+对颜色插值时返回rgb或rgba颜色字符串而不是十六进制格式。这样可以支持对的透明度插值。当起始颜色未定义时候，颜色插值器使用终止颜色值，反之亦然。这种思路之前被应用在某些颜色通道，而现在被应用在所有的颜色通道。
 
-There are now “long” versions of cylindrical color space interpolators: [d3.interpolateHslLong](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateHslLong), [d3.interpolateHclLong](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateHclLong) and [d3.interpolateCubehelixLong](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateCubehelixLong). These interpolators use linear interpolation of hue, rather than using the shortest path around the 360° hue circle. See [d3.interpolateRainbow](https://github.com/d3/d3-scale/blob/master/README.md#interpolateRainbow) for an example. The Cubehelix color space is now supported by [d3-color](#colors-d3-color), and so there are now [d3.interpolateCubehelix](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateCubehelix) and [d3.interpolateCubehelixLong](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateCubehelixLong) interpolators.
+在特殊的圆柱形颜色通道比如 d3.interpolateHslLong, d3.interpolateHclLong和d3.interpolateCubehelixLong，插值器对色相进行线性插值而不是围绕一周的最短路径。
 
-[Gamma-corrected color interpolation](https://web.archive.org/web/20160112115812/http://www.4p8.com/eric.brasseur/gamma.html) is now supported for both RGB and Cubehelix color spaces as [*interpolate*.gamma](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolate_gamma). For example, to interpolate from purple to orange with a gamma of 2.2 in RGB space:
+伽马矫正颜色插值也被支持。如使用interpolate.gamma来对如下颜色进行插值：
 
-```js
+```
 var interpolate = d3.interpolateRgb.gamma(2.2)("purple", "orange");
 ```
 
-There are new interpolators for uniform non-rational [B-splines](https://en.wikipedia.org/wiki/B-spline)! These are useful for smoothly interpolating between an arbitrary sequence of values from *t* = 0 to *t* = 1, such as to generate a smooth color gradient from a discrete set of colors. The [d3.interpolateBasis](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateBasis) and [d3.interpolateBasisClosed](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateBasisClosed) interpolators generate one-dimensional B-splines, while [d3.interpolateRgbBasis](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateRgbBasis) and [d3.interpolateRgbBasisClosed](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateRgbBasisClosed) generate three-dimensional B-splines through RGB color space. These are used by [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) to generate continuous color scales from ColorBrewer’s discrete color schemes, such as [PiYG](https://bl.ocks.org/mbostock/048d21cf747371b11884f75ad896e5a5).
+新添加了B样条插值器。这在任意离散的值之间过渡时是有用的。比如为离散的颜色创建平滑的颜色过渡。比如：d3.interpolateBasis和d3.interpolateBasisClosed 创建一维的B样条插值器。d3.interpolateRgbBasis和d3.interpolateRgbBasisClosed创建三维的RGB颜色空间B样条插值器。
 
-There’s also now a [d3.quantize](https://github.com/d3/d3-interpolate/blob/master/README.md#quantize) method for generating uniformly-spaced discrete samples from a continuous interpolator. This is useful for taking one of the built-in color scales (such as [d3.interpolateViridis](https://github.com/d3/d3-scale/blob/master/README.md#interpolateViridis)) and quantizing it for use with [d3.scaleQuantize](https://github.com/d3/d3-scale/blob/master/README.md#scaleQuantize), [d3.scaleQuantile](https://github.com/d3/d3-scale/blob/master/README.md#scaleQuantile) or [d3.scaleThreshold](https://github.com/d3/d3-scale/blob/master/README.md#scaleThreshold).
+d3.quantize方法可以从连续的插值空间中生成等间距的离散采样。在使用颜色比例尺时可以用这个来设置颜色。
 
-## [Paths (d3-path)](https://github.com/d3/d3-path/blob/master/README.md)
+## Path(d3-path)
 
-The [d3.path](https://github.com/d3/d3-path/blob/master/README.md#path) serializer implements the [CanvasPathMethods API](https://www.w3.org/TR/2dcontext/#canvaspathmethods), allowing you to write code that can render to either Canvas or SVG. For example, given some code that draws to a canvas:
+d3.path的串行化支持使用 [CanvasPathMethods API](https://www.w3.org/TR/2dcontext/#canvaspathmethods)。可以将结果渲染到Canvas或SVG上。例如:
 
-```js
+```
 function drawCircle(context, radius) {
   context.moveTo(radius, 0);
   context.arc(0, 0, radius, 0, 2 * Math.PI);
 }
 ```
 
-You can render to SVG as follows:
+可以将结果通过如下方式渲染到SVG上：
 
-```js
+```
 var context = d3.path();
 drawCircle(context, 40);
 pathElement.setAttribute("d", context.toString());
+//context.toString()返回svg适用的路径字符串
 ```
 
-The path serializer enables [d3-shape](#shapes-d3-shape) to support both Canvas and SVG; see [*line*.context](https://github.com/d3/d3-shape/blob/master/README.md#line_context) and [*area*.context](https://github.com/d3/d3-shape/blob/master/README.md#area_context), for example.
+d3.path的串行化可以方便的在SVG和Canvas之间切换。
 
-## [Polygons (d3-polygon)](https://github.com/d3/d3-polygon/blob/master/README.md)
+## Polygons(d3-polygon)
 
-There’s no longer a d3.geom.polygon constructor; instead you just pass an array of vertices to the polygon methods. So instead of *polygon*.area and *polygon*.centroid, there’s [d3.polygonArea](https://github.com/d3/d3-polygon/blob/master/README.md#polygonArea) and [d3.polygonCentroid](https://github.com/d3/d3-polygon/blob/master/README.md#polygonCentroid). There are also new [d3.polygonContains](https://github.com/d3/d3-polygon/blob/master/README.md#polygonContains) and [d3.polygonLength](https://github.com/d3/d3-polygon/blob/master/README.md#polygonLength) methods. There’s no longer an equivalent to *polygon*.clip, but if [Sutherland–Hodgman clipping](https://en.wikipedia.org/wiki/Sutherland–Hodgman_algorithm) is needed, please [file a feature request](https://github.com/d3/d3-polygon/issues).
+不再使用d3.geom.polygon构造器，取而代之的是你仅仅需要为polygon方法传入顶点数组。polygon.area和polygon.centriod由d3.polygonArea和d3.polygonCentriod代替。并且新添加了d3.polygonContains和d3.polygonLength方法。
 
-The d3.geom.hull operator has been simplified: instead of an operator with *hull*.x and *hull*.y accessors, there’s just the [d3.polygonHull](https://github.com/d3/d3-polygon/blob/master/README.md#polygonHull) method which takes an array of points and returns the convex hull.
+d3.geom.hull操作也由hull.x和hull.y代替。d3.polygonHull方法接受一组点返回convex hull
 
-## [Quadtrees (d3-quadtree)](https://github.com/d3/d3-quadtree/blob/master/README.md)
+## Quadtrees(d3-quadtree)
 
-The d3.geom.quadtree method has been replaced by [d3.quadtree](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree). 4.0 removes the concept of quadtree “generators” (configurable functions that build a quadtree from an array of data); there are now just quadtrees, which you can create via d3.quadtree and add data to via [*quadtree*.add](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_add) and [*quadtree*.addAll](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_addAll). This code in 3.x:
+d3.geom.quadtree方法由d3.quadtree代替。4.0移除了四叉树生成器的概念。可以通过d3.quantree来生成四叉树，并通过quantree.add和qunatree.addAll方法来添加数据，比如在3.x中：
 
-```js
+```
 var quadtree = d3.geom.quadtree()
     .extent([[0, 0], [width, height]])
     (data);
 ```
 
-Can be rewritten in 4.0 as:
+而在4.0中：
 
-```js
+```
 var quadtree = d3.quadtree()
     .extent([[0, 0], [width, height]])
     .addAll(data);
 ```
 
-The new quadtree implementation is vastly improved! It is no longer recursive, avoiding stack overflows when there are large numbers of coincident points. The internal storage is now more efficient, and the implementation is also faster; constructing a quadtree of 1M normally-distributed points takes about one second in 4.0, as compared to three seconds in 3.x.
+新的四叉树的设计也得到了提升，不再使用递归，避免了有大量重合点的时候栈溢出。内部存储也更高效。构造一个100w点的四叉树通常只需要1秒，而在3.x中需要3秒。
 
-The change in [internal *node* structure](https://github.com/d3/d3-quadtree/blob/master/README.md#nodes) affects [*quadtree*.visit](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visit): use *node*.length to distinguish leaf nodes from internal nodes. For example, to iterate over all data in a quadtree:
+内部结构也影响了qunatree.visit:使用node.length属性来区分叶节点和其他节点。例如,遍历所有的节点：
 
-```js
+
+```
 quadtree.visit(function(node) {
   if (!node.length) {
     do {
@@ -714,70 +701,70 @@ quadtree.visit(function(node) {
 });
 ```
 
-There’s a new [*quadtree*.visitAfter](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_visitAfter) method for visiting nodes in post-order traversal. This feature is used in [d3-force](#forces-d3-force) to implement the [Barnes–Hut approximation](https://en.wikipedia.org/wiki/Barnes–Hut_simulation).
+新的quantree.visitAfter方法可以使用后序遍历方法来遍历四叉树。并且可以使用quan.remove或quantree.removeAll来移除数据。新的数据加入到四叉树中时，四叉树将会通过反复判断这个数据是否已经存在与四叉树中，从而扩张它的范围。quantree.extent和quantree.cover方法可以在创建的时候显式的指定四叉树的范围。
 
-You can now remove data from a quadtree using [*quadtree*.remove](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_remove) and [*quadtree*.removeAll](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_removeAll). When adding data to a quadtree, the quadtree will now expand its extent by repeated doubling if the new point is outside the existing extent of the quadtree. There are also [*quadtree*.extent](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_extent) and [*quadtree*.cover](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_cover) methods for explicitly expanding the extent of the quadtree after creation.
+四叉树还提供了几种实用的方法:quantree.copy(拷贝),quantree.data(获取所有的数据，返回数组),quantree.size(获取数据尺寸),quantree.root(获取根节点),quantree.find(查找)。
 
-Quadtrees support several new utility methods: [*quadtree*.copy](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_copy) returns a copy of the quadtree sharing the same data; [*quadtree*.data](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_data) generates an array of all data in the quadtree; [*quadtree*.size](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_size) returns the number of data points in the quadtree; and [*quadtree*.root](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_root) returns the root node, which is useful for manual traversal of the quadtree. The [*quadtree*.find](https://github.com/d3/d3-quadtree/blob/master/README.md#quadtree_find) method now takes an optional search radius, which is useful for pointer-based selection in [force-directed graphs](https://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048).
+## Queues(d3-queue)
 
-## [Queues (d3-queue)](https://github.com/d3/d3-queue/blob/master/README.md)
+4.0提供了默认的队列数据结构
 
-Formerly known as Queue.js and queue-async, [d3.queue](https://github.com/d3/d3-queue) is now included in the default bundle, making it easy to load data files in parallel. It has been rewritten with fewer closures to improve performance, and there are now stricter checks in place to guarantee well-defined behavior. You can now use instanceof d3.queue and inspect the queue’s internal private state.
+## Random Numbers(d3-random)
 
-## [Random Numbers (d3-random)](https://github.com/d3/d3-random/blob/master/README.md)
+为了命名空间的扁平化，对以下方法进行了重命名：
 
-Pursuant to the great namespace flattening, the random number generators have new names:
+d3.random.normal -> d3.randomNormal
 
-* d3.random.normal ↦ [d3.randomNormal](https://github.com/d3/d3-random/blob/master/README.md#randomNormal)
-* d3.random.logNormal ↦ [d3.randomLogNormal](https://github.com/d3/d3-random/blob/master/README.md#randomLogNormal)
-* d3.random.bates ↦ [d3.randomBates](https://github.com/d3/d3-random/blob/master/README.md#randomBates)
-* d3.random.irwinHall ↦ [d3.randomIrwinHall](https://github.com/d3/d3-random/blob/master/README.md#randomIrwinHall)
+d3.random.logNormal -> d3.randomLogNormal
 
-There are also new random number generators for [exponential](https://github.com/d3/d3-random/blob/master/README.md#randomExponential) and [uniform](https://github.com/d3/d3-random/blob/master/README.md#randomUniform) distributions. The [normal](https://github.com/d3/d3-random/blob/master/README.md#randomNormal) and [log-normal](https://github.com/d3/d3-random/blob/master/README.md#randomLogNormal) random generators have been optimized.
+d3.random.bates -> d3.randomBates
 
-## [Requests (d3-request)](https://github.com/d3/d3-request/blob/master/README.md)
+d3.random.irwinHall -> d3.randomIrwinHall
 
-The d3.xhr method has been renamed to [d3.request](https://github.com/d3/d3-request/blob/master/README.md#request). Basic authentication is now supported using [*request*.user](https://github.com/d3/d3-request/blob/master/README.md#request_user) and [*request*.password](https://github.com/d3/d3-request/blob/master/README.md#request_password). You can now configure a timeout using [*request*.timeout](https://github.com/d3/d3-request/blob/master/README.md#request_timeout).
+增加了指数和均匀分布生成器。标准分布和对数分布得到了优化
 
-If an error occurs, the corresponding [ProgressEvent](https://xhr.spec.whatwg.org/#interface-progressevent) of type “error” is now passed to the error listener, rather than the [XMLHttpRequest](https://xhr.spec.whatwg.org/#interface-xmlhttprequest). Likewise, the ProgressEvent is passed to progress event listeners, rather than using [d3.event](https://github.com/d3/d3-selection/blob/master/README.md#event). If [d3.xml](https://github.com/d3/d3-request/blob/master/README.md#xml) encounters an error parsing XML, this error is now reported to error listeners rather than returning a null response.
+## Request(d3-request)
 
-The [d3.request](https://github.com/d3/d3-request/blob/master/README.md#request), [d3.text](https://github.com/d3/d3-request/blob/master/README.md#text) and [d3.xml](https://github.com/d3/d3-request/blob/master/README.md#xml) methods no longer take an optional mime type as the second argument; use [*request*.mimeType](https://github.com/d3/d3-request/blob/master/README.md#request_mimeType) instead. For example:
+d3.xhr被重命名为d3.request。增加了用户名和密码的基本认证(request.user以及request.paddword)。可以使用request.timeout来设置超时时间。
 
-```js
-d3.xml("file.svg").mimeType("image/svg+xml").get(function(error, svg) {
-  …
-});
+如果请求出错，当前会向会监听器而传入"error"而不是XMLHTTPRequest。当前状态被传入到事件监听器而不是使用d3.event。如果d3.xml在解析xml时遇到错误，错误会被传给监听器而不是返回空回应。
+
+除了d3.html和d3.xml以外也支持node-XMLHttpRequest(XMLHTTPRequest的包装)
+
+## Scales(d3-scale)
+
+为了扁平化命名空间，对如下方法进行重命名：
+
+d3.scale.linear -> d3.scaleLinear
+
+d3.scale.sqrt -> d3.scaleSqrt
+
+d3.scale.pow -> d3.scalePow
+
+d3.scale.log -> d3.scaleLog
+
+d3.scale.quantize -> d3.scaleQuantize
+
+d3.scale.threshold -> d3.scaleThreshold
+
+d3.scale.quantile -> d3.scaleQuantile
+
+d3.scale.identity -> d3.scaleIdentity
+
+d3.scale.ordinal -> d3.scaleOrdinal
+
+d3.time.scale -> d3.scaleTime
+
+d3.time.scale.utc -> d3.scaleUtc
+
+比例尺的刻度与输入范围的顺序一致。比如有一个输入范围降序的比例尺，生成的刻度也是降序的。这个改变影响了由axes生成的刻度顺序，比如：
+
 ```
-
-With the exception of [d3.html](https://github.com/d3/d3-request/blob/master/README.md#html) and [d3.xml](https://github.com/d3/d3-request/blob/master/README.md#xml), Node is now supported via [node-XMLHttpRequest](https://github.com/driverdan/node-XMLHttpRequest).
-
-## [Scales (d3-scale)](https://github.com/d3/d3-scale/blob/master/README.md)
-
-Pursuant to the great namespace flattening:
-
-* d3.scale.linear ↦ [d3.scaleLinear](https://github.com/d3/d3-scale/blob/master/README.md#scaleLinear)
-* d3.scale.sqrt ↦ [d3.scaleSqrt](https://github.com/d3/d3-scale/blob/master/README.md#scaleSqrt)
-* d3.scale.pow ↦ [d3.scalePow](https://github.com/d3/d3-scale/blob/master/README.md#scalePow)
-* d3.scale.log ↦ [d3.scaleLog](https://github.com/d3/d3-scale/blob/master/README.md#scaleLog)
-* d3.scale.quantize ↦ [d3.scaleQuantize](https://github.com/d3/d3-scale/blob/master/README.md#scaleQuantize)
-* d3.scale.threshold ↦ [d3.scaleThreshold](https://github.com/d3/d3-scale/blob/master/README.md#scaleThreshold)
-* d3.scale.quantile ↦ [d3.scaleQuantile](https://github.com/d3/d3-scale/blob/master/README.md#scaleQuantile)
-* d3.scale.identity ↦ [d3.scaleIdentity](https://github.com/d3/d3-scale/blob/master/README.md#scaleIdentity)
-* d3.scale.ordinal ↦ [d3.scaleOrdinal](https://github.com/d3/d3-scale/blob/master/README.md#scaleOrdinal)
-* d3.time.scale ↦ [d3.scaleTime](https://github.com/d3/d3-scale/blob/master/README.md#scaleTime)
-* d3.time.scale.utc ↦ [d3.scaleUtc](https://github.com/d3/d3-scale/blob/master/README.md#scaleUtc)
-
-Scales now generate ticks in the same order as the domain: if you have a descending domain, you now get descending ticks. This change affects the order of tick elements generated by [axes](#axes-d3-axis). For example:
-
-```js
 d3.scaleLinear().domain([10, 0]).ticks(5); // [10, 8, 6, 4, 2, 0]
 ```
+对数刻度默认10个刻度，而不是无穷多个。非线性的比例尺的刻度也更精确。在使用序数比例尺时你可以选择是否对输入值进行隐式转换，如果输入的值不属于定义的domain的话。默认情况下ordinal.unknown是d3.scalemplicit，这样会将这个值传入到domain中：
 
-[Log tick formatting](https://github.com/d3/d3-scale/blob/master/README.md#log_tickFormat) now assumes a default *count* of ten, not Infinity, if not specified. Log scales with  domains that span many powers (such as from 1e+3 to 1e+29) now return only one [tick](https://github.com/d3/d3-scale/blob/master/README.md#log_ticks) per power rather than returning *base* ticks per power. Non-linear quantitative scales are slightly more accurate.
-
-You can now control whether an ordinal scale’s domain is implicitly extended when the scale is passed a value that is not already in its domain. By default, [*ordinal*.unknown](https://github.com/d3/d3-scale/blob/master/README.md#ordinal_unknown) is [d3.scaleImplicit](https://github.com/d3/d3-scale/blob/master/README.md#scaleImplicit), causing unknown values to be added to the domain:
-
-```js
+```
 var x = d3.scaleOrdinal()
     .domain([0, 1])
     .range(["red", "green", "blue"]);
@@ -787,9 +774,9 @@ x(2); // "blue"
 x.domain(); // [0, 1, 2]
 ```
 
-By setting *ordinal*.unknown, you instead define the output value for unknown inputs. This is particularly useful for choropleth maps where you want to assign a color to missing data.
+如果设置了ordianl.unknown，就会严格按照定义的比例尺进行输入输出，不会自动为domain添加元素：
 
-```js
+```
 var x = d3.scaleOrdinal()
     .domain([0, 1])
     .range(["red", "green", "blue"])
@@ -800,86 +787,92 @@ x(2); // undefined
 x.domain(); // [0, 1]
 ```
 
-The *ordinal*.rangeBands and *ordinal*.rangeRoundBands methods have been replaced with a new subclass of ordinal scale: [band scales](https://github.com/d3/d3-scale/blob/master/README.md#band-scales). The following code in 3.x:
+ordinal.rangeBands和ordinal.rangeRoundBands 方法被新的子类代替：[Band  Scales](https://github.com/d3/d3-scale#band-scales),如在3.x中：
 
-```js
-var x = d3.scale.ordinal()
+
+```
+var x = d3.scaleOrdinal()
     .domain(["a", "b", "c"])
     .rangeBands([0, width]);
 ```
 
-Is equivalent to this in 4.0:
+而在4.0中:
 
-```js
+```
 var x = d3.scaleBand()
     .domain(["a", "b", "c"])
     .range([0, width]);
 ```
 
-The new [*band*.padding](https://github.com/d3/d3-scale/blob/master/README.md#band_padding), [*band*.paddingInner](https://github.com/d3/d3-scale/blob/master/README.md#band_paddingInner) and [*band*.paddingOuter](https://github.com/d3/d3-scale/blob/master/README.md#band_paddingOuter) methods replace the optional arguments to *ordinal*.rangeBands. The new [*band*.bandwidth](https://github.com/d3/d3-scale/blob/master/README.md#band_bandwidth) and [*band*.step](https://github.com/d3/d3-scale/blob/master/README.md#band_step) methods replace *ordinal*.rangeBand. There’s also a new [*band*.align](https://github.com/d3/d3-scale/blob/master/README.md#band_align) method which you can use to control how the extra space outside the bands is distributed, say to shift columns closer to the *y*-axis.
+新的band.padding, band.paddingInner和band.paddingOuter 方法代替原有的ordinal.rangeBands方法。 band.bandwidth和band.step代替原有的ordinal.rangeBand。新的band.align方法可以用来控制外边界的分布
 
-Similarly, the *ordinal*.rangePoints and *ordinal*.rangeRoundPoints methods have been replaced with a new subclass of ordinal scale: [point scales](https://github.com/d3/d3-scale/blob/master/README.md#point-scales). The following code in 3.x:
+类似的ordinal.rangePoints和ordinal.rangeRoundPoints方法也被子类替换：point scales,在3.x中：
 
-```js
-var x = d3.scale.ordinal()
+```
+var x = d3.scaleOrdinal()
     .domain(["a", "b", "c"])
     .rangePoints([0, width]);
 ```
 
-Is equivalent to this in 4.0:
+4.0中:
 
-```js
+```
 var x = d3.scalePoint()
     .domain(["a", "b", "c"])
     .range([0, width]);
 ```
+新的point.padding方法代替了ordinal.rangePoints。与ordinal.rangeBand 和 ordinal.rangePoints类似，point.bandWidth方法总是返回0。point.step方法返回相邻两点之间的间隔。
 
-The new [*point*.padding](https://github.com/d3/d3-scale/blob/master/README.md#point_padding) method replaces the optional *padding* argument to *ordinal*.rangePoints. Like *ordinal*.rangeBand with *ordinal*.rangePoints, the [*point*.bandwidth](https://github.com/d3/d3-scale/blob/master/README.md#point_bandwidth) method always returns zero; a new [*point*.step](https://github.com/d3/d3-scale/blob/master/README.md#point_step) method returns the interval between adjacent points.
+之前的颜色序数被改为：
 
-The [ordinal scale constructor](https://github.com/d3/d3-scale/blob/master/README.md#ordinal-scales) now takes an optional *range* for a shorter alternative to [*ordinal*.range](https://github.com/d3/d3-scale/blob/master/README.md#ordinal_range). This is especially useful now that the categorical color scales have been changed to simple arrays of colors rather than specialized ordinal scale constructors:
+d3.scale.category10 -> d3.schemeCategory10
 
-* d3.scale.category10 ↦ [d3.schemeCategory10](https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory10)
-* d3.scale.category20 ↦ [d3.schemeCategory20](https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory20)
-* d3.scale.category20b ↦ [d3.schemeCategory20b](https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory20b)
-* d3.scale.category20c ↦ [d3.schemeCategory20c](https://github.com/d3/d3-scale/blob/master/README.md#schemeCategory20c)
+d3.scale.category20 -> d3.schemeCategory20
 
-The following code in 3.x:
+d3.scale.category20b -> d3.schemeCategory20b
 
-```js
-var color = d3.scale.category10();
+d3.scale.category20c -> d3.schemeCategory20c
+
+3.x中：
+
+```
+var color = d3.scaleCategory10();
 ```
 
-Is equivalent to this in 4.0:
+4.0中：
 
-```js
+```
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 ```
 
-[Sequential scales](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential), are a new class of scales with a fixed output [interpolator](https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator) instead of a [range](https://github.com/d3/d3-scale/blob/master/README.md#continuous_range). Typically these scales are used to implement continuous sequential or diverging color schemes. Inspired by Matplotlib’s new [perceptually-motived colormaps](https://bids.github.io/colormap/), 4.0 now features [viridis](https://github.com/d3/d3-scale/blob/master/README.md#interpolateViridis), [inferno](https://github.com/d3/d3-scale/blob/master/README.md#interpolateInferno), [magma](https://github.com/d3/d3-scale/blob/master/README.md#interpolateMagma), [plasma](https://github.com/d3/d3-scale/blob/master/README.md#interpolatePlasma) interpolators for use with sequential scales. Using [d3.quantize](https://github.com/d3/d3-interpolate/blob/master/README.md#quantize), these interpolators can also be applied to [quantile](https://github.com/d3/d3-scale/blob/master/README.md#quantile-scales), [quantize](https://github.com/d3/d3-scale/blob/master/README.md#quantize-scales) and [threshold](https://github.com/d3/d3-scale/blob/master/README.md#threshold-scales) scales.
+连续比例尺是一个新的比例尺，将range使用插值代替。受Matplotlib的配色方案启发，4.0支持 viridis, inferno, magma, plasma四种连续颜色比例尺。使用d3.quantize来对这些进行离散量化后这些颜色使用到其他的比例尺。
 
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/viridis.png" width="100%" height="40" alt="viridis">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateViridis)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/inferno.png" width="100%" height="40" alt="inferno">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateInferno)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/magma.png" width="100%" height="40" alt="magma">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateMagma)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/plasma.png" width="100%" height="40" alt="plasma">](https://github.com/d3/d3-scale/blob/master/README.md#interpolatePlasma)
+连续颜色比例尺 |
+---|---
+![row 1 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/viridis.png) |
+![image](https://raw.githubusercontent.com/d3/d3-scale/master/img/inferno.png)|
+![row 3 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/magma.png) |
+![row 4 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/plasma.png) |
 
-4.0 also ships new Cubehelix schemes, including [Dave Green’s default](https://github.com/d3/d3-scale/blob/master/README.md#interpolateCubehelixDefault) and a [cyclical rainbow](https://github.com/d3/d3-scale/blob/master/README.md#interpolateRainbow) inspired by [Matteo Niccoli](https://mycarta.wordpress.com/2013/02/21/perceptual-rainbow-palette-the-method/):
+4.0也添加了新的Cubehelix配色方案，包括 Dave Green’s default和cyclical rainbow(受启发于Matteo Niccoli)：
 
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/cubehelix.png" width="100%" height="40" alt="cubehelix">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateCubehelixDefault)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/rainbow.png" width="100%" height="40" alt="rainbow">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateRainbow)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/warm.png" width="100%" height="40" alt="warm">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateWarm)
-[<img src="https://raw.githubusercontent.com/d3/d3-scale/master/img/cool.png" width="100%" height="40" alt="cool">](https://github.com/d3/d3-scale/blob/master/README.md#interpolateCool)
+Cubehelix配色方案 | 
+---|---
+![row 1 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/cubehelix.png) | 
+![row 2 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/rainbow.png) | 
+![row 4 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/warm.png)| 
+![row 2 col 1](https://raw.githubusercontent.com/d3/d3-scale/master/img/cool.png) | 
 
-For even more sequential and categorical color schemes, see [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic).
 
-For an introduction to scales, see [Introducing d3-scale](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f).
+更多信息查阅  [d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic) 和 [introducing d3-scale](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f)
 
-## [Selections (d3-selection)](https://github.com/d3/d3-selection/blob/master/README.md)
+## Selection(d3-selection)
 
-Selections no longer subclass Array using [prototype chain injection](http://perfectionkills.com/how-ecmascript-5-still-does-not-allow-to-subclass-an-array/#wrappers_prototype_chain_injection); they are now plain objects, improving performance. The internal fields (*selection*.\_groups, *selection*.\_parents) are private; please use the documented public API to manipulate selections. The new [*selection*.nodes](https://github.com/d3/d3-selection/blob/master/README.md#selection_nodes) method generates an array of all nodes in a selection.
+选择集不再被添加到Array的原型链上，而是简单的使用对象，提高了效率。内部存储(selection._groups和selection._parent)。请使用公共API来操作选择集。selection.nodes方法以数组的形式返回选择集中的所有节点而不是第一个。
 
-Selections are now immutable: the elements and parents in a selection never change. (The elements’ attributes and content will of course still be modified!) The [*selection*.sort](https://github.com/d3/d3-selection/blob/master/README.md#selection_sort) and [*selection*.data](https://github.com/d3/d3-selection/blob/master/README.md#selection_data) methods now return new selections rather than modifying the selection in-place. In addition, [*selection*.append](https://github.com/d3/d3-selection/blob/master/README.md#selection_append) no longer merges entering nodes into the update selection; use [*selection*.merge](https://github.com/d3/d3-selection/blob/master/README.md#selection_merge) to combine enter and update after a data join. For example, the following [general update pattern](https://bl.ocks.org/mbostock/a8a5baa4c4a470cda598) in 3.x:
+selection.sort和selection.data方法返回新的选择集而不是在原有的选择集上操作。selection.append方法不再将新加入的节点合并到undate选择集中。使用selection.merge方法来对绑定后的enter和update进行结合。例如在3.x中：
 
-```js
+```
 var circle = svg.selectAll("circle").data(data) // UPDATE
     .style("fill", "blue");
 
@@ -892,9 +885,9 @@ circle // ENTER + UPDATE
     .style("stroke", "black");
 ```
 
-Would be rewritten in 4.0 as:
+而在4.0中：
 
-```js
+```
 var circle = svg.selectAll("circle").data(data) // UPDATE
     .style("fill", "blue");
 
@@ -906,21 +899,19 @@ circle.enter().append("circle") // ENTER
     .style("stroke", "black");
 ```
 
-This change is discussed further in [What Makes Software Good](https://medium.com/@mbostock/what-makes-software-good-943557f8a488).
+在3.x中 selection.enter和seletion.exit方法在调用selection.data之前都是未定义的。因此如果你试着调用这两个会抛出类型错误异常。在4.0中只是简单的返回空集(绑定数据之前)。
 
-In 3.x, the [*selection*.enter](https://github.com/d3/d3-selection/blob/master/README.md#selection_enter) and [*selection*.exit](https://github.com/d3/d3-selection/blob/master/README.md#selection_exit) methods were undefined until you called *selection*.data, resulting in a TypeError if you attempted to access them. In 4.0, now they simply return the empty selection if the selection has not been joined to data.
+在3.x中selection.append总是在当前选择集末尾追加一个新的元素，当然可以使用selection.insert插入元素。这样会导致enter部分的元素被插入到update集之前。在4.0中默认的selection.append，如果不为seleciton.insert指定一个选择符，insert操作将会被追加到莫问。这样可以保证元素和数据的相对位置，例如有如下元素：
 
-In 3.x, [*selection*.append](https://github.com/d3/d3-selection/blob/master/README.md#selection_append) would always append the new element as the last child of its parent. A little-known trick was to use [*selection*.insert](https://github.com/d3/d3-selection/blob/master/README.md#selection_insert) without specifying a *before* selector when entering nodes, causing the entering nodes to be inserted before the following element in the update selection. In 4.0, this is now the default behavior of *selection*.append; if you do not specify a *before* selector to *selection*.insert, the inserted element is appended as the last child. This change makes the general update pattern preserve the relative order of elements and data. For example, given the following DOM:
-
-```html
+```
 <div>a</div>
 <div>b</div>
 <div>f</div>
 ```
 
-And the following code:
+和如下代码:
 
-```js
+```
 var div = d3.select("body").selectAll("div")
   .data(["a", "b", "c", "d", "e", "f"], function(d) { return d || this.textContent; });
 
@@ -928,9 +919,9 @@ div.enter().append("div")
     .text(function(d) { return d; });
 ```
 
-The resulting DOM will be:
+最后的元素为：
 
-```html
+```
 <div>a</div>
 <div>b</div>
 <div>c</div>
@@ -939,116 +930,142 @@ The resulting DOM will be:
 <div>f</div>
 ```
 
-Thus, the entering *c*, *d* and *e* are inserted before *f*, since *f* is the following element in the update selection. Although this behavior is sufficient to preserve order if the new data’s order is stable, if the data changes order, you must still use [*selection*.order](https://github.com/d3/d3-selection/blob/master/README.md#selection_order) to reorder elements.
+新加入的元素 c d e被插入到f之前。但是f是update集中的一个元素。尽管这样也可以保证数据与元素对应如果数据的顺序是固定的，但是如果数据改变了顺序，你依旧需要selection.order来对元素进行排序。
 
-There is now only one class of selection. 3.x implemented enter selections using a special class with different behavior for *enter*.append and *enter*.select; a consequence of this design was that enter selections in 3.x lacked [certain methods](https://github.com/d3/d3/issues/2043). In 4.0, enter selections are simply normal selections; they have the same methods and the same behavior. Placeholder [enter nodes](https://github.com/d3/d3-selection/blob/master/src/selection/enter.js) now implement [*node*.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild), [*node*.insertBefore](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore), [*node*.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector), and [*node*.querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll).
+selection方法做了一些微小的改变。在3.x中，如果多个数据有相同的键值，这些次重复的数据将被忽略并且不被包含在exit，update和enter中。选择集增加了一些新方法：selection.raise用来将当前元素添加到当前元素同代元素最前面。selection.lower则将当前元素放到同代元素最末尾。selection.dispatch可以添加一个事件监听器。
 
-The [*selection*.data](https://github.com/d3/d3-selection/blob/master/README.md#selection_data) method has been changed slightly with respect to duplicate keys. In 3.x, if multiple data had the same key, the duplicate data would be ignored and not included in enter, update or exit; in 4.0 the duplicate data is always put in the enter selection. In both 3.x and 4.0, if multiple elements have the same key, the duplicate elements are put in the exit selection. Thus, 4.0’s behavior is now symmetric for enter and exit, and the general update pattern will now produce a DOM that matches the data even if there are duplicate keys.
+当使用获取模式,即不传入参数时候，seleciotn.data返回当前绑定的数据集，而不仅仅是第一个元素绑定的数据。selection.call方法当调用指定的函数时不再设置this环境，selection将被作为第一个参数。selection.on方法可以同时接受多个类型事件，比如：
 
-Selections have several new methods! Use [*selection*.raise](https://github.com/d3/d3-selection/blob/master/README.md#selection_raise) to move the selected elements to the front of their siblings, so that they are drawn on top; use [*selection*.lower](https://github.com/d3/d3-selection/blob/master/README.md#selection_lower) to move them to the back. Use [*selection*.dispatch](https://github.com/d3/d3-selection/blob/master/README.md#selection_dispatch) to dispatch a [custom event](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) to event listeners.
-
-When called in getter mode, [*selection*.data](https://github.com/d3/d3-selection/blob/master/README.md#selection_data) now returns the data for all elements in the selection, rather than just the data for the first group of elements. The [*selection*.call](https://github.com/d3/d3-selection/blob/master/README.md#selection_call) method no longer sets the `this` context when invoking the specified function; the *selection* is passed as the first argument to the function, so use that. The [*selection*.on](https://github.com/d3/d3-selection/blob/master/README.md#selection_on) method now accepts multiple whitespace-separated typenames, so you can add or remove multiple listeners simultaneously. For example:
-
-```js
+```
 selection.on("mousedown touchstart", function() {
   console.log(d3.event.type);
 });
 ```
 
-The arguments passed to callback functions has changed slightly in 4.0 to be more consistent. The standard arguments are the element’s datum (*d*), the element’s index (*i*), and the element’s group (*nodes*), with *this* as the element. The slight exception to this convention is *selection*.data, which is evaluated for each group rather than each element; it is passed the group’s parent datum (*d*), the group index (*i*), and the selection’s parents (*parents*), with *this* as the group’s parent.
+回调的参数也发生了变化,标准的参数应该是当前绑定的数据d,索引i以及元素组(节点)以及this。这与selection.data有些不同,selection.data被视为每个组而不是每个元素，它传入的参数为当前绑定的数据d,索引i以及选择集的父节点,this指向组的父节点。
 
-The new [d3.local](https://github.com/d3/d3-selection/blob/master/README.md#local-variables) provides a mechanism for defining [local variables](https://bl.ocks.org/mbostock/e1192fe405703d8321a5187350910e08): state that is bound to DOM elements, and available to any descendant element. This can be a convenient alternative to using [*selection*.each](https://github.com/d3/d3-selection/blob/master/README.md#selection_each) or storing local state in data.
+d3.ns.prefix被命名为d3.namespaces，d3.ns.qualify被命名为d3.namespace。d3.matcher可以在selection.filter中对元素过滤。d3.selector可以由selection.select使用,d3.selectorAll可以由selection.selectAll使用。d3.creator可以由selection.append和selection.insert使用。d3.window返回给定元素的所属window对象或文档。d3.customEvent当调用方法时临时设置d3.event，允许自定义事件调度。这种方法也被应用在d3.drag,d3.zoom和d3.brush中。
 
-The d3.ns.prefix namespace prefix map has been renamed to [d3.namespaces](https://github.com/d3/d3-selection/blob/master/README.md#namespaces), and the d3.ns.qualify method has been renamed to [d3.namespace](https://github.com/d3/d3-selection/blob/master/README.md#namespace). Several new low-level methods are now available, as well. [d3.matcher](https://github.com/d3/d3-selection/blob/master/README.md#matcher) is used internally by [*selection*.filter](https://github.com/d3/d3-selection/blob/master/README.md#selection_filter); [d3.selector](https://github.com/d3/d3-selection/blob/master/README.md#selector) is used by [*selection*.select](https://github.com/d3/d3-selection/blob/master/README.md#selection_select); [d3.selectorAll](https://github.com/d3/d3-selection/blob/master/README.md#selectorAll) is used by [*selection*.selectAll](https://github.com/d3/d3-selection/blob/master/README.md#selection_selectAll); [d3.creator](https://github.com/d3/d3-selection/blob/master/README.md#creator) is used by [*selection*.append](https://github.com/d3/d3-selection/blob/master/README.md#selection_append) and [*selection*.insert](https://github.com/d3/d3-selection/blob/master/README.md#selection_insert). The new [d3.window](https://github.com/d3/d3-selection/blob/master/README.md#window) returns the owner window for a given element, window or document. The new [d3.customEvent](https://github.com/d3/d3-selection/blob/master/README.md#customEvent) temporarily sets [d3.event](https://github.com/d3/d3-selection/blob/master/README.md#event) while invoking a function, allowing you to implement controls which dispatch custom events; this is used by [d3-drag](https://github.com/d3/d3-drag), [d3-zoom](https://github.com/d3/d3-zoom) and [d3-brush](https://github.com/d3/d3-brush).
+## Shapes(d3-shape)
 
-For the sake of parsimony, the multi-value methods—where you pass an object to set multiple attributes, styles or properties simultaneously—have been extracted to [d3-selection-multi](https://github.com/d3/d3-selection-multi) and are no longer part of the default bundle. The multi-value map methods have also been renamed to plural form to reduce overload: [*selection*.attrs](https://github.com/d3/d3-selection-multi/blob/master/README.md#selection_attrs), [*selection*.styles](https://github.com/d3/d3-selection-multi/blob/master/README.md#selection_styles) and [*selection*.properties](https://github.com/d3/d3-selection-multi/blob/master/README.md#selection_properties).
+为了扁平化命名空间，对如下方法进行重命名或移除：
 
-## [Shapes (d3-shape)](https://github.com/d3/d3-shape/blob/master/README.md)
+d3.svg.line -> d3.line
 
-Pursuant to the great namespace flattening:
+d3.svg.line.radial -> d3.radialLine
 
-* d3.svg.line ↦ [d3.line](https://github.com/d3/d3-shape/blob/master/README.md#lines)
-* d3.svg.line.radial ↦ [d3.radialLine](https://github.com/d3/d3-shape/blob/master/README.md#radialLine)
-* d3.svg.area ↦ [d3.area](https://github.com/d3/d3-shape/blob/master/README.md#areas)
-* d3.svg.area.radial ↦ [d3.radialArea](https://github.com/d3/d3-shape/blob/master/README.md#radialArea)
-* d3.svg.arc ↦ [d3.arc](https://github.com/d3/d3-shape/blob/master/README.md#arcs)
-* d3.svg.symbol ↦ [d3.symbol](https://github.com/d3/d3-shape/blob/master/README.md#symbols)
-* d3.svg.symbolTypes ↦ [d3.symbolTypes](https://github.com/d3/d3-shape/blob/master/README.md#symbolTypes)
-* d3.layout.pie ↦ [d3.pie](https://github.com/d3/d3-shape/blob/master/README.md#pies)
-* d3.layout.stack ↦ [d3.stack](https://github.com/d3/d3-shape/blob/master/README.md#stacks)
-* d3.svg.diagonal ↦ REMOVED (see [d3/d3-shape#27](https://github.com/d3/d3-shape/issues/27))
-* d3.svg.diagonal.radial ↦ REMOVED
+d3.svg.area -> d3.area
 
-Shapes are no longer limited to SVG; they can now render to Canvas! Shape generators now support an optional *context*: given a [CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D), you can render a shape as a canvas path to be filled or stroked. For example, a [canvas pie chart](https://bl.ocks.org/mbostock/8878e7fd82034f1d63cf) might use an arc generator:
+d3.svg.area.radial -> d3.radialArea
 
-```js
+d3.svg.arc -> d3.arc
+
+d3.svg.symbol -> d3.symbol
+
+d3.svg.symbolTypes -> d3.symbolTypes
+
+d3.layout.pie -> d3.pie
+
+d3.layout.stack -> d3.stack
+
+d3.svg.diagonal -> REMOVED (see d3/d3-shape#27)
+
+d3.svg.diagonal.radial -> REMOVED
+
+形状不再局限于SVG。也可以由canvas渲染。形状生成器支持可选的上下文环境：CanvasRenderingContext2D，你可以生成一个路径来填充或描边。比如定义一个canvas的arc生成器：
+
+```
 var arc = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0)
     .context(context);
 ```
 
-To render an arc for a given datum *d*:
+然后渲染圆弧：
 
-```js
+```
 context.beginPath();
 arc(d);
 context.fill();
 ```
 
-See [*line*.context](https://github.com/d3/d3-shape/blob/master/README.md#line_context), [*area*.context](https://github.com/d3/d3-shape/blob/master/README.md#area_context) and [*arc*.context](https://github.com/d3/d3-shape/blob/master/README.md#arc_context) for more. Under the hood, shapes use [d3-path](#paths-d3-path) to serialize canvas path methods to SVG path data when the context is null; thus, shapes are optimized for rendering to canvas. You can also now derive lines from areas. The line shares most of the same accessors, such as [*line*.defined](https://github.com/d3/d3-shape/blob/master/README.md#line_defined) and [*line*.curve](https://github.com/d3/d3-shape/blob/master/README.md#line_curve), with the area from which it is derived. For example, to render the topline of an area, use [*area*.lineY1](https://github.com/d3/d3-shape/blob/master/README.md#area_lineY1); for the baseline, use [*area*.lineY0](https://github.com/d3/d3-shape/blob/master/README.md#area_lineY0).
+line.context，area.context和arc.context类似。当context为空时返回使用d3-path返回一个序列化的SVG路径。4.0介绍了一些新的曲线API来说明如何根据数据为line和area插值。line.interpolate和area.interpolate方法由line.curve和area.curve代替。曲线的实现使用曲线接口而非返回svg路径的函数，这也同时兼容了SVG和Canvas。line.curve和area.curve的参数由字符串替换为方法，完整的替代如下：
 
-4.0 introduces a new curve API for specifying how line and area shapes interpolate between data points. The *line*.interpolate and *area*.interpolate methods have been replaced with [*line*.curve](https://github.com/d3/d3-shape/blob/master/README.md#line_curve) and [*area*.curve](https://github.com/d3/d3-shape/blob/master/README.md#area_curve). Curves are implemented using the [curve interface](https://github.com/d3/d3-shape/blob/master/README.md#custom-curves) rather than as a function that returns an SVG path data string; this allows curves to render to either SVG or Canvas. In addition, *line*.curve and *area*.curve now take a function which instantiates a curve for a given *context*, rather than a string. The full list of equivalents:
+linear -> d3.curveLinear
 
-* linear ↦ [d3.curveLinear](https://github.com/d3/d3-shape/blob/master/README.md#curveLinear)
-* linear-closed ↦ [d3.curveLinearClosed](https://github.com/d3/d3-shape/blob/master/README.md#curveLinearClosed)
-* step ↦ [d3.curveStep](https://github.com/d3/d3-shape/blob/master/README.md#curveStep)
-* step-before ↦ [d3.curveStepBefore](https://github.com/d3/d3-shape/blob/master/README.md#curveStepBefore)
-* step-after ↦ [d3.curveStepAfter](https://github.com/d3/d3-shape/blob/master/README.md#curveStepAfter)
-* basis ↦ [d3.curveBasis](https://github.com/d3/d3-shape/blob/master/README.md#curveBasis)
-* basis-open ↦ [d3.curveBasisOpen](https://github.com/d3/d3-shape/blob/master/README.md#curveBasisOpen)
-* basis-closed ↦ [d3.curveBasisClosed](https://github.com/d3/d3-shape/blob/master/README.md#curveBasisClosed)
-* bundle ↦ [d3.curveBundle](https://github.com/d3/d3-shape/blob/master/README.md#curveBundle)
-* cardinal ↦ [d3.curveCardinal](https://github.com/d3/d3-shape/blob/master/README.md#curveCardinal)
-* cardinal-open ↦ [d3.curveCardinalOpen](https://github.com/d3/d3-shape/blob/master/README.md#curveCardinalOpen)
-* cardinal-closed ↦ [d3.curveCardinalClosed](https://github.com/d3/d3-shape/blob/master/README.md#curveCardinalClosed)
-* monotone ↦ [d3.curveMonotoneX](https://github.com/d3/d3-shape/blob/master/README.md#curveMonotoneX)
+linear-closed -> d3.curveLinearClosed
 
-But that’s not all! 4.0 now provides parameterized Catmull–Rom splines as proposed by [Yuksel *et al.*](http://www.cemyuksel.com/research/catmullrom_param/). These are available as [d3.curveCatmullRom](https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRom), [d3.curveCatmullRomClosed](https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRomClosed) and [d3.curveCatmullRomOpen](https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRomOpen).
+step -> d3.curveStep
 
-<img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRom.png" width="888" height="240" alt="catmullRom">
-<img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRomOpen.png" width="888" height="240" alt="catmullRomOpen">
-<img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRomClosed.png" width="888" height="330" alt="catmullRomClosed">
+step-before -> d3.curveStepBefore
 
-Each curve type can define its own named parameters, replacing *line*.tension and *area*.tension. For example, Catmull–Rom splines are parameterized using [*catmullRom*.alpha](https://github.com/d3/d3-shape/blob/master/README.md#curveCatmullRom_alpha) and defaults to 0.5, which corresponds to a centripetal spline that avoids self-intersections and overshoot. For a uniform Catmull–Rom spline instead:
+step-after -> d3.curveStepAfter
 
-```js
+basis -> d3.curveBasis
+
+basis-open -> d3.curveBasisOpen
+
+basis-closed -> d3.curveBasisClosed
+
+bundle -> d3.curveBundle
+
+cardinal -> d3.curveCardinal
+
+cardinal-open -> d3.curveCardinalOpen
+
+cardinal-closed -> d3.curveCardinalClosed
+
+monotone -> d3.curveMonotoneX
+
+但那并不是全部，4.0还提供了新的插值方式：d3.curveCatmullRom, d3.curveCatmullRomClosed和d3.curveCatmullRomOpen.
+
+插值方式 | 效果
+---|---
+d3.curveCatmullRom | ![row 1 col 2](https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRom.png)
+d3.curveCatmullRomClosed | ![row 2 col 2](https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRomOpen.png)
+d3.curveCatmullRomOpen | ![row 3 col 2](https://raw.githubusercontent.com/d3/d3-shape/master/img/catmullRomClosed.png)
+
+每一种曲线都可以通过自己的参数来代替 line.tension和area.tension。比如默认的Catmull–Rom曲线的 catmullRom.alpha默认为0.5,你可以定义更一般的参数化曲线：
+
+```
 var line = d3.line()
-    .curve(d3.curveCatmullRom.alpha(0));
+    .curve(d3.curveCatmullRom.alpha(0.5));
 ```
 
-4.0 fixes the interpretation of the cardinal spline *tension* parameter, which is now specified as [*cardinal*.tension](https://github.com/d3/d3-shape/blob/master/README.md#curveCardinal_tension) and defaults to zero for a uniform Catmull–Rom spline; a tension of one produces a linear curve. The first and last segments of basis and cardinal curves have also been fixed! The undocumented *interpolate*.reverse field has been removed. Curves can define different behavior for toplines and baselines by counting the sequence of [*curve*.lineStart](https://github.com/d3/d3-shape/blob/master/README.md#curve_lineStart) within [*curve*.areaStart](https://github.com/d3/d3-shape/blob/master/README.md#curve_areaStart). See the [d3.curveStep implementation](https://github.com/d3/d3-shape/blob/master/src/curve/step.js) for an example.
+4.0引入了一些新的符号API。定义的符号类型被传入symbol.type而不是传入字符串：
 
-4.0 fixes numerous bugs in the monotone curve implementation, and introduces [d3.curveMonotoneY](https://github.com/d3/d3-shape/blob/master/README.md#curveMonotoneY); this is like d3.curveMonotoneX, except it requires that the input points are monotone in *y* rather than *x*, such as for a vertically-oriented line chart. The new [d3.curveNatural](https://github.com/d3/d3-shape/blob/master/README.md#curveNatural) produces a [natural cubic spline](http://mathworld.wolfram.com/CubicSpline.html). The default [β](https://github.com/d3/d3-shape/blob/master/README.md#bundle_beta) for [d3.curveBundle](https://github.com/d3/d3-shape/blob/master/README.md#curveBundle) is now 0.85, rather than 0.7, matching the values used by [Holten](https://www.win.tue.nl/vis1/home/dholten/papers/bundles_infovis.pdf). 4.0 also has a more robust implementation of arc padding; see [*arc*.padAngle](https://github.com/d3/d3-shape/blob/master/README.md#arc_padAngle) and [*arc*.padRadius](https://github.com/d3/d3-shape/blob/master/README.md#arc_padRadius).
+circle d-> d3.symbolCircle
 
-4.0 introduces a new symbol type API. Symbol types are passed to [*symbol*.type](https://github.com/d3/d3-shape/blob/master/README.md#symbol_type) in place of strings. The equivalents are:
+cross d-> d3.symbolCross
 
-* circle ↦ [d3.symbolCircle](https://github.com/d3/d3-shape/blob/master/README.md#symbolCircle)
-* cross ↦ [d3.symbolCross](https://github.com/d3/d3-shape/blob/master/README.md#symbolCross)
-* diamond ↦ [d3.symbolDiamond](https://github.com/d3/d3-shape/blob/master/README.md#symbolDiamond)
-* square ↦ [d3.symbolSquare](https://github.com/d3/d3-shape/blob/master/README.md#symbolSquare)
-* triangle-down ↦ REMOVED
-* triangle-up ↦ [d3.symbolTriangle](https://github.com/d3/d3-shape/blob/master/README.md#symbolTriangle)
-* ADDED ↦ [d3.symbolStar](https://github.com/d3/d3-shape/blob/master/README.md#symbolStar)
-* ADDED ↦ [d3.symbolWye](https://github.com/d3/d3-shape/blob/master/README.md#symbolWye)
+diamond d-> d3.symbolDiamond
 
-The full set of symbol types is now:
+square d-> d3.symbolSquare
 
-<a href="#symbolCircle"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/circle.png" width="100" height="100"></a><a href="#symbolCross"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/cross.png" width="100" height="100"></a><a href="#symbolDiamond"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/diamond.png" width="100" height="100"></a><a href="#symbolSquare"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/square.png" width="100" height="100"></a><a href="#symbolStar"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/star.png" width="100" height="100"></a><a href="#symbolTriangle"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/triangle.png" width="100" height="100"><a href="#symbolWye"><img src="https://raw.githubusercontent.com/d3/d3-shape/master/img/wye.png" width="100" height="100"></a>
+triangle-down d-> REMOVED
 
-Lastly, 4.0 overhauls the stack layout API, replacing d3.layout.stack with [d3.stack](https://github.com/d3/d3-shape/blob/master/README.md#stacks). The stack generator no longer needs an *x*-accessor. In addition, the API has been simplified: the *stack* generator now accepts tabular input, such as this array of objects:
+triangle-up d-> d3.symbolTriangle
 
-```js
+ADDED d-> d3.symbolStar
+
+ADDED d-> d3.symbolWye
+
+
+
+
+header 1 | 
+---|---
+![row 1 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/circle.png) | 
+![image](https://raw.githubusercontent.com/d3/d3-shape/master/img/cross.png) | 
+![row 1 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/diamond.png) | 
+![row 2 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/square.png) | 
+![row 1 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/star.png) | 
+![row 2 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/triangle.png) | 
+![row 2 col 1](https://raw.githubusercontent.com/d3/d3-shape/master/img/wye.png) | 
+
+4.0对堆栈布局进行了大修。使用d3.stack代替d3.layout.stack。堆栈生成器需要一个x访问器。此外API也被简化：stack生成器接受扁平数据输入，比如以下数组：
+
+```
 var data = [
   {month: new Date(2015, 0, 1), apples: 3840, bananas: 1920, cherries: 960, dates: 400},
   {month: new Date(2015, 1, 1), apples: 1600, bananas: 1440, cherries: 960, dates: 400},
@@ -1057,9 +1074,9 @@ var data = [
 ];
 ```
 
-To generate the stack layout, first define a stack generator, and then apply it to the data:
+为了生成堆栈布局，首先定义一个堆栈生成器，然后将生成器应用在数据上：
 
-```js
+```
 var stack = d3.stack()
     .keys(["apples", "bananas", "cherries", "dates"])
     .order(d3.stackOrderNone)
@@ -1068,9 +1085,10 @@ var stack = d3.stack()
 var series = stack(data);
 ```
 
-The resulting array has one element per *series*. Each series has one point per month, and each point has a lower and upper value defining the baseline and topline:
+转化后的series数据格式如下，每个数据都有两个值表示下界和上界：
 
-```js
+
+```
 [
   [[   0, 3840], [   0, 1600], [   0,  640], [   0,  320]], // apples
   [[3840, 5760], [1600, 3040], [ 640, 1600], [ 320,  800]], // bananas
@@ -1079,120 +1097,170 @@ The resulting array has one element per *series*. Each series has one point per 
 ]
 ```
 
-Each series in then typically passed to an [area generator](https://github.com/d3/d3-shape/blob/master/README.md#areas) to render an area chart, or used to construct rectangles for a bar chart. Stack generators no longer modify the input data, so *stack*.out has been removed.
+之后这些数据使用area生成器渲染或者渲染为bar图。
 
-For an introduction to shapes, see [Introducing d3-shape](https://medium.com/@mbostock/introducing-d3-shape-73f8367e6d12).
+## Time Formats(d3-time-format)
 
-## [Time Formats (d3-time-format)](https://github.com/d3/d3-time-format/blob/master/README.md)
+为扁平化命名空间，对如下方法进行了重命名：
 
-Pursuant to the great namespace flattening, the format constructors have new names:
+d3.time.format -> d3.timeFormat
 
-* d3.time.format ↦ [d3.timeFormat](https://github.com/d3/d3-time-format/blob/master/README.md#timeFormat)
-* d3.time.format.utc ↦ [d3.utcFormat](https://github.com/d3/d3-time-format/blob/master/README.md#utcFormat)
-* d3.time.format.iso ↦ [d3.isoFormat](https://github.com/d3/d3-time-format/blob/master/README.md#isoFormat)
+d3.time.format.utc -> d3.utcFormat
 
-The *format*.parse method has also been removed in favor of separate [d3.timeParse](https://github.com/d3/d3-time-format/blob/master/README.md#timeParse), [d3.utcParse](https://github.com/d3/d3-time-format/blob/master/README.md#utcParse) and [d3.isoParse](https://github.com/d3/d3-time-format/blob/master/README.md#isoParse) parser constructors. Thus, this code in 3.x:
+d3.time.format.iso -> d3.isoFormat
 
-```js
+format.parse方法也被移除了。如在3.x中：
+
+```
 var parseTime = d3.time.format("%c").parse;
 ```
 
-Can be rewritten in 4.0 as:
+在4.0中：
 
-```js
+```
 var parseTime = d3.timeParse("%c");
 ```
 
-The multi-scale time format d3.time.format.multi has been replaced by [d3.scaleTime](https://github.com/d3/d3-scale/blob/master/README.md#scaleTime)’s [tick format](https://github.com/d3/d3-scale/blob/master/README.md#time_tickFormat). Time formats now coerce inputs to dates, and time parsers coerce inputs to strings. The `%Z` directive now allows more flexible parsing of time zone offsets, such as `-0700`, `-07:00`, `-07`, and `Z`. The `%p` directive is now parsed correctly when the locale’s period name is longer than two characters (*e.g.*, “a.m.”).
+d3.time.format.multi由 d3.scaleTime的tick format代替。%z支持更灵活的时区，根据当本地时间比两个字符更长时能使用%p命令可以更准确的转换。默认的美国标准时间为12小时制并且更简明。这与在chrome和firefox中的 date.toLocaleString一致:
 
-The default U.S. English locale now uses 12-hour time and a more concise representation of the date. This aligns with local convention and is consistent with [*date*.toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString) in Chrome, Firefox and Node:
-
-```js
+```
 var now = new Date;
 d3.timeFormat("%c")(new Date); // "6/23/2016, 2:01:33 PM"
 d3.timeFormat("%x")(new Date); // "6/23/2016"
 d3.timeFormat("%X")(new Date); // "2:01:38 PM"
 ```
 
-You can now set the default locale using [d3.timeFormatDefaultLocale](https://github.com/d3/d3-time-format/blob/master/README.md#timeFormatDefaultLocale)! The locales are published as [JSON](https://github.com/d3/d3-request/blob/master/README.md#json) to [npm](https://unpkg.com/d3-time-format/locale/).
+时间格式化和解析性能得到了提高，并且实现更清晰明了
 
-The performance of time formatting and parsing has been improved, and the UTC formatter and parser have a cleaner implementation (that avoids temporarily overriding the Date global).
+## Time Intervals(d3-time)
 
-## [Time Intervals (d3-time)](https://github.com/d3/d3-time/blob/master/README.md)
+为了扁平化命名空间，本地时间间隔被修改(添加、重命名、移除)为：
 
-Pursuant to the great namespace flattening, the local time intervals have been renamed:
+ADDED -> d3.timeMillisecond
 
-* ADDED ↦ [d3.timeMillisecond](https://github.com/d3/d3-time/blob/master/README.md#timeMillisecond)
-* d3.time.second ↦ [d3.timeSecond](https://github.com/d3/d3-time/blob/master/README.md#timeSecond)
-* d3.time.minute ↦ [d3.timeMinute](https://github.com/d3/d3-time/blob/master/README.md#timeMinute)
-* d3.time.hour ↦ [d3.timeHour](https://github.com/d3/d3-time/blob/master/README.md#timeHour)
-* d3.time.day ↦ [d3.timeDay](https://github.com/d3/d3-time/blob/master/README.md#timeDay)
-* d3.time.sunday ↦ [d3.timeSunday](https://github.com/d3/d3-time/blob/master/README.md#timeSunday)
-* d3.time.monday ↦ [d3.timeMonday](https://github.com/d3/d3-time/blob/master/README.md#timeMonday)
-* d3.time.tuesday ↦ [d3.timeTuesday](https://github.com/d3/d3-time/blob/master/README.md#timeTuesday)
-* d3.time.wednesday ↦ [d3.timeWednesday](https://github.com/d3/d3-time/blob/master/README.md#timeWednesday)
-* d3.time.thursday ↦ [d3.timeThursday](https://github.com/d3/d3-time/blob/master/README.md#timeThursday)
-* d3.time.friday ↦ [d3.timeFriday](https://github.com/d3/d3-time/blob/master/README.md#timeFriday)
-* d3.time.saturday ↦ [d3.timeSaturday](https://github.com/d3/d3-time/blob/master/README.md#timeSaturday)
-* d3.time.week ↦ [d3.timeWeek](https://github.com/d3/d3-time/blob/master/README.md#timeWeek)
-* d3.time.month ↦ [d3.timeMonth](https://github.com/d3/d3-time/blob/master/README.md#timeMonth)
-* d3.time.year ↦ [d3.timeYear](https://github.com/d3/d3-time/blob/master/README.md#timeYear)
+d3.time.second -> d3.timeSecond
 
-The UTC time intervals have likewise been renamed:
+d3.time.minute -> d3.timeMinute
 
-* ADDED ↦ [d3.utcMillisecond](https://github.com/d3/d3-time/blob/master/README.md#utcMillisecond)
-* d3.time.second.utc ↦ [d3.utcSecond](https://github.com/d3/d3-time/blob/master/README.md#utcSecond)
-* d3.time.minute.utc ↦ [d3.utcMinute](https://github.com/d3/d3-time/blob/master/README.md#utcMinute)
-* d3.time.hour.utc ↦ [d3.utcHour](https://github.com/d3/d3-time/blob/master/README.md#utcHour)
-* d3.time.day.utc ↦ [d3.utcDay](https://github.com/d3/d3-time/blob/master/README.md#utcDay)
-* d3.time.sunday.utc ↦ [d3.utcSunday](https://github.com/d3/d3-time/blob/master/README.md#utcSunday)
-* d3.time.monday.utc ↦ [d3.utcMonday](https://github.com/d3/d3-time/blob/master/README.md#utcMonday)
-* d3.time.tuesday.utc ↦ [d3.utcTuesday](https://github.com/d3/d3-time/blob/master/README.md#utcTuesday)
-* d3.time.wednesday.utc ↦ [d3.utcWednesday](https://github.com/d3/d3-time/blob/master/README.md#utcWednesday)
-* d3.time.thursday.utc ↦ [d3.utcThursday](https://github.com/d3/d3-time/blob/master/README.md#utcThursday)
-* d3.time.friday.utc ↦ [d3.utcFriday](https://github.com/d3/d3-time/blob/master/README.md#utcFriday)
-* d3.time.saturday.utc ↦ [d3.utcSaturday](https://github.com/d3/d3-time/blob/master/README.md#utcSaturday)
-* d3.time.week.utc ↦ [d3.utcWeek](https://github.com/d3/d3-time/blob/master/README.md#utcWeek)
-* d3.time.month.utc ↦ [d3.utcMonth](https://github.com/d3/d3-time/blob/master/README.md#utcMonth)
-* d3.time.year.utc ↦ [d3.utcYear](https://github.com/d3/d3-time/blob/master/README.md#utcYear)
+d3.time.hour -> d3.timeHour
 
-The local time range aliases have been renamed:
+d3.time.day -> d3.timeDay
 
-* d3.time.seconds ↦ [d3.timeSeconds](https://github.com/d3/d3-time/blob/master/README.md#timeSeconds)
-* d3.time.minutes ↦ [d3.timeMinutes](https://github.com/d3/d3-time/blob/master/README.md#timeMinutes)
-* d3.time.hours ↦ [d3.timeHours](https://github.com/d3/d3-time/blob/master/README.md#timeHours)
-* d3.time.days ↦ [d3.timeDays](https://github.com/d3/d3-time/blob/master/README.md#timeDays)
-* d3.time.sundays ↦ [d3.timeSundays](https://github.com/d3/d3-time/blob/master/README.md#timeSundays)
-* d3.time.mondays ↦ [d3.timeMondays](https://github.com/d3/d3-time/blob/master/README.md#timeMondays)
-* d3.time.tuesdays ↦ [d3.timeTuesdays](https://github.com/d3/d3-time/blob/master/README.md#timeTuesdays)
-* d3.time.wednesdays ↦ [d3.timeWednesdays](https://github.com/d3/d3-time/blob/master/README.md#timeWednesdays)
-* d3.time.thursdays ↦ [d3.timeThursdays](https://github.com/d3/d3-time/blob/master/README.md#timeThursdays)
-* d3.time.fridays ↦ [d3.timeFridays](https://github.com/d3/d3-time/blob/master/README.md#timeFridays)
-* d3.time.saturdays ↦ [d3.timeSaturdays](https://github.com/d3/d3-time/blob/master/README.md#timeSaturdays)
-* d3.time.weeks ↦ [d3.timeWeeks](https://github.com/d3/d3-time/blob/master/README.md#timeWeeks)
-* d3.time.months ↦ [d3.timeMonths](https://github.com/d3/d3-time/blob/master/README.md#timeMonths)
-* d3.time.years ↦ [d3.timeYears](https://github.com/d3/d3-time/blob/master/README.md#timeYears)
+d3.time.sunday -> d3.timeSunday
 
-The UTC time range aliases have been renamed:
+d3.time.monday -> d3.timeMonday
 
-* d3.time.seconds.utc ↦ [d3.utcSeconds](https://github.com/d3/d3-time/blob/master/README.md#utcSeconds)
-* d3.time.minutes.utc ↦ [d3.utcMinutes](https://github.com/d3/d3-time/blob/master/README.md#utcMinutes)
-* d3.time.hours.utc ↦ [d3.utcHours](https://github.com/d3/d3-time/blob/master/README.md#utcHours)
-* d3.time.days.utc ↦ [d3.utcDays](https://github.com/d3/d3-time/blob/master/README.md#utcDays)
-* d3.time.sundays.utc ↦ [d3.utcSundays](https://github.com/d3/d3-time/blob/master/README.md#utcSundays)
-* d3.time.mondays.utc ↦ [d3.utcMondays](https://github.com/d3/d3-time/blob/master/README.md#utcMondays)
-* d3.time.tuesdays.utc ↦ [d3.utcTuesdays](https://github.com/d3/d3-time/blob/master/README.md#utcTuesdays)
-* d3.time.wednesdays.utc ↦ [d3.utcWednesdays](https://github.com/d3/d3-time/blob/master/README.md#utcWednesdays)
-* d3.time.thursdays.utc ↦ [d3.utcThursdays](https://github.com/d3/d3-time/blob/master/README.md#utcThursdays)
-* d3.time.fridays.utc ↦ [d3.utcFridays](https://github.com/d3/d3-time/blob/master/README.md#utcFridays)
-* d3.time.saturdays.utc ↦ [d3.utcSaturdays](https://github.com/d3/d3-time/blob/master/README.md#utcSaturdays)
-* d3.time.weeks.utc ↦ [d3.utcWeeks](https://github.com/d3/d3-time/blob/master/README.md#utcWeeks)
-* d3.time.months.utc ↦ [d3.utcMonths](https://github.com/d3/d3-time/blob/master/README.md#utcMonths)
-* d3.time.years.utc ↦ [d3.utcYears](https://github.com/d3/d3-time/blob/master/README.md#utcYears)
+d3.time.tuesday -> d3.timeTuesday
 
-The behavior of [*interval*.range](https://github.com/d3/d3-time/blob/master/README.md#interval_range) (and the convenience aliases such as [d3.timeDays](https://github.com/d3/d3-time/blob/master/README.md#timeDays)) has been changed when *step* is greater than one. Rather than filtering the returned dates using the field number, *interval*.range now behaves like [d3.range](https://github.com/d3/d3-array/blob/master/README.md#range): it simply skips, returning every *step*th date. For example, the following code in 3.x returns only odd days of the month:
+d3.time.wednesday -> d3.timeWednesday
 
-```js
+d3.time.thursday -> d3.timeThursday
+
+d3.time.friday -> d3.timeFriday
+
+d3.time.saturday -> d3.timeSaturday
+
+d3.time.week -> d3.timeWeek
+
+d3.time.month -> d3.timeMonth
+
+d3.time.year -> d3.timeYear
+
+UTC时间间隔：
+
+ADDED -> d3.utcMillisecondd
+
+d3.time.second.utc -> d3.utcSecondd
+
+d3.time.minute.utc -> d3.utcMinuted
+
+d3.time.hour.utc -> d3.utcHourd
+
+d3.time.day.utc -> d3.utcDayd
+
+d3.time.sunday.utc -> d3.utcSundayd
+
+d3.time.monday.utc -> d3.utcMondayd
+
+d3.time.tuesday.utc -> d3.utcTuesdayd
+
+d3.time.wednesday.utc -> d3.utcWednesdayd
+
+d3.time.thursday.utc -> d3.utcThursdayd
+
+d3.time.friday.utc -> d3.utcFridayd
+
+d3.time.saturday.utc -> d3.utcSaturdayd
+
+d3.time.week.utc -> d3.utcWeekd
+
+d3.time.month.utc -> d3.utcMonthd
+
+d3.time.year.utc -> d3.utcYear
+
+本地时间区间重命名为：
+
+d3.time.seconds -> d3.timeSeconds
+
+d3.time.minutes -> d3.timeMinutes
+
+d3.time.hours -> d3.timeHours
+
+d3.time.days -> d3.timeDays
+
+d3.time.sundays -> d3.timeSundays
+
+d3.time.mondays -> d3.timeMondays
+
+d3.time.tuesdays -> d3.timeTuesdays
+
+d3.time.wednesdays -> d3.timeWednesdays
+
+d3.time.thursdays -> d3.timeThursdays
+
+d3.time.fridays -> d3.timeFridays
+
+d3.time.saturdays -> d3.timeSaturdays
+
+d3.time.weeks -> d3.timeWeeks
+
+d3.time.months -> d3.timeMonths
+
+d3.time.years -> d3.timeYears
+
+UTC时间区间被重名为:
+
+d3.time.seconds.utc -> d3.utcSeconds
+
+d3.time.minutes.utc -> d3.utcMinutes
+
+d3.time.hours.utc -> d3.utcHours
+
+d3.time.days.utc -> d3.utcDays
+
+d3.time.sundays.utc -> d3.utcSundays
+
+d3.time.mondays.utc -> d3.utcMondays
+
+d3.time.tuesdays.utc -> d3.utcTuesdays
+
+d3.time.wednesdays.utc -> d3.utcWednesdays
+
+d3.time.thursdays.utc -> d3.utcThursdays
+
+d3.time.fridays.utc -> d3.utcFridays
+
+d3.time.saturdays.utc -> d3.utcSaturdays
+
+d3.time.weeks.utc -> d3.utcWeeks
+
+d3.time.months.utc -> d3.utcMonths
+
+d3.time.years.utc -> d3.utcYears
+
+interval.range的功能发生了改变：当step大于1时interval.range会像d3.range一样只是简单的跳过。最终返回每一步的时间。比如在3.x中：
+
+```
 d3.time.days(new Date(2016, 4, 28), new Date(2016, 5, 5), 2);
 // [Sun May 29 2016 00:00:00 GMT-0700 (PDT),
 //  Tue May 31 2016 00:00:00 GMT-0700 (PDT),
@@ -1200,9 +1268,9 @@ d3.time.days(new Date(2016, 4, 28), new Date(2016, 5, 5), 2);
 //  Fri Jun 03 2016 00:00:00 GMT-0700 (PDT)]
 ```
 
-Note the returned array of dates does not start on the *start* date because May 28 is even. Also note that May 31 and June 1 are one day apart, not two! The behavior of d3.timeDays in 4.0 is probably closer to what you expect:
+注意到起始时间并不是从28开始在4.0中。并且31和1之间只隔了1天。而在4.0中可能更接近你期望的值：
 
-```js
+```
 d3.timeDays(new Date(2016, 4, 28), new Date(2016, 5, 5), 2);
 // [Sat May 28 2016 00:00:00 GMT-0700 (PDT),
 //  Mon May 30 2016 00:00:00 GMT-0700 (PDT),
@@ -1210,9 +1278,9 @@ d3.timeDays(new Date(2016, 4, 28), new Date(2016, 5, 5), 2);
 //  Fri Jun 03 2016 00:00:00 GMT-0700 (PDT)]
 ```
 
-If you want a filtered view of a time interval (say to guarantee that two overlapping ranges are consistent, such as when generating [time scale ticks](https://github.com/d3/d3-scale/blob/master/README.md#time_ticks)), you can use the new [*interval*.every](https://github.com/d3/d3-time/blob/master/README.md#interval_every) method or its more general cousin [*interval*.filter](https://github.com/d3/d3-time/blob/master/README.md#interval_filter):
+如果你想要一个过滤后时间间隔视图。你可以使用interval.every方法或更一般的interval.filter来获取：
 
-```js
+```
 d3.timeDay.every(2).range(new Date(2016, 4, 28), new Date(2016, 5, 5));
 // [Sun May 29 2016 00:00:00 GMT-0700 (PDT),
 //  Tue May 31 2016 00:00:00 GMT-0700 (PDT),
@@ -1220,69 +1288,84 @@ d3.timeDay.every(2).range(new Date(2016, 4, 28), new Date(2016, 5, 5));
 //  Fri Jun 03 2016 00:00:00 GMT-0700 (PDT)]
 ```
 
-Time intervals now expose an [*interval*.count](https://github.com/d3/d3-time/blob/master/README.md#interval_count) method for counting the number of interval boundaries after a *start* date and before or equal to an *end* date. This replaces d3.time.dayOfYear and related methods in 3.x. For example, this code in 3.x:
+time interval提供了interal.count方法用来对起始时间之间进行统计，这个代替了3.x中的d3.time.dayOfYear和相关方法，如在3.x中：
 
-```js
+```
 var now = new Date;
 d3.time.dayOfYear(now); // 165
 ```
 
-Can be rewritten in 4.0 as:
+在4.0中：
 
-```js
+```
 var now = new Date;
 d3.timeDay.count(d3.timeYear(now), now); // 165
 ```
 
-Likewise, in place of 3.x’s d3.time.weekOfYear, in 4.0 you would say:
+同样的 也替代了3.x中的d3.time.weekOfYear方法，在4.0中：
 
-```js
+```
 d3.timeWeek.count(d3.timeYear(now), now); // 24
 ```
 
-The new *interval*.count is of course more general. For example, you can use it to compute hour-of-week for a heatmap:
+新的interval.count方法更一般化，例如你可以而统计这是这周的第几个小时：
 
-```js
+```
 d3.timeHour.count(d3.timeWeek(now), now); // 64
 ```
 
-Here are all the equivalences from 3.x to 4.0:
+下面是3.x到4.0的所有等价方法：
 
-* d3.time.dayOfYear ↦ [d3.timeDay](https://github.com/d3/d3-time/blob/master/README.md#timeDay).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.sundayOfYear ↦ [d3.timeSunday](https://github.com/d3/d3-time/blob/master/README.md#timeSunday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.mondayOfYear ↦ [d3.timeMonday](https://github.com/d3/d3-time/blob/master/README.md#timeMonday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.tuesdayOfYear ↦ [d3.timeTuesday](https://github.com/d3/d3-time/blob/master/README.md#timeTuesday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.wednesdayOfYear ↦ [d3.timeWednesday](https://github.com/d3/d3-time/blob/master/README.md#timeWednesday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.thursdayOfYear ↦ [d3.timeThursday](https://github.com/d3/d3-time/blob/master/README.md#timeThursday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.fridayOfYear ↦ [d3.timeFriday](https://github.com/d3/d3-time/blob/master/README.md#timeFriday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.saturdayOfYear ↦ [d3.timeSaturday](https://github.com/d3/d3-time/blob/master/README.md#timeSaturday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.weekOfYear ↦ [d3.timeWeek](https://github.com/d3/d3-time/blob/master/README.md#timeWeek).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.dayOfYear.utc ↦ [d3.utcDay](https://github.com/d3/d3-time/blob/master/README.md#utcDay).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.sundayOfYear.utc ↦ [d3.utcSunday](https://github.com/d3/d3-time/blob/master/README.md#utcSunday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.mondayOfYear.utc ↦ [d3.utcMonday](https://github.com/d3/d3-time/blob/master/README.md#utcMonday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.tuesdayOfYear.utc ↦ [d3.utcTuesday](https://github.com/d3/d3-time/blob/master/README.md#utcTuesday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.wednesdayOfYear.utc ↦ [d3.utcWednesday](https://github.com/d3/d3-time/blob/master/README.md#utcWednesday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.thursdayOfYear.utc ↦ [d3.utcThursday](https://github.com/d3/d3-time/blob/master/README.md#utcThursday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.fridayOfYear.utc ↦ [d3.utcFriday](https://github.com/d3/d3-time/blob/master/README.md#utcFriday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.saturdayOfYear.utc ↦ [d3.utcSaturday](https://github.com/d3/d3-time/blob/master/README.md#utcSaturday).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
-* d3.time.weekOfYear.utc ↦ [d3.utcWeek](https://github.com/d3/d3-time/blob/master/README.md#utcWeek).[count](https://github.com/d3/d3-time/blob/master/README.md#interval_count)
+d3.time.dayOfYear -> d3.timeDay.count
 
-D3 4.0 now also lets you define custom time intervals using [d3.timeInterval](https://github.com/d3/d3-time/blob/master/README.md#timeInterval). The [d3.timeYear](https://github.com/d3/d3-time/blob/master/README.md#timeYear), [d3.utcYear](https://github.com/d3/d3-time/blob/master/README.md#utcYear), [d3.timeMillisecond](https://github.com/d3/d3-time/blob/master/README.md#timeMillisecond) and [d3.utcMillisecond](https://github.com/d3/d3-time/blob/master/README.md#utcMillisecond) intervals have optimized implementations of [*interval*.every](https://github.com/d3/d3-time/blob/master/README.md#interval_every), which is necessary to generate time ticks for very large or very small domains efficiently. More generally, the performance of time intervals has been improved, and time intervals now do a better job with respect to daylight savings in various locales.
+d3.time.sundayOfYear -> d3.timeSunday.count
 
-## [Timers (d3-timer)](https://github.com/d3/d3-timer/blob/master/README.md)
+d3.time.mondayOfYear -> d3.timeMonday.count
 
-In D3 3.x, the only way to stop a timer was for its callback to return true. For example, this timer stops after one second:
+d3.time.tuesdayOfYear -> d3.timeTuesday.count
 
-```js
+d3.time.wednesdayOfYear -> d3.timeWednesday.count
+
+d3.time.thursdayOfYear -> d3.timeThursday.count
+
+d3.time.fridayOfYear -> d3.timeFriday.count
+
+d3.time.saturdayOfYear -> d3.timeSaturday.count
+
+d3.time.weekOfYear -> d3.timeWeek.count
+
+d3.time.dayOfYear.utc -> d3.utcDay.count
+
+d3.time.sundayOfYear.utc -> d3.utcSunday.count
+
+d3.time.mondayOfYear.utc -> d3.utcMonday.count
+
+d3.time.tuesdayOfYear.utc -> d3.utcTuesday.count
+
+d3.time.wednesdayOfYear.utc -> d3.utcWednesday.count
+
+d3.time.thursdayOfYear.utc -> d3.utcThursday.count
+
+d3.time.fridayOfYear.utc -> d3.utcFriday.count
+
+d3.time.saturdayOfYear.utc -> d3.utcSaturday.count
+
+d3.time.weekOfYear.utc -> d3.utcWeek.count
+
+## Timers(d3-timer)
+
+在3.x中停止计时器的唯一方法是使回调返回true。如下：
+
+```
 d3.timer(function(elapsed) {
   console.log(elapsed);
   return elapsed >= 1000;
 });
 ```
 
-In 4.0, use [*timer*.stop](https://github.com/d3/d3-timer/blob/master/README.md#timer_stop) instead:
+而在4.0中提供了timer.stop方法：
 
-```js
+```
 var t = d3.timer(function(elapsed) {
   console.log(elapsed);
   if (elapsed >= 1000) {
@@ -1291,9 +1374,9 @@ var t = d3.timer(function(elapsed) {
 });
 ```
 
-The primary benefit of *timer*.stop is that timers are not required to self-terminate: they can be stopped externally, allowing for the immediate and synchronous disposal of associated resources, and the separation of concerns. The above is equivalent to:
+使用timer.stop的最大好处是timer不需要自我终止：可以在外部终止。等价于：
 
-```js
+```
 var t = d3.timer(function(elapsed) {
   console.log(elapsed);
 });
@@ -1303,33 +1386,33 @@ d3.timeout(function() {
 }, 1000);
 ```
 
-This improvement extends to [d3-transition](#transitions-d3-transition): now when a transition is interrupted, its resources are immediately freed rather than having to wait for transition to start.
+这个改善也被应用在d3-transition：当一个过渡被中断时，资源会被立即释放。
 
-4.0 also introduces a new [*timer*.restart](https://github.com/d3/d3-timer/blob/master/README.md#timer_restart) method for restarting timers, for replacing the callback of a running timer, or for changing its delay or reference time. Unlike *timer*.stop followed by [d3.timer](https://github.com/d3/d3-timer/blob/master/README.md#timer), *timer*.restart maintains the invocation priority of an existing timer: it guarantees that the order of invocation of active timers remains the same. The d3.timer.flush method has been renamed to [d3.timerFlush](https://github.com/d3/d3-timer/blob/master/README.md#timerFlush).
+4.0也提供了timer.restart方法来重启定时器来代替timer运行时的回调。与timer.stop不同的是timer.restart保持了现有的定时器的优先级：保持了活跃的定时器的顺序。d3.timer.flush方法被重命名为d3.timerFlush。
 
-Some usage patterns in D3 3.x could cause the browser to hang when a background page returned to the foreground. For example, the following code schedules a transition every second:
+3.x中的定时器可能导致浏览器挂起，当后台页面转为前活动页面时。例如一下的代码在每一秒进行一次过渡：
 
-```js
+```
 setInterval(function() {
   d3.selectAll("div").transition().call(someAnimation); // BAD
 }, 1000);
 ```
 
-If such code runs in the background for hours, thousands of queued transitions will try to run simultaneously when the page is foregrounded. D3 4.0 avoids this hang by freezing time in the background: when a page is in the background, time does not advance, and so no queue of timers accumulates to run when the page returns to the foreground. Use d3.timer instead of transitions to schedule a long-running animation, or use [d3.timeout](https://github.com/d3/d3-timer/blob/master/README.md#timeout) and [d3.interval](https://github.com/d3/d3-timer/blob/master/README.md#interval) in place of setTimeout and setInterval to prevent transitions from being queued in the background:
+如果这个函数在后台运行几个小时，那这个页面一旦成为活动页面上千个过渡队列都会试着同时运行。4.0避免了这种情况：页面为后台页面时，会对页面暂停计时,这样就避免了过渡队列的积累。使用d3.timer代替过渡来进行长时间运行的动画，或者使用d3.timeout和d3.interval来代替setTimeOut和setInterval可以避免页面在后台时候过渡队列的累积：
 
-```js
+```
 d3.interval(function() {
   d3.selectAll("div").transition().call(someAnimation); // GOOD
 }, 1000);
 ```
 
-By freezing time in the background, timers are effectively “unaware” of being backgrounded. It’s like nothing happened! 4.0 also now uses high-precision time ([performance.now](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now)) where available; the current time is available as [d3.now](https://github.com/d3/d3-timer/blob/master/README.md#now).
+4.0也支持高精度的计时d3.now方法：从页面的第一帧开始到现在的时间
 
-## [Transitions (d3-transition)](https://github.com/d3/d3-transition/blob/master/README.md)
+## Transition(d3-transition)
 
-The [*selection*.transition](https://github.com/d3/d3-transition/blob/master/README.md#selection_transition) method now takes an optional *transition* instance which can be used to synchronize a new transition with an existing transition. (This change is discussed further in [What Makes Software Good?](https://medium.com/@mbostock/what-makes-software-good-943557f8a488)) For example:
+selection.transition方法生成了一个过渡实例，可以在selection上应用已存在的过渡：
 
-```js
+```
 var t = d3.transition()
     .duration(750)
     .ease(d3.easeLinear);
@@ -1341,11 +1424,11 @@ d3.selectAll(".orange").transition(t)
     .style("fill", "orange");
 ```
 
-Transitions created this way inherit timing from the closest ancestor element, and thus are synchronized even when the referenced *transition* has variable timing such as a staggered delay. This method replaces the deeply magical behavior of *transition*.each in 3.x; in 4.0, [*transition*.each](https://github.com/d3/d3-transition/blob/master/README.md#transition_each) is identical to [*selection*.each](https://github.com/d3/d3-selection/blob/master/README.md#selection_each). Use the new [*transition*.on](https://github.com/d3/d3-transition/blob/master/README.md#transition_on) method to listen to transition events.
+这个方法代替了3.x中的transition.each方法。在4.0中transition.each与seleciton.each作用相同。使用transtion.on方法监听过渡事件。
 
-The meaning of [*transition*.delay](https://github.com/d3/d3-transition/blob/master/README.md#transition_delay) has changed for chained transitions created by [*transition*.transition](https://github.com/d3/d3-transition/blob/master/README.md#transition_transition). The specified delay is now relative to the *previous* transition in the chain, rather than the *first* transition in the chain; this makes it easier to insert interstitial pauses. For example:
+transition.delay的意义发生了改变：delay相对于过渡链上的上一个过渡而言，而不是第一个过渡。例如：
 
-```js
+```
 d3.selectAll(".apple")
   .transition() // First fade to green.
     .style("fill", "green")
@@ -1357,13 +1440,11 @@ d3.selectAll(".apple")
     .remove();
 ```
 
-Time is now frozen in the background; see [d3-timer](#timers-d3-timer) for more information. While it was previously the case that transitions did not run in the background, now they pick up where they left off when the page returns to the foreground. This avoids page hangs by not scheduling an unbounded number of transitions in the background. If you want to schedule an infinitely-repeating transition, use transition events, or use [d3.timeout](https://github.com/d3/d3-timer/blob/master/README.md#timeout) and [d3.interval](https://github.com/d3/d3-timer/blob/master/README.md#interval) in place of [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+计时器在页面转为后台是会被冻结。selection.interrupt方法会取消元素上所有预定义的过渡并中断现有的过渡。当过渡被中断时所有相关的资源被释放，提高了性能。
 
-The [*selection*.interrupt](https://github.com/d3/d3-transition/blob/master/README.md#selection_interrupt) method now cancels all scheduled transitions on the selected elements, in addition to interrupting any active transition. When transitions are interrupted, any resources associated with the transition are now released immediately, rather than waiting until the transition starts, improving performance. (See also [*timer*.stop](https://github.com/d3/d3-timer/blob/master/README.md#timer_stop).) The new [d3.interrupt](https://github.com/d3/d3-transition/blob/master/README.md#interrupt) method is an alternative to [*selection*.interrupt](https://github.com/d3/d3-transition/blob/master/README.md#selection_interrupt) for quickly interrupting a single node.
+d3.active方法可以选中当前的活动的过渡。中可以创建一个无限循环的过渡，例如创建一个在红色和蓝色之间持续过渡的动画:
 
-The new [d3.active](https://github.com/d3/d3-transition/blob/master/README.md#active) method allows you to select the currently-active transition on a given *node*, if any. This is useful for modifying in-progress transitions and for scheduling infinitely-repeating transitions. For example, this transition continuously oscillates between red and blue:
-
-```js
+```
 d3.select("circle")
   .transition()
     .on("start", function repeat() {
@@ -1376,32 +1457,24 @@ d3.select("circle")
       });
 ```
 
-The [life cycle of a transition](https://github.com/d3/d3-transition/blob/master/README.md#the-life-of-a-transition) is now more formally defined and enforced. For example, attempting to change the duration of a running transition now throws an error rather than silently failing. The [*transition*.remove](https://github.com/d3/d3-transition/blob/master/README.md#transition_remove) method has been fixed if multiple transition names are in use: the element is only removed if it has no scheduled transitions, regardless of name. The [*transition*.ease](https://github.com/d3/d3-transition/blob/master/README.md#transition_ease) method now always takes an [easing function](#easings-d3-ease), not a string. When a transition ends, the tweens are invoked one last time with *t* equal to exactly 1, regardless of the associated easing function.
+transition.remove方法也得到了修复。transiton.ease方法不再接受字符串而是一个过渡类型方法。过渡的回调函数接受标准的参数：当前元素绑定的数据d,索引以及分组(节点)，这对transition.attrTween和transition.styleTween有显著的影响，不用为当前的属性或样式传入再补间函数作为第三个参数。
 
-As with [selections](#selections-d3-selection) in 4.0, all transition callback functions now receive the standard arguments: the element’s datum (*d*), the element’s index (*i*), and the element’s group (*nodes*), with *this* as the element. This notably affects [*transition*.attrTween](https://github.com/d3/d3-transition/blob/master/README.md#transition_attrTween) and [*transition*.styleTween](https://github.com/d3/d3-transition/blob/master/README.md#transition_styleTween), which no longer pass the *tween* function the current attribute or style value as the third argument. The *transition*.attrTween and *transition*.styleTween methods can now be called in getter modes for debugging or to share tween definitions between transitions.
+过渡被优化了。如果所有的元素都共享相同的补间，插值器，或者事件监听则通过过渡来获取状态而不需要单独的为每个元素分配。4.0也使用优化后的插值器来代替 d3.interpolate的transition.attr和transition.style。也可以在CSS和SVG变换之间进行过渡。
 
-Homogenous transitions are now optimized! If all elements in a transition share the same tween, interpolator, or event listeners, this state is now shared across the transition rather than separately allocated for each element. 4.0 also uses an optimized default interpolator in place of [d3.interpolate](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolate) for [*transition*.attr](https://github.com/d3/d3-transition/blob/master/README.md#transition_attr) and [*transition*.style](https://github.com/d3/d3-transition/blob/master/README.md#transition_style). And transitions can now interpolate both [CSS](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateTransformCss) and [SVG](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateTransformSvg) transforms.
+## Voronoi Diagrams(d3-voronoi)
 
-For reusable components that support transitions, such as [axes](#axes-d3-axis), a new [*transition*.selection](https://github.com/d3/d3-transition/blob/master/README.md#transition_selection) method returns the [selection](#selections-d3-selection) that corresponds to a given transition. There is also a new [*transition*.merge](https://github.com/d3/d3-transition/blob/master/README.md#transition_merge) method that is equivalent to [*selection*.merge](https://github.com/d3/d3-selection/blob/master/README.md#selection_merge).
+d3.geom.voronoi被重命名为d3.voronoi。voronoi.clipExtent方法被重命名为voronoi.extent。3.x中非公开的方法polygon.point被重命名为polygon.data用以获取元素的对应的数据。
 
-For the sake of parsimony, the multi-value map methods have been extracted to [d3-selection-multi](https://github.com/d3/d3-selection-multi) and are no longer part of the default bundle. The multi-value map methods have also been renamed to plural form to reduce overload: [*transition*.attrs](https://github.com/d3/d3-selection-multi/blob/master/README.md#transition_attrs) and [*transition*.styles](https://github.com/d3/d3-selection-multi/blob/master/README.md#transition_styles).
+在调用voronoi时返回完整的包括拓扑信息的voronoi图：每个边提供了edge.left和edge.right两个方法用以表示这个边的两边连接的点。每个voronoi分块被定义为边和点组成的数组。voronoi图也可以被用来将指定的点集计算成泰森多边形和三角剖分： diagram.polygons, diagram.links和diagram.triangles。
 
-## [Voronoi Diagrams (d3-voronoi)](https://github.com/d3/d3-voronoi/blob/master/README.md)
+voronoi.polygons和diagram.polygons需要指定范围，voronoi.links, voronoi.triangles, diagram.links和diagram.triangles受裁剪区间的影响：如果两个点相邻并且剪切分块相邻则将这两个点连接。如果使用三角剖分则不需要考虑裁剪，设置extent为null即可。
 
-The d3.geom.voronoi method has been renamed to [d3.voronoi](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi), and the *voronoi*.clipExtent method has been renamed to [*voronoi*.extent](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_extent). The undocumented *polygon*.point property in 3.x, which is the element in the input *data* corresponding to the polygon, has been renamed to *polygon*.data.
+## Zooming(d3-zoom)
 
-Calling [*voronoi*](https://github.com/d3/d3-voronoi/blob/master/README.md#_voronoi) now returns the full [Voronoi diagram](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi-diagrams), which includes topological information: each Voronoi edge exposes *edge*.left and *edge*.right specifying the sites on either side of the edge, and each Voronoi cell is defined as an array of these edges and a corresponding site. The Voronoi diagram can be used to efficiently compute both the Voronoi and Delaunay tessellations for a set of points: [*diagram*.polygons](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_polygons), [*diagram*.links](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_links), and [*diagram*.triangles](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_triangles). The new topology is also useful in conjunction with TopoJSON; see the [Voronoi topology example](https://bl.ocks.org/mbostock/cd52a201d7694eb9d890).
+d3.behavior.zoom被重命名为d3.zoom。zoom行为不再在内部存储活跃的缩放(如可见区域，缩放、平移)。缩放变换被存储在任何应用了缩放的元素上。缩放行为可以对指定的元素通过调用d3.zoomTransform方法来实现，这样可以通过编程而非交互来实现缩放。
 
-The [*voronoi*.polygons](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_polygons) and [*diagram*.polygons](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_polygons) now require an [extent](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_extent); there is no longer an implicit extent of ±1e6. The [*voronoi*.links](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_links), [*voronoi*.triangles](https://github.com/d3/d3-voronoi/blob/master/README.md#voronoi_triangles), [*diagram*.links](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_links) and [*diagram*.triangles](https://github.com/d3/d3-voronoi/blob/master/README.md#diagram_triangles) are now affected by the clip extent: as the Delaunay is computed as the dual of the Voronoi, two sites are only linked if the clipped cells are touching. To compute the Delaunay triangulation without respect to clipping, set the extent to null.
+为了使得缩放更容易，提供了新的缩放变换：zoom。translateBy,zoom.scaleBy和zoom.scaleTo。缩放行为不再依赖比例尺，但是可以使用比例尺反转来获取对应比例尺的范围。3.x中的event.scale被event.transform.k替换。event.translate被event.transform.x和event.transform.y替换。zoom.center方法在编程实现的缩放中被移除。
 
-The Voronoi generator finally has well-defined behavior for coincident vertices: the first of a set of coincident points has a defined cell, while the subsequent duplicate points have null cells. The returned array of polygons is sparse, so by using *array*.forEach or *array*.map, you can easily skip undefined cells. The Voronoi generator also now correctly handles the case where no cell edges intersect the extent.
+新的zoom.translateExtent可以限制世界坐标系的可见范围：当前的可见范围总是被包含在变化区间中。zoom.size方法被zoom.extent方法替代。并且默认的行为更友好：默认的范围是应用缩放的元素而非之前默认的960*500。
 
-## [Zooming (d3-zoom)](https://github.com/d3/d3-zoom/blob/master/README.md)
-
-The zoom behavior d3.behavior.zoom has been renamed to d3.zoom. Zoom behaviors no longer store the active zoom transform (*i.e.*, the visible region; the scale and translate) internally. The zoom transform is now stored on any elements to which the zoom behavior has been applied. The zoom transform is available as *event*.transform within a zoom event or by calling [d3.zoomTransform](https://github.com/d3/d3-zoom/blob/master/README.md#zoomTransform) on a given *element*. To zoom programmatically, use [*zoom*.transform](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_transform) with a given [selection](#selections-d3-selection) or [transition](#transitions-d3-transition); see the [zoom transitions example](https://bl.ocks.org/mbostock/b783fbb2e673561d214e09c7fb5cedee). The *zoom*.event method has been removed.
-
-To make programmatic zooming easier, there are several new convenience methods on top of *zoom*.transform: [*zoom*.translateBy](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateBy), [*zoom*.scaleBy](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleBy) and [*zoom*.scaleTo](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_scaleTo). There is also a new API for describing [zoom transforms](https://github.com/d3/d3-zoom/blob/master/README.md#zoom-transforms). Zoom behaviors are no longer dependent on [scales](#scales-d3-scale), but you can use [*transform*.rescaleX](https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleX), [*transform*.rescaleY](https://github.com/d3/d3-zoom/blob/master/README.md#transform_rescaleY), [*transform*.invertX](https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertX) or [*transform*.invertY](https://github.com/d3/d3-zoom/blob/master/README.md#transform_invertY) to transform a scale’s domain. 3.x’s *event*.scale is replaced with *event*.transform.k, and *event*.translate is replaced with *event*.transform.x and *event*.transform.y. The *zoom*.center method has been removed in favor of programmatic zooming.
-
-The zoom behavior finally supports simple constraints on panning! The new [*zoom*.translateExtent](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_translateExtent) lets you define the viewable extent of the world: the currently-visible extent (the extent of the viewport, as defined by [*zoom*.extent](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_extent)) is always contained within the translate extent. The *zoom*.size method has been replaced by *zoom*.extent, and the default behavior is now smarter: it defaults to the extent of the zoom behavior’s owner element, rather than being hardcoded to 960×500. (This also improves the default path chosen during smooth zoom transitions!)
-
-The zoom behavior’s interaction has also improved. It now correctly handles concurrent wheeling and dragging, as well as concurrent touching and mousing. The zoom behavior now ignores wheel events at the limits of its scale extent, allowing you to scroll past a zoomable area. The *zoomstart* and *zoomend* events have been renamed *start* and *end*. By default, zoom behaviors now ignore right-clicks intended for the context menu; use [*zoom*.filter](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_filter) to control which events are ignored. The zoom behavior also ignores emulated mouse events on iOS. The zoom behavior now consumes handled events, making it easier to combine with other interactive behaviors such as [dragging](#dragging-d3-drag).
+缩放的交互能力也得到了提高。在同时滚轮和拖拽的时候更准确，同时触摸与移动也一样。zoomstart和zoomend事件被改名为start和end。默认情况下缩放会忽略鼠标右击事件，可以使用zoom.filter来设置。也忽略了IOS上的鼠标模拟事件。

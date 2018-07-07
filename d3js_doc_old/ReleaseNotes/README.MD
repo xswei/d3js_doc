@@ -1478,4 +1478,3 @@ d3.behavior.zoom被重命名为d3.zoom。zoom行为不再在内部存储活跃�
 新的zoom.translateExtent可以限制世界坐标系的可见范围：当前的可见范围总是被包含在变化区间中。zoom.size方法被zoom.extent方法替代。并且默认的行为更友好：默认的范围是应用缩放的元素而非之前默认的960*500。
 
 缩放的交互能力也得到了提高。在同时滚轮和拖拽的时候更准确，同时触摸与移动也一样。zoomstart和zoomend事件被改名为start和end。默认情况下缩放会忽略鼠标右击事件，可以使用zoom.filter来设置。也忽略了IOS上的鼠标模拟事件。
-

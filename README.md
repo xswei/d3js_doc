@@ -19,7 +19,7 @@
 * [Mike Bostock 的示例](https://bl.ocks.org/mbostock?_blank)
 * [教程](https://github.com/d3/d3/wiki/Tutorials?_blank)
 * [插件](https://github.com/d3/d3/wiki/Plugins?_blank)
-* [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/Release_Notes/CHANGES.md?_blank)
+* [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/API_Reference/CHANGES.md)
 * [d3.js on Stack Overflow](https://stackoverflow.com/questions/tagged/d3.js?_blank)
 * [d3-js Google Group](http://groups.google.com/group/d3-js?_blank)
 
