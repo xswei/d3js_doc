@@ -63,8 +63,8 @@
 * [d3.bisectRight](https://github.com/xswei/d3-array/blob/master/README.md#bisectRight) - 二分查找有序数组中指定元素的索引.
 * [d3.bisectLeft](https://github.com/xswei/d3-array/blob/master/README.md#bisectLeft) - 二分查找有序数组中指定元素的索引.
 * [d3.bisector](https://github.com/xswei/d3-array/blob/master/README.md#bisector) - 用指定的访问器或比较器对二分查找.
-* [*bisector*.left](https://github.com/xswei/d3-array/blob/master/README.md#bisector_left) - 与 bisectLeft 类似, 可以指定比较器.
-* [*bisector*.right](https://github.com/xswei/d3-array/blob/master/README.md#bisector_right) - 与 bisectRight 类似, 可以指定比较器.
+* [*bisector*.left](https://github.com/xswei/d3-array/blob/master/README.md#bisector_left) - 与 `bisectLeft` 类似, 可以指定比较器.
+* [*bisector*.right](https://github.com/xswei/d3-array/blob/master/README.md#bisector_right) - 与 `bisectRight` 类似, 可以指定比较器.
 * [d3.ascending](https://github.com/xswei/d3-array/blob/master/README.md#ascending) - 计算两个值的自然顺序.
 * [d3.descending](https://github.com/xswei/d3-array/blob/master/README.md#descending) - 计算两个值的自然顺序.
 
@@ -93,9 +93,9 @@
 * [*histogram*.value](https://github.com/xswei/d3-array/blob/master/README.md#histogram_value) - 设置或获取直方图值访问器.
 * [*histogram*.domain](https://github.com/xswei/d3-array/blob/master/README.md#histogram_domain) - 设置或获取直方图的可观测区间.
 * [*histogram*.thresholds](https://github.com/xswei/d3-array/blob/master/README.md#histogram_thresholds) - 设置直方图阈值生成方式.
-* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) - Freedman–Diaconis 阈值生成规则.
-* [d3.thresholdScott](https://github.com/xswei/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference 阈值生成规则.
-* [d3.thresholdSturges](https://github.com/xswei/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ 阈值生成规则.
+* [d3.thresholdFreedmanDiaconis](https://github.com/xswei/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) - *Freedman–Diaconis* 阈值生成规则.
+* [d3.thresholdScott](https://github.com/xswei/d3-array/blob/master/README.md#thresholdScott) - *Scott’s normal reference* 阈值生成规则.
+* [d3.thresholdSturges](https://github.com/xswei/d3-array/blob/master/README.md#thresholdSturges) - *Sturges* 阈值生成规则.
 
 ## [Axes (d3-axis)](https://github.com/xswei/d3-axis)
 
@@ -121,9 +121,9 @@
 使用鼠标或触摸选择一维或二维区域
 
 * [d3.brush](https://github.com/xswei/d3-brush/blob/master/README.md#brush) - 创建一个新的二维刷取交互
-* [d3.brushX](https://github.com/xswei/d3-brush/blob/master/README.md#brushX) - 创建一个新的*x*-维度的刷取交互
-* [d3.brushY](https://github.com/xswei/d3-brush/blob/master/README.md#brushY) - 创建一个新的*y*-维度的刷取交互
-* [*brush*](https://github.com/xswei/d3-brush/blob/master/README.md#_brush) - 将刷取操作应用到一个`selection`上
+* [d3.brushX](https://github.com/xswei/d3-brush/blob/master/README.md#brushX) - 创建一个新的 *x*- 维度的刷取交互
+* [d3.brushY](https://github.com/xswei/d3-brush/blob/master/README.md#brushY) - 创建一个新的 *y*- 维度的刷取交互
+* [*brush*](https://github.com/xswei/d3-brush/blob/master/README.md#_brush) - 将刷取操作应用到一个 `selection` 上
 * [*brush*.move](https://github.com/xswei/d3-brush/blob/master/README.md#brush_move) - 移动刷取框选
 * [*brush*.extent](https://github.com/xswei/d3-brush/blob/master/README.md#brush_extent) - 定义可刷取的范围
 * [*brush*.filter](https://github.com/xswei/d3-brush/blob/master/README.md#brush_filter) - 过滤器定义哪些事件不触发刷取操作
@@ -139,13 +139,13 @@
 * [*chord*.sortGroups](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortGroups) - 定义分组排序规则
 * [*chord*.sortSubgroups](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortSubgroups) - 定义分组内部子分组的排序规则
 * [*chord*.sortChords](https://github.com/xswei/d3-chord/blob/master/README.md#chord_sortChords) - 定义弦之间的排序规则
-* [d3.ribbon](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon) - 创建一个ribbon(弦)生成器
-* [*ribbon*](https://github.com/xswei/d3-chord/blob/master/README.md#_ribbon) - 根据指定的数据返回一个path路径以表示弦.
-* [*ribbon*.source](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_source) - 设置ribbon的源访问器.
-* [*ribbon*.target](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_target) - 设置ribbon的目标访问器.
-* [*ribbon*.radius](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_radius) - 设置ribbon的半径.
-* [*ribbon*.startAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_startAngle) - 设置ribbon的起始角度访问器.
-* [*ribbon*.endAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_endAngle) - 设置ribbon的终止角度访问器.
+* [d3.ribbon](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon) - 创建一个 `ribbon`(弦)生成器
+* [*ribbon*](https://github.com/xswei/d3-chord/blob/master/README.md#_ribbon) - 根据指定的数据返回一个 `path` 路径以表示弦.
+* [*ribbon*.source](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_source) - 设置 `ribbon` 的源访问器.
+* [*ribbon*.target](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_target) - 设置 `ribbon` 的目标访问器.
+* [*ribbon*.radius](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_radius) - 设置 `ribbon` 的半径.
+* [*ribbon*.startAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_startAngle) - 设置 `ribbon` 的起始角度访问器.
+* [*ribbon*.endAngle](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_endAngle) - 设置 `ribbon` 的终止角度访问器.
 * [*ribbon*.context](https://github.com/xswei/d3-chord/blob/master/README.md#ribbon_context) - 设置渲染上下文(`canvas`).
 
 ## [Collections (d3-collection)](https://github.com/xswei/d3-collection)
@@ -165,14 +165,14 @@
 与 `ES6` 的 `Map` 类似，但是有些不同
 
 * [d3.map](https://github.com/xswei/d3-collection/blob/master/README.md#map) - 创建一个新的空的 `map` 映射.
-* [*map*.has](https://github.com/xswei/d3-collection/blob/master/README.md#map_has) - 当map映射中有给定的 `key` 时返回 `true`
+* [*map*.has](https://github.com/xswei/d3-collection/blob/master/README.md#map_has) - 当 `map` 映射中有给定的 `key` 时返回 `true`
 * [*map*.get](https://github.com/xswei/d3-collection/blob/master/README.md#map_get) - 根据指定的 `key` 返回对应的值
 * [*map*.set](https://github.com/xswei/d3-collection/blob/master/README.md#map_set) - 设置指定的 `key` 对应的值为指定的值
 * [*map*.remove](https://github.com/xswei/d3-collection/blob/master/README.md#map_remove) - 移除指定的 `key` 以及值
-* [*map*.clear](https://github.com/xswei/d3-collection/blob/master/README.md#map_clear) - 清空map映射中所有的项
-* [*map*.keys](https://github.com/xswei/d3-collection/blob/master/README.md#map_keys) - 以数组的形式获取map映射中的 `key`
-* [*map*.values](https://github.com/xswei/d3-collection/blob/master/README.md#map_values) - 以数组的形式获取map映射中的 `value`
-* [*map*.entries](https://github.com/xswei/d3-collection/blob/master/README.md#map_entries) - 以数组的形式获取map映射中的 `key-values` 对象
+* [*map*.clear](https://github.com/xswei/d3-collection/blob/master/README.md#map_clear) - 清空 `map` 映射中所有的项
+* [*map*.keys](https://github.com/xswei/d3-collection/blob/master/README.md#map_keys) - 以数组的形式获取 `map` 映射中的 `key`
+* [*map*.values](https://github.com/xswei/d3-collection/blob/master/README.md#map_values) - 以数组的形式获取 `map` 映射中的 `value`
+* [*map*.entries](https://github.com/xswei/d3-collection/blob/master/README.md#map_entries) - 以数组的形式获取 `map` 映射中的 `key-values` 对象
 * [*map*.each](https://github.com/xswei/d3-collection/blob/master/README.md#map_each) - 遍历每一项并执行指定的方法.
 * [*map*.empty](https://github.com/xswei/d3-collection/blob/master/README.md#map_empty) - 判断 `map` 映射是否为空
 * [*map*.size](https://github.com/xswei/d3-collection/blob/master/README.md#map_size) - 计算 `map` 映射中项的数目
@@ -208,20 +208,20 @@
 
 颜色空间以及转换
 
-* [d3.color](https://github.com/xswei/d3-color/blob/master/README.md#color) - 转换指定的CSS颜色字符串.
-* [*color*.rgb](https://github.com/xswei/d3-color/blob/master/README.md#color_rgb) - 计算当前颜色值的RGB表示.
+* [d3.color](https://github.com/xswei/d3-color/blob/master/README.md#color) - 转换指定的 `CSS` 颜色字符串.
+* [*color*.rgb](https://github.com/xswei/d3-color/blob/master/README.md#color_rgb) - 计算当前颜色值的 `RGB` 表示.
 * [*color*.brighter](https://github.com/xswei/d3-color/blob/master/README.md#color_brighter) - 创建一个更亮的颜色副本.
 * [*color*.darker](https://github.com/xswei/d3-color/blob/master/README.md#color_darker) - 创建一个更暗的颜色副本
 * [*color*.displayable](https://github.com/xswei/d3-color/blob/master/README.md#color_displayable) - 判断当前设备是否支持当前颜色
-* [*color*.hex](https://github.com/d3/d3-color/blob/master/README.md#color_hex) - 返回十六进制的 `RGB` 字符串标识当前的颜色.
-* [*color*.toString](https://github.com/xswei/d3-color/blob/master/README.md#color_toString) - 将当前颜色转为RGB颜色的十六进制表示
-* [d3.rgb](https://github.com/xswei/d3-color/blob/master/README.md#rgb) - 创建一个新的RGB颜色.
-* [d3.hsl](https://github.com/xswei/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色.
-* [d3.lab](https://github.com/xswei/d3-color/blob/master/README.md#lab) - 创建一个新的Lab颜色.
-* [d3.hcl](https://github.com/xswei/d3-color/blob/master/README.md#hcl) - 创建一个新的HCL颜色.
-* [d3.lch](https://github.com/d3/d3-color/blob/master/README.md#lch) - create a new HCL color.
-* [d3.gray](https://github.com/d3/d3-color/blob/master/README.md#gray) - create a new Lab gray.
-* [d3.cubehelix](https://github.com/xswei/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色.
+* [*color*.hex](https://github.com/xswei/d3-color/blob/master/README.md#color_hex) - 返回十六进制的 `RGB` 字符串标识当前的颜色.
+* [*color*.toString](https://github.com/xswei/d3-color/blob/master/README.md#color_toString) - 将当前颜色转为 `RGB` 颜色的十六进制表示
+* [d3.rgb](https://github.com/xswei/d3-color/blob/master/README.md#rgb) - 创建一个新的 `RGB` 颜色.
+* [d3.hsl](https://github.com/xswei/d3-color/blob/master/README.md#hsl) - 创建一个新的 `HSL` 颜色.
+* [d3.lab](https://github.com/xswei/d3-color/blob/master/README.md#lab) - 创建一个新的 `Lab` 颜色.
+* [d3.hcl](https://github.com/xswei/d3-color/blob/master/README.md#hcl) - 创建一个新的 `HCL` 颜色.
+* [d3.lch](https://github.com/xswei/d3-color/blob/master/README.md#lch) - 创建一个新的 `HCL` 颜色.
+* [d3.gray](https://github.com/xswei/d3-color/blob/master/README.md#gray) - 创建一个新的 `Lab` 灰色( `a` = `b` = 0).
+* [d3.cubehelix](https://github.com/xswei/d3-color/blob/master/README.md#cubehelix) - 创建一个新的 `Cubehelix` 颜色.
 
 ## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3-scale-chromatic)
 
@@ -352,7 +352,7 @@ Compute contour polygons using marching squares.
 * [*drag*.filter](https://github.com/xswei/d3-drag/blob/master/README.md#drag_filter) - 忽略一些拖拽启动事件.
 * [*drag*.touchable](https://github.com/xswei/d3-drag/blob/master/README.md#drag_touchable) - 设置触摸支持检测.
 * [*drag*.subject](https://github.com/xswei/d3-drag/blob/master/README.md#drag_subject) - 设置被拖拽的主体.
-* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - set the click distance threshold. --**TODO**
+* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - 设置点击距离阈值 -- **TODO**
 * [*drag*.on](https://github.com/xswei/d3-drag/blob/master/README.md#drag_on) - 监听拖拽事件.
 * [*event*.on](https://github.com/xswei/d3-drag/blob/master/README.md#event_on) - 在当前拖拽手势中监听拖拽事件.
 * [d3.dragDisable](https://github.com/xswei/d3-drag/blob/master/README.md#dragDisable) - 阻止原生拖拽以及文本选择.
@@ -367,60 +367,60 @@ Compute contour polygons using marching squares.
 * [*dsv*.parseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_parseRows) - 解析指定的字符串并返回行数组.
 * [*dsv*.format](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_format) - 格式化指定的对象数组为字符串.
 * [*dsv*.formatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#dsv_formatRows) - 格式化指定的行数组为字符串.
-* [d3.csvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParse) - 解析指定的 CSV 字符串并返回对象数组.
-* [d3.csvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParseRows) - 解析指定的 CSV 字符串并返回行数组.
-* [d3.csvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormat) - 格式化指定的对象数组为 CSV.
-* [d3.csvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormatRows) - 格式化指定的行数组为 CSV.
-* [d3.tsvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParse) - 解析指定的 TSV 字符串并返回对象数组.
-* [d3.tsvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParseRows) - 解析指定的 TSV 字符串并返回行数组.
-* [d3.tsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormat) - 格式化指定的对象数组为 TSV.
-* [d3.tsvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormatRows) - 格式化指定的行数组为 TSV.
+* [d3.csvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParse) - 解析指定的 `CSV` 字符串并返回对象数组.
+* [d3.csvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvParseRows) - 解析指定的 `CSV` 字符串并返回行数组.
+* [d3.csvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormat) - 格式化指定的对象数组为 `CSV`.
+* [d3.csvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#csvFormatRows) - 格式化指定的行数组为 `CSV`.
+* [d3.tsvParse](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParse) - 解析指定的 `TSV` 字符串并返回对象数组.
+* [d3.tsvParseRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvParseRows) - 解析指定的 `TSV` 字符串并返回行数组.
+* [d3.tsvFormat](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormat) - 格式化指定的对象数组为 `TSV`.
+* [d3.tsvFormatRows](https://github.com/xswei/d3-dsv/blob/master/README.md#tsvFormatRows) - 格式化指定的行数组为 `TSV`.
 
 ## [Easings (d3-ease)](https://github.com/xswei/d3-ease)
 
 平滑过渡的过渡函数.
 
 * [*ease*](https://github.com/xswei/d3-ease/blob/master/README.md#_ease) - 计算标准时间经过缓动方法计算后的时间.
-* [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - linear 缓动; 恒等函数.
-* [d3.easePolyIn](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyIn) - polynomial 缓动.
-* [d3.easePolyOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyOut) - 反转 polynomial 缓动.
-* [d3.easePolyInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyInOut) - 对称 polynomial 缓动.
-* [*poly*.exponent](https://github.com/xswei/d3-ease/blob/master/README.md#poly_exponent) - 指定 polynomial 的指数.
-* [d3.easeQuad](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuad) - easeQuadInOut 的别名.
-* [d3.easeQuadIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadIn) - quadratic 缓动.
-* [d3.easeQuadOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadOut) - 反转 quadratic 缓动.
-* [d3.easeQuadInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadInOut) - 对称 quadratic 缓动.
-* [d3.easeCubic](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubic) - easeCubicInOut 的别名.
-* [d3.easeCubicIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicIn) - cubic 缓动.
-* [d3.easeCubicOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicOut) - 反转 cubic 缓动.
-* [d3.easeCubicInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicInOut) - 对称 cubic 缓动.
-* [d3.easeSin](https://github.com/xswei/d3-ease/blob/master/README.md#easeSin) - easeSinInOut 的别名.
-* [d3.easeSinIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinIn) - sinusoidal 缓动.
-* [d3.easeSinOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinOut) - 反转 sinusoidal 缓动.
-* [d3.easeSinInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinInOut) - 对称 sinusoidal 缓动.
-* [d3.easeExp](https://github.com/xswei/d3-ease/blob/master/README.md#easeExp) - easeExpInOut 的别名.
-* [d3.easeExpIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpIn) - exponential 缓动.
-* [d3.easeExpOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpOut) - 反转 exponential 缓动.
-* [d3.easeExpInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpInOut) - 对称 exponential 缓动.
-* [d3.easeCircle](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircle) - easeCircleInOut 的别名.
-* [d3.easeCircleIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleIn) - circular 缓动.
-* [d3.easeCircleOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleOut) - 反转 circular 缓动.
-* [d3.easeCircleInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleInOut) - 对称 circular 缓动.
-* [d3.easeElastic](https://github.com/xswei/d3-ease/blob/master/README.md#easeElastic) - easeElasticOut 的别名.
-* [d3.easeElasticIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticIn) - elastic 缓动, 就像是橡皮筋.
-* [d3.easeElasticOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticOut) - 反转 elastic 缓动.
-* [d3.easeElasticInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticInOut) - 对称 elastic 缓动.
-* [*elastic*.amplitude](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_amplitude) - 指定 elastic 的振幅.
-* [*elastic*.period](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_period) - 指定 elastic 的周期.
-* [d3.easeBack](https://github.com/xswei/d3-ease/blob/master/README.md#easeBack) - easeBackInOut 的别名.
-* [d3.easeBackIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackIn) - anticipatory 缓动, 就像是舞者在跳跃之前先弯曲膝盖.
-* [d3.easeBackOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackOut) - 反转 anticipatory 缓动.
-* [d3.easeBackInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackInOut) - 对称 anticipatory 缓动.
+* [d3.easeLinear](https://github.com/xswei/d3-ease/blob/master/README.md#easeLinear) - `linear` 缓动; 恒等函数.
+* [d3.easePolyIn](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyIn) - `polynomial` 缓动.
+* [d3.easePolyOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyOut) - 反转 `polynomial` 缓动.
+* [d3.easePolyInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easePolyInOut) - 对称 `polynomial` 缓动.
+* [*poly*.exponent](https://github.com/xswei/d3-ease/blob/master/README.md#poly_exponent) - 指定 `polynomial` 的指数.
+* [d3.easeQuad](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuad) - `easeQuadInOut` 的别名.
+* [d3.easeQuadIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadIn) - `quadratic` 缓动.
+* [d3.easeQuadOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadOut) - 反转 `quadratic` 缓动.
+* [d3.easeQuadInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeQuadInOut) - 对称 `quadratic` 缓动.
+* [d3.easeCubic](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubic) - `easeCubicInOut` 的别名.
+* [d3.easeCubicIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicIn) - `cubic` 缓动.
+* [d3.easeCubicOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicOut) - 反转 `cubic` 缓动.
+* [d3.easeCubicInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCubicInOut) - 对称 `cubic` 缓动.
+* [d3.easeSin](https://github.com/xswei/d3-ease/blob/master/README.md#easeSin) - `easeSinInOut` 的别名.
+* [d3.easeSinIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinIn) - `sinusoidal` 缓动.
+* [d3.easeSinOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinOut) - 反转 `sinusoidal` 缓动.
+* [d3.easeSinInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeSinInOut) - 对称 `sinusoidal` 缓动.
+* [d3.easeExp](https://github.com/xswei/d3-ease/blob/master/README.md#easeExp) - `easeExpInOut` 的别名.
+* [d3.easeExpIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpIn) - `exponential` 缓动.
+* [d3.easeExpOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpOut) - 反转 `exponential` 缓动.
+* [d3.easeExpInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeExpInOut) - 对称 `exponential` 缓动.
+* [d3.easeCircle](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircle) - `easeCircleInOut` 的别名.
+* [d3.easeCircleIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleIn) - `circular` 缓动.
+* [d3.easeCircleOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleOut) - 反转 `circular` 缓动.
+* [d3.easeCircleInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeCircleInOut) - 对称 `circular` 缓动.
+* [d3.easeElastic](https://github.com/xswei/d3-ease/blob/master/README.md#easeElastic) - `easeElasticOut` 的别名.
+* [d3.easeElasticIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticIn) - `elastic` 缓动, 就像是橡皮筋.
+* [d3.easeElasticOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticOut) - 反转 `elastic` 缓动.
+* [d3.easeElasticInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeElasticInOut) - 对称 `elastic` 缓动.
+* [*elastic*.amplitude](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_amplitude) - 指定 `elastic` 的振幅.
+* [*elastic*.period](https://github.com/xswei/d3-ease/blob/master/README.md#elastic_period) - 指定 `elastic` 的周期.
+* [d3.easeBack](https://github.com/xswei/d3-ease/blob/master/README.md#easeBack) - `easeBackInOut` 的别名.
+* [d3.easeBackIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackIn) - `anticipatory` 缓动, 就像是舞者在跳跃之前先弯曲膝盖.
+* [d3.easeBackOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackOut) - 反转 `anticipatory` 缓动.
+* [d3.easeBackInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBackInOut) - 对称 `anticipatory` 缓动.
 * [*back*.overshoot](https://github.com/xswei/d3-ease/blob/master/README.md#back_overshoot) - 指定超调量.
-* [d3.easeBounce](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounce) - easeBounceOut 的别名.
-* [d3.easeBounceIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceIn) - bounce 缓动, 就像是橡皮球.
-* [d3.easeBounceOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceOut) - 反转 bounce 缓动.
-* [d3.easeBounceInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceInOut) - 对称 bounce 缓动.
+* [d3.easeBounce](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounce) - `easeBounceOut` 的别名.
+* [d3.easeBounceIn](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceIn) - `bounce` 缓动, 就像是橡皮球.
+* [d3.easeBounceOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceOut) - 反转 `bounce` 缓动.
+* [d3.easeBounceInOut](https://github.com/xswei/d3-ease/blob/master/README.md#easeBounceInOut) - 对称 `bounce` 缓动.
 
 ## [Fetches (d3-fetch)](https://github.com/xswei/d3-fetch)
 
@@ -428,12 +428,12 @@ Compute contour polygons using marching squares.
 
 * [d3.blob](https://github.com/xswei/d3-fetch/blob/master/README.md#blob) - 以 `blob` 的形式获取文件.
 * [d3.buffer](https://github.com/xswei/d3-fetch/blob/master/README.md#buffer) - 以 `array buffer` 的形式获取文件.
-* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符(`CSV`)文件.
-* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符(`DSV`)文件.
+* [d3.csv](https://github.com/xswei/d3-fetch/blob/master/README.md#csv) - 获取逗号分隔符 (`CSV`) 文件.
+* [d3.dsv](https://github.com/xswei/d3-fetch/blob/master/README.md#dsv) - 获取分隔符 (`DSV`) 文件.
 * [d3.image](https://github.com/xswei/d3-fetch/blob/master/README.md#image) - 获取图片.
 * [d3.json](https://github.com/xswei/d3-fetch/blob/master/README.md#json) - 获取 `JSON` 文件.
 * [d3.text](https://github.com/xswei/d3-fetch/blob/master/README.md#text) - 获取无格式文本.
-* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 `tab` 分隔符(`TSV`)文件.
+* [d3.tsv](https://github.com/xswei/d3-fetch/blob/master/README.md#tsv) - 获取 `tab` 分隔符 (`TSV`) 文件.
 
 ## [Forces (d3-force)](https://github.com/xswei/d3-force)
 
@@ -486,7 +486,7 @@ Compute contour polygons using marching squares.
 
 ## [Number Formats (d3-format)](https://github.com/xswei/d3-format)
 
-Format numbers for human consumption.
+对人类友好的数值格式化.
 
 * [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - alias for *locale*.format on the default locale.
 * [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - alias for *locale*.formatPrefix on the default locale.
@@ -511,7 +511,7 @@ Format numbers for human consumption.
 * [*path*.bounds](https://github.com/xswei/d3-geo/blob/master/README.md#path_bounds) - 计算指定的二位地理特征包裹框.
 * [*path*.centroid](https://github.com/xswei/d3-geo/blob/master/README.md#path_centroid) - 算指定的二位地理特征中心.
 * [*path*.measure](https://github.com/xswei/d3-geo/blob/master/README.md#path_measure) - 算指定的二位地理特征周长.
-* [*path*.projection](https://github.com/xswei/d3-geo/blob/master/README.md#path_projection) - 设置地理路径生成器的投影方式.
+* [*path*.projection](https://github.com/xswei/d3-geo/blob/master/README.md#path_projection) - 设置地理路径生成器的投影方式.
 * [*path*.context](https://github.com/xswei/d3-geo/blob/master/README.md#path_context) - 设置渲染上下文.
 * [*path*.pointRadius](https://github.com/xswei/d3-geo/blob/master/README.md#path_pointRadius) - 设置点特征的半径.
 
@@ -691,39 +691,39 @@ Format numbers for human consumption.
 * [d3.interpolateObject](https://github.com/xswei/d3-interpolate#interpolateObject) - 生成一个对象类型插值器.
 * [d3.interpolateRound](https://github.com/xswei/d3-interpolate#interpolateRound) - 生成一个数值类型插值器.
 * [d3.interpolateString](https://github.com/xswei/d3-interpolate#interpolateString) - 生成一个字符串类型插值器.
-* [d3.interpolateTransformCss](https://github.com/xswei/d3-interpolate#interpolateTransformCss) - 生成一个 2D css 样式过渡插值器.
-* [d3.interpolateTransformSvg](https://github.com/xswei/d3-interpolate#interpolateTransformSvg) - 生成一个 2D SVG 过渡插值器.
+* [d3.interpolateTransformCss](https://github.com/xswei/d3-interpolate#interpolateTransformCss) - 生成一个 `2D CSS` 样式过渡插值器.
+* [d3.interpolateTransformSvg](https://github.com/xswei/d3-interpolate#interpolateTransformSvg) - 生成一个 `2D SVG` 过渡插值器.
 * [d3.interpolateZoom](https://github.com/xswei/d3-interpolate#interpolateZoom) - 在两个缩放视图之间过渡的插值器.
-* [d3.interpolateRgb](https://github.com/xswei/d3-interpolate#interpolateRgb) - 生成一个RGB类型插值器.
-* [d3.interpolateRgbBasis](https://github.com/xswei/d3-interpolate#interpolateRgbBasis) - 根据一组颜色返回一个 B- 样条插值器.
-* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3-interpolate#interpolateRgbBasisClosed) - 根据一组颜色返回一个 B- 样条插值器.
-* [d3.interpolateHsl](https://github.com/xswei/d3-interpolate#interpolateHsl) - 生成一个 Hsl 类型插值器.
-* [d3.interpolateHslLong](https://github.com/xswei/d3-interpolate#interpolateHslLong) - 生成一个 Hsl 类型插值器(反向模式).
-* [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - 生成一个 Lab 类型插值器.
-* [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - 生成一个 Hcl 类型插值器.
-* [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - 生成一个 Hcl 类型插值器(反向模式).
+* [d3.interpolateRgb](https://github.com/xswei/d3-interpolate#interpolateRgb) - 生成一个 `RGB` 类型插值器.
+* [d3.interpolateRgbBasis](https://github.com/xswei/d3-interpolate#interpolateRgbBasis) - 根据一组颜色返回一个 *B*- 样条插值器.
+* [d3.interpolateRgbBasisClosed](https://github.com/xswei/d3-interpolate#interpolateRgbBasisClosed) - 根据一组颜色返回一个 *B*- 样条插值器.
+* [d3.interpolateHsl](https://github.com/xswei/d3-interpolate#interpolateHsl) - 生成一个 `Hsl` 类型插值器.
+* [d3.interpolateHslLong](https://github.com/xswei/d3-interpolate#interpolateHslLong) - 生成一个 `Hsl` 类型插值器(反向模式).
+* [d3.interpolateLab](https://github.com/xswei/d3-interpolate#interpolateLab) - 生成一个 `Lab` 类型插值器.
+* [d3.interpolateHcl](https://github.com/xswei/d3-interpolate#interpolateHcl) - 生成一个 `Hcl` 类型插值器.
+* [d3.interpolateHclLong](https://github.com/xswei/d3-interpolate#interpolateHclLong) - 生成一个 `Hcl` 类型插值器(反向模式).
 * [d3.interpolateCubehelix](https://github.com/xswei/d3-interpolate#interpolateCubehelix) - 生成一个 Cubehelix 类型插值器.
-* [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - 生成一个 Cubehelix 类型插值器(反向模式).
+* [d3.interpolateCubehelixLong](https://github.com/xswei/d3-interpolate#interpolateCubehelixLong) - 生成一个 `Cubehelix` 类型插值器(反向模式).
 * [*interpolate*.gamma](https://github.com/xswei/d3-interpolate#interpolate_gamma) - 应用 `gamma` 修正.
-* [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - 根据一组数值返回一个 B- 样条插值器.
-* [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - 根据一组数值返回一个 B- 样条插值器.
-* [d3.piecewise](https://github.com/d3/d3-interpolate/blob/master/README.md#piecewise) - generate a piecewise linear interpolator from a set of values.
+* [d3.interpolateBasis](https://github.com/xswei/d3-interpolate#interpolateBasis) - 根据一组数值返回一个 *B*- 样条插值器.
+* [d3.interpolateBasisClosed](https://github.com/xswei/d3-interpolate#interpolateBasisClosed) - 根据一组数值返回一个 *B*- 样条插值器.
+* [d3.piecewise](https://github.com/xswei/d3-interpolate/blob/master/README.md#piecewise) - 根据指定的 `values` 生成一个分段插值器.
 * [d3.quantize](https://github.com/xswei/d3-interpolate#quantize) - 插值器生成一组均匀采样.
 
 ## [Paths (d3-path)](https://github.com/xswei/d3-path)
 
-将 Canvas 路径命令序列化为 SVG 路径字符串。
+将 `Canvas` 路径命令序列化为 `SVG` 路径字符串。
 
 * [d3.path](https://github.com/xswei/d3-path/blob/master/README.md#path) - 创建一个新的路径序列化.
 * [*path*.moveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_moveTo) - 移动到指定的点.
 * [*path*.closePath](https://github.com/xswei/d3-path/blob/master/README.md#path_closePath) - 闭合当前子路径.
 * [*path*.lineTo](https://github.com/xswei/d3-path/blob/master/README.md#path_lineTo) - 绘制直线.
-* [*path*.quadraticCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_quadraticCurveTo) - 绘制二次 Bézier 曲线.
-* [*path*.bezierCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_bezierCurveTo) - 绘制三次 Bézier 曲线.
+* [*path*.quadraticCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_quadraticCurveTo) - 绘制二次 `Bézier` 曲线.
+* [*path*.bezierCurveTo](https://github.com/xswei/d3-path/blob/master/README.md#path_bezierCurveTo) - 绘制三次 `Bézier` 曲线.
 * [*path*.arcTo](https://github.com/xswei/d3-path/blob/master/README.md#path_arcTo) - 绘制弧线段.
 * [*path*.arc](https://github.com/xswei/d3-path/blob/master/README.md#path_arc) - 绘制弧线段.
 * [*path*.rect](https://github.com/xswei/d3-path/blob/master/README.md#path_rect) - 绘制矩形.
-* [*path*.toString](https://github.com/xswei/d3-path/blob/master/README.md#path_toString) - 序列化为 SVG 路径字符串.
+* [*path*.toString](https://github.com/xswei/d3-path/blob/master/README.md#path_toString) - 序列化为 `SVG` 路径字符串.
 
 ## [Polygons (d3-polygon)](https://github.com/xswei/d3-polygon)
 
