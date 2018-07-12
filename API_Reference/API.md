@@ -352,7 +352,7 @@ Compute contour polygons using marching squares.
 * [*drag*.filter](https://github.com/xswei/d3-drag/blob/master/README.md#drag_filter) - 忽略一些拖拽启动事件.
 * [*drag*.touchable](https://github.com/xswei/d3-drag/blob/master/README.md#drag_touchable) - 设置触摸支持检测.
 * [*drag*.subject](https://github.com/xswei/d3-drag/blob/master/README.md#drag_subject) - 设置被拖拽的主体.
-* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - 设置点击距离阈值 -- **TODO**
+* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - 设置可触发 `click` 事件的阈值距离
 * [*drag*.on](https://github.com/xswei/d3-drag/blob/master/README.md#drag_on) - 监听拖拽事件.
 * [*event*.on](https://github.com/xswei/d3-drag/blob/master/README.md#event_on) - 在当前拖拽手势中监听拖拽事件.
 * [d3.dragDisable](https://github.com/xswei/d3-drag/blob/master/README.md#dragDisable) - 阻止原生拖拽以及文本选择.
