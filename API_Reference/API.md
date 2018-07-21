@@ -488,13 +488,13 @@ Compute contour polygons using marching squares.
 
 对人类友好的数值格式化.
 
-* [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - alias for *locale*.format on the default locale.
-* [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - alias for *locale*.formatPrefix on the default locale.
-* [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - parse a number format specifier.
-* [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - define a custom locale.
-* [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - create a number format.
-* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - create a SI-prefix number format.
+* [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - 默认语言环境中的 *locale*.format 别名.
+* [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - 默认语言环境中的 *locale*.formatPrefix 别名.
+* [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - 解析指定的说明符.
+* [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - 定义一个自定义语言环境.
+* [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - 定义一个默认的语言环境.
+* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - 创建一个数值格式化器.
+* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - 创建一个估计度量标准的数值格式化器.
 * [d3.precisionFixed](https://github.com/xswei/d3-format/blob/master/README.md#precisionFixed) - compute decimal precision for fixed-point notation.
 * [d3.precisionPrefix](https://github.com/xswei/d3-format/blob/master/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
 * [d3.precisionRound](https://github.com/xswei/d3-format/blob/master/README.md#precisionRound) - compute significant digits for rounded notation.
@@ -582,11 +582,11 @@ Compute contour polygons using marching squares.
 
 ### [Spherical Shapes](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-shapes)
 
-* [d3.geoCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoCircle) - create a circle generator.
-* [*circle*](https://github.com/xswei/d3-geo/blob/master/README.md#_circle) - generate a piecewise circle as a Polygon.
-* [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - specify the circle center in latitude and longitude.
-* [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - specify the angular radius in degrees.
-* [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - specify the precision of the piecewise circle.
+* [d3.geoCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoCircle) - 创建一个圆生成器.
+* [*circle*](https://github.com/xswei/d3-geo/blob/master/README.md#_circle) - 以分段的多边形的形式生成一个圆.
+* [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - 以经纬度的方式指定圆心.
+* [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - 以度为单位指定圆的角半径.
+* [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - 指定分段圆的精度.
 * [d3.geoGraticule](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule) - create a graticule generator.
 * [*graticule*](https://github.com/xswei/d3-geo/blob/master/README.md#_graticule) - generate a MultiLineString of meridians and parallels.
 * [*graticule*.lines](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_lines) - generate an array of LineStrings of meridians and parallels.
