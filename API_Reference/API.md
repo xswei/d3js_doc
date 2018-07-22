@@ -1166,14 +1166,14 @@ Parse and format times, inspired by strptime and strftime.
 * [d3.timeParse](https://github.com/xswei/d3-time-format/blob/master/README.md#timeParse) - alias for *locale*.parse on the default locale.
 * [d3.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#utcFormat) -  alias for *locale*.utcFormat on the default locale.
 * [d3.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#utcParse) -  alias for *locale*.utcParse on the default locale.
-* [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - an ISO 8601 UTC formatter.
-* [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - an ISO 8601 UTC parser.
+* [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - `ISO 8601 UTC` 格式化.
+* [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - `ISO 8601 UTC` 解析器.
 * [d3.timeFormatLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatLocale) - define a custom locale.
 * [d3.timeFormatDefaultLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - create a time formatter.
-* [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - create a time parser.
-* [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - create a UTC formatter.
-* [*locale*.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcParse) - create a UTC parser.
+* [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - 创建一个时间格式化.
+* [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - 创建一个时间解析器.
+* [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - 创建一个 `UTC` 格式化.
+* [*locale*.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcParse) - 创建一个 `UTC` 解析器 .
 
 ## [Time Intervals (d3-time)](https://github.com/xswei/d3-time)
 
