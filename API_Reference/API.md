@@ -352,7 +352,7 @@ Compute contour polygons using marching squares.
 * [*drag*.filter](https://github.com/xswei/d3-drag/blob/master/README.md#drag_filter) - 忽略一些拖拽启动事件.
 * [*drag*.touchable](https://github.com/xswei/d3-drag/blob/master/README.md#drag_touchable) - 设置触摸支持检测.
 * [*drag*.subject](https://github.com/xswei/d3-drag/blob/master/README.md#drag_subject) - 设置被拖拽的主体.
-* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - 设置点击距离阈值 -- **TODO**
+* [*drag*.clickDistance](https://github.com/xswei/d3-drag/blob/master/README.md#drag_clickDistance) - 设置可触发 `click` 事件的阈值距离
 * [*drag*.on](https://github.com/xswei/d3-drag/blob/master/README.md#drag_on) - 监听拖拽事件.
 * [*event*.on](https://github.com/xswei/d3-drag/blob/master/README.md#event_on) - 在当前拖拽手势中监听拖拽事件.
 * [d3.dragDisable](https://github.com/xswei/d3-drag/blob/master/README.md#dragDisable) - 阻止原生拖拽以及文本选择.
@@ -488,13 +488,13 @@ Compute contour polygons using marching squares.
 
 对人类友好的数值格式化.
 
-* [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - alias for *locale*.format on the default locale.
-* [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - alias for *locale*.formatPrefix on the default locale.
-* [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - parse a number format specifier.
-* [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - define a custom locale.
-* [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - create a number format.
-* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - create a SI-prefix number format.
+* [d3.format](https://github.com/xswei/d3-format/blob/master/README.md#format) - 默认语言环境中的 *locale*.format 别名.
+* [d3.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#formatPrefix) - 默认语言环境中的 *locale*.formatPrefix 别名.
+* [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - 解析指定的说明符.
+* [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - 定义一个自定义语言环境.
+* [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - 定义一个默认的语言环境.
+* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - 创建一个数值格式化器.
+* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - 创建一个估计度量标准的数值格式化器.
 * [d3.precisionFixed](https://github.com/xswei/d3-format/blob/master/README.md#precisionFixed) - compute decimal precision for fixed-point notation.
 * [d3.precisionPrefix](https://github.com/xswei/d3-format/blob/master/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
 * [d3.precisionRound](https://github.com/xswei/d3-format/blob/master/README.md#precisionRound) - compute significant digits for rounded notation.
@@ -582,11 +582,11 @@ Compute contour polygons using marching squares.
 
 ### [Spherical Shapes](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-shapes)
 
-* [d3.geoCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoCircle) - create a circle generator.
-* [*circle*](https://github.com/xswei/d3-geo/blob/master/README.md#_circle) - generate a piecewise circle as a Polygon.
-* [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - specify the circle center in latitude and longitude.
-* [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - specify the angular radius in degrees.
-* [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - specify the precision of the piecewise circle.
+* [d3.geoCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoCircle) - 创建一个圆生成器.
+* [*circle*](https://github.com/xswei/d3-geo/blob/master/README.md#_circle) - 以分段的多边形的形式生成一个圆.
+* [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - 以经纬度的方式指定圆心.
+* [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - 以度为单位指定圆的角半径.
+* [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - 指定分段圆的精度.
 * [d3.geoGraticule](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule) - create a graticule generator.
 * [*graticule*](https://github.com/xswei/d3-geo/blob/master/README.md#_graticule) - generate a MultiLineString of meridians and parallels.
 * [*graticule*.lines](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_lines) - generate an array of LineStrings of meridians and parallels.
@@ -627,9 +627,9 @@ Compute contour polygons using marching squares.
 * [*node*.leaves](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_leaves) - 返回当前节点为根节点的子树的叶节点.
 * [*node*.path](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_path) - 返回从当前节点到指定目标节点的最短路径.
 * [*node*.links](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_links) - 返回当前节点所在子树的所有边.
-* [*node*.sum](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sum) - evaluate and aggregate quantitative values.
-* [*node*.sort](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sort) - sort all descendant siblings.
-* [*node*.count](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_count) - count the number of leaves.
+* [*node*.sum](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sum) - 评估和汇总定量值.
+* [*node*.sort](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_sort) - 排序所有的后代兄弟节点.
+* [*node*.count](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_count) - 统计叶节点的个数.
 * [*node*.each](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_each) - 广度优先遍历当前子树.
 * [*node*.eachAfter](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachAfter) - 后续遍历当前子树.
 * [*node*.eachBefore](https://github.com/xswei/d3-hierarchy/blob/master/README.md#node_eachBefore) - 前序遍历当前子树.
@@ -660,13 +660,13 @@ Compute contour polygons using marching squares.
 * [*treemap*.paddingRight](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingRight) - 设置父节点和子节点之间的右侧间距.
 * [*treemap*.paddingBottom](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingBottom) - 设置父节点和子节点之间的底部间距.
 * [*treemap*.paddingLeft](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemap_paddingLeft) - 设置父节点和子节点之间的左侧间距.
-* [d3.treemapBinary](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapBinary) - tile using a balanced binary tree.
-* [d3.treemapDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapDice) - tile into a horizontal row.
-* [d3.treemapSlice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSlice) - tile into a vertical column.
-* [d3.treemapSliceDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSliceDice) - alternate between slicing and dicing.
+* [d3.treemapBinary](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapBinary) - 平铺为平衡二叉树.
+* [d3.treemapDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapDice) - 以水平划分的形式平铺.
+* [d3.treemapSlice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSlice) - 以垂直划分的形式平铺.
+* [d3.treemapSliceDice](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSliceDice) - 在 `slice` 和 `dice` 之间切换.
 * [d3.treemapSquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapSquarify) - tile using squarified rows per Bruls *et. al.*
-* [d3.treemapResquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapResquarify) - like d3.treemapSquarify, but performs stable updates.
-* [*squarify*.ratio](https://github.com/xswei/d3-hierarchy/blob/master/README.md#squarify_ratio) - set the desired rectangle aspect ratio.
+* [d3.treemapResquarify](https://github.com/xswei/d3-hierarchy/blob/master/README.md#treemapResquarify) - 与 ` d3.treemapSquarify` 类似, 但是更新时更稳定.
+* [*squarify*.ratio](https://github.com/xswei/d3-hierarchy/blob/master/README.md#squarify_ratio) - 设置期望的矩形纵横比.
 * [d3.partition](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition) - 创建一个新的分区布局.
 * [*partition*](https://github.com/xswei/d3-hierarchy/blob/master/README.md#_partition) - 将层次数据布局为分区图(属性计算).
 * [*partition*.size](https://github.com/xswei/d3-hierarchy/blob/master/README.md#partition_size) - 设置分区图的尺寸.
@@ -764,7 +764,7 @@ Compute contour polygons using marching squares.
 * [d3.randomNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomNormal) - 标准高斯分布.
 * [d3.randomLogNormal](https://github.com/xswei/d3-random/blob/master/README.md#randomLogNormal) - 对数分布.
 * [d3.randomBates](https://github.com/xswei/d3-random/blob/master/README.md#randomBates) - 贝茨分布.
-* [d3.randomIrwinHall](https://github.com/xswei/d3-random/blob/master/README.md#randomIrwinHall) - Irwin–Hall 分布.
+* [d3.randomIrwinHall](https://github.com/xswei/d3-random/blob/master/README.md#randomIrwinHall) - `Irwin–Hall` 分布.
 * [d3.randomExponential](https://github.com/xswei/d3-random/blob/master/README.md#randomExponential) - 指数分布.
 * [*random*.source](https://github.com/xswei/d3-random/blob/master/README.md#random_source) - 设置随机数生成源.
 
@@ -889,22 +889,22 @@ Map a discrete domain to a discrete range.
 * [*band*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#band_rangeRound) - 设置输出范围并启用四舍五入.
 * [*band*.round](https://github.com/xswei/d3-scale/blob/master/README.md#band_round) - 启用四舍五入.
 * [*band*.paddingInner](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingInner) - 设置分段之间的间隔.
-* [*band*.paddingOuter](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingOuter) - set padding outside the first and last bands.
-* [*band*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#band_padding) - set padding outside and between bands.
+* [*band*.paddingOuter](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingOuter) - 设置第一个和最后一个 `band` 的外边距.
+* [*band*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#band_padding) - 设置最外侧以及所有 `band` 之间的间隔.
 * [*band*.align](https://github.com/xswei/d3-scale/blob/master/README.md#band_align) - set band alignment, if there is extra space.
-* [*band*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#band_bandwidth) - get the width of each band.
-* [*band*.step](https://github.com/xswei/d3-scale/blob/master/README.md#band_step) - get the distance between the starts of adjacent bands.
+* [*band*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#band_bandwidth) - 获取每个 `band` 的宽度.
+* [*band*.step](https://github.com/xswei/d3-scale/blob/master/README.md#band_step) - 获取两个相邻的 `band` 之间的距离.
 * [*band*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#band_copy) - 创建一个当前比例尺的副本.
-* [d3.scalePoint](https://github.com/xswei/d3-scale/blob/master/README.md#scalePoint) - create an ordinal point scale.
-* [*point*](https://github.com/xswei/d3-scale/blob/master/README.md#_point) - compute the point corresponding to a given domain value.
+* [d3.scalePoint](https://github.com/xswei/d3-scale/blob/master/README.md#scalePoint) - 创建一个序数定点比例尺.
+* [*point*](https://github.com/xswei/d3-scale/blob/master/README.md#_point) - 根据跟定的输入计算对应的定点值.
 * [*point*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#point_domain) - 设置输入范围.
 * [*point*.range](https://github.com/xswei/d3-scale/blob/master/README.md#point_range) - 设置输出范围.
 * [*point*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#point_rangeRound) - 设置输出范围并且启用四舍五入.
-* [*point*.round](https://github.com/xswei/d3-scale/blob/master/README.md#point_round) - enable rounding.
-* [*point*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#point_padding) - set padding outside the first and last point.
+* [*point*.round](https://github.com/xswei/d3-scale/blob/master/README.md#point_round) - 启用四舍五入.
+* [*point*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#point_padding) - 设置第一个以及最后一个刻度的外边距.
 * [*point*.align](https://github.com/xswei/d3-scale/blob/master/README.md#point_align) - set point alignment, if there is extra space.
-* [*point*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#point_bandwidth) - returns zero.
-* [*point*.step](https://github.com/xswei/d3-scale/blob/master/README.md#point_step) - get the distance between the starts of adjacent points.
+* [*point*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#point_bandwidth) - 返回 `0`.
+* [*point*.step](https://github.com/xswei/d3-scale/blob/master/README.md#point_step) - 获取相邻两个点之间的距离.
 * [*point*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#point_copy) - 创建一个当前比例尺的副本.
 
 ## [Selections (d3-selection)](https://github.com/xswei/d3-selection)
@@ -1166,21 +1166,21 @@ Parse and format times, inspired by strptime and strftime.
 * [d3.timeParse](https://github.com/xswei/d3-time-format/blob/master/README.md#timeParse) - alias for *locale*.parse on the default locale.
 * [d3.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#utcFormat) -  alias for *locale*.utcFormat on the default locale.
 * [d3.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#utcParse) -  alias for *locale*.utcParse on the default locale.
-* [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - an ISO 8601 UTC formatter.
-* [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - an ISO 8601 UTC parser.
+* [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - `ISO 8601 UTC` 格式化.
+* [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - `ISO 8601 UTC` 解析器.
 * [d3.timeFormatLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatLocale) - define a custom locale.
 * [d3.timeFormatDefaultLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatDefaultLocale) - define the default locale.
-* [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - create a time formatter.
-* [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - create a time parser.
-* [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - create a UTC formatter.
-* [*locale*.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcParse) - create a UTC parser.
+* [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - 创建一个时间格式化.
+* [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - 创建一个时间解析器.
+* [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - 创建一个 `UTC` 格式化.
+* [*locale*.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcParse) - 创建一个 `UTC` 解析器 .
 
 ## [Time Intervals (d3-time)](https://github.com/xswei/d3-time)
 
 A calculator for humanity’s peculiar conventions of time.
 
 * [d3.timeInterval](https://github.com/xswei/d3-time/blob/master/README.md#timeInterval) - implement a new custom time interval.
-* [*interval*](https://github.com/xswei/d3-time/blob/master/README.md#_interval) - alias for *interval*.floor.
+* [*interval*](https://github.com/xswei/d3-time/blob/master/README.md#_interval) - *interval*.floor 的别名.
 * [*interval*.floor](https://github.com/xswei/d3-time/blob/master/README.md#interval_floor) - round down to the nearest boundary.
 * [*interval*.round](https://github.com/xswei/d3-time/blob/master/README.md#interval_round) - round to the nearest boundary.
 * [*interval*.ceil](https://github.com/xswei/d3-time/blob/master/README.md#interval_ceil) - round up to the nearest boundary.
