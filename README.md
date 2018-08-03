@@ -116,7 +116,7 @@ var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-
 
 ## 支持环境
 
-`D3 5+` 支持最新浏览器，比如 `Chrome`，`Edge`，`Firefox` 以及 `Safari`。`D3 4` 以及之前的版本支持 `IE 9` 以上的版本。`D3` 的一部分功能能在旧版的浏览器中运行，因为 `D3` 的核心功能对浏览器的要求比较低。例如 `d3-selection` 使用 `Level 1` 级 [Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载 [Sizzle](http://sizzlejs.com/) 来实现兼容。现代浏览器对 [SVG](http://www.w3.org/TR/SVG/) 和 [CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以 `D3` 不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么对不起了，老铁。
+`D3 5+` 支持最新浏览器，比如 `Chrome`，`Edge`，`Firefox` 以及 `Safari`。`D3 v4` 以及之前的版本支持 `IE 9` 以上的版本。`D3` 的一部分功能能在旧版的浏览器中运行，因为 `D3` 的核心功能对浏览器的要求比较低。例如 `d3-selection` 使用 `Level 1` 级 [Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载 [Sizzle](http://sizzlejs.com/) 来实现兼容。现代浏览器对 [SVG](http://www.w3.org/TR/SVG/) 和 [CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以 `D3` 不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么对不起了，老铁。
 
 `D3` 也可以运行在 [Node](http://nodejs.org/) 和 [Web workers](http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html) 中. 在 `Node` 环境中使用 `DOM` 的时候，必须要提供自己的 `DOM` 实现。推荐使用 [JSDOM](https://github.com/tmpvar/jsdom)，为了避免定义全局 `document`，建议将 `DOM` 传递给 `d3.select` 或者将 `NodeList` 传递给 `d3.selectAll`, 如下：
 
@@ -164,9 +164,12 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
-### 版权说明
+### 联系译者|技术交流|赞赏
 
-<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+ 译者QQ | QQ交流群 | 赞赏
+:-: | :-: | :-:
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
+214175619 | 431420399 | 支持译者
 
 ### 翻译说明
 
@@ -178,9 +181,7 @@ http-server &
 
 更新时, 首先将 *README_ORIGIN.md* 与官网文档进行同步, 然后将 *README_EN.md* 和 *README_ORIGIN.md* 进行比对, 将 `diff` 更新至 *README.md*, 同时将 *README_EN.md* 与 *README_ORIGIN.md* 进行同步.
 
-### 联系译者|技术交流|赞赏
+### 版权说明
 
- 译者QQ | QQ交流群 | 赞赏
-:-: | :-: | :-:
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
-214175619 | 431420399 | 支持译者
+<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+
