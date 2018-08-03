@@ -178,12 +178,9 @@ http-server &
 
 更新时, 首先将 *README_ORIGIN.md* 与官网文档进行同步, 然后将 *README_EN.md* 和 *README_ORIGIN.md* 进行比对, 将 `diff` 更新至 *README.md*, 同时将 *README_EN.md* 与 *README_ORIGIN.md* 进行同步.
 
-### 联系译者
+### 联系译者|技术交流|赞赏
 
-QQ | :penguin:  | 214175619
---- | --- | ---
-Email | :e-mail:  | xs.wei@foxmail.com
-
-### 鼓励译者
-
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/wx.jpg" width="300"></img>
+ 译者QQ | QQ交流群 | 赞赏
+:-: | :-: | :-:
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
+214175619 | 431420399 | 支持译者
