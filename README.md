@@ -26,7 +26,7 @@
 * [插件](https://github.com/d3/d3/wiki/Plugins?_blank)
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/API_Reference/CHANGES.md)
 * [d3.js on Stack Overflow](https://stackoverflow.com/questions/tagged/d3.js?_blank)
-* [d3-js Google Group](http://groups.google.com/group/d3-js?_blank)
+* [d3.js Google Group](http://groups.google.com/group/d3-js?_blank)
 * [基于 d3js 的图论](https://mrpandey.github.io/d3graphTheory/index.html)
 
 ### 最新版本动态
