@@ -1160,16 +1160,16 @@ Map a discrete domain to a discrete range.
 
 ## [Time Formats (d3-time-format)](https://github.com/xswei/d3-time-format)
 
-Parse and format times, inspired by strptime and strftime.
+来自 `strptime` 和 `strftime` 的灵感，时间类型的解析个格式化。
 
-* [d3.timeFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormat) - alias for *locale*.format on the default locale.
-* [d3.timeParse](https://github.com/xswei/d3-time-format/blob/master/README.md#timeParse) - alias for *locale*.parse on the default locale.
-* [d3.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#utcFormat) -  alias for *locale*.utcFormat on the default locale.
-* [d3.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#utcParse) -  alias for *locale*.utcParse on the default locale.
+* [d3.timeFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormat) - 默认时区下 *locale*.format 的别名.
+* [d3.timeParse](https://github.com/xswei/d3-time-format/blob/master/README.md#timeParse) - 默认时区下 *locale*.parse 的别名.
+* [d3.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#utcFormat) -  默认时区下 *locale*.utcFormat 的别名.
+* [d3.utcParse](https://github.com/xswei/d3-time-format/blob/master/README.md#utcParse) -  默认时区下 *locale*.utcParse 的别名.
 * [d3.isoFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#isoFormat) - `ISO 8601 UTC` 格式化.
 * [d3.isoParse](https://github.com/xswei/d3-time-format/blob/master/README.md#isoParse) - `ISO 8601 UTC` 解析器.
-* [d3.timeFormatLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatLocale) - define a custom locale.
-* [d3.timeFormatDefaultLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatDefaultLocale) - define the default locale.
+* [d3.timeFormatLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatLocale) - 自定义区域.
+* [d3.timeFormatDefaultLocale](https://github.com/xswei/d3-time-format/blob/master/README.md#timeFormatDefaultLocale) - 定义默认时区.
 * [*locale*.format](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_format) - 创建一个时间格式化.
 * [*locale*.parse](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_parse) - 创建一个时间解析器.
 * [*locale*.utcFormat](https://github.com/xswei/d3-time-format/blob/master/README.md#locale_utcFormat) - 创建一个 `UTC` 格式化.
