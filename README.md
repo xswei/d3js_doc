@@ -31,9 +31,17 @@
 
 ### 最新版本动态
 
-#### 5.0.0
+#### 5.7.0
 
-[Released March 22, 2018.](https://github.com/d3/d3/releases/tag/v5.0.0)
+[Released Aug 25, 2018.](https://github.com/d3/d3/releases/tag/v5.7.0)
+
+- 添加了 [d3.geoEqualEarth](https://github.com/d3/d3-geo/blob/master/README.md#geoEqualEarth)
+- 添加了 [d3.interpolateHue](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateHue)
+- 添加了 [d3.interpolateDiscrete](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateDiscrete)
+- 修复了某些情况下 [histogram](https://github.com/d3/d3-array/blob/master/README.md#histogram) 的分箱阈值
+- 修复外部刻度尺寸为 `0` 时 [axis](https://github.com/d3/d3-axis/blob/master/README.md) 的渲染
+
+#### 5.x.x 大版本改动
 
 `D3 5.0` 引入了很少的非向后兼容的改变.
 
