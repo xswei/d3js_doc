@@ -13,21 +13,34 @@
 
 ## 资源
 
+* [最新发行](https://github.com/d3/d3/releases?_blank)
+
+### 文档
+
 * [API 参考](https://github.com/xswei/d3js_doc/tree/master/API_Reference/API.md?_blank)
 * [API 参考 ( 原英文版 )](https://github.com/d3/d3/blob/master/API.md?_blank)
 * [d3-queue(v5.x.x中被移除)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/V4.md)
 * [d3-request(v5.x.x中被移除)](https://github.com/xswei/d3js_doc/blob/master/API_Reference/V4.md)
-* [理解数据绑定](https://bost.ocks.org/mike/join/?_blank)
-* [数据绑定示例](https://bl.ocks.org/mbostock/3808218?_blank)
-* [发布说明](https://github.com/d3/d3/releases?_blank)
-* [官方画廊](https://github.com/d3/d3/wiki/Gallery?_blank)
-* [Mike Bostock 的示例](https://bl.ocks.org/mbostock?_blank)
-* [教程](https://github.com/d3/d3/wiki/Tutorials?_blank)
-* [插件](https://github.com/d3/d3/wiki/Plugins?_blank)
 * [v3 与 v4](https://github.com/xswei/d3js_doc/tree/master/API_Reference/CHANGES.md)
+
+### 示例
+
+* [官方画廊](https://github.com/d3/d3/wiki/Gallery?_blank)
+* [搜索示例](http://blockbuilder.org/search#)
+* [Mike Bostock 的示例](https://bl.ocks.org/mbostock?_blank)
+
+### 社区
+
 * [d3.js on Stack Overflow](https://stackoverflow.com/questions/tagged/d3.js?_blank)
 * [d3.js Google Group](http://groups.google.com/group/d3-js?_blank)
+* [插件](https://github.com/d3/d3/wiki/Plugins?_blank)
+
+### 教程
+
+* [教程](https://github.com/d3/d3/wiki/Tutorials?_blank)
 * [基于 d3js 的图论](https://mrpandey.github.io/d3graphTheory/index.html)
+* [理解数据绑定](https://bost.ocks.org/mike/join/?_blank)
+* [数据绑定示例](https://bl.ocks.org/mbostock/3808218?_blank)
 
 ### 最新版本动态
 
