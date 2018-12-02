@@ -832,48 +832,48 @@ Compute contour polygons using marching squares.
 
 ### [Sequential Scales](https://github.com/xswei/d3-scale/blob/master/README.md#sequential-scales)
 
-Map a continuous, quantitative domain to a continuous, fixed interpolator.
+将连续的定量的输入映射到连续的固定的插值器.
 
-* [d3.scaleSequential](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential) - create a sequential scale.
-* [*sequential*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator) - set the scale’s output interpolator.
+* [d3.scaleSequential](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential) - 创建一个序列比例尺.
+* [*sequential*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator) - 设置序列比例尺的插值器.
 
 ### [Diverging Scales](https://github.com/d3/d3-scale/blob/master/README.md#diverging-scales)
 
-Map a continuous, quantitative domain to a continuous, fixed interpolator.
+将连续的，定量的输入映射到连续的固定的插值器
 
-* [d3.scaleDiverging](https://github.com/d3/d3-scale/blob/master/README.md#scaleDiverging) - create a diverging scale.
-* [*diverging*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#diverging_interpolator) - set the scale’s output interpolator.
+* [d3.scaleDiverging](https://github.com/d3/d3-scale/blob/master/README.md#scaleDiverging) - 创建一个发散比例尺.
+* [*diverging*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#diverging_interpolator) - 设置发散比例尺的插值器.
 
 ### [Quantize Scales](https://github.com/xswei/d3-scale/blob/master/README.md#quantize-scales)
 
-Map a continuous, quantitative domain to a discrete range.
+将连续的输入域映射到离散的输出域.
 
-* [d3.scaleQuantize](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantize) - create a uniform quantizing linear scale.
+* [d3.scaleQuantize](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantize) - 创建一个量化比例尺
 * [*quantize*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantize) - 根据输入值计算对应的输出值.
-* [*quantize*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_invertExtent) - compute the domain values corresponding to a given range value.
+* [*quantize*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_invertExtent) - 根据输出值计算输入范围.
 * [*quantize*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_domain) - 设置输入范围.
 * [*quantize*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_range) - 设置输出范围.
 * [*quantize*.nice](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_nice) - 将输入范围扩展到漂亮的整数.
 * [*quantize*.ticks](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_ticks) - 从输入范围中提取具有代表意义的值(作为刻度).
 * [*quantize*.tickFormat](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_tickFormat) - 将刻度格式化为人类友好的格式.
 * [*quantize*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantize_copy) - 创建一个当前比例尺的副本.
-* [d3.scaleQuantile](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantile) - create a quantile quantizing linear scale.
+* [d3.scaleQuantile](https://github.com/xswei/d3-scale/blob/master/README.md#scaleQuantile) - 创建一个分位数比例尺.
 * [*quantile*](https://github.com/xswei/d3-scale/blob/master/README.md#_quantile) - 根据输入值计算对应的输出值.
-* [*quantile*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_invertExtent) - compute the domain values corresponding to a given range value.
+* [*quantile*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_invertExtent) - 根据输出值计算对应的输入值的范围.
 * [*quantile*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_domain) - 设置输入范围.
 * [*quantile*.range](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_range) - 设置输出范围.
-* [*quantile*.quantiles](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_quantiles) - get the quantile thresholds.
+* [*quantile*.quantiles](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_quantiles) - 获取分位数比例尺的阈值.
 * [*quantile*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#quantile_copy) - 创建一个当前比例尺的副本.
-* [d3.scaleThreshold](https://github.com/xswei/d3-scale/blob/master/README.md#scaleThreshold) - create an arbitrary quantizing linear scale.
+* [d3.scaleThreshold](https://github.com/xswei/d3-scale/blob/master/README.md#scaleThreshold) - 创建一个阈值比例尺.
 * [*threshold*](https://github.com/xswei/d3-scale/blob/master/README.md#_threshold) - 根据输入值计算对应的输出值.
-* [*threshold*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_invertExtent) - compute the domain values corresponding to a given range value.
+* [*threshold*.invertExtent](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_invertExtent) - 根据输出值计算对应的输入区间.
 * [*threshold*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_domain) - 设置输入范围.
 * [*threshold*.range](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_range) - 设置输出范围.
 * [*threshold*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#threshold_copy) - 创建一个当前比例尺的副本.
 
 ### [Ordinal Scales](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal-scales)
 
-Map a discrete domain to a discrete range.
+将离散的输入域映射到离散的输出域.
 
 * [d3.scaleOrdinal](https://github.com/xswei/d3-scale/blob/master/README.md#scaleOrdinal) - 创建一个序数比例尺.
 * [*ordinal*](https://github.com/xswei/d3-scale/blob/master/README.md#_ordinal) - 根据输入值计算对应的输出值.
@@ -881,7 +881,7 @@ Map a discrete domain to a discrete range.
 * [*ordinal*.range](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_range) - 设置输出范围.
 * [*ordinal*.unknown](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_unknown) - 设置未知输入的输出值.
 * [*ordinal*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#ordinal_copy) - 创建一个当前比例尺的副本.
-* [d3.scaleImplicit](https://github.com/xswei/d3-scale/blob/master/README.md#scaleImplicit) - a special unknown value for implicit domains.
+* [d3.scaleImplicit](https://github.com/xswei/d3-scale/blob/master/README.md#scaleImplicit) - 隐式的未知值.
 * [d3.scaleBand](https://github.com/xswei/d3-scale/blob/master/README.md#scaleBand) - 创建一个序数分段比例尺.
 * [*band*](https://github.com/xswei/d3-scale/blob/master/README.md#_band) - 根据给定的输入值计算经过映射之后的分段的起点值.
 * [*band*.domain](https://github.com/xswei/d3-scale/blob/master/README.md#band_domain) - 设置输入范围.
@@ -891,7 +891,7 @@ Map a discrete domain to a discrete range.
 * [*band*.paddingInner](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingInner) - 设置分段之间的间隔.
 * [*band*.paddingOuter](https://github.com/xswei/d3-scale/blob/master/README.md#band_paddingOuter) - 设置第一个和最后一个 `band` 的外边距.
 * [*band*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#band_padding) - 设置最外侧以及所有 `band` 之间的间隔.
-* [*band*.align](https://github.com/xswei/d3-scale/blob/master/README.md#band_align) - set band alignment, if there is extra space.
+* [*band*.align](https://github.com/xswei/d3-scale/blob/master/README.md#band_align) - 设置分段的对齐方式.
 * [*band*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#band_bandwidth) - 获取每个 `band` 的宽度.
 * [*band*.step](https://github.com/xswei/d3-scale/blob/master/README.md#band_step) - 获取两个相邻的 `band` 之间的距离.
 * [*band*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#band_copy) - 创建一个当前比例尺的副本.
@@ -902,7 +902,7 @@ Map a discrete domain to a discrete range.
 * [*point*.rangeRound](https://github.com/xswei/d3-scale/blob/master/README.md#point_rangeRound) - 设置输出范围并且启用四舍五入.
 * [*point*.round](https://github.com/xswei/d3-scale/blob/master/README.md#point_round) - 启用四舍五入.
 * [*point*.padding](https://github.com/xswei/d3-scale/blob/master/README.md#point_padding) - 设置第一个以及最后一个刻度的外边距.
-* [*point*.align](https://github.com/xswei/d3-scale/blob/master/README.md#point_align) - set point alignment, if there is extra space.
+* [*point*.align](https://github.com/xswei/d3-scale/blob/master/README.md#point_align) - 设置点的对齐方式.
 * [*point*.bandwidth](https://github.com/xswei/d3-scale/blob/master/README.md#point_bandwidth) - 返回 `0`.
 * [*point*.step](https://github.com/xswei/d3-scale/blob/master/README.md#point_step) - 获取相邻两个点之间的距离.
 * [*point*.copy](https://github.com/xswei/d3-scale/blob/master/README.md#point_copy) - 创建一个当前比例尺的副本.
