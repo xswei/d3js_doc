@@ -834,15 +834,15 @@ Compute contour polygons using marching squares.
 
 将连续的定量的输入映射到连续的固定的插值器.
 
-* [d3.scaleSequential](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequential) - 创建一个序列比例尺.
-* [*sequential*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#sequential_interpolator) - 设置序列比例尺的插值器.
+* [d3.scaleSequential](https://github.com/xswei/d3-scale/blob/master/README.md#scaleSequential) - 创建一个序列比例尺.
+* [*sequential*.interpolator](https://github.com/xswei/d3-scale/blob/master/README.md#sequential_interpolator) - 设置序列比例尺的插值器.
 
-### [Diverging Scales](https://github.com/d3/d3-scale/blob/master/README.md#diverging-scales)
+### [Diverging Scales](https://github.com/xswei/d3-scale/blob/master/README.md#diverging-scales)
 
 将连续的，定量的输入映射到连续的固定的插值器
 
-* [d3.scaleDiverging](https://github.com/d3/d3-scale/blob/master/README.md#scaleDiverging) - 创建一个发散比例尺.
-* [*diverging*.interpolator](https://github.com/d3/d3-scale/blob/master/README.md#diverging_interpolator) - 设置发散比例尺的插值器.
+* [d3.scaleDiverging](https://github.com/xswei/d3-scale/blob/master/README.md#scaleDiverging) - 创建一个发散比例尺.
+* [*diverging*.interpolator](https://github.com/xswei/d3-scale/blob/master/README.md#diverging_interpolator) - 设置发散比例尺的插值器.
 
 ### [Quantize Scales](https://github.com/xswei/d3-scale/blob/master/README.md#quantize-scales)
 
