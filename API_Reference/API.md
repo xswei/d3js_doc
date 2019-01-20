@@ -1179,46 +1179,46 @@ Compute contour polygons using marching squares.
 
 A calculator for humanity’s peculiar conventions of time.
 
-* [d3.timeInterval](https://github.com/xswei/d3-time/blob/master/README.md#timeInterval) - 实现一个新的自定义的事件间隔
+* [d3.timeInterval](https://github.com/xswei/d3-time/blob/master/README.md#timeInterval) - 实现一个新的自定义的事件间隔.
 * [*interval*](https://github.com/xswei/d3-time/blob/master/README.md#_interval) - *interval*.floor 的别名.
-* [*interval*.floor](https://github.com/xswei/d3-time/blob/master/README.md#interval_floor) - round down to the nearest boundary.
-* [*interval*.round](https://github.com/xswei/d3-time/blob/master/README.md#interval_round) - round to the nearest boundary.
-* [*interval*.ceil](https://github.com/xswei/d3-time/blob/master/README.md#interval_ceil) - round up to the nearest boundary.
-* [*interval*.offset](https://github.com/xswei/d3-time/blob/master/README.md#interval_offset) - offset a date by some number of intervals.
-* [*interval*.range](https://github.com/xswei/d3-time/blob/master/README.md#interval_range) - generate a range of dates at interval boundaries.
-* [*interval*.filter](https://github.com/xswei/d3-time/blob/master/README.md#interval_filter) - create a filtered subset of this interval.
-* [*interval*.every](https://github.com/xswei/d3-time/blob/master/README.md#interval_every) - create a filtered subset of this interval.
-* [*interval*.count](https://github.com/xswei/d3-time/blob/master/README.md#interval_count) - count interval boundaries between two dates.
-* [d3.timeMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - the millisecond interval.
-* [d3.timeMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - aliases for millisecond.range.
-* [d3.timeSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) - the second interval.
-* [d3.timeSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) - aliases for second.range.
-* [d3.timeMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) - the minute interval.
-* [d3.timeMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) - aliases for minute.range.
-* [d3.timeHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) - the hour interval.
-* [d3.timeHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) - aliases for hour.range.
-* [d3.timeDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) - the day interval.
-* [d3.timeDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) - aliases for day.range.
-* [d3.timeWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) - aliases for sunday.
-* [d3.timeWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) - aliases for week.range.
-* [d3.timeSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) - the week interval, starting on Sunday.
-* [d3.timeSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) - aliases for sunday.range.
-* [d3.timeMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - the week interval, starting on Monday.
-* [d3.timeMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - aliases for monday.range.
-* [d3.timeTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - the week interval, starting on Tuesday.
-* [d3.timeTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - aliases for tuesday.range.
-* [d3.timeWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - the week interval, starting on Wednesday.
-* [d3.timeWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - aliases for wednesday.range.
-* [d3.timeThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - the week interval, starting on Thursday.
-* [d3.timeThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - aliases for thursday.range.
-* [d3.timeFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - the week interval, starting on Friday.
-* [d3.timeFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - aliases for friday.range.
-* [d3.timeSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - the week interval, starting on Saturday.
-* [d3.timeSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - aliases for saturday.range.
-* [d3.timeMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - the month interval.
-* [d3.timeMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - aliases for month.range.
-* [d3.timeYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - the year interval.
-* [d3.timeYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - aliases for year.range.
+* [*interval*.floor](https://github.com/xswei/d3-time/blob/master/README.md#interval_floor) - 向下取整到最近的间隔边界.
+* [*interval*.round](https://github.com/xswei/d3-time/blob/master/README.md#interval_round) - 取整到最近的间隔边界.
+* [*interval*.ceil](https://github.com/xswei/d3-time/blob/master/README.md#interval_ceil) - 向上取整到最近的间隔边界.
+* [*interval*.offset](https://github.com/xswei/d3-time/blob/master/README.md#interval_offset) - 对指定日期偏移指定的步长.
+* [*interval*.range](https://github.com/xswei/d3-time/blob/master/README.md#interval_range) - 生成表示两个日期范围之间的值域.
+* [*interval*.filter](https://github.com/xswei/d3-time/blob/master/README.md#interval_filter) - 过滤子集.
+* [*interval*.every](https://github.com/xswei/d3-time/blob/master/README.md#interval_every) - 创建一个过滤子集的过滤器.
+* [*interval*.count](https://github.com/xswei/d3-time/blob/master/README.md#interval_count) - 统计两个日期之间的数量.
+* [d3.timeMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMillisecond](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - 以毫秒为单位的间隔.
+* [d3.timeMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond), [d3.utcMilliseconds](https://github.com/xswei/d3-time/blob/master/README.md#timeMillisecond) - millisecond.range 的别名.
+* [d3.timeSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSecond](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) -  以秒为单位的间隔..
+* [d3.timeSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond), [d3.utcSeconds](https://github.com/xswei/d3-time/blob/master/README.md#timeSecond) - second.range 的别名.
+* [d3.timeMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinute](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) -  以分钟为单位的间隔.
+* [d3.timeMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute), [d3.utcMinutes](https://github.com/xswei/d3-time/blob/master/README.md#timeMinute) - minute.range 的别名.
+* [d3.timeHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHour](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) -  以小时为单位的间隔.
+* [d3.timeHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour), [d3.utcHours](https://github.com/xswei/d3-time/blob/master/README.md#timeHour) - hour.range 的别名.
+* [d3.timeDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDay](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) -  以天为单位的间隔.
+* [d3.timeDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay), [d3.utcDays](https://github.com/xswei/d3-time/blob/master/README.md#timeDay) - day.range 的别名.
+* [d3.timeWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeek](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) -  以周为单位的间隔.
+* [d3.timeWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek), [d3.utcWeeks](https://github.com/xswei/d3-time/blob/master/README.md#timeWeek) - week.range 的别名.
+* [d3.timeSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSunday](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) -  以周为单位的间隔, 始于周日.
+* [d3.timeSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday), [d3.utcSundays](https://github.com/xswei/d3-time/blob/master/README.md#timeSunday) - sunday.range 的别名.
+* [d3.timeMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMonday](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - 以周为单位的间隔, 始于周一.
+* [d3.timeMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday), [d3.utcMondays](https://github.com/xswei/d3-time/blob/master/README.md#timeMonday) - monday.range 的别名.
+* [d3.timeTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesday](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - 以周为单位的间隔, 始于周二.
+* [d3.timeTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday), [d3.utcTuesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeTuesday) - tuesday.range 的别名.
+* [d3.timeWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesday](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - 以周为单位的间隔, 始于周三.
+* [d3.timeWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday), [d3.utcWednesdays](https://github.com/xswei/d3-time/blob/master/README.md#timeWednesday) - wednesday.range 的别名.
+* [d3.timeThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursday](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - 以周为单位的间隔, 始于周四.
+* [d3.timeThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday), [d3.utcThursdays](https://github.com/xswei/d3-time/blob/master/README.md#timeThursday) - thursday.range 的别名.
+* [d3.timeFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFriday](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - 以周为单位的间隔, 始于周五.
+* [d3.timeFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday), [d3.utcFridays](https://github.com/xswei/d3-time/blob/master/README.md#timeFriday) - friday.range 的别名.
+* [d3.timeSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturday](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - 以周为单位的间隔, 始于周六.
+* [d3.timeSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday), [d3.utcSaturdays](https://github.com/xswei/d3-time/blob/master/README.md#timeSaturday) - saturday.range 的别名.
+* [d3.timeMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonth](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - 以月为单位的间隔.
+* [d3.timeMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth), [d3.utcMonths](https://github.com/xswei/d3-time/blob/master/README.md#timeMonth) - month.range 的别名.
+* [d3.timeYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYear](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - 以年为单位的间隔.
+* [d3.timeYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear), [d3.utcYears](https://github.com/xswei/d3-time/blob/master/README.md#timeYear) - year.range 的别名.
 
 ## [Timers (d3-timer)](https://github.com/xswei/d3-timer)
 
