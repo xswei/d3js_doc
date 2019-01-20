@@ -1177,7 +1177,7 @@ Compute contour polygons using marching squares.
 
 ## [Time Intervals (d3-time)](https://github.com/xswei/d3-time)
 
-A calculator for humanity’s peculiar conventions of time.
+按照人类对日期的计算方式实现的日期计算.
 
 * [d3.timeInterval](https://github.com/xswei/d3-time/blob/master/README.md#timeInterval) - 实现一个新的自定义的事件间隔.
 * [*interval*](https://github.com/xswei/d3-time/blob/master/README.md#_interval) - *interval*.floor 的别名.
