@@ -493,11 +493,11 @@ Compute contour polygons using marching squares.
 * [d3.formatSpecifier](https://github.com/xswei/d3-format/blob/master/README.md#formatSpecifier) - 解析指定的说明符.
 * [d3.formatLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatLocale) - 定义一个自定义语言环境.
 * [d3.formatDefaultLocale](https://github.com/xswei/d3-format/blob/master/README.md#formatDefaultLocale) - 定义一个默认的语言环境.
-* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - 创建一个数值格式化器.
-* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - 创建一个估计度量标准的数值格式化器.
-* [d3.precisionFixed](https://github.com/xswei/d3-format/blob/master/README.md#precisionFixed) - compute decimal precision for fixed-point notation.
-* [d3.precisionPrefix](https://github.com/xswei/d3-format/blob/master/README.md#precisionPrefix) - compute decimal precision for SI-prefix notation.
-* [d3.precisionRound](https://github.com/xswei/d3-format/blob/master/README.md#precisionRound) - compute significant digits for rounded notation.
+* [*locale*.format](https://github.com/xswei/d3-format/blob/master/README.md#locale_format) - 创建一个数值格式化.
+* [*locale*.formatPrefix](https://github.com/xswei/d3-format/blob/master/README.md#locale_formatPrefix) - 创建一个科学计数法的数值格式化.
+* [d3.precisionFixed](https://github.com/xswei/d3-format/blob/master/README.md#precisionFixed) - 为小数计数法计算建议的精度.
+* [d3.precisionPrefix](https://github.com/xswei/d3-format/blob/master/README.md#precisionPrefix) - 为科学计数法计算建议的十进制精度.
+* [d3.precisionRound](https://github.com/xswei/d3-format/blob/master/README.md#precisionRound) - 为四舍五入计算建议的十进制精度.
 
 ## [Geographies (d3-geo)](https://github.com/xswei/d3-geo)
 
