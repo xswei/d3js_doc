@@ -13,7 +13,7 @@
 
 ## 资源
 
-* [最新发行](https://github.com/d3/d3/releases?_blank)
+* [最新发布版本](https://github.com/d3/d3/releases)
 
 #### 文档
 
@@ -44,15 +44,9 @@
 
 ## 最新版本动态
 
-#### 5.7.0
+#### 5.9.2 (2019-05-15)
 
-[Released Aug 25, 2018.](https://github.com/d3/d3/releases/tag/v5.7.0)
-
-- 添加了 [d3.geoEqualEarth](https://github.com/d3/d3-geo/blob/master/README.md#geoEqualEarth)
-- 添加了 [d3.interpolateHue](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateHue)
-- 添加了 [d3.interpolateDiscrete](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateDiscrete)
-- 修复了某些情况下 [histogram](https://github.com/d3/d3-array/blob/master/README.md#histogram) 的分箱阈值
-- 修复外部刻度尺寸为 `0` 时 [axis](https://github.com/d3/d3-axis/blob/master/README.md) 的渲染
+- 修复在力学仿真中使用固定位置初始化节点时的 `BUG`.
 
 #### 5.x.x 大版本改动
 
