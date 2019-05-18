@@ -225,7 +225,7 @@
 
 ## [Color Schemes (d3-scale-chromatic)](https://github.com/xswei/d3-scale-chromatic)
 
-Color ramps and palettes for quantitative, ordinal and categorical scales.
+用于定量，序数和分类比例尺的颜色渐变和调色板。
 
 ### Categorical
 
@@ -312,7 +312,7 @@ Color ramps and palettes for quantitative, ordinal and categorical scales.
 ### Cyclical
 
 * [d3.interpolateRainbow](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#interpolateRainbow) - the “less-angry” rainbow
-* [d3.interpolateSinebow](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#interpolateSinebow) - the “sinebow” smooth rainbow
+* [d3.interpolateSinebow](https://github.com/d3/d3-scale-chromatic/blob/master/README.md#interpolateSinebow) - 正弦顺滑的彩虹
 
 ## [Contours (d3-contour)](https://github.com/xswei/d3-contour)
 
@@ -1002,7 +1002,7 @@ Compute contour polygons using marching squares.
 * [*arc*.startAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_startAngle) - 设置起始角度.
 * [*arc*.endAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_endAngle) - 设置终止角度.
 * [*arc*.padAngle](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padAngle) - 设置相邻两个环之间的间隙角度.
-* [*arc*.padRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padRadius) - set the radius at which to linearize padding.
+* [*arc*.padRadius](https://github.com/xswei/d3-shape/blob/master/README.md#arc_padRadius) - 设置半径间隔.
 * [*arc*.context](https://github.com/xswei/d3-shape/blob/master/README.md#arc_context) - 设置渲染上下文.
 
 ### [Pies](https://github.com/xswei/d3-shape/blob/master/README.md#pies)
