@@ -181,10 +181,14 @@ http-server &
 
 ### 联系译者|技术交流|赞赏
 
- 译者QQ | QQ交流群 | 赞赏
-:-: | :-: | :-:
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
-214175619 | 431420399 | 支持译者
+ 译者QQ | QQ交流群
+:-: | :-: 
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> 
+214175619 | 431420399
+
+### 捐赠（营养跟不上了快给我来瓶冰阔乐）
+
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
 
 ### 翻译说明
 
