@@ -179,10 +179,8 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
-### 联系译者|技术交流
+### 联系我
 
- 译者QQ
-:-:
 <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center />
 214175619
 
