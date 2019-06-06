@@ -181,10 +181,10 @@ http-server &
 
 ### 联系译者|技术交流
 
- 译者QQ | QQ交流群
-:-: | :-: 
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center /> | <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-group.jpg" width="200" align=center /> 
-214175619 | 431420399
+ 译者QQ
+:-:
+<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center />
+214175619
 
 ### 营养跟不上了快给我来瓶冰阔乐
 
