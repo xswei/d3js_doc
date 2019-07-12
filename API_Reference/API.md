@@ -519,53 +519,53 @@ Compute contour polygons using marching squares.
 
 * [*projection*](https://github.com/xswei/d3-geo/blob/master/README.md#_projection) - 将指定的球面上一点投影到平面.
 * [*projection*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#projection_invert) - 逆转投影，根据平面一点反向计算球面坐标.
-* [*projection*.stream](https://github.com/xswei/d3-geo/blob/master/README.md#projection_stream) - wrap the specified stream to project geometry.
-* [*projection*.clipAngle](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipAngle) - set the radius of the clip circle.
-* [*projection*.clipExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipExtent) - set the viewport clip extent, in pixels.
-* [*projection*.angle](https://github.com/d3/d3-geo/blob/master/README.md#projection_angle) - set the post-projection rotation.
-* [*projection*.scale](https://github.com/xswei/d3-geo/blob/master/README.md#projection_scale) - set the scale factor.
-* [*projection*.translate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_translate) - set the translation offset.
-* [*projection*.fitExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitExtent) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitSize](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitSize) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitWidth](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitWidth) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.fitHeight](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitHeight) - set the scale and translate to fit a GeoJSON object.
-* [*projection*.center](https://github.com/xswei/d3-geo/blob/master/README.md#projection_center) - set the center point.
-* [*projection*.rotate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_rotate) - set the three-axis spherical rotation angles.
-* [*projection*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#projection_precision) - set the precision threshold for adaptive sampling.
-* [*projection*.preclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.preclip) - set the spherical clipping stream transform.
-* [*projection*.postclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.postclip) - set the planar clipping stream transform.
-* [d3.geoClipAntimeridian](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipAntimeridian) - cuts spherical geometries that cross the antimeridian.
-* [d3.geoClipCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipCircle) - clips spherical geometries to a small circle.
-* [d3.geoClipRectangle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipRectangle) - clips planar geometries to a rectangular viewport.
-* [d3.geoAlbers](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbers) - the Albers equal-area conic projection.
-* [d3.geoAlbersUsa](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbersUsa) - a composite Albers projection for the United States.
-* [d3.geoAzimuthalEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualArea) - the azimuthal equal-area projection.
-* [d3.geoAzimuthalEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistant) - the azimuthal equidistant projection.
-* [d3.geoConicConformal](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformal) - the conic conformal projection.
-* [d3.geoConicEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualArea) - the conic equal-area (Albers) projection.
-* [d3.geoConicEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistant) - the conic equidistant projection.
-* [*conic*.parallels](https://github.com/xswei/d3-geo/blob/master/README.md#conic_parallels) - set the two standard parallels.
-* [d3.geoEquirectangular](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangular) - the equirectangular (plate carreé) projection.
-* [d3.geoGnomonic](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonic) - the gnomonic projection.
-* [d3.geoMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercator) - the spherical Mercator projection.
-* [d3.geoOrthographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographic) - the azimuthal orthographic projection.
-* [d3.geoStereographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographic) - the azimuthal stereographic projection.
-* [d3.geoTransverseMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercator) - the transverse spherical Mercator projection.
-* [*project*](https://github.com/xswei/d3-geo/blob/master/README.md#_project) - project the specified point from the sphere to the plane.
-* [*project*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#project_invert) - unproject the specified point from the plane to the sphere.
-* [d3.geoProjection](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjection) - create a custom projection.
-* [d3.geoProjectionMutator](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjectionMutator) - create a custom configurable projection.
-* [d3.geoAzimuthalEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualAreaRaw) - the raw azimuthal equal-area projection.
-* [d3.geoAzimuthalEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistantRaw) - the raw azimuthal equidistant projection.
-* [d3.geoConicConformalRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformalRaw) - the raw conic conformal projection.
-* [d3.geoConicEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualAreaRaw) - the raw conic equal-area (Albers) projection.
-* [d3.geoConicEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistantRaw) - the raw conic equidistant projection.
-* [d3.geoEquirectangularRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangularRaw) - the raw equirectangular (plate carreé) projection.
-* [d3.geoGnomonicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonicRaw) - the raw gnomonic projection.
-* [d3.geoMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercatorRaw) - the raw Mercator projection.
-* [d3.geoOrthographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographicRaw) - the raw azimuthal orthographic projection.
-* [d3.geoStereographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographicRaw) - the raw azimuthal stereographic projection.
-* [d3.geoTransverseMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercatorRaw) - the raw transverse spherical Mercator projection.
+* [*projection*.stream](https://github.com/xswei/d3-geo/blob/master/README.md#projection_stream) - 将指定的流包装为 `project geometry`.
+* [*projection*.clipAngle](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipAngle) - 设置剪辑圆的半径.
+* [*projection*.clipExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_clipExtent) - 以像素为单位设置视窗的裁剪范围.
+* [*projection*.angle](https://github.com/d3/d3-geo/blob/master/README.md#projection_angle) - 设置投影后的旋转.
+* [*projection*.scale](https://github.com/xswei/d3-geo/blob/master/README.md#projection_scale) - 设置缩放因子.
+* [*projection*.translate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_translate) - 设置平移偏移量.
+* [*projection*.fitExtent](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitExtent) - 设置缩放和转换以适配 `GeoJSON` 对象.
+* [*projection*.fitSize](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitSize) - 设置缩放和转换以适配 `GeoJSON` 对象.
+* [*projection*.fitWidth](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitWidth) - 设置缩放和转换以适配 `GeoJSON` 对象.
+* [*projection*.fitHeight](https://github.com/xswei/d3-geo/blob/master/README.md#projection_fitHeight) - 设置缩放和转换以适配 `GeoJSON` 对象.
+* [*projection*.center](https://github.com/xswei/d3-geo/blob/master/README.md#projection_center) - 设置中心点.
+* [*projection*.rotate](https://github.com/xswei/d3-geo/blob/master/README.md#projection_rotate) - 设置三轴旋转角度.
+* [*projection*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#projection_precision) - 设置采样的精度阈值.
+* [*projection*.preclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.preclip) - 设置球形剪切流变换.
+* [*projection*.postclip](https://github.com/xswei/d3-geo/blob/master/README.md#projection.postclip) - 设置平面剪切流变换.
+* [d3.geoClipAntimeridian](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipAntimeridian) - 沿着对向子午线切割的球面集合图形.
+* [d3.geoClipCircle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipCircle) - 球面几何裁剪.
+* [d3.geoClipRectangle](https://github.com/xswei/d3-geo/blob/master/README.md#geoClipRectangle) - 将平面几何图形剪辑到矩形视图.
+* [d3.geoAlbers](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbers) - `Albers` 等面积圆锥投影.
+* [d3.geoAlbersUsa](https://github.com/xswei/d3-geo/blob/master/README.md#geoAlbersUsa) - 适用于美国的复合 `Albers` 投影.
+* [d3.geoAzimuthalEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualArea) - 等面积方位投影.
+* [d3.geoAzimuthalEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistant) - 方位等距投影.
+* [d3.geoConicConformal](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformal) - 圆锥保角投影.
+* [d3.geoConicEqualArea](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualArea) - 圆锥等面积(`Albers`)投影.
+* [d3.geoConicEquidistant](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistant) -等距圆锥投影.
+* [*conic*.parallels](https://github.com/xswei/d3-geo/blob/master/README.md#conic_parallels) - 设置两条标准平行线.
+* [d3.geoEquirectangular](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangular) - 等矩形(平板)投影.
+* [d3.geoGnomonic](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonic) - 诺蒙尼日投影.
+* [d3.geoMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercator) - 球面墨卡托投影.
+* [d3.geoOrthographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographic) - 方位角正投影.
+* [d3.geoStereographic](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographic) - 方位立体投影.
+* [d3.geoTransverseMercator](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercator) - 横向球面墨卡托投影.
+* [*project*](https://github.com/xswei/d3-geo/blob/master/README.md#_project) - 将球面坐标点投影到平面.
+* [*project*.invert](https://github.com/xswei/d3-geo/blob/master/README.md#project_invert) - 平面到球面的投影逆计算.
+* [d3.geoProjection](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjection) - 创建一个自定义投影.
+* [d3.geoProjectionMutator](https://github.com/xswei/d3-geo/blob/master/README.md#geoProjectionMutator) - 创建自定义可配置的投影.
+* [d3.geoAzimuthalEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEqualAreaRaw) - 原始的等面积方位投影.
+* [d3.geoAzimuthalEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoAzimuthalEquidistantRaw) - 原始的方位投影.
+* [d3.geoConicConformalRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicConformalRaw) - 原始的圆锥保角投影.
+* [d3.geoConicEqualAreaRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEqualAreaRaw) - 原始的圆锥等面积 (`Albers)` 投影.
+* [d3.geoConicEquidistantRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoConicEquidistantRaw) - 原始的等距圆锥投影.
+* [d3.geoEquirectangularRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoEquirectangularRaw) - 原始的等矩形(平板)投影.
+* [d3.geoGnomonicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoGnomonicRaw) - 原始的诺蒙尼日投影.
+* [d3.geoMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoMercatorRaw) - 原始的 `Mercator` 投影.
+* [d3.geoOrthographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoOrthographicRaw) - 原始方位角正投影.
+* [d3.geoStereographicRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoStereographicRaw) - 原始方位立体投影.
+* [d3.geoTransverseMercatorRaw](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransverseMercatorRaw) - 原始的横向球面墨卡托投影.
 
 ### [Spherical Math](https://github.com/xswei/d3-geo/blob/master/README.md#spherical-math)
 
@@ -587,35 +587,35 @@ Compute contour polygons using marching squares.
 * [*circle*.center](https://github.com/xswei/d3-geo/blob/master/README.md#circle_center) - 以经纬度的方式指定圆心.
 * [*circle*.radius](https://github.com/xswei/d3-geo/blob/master/README.md#circle_radius) - 以度为单位指定圆的角半径.
 * [*circle*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#circle_precision) - 指定分段圆的精度.
-* [d3.geoGraticule](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule) - create a graticule generator.
-* [*graticule*](https://github.com/xswei/d3-geo/blob/master/README.md#_graticule) - generate a MultiLineString of meridians and parallels.
-* [*graticule*.lines](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_lines) - generate an array of LineStrings of meridians and parallels.
-* [*graticule*.outline](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_outline) - generate a Polygon of the graticule’s extent.
-* [*graticule*.extent](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extent) - get or set the major & minor extents.
-* [*graticule*.extentMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMajor) - get or set the major extent.
-* [*graticule*.extentMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMinor) - get or set the minor extent.
-* [*graticule*.step](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_step) - get or set the major & minor step intervals.
-* [*graticule*.stepMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMajor) - get or set the major step intervals.
-* [*graticule*.stepMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMinor) - get or set the minor step intervals.
-* [*graticule*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_precision) - get or set the latitudinal precision.
-* [d3.geoGraticule10](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule10) - generate the default 10° global graticule.
+* [d3.geoGraticule](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule) - 创建一个经纬网生成器.
+* [*graticule*](https://github.com/xswei/d3-geo/blob/master/README.md#_graticule) - 生成表示经纬线的几何对象 `MultiLineString`.
+* [*graticule*.lines](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_lines) - 生成表示经纬线的几何对象 `LineStrings` 数组.
+* [*graticule*.outline](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_outline) - 生成经纬网的包裹多边形边界.
+* [*graticule*.extent](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extent) - 获取或设置经纬度范围.
+* [*graticule*.extentMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMajor) - 获取或设置经度范围.
+* [*graticule*.extentMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_extentMinor) - 获取或设置纬度范围.
+* [*graticule*.step](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_step) - 获取或设置经纬度间隔.
+* [*graticule*.stepMajor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMajor) - 获取或设置经度步长间隔.
+* [*graticule*.stepMinor](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_stepMinor) - 获取或设置纬度步长间隔.
+* [*graticule*.precision](https://github.com/xswei/d3-geo/blob/master/README.md#graticule_precision) - 获取或设置纬度度精度.
+* [d3.geoGraticule10](https://github.com/xswei/d3-geo/blob/master/README.md#geoGraticule10) - 生成默认的 `10°` 全球经纬线.
 
 #### [Streams](https://github.com/xswei/d3-geo/blob/master/README.md#streams)
 
-* [d3.geoStream](https://github.com/xswei/d3-geo/blob/master/README.md#geoStream) - convert a GeoJSON object to a geometry stream.
-* [*stream*.point](https://github.com/xswei/d3-geo/blob/master/README.md#stream_point) - indicates a point with the specified coordinates.
-* [*stream*.lineStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineStart) - indicates the start of a line or ring.
-* [*stream*.lineEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineEnd) - indicates the end of a line or ring.
-* [*stream*.polygonStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonStart) - indicates the start of a polygon.
-* [*stream*.polygonEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonEnd) - indicates the end of a polygon.
-* [*stream*.sphere](https://github.com/xswei/d3-geo/blob/master/README.md#stream_sphere) - indicates the sphere.
+* [d3.geoStream](https://github.com/xswei/d3-geo/blob/master/README.md#geoStream) - 将 `GeoJSON` 对象转为几何流.
+* [*stream*.point](https://github.com/xswei/d3-geo/blob/master/README.md#stream_point) - 表明指定点的坐标.
+* [*stream*.lineStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineStart) - 表示线或者环的起点.
+* [*stream*.lineEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_lineEnd) - 表示线或者环的终点.
+* [*stream*.polygonStart](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonStart) - 表示多边形的起点.
+* [*stream*.polygonEnd](https://github.com/xswei/d3-geo/blob/master/README.md#stream_polygonEnd) - 表示多边形的终点.
+* [*stream*.sphere](https://github.com/xswei/d3-geo/blob/master/README.md#stream_sphere) - 表示球.
 
 ### [Transforms](https://github.com/xswei/d3-geo/blob/master/README.md#transforms)
 
-* [d3.geoIdentity](https://github.com/xswei/d3-geo/blob/master/README.md#geoIdentity) - scale, translate or clip planar geometry.
-* [*identity*.reflectX](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectX) - reflect the *x*-dimension.
-* [*identity*.reflectY](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectY) - reflect the *y*-dimension.
-* [d3.geoTransform](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransform) - define a custom geometry transform.
+* [d3.geoIdentity](https://github.com/xswei/d3-geo/blob/master/README.md#geoIdentity) - 缩放, 平移或者裁剪平面几何.
+* [*identity*.reflectX](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectX) - 反转 *x*-维度.
+* [*identity*.reflectY](https://github.com/xswei/d3-geo/blob/master/README.md#identity_reflectY) - 反转 *y*-维度.
+* [d3.geoTransform](https://github.com/xswei/d3-geo/blob/master/README.md#geoTransform) - 定义一个自定义的几个变换.
 
 ## [Hierarchies (d3-hierarchy)](https://github.com/xswei/d3-hierarchy)
 
