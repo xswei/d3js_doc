@@ -44,9 +44,58 @@
 
 ## 最新版本动态
 
-#### 5.9.2 (2019-05-15)
+#### 5.10.0 (2019-08-20)
 
-- 修复在力学仿真中使用固定位置初始化节点时的 `BUG`.
+##### d3-brush
+
+- Add brush.touchable.
+- Add brush.clear.
+- Add brush.keyModifiers.
+- Fix default brush.extent to consider the SVG viewBox, if any.
+- Fix scroll prevention on touch devices.
+- Fix coercion of selection and extent inputs.
+- Fix order of handles in the DOM.
+- Fix brush.move when selection is empty.
+- Fix Space key immediately after clicking on a handle.
+- Fix missing brush event on parallel start.
+- Fix handling of orphaned input gestures.
+- Fix default brush.touchable if navigator.maxTouchPoints.
+- Fix multitouch gestures.
+- Fix click consumption when brush is not empty.
+- Fix default brush.filter on control-click.
+
+##### d3-color
+
+- Add color.copy.
+- Add color.formatHex.
+- Add color.formatHsl.
+- Add color.formatRgb.
+- Deprecate color.hex; use color.formatHex instead.
+
+##### d3-drag
+
+- Fix default drag.filter on control-click.
+- Fix default drag.touchable if navigator.maxTouchPoints.
+
+##### d3-path
+
+- Fix coercion of anticlockwise argument to path.arc. Thanks, @Fil!
+
+##### d3-scale-chromatic
+
+- Add d3.schemeTableau10. Thanks @akngs!
+
+##### d3-zoom
+
+- Fix default zoom.extent to consider the SVG viewBox.
+- Fix default zoom.filter to ignore control-click.
+- Fix default zoom.touchable if navigator.maxTouchPoints.
+- Fix default zoom.wheelDelta if deltaMode !== 0. Thanks, @Dakkaron!
+- Fix handling of filtered multitouch gestures. Thanks, @robinhouston and @testower!
+- Fix handling of orphaned gestures.
+- Fix emitting of zoom events during dbltap gestures. Thanks, @cambecc!
+- Add optional point to zoom.transform and related methods.
+- Fix d3.zoomTransform to inherit the transform from the closest ancestor, if any.
 
 #### 5.x.x 大版本改动
 
