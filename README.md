@@ -228,6 +228,10 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
+### Stars Charts
+
+[![Stargazers over time](https://starchart.cc/modood/Administrative-divisions-of-China.svg)](https://starchart.cc/modood/Administrative-divisions-of-China)
+
 ### 联系我
 
 <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center />
