@@ -228,10 +228,6 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
-### Star Chart
-
-![Stargazers over time](https://starchart.cc/xswei/d3js_doc.svg)
-
 ### 联系我
 
 <img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center />
@@ -254,4 +250,8 @@ http-server &
 ### 版权说明
 
 <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+
+### Star Chart
+
+[![Stargazers over time](https://starchart.cc/xswei/d3js_doc.svg)](https://starchart.cc/xswei/d3js_doc)
 
