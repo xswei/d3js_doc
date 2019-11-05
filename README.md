@@ -230,7 +230,7 @@ http-server &
 
 ### Star Chart
 
-[![Stargazers over time](https://starchart.cc/xswei/d3js_doc.svg)](https://starchart.cc/xswei/d3js_doc)
+![Stargazers over time](https://starchart.cc/xswei/d3js_doc.svg)
 
 ### 联系我
 
