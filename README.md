@@ -228,9 +228,9 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
-### Stars Charts
+### Star Chart
 
-[![Stargazers over time](https://starchart.cc/modood/Administrative-divisions-of-China.svg)](https://starchart.cc/modood/Administrative-divisions-of-China)
+[![Stargazers over time](https://starchart.cc/xswei/d3js_doc.svg)](https://starchart.cc/xswei/d3js_doc)
 
 ### 联系我
 
