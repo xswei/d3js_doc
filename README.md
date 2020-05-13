@@ -46,7 +46,7 @@
 
 `D3 5.0` 引入了很少的非向后兼容的改变。
 
-`D3 5.0` 现在采用的是 [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises) 来替代异步回调加载数据。 `Promises` 简化了异步代码结构，尤其是现代浏览器支持 [async 和 await](https://javascript.info/async-await) 操作。(在 [Observable](https://beta.observablehq.com) 中参考 [promises 介绍](https://beta.observablehq.com/@mbostock/introduction-to-promises) 的)。例如在 `V4` 中使用如下方式加载 `CSV` 文件：
+`D3 5.0` 现在采用的是 [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises) 来替代异步回调加载数据。 `Promises` 简化了异步代码结构，尤其是现代浏览器支持 [async 和 await](https://javascript.info/async-await) 操作。(在 [Observable](https://beta.observablehq.com) 中参考 [promises 介绍](https://beta.observablehq.com/@mbostock/introduction-to-promises))。例如在 `V4` 中使用如下方式加载 `CSV` 文件：
 
 ```js
 d3.csv("file.csv", function(error, data) {
