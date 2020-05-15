@@ -41,6 +41,7 @@
 * [基于 d3js 的图论](https://mrpandey.github.io/d3graphTheory/index.html)
 * [理解数据绑定](https://bost.ocks.org/mike/join/?_blank)
 * [数据绑定示例](https://bl.ocks.org/mbostock/3808218?_blank)
+* [D3 in Depth](https://www.d3indepth.com/)
 
 #### 5.x.x 大版本改动
 
