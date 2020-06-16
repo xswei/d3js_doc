@@ -34,6 +34,8 @@
 * [d3.js on Stack Overflow](https://stackoverflow.com/questions/tagged/d3.js?_blank)
 * [d3.js Google Group](http://groups.google.com/group/d3-js?_blank)
 * [插件](https://github.com/d3/d3/wiki/Plugins?_blank)
+* [图说数据](http://www.graphvis.cn/)
+* [GraphVis](https://gitee.com/baopengdu/GraphVis)
 
 #### 教程
 
