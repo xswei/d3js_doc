@@ -176,11 +176,6 @@ http-server &
 
 然后会在当前目录启动一个 http://localhost:8080 的服务。
 
-### 联系我
-
-<img src="https://github.com/xswei/d3js_doc/blob/master/img/QQ-translator.jpg" width="200" align=center />
-214175619
-
 ### 营养跟不上了快给我来瓶冰阔乐
 
 <img src="https://github.com/xswei/d3js_doc/blob/master/img/weichat-donate.png" width="200" align=center />
