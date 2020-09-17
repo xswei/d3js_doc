@@ -45,6 +45,242 @@
 * [数据绑定示例](https://bl.ocks.org/mbostock/3808218?_blank)
 * [D3 in Depth](https://www.d3indepth.com/)
 
+# Changes in D3 6.0 
+
+[2020.08.26发布](https://github.com/d3/d3/releases/tag/v6.0.0)
+
+*这个文档只包含主要更新。 次要更新一集修订请参阅 [发布记录](https://github.com/d3/d3/releases).*
+
+D3 现在 **采用原生集合** (Map 和 Set) 并且 **接受迭代**。[d3.group 和 d3.rollup](https://observablehq.com/@d3/d3-group) 是强大的用来替代 d3.nest 的聚合函数，并且能与 [d3-hierarchy](https://observablehq.com/d/9a453665f405eebf) 以及 d3-selection 很好的结合。在 d3-array 中也新增了很多辅助工具，比如 [d3.greatest](https://observablehq.com/@d3/d3-least)，[d3.quickselect](https://observablehq.com/@d3/d3-quickselect)，以及 [d3.fsum](https://observablehq.com/@d3/d3-fsum).
+
+D3 现在 **直接将事件传递给监听器**，替代了全局 d3.event 并将 D3 与普通 JavaScript 和大多数其他框架内联。
+
+**d3-delaunay** (基于 Vladimir Agafonkin 的 [Delaunator](https://github.com/mapbox/delaunator)) 替代了 d3-voronoi, 获得了极大的性能提升，鲁棒性以及 [搜索](https://observablehq.com/@d3/delaunay-find)。新的 [d3-geo-voronoi](https://github.com/Fil/d3-geo-voronoi) 可以用于球面地理数据计算! **d3-random** 进行了 [极大的扩展](https://github.com/d3/d3-random/blob/master/README.md) 并且包含了快速 [线性同余生成器](https://observablehq.com/@d3/d3-randomlcg) 用于随机性。 **d3-chord** 包含了新的布局以用于 [有向](https://observablehq.com/@d3/directed-chord-diagram) 和转置弦图。 **d3-scale** 新增了[径向缩放](https://observablehq.com/@d3/radial-stacked-bar-chart-ii) 类型。
+
+… 以及其他各种小的改进。 [超过 450 个例子](https://observablehq.com/@d3/gallery) 已经升级到 D3 6.0!
+
+### d3-array
+
+* 接受迭代.
+* 新增 [d3.group](https://github.com/d3/d3-array/blob/master/README.md#group).
+* 新增 [d3.groups](https://github.com/d3/d3-array/blob/master/README.md#groups).
+* 新增 [d3.index](https://github.com/d3/d3-array/blob/master/README.md#index).
+* 新增 [d3.indexes](https://github.com/d3/d3-array/blob/master/README.md#indexes).
+* 新增 [d3.rollup](https://github.com/d3/d3-array/blob/master/README.md#rollup).
+* 新增 [d3.rollups](https://github.com/d3/d3-array/blob/master/README.md#rollups).
+* 新增 [d3.maxIndex](https://github.com/d3/d3-array/blob/master/README.md#maxIndex).
+* 新增 [d3.minIndex](https://github.com/d3/d3-array/blob/master/README.md#minIndex).
+* 新增 [d3.greatest](https://github.com/d3/d3-array/blob/master/README.md#greatest).
+* 新增 [d3.greatestIndex](https://github.com/d3/d3-array/blob/master/README.md#greatestIndex).
+* 新增 [d3.least](https://github.com/d3/d3-array/blob/master/README.md#least).
+* 新增 [d3.leastIndex](https://github.com/d3/d3-array/blob/master/README.md#leastIndex).
+* 新增 [d3.bin](https://github.com/d3/d3-array/blob/master/README.md#bin).
+* 新增 [d3.count](https://github.com/d3/d3-array/blob/master/README.md#count).
+* 新增 [d3.cumsum](https://github.com/d3/d3-array/blob/master/README.md#cumsum).
+* 新增 [d3.fsum](https://github.com/d3/d3-array/blob/master/README.md#fsum).
+* 新增 [d3.Adder](https://github.com/d3/d3-array/blob/master/README.md#Adder).
+* 新增 [d3.quantileSorted](https://github.com/d3/d3-array/blob/master/README.md#quantileSorted).
+* 新增 [d3.quickselect](https://github.com/d3/d3-array/blob/master/README.md#quickselect).
+* 新增 [*bisector*.center](https://github.com/d3/d3-array/blob/master/README.md#bisector_center).
+* [d3.cross](https://github.com/d3/d3-array/blob/master/README.md#cross) 允许两个以上的迭代.
+* [d3.quantile](https://github.com/d3/d3-array/blob/master/README.md#quantile) 接受未排序的输入.
+* 修复了 *array*.sort 在 Safari 上的缺陷.
+* 修复了直方图分箱阈值忽略 `NaN` 输入的缺陷.
+* 修复了 [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks) 不返回域外的刻度的缺陷.
+* 提高 [d3.median](https://github.com/d3/d3-array/blob/master/README.md#median) 的性能.
+
+参考 https://observablehq.com/@d3/d3-array-2-0 获取更多详情.
+
+### d3-brush
+
+* 新增 [*event*.mode](https://github.com/d3/d3-brush/blob/master/README.md#brush-events).
+* [*brush*.on](https://github.com/d3/d3-brush/blob/master/README.md#brush_on) 直接传递 *event* 给监听器.
+* 改进多点触控交互.
+
+### d3-chord
+
+* 新增 [d3.chordDirected](https://github.com/d3/d3-chord/blob/master/README.md#chordDirected).
+* 新增 [d3.chordTranspose](https://github.com/d3/d3-chord/blob/master/README.md#chordTranspose).
+* 新增 [d3.ribbonArrow](https://github.com/d3/d3-chord/blob/master/README.md#ribbonArrow).
+* 新增 [*ribbon*.padAngle](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_padAngle).
+* 新增 [*ribbon*.sourceRadius](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_sourceRadius).
+* 新增 [*ribbon*.targetRadius](https://github.com/d3/d3-chord/blob/master/README.md#ribbon_targetRadius).
+
+### d3-delaunay
+
+* 新增 [d3.Delaunay](https://github.com/d3/d3-delaunay/blob/master/README.md).
+
+### d3-drag
+
+* [*drag*.on](https://github.com/d3/d3-drag/blob/master/README.md#drag_on) 直接传递 *event* 给监听器.
+
+### d3-force
+
+* [*simulation*.tick](https://github.com/d3/d3-force/blob/master/README.md#simulation_tick) 新增 *iterations* 参数.
+* 新增 [*forceCenter*.strength](https://github.com/d3/d3-force/blob/master/README.md#center_strength).
+* 新增 [*forceSimulation*.randomSource](https://github.com/d3/d3-force/blob/master/README.md#simulation_randomSource).
+* 所有内置的力模型现在都是完全确定的 (包括“抖动的”重合节点).
+* 通过半径的偏移来改进默认的 phyllotaxis 布局.
+* 改进边引用未知节点时的错误消息.
+* [*force*.initialize](https://github.com/d3/d3-force/blob/master/README.md#force_initialize) 被改为传递一个随机的源.
+* 修复初始化位置固定的节点的缺陷.
+
+### d3-format
+
+* 将默认的负号改为负号 (−) 而不是连字减号 (-).
+* 修正大于或等于 1e21 的数字的十进制格式 `d`.
+
+### d3-geo
+
+* 修复一些退化多边形的裁剪.
+
+### d3-hierarchy
+
+* 接受迭代.
+* 新增 [*node*[Symbol.iterator]](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_iterator); 层次结构现在是可迭代的.
+* 新增 [*node*.find](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_find).
+* [*node*.each](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_each) 修改为传递遍历的索引.
+* [*node*.eachAfter](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachAfter) 修改为传递遍历的索引.
+* [*node*.eachBefore](https://github.com/d3/d3-hierarchy/blob/master/README.md#node_eachBefore) 修改为传递遍历的索引.
+* 修复 [d3.packSiblings](https://github.com/d3/d3-hierarchy/blob/master/README.md#packSiblings).
+* 修复 [d3.treemapBinary](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapBinary) 被零除的缺陷.
+* 修复 [d3.treemapResquarify](https://github.com/d3/d3-hierarchy/blob/master/README.md#treemapResquarify) 被零除的缺陷.
+
+### d3-interpolate
+
+* 新增 [*interpolateZoom*.rho](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateZoom_rho). (#25)
+* 允许 [d3.piecewise](https://github.com/d3/d3-interpolate/blob/master/README.md#piecewise) 默认使用 d3.interpolate. #90
+* [d3.interpolateTransformCss](https://github.com/d3/d3-interpolate/blob/master/README.md#interpolateTransformCss) 被修改为使用 DOMMatrix 并需要绝对单位. #83
+
+### d3-quadtree
+
+* 修正了坐标偏离到巨大值时的无限循环.
+
+### d3-random
+
+* 新增 [d3.randomLcg](https://github.com/d3/d3-random/blob/master/README.md#randomLcg).
+* 新增 [d3.randomGamma](https://github.com/d3/d3-random/blob/master/README.md#randomGamma).
+* 新增 [d3.randomBeta](https://github.com/d3/d3-random/blob/master/README.md#randomBeta).
+* 新增 [d3.randomWeibull](https://github.com/d3/d3-random/blob/master/README.md#randomWeibull).
+* 新增 [d3.randomCauchy](https://github.com/d3/d3-random/blob/master/README.md#randomCauchy).
+* 新增 [d3.randomLogistic](https://github.com/d3/d3-random/blob/master/README.md#randomLogistic).
+* 新增 [d3.randomPoisson](https://github.com/d3/d3-random/blob/master/README.md#randomPoisson).
+* 新增 [d3.randomInt](https://github.com/d3/d3-random/blob/master/README.md#randomInt).
+* 新增 [d3.randomBinomial](https://github.com/d3/d3-random/blob/master/README.md#randomBinomial).
+* 新增 [d3.randomGeometric](https://github.com/d3/d3-random/blob/master/README.md#randomGeometric).
+* 新增 [d3.randomPareto](https://github.com/d3/d3-random/blob/master/README.md#randomPareto).
+* 新增 [d3.randomBernoulli](https://github.com/d3/d3-random/blob/master/README.md#randomBernoulli).
+* 允许 [d3.randomBates](https://github.com/d3/d3-random/blob/master/README.md#randomBates) 取小数 *n*.
+* 允许 [d3.randomIrwinHall](https://github.com/d3/d3-random/blob/master/README.md#randomIrwinHall) 取小数 *n*.
+* 默认的源中不再包含 Math.random.
+
+感谢 @Lange, @p-v-d-Veeken, @svanschooten, @Parcly-Taxel 和 @jrus 的贡献s!
+
+### d3-scale
+
+* 接受迭代.
+* 新增 [*diverging*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#diverging_rangeRound).
+* 新增 [*sequential*.range](https://github.com/d3/d3-scale/blob/master/README.md#sequential_range) (为了与 d3-axis 兼容).
+* 新增 [*sequential*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#sequential_rangeRound).
+* 新增 [*sequentialQuantile*.quantiles](https://github.com/d3/d3-scale/blob/master/README.md#sequentialQuantile_quantiles).
+* 新增 [d3.scaleRadial](https://github.com/d3/d3-scale/blob/master/README.md#radial-scales).
+* [*diverging*.range](https://github.com/d3/d3-scale/blob/master/README.md#diverging_range) 现在可以用来设置插值.
+* [*sequential*.range](https://github.com/d3/d3-scale/blob/master/README.md#sequential_range) 现在可以用来设置插值.
+* [d3.scaleDiverging](https://github.com/d3/d3-scale/blob/master/README.md#diverging-scales) 现在可以接受一个范围数组代替一个插值器.
+* [d3.scaleSequential](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales) 现在可以接受一个范围数组代替一个插值器.
+* 修复了 [*continuous*.nice](https://github.com/d3/d3-scale/blob/master/README.md#continuous_nice).
+* 修复了 [*log*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#log_ticks).
+* 修复了 [*log*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#log_ticks). #44
+* 修复了 [*scale*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#continuous_clamp) 在 [sequential quantile scales](https://github.com/d3/d3-scale/blob/master/README.md#scaleSequentialQuantile) 的问题. 多谢, @Fil!
+* 修复了 [*scale*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#continuous_clamp) 用于域值大于范围值的连续缩放.
+* 修复了 [diverging scales](https://github.com/d3/d3-scale/blob/master/README.md#diverging-scales) 在降序时的问题.
+* 从 [*time*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#time_ticks) 和 [*time*.nice](https://github.com/d3/d3-scale/blob/master/README.md#time_nice) 中移除 *step* 参数.
+
+### d3-selection
+
+* 新增 [*selection*.selectChild](https://github.com/d3/d3-selection/blob/master/README.md#selection_selectChild).
+* 新增 [*selection*.selectChildren](https://github.com/d3/d3-selection/blob/master/README.md#selection_selectChildren).
+* 新增 [d3.pointer](https://github.com/d3/d3-selection/blob/master/README.md#pointer).
+* 新增 [d3.pointers](https://github.com/d3/d3-selection/blob/master/README.md#pointers).
+* 新增 *selection*[Symbol.iterator]; selections are now iterable!
+* [*selection*.data](https://github.com/d3/d3-selection/blob/master/README.md#selection_data) 接受迭代.
+* [d3.selectAll](https://github.com/d3/d3-selection/blob/master/README.md#selectAll) 接受迭代.
+* [*selection*.on](https://github.com/d3/d3-selection/blob/master/README.md#selection_on) 被修改为直接传递 *event* 给监听器.
+* 从 *selection*.on 监听器中移除索引和组!
+* 移除 d3.event!
+* 移除 d3.mouse.
+* 移除 d3.touch.
+* 移除 d3.touches.
+* 移除 d3.customEvent.
+* 移除 d3.clientPoint.
+* 移除 d3.sourceEvent.
+* 修复了 *selection*.merge(*transition*) 报错问题.
+
+所有的修改请参考 https://observablehq.com/@d3/d3-selection-2-0.
+
+### d3-shape
+
+* 接受迭代.
+* 新增 [d3.line](https://github.com/d3/d3-shape/blob/master/README.md#line)(*x*, *y*) 速写.
+* 新增 [d3.area](https://github.com/d3/d3-shape/blob/master/README.md#area)(*x*, *y0*, *y1*) 速写.
+* 新增 [d3.symbol](https://github.com/d3/d3-shape/blob/master/README.md#symbol)(*type*, *size*) 速写.
+
+### d3-time-format
+
+* 新增 ISO 8601 “week year” (`%G` and `%g`).
+
+### d3-timer
+
+* 修复了 [*interval*.restart](https://github.com/d3/d3-timer/blob/master/README.md#timer_restart) 作为间隔重新启动的问题.
+
+### d3-transition
+
+* 新增 [*transition*.easeVarying](https://github.com/d3/d3-transition/blob/master/README.md#transition_easeVarying).
+* 新增 *transition*[Symbol.iterator]; transitions are now iterable.
+* 修复了 [*selection*.transition](https://github.com/d3/d3-transition/blob/master/README.md#selection_transition) 未找到时的错误.
+* 修复了 [*transition*.end](https://github.com/d3/d3-transition/blob/master/README.md#transition_end) 选择集为空时候的解析问题.
+
+### d3-zoom
+
+* 新增 [*zoom*.tapDistance](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_tapDistance).
+* [*zoom*.on](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_on) 直接传递 *event* 给监听器.
+* 修改默认的 [*zoom*.filter](https://github.com/d3/d3-zoom/blob/master/README.md#zoom_filter) 如果按下控制键，过滤器观察 *wheel* 事件.
+* 修改默认的 [*zoom*.wheelDelta](ttps://github.com/d3/d3-zoom/blob/master/README.md#zoom_wheelDelta) 如果按下控制键，缩放更快.
+* 不要设置触控动作:无.
+* 升级到 [d3-selection 2](https://observablehq.com/@d3/d3-selection-2-0).
+
+### Breaking Changes
+
+D3 6.0 包含了一些非向后兼容的改变.
+
+* 移除了 [d3.event](https://observablehq.com/d/f91cccf0cad5e9cb#events).
+* 修改 [*selection*.on](https://observablehq.com/d/f91cccf0cad5e9cb#events) 直接将 *event* 传递给监听器.
+* 修改 [*transition*.on](https://observablehq.com/d/f91cccf0cad5e9cb#events) 直接将 *event* 传递给监听器.
+* 修改 [*brush*.on](https://observablehq.com/d/f91cccf0cad5e9cb#event_brush) 直接将 *event* 传递给监听器.
+* 修改 [*drag*.on](https://observablehq.com/d/f91cccf0cad5e9cb#event_drag) 直接将 *event* 传递给监听器.
+* 修改 [*zoom*.on](https://observablehq.com/d/f91cccf0cad5e9cb#event_zoom) 直接将 *event* 传递给监听器.
+* 移除了 d3.mouse; 使用 [d3.pointer](https://observablehq.com/d/f91cccf0cad5e9cb#pointer).
+* 移除了 d3.touch; 使用 [d3.pointer](https://observablehq.com/d/f91cccf0cad5e9cb#pointer).
+* 移除了 d3.touches; 使用 [d3.pointers](https://observablehq.com/d/f91cccf0cad5e9cb#pointer).
+* 移除了 d3.clientPoint; 使用 [d3.pointer](https://observablehq.com/d/f91cccf0cad5e9cb#pointer).
+* 移除了 d3.voronoi; 使用 [d3.Delaunay](https://observablehq.com/d/f91cccf0cad5e9cb#delaunay).
+* 移除了 d3.nest; 使用 [d3.group](https://observablehq.com/d/f91cccf0cad5e9cb#group) and [d3.rollup](https://observablehq.com/d/f91cccf0cad5e9cb#group).
+* 移除了 d3.map; 使用 [Map](https://observablehq.com/d/f91cccf0cad5e9cb#collection).
+* 移除了 d3.set; 使用 [Set](https://observablehq.com/d/f91cccf0cad5e9cb#collection).
+* 移除了 d3.keys; 使用 [Object.keys](https://observablehq.com/d/f91cccf0cad5e9cb#collection).
+* 移除了 d3.values; 使用 [Object.values](https://observablehq.com/d/f91cccf0cad5e9cb#collection).
+* 移除了 d3.entries; 使用 [Object.entries](https://observablehq.com/d/f91cccf0cad5e9cb#collection).
+* 重命名 d3.histogram 为 [d3.bin](https://observablehq.com/d/f91cccf0cad5e9cb#bin).
+* 重命名 d3.scan 为 [d3.leastIndex](https://observablehq.com/d/f91cccf0cad5e9cb#leastIndex).
+* 修改 [d3.interpolateTransformCss](https://observablehq.com/d/f91cccf0cad5e9cb#interpolateTransformCss), 需要绝对单位.
+* 修改 [d3.format](https://observablehq.com/d/f91cccf0cad5e9cb#minus) 负数, 默认设置为减号而不是连字符减号.
+
+D3 现在需要运行在支持 [ES2015](http://www.ecma-international.org/ecma-262/6.0/) 的浏览器上. 对于不支持的浏览器，你需要自己做转义.
+
+最后, 对 [Bower](https://bower.io) 的支持被取消了; D3 现在只在 npm 和 GitHub 上发布.
+
+参考我们的 [升级指南](https://observablehq.com/d/f91cccf0cad5e9cb) 获取升级帮助.
+
 #### 5.x.x 大版本改动
 
 `D3 5.0` 引入了很少的非向后兼容的改变。
