@@ -45,11 +45,89 @@
 * [数据绑定示例](https://bl.ocks.org/mbostock/3808218?_blank)
 * [D3 in Depth](https://www.d3indepth.com/)
 
-# Changes in D3 6.0 
+## 安装
+
+如果使用 `npm`，则可以通过 `npm install d3` 来安装。 此外还可以下载 [最新版](https://unpkg.com/d3/build/)， 最新版支持 `AMD`、`CommonJS` 以及基础标签引入形式。 你也可以直接从 [d3js.org](https://d3js.org)， [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载. 比如：
+
+```js
+<script src="https://d3js.org/d3.v6.js"></script>
+```
+
+压缩版：
+
+```js
+<script src="https://d3js.org/d3.v5.min.js"></script>
+```
+
+你也可以单独使用 `d3` 中的某个模块， 比如单独使用 [d3-selection](https://github.com/d3/d3-selection)：
+
+```js
+<script src="https://d3js.org/d3-selection.v1.js"></script>
+
+```
+
+D3基于 [ES2015 modules](http://www.2ality.com/2014/09/es6-modules-final.html) 开发。  可以使用 `Rollup`， `webpack` 或者其他你偏爱的打包工具进行构建。 在一个符合 ES2015 的应用中导入 `d3` 或者 `d3` 的某些模块：
+
+```js
+import { scaleLinear } from "d3-scale";
+```
+
+或者导入 `d3` 的全部功能并且设置命名空间 (这里是 `d3`)：
+
+```js
+import * as d3 from "d3";
+```
+
+在 `Nodejs` 环境中：
+
+```js
+var d3 = require("d3");
+```
+
+你也可以导入多个模块然后将这些模块集合到 `d3` 对象中， 此时使用 [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)：
+
+```js
+var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-geo-projection"));
+```
+
+## 支持环境
+
+`D3 5.0` 支持最新浏览器，比如 `Chrome`，`Edge`，`Firefox` 以及 `Safari`。`D3 v4` 以及之前的版本支持 `IE 9` 以上的版本。`D3` 的一部分功能能在旧版的浏览器中运行，因为 `D3` 的核心功能对浏览器的要求比较低。例如 `d3-selection` 使用 `Level 1` 级 [Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载 [Sizzle](http://sizzlejs.com/) 来实现兼容。现代浏览器对 [SVG](http://www.w3.org/TR/SVG/) 和 [CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以 `D3` 不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么对不起了，大兄弟。
+
+`D3` 也可以运行在 [Node](http://nodejs.org/) 和 [Web workers](http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html) 中. 在 `Node` 环境中使用 `DOM` 的时候，必须要提供自己的 `DOM` 实现。推荐使用 [JSDOM](https://github.com/tmpvar/jsdom)，为了避免定义全局 `document`，建议将 `DOM` 传递给 `d3.select` 或者将 `NodeList` 传递给 `d3.selectAll`，如下：
+
+```js
+var d3 = require("d3"),
+    jsdom = require("jsdom");
+
+var document = jsdom.jsdom(),
+    svg = d3.select(document.body).append("svg");
+```
+在支持 [ES 模块化](http://exploringjs.com/es6/ch_modules.html) 的环境中，你可以将 `d3` 作为一个命名空间来导入 `D3` 的全部功能：
+
+```js
+import * as d3 from "d3";
+```
+如果你不想导入全部模块，则分配命名空间的时候要和 `d3` 进行区分：
+
+```js
+import * as d3 from "d3";
+import * as d3GeoProjection from "d3-geo-projection";
+```
+出于这个原因，应该优先考虑 `D3` 模块中的原有变量名，可以按需导入：
+
+```js
+import {select, selectAll} from "d3-selection";
+import {geoPath} from "d3-geo";
+import {geoPatterson} from "d3-geo-projection";
+```
+如果你使用打包工具，则确保已经配置好正确的入口，可以参考 [resolve.mainFields](https://webpack.js.org/configuration/resolve/#resolve-mainfields)
+
+## Changes in D3 6.0 
 
 [2020.08.26发布](https://github.com/d3/d3/releases/tag/v6.0.0)
 
-*这个文档只包含主要更新。 次要更新一集修订请参阅 [发布记录](https://github.com/d3/d3/releases).*
+*这个文档只包含主要更新。 次要更新以及修订请参阅 [发布记录](https://github.com/d3/d3/releases).*
 
 D3 现在 **采用原生集合** (Map 和 Set) 并且 **接受迭代**。[d3.group 和 d3.rollup](https://observablehq.com/@d3/d3-group) 是强大的用来替代 d3.nest 的聚合函数，并且能与 [d3-hierarchy](https://observablehq.com/d/9a453665f405eebf) 以及 d3-selection 很好的结合。在 d3-array 中也新增了很多辅助工具，比如 [d3.greatest](https://observablehq.com/@d3/d3-least)，[d3.quickselect](https://observablehq.com/@d3/d3-quickselect)，以及 [d3.fsum](https://observablehq.com/@d3/d3-fsum).
 
@@ -316,84 +394,6 @@ console.log(data);
 `D3 5.0` 提供了通过 [d3-contour](https://github.com/d3/d3-contour) 实现的 [marching squares(生成二维轮廓的算法)](https://beta.observablehq.com/@mbostock/d3-contour-plot) 和 [density estimation(密度估计)](https://beta.observablehq.com/@mbostock/d3-density-contours). 并且添加了两个新的 [d3-selection](https://github.com/d3/d3-selection)  方法：[*selection*.clone](https://github.com/d3/d3-selection/blob/master/README.md#selection_clone) 用来克隆已选择的节点，[d3.create](https://github.com/d3/d3-selection/blob/master/README.md#create) 用来创建分离的元素。 [Geographic projections](https://github.com/d3/d3-geo) 也支持  [*projection*.angle](https://github.com/d3/d3-geo/blob/master/README.md#projection_angle)，一种由 **Philippe Rivière** 提出的梦幻般的新的多面体投影。
 
 最后，`D3 5.0` 的 [package.json](https://github.com/d3/d3/blob/master/package.json) 不再引用依赖的精确版本，解决了重复安装 `D3` 模块的问题。
-
-## 安装
-
-如果使用 `npm`，则可以通过 `npm install d3` 来安装。 此外还可以下载 [最新版](https://unpkg.com/d3/build/)， 最新版支持 `AMD`、`CommonJS` 以及基础标签引入形式。 你也可以直接从 [d3js.org](https://d3js.org)， [CDNJS](https://cdnjs.com/libraries/d3), 或者 [unpkg](https://unpkg.com/d3/) 加载. 比如：
-
-```js
-<script src="https://d3js.org/d3.v5.js"></script>
-```
-
-压缩版：
-
-```js
-<script src="https://d3js.org/d3.v5.min.js"></script>
-```
-
-你也可以单独使用 `d3` 中的某个模块， 比如单独使用 [d3-selection](https://github.com/d3/d3-selection)：
-
-```js
-<script src="https://d3js.org/d3-selection.v1.js"></script>
-
-```
-
-D3基于 [ES2015 modules](http://www.2ality.com/2014/09/es6-modules-final.html) 开发。  可以使用 `Rollup`， `webpack` 或者其他你偏爱的打包工具进行构建。 在一个符合 ES2015 的应用中导入 `d3` 或者 `d3` 的某些模块：
-
-```js
-import { scaleLinear } from "d3-scale";
-```
-
-或者导入 `d3` 的全部功能并且设置命名空间 (这里是 `d3`)：
-
-```js
-import * as d3 from "d3";
-```
-
-在 `Nodejs` 环境中：
-
-```js
-var d3 = require("d3");
-```
-
-你也可以导入多个模块然后将这些模块集合到 `d3` 对象中， 此时使用 [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)：
-
-```js
-var d3 = Object.assign({}, require("d3-format"), require("d3-geo"), require("d3-geo-projection"));
-```
-
-## 支持环境
-
-`D3 5.0` 支持最新浏览器，比如 `Chrome`，`Edge`，`Firefox` 以及 `Safari`。`D3 v4` 以及之前的版本支持 `IE 9` 以上的版本。`D3` 的一部分功能能在旧版的浏览器中运行，因为 `D3` 的核心功能对浏览器的要求比较低。例如 `d3-selection` 使用 `Level 1` 级 [Selectors API](http://www.w3.org/TR/selectors-api/)，但是可以通过预先加载 [Sizzle](http://sizzlejs.com/) 来实现兼容。现代浏览器对 [SVG](http://www.w3.org/TR/SVG/) 和 [CSS3 Transition](http://www.w3.org/TR/css3-transitions/) 的支持比较好。所以 `D3` 不支持更低级别的浏览器，如果你的浏览器不支持这些标准，那么对不起了，大兄弟。
-
-`D3` 也可以运行在 [Node](http://nodejs.org/) 和 [Web workers](http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html) 中. 在 `Node` 环境中使用 `DOM` 的时候，必须要提供自己的 `DOM` 实现。推荐使用 [JSDOM](https://github.com/tmpvar/jsdom)，为了避免定义全局 `document`，建议将 `DOM` 传递给 `d3.select` 或者将 `NodeList` 传递给 `d3.selectAll`，如下：
-
-```js
-var d3 = require("d3"),
-    jsdom = require("jsdom");
-
-var document = jsdom.jsdom(),
-    svg = d3.select(document.body).append("svg");
-```
-在支持 [ES 模块化](http://exploringjs.com/es6/ch_modules.html) 的环境中，你可以将 `d3` 作为一个命名空间来导入 `D3` 的全部功能：
-
-```js
-import * as d3 from "d3";
-```
-如果你不想导入全部模块，则分配命名空间的时候要和 `d3` 进行区分：
-
-```js
-import * as d3 from "d3";
-import * as d3GeoProjection from "d3-geo-projection";
-```
-出于这个原因，应该优先考虑 `D3` 模块中的原有变量名，可以按需导入：
-
-```js
-import {select, selectAll} from "d3-selection";
-import {geoPath} from "d3-geo";
-import {geoPatterson} from "d3-geo-projection";
-```
-如果你使用打包工具，则确保已经配置好正确的入口，可以参考 [resolve.mainFields](https://webpack.js.org/configuration/resolve/#resolve-mainfields)
 
 ## 本地开发
 
